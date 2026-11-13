@@ -17,6 +17,7 @@ ideas/<batch>/ideas.json (lista según templates/idea.json)
 - Cada idea: id, formato, logline (1 frase), hook (primeros 3 s), giro/final, por qué retiene, potencial de serie, tags.
 - Antes de escribir, comprueba cada logline con `python3 scripts/studio.py similar "<logline>"`; descarta las que superen 0.3 (filtro léxico grueso; ante la duda, descarta).
 - Variedad obligatoria: no más de 2 ideas con el mismo mecanismo narrativo por lote.
+- Formato `relato` (25-60 min narrado): la idea debe sostener una trama larga con protagonista con arco, antagonismo o misterio que escala y al menos 4 giros; añade el campo `chapters_outline` con 8-12 líneas (una por capítulo).
 
 ## Protocolo (obligatorio)
 - Lee SOLO los archivos de "Entrada" que te indique el Director (rutas). No explores otras historias ni carpetas.

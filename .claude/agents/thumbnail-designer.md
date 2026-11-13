@@ -13,7 +13,7 @@ stories/<id>/idea.json, bloques visuales de personaje, channel/style-bible/visua
 stories/<id>/final/thumbnail.json (conceptos puntuados + elegido)
 
 ## Reglas
-- LONG: 3 conceptos. SHORT: 1 concepto (el thumbnail pesa poco en el feed de Shorts).
+- LONG y RELATO: 3 conceptos (en un relato el thumbnail y el título deciden el clic: es lo más importante del packaging). SHORT: 1 concepto.
 - Formato: {"concepts": [{"prompt", "negative", "seed", "text", "focal", "scores": {"clarity", "curiosity", "mobile"}}], "chosen": <índice>}.
 - Por concepto: prompt de imagen, `text` superpuesto (máx. 3 palabras), punto focal, puntuación 1-10 en claridad / curiosidad / móvil.
 - Un solo sujeto, alto contraste, sin spoilers del final. El texto lo añade el script, no el modelo de imagen.

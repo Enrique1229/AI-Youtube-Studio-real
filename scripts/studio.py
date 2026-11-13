@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """AI YouTube Studio - utilidades deterministas (0 tokens de LLM).
 
-  new <short|long> "<titulo>"   crea stories/story-NNN desde templates
+  new <short|long|relato> "<titulo>"   crea stories/story-NNN desde templates (relato = 25-60 min narrado, 16:9)
   select <batch> <idea-id> ["titulo"] [--force]   crea la historia desde una idea puntuada (exige VPS >= umbral y validación de mercado)
   derive <parent-id> "<titulo>"   crea un short derivado de una historia larga (hereda la puerta critic)
   close-batch <batch>           registra en el ledger como rechazadas las ideas no seleccionadas
@@ -50,14 +50,14 @@ def save_state(sid, st):
 
 
 def cmd_new(fmt, title):
-    if fmt not in ("short", "long"):
-        die("formato debe ser short o long")
+    if fmt not in ("short", "long", "relato"):
+        die("formato debe ser short, long o relato")
     nums = [int(m.group(1)) for p in STORIES.glob("story-*") if (m := re.match(r"story-(\d+)$", p.name))]
     sid = f"story-{max(nums, default=0) + 1:03d}"
     d = STORIES / sid
     for sub in ["chapters", "scenes", "visual-prompts", "voice", "assets", "final", "reviews"]:
         (d / sub).mkdir(parents=True, exist_ok=True)
-    for f in ["story-bible.md", "continuity.md"] + (["characters.md", "world.md"] if fmt == "long" else []):
+    for f in ["story-bible.md", "continuity.md"] + (["characters.md", "world.md"] if fmt in ("long", "relato") else []):
         src = ROOT / "templates" / {"characters.md": "character.md"}.get(f, f)
         if not (d / f).exists():
             (d / f).write_text(src.read_text() if src.exists() else f"# {f}\n")
@@ -257,7 +257,7 @@ def cmd_probe(sid):
     checks = {"placeholder_images": (sdir(sid) / "assets" / "PLACEHOLDER").exists(),
               "resolution_ok": (v.get("width"), v.get("height")) == exp,
               "has_audio": any(s["codec_type"] == "audio" for s in info["streams"]),
-              "duration_ok": dur <= 180 if st["format"] == "short" else dur >= 180}
+              "duration_ok": {"short": dur <= 180, "long": 180 <= dur <= 1200, "relato": dur >= 1200}[st["format"]]}
     info["checks"] = checks
     print(json.dumps(info, indent=1))
 
@@ -283,7 +283,7 @@ def cmd_deliver(sid):
         die(f"{sid} usa imágenes de prueba (placeholder): no entregable")
     if not (st.get("final_file") and (ROOT / st["final_file"]).exists()):
         die(f"{sid} no tiene vídeo final")
-    dest = ROOT / ("shorts" if st["format"] == "short" else "long-videos") / sid
+    dest = ROOT / {"short": "shorts", "long": "long-videos", "relato": "relatos"}[st["format"]] / sid
     shutil.copytree(sdir(sid) / "final", dest, dirs_exist_ok=True)
     st["stage"] = "delivered"
     save_state(sid, st)
@@ -296,7 +296,7 @@ def cmd_analytics():
         die(f"falta {f.relative_to(ROOT)} (ver templates/videos.csv)")
     rows = list(csv.DictReader(f.open()))
     num = ["views", "ctr", "avd_s", "pct_viewed", "likes", "comments", "shares", "subs_gained"]
-    for fmt in ("short", "long"):
+    for fmt in ("short", "long", "relato"):
         rs = [r for r in rows if r["format"] == fmt]
         if not rs:
             continue

@@ -40,11 +40,17 @@
   "subtitles": {
     "font": "Inter Display",
     "max_words": 3,
-    "max_chars": 18
+    "max_chars": 18,
+    "burn": {
+      "short": true,
+      "long": true,
+      "relato": false
+    }
   },
   "vps_threshold": {
     "short": 65,
-    "long": 65
+    "long": 65,
+    "relato": 65
   },
   "video_gen": {
     "enabled": false,

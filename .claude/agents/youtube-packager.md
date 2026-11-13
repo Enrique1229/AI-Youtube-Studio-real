@@ -15,6 +15,7 @@ stories/<id>/final/metadata.json (según templates/metadata.json)
 ## Reglas
 - 5 títulos (≤60 caracteres, sin clickbait falso: el vídeo debe cumplir lo que promete), marca 1 recomendado.
 - Descripción de 2-4 líneas + 3-5 hashtags + CTA. Incluye el aviso de ficción generada con IA.
+- RELATO: añade a la descripción los capítulos con marca de tiempo (formato `00:00 Título`), calculados desde stories/<id>/voice/timing.json (inicio del primer segmento de cada capítulo), y títulos de hasta 70 caracteres que digan género y promesa.
 - Nada de afirmaciones de hechos reales: es ficción y debe quedar claro.
 - `ai_use_disclosure`: true si las imágenes son de estilo realista (YouTube exige divulgar una escena realista que no ocurrió); false solo con estilo claramente no realista. Refléjalo en `upload_checklist`.
 - Si el vídeo usa música con licencia Creative Commons (final/provenance.json), añade la atribución a la descripción.

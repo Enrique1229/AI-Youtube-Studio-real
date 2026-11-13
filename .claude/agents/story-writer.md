@@ -16,6 +16,7 @@ stories/<id>/chapters/chNN.md y stories/<id>/scenes/chNN-sNN.md (según template
 - Escribe solo el capítulo indicado. Guion narrado, frases cortas, pensado para voz.
 - SHORT: 130-160 palabras (~55 s). Hook en la primera frase, sin introducción ni saludo. Final que cierra o reabre con fuerza.
 - LONG: capítulos de 250-400 palabras; cada uno termina en bucle abierto.
+- RELATO: capítulos de 450-600 palabras (objetivo total 4.000-6.000 palabras ≈ 27-40 min). Prosa para escuchar: frases de longitud variada, diálogo marcado con claridad, sin acotaciones visuales. Cada capítulo en 6-8 escenas de 60-90 palabras; termina en bucle abierto. Resume en 1 frase lo esencial del capítulo anterior solo si han pasado más de 2 capítulos desde un dato clave.
 - Cada escena: 1 beat visual claro, 5-12 s de narración.
 - Registra en continuity.md: hechos nuevos, estado de objetos, pistas plantadas.
 

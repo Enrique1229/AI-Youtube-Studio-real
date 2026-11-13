@@ -65,8 +65,12 @@ def main(sid):
         "[Events]\nFormat: Layer, Start, End, Style, Text\n"
         + "".join(f"Dialogue: 0,{ts(a, '.')},{ts(b, '.')},D,{txt.upper() if fmt == 'short' else txt}\n" for a, b, txt in cs))
     out = d / "final" / "video.mp4"
-    run(["ffmpeg", "-y", "-v", "error", "-i", str(d / "final" / "video_nosub.mp4"), "-vf", f"ass={ass}",
-         "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "copy", str(out)])
+    if cfg.get("burn", {}).get(fmt, True):
+        run(["ffmpeg", "-y", "-v", "error", "-i", str(d / "final" / "video_nosub.mp4"), "-vf", f"ass={ass}",
+             "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "copy", str(out)])
+    else:  # relato: sin subtítulos quemados; el .srt se sube a YouTube como pista de subtítulos
+        import shutil
+        shutil.copyfile(d / "final" / "video_nosub.mp4", out)
     set_state(sid, final_file=str(out.relative_to(ROOT)), stage="assembled")
     print(f"{out.name} con {len(cs)} subtítulos")
 
