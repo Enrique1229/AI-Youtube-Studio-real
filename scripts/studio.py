@@ -16,6 +16,7 @@
   deliver <id>                  copia a shorts/ o long-videos/ SOLO si gate pasa
   analytics                     agregados de channel/analytics/videos.csv
 """
+import _utf8  # noqa: F401  (primero: UTF-8 en Windows)
 import csv, json, re, shutil, subprocess, sys, datetime, pathlib, statistics
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -271,9 +272,12 @@ def cmd_sheet(sid):
     rows = -(-n // cols)
     w, h = (192, 336) if load_state(sid)["format"] == "short" else (336, 192)
     out = d / "reviews" / "contact-sheet.png"
-    subprocess.run(["ffmpeg", "-y", "-v", "error", "-pattern_type", "glob", "-i", str(d / "assets" / "images" / "*.png"),
+    lst = d / "assets" / "sheet.txt"  # lista explícita: el ffmpeg de Windows no admite -pattern_type glob
+    lst.write_text("".join(f"file '{p.as_posix()}'\nduration 1\n" for p in sorted((d / "assets" / "images").glob("*.png"))))
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(lst),
                     "-vf", f"scale={w}:{h},tile={cols}x{rows}", "-frames:v", "1", str(out)], check=True)
-    print(out.relative_to(ROOT))
+    lst.unlink()
+    print(out.relative_to(ROOT).as_posix())
 
 
 def cmd_deliver(sid):

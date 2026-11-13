@@ -12,26 +12,25 @@
   "image": {
     "backend": "comfy",
     "comfy_url": "http://127.0.0.1:8188",
-    "workflow": "templates/comfy/txt2img_sd15_lcm.json",
+    "workflow": "templates/comfy/txt2img.json",
     "timeout_s": 900,
     "size": {
       "9:16": [
-        512,
-        896
+        832,
+        1472
       ],
       "16:9": [
-        896,
-        512
+        1472,
+        832
       ]
     },
     "params": {
-      "ckpt": "v1-5-pruned-emaonly.safetensors",
-      "lora": "lcm-lora-sdv1-5.safetensors",
-      "steps": 6,
-      "cfg": 1.5
+      "ckpt": "sd_xl_base_1.0.safetensors",
+      "steps": 25,
+      "cfg": 7
     },
-    "license": "CreativeML OpenRAIL-M (SD 1.5) + OpenRAIL++ (LCM LoRA); verificadas en Hugging Face el 2026-11-13",
-    "source": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5 + https://huggingface.co/latent-consistency/lcm-lora-sdv1-5"
+    "license": "OpenRAIL++ (stabilityai/stable-diffusion-xl-base-1.0, verificada en Hugging Face el 2026-11-13)",
+    "source": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0"
   },
   "video": {
     "fps": 30,

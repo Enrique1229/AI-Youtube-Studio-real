@@ -1,0 +1,11 @@
+[
+ {"id": "t01", "type": "still", "aspect": "9:16", "seed": 1011,
+  "prompt": "extreme close-up of a finger pressing a smooth blank elevator button with no number, cold teal elevator panel, single amber glow on the button, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated"},
+ {"id": "t02", "type": "still", "aspect": "9:16", "seed": 1012,
+  "prompt": "medium shot of a woman in her thirties with short black hair and a mustard coat standing inside a night elevator, cold green light, brushed metal walls, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated"},
+ {"id": "t03", "type": "still", "aspect": "16:9", "seed": 1013,
+  "prompt": "wide shot of an old apartment landing lit by a single amber bulb, row of hand-painted mailboxes, dust in the air, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, highly detailed",
+  "negative": "text, watermark, logo, subtitles, cartoon, anime, oversaturated"}
+]

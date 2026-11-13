@@ -15,6 +15,7 @@ Preparación (una vez, manual):
   3. Tras subir cada vídeo: python3 scripts/studio.py set <story-id> youtube_id <ID del vídeo>
 Solo importa vídeos cuya historia tenga youtube_id. Alternativa sin API: rellenar videos.csv a mano.
 """
+import _utf8  # noqa: F401  (primero: UTF-8 en Windows)
 import csv, datetime, json, pathlib, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent

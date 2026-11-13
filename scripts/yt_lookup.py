@@ -7,6 +7,7 @@ YouTube cambia la página; la vía estable es la YouTube Data API con una clave 
   --channels    canales: suscriptores | nº de vídeos | nombre | id
 Solo devuelve lo que YouTube muestra: no dice si un canal está monetizado.
 """
+import _utf8  # noqa: F401  (primero: UTF-8 en Windows)
 import json, re, sys, urllib.parse, urllib.request
 
 

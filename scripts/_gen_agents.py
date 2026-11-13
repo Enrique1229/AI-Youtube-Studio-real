@@ -1,4 +1,5 @@
 """Genera .claude/agents/*.md desde una tabla compacta. Editar aquí y re-ejecutar."""
+import _utf8  # noqa: F401  (primero: UTF-8 en Windows)
 import pathlib
 
 OUT = pathlib.Path(__file__).resolve().parent.parent / ".claude" / "agents"

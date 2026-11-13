@@ -4,9 +4,9 @@
 Imagen base: assets/images/thumbnail.png (gen_images.py --thumbnail) o, si no existe, el primer plano.
 Superpone el texto del concepto elegido con Pillow. 1280x720 (long) o 1080x1920 (short).
 """
-import subprocess, sys
+import sys
 from PIL import Image, ImageDraw, ImageFont, ImageOps
-from common import CFG, story, state, load, die
+from common import story, state, load, die, font_file
 
 
 def main(sid):
@@ -24,7 +24,7 @@ def main(sid):
     im = ImageOps.fit(Image.open(base).convert("RGB"), size)
     text = (c.get("text") or "").upper()
     if text:
-        fp = subprocess.run(["fc-match", "-f", "%{file}", f"{CFG['subtitles']['font']}:bold"], capture_output=True, text=True).stdout
+        fp = font_file(bold=True)
         fs = size[1] // 6 if size[0] > size[1] else size[0] // 7
         draw = ImageDraw.Draw(im)
         while fs > 20:

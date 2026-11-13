@@ -1,0 +1,37 @@
+{
+  "generated": "2026-11-13",
+  "voice": {
+    "engine": "kokoro-onnx",
+    "model": "models/kokoro-v1.0.onnx",
+    "license": "Apache-2.0 (hexgrad/Kokoro-82M, verificada en Hugging Face el 2026-11-13)"
+  },
+  "images": {
+    "backend": "comfy",
+    "workflow": "templates/comfy/txt2img.json",
+    "params": {
+      "ckpt": "sd_xl_base_1.0.safetensors",
+      "steps": 25,
+      "cfg": 7
+    },
+    "source": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
+    "license": "OpenRAIL++ (stabilityai/stable-diffusion-xl-base-1.0, verificada en Hugging Face el 2026-11-13)"
+  },
+  "video_clips": null,
+  "music": {
+    "source": "sintetizada por scripts/audio_gen.py",
+    "mood": "mystery",
+    "license": "propia, sin terceros"
+  },
+  "sfx": {
+    "source": "sintetizados por scripts/audio_gen.py",
+    "license": "propia, sin terceros",
+    "cues": [
+      {
+        "type": "whoosh",
+        "shot": "t02",
+        "at_s": 5.33
+      }
+    ]
+  },
+  "editing": "FFmpeg"
+}

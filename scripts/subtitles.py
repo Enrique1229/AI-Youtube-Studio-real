@@ -5,7 +5,7 @@ El texto es el del guion (exacto). El tiempo de cada frase es exacto (lo midió 
 la frase, las palabras se reparten en proporción a su longitud. Fija final_file en state.json.
 """
 import sys
-from common import CFG, ROOT, story, state, set_state, load, frame_size, run
+from common import CFG, ROOT, FONTS, story, state, set_state, load, frame_size, run
 
 
 WEAK_END = set("el la los las un una unos unas de del al a en con por para que y o e ni su sus mi mis tu tus se me te lo le no".split())
@@ -65,9 +65,11 @@ def main(sid):
         "[Events]\nFormat: Layer, Start, End, Style, Text\n"
         + "".join(f"Dialogue: 0,{ts(a, '.')},{ts(b, '.')},D,{txt.upper() if fmt == 'short' else txt}\n" for a, b, txt in cs))
     out = d / "final" / "video.mp4"
-    run(["ffmpeg", "-y", "-v", "error", "-i", str(d / "final" / "video_nosub.mp4"), "-vf", f"ass={ass}",
-         "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "copy", str(out)])
-    set_state(sid, final_file=str(out.relative_to(ROOT)), stage="assembled")
+    # Rutas relativas a ROOT y con "/": en Windows, "C:\..." rompe la sintaxis de filtros de ffmpeg.
+    vf = f"ass={ass.relative_to(ROOT).as_posix()}" + (f":fontsdir={FONTS.relative_to(ROOT).as_posix()}" if FONTS.is_dir() else "")
+    run(["ffmpeg", "-y", "-v", "error", "-i", str(d / "final" / "video_nosub.mp4"), "-vf", vf,
+         "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "copy", str(out)], cwd=ROOT)
+    set_state(sid, final_file=out.relative_to(ROOT).as_posix(), stage="assembled")
     print(f"{out.name} con {len(cs)} subtítulos")
 
 

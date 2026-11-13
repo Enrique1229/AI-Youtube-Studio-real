@@ -1,0 +1,9 @@
+{
+  "id": "_enginetest",
+  "format": "short",
+  "title": "Prueba de motor",
+  "stage": "assembled",
+  "gates": {},
+  "duration_s": 11.9,
+  "final_file": "stories/_enginetest/final/video.mp4"
+}

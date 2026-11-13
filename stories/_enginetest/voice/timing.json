@@ -1,0 +1,36 @@
+[
+ {
+  "id": "a1",
+  "start": 0.0,
+  "end": 5.319,
+  "sentences": [
+   {
+    "text": "Pulsé el botón que no tiene número, entre el siete y el ocho.",
+    "start": 0.0,
+    "end": 3.477
+   },
+   {
+    "text": "El ascensor tembló.",
+    "start": 3.597,
+    "end": 4.899
+   }
+  ]
+ },
+ {
+  "id": "a2",
+  "start": 5.319,
+  "end": 11.853,
+  "sentences": [
+   {
+    "text": "Las puertas se abrieron a mi rellano, pero ámbar y antiguo.",
+    "start": 5.319,
+    "end": 8.668
+   },
+   {
+    "text": "Vi mi buzón, con mi apellido pintado a mano.",
+    "start": 8.788,
+    "end": 11.433
+   }
+  ]
+ }
+]
