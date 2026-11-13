@@ -1,6 +1,0 @@
-{"format": "short", "timeline": [
- {"shot": "t01", "audio": "a1", "motion": "zoom_in", "weight": 1},
- {"shot": "t02", "audio": "a2", "motion": "pan_up", "weight": 1},
- {"shot": "t03", "audio": "a2", "motion": "pan_right", "weight": 1}],
- "music": {"mood": "mystery", "level_db": -20},
- "sfx": [{"type": "whoosh", "shot": "t02", "level_db": -14}]}

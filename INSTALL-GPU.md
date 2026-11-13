@@ -1,12 +1,12 @@
 # Instalación en un PC con GPU NVIDIA (Windows, PowerShell)
 
-Probado en Windows 11 con una RTX 4050 Laptop (6 GB) hasta arrancar ComfyUI con GPU (pasos 1-6, 2026-11-13). Los pasos 7-8 y la generación con SDXL en 6 GB están pendientes de confirmar.
+Probado en Windows 11 con una RTX 4050 Laptop (6 GB) de principio a fin (2026-11-13): SDXL genera en 6 GB a ~70-85 s por imagen de 832x1472. Tiempos y límites medidos: `channel/style-bible/engine.md`.
 Si Claude Code da `Connection refused`, revisa variables `ANTHROPIC_BASE_URL` / `ANTHROPIC_AUTH_TOKEN` / `ANTHROPIC_MODEL` que apunten a un intermediario local apagado.
 Los comandos de ComfyUI son los de su README oficial (consultado el 2026-11-13).
 
 1. Herramientas: `winget install Git.Git`, `winget install Python.Python.3.12`, `winget install Gyan.FFmpeg`, `winget install OpenJS.NodeJS.LTS`, y `npm install -g @anthropic-ai/claude-code`. Cierra y abre PowerShell.
-2. Proyecto: `git clone https://github.com/Enrique1229/AI-Youtube-Studio-real` y dentro: `pip install -r requirements.txt`.
-3. Voz (dentro del proyecto): crea `models` y descarga `kokoro-v1.0.onnx` y `voices-v1.0.bin` de https://huggingface.co/fastrtc/kokoro-onnx/resolve/main/ .
+2. Proyecto: `git clone https://github.com/Enrique1229/AI-Youtube-Studio-real` y dentro: `python3 -m pip install -r requirements.txt` (con `python3`, que es el intérprete que usan los scripts; en Windows puede no ser el mismo que `pip`).
+3. Voz (dentro del proyecto): crea `models` y descarga `kokoro-v1.0.onnx` y `voices-v1.0.bin` de https://huggingface.co/fastrtc/kokoro-onnx/resolve/main/ . La fuente de los subtítulos (Inter Display) va en `models/fonts/`: desde Git Bash, `bash scripts/setup_models.sh` descarga las dos cosas.
 4. ComfyUI (fuera del proyecto): `git clone https://github.com/comfyanonymous/ComfyUI`, entorno virtual, `pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu130` (con `--index-url`, no `--extra-index-url`: con el segundo, en Windows pip instaló la versión sin GPU). Comprueba con `python -c "import torch; print(torch.__version__, torch.cuda.is_available())"`: debe decir `+cu130 True`, `pip install -r requirements.txt`.
 5. Modelo: `sd_xl_base_1.0.safetensors` (6,9 GB) de https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0 a `ComfyUI\models\checkpoints\`.
 6. Arranca ComfyUI con `python main.py` y déjalo abierto.

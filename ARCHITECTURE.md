@@ -174,7 +174,7 @@ Licencias leídas en los metadatos de Hugging Face el 2026-11-13; el resto, en l
 | Voz | Chatterbox (Resemble) | MIT | No |
 | Voz | XTTS-v2 (Coqui) | Coqui Public Model License (no comercial): descartada | — |
 | Imagen | ComfyUI + Stable Diffusion 1.5 (+ LCM LoRA) | CreativeML OpenRAIL-M / OpenRAIL++ | Sí, CPU, ~2 min/imagen, calidad baja |
-| Imagen | SDXL base 1.0 | OpenRAIL++ | No (GPU) |
+| Imagen | SDXL base 1.0 | OpenRAIL++ | Sí, RTX 4050 6 GB, ~70-85 s/imagen de 832x1472 |
 | Imagen | FLUX.1 schnell | Apache-2.0 | No (GPU) |
 | Imagen | FLUX.1 dev | Licencia no comercial: descartada | — |
 | Imagen | DreamShaper (Lykon) | "other", sin aclarar: no usar hasta leerla | — |
