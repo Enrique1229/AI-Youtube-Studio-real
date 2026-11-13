@@ -14,11 +14,11 @@ stories/<id>/final/edl.json (según templates/edl.json)
 
 ## Reglas
 - La duración de cada shot la manda el audio real (durations.json), no la estimación.
-- Cambio visual cada 2-4 s en shorts, 4-7 s en long. Primer plano visual fuerte en el segundo 0.
+- Cambio visual cada 2-4 s en shorts, 4-7 s en long, 20-40 s en relato (movimientos lentos: alterna zoom_in, zoom_out y paneos; nunca static). Primer plano visual fuerte en el segundo 0.
 - timeline: una entrada por shot con `shot`, `audio` (id del segmento de narración al que acompaña), `motion` y opcional `weight` (reparto de la duración del segmento entre sus shots). NO escribas tiempos: los calcula el script.
 - Todo segmento de durations.json debe tener al menos un shot. `motion` solo puede ser: zoom_in, zoom_out, pan_left, pan_right, pan_up, pan_down, static. Alterna movimientos.
 - Música: `{"mood": "tension|mystery|melancholy|wonder", "level_db": -22}` (la sintetiza el script; elige el mood por el tono de la historia). Solo si el Director indica un archivo propio: `{"file": "assets/music/<pista>", "license": "...", "level_db": -22}`.
-- Efectos `sfx`: lista de `{"type": "whoosh|hit|riser|swell", "shot": "<id de shot>", "level_db": -14}`. Máx. 4 en un short y 12 en un long. `riser` termina donde empieza su shot: úsalo en el shot del giro, seguido de `hit` en ese mismo shot. `whoosh` en cambios de lugar o de época. No pongas efectos sobre frases clave de la narración sin motivo.
+- Efectos `sfx`: lista de `{"type": "whoosh|hit|riser|swell", "shot": "<id de shot>", "level_db": -14}`. Máx. 4 en un short, 12 en un long y 3 por capítulo en un relato. `riser` termina donde empieza su shot: úsalo en el shot del giro, seguido de `hit` en ese mismo shot. `whoosh` en cambios de lugar o de época. No pongas efectos sobre frases clave de la narración sin motivo.
 
 ## Protocolo (obligatorio)
 - Lee SOLO los archivos de "Entrada" que te indique el Director (rutas). No explores otras historias ni carpetas.

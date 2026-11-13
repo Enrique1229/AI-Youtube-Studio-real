@@ -16,6 +16,7 @@ stories/<nuevo-id>/idea.json (con `id` = <nuevo-id> y `derived_from`) + chapters
 - Cada short debe entenderse sin ver el largo: hook propio, tensión propia, final propio (cierre o cliffhanger hacia el largo).
 - Reescribe; no copies párrafos del largo. Ángulos válidos: punto de vista de otro personaje, una pista aislada, un "qué pasaría si" del mismo mundo.
 - 130-160 palabras. No destripes el giro final del largo.
+- Desde un RELATO: cada Short es una puerta de entrada al relato (una escena potente contada como historia cerrada con pregunta final). Indica en `idea.json` el campo `leads_to` con el id del relato.
 
 ## Protocolo (obligatorio)
 - Lee SOLO los archivos de "Entrada" que te indique el Director (rutas). No explores otras historias ni carpetas.

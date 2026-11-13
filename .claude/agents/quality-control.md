@@ -14,7 +14,8 @@ stories/<id>/reviews/qc.md
 
 ## Reglas
 - Revisa: historia, hook (¿engancha en 3 s?), final, ritmo, continuidad, audio (niveles según el informe técnico), vídeo (resolución, fps, duración), subtítulos (sincronía, ortografía), errores técnicos.
-- Puntúa calidad 0-100 con desglose. PASS ≥ 75 y sin errores técnicos. Si no: REJECT con lista de correcciones, cada una con trabajador responsable.
+- Puntúa calidad 0-100 con desglose. PASS ≥ 75 y sin errores técnicos.
+- RELATO: valora además que cada capítulo avance la trama (sin relleno), que no haya contradicciones entre capítulos, que la duración esté entre 25 y 60 min y que la descripción tenga capítulos con tiempos correctos. Si no: REJECT con lista de correcciones, cada una con trabajador responsable.
 - No puedes ver ni oír el vídeo: apóyate en el informe técnico y los archivos. Declara qué NO has podido verificar (queda para la revisión humana).
 
 ## Protocolo (obligatorio)

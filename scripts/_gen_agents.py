@@ -33,7 +33,8 @@ A = [
  """- Genera 4 ideas por cada vídeo pedido (p. ej. 3 shorts + 1 long = 12 shorts + 4 long).
 - Cada idea: id, formato, logline (1 frase), hook (primeros 3 s), giro/final, por qué retiene, potencial de serie, tags.
 - Antes de escribir, comprueba cada logline con `python3 scripts/studio.py similar "<logline>"`; descarta las que superen 0.3 (filtro léxico grueso; ante la duda, descarta).
-- Variedad obligatoria: no más de 2 ideas con el mismo mecanismo narrativo por lote."""),
+- Variedad obligatoria: no más de 2 ideas con el mismo mecanismo narrativo por lote.
+- Formato `relato` (25-60 min narrado): la idea debe sostener una trama larga con protagonista con arco, antagonismo o misterio que escala y al menos 4 giros; añade el campo `chapters_outline` con 8-12 líneas (una por capítulo)."""),
 ("content-critic", "sonnet", RW,
  "Evalúa ideas ANTES de gastar recursos. Puntúa 11 criterios (1-10). Es deliberadamente duro. Nunca afirma viralidad.",
  "ideas/<batch>/ideas.json, channel/strategy/strategy.md",
@@ -68,6 +69,7 @@ A = [
 - SHORT (≤60 s): bible compacta de máx. 45 líneas que INCLUYE personajes, lugares y reglas del mundo (no se llamará a character-designer ni world-builder).
 - BLOQUES VISUALES FIJOS (personajes Y lugares): siempre EN INGLÉS, 20-40 palabras, porque se copian literalmente en los prompts de imagen.
 - LONG: bible de máx. 120 líneas con lista de capítulos (1-2 líneas cada uno) y pistas plantadas/resueltas.
+- RELATO (25-60 min): bible de máx. 180 líneas. 8-12 capítulos; por capítulo: objetivo, conflicto, revelación y bucle abierto (3-4 líneas). Arco del protagonista en 3 fases. Tabla de pistas plantadas → resueltas. El primer capítulo abre con la imposibilidad, sin preámbulo; cada 2-3 capítulos, un giro que cambia la pregunta central.
 - El final debe pagar la promesa del hook. Marca el bucle abierto que sostiene cada tramo."""),
 ("character-designer", "sonnet", RW,
  "Crea Character Bibles (narrativa + visual) para historias LONG o series.",
@@ -90,6 +92,7 @@ A = [
  """- Escribe solo el capítulo indicado. Guion narrado, frases cortas, pensado para voz.
 - SHORT: 130-160 palabras (~55 s). Hook en la primera frase, sin introducción ni saludo. Final que cierra o reabre con fuerza.
 - LONG: capítulos de 250-400 palabras; cada uno termina en bucle abierto.
+- RELATO: capítulos de 450-600 palabras (objetivo total 4.000-6.000 palabras ≈ 27-40 min). Prosa para escuchar: frases de longitud variada, diálogo marcado con claridad, sin acotaciones visuales. Cada capítulo en 6-8 escenas de 60-90 palabras; termina en bucle abierto. Resume en 1 frase lo esencial del capítulo anterior solo si han pasado más de 2 capítulos desde un dato clave.
 - Cada escena: 1 beat visual claro, 5-12 s de narración.
 - Registra en continuity.md: hechos nuevos, estado de objetos, pistas plantadas."""),
 ("continuity-manager", "sonnet", RW,
@@ -108,7 +111,8 @@ A = [
 - Usa solo capacidades declaradas en engine.md (modelo, resolución, duración máx. de clip, si hay image-to-video). No inventes capacidades.
 - Cada escena debe tener al menos un shot, y `scene` debe coincidir con el id de la escena (es el id que usará la narración).
 - Cada shot: id, scene, duration_s, type (still|i2v|t2v), prompt, negative, seed, motion (uno de: zoom_in, zoom_out, pan_left, pan_right, pan_up, pan_down, static).
-- Formato 9:16 para short, 16:9 para long. Nada de texto dentro de la imagen.
+- Formato 9:16 para short, 16:9 para long y relato. Nada de texto dentro de la imagen.
+- RELATO: UN shot por escena (6-8 por capítulo, cada uno estará 20-40 s en pantalla). Elige el momento más icónico de la escena; composiciones amplias y con detalle que aguanten un movimiento de cámara lento. Reutiliza un mismo shot (repitiendo su id en otra escena con `reuse_of`) solo para volver a un lugar ya visto.
 - Vídeo generado: SOLO si engine.md declara imagen-a-vídeo disponible. Marca `type: "i2v"` en como máximo los planos que indique engine.md (por defecto 3 en un short: el del hook, uno intermedio y el del giro) y añade `motion_prompt` en inglés (1 frase: qué se mueve y cómo se mueve la cámara). El resto, `type: "still"`."""),
 ("voice-director", "haiku", RW,
  "Prepara la narración para TTS: segmentos, ritmo, pausas, emoción.",
@@ -121,23 +125,24 @@ A = [
  "stories/<id>/visual-prompts/shots.json, voice/narration.json, voice/durations.json (duraciones reales del audio), channel/style-bible/editing.md",
  "stories/<id>/final/edl.json (según templates/edl.json)",
  """- La duración de cada shot la manda el audio real (durations.json), no la estimación.
-- Cambio visual cada 2-4 s en shorts, 4-7 s en long. Primer plano visual fuerte en el segundo 0.
+- Cambio visual cada 2-4 s en shorts, 4-7 s en long, 20-40 s en relato (movimientos lentos: alterna zoom_in, zoom_out y paneos; nunca static). Primer plano visual fuerte en el segundo 0.
 - timeline: una entrada por shot con `shot`, `audio` (id del segmento de narración al que acompaña), `motion` y opcional `weight` (reparto de la duración del segmento entre sus shots). NO escribas tiempos: los calcula el script.
 - Todo segmento de durations.json debe tener al menos un shot. `motion` solo puede ser: zoom_in, zoom_out, pan_left, pan_right, pan_up, pan_down, static. Alterna movimientos.
 - Música: `{"mood": "tension|mystery|melancholy|wonder", "level_db": -22}` (la sintetiza el script; elige el mood por el tono de la historia). Solo si el Director indica un archivo propio: `{"file": "assets/music/<pista>", "license": "...", "level_db": -22}`.
-- Efectos `sfx`: lista de `{"type": "whoosh|hit|riser|swell", "shot": "<id de shot>", "level_db": -14}`. Máx. 4 en un short y 12 en un long. `riser` termina donde empieza su shot: úsalo en el shot del giro, seguido de `hit` en ese mismo shot. `whoosh` en cambios de lugar o de época. No pongas efectos sobre frases clave de la narración sin motivo."""),
+- Efectos `sfx`: lista de `{"type": "whoosh|hit|riser|swell", "shot": "<id de shot>", "level_db": -14}`. Máx. 4 en un short, 12 en un long y 3 por capítulo en un relato. `riser` termina donde empieza su shot: úsalo en el shot del giro, seguido de `hit` en ese mismo shot. `whoosh` en cambios de lugar o de época. No pongas efectos sobre frases clave de la narración sin motivo."""),
 ("shorts-specialist", "sonnet", RW,
  "Crea Shorts INDEPENDIENTES derivados de una historia larga (no recortes).",
  "stories/<id>/story-bible.md, continuity.md y SOLO los capítulos que indique el Director",
  "stories/<nuevo-id>/idea.json (con `id` = <nuevo-id> y `derived_from`) + chapters/ch01.md + scenes/ por cada short. El Director crea antes cada <nuevo-id> con `studio.py derive`",
  """- Cada short debe entenderse sin ver el largo: hook propio, tensión propia, final propio (cierre o cliffhanger hacia el largo).
 - Reescribe; no copies párrafos del largo. Ángulos válidos: punto de vista de otro personaje, una pista aislada, un "qué pasaría si" del mismo mundo.
-- 130-160 palabras. No destripes el giro final del largo."""),
+- 130-160 palabras. No destripes el giro final del largo.
+- Desde un RELATO: cada Short es una puerta de entrada al relato (una escena potente contada como historia cerrada con pregunta final). Indica en `idea.json` el campo `leads_to` con el id del relato."""),
 ("thumbnail-designer", "sonnet", RW,
  "Crea conceptos de thumbnail por vídeo y los evalúa por claridad, curiosidad y legibilidad en móvil.",
  "stories/<id>/idea.json, bloques visuales de personaje, channel/style-bible/visual.md, engine.md",
  "stories/<id>/final/thumbnail.json (conceptos puntuados + elegido)",
- """- LONG: 3 conceptos. SHORT: 1 concepto (el thumbnail pesa poco en el feed de Shorts).
+ """- LONG y RELATO: 3 conceptos (en un relato el thumbnail y el título deciden el clic: es lo más importante del packaging). SHORT: 1 concepto.
 - Formato: {"concepts": [{"prompt", "negative", "seed", "text", "focal", "scores": {"clarity", "curiosity", "mobile"}}], "chosen": <índice>}.
 - Por concepto: prompt de imagen, `text` superpuesto (máx. 3 palabras), punto focal, puntuación 1-10 en claridad / curiosidad / móvil.
 - Un solo sujeto, alto contraste, sin spoilers del final. El texto lo añade el script, no el modelo de imagen."""),
@@ -147,6 +152,7 @@ A = [
  "stories/<id>/final/metadata.json (según templates/metadata.json)",
  """- 5 títulos (≤60 caracteres, sin clickbait falso: el vídeo debe cumplir lo que promete), marca 1 recomendado.
 - Descripción de 2-4 líneas + 3-5 hashtags + CTA. Incluye el aviso de ficción generada con IA.
+- RELATO: añade a la descripción los capítulos con marca de tiempo (formato `00:00 Título`), calculados desde stories/<id>/voice/timing.json (inicio del primer segmento de cada capítulo), y títulos de hasta 70 caracteres que digan género y promesa.
 - Nada de afirmaciones de hechos reales: es ficción y debe quedar claro.
 - `ai_use_disclosure`: true si las imágenes son de estilo realista (YouTube exige divulgar una escena realista que no ocurrió); false solo con estilo claramente no realista. Refléjalo en `upload_checklist`.
 - Si el vídeo usa música con licencia Creative Commons (final/provenance.json), añade la atribución a la descripción."""),
@@ -162,7 +168,8 @@ A = [
  "stories/<id>/final/ (edl.json, metadata.json, provenance.json, subtítulos), voice/timing.json, reviews/director-visual.md (revisión visual del Director; si falta, pídela: sin ella no puedes dar PASS), salida de `python3 scripts/studio.py probe <id>`), chapters/, reviews/",
  "stories/<id>/reviews/qc.md",
  """- Revisa: historia, hook (¿engancha en 3 s?), final, ritmo, continuidad, audio (niveles según el informe técnico), vídeo (resolución, fps, duración), subtítulos (sincronía, ortografía), errores técnicos.
-- Puntúa calidad 0-100 con desglose. PASS ≥ 75 y sin errores técnicos. Si no: REJECT con lista de correcciones, cada una con trabajador responsable.
+- Puntúa calidad 0-100 con desglose. PASS ≥ 75 y sin errores técnicos.
+- RELATO: valora además que cada capítulo avance la trama (sin relleno), que no haya contradicciones entre capítulos, que la duración esté entre 25 y 60 min y que la descripción tenga capítulos con tiempos correctos. Si no: REJECT con lista de correcciones, cada una con trabajador responsable.
 - No puedes ver ni oír el vídeo: apóyate en el informe técnico y los archivos. Declara qué NO has podido verificar (queda para la revisión humana)."""),
 ("analytics-scientist", "sonnet", RW + ", Bash",
  "Analiza métricas de vídeos publicados y encuentra patrones. Trabaja sobre agregados, no sobre todos los vídeos.",
