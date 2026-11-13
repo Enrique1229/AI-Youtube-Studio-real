@@ -12,6 +12,7 @@
   similar "<texto>" | similar --story <id>   similitud con ideas previas (0-1)
   gate <id>                     falla si alguna puerta no es PASS
   probe <id>                    informe técnico (ffprobe) del vídeo final
+  sheet <id>                    hoja de contactos de las imágenes (reviews/contact-sheet.png) para la revisión visual
   deliver <id>                  copia a shorts/ o long-videos/ SOLO si gate pasa
   analytics                     agregados de channel/analytics/videos.csv
 """
@@ -247,6 +248,20 @@ def cmd_probe(sid):
     print(json.dumps(info, indent=1))
 
 
+def cmd_sheet(sid):
+    d = sdir(sid)
+    n = len(list((d / "assets" / "images").glob("*.png")))
+    if not n:
+        die("no hay imágenes")
+    cols = 6 if n > 6 else n
+    rows = -(-n // cols)
+    w, h = (192, 336) if load_state(sid)["format"] == "short" else (336, 192)
+    out = d / "reviews" / "contact-sheet.png"
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-pattern_type", "glob", "-i", str(d / "assets" / "images" / "*.png"),
+                    "-vf", f"scale={w}:{h},tile={cols}x{rows}", "-frames:v", "1", str(out)], check=True)
+    print(out.relative_to(ROOT))
+
+
 def cmd_deliver(sid):
     cmd_gate(sid, quiet=True)
     st = load_state(sid)
@@ -292,7 +307,7 @@ def main():
      "status": lambda: cmd_status("--brief" in r),
      "set": lambda: cmd_set(*r), "vps": lambda: cmd_vps(*r), "ledger": lambda: cmd_ledger(r),
      "similar": lambda: cmd_similar(r), "gate": lambda: cmd_gate(*r), "probe": lambda: cmd_probe(*r),
-     "deliver": lambda: cmd_deliver(*r), "analytics": cmd_analytics}.get(c, lambda: die(__doc__))()
+     "deliver": lambda: cmd_deliver(*r), "sheet": lambda: cmd_sheet(*r), "analytics": cmd_analytics}.get(c, lambda: die(__doc__))()
 
 
 if __name__ == "__main__":

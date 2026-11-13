@@ -8,3 +8,4 @@ __pycache__/
 models/
 channel/analytics/client_secret.json
 channel/analytics/token.json
+pilot-output/

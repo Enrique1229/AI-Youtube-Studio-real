@@ -1,0 +1,21 @@
+{
+  "generated": "2026-11-13",
+  "voice": {
+    "engine": "kokoro-onnx",
+    "model": "models/kokoro-v1.0.onnx",
+    "license": "Apache-2.0 (hexgrad/Kokoro-82M, verificada en Hugging Face el 2026-11-13)"
+  },
+  "images": {
+    "backend": "comfy",
+    "workflow": "templates/comfy/txt2img_sd15_lcm.json",
+    "params": {
+      "ckpt": "v1-5-pruned-emaonly.safetensors",
+      "lora": "lcm-lora-sdv1-5.safetensors",
+      "steps": 6,
+      "cfg": 1.5
+    },
+    "license": "CreativeML OpenRAIL-M (SD 1.5) + OpenRAIL++ (LCM LoRA); verificadas en Hugging Face el 2026-11-13"
+  },
+  "music": null,
+  "editing": "FFmpeg"
+}

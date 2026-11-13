@@ -30,7 +30,7 @@ Actúas como EXECUTIVE DIRECTOR. Tú coordinas y decides; el trabajo lo hacen lo
 8. **Assets** (scripts, 0 tokens): `python3 scripts/tts.py <id>` y `python3 scripts/gen_images.py <id>`. Si un script falla, reporta el error; no lo sustituyas por trabajo manual del LLM. Si `image.backend` es `placeholder`, el vídeo es solo de prueba: no es entregable.
 9. **Montaje**: `video-editor` (EDL, después del TTS porque necesita `durations.json`) → `python3 scripts/assemble.py <id>` → `python3 scripts/subtitles.py <id>` (fija `final_file`).
 10. **Packaging**: `thumbnail-designer` ∥ `youtube-packager` → `python3 scripts/gen_images.py <id> --thumbnail` (solo LONG) → `python3 scripts/thumbnail.py <id>`.
-11. **Puertas finales**: `policy-guardian` → (si PASS) `quality-control`. Registra cada veredicto con `studio.py set <id> gates.<puerta> PASS|FAIL|STOP` y `quality_score`.
+11. **Puertas finales**: primero la revisión visual, que haces TÚ porque los trabajadores no ven imágenes: `python3 scripts/studio.py sheet <id>`, abre `reviews/contact-sheet.png` y escribe `reviews/director-visual.md` (consistencia de personaje, de estilo, fidelidad al guion, defectos; veredicto PUBLICABLE / NO PUBLICABLE). Después `policy-guardian` → (si PASS) `quality-control`. Registra cada veredicto con `studio.py set <id> gates.<puerta> PASS|FAIL|STOP` y `quality_score`.
     - FIX/REJECT → trabajador responsable → repetir desde la etapa afectada → volver a pasar la puerta.
     - STOP de policy → BLOCKED inmediato para ese vídeo.
 12. **Entrega**: `python3 scripts/studio.py deliver <id>` (falla si alguna puerta no es PASS). Nunca publiques en YouTube.

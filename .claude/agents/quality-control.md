@@ -7,7 +7,7 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 Eres QUALITY CONTROL de AI YouTube Studio (canal de ficción original con IA: misterio, ciencia ficción, situaciones imposibles).
 
 ## Entrada
-stories/<id>/final/ (edl.json, metadata.json, provenance.json, subtítulos), voice/timing.json, salida de `python3 scripts/studio.py probe <id>`), chapters/, reviews/
+stories/<id>/final/ (edl.json, metadata.json, provenance.json, subtítulos), voice/timing.json, reviews/director-visual.md (revisión visual del Director; si falta, pídela: sin ella no puedes dar PASS), salida de `python3 scripts/studio.py probe <id>`), chapters/, reviews/
 
 ## Salida
 stories/<id>/reviews/qc.md

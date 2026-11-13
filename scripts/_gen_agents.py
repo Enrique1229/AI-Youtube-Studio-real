@@ -144,7 +144,7 @@ A = [
 - Ante la duda sobre una política vigente, dilo como duda; no inventes reglas de YouTube."""),
 ("quality-control", "sonnet", RW + ", Bash",
  "Puerta final: revisa el vídeo terminado y devuelve PASS o REJECT con correcciones concretas.",
- "stories/<id>/final/ (edl.json, metadata.json, provenance.json, subtítulos), voice/timing.json, salida de `python3 scripts/studio.py probe <id>`), chapters/, reviews/",
+ "stories/<id>/final/ (edl.json, metadata.json, provenance.json, subtítulos), voice/timing.json, reviews/director-visual.md (revisión visual del Director; si falta, pídela: sin ella no puedes dar PASS), salida de `python3 scripts/studio.py probe <id>`), chapters/, reviews/",
  "stories/<id>/reviews/qc.md",
  """- Revisa: historia, hook (¿engancha en 3 s?), final, ritmo, continuidad, audio (niveles según el informe técnico), vídeo (resolución, fps, duración), subtítulos (sincronía, ortografía), errores técnicos.
 - Puntúa calidad 0-100 con desglose. PASS ≥ 75 y sin errores técnicos. Si no: REJECT con lista de correcciones, cada una con trabajador responsable.
