@@ -11,7 +11,7 @@ Productora automatizada de un canal de YouTube de ficción original con IA (Shor
 1. Pasa rutas de archivo a los trabajadores, nunca contenido. Cada uno lee solo lo suyo.
 2. La memoria está en disco. Estado: `python3 scripts/studio.py status`. No regeneres lo que ya existe.
 3. Cada historia vive aislada en `stories/story-NNN/`. No mezcles historias.
-4. Ningún vídeo se entrega sin las 4 puertas en PASS: critic → continuity → policy → qc (`studio.py deliver` lo impone).
+4. Ningún vídeo se entrega sin las 5 puertas en PASS: critic → market → continuity → policy → qc (`studio.py select` y `deliver` lo imponen). Ninguna idea se produce sin comparar antes con canales reales de características similares.
 5. Máx. 2 rondas de corrección por puerta; después, BLOCKED.
 6. Nunca publiques en YouTube. Nunca afirmes que algo será viral: el VPS es una estimación.
 7. No declares capacidades de un modelo o herramienta sin haberlas probado (`channel/style-bible/engine.md` es la única fuente).

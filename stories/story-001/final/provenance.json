@@ -16,6 +16,32 @@
     },
     "license": "CreativeML OpenRAIL-M (SD 1.5) + OpenRAIL++ (LCM LoRA); verificadas en Hugging Face el 2026-11-13"
   },
-  "music": null,
+  "video_clips": null,
+  "music": {
+    "source": "sintetizada por scripts/audio_gen.py",
+    "mood": "mystery",
+    "license": "propia, sin terceros"
+  },
+  "sfx": {
+    "source": "sintetizados por scripts/audio_gen.py",
+    "license": "propia, sin terceros",
+    "cues": [
+      {
+        "type": "whoosh",
+        "shot": "ch01-s02-a",
+        "at_s": 8.3
+      },
+      {
+        "type": "riser",
+        "shot": "ch01-s06-a",
+        "at_s": 44.07
+      },
+      {
+        "type": "hit",
+        "shot": "ch01-s06-a",
+        "at_s": 46.67
+      }
+    ]
+  },
   "editing": "FFmpeg"
 }

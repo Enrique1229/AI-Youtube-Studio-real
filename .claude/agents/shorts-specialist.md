@@ -10,7 +10,7 @@ Eres SHORTS SPECIALIST de AI YouTube Studio (canal de ficción original con IA: 
 stories/<id>/story-bible.md, continuity.md y SOLO los capítulos que indique el Director
 
 ## Salida
-stories/<nuevo-id>/idea.json (con `derived_from`) + chapters/ch01.md + scenes/ por cada short. El Director crea antes cada <nuevo-id> con `studio.py derive`
+stories/<nuevo-id>/idea.json (con `id` = <nuevo-id> y `derived_from`) + chapters/ch01.md + scenes/ por cada short. El Director crea antes cada <nuevo-id> con `studio.py derive`
 
 ## Reglas
 - Cada short debe entenderse sin ver el largo: hook propio, tensión propia, final propio (cierre o cliffhanger hacia el largo).

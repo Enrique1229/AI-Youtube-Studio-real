@@ -2,7 +2,7 @@
 """AI YouTube Studio - utilidades deterministas (0 tokens de LLM).
 
   new <short|long> "<titulo>"   crea stories/story-NNN desde templates
-  select <batch> <idea-id> ["titulo"] [--force]   crea la historia desde una idea puntuada (exige VPS >= umbral)
+  select <batch> <idea-id> ["titulo"] [--force]   crea la historia desde una idea puntuada (exige VPS >= umbral y validación de mercado)
   derive <parent-id> "<titulo>"   crea un short derivado de una historia larga (hereda la puerta critic)
   close-batch <batch>           registra en el ledger como rechazadas las ideas no seleccionadas
   status [--brief]              estado de todas las producciones
@@ -21,7 +21,7 @@ import csv, json, re, shutil, subprocess, sys, datetime, pathlib, statistics
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 STORIES = ROOT / "stories"
 LEDGER = ROOT / "channel" / "strategy" / "ideas-ledger.jsonl"
-GATES = ["critic", "continuity", "policy", "qc"]
+GATES = ["critic", "market", "continuity", "policy", "qc"]
 # Pesos positivos (suman 100) y penalizaciones máximas.
 W = {"hook": 20, "curiosity": 15, "retention": 15, "originality": 12, "visual": 8,
      "emotion": 8, "ending": 10, "series": 6, "differentiation": 6}
@@ -94,14 +94,23 @@ def cmd_select(b, iid, *rest):
     thr = json.loads((ROOT / "studio.config.json").read_text())["vps_threshold"][idea["format"]]
     if sc["vps"] < thr and not force:
         die(f"{iid}: VPS {sc['vps']} < umbral {thr} para {idea['format']} (usa --force solo con motivo)")
+    mk = d / "market.json"
+    market = {m["id"]: m for m in json.loads(mk.read_text())}.get(iid) if mk.exists() else None
+    if not force and (not market or market.get("verdict") not in ("VALIDATED", "WEAK")):
+        die(f"{iid}: sin validación de mercado (market-validator debe dar VALIDATED o WEAK en {mk.relative_to(ROOT)}); "
+            f"veredicto actual: {market.get('verdict') if market else 'no evaluada'}")
     sid = cmd_new(idea["format"], rest[0] if rest else idea["logline"][:60])
     sd = sdir(sid)
+    if market:
+        (sd / "reviews" / "market.json").write_text(json.dumps(market, indent=2, ensure_ascii=False) + "\n")
     idea = dict(idea, vps=sc["vps"], batch=b, story_id=sid, critic_improve=sc.get("improve"))
     (sd / "idea.json").write_text(json.dumps(idea, indent=2, ensure_ascii=False) + "\n")
     (sd / "reviews" / "critic.json").write_text(json.dumps(sc, indent=2, ensure_ascii=False) + "\n")
     st = load_state(sid)
     st.update(vps=sc["vps"], stage="selected", idea_id=iid)
     st["gates"]["critic"] = "PASS"
+    st["gates"]["market"] = "PASS" if market and market.get("verdict") in ("VALIDATED", "WEAK") else "PENDING"
+    st["market_verdict"] = market.get("verdict") if market else None
     save_state(sid, st)
     sel = d / "selected.json"
     cur = json.loads(sel.read_text()) if sel.exists() else []
@@ -117,6 +126,7 @@ def cmd_derive(parent, title):
     st = load_state(sid)
     st.update(derived_from=parent, vps=pst.get("vps"), stage="selected")
     st["gates"]["critic"] = "PASS"
+    st["gates"]["market"] = pst["gates"].get("market", "PENDING")
     save_state(sid, st)
 
 
@@ -135,7 +145,8 @@ def cmd_status(brief=False):
     rows = []
     for p in sorted(STORIES.glob("story-*/state.json")):
         s = json.loads(p.read_text())
-        g = " ".join(f"{k}:{v[0]}" for k, v in s["gates"].items())
+        mark = {"PASS": "ok", "PENDING": "--", "FAIL": "FALLO", "STOP": "STOP"}
+        g = " ".join(f"{k}:{mark.get(v, v)}" for k, v in s["gates"].items())
         rows.append(f"{s['id']} {s['format']:5} {s['stage']:12} [{g}] q={s.get('quality_score')} {s['title'][:40]}")
     if brief:
         rows = [r for r in rows if " delivered " not in r][-10:]

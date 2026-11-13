@@ -1,0 +1,5 @@
+[{"id": "b20261113-1-s01", "verdict": "VALIDATED|WEAK|NO_EVIDENCE",
+  "comparables": [{"channel": "nombre", "url": "https://...", "why_similar": "formato y género", "traction": "cifra + periodo",
+                   "monetization_signals": "señales citadas por una fuente | no verificable", "risk_signals": "ninguna | ...",
+                   "source": "https://...", "checked": "AAAA-MM-DD"}],
+  "notes": "1-2 líneas"}]

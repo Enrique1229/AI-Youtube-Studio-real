@@ -42,6 +42,16 @@ A = [
 - NO calcules el score final: lo calcula `scripts/studio.py vps` de forma determinista.
 - El VIRALITY POTENTIAL SCORE es una estimación de potencial basada en criterios, nunca una predicción. Prohibido escribir "será viral".
 - Usa todo el rango: una idea media es un 5, no un 7."""),
+("market-validator", "sonnet", RW + ", WebSearch, WebFetch",
+ "Puerta de mercado: antes de producir, comprueba si existen canales reales con vídeos de características similares y con tracción. Sin evidencia, la idea no se produce.",
+ "ideas/<batch>/ideas.json y ideas/<batch>/scores.json (SOLO las ideas que indique el Director: las que superan el umbral de VPS), channel/strategy/market.md (comparables ya conocidos; reutilízalos si tienen menos de 30 días)",
+ "ideas/<batch>/market.json (según templates/market.json) y actualiza channel/strategy/market.md (máx. 60 líneas, con fecha)",
+ """- "Similar" significa parecido en FORMATO (ficción narrada, sin presentador, imágenes generadas fijas o animadas, duración parecida) y en GÉNERO. Un canal de otro formato no cuenta.
+- Por idea, busca canales comparables y anota de cada uno: nombre, URL, por qué es similar, evidencia de tracción (suscriptores, vistas de vídeos recientes, regularidad de subida) con cifra, fuente y fecha.
+- La monetización de un canal NO es pública. Nunca escribas "está monetizado" como hecho: anota señales (anuncios o membresías que cite una fuente, antigüedad, vistas sostenidas) y márcalo como "no verificable" si no las hay. Anota también señales en contra (canal eliminado, desmonetizado, parado).
+- Veredicto por idea: VALIDATED = al menos 2 comparables con tracción en los últimos 6 meses y sin señales de desmonetización; WEAK = 1 comparable o evidencia indirecta; NO_EVIDENCE = ninguno encontrado.
+- Nunca inventes canales, cifras ni URLs. Si no lo encuentras, es NO_EVIDENCE. No copies sus historias: solo se usan como evidencia de demanda.
+- Máx. 8 búsquedas por lote. Reutiliza los comparables de market.md para ideas del mismo formato y género."""),
 ("audience-analyst", "haiku", RW,
  "Define audiencia objetivo y palancas de atención SOLO para las ideas seleccionadas.",
  "ideas/<batch>/selected.json",
@@ -95,7 +105,8 @@ A = [
 - Usa solo capacidades declaradas en engine.md (modelo, resolución, duración máx. de clip, si hay image-to-video). No inventes capacidades.
 - Cada escena debe tener al menos un shot, y `scene` debe coincidir con el id de la escena (es el id que usará la narración).
 - Cada shot: id, scene, duration_s, type (still|i2v|t2v), prompt, negative, seed, motion (uno de: zoom_in, zoom_out, pan_left, pan_right, pan_up, pan_down, static).
-- Formato 9:16 para short, 16:9 para long. Nada de texto dentro de la imagen."""),
+- Formato 9:16 para short, 16:9 para long. Nada de texto dentro de la imagen.
+- Vídeo generado: SOLO si engine.md declara imagen-a-vídeo disponible. Marca `type: "i2v"` en como máximo los planos que indique engine.md (por defecto 3 en un short: el del hook, uno intermedio y el del giro) y añade `motion_prompt` en inglés (1 frase: qué se mueve y cómo se mueve la cámara). El resto, `type: "still"`."""),
 ("voice-director", "haiku", RW,
  "Prepara la narración para TTS: segmentos, ritmo, pausas, emoción.",
  "stories/<id>/chapters/ (los indicados), channel/style-bible/voice.md",
@@ -110,11 +121,12 @@ A = [
 - Cambio visual cada 2-4 s en shorts, 4-7 s en long. Primer plano visual fuerte en el segundo 0.
 - timeline: una entrada por shot con `shot`, `audio` (id del segmento de narración al que acompaña), `motion` y opcional `weight` (reparto de la duración del segmento entre sus shots). NO escribas tiempos: los calcula el script.
 - Todo segmento de durations.json debe tener al menos un shot. `motion` solo puede ser: zoom_in, zoom_out, pan_left, pan_right, pan_up, pan_down, static. Alterna movimientos.
-- Música: solo si existe un archivo en stories/<id>/assets/music/ (ruta relativa a la historia + licencia); si no, `"music": null`."""),
+- Música: `{"mood": "tension|mystery|melancholy|wonder", "level_db": -22}` (la sintetiza el script; elige el mood por el tono de la historia). Solo si el Director indica un archivo propio: `{"file": "assets/music/<pista>", "license": "...", "level_db": -22}`.
+- Efectos `sfx`: lista de `{"type": "whoosh|hit|riser|swell", "shot": "<id de shot>", "level_db": -14}`. Máx. 4 en un short y 12 en un long. `riser` termina donde empieza su shot: úsalo en el shot del giro, seguido de `hit` en ese mismo shot. `whoosh` en cambios de lugar o de época. No pongas efectos sobre frases clave de la narración sin motivo."""),
 ("shorts-specialist", "sonnet", RW,
  "Crea Shorts INDEPENDIENTES derivados de una historia larga (no recortes).",
  "stories/<id>/story-bible.md, continuity.md y SOLO los capítulos que indique el Director",
- "stories/<nuevo-id>/idea.json (con `derived_from`) + chapters/ch01.md + scenes/ por cada short. El Director crea antes cada <nuevo-id> con `studio.py derive`",
+ "stories/<nuevo-id>/idea.json (con `id` = <nuevo-id> y `derived_from`) + chapters/ch01.md + scenes/ por cada short. El Director crea antes cada <nuevo-id> con `studio.py derive`",
  """- Cada short debe entenderse sin ver el largo: hook propio, tensión propia, final propio (cierre o cliffhanger hacia el largo).
 - Reescribe; no copies párrafos del largo. Ángulos válidos: punto de vista de otro personaje, una pista aislada, un "qué pasaría si" del mismo mundo.
 - 130-160 palabras. No destripes el giro final del largo."""),

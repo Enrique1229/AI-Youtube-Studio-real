@@ -5,6 +5,7 @@
   "stage": "writing-ch02-of-04",
   "gates": {
     "critic": "PASS",
+    "market": "PENDING",
     "continuity": "PENDING",
     "policy": "PENDING",
     "qc": "PENDING"

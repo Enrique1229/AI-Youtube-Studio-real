@@ -7,51 +7,11 @@ Backends (studio.config.json -> image.backend):
                como NO entregable (assets/PLACEHOLDER) y `studio.py deliver` la rechaza.
 No regenera imágenes que ya existen (borra el archivo para rehacer un plano).
 """
-import json, sys, time, urllib.error, urllib.parse, urllib.request, uuid
-from common import CFG, ROOT, story, state, load, die
+import sys
+import comfy
+from common import CFG, story, state, load, die
 
 C = CFG["image"]
-
-
-def fill(node, vals):
-    if isinstance(node, dict):
-        return {k: fill(v, vals) for k, v in node.items()}
-    if isinstance(node, list):
-        return [fill(v, vals) for v in node]
-    if isinstance(node, str) and node.startswith("{{") and node.endswith("}}"):
-        if node[2:-2] not in vals:
-            die(f"el workflow usa el marcador {node} y no está en studio.config.json -> image.params")
-        return vals[node[2:-2]]
-    return node
-
-
-def http(path, data=None):
-    req = urllib.request.Request(C["comfy_url"] + path, data=json.dumps(data).encode() if data else None,
-                                 headers={"Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=120) as r:
-            return r.read()
-    except urllib.error.HTTPError as e:  # ComfyUI devuelve 400 con node_errors si el workflow no valida
-        die(f"ComfyUI {e.code} en {path}: {e.read().decode(errors='replace')[:1200]}")
-    except urllib.error.URLError as e:
-        die(f"ComfyUI no responde en {C['comfy_url']} ({e.reason})")
-
-
-def comfy(vals, out):
-    wf = fill(json.loads((ROOT / C["workflow"]).read_text()), vals)
-    pid = json.loads(http("/prompt", {"prompt": wf, "client_id": uuid.uuid4().hex}))["prompt_id"]
-    t0 = time.time()
-    while time.time() - t0 < C["timeout_s"]:
-        hist = json.loads(http(f"/history/{pid}"))
-        if pid in hist:
-            for node in hist[pid].get("outputs", {}).values():
-                for img in node.get("images", []):
-                    q = urllib.parse.urlencode({k: img[k] for k in ("filename", "subfolder", "type")})
-                    out.write_bytes(http(f"/view?{q}"))
-                    return
-            die(f"ComfyUI terminó sin imágenes: {json.dumps(hist[pid].get('status'))[:400]}")
-        time.sleep(2)
-    die("ComfyUI: tiempo de espera agotado")
 
 
 def placeholder(vals, out, label):
@@ -96,7 +56,7 @@ def main(sid, *flags):
         w, h = C["size"][s.get("aspect") or ("9:16" if fmt == "short" else "16:9")]
         vals = {**C.get("params", {}), "prompt": s["prompt"], "negative": s.get("negative", ""), "seed": int(s.get("seed", 1)), "width": w, "height": h}
         if C["backend"] == "comfy":
-            comfy(vals, out)
+            comfy.run_workflow(C["workflow"], vals, out, C["timeout_s"])
         elif C["backend"] == "placeholder":
             placeholder(vals, out, s["id"])
             (d / "assets" / "PLACEHOLDER").write_text("imágenes de prueba; no entregable\n")

@@ -43,6 +43,32 @@
   },
   "vps_threshold": {
     "short": 65,
-    "long": 70
+    "long": 65
+  },
+  "video_gen": {
+    "enabled": false,
+    "workflow": "templates/comfy/i2v_wan22_5b.json",
+    "timeout_s": 3600,
+    "params": {
+      "unet": "wan2.2_ti2v_5B_fp16.safetensors",
+      "text_encoder": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "vae": "wan2.2_vae.safetensors",
+      "steps": 20,
+      "cfg": 5
+    },
+    "size": {
+      "9:16": [
+        480,
+        832
+      ],
+      "16:9": [
+        832,
+        480
+      ]
+    },
+    "length": 49,
+    "fps": 24,
+    "max_per_short": 3,
+    "license": "Apache-2.0 (Wan-AI/Wan2.2-TI2V-5B, verificada en Hugging Face el 2026-11-13)"
   }
 }

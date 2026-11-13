@@ -1,0 +1,9 @@
+{"voice": "em_alex",
+ "segments": [
+  {"id": "ch01-s01", "scene": "ch01-s01", "text": "Bajé con una lámpara de carburo porque en el pueblo decían que ese pozo se tragaba a la gente. Yo solo buscaba a un pastor perdido.", "pause_after_ms": 300, "speed": 1.0, "emotion": "misterio"},
+  {"id": "ch01-s02", "scene": "ch01-s02", "text": "Treinta metros de cuerda. Ni un eco. Entonces la llama hizo algo raro: la pared brilló.", "pause_after_ms": 300, "speed": 1.05, "emotion": "tension"},
+  {"id": "ch01-s03", "scene": "ch01-s03", "text": "Una escalera tallada, en espiral. Cada peldaño con un nombre en letras de oro, como si ardieran por dentro.", "pause_after_ms": 300, "speed": 1.0, "emotion": "asombro"},
+  {"id": "ch01-s04", "scene": "ch01-s04", "text": "Pisé uno y noté calor. Polvo fresco, recién caído. Acerqué la llama.", "pause_after_ms": 700, "speed": 1.05, "emotion": "tension"},
+  {"id": "ch01-s05", "scene": "ch01-s05", "text": "Ponía Anselmo. Mi nombre. Con el trazo torcido que uso para firmar las cuentas. Nadie sabía que yo bajaría esta noche. Ni yo, hasta la tarde. Se lo había dicho solo a mi sombra, y mi sombra no habla.", "pause_after_ms": 300, "speed": 1.0, "emotion": "revelacion"},
+  {"id": "ch01-s06", "scene": "ch01-s06", "text": "Entonces lo oí, muy abajo: tac, tac, tac. Alguien golpeaba la piedra. No grababa mi nombre. Ya estaba grabado. Grababa el siguiente.", "pause_after_ms": 300, "speed": 0.92, "emotion": "suspense"}
+ ]}

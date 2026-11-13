@@ -5,7 +5,8 @@
   "stage": "selected",
   "gates": {
     "critic": "PASS",
-    "continuity": "PENDING",
+    "market": "PENDING",
+    "continuity": "PASS",
     "policy": "PENDING",
     "qc": "PENDING"
   },

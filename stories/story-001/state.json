@@ -5,6 +5,7 @@
   "stage": "blocked",
   "gates": {
     "critic": "PASS",
+    "market": "PENDING",
     "continuity": "PASS",
     "policy": "PASS",
     "qc": "FAIL"

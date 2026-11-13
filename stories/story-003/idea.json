@@ -1,7 +1,16 @@
-{"id": "story-002-short-a", "format": "short", "derived_from": "story-002",
- "logline": "Un buscador de pastores baja a un pozo con una lámpara de carburo y descubre que su nombre ya estaba grabado, aún tibio, antes de que decidiera bajar.",
- "hook": "Una llama de carburo en la oscuridad; la pared lisa se enciende en oro y revela una escalera tallada llena de nombres.",
- "twist": "Su propio nombre, con su trazo, está grabado y tibio; y abajo alguien sigue golpeando la piedra para grabar el siguiente.",
- "why_retains": "Bucle abierto: quién graba los nombres antes de que nadie baje, y de quién será el siguiente.",
- "series_potential": "alto: otro punto de vista del mismo pozo; enlaza con el largo sin necesitarlo",
- "tags": ["misterio", "bucle-temporal", "pozo"], "audience": null}
+{
+  "id": "story-003",
+  "format": "short",
+  "derived_from": "story-002",
+  "logline": "Un buscador de pastores baja a un pozo con una lámpara de carburo y descubre que su nombre ya estaba grabado, aún tibio, antes de que decidiera bajar.",
+  "hook": "Una llama de carburo en la oscuridad; la pared lisa se enciende en oro y revela una escalera tallada llena de nombres.",
+  "twist": "Su propio nombre, con su trazo, está grabado y tibio; y abajo alguien sigue golpeando la piedra para grabar el siguiente.",
+  "why_retains": "Bucle abierto: quién graba los nombres antes de que nadie baje, y de quién será el siguiente.",
+  "series_potential": "alto: otro punto de vista del mismo pozo; enlaza con el largo sin necesitarlo",
+  "tags": [
+    "misterio",
+    "bucle-temporal",
+    "pozo"
+  ],
+  "audience": null
+}

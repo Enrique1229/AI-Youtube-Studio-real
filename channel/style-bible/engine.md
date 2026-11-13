@@ -11,10 +11,11 @@ Configuración activa: `studio.config.json`. Este archivo solo declara lo que se
 - Montaje: FFmpeg. Solo IMÁGENES FIJAS con movimiento: zoom_in, zoom_out, pan_left, pan_right, pan_up, pan_down, static. Transición: corte. Salida 1080x1920 (short) / 1920x1080 (long), 30 fps. Las imágenes de 512 px se escalan: se nota.
 - Subtítulos: desde el guion y los tiempos del TTS, quemados con libass.
 - Thumbnail: Pillow (texto sobre imagen).
+- Música y efectos: sintetizados por `scripts/audio_gen.py` (sin terceros). Música ambiental: tension, mystery, melancholy, wonder. Efectos: whoosh, hit, riser, swell. Es ambiente, no melodía; no se ha evaluado de oído.
 
 ## NO disponible
 - Vídeo generativo (i2v/t2v): no implementado. Usa siempre `type: "still"`.
-- Música y SFX: no hay biblioteca. `music: null`.
+- Música de archivo: no hay biblioteca descargada (se puede usar una pista propia indicándola en el EDL).
 - Modelos de imagen mejores (SDXL, FLUX schnell): requieren GPU; no probados aquí.
 
 ## Reglas para prompts de imagen con el motor activo (SD 1.5)

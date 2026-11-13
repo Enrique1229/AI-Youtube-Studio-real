@@ -1,4 +1,4 @@
 {"format": "short",
  "timeline": [{"shot": "ch01-s01-a", "audio": "ch01-s01", "motion": "zoom_in", "weight": 1}],
- "music": null,
- "sfx": []}
+ "music": {"mood": "mystery", "level_db": -22},
+ "sfx": [{"type": "riser", "shot": "ch01-s05-a", "level_db": -12}, {"type": "hit", "shot": "ch01-s05-a", "level_db": -10}]}

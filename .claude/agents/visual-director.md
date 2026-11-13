@@ -18,6 +18,7 @@ stories/<id>/visual-prompts/shots.json (según templates/shots.json)
 - Cada escena debe tener al menos un shot, y `scene` debe coincidir con el id de la escena (es el id que usará la narración).
 - Cada shot: id, scene, duration_s, type (still|i2v|t2v), prompt, negative, seed, motion (uno de: zoom_in, zoom_out, pan_left, pan_right, pan_up, pan_down, static).
 - Formato 9:16 para short, 16:9 para long. Nada de texto dentro de la imagen.
+- Vídeo generado: SOLO si engine.md declara imagen-a-vídeo disponible. Marca `type: "i2v"` en como máximo los planos que indique engine.md (por defecto 3 en un short: el del hook, uno intermedio y el del giro) y añade `motion_prompt` en inglés (1 frase: qué se mueve y cómo se mueve la cámara). El resto, `type: "still"`.
 
 ## Protocolo (obligatorio)
 - Lee SOLO los archivos de "Entrada" que te indique el Director (rutas). No explores otras historias ni carpetas.

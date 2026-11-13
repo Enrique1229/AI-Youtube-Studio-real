@@ -14,3 +14,14 @@ Los comandos de ComfyUI son los de su README oficial (consultado el 2026-11-13).
 8. Abre `claude` en la carpeta del proyecto y escribe `/studio-setup`; después, `Produce 1 Short.` como primera prueba.
 
 Tarjetas NVIDIA serie 10 o anteriores: usa el ComfyUI portable "cu126" de la página de releases en lugar del paso 4.
+
+## Opcional: vídeo generado en planos clave (Wan 2.2 TI2V 5B, Apache-2.0)
+Son 17 GB de descarga. En una tarjeta de 6 GB no está garantizado que funcione: `/studio-setup` lo mide.
+Con ComfyUI apagado, desde `C:\Users\<tú>\ComfyUI`:
+
+    curl.exe -L -C - -o models\diffusion_models\wan2.2_ti2v_5B_fp16.safetensors https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_ti2v_5B_fp16.safetensors
+    curl.exe -L -C - -o models\vae\wan2.2_vae.safetensors https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan2.2_vae.safetensors
+    curl.exe -L -C - -o models\text_encoders\umt5_xxl_fp8_e4m3fn_scaled.safetensors https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors
+
+Después, en Claude Code: "ejecuta la prueba de vídeo de /studio-setup".
+El workflow `templates/comfy/i2v_wan22_5b.json` reproduce la plantilla oficial de ComfyUI; aquí se validó su estructura contra ComfyUI 0.45.0, pero no se ha generado ningún clip con él (no había GPU).

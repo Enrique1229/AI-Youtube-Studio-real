@@ -1,0 +1,159 @@
+[
+ {
+  "id": "ch01-s01",
+  "start": 0.0,
+  "end": 8.199,
+  "sentences": [
+   {
+    "text": "Bajé con una lámpara de carburo porque en el pueblo decían que ese pozo se tragaba a la gente.",
+    "start": 0.0,
+    "end": 5.333
+   },
+   {
+    "text": "Yo solo buscaba a un pastor perdido.",
+    "start": 5.453,
+    "end": 7.779
+   }
+  ]
+ },
+ {
+  "id": "ch01-s02",
+  "start": 8.199,
+  "end": 14.781,
+  "sentences": [
+   {
+    "text": "Treinta metros de cuerda.",
+    "start": 8.199,
+    "end": 9.756
+   },
+   {
+    "text": "Ni un eco.",
+    "start": 9.876,
+    "end": 10.793
+   },
+   {
+    "text": "Entonces la llama hizo algo raro:",
+    "start": 10.913,
+    "end": 13.089
+   },
+   {
+    "text": "la pared brilló.",
+    "start": 13.209,
+    "end": 14.361
+   }
+  ]
+ },
+ {
+  "id": "ch01-s03",
+  "start": 14.781,
+  "end": 21.465,
+  "sentences": [
+   {
+    "text": "Una escalera tallada, en espiral.",
+    "start": 14.781,
+    "end": 16.851
+   },
+   {
+    "text": "Cada peldaño con un nombre en letras de oro, como si ardieran por dentro.",
+    "start": 16.971,
+    "end": 21.045
+   }
+  ]
+ },
+ {
+  "id": "ch01-s04",
+  "start": 21.465,
+  "end": 27.048,
+  "sentences": [
+   {
+    "text": "Pisé uno y noté calor.",
+    "start": 21.465,
+    "end": 23.001
+   },
+   {
+    "text": "Polvo fresco, recién caído.",
+    "start": 23.121,
+    "end": 24.935
+   },
+   {
+    "text": "Acerqué la llama.",
+    "start": 25.055,
+    "end": 26.228
+   }
+  ]
+ },
+ {
+  "id": "ch01-s05",
+  "start": 27.048,
+  "end": 40.228,
+  "sentences": [
+   {
+    "text": "Ponía Anselmo.",
+    "start": 27.048,
+    "end": 28.2
+   },
+   {
+    "text": "Mi nombre.",
+    "start": 28.32,
+    "end": 29.109
+   },
+   {
+    "text": "Con el trazo torcido que uso para firmar las cuentas.",
+    "start": 29.229,
+    "end": 32.429
+   },
+   {
+    "text": "Nadie sabía que yo bajaría esta noche.",
+    "start": 32.549,
+    "end": 35.003
+   },
+   {
+    "text": "Ni yo, hasta la tarde.",
+    "start": 35.123,
+    "end": 36.573
+   },
+   {
+    "text": "Se lo había dicho solo a mi sombra, y mi sombra no habla.",
+    "start": 36.693,
+    "end": 39.808
+   }
+  ]
+ },
+ {
+  "id": "ch01-s06",
+  "start": 40.228,
+  "end": 50.443,
+  "sentences": [
+   {
+    "text": "Entonces lo oí, muy abajo:",
+    "start": 40.228,
+    "end": 42.105
+   },
+   {
+    "text": "tac, tac, tac.",
+    "start": 42.225,
+    "end": 43.377
+   },
+   {
+    "text": "Alguien golpeaba la piedra.",
+    "start": 43.497,
+    "end": 45.268
+   },
+   {
+    "text": "No grababa mi nombre.",
+    "start": 45.388,
+    "end": 46.86
+   },
+   {
+    "text": "Ya estaba grabado.",
+    "start": 46.98,
+    "end": 48.388
+   },
+   {
+    "text": "Grababa el siguiente.",
+    "start": 48.508,
+    "end": 50.023
+   }
+  ]
+ }
+]
