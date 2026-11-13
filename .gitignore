@@ -1,0 +1,10 @@
+# Los binarios pesados no van a git; el texto (memoria) sí.
+stories/*/assets/
+stories/*/final/*.mp4
+stories/*/voice/*.wav
+shorts/**/*.mp4
+long-videos/**/*.mp4
+__pycache__/
+models/
+channel/analytics/client_secret.json
+channel/analytics/token.json

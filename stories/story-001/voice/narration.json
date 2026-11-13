@@ -1,0 +1,9 @@
+{"voice": "ef_dora",
+ "segments": [
+  {"id": "ch01-s01", "scene": "ch01-s01", "text": "Pulsé el botón que no tiene número, entre el siete y el ocho. El ascensor tembló. Al otro lado, una radio de los años cincuenta cantaba.", "pause_after_ms": 300, "speed": 1.0, "emotion": "tenso"},
+  {"id": "ch01-s02", "scene": "ch01-s02", "text": "Las puertas se abrieron a mi rellano, pero ámbar y antiguo. Vi mi buzón. Con mi apellido, pintado a mano. Yo nunca nací.", "pause_after_ms": 300, "speed": 1.0, "emotion": "inquietante"},
+  {"id": "ch01-s03", "scene": "ch01-s03", "text": "Volví a pulsar. Neón, una tele encendida, voces de los ochenta. Nadie me miró. Busqué mi cara en el espejo del ascensor. No estaba.", "pause_after_ms": 300, "speed": 1.05, "emotion": "desorientada"},
+  {"id": "ch01-s04", "scene": "ch01-s04", "text": "Pulsé una última vez. Sin fecha. Sin neón, sin tele. Mi puerta estaba abierta, y olía a cena. La radio de los cincuenta sonaba otra vez.", "pause_after_ms": 700, "speed": 1.05, "emotion": "tenso"},
+  {"id": "ch01-s05", "scene": "ch01-s05", "text": "Un padre, una madre, una niña con trenza. Cenaban en mi salón, serenos, con un plato vacío para mí. En el aparador, un cartel pintado a mano con mi apellido. Levantaron la vista sin sorpresa.", "pause_after_ms": 400, "speed": 1.0, "emotion": "perturbador"},
+  {"id": "ch01-s06", "scene": "ch01-s06", "text": "La niña sonrió. Llegas tarde. Entendí: este es el edificio donde nunca nací. Detrás de mí, el botón se borró del panel.", "pause_after_ms": 0, "speed": 0.92, "emotion": "revelación"}
+ ]}

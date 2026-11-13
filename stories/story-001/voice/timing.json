@@ -1,0 +1,174 @@
+[
+ {
+  "id": "ch01-s01",
+  "start": 0.0,
+  "end": 8.297,
+  "sentences": [
+   {
+    "text": "Pulsé el botón que no tiene número, entre el siete y el ocho.",
+    "start": 0.0,
+    "end": 3.328
+   },
+   {
+    "text": "El ascensor tembló.",
+    "start": 3.448,
+    "end": 4.685
+   },
+   {
+    "text": "Al otro lado, una radio de los años cincuenta cantaba.",
+    "start": 4.805,
+    "end": 7.877
+   }
+  ]
+ },
+ {
+  "id": "ch01-s02",
+  "start": 8.297,
+  "end": 16.139,
+  "sentences": [
+   {
+    "text": "Las puertas se abrieron a mi rellano, pero ámbar y antiguo.",
+    "start": 8.297,
+    "end": 11.497
+   },
+   {
+    "text": "Vi mi buzón.",
+    "start": 11.617,
+    "end": 12.577
+   },
+   {
+    "text": "Con mi apellido, pintado a mano.",
+    "start": 12.697,
+    "end": 14.511
+   },
+   {
+    "text": "Yo nunca nací.",
+    "start": 14.631,
+    "end": 15.719
+   }
+  ]
+ },
+ {
+  "id": "ch01-s03",
+  "start": 16.139,
+  "end": 25.06,
+  "sentences": [
+   {
+    "text": "Volví a pulsar.",
+    "start": 16.139,
+    "end": 17.205
+   },
+   {
+    "text": "Neón, una tele encendida, voces de los ochenta.",
+    "start": 17.325,
+    "end": 19.992
+   },
+   {
+    "text": "Nadie me miró.",
+    "start": 20.112,
+    "end": 21.136
+   },
+   {
+    "text": "Busqué mi cara en el espejo del ascensor.",
+    "start": 21.256,
+    "end": 23.709
+   },
+   {
+    "text": "No estaba.",
+    "start": 23.829,
+    "end": 24.64
+   }
+  ]
+ },
+ {
+  "id": "ch01-s04",
+  "start": 25.06,
+  "end": 34.531,
+  "sentences": [
+   {
+    "text": "Pulsé una última vez.",
+    "start": 25.06,
+    "end": 26.532
+   },
+   {
+    "text": "Sin fecha.",
+    "start": 26.652,
+    "end": 27.484
+   },
+   {
+    "text": "Sin neón, sin tele.",
+    "start": 27.604,
+    "end": 28.863
+   },
+   {
+    "text": "Mi puerta estaba abierta, y olía a cena.",
+    "start": 28.983,
+    "end": 31.265
+   },
+   {
+    "text": "La radio de los cincuenta sonaba otra vez.",
+    "start": 31.385,
+    "end": 33.711
+   }
+  ]
+ },
+ {
+  "id": "ch01-s05",
+  "start": 34.531,
+  "end": 46.653,
+  "sentences": [
+   {
+    "text": "Un padre, una madre, una niña con trenza.",
+    "start": 34.531,
+    "end": 37.133
+   },
+   {
+    "text": "Cenaban en mi salón, serenos, con un plato vacío para mí.",
+    "start": 37.253,
+    "end": 40.517
+   },
+   {
+    "text": "En el aparador, un cartel pintado a mano con mi apellido.",
+    "start": 40.637,
+    "end": 43.859
+   },
+   {
+    "text": "Levantaron la vista sin sorpresa.",
+    "start": 43.979,
+    "end": 46.133
+   }
+  ]
+ },
+ {
+  "id": "ch01-s06",
+  "start": 46.653,
+  "end": 55.317,
+  "sentences": [
+   {
+    "text": "La niña sonrió.",
+    "start": 46.653,
+    "end": 47.869
+   },
+   {
+    "text": "Llegas tarde.",
+    "start": 47.989,
+    "end": 48.971
+   },
+   {
+    "text": "Entendí:",
+    "start": 49.091,
+    "end": 49.965
+   },
+   {
+    "text": "este es el edificio donde nunca nací.",
+    "start": 50.085,
+    "end": 52.475
+   },
+   {
+    "text": "Detrás de mí, el botón se borró del panel.",
+    "start": 52.595,
+    "end": 55.197
+   }
+  ]
+ }
+]

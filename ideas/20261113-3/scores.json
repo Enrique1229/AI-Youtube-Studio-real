@@ -1,0 +1,78 @@
+[
+  {
+    "id": "b20261113-3-l04",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 7,
+      "visual": 8,
+      "emotion": 6,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 7,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "Pueblo sumergido con una hora distinta por profundidad es una imposibilidad concreta, muy visual y fácil de titular; el final melancólico es sólido aunque algo pasivo.",
+    "improve": "Dar al buzo una decisión activa antes de apagar la linterna (un riesgo real con el oxígeno) para que el clímax no sea solo contemplativo.",
+    "vps": 63.6
+  },
+  {
+    "id": "b20261113-3-l03",
+    "scores": {
+      "hook": 7,
+      "curiosity": 8,
+      "retention": 7,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 7,
+      "series": 7,
+      "differentiation": 5,
+      "production_difficulty": 5,
+      "repetition_risk": 6
+    },
+    "why": "La sospecha creciente cajón a cajón y el expediente con su nombre sostienen la curiosidad; el giro del director que se alimenta de sueños es previsible y el tema sueños-archivo está muy visto.",
+    "improve": "Sustituir al director-vampiro por una revelación menos anticipable (p. ej. los sueños devueltos cambian a los vecinos de forma distinta) y mostrar el efecto en pantalla.",
+    "vps": 60.5
+  },
+  {
+    "id": "b20261113-3-l02",
+    "scores": {
+      "hook": 6,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 7,
+      "visual": 8,
+      "emotion": 6,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 7,
+      "repetition_risk": 6
+    },
+    "why": "El tren de estaciones es muy visual y tiene cuenta atrás, pero el hook habla de peso y no de misterio, y el sacrificio de la infancia repite el cierre de l01.",
+    "improve": "Abrir con la pregunta imposible (por qué pesa el otoño) y dar al maquinista una pérdida distinta a la de otros lotes del batch, no 'olvidar su infancia'.",
+    "vps": 54.8
+  },
+  {
+    "id": "b20261113-3-l01",
+    "scores": {
+      "hook": 7,
+      "curiosity": 7,
+      "retention": 6,
+      "originality": 6,
+      "visual": 5,
+      "emotion": 7,
+      "ending": 6,
+      "series": 7,
+      "differentiation": 5,
+      "production_difficulty": 5,
+      "repetition_risk": 7
+    },
+    "why": "El hook con precio-recuerdo es claro y concreto, pero 'objeto que cuesta un recuerdo' es un trope conocido y la estructura por lotes puede volverse enumerativa.",
+    "improve": "Que el segundo lote ya rompa la regla (un objeto cuyo precio es un recuerdo del comprador) para evitar la repetición mecánica y subir la sorpresa a mitad de vídeo.",
+    "vps": 54.6
+  }
+]

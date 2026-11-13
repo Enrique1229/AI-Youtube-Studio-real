@@ -1,0 +1,19 @@
+{
+  "id": "story-002",
+  "format": "long",
+  "title": "El pozo de los nombres",
+  "stage": "writing-ch02-of-04",
+  "gates": {
+    "critic": "PASS",
+    "continuity": "PENDING",
+    "policy": "PENDING",
+    "qc": "PENDING"
+  },
+  "vps": 66.6,
+  "quality_score": null,
+  "fix_rounds": 0,
+  "final_file": null,
+  "updated": "2026-11-13",
+  "idea_id": "b20261113-2-l04",
+  "forced_below_threshold": true
+}

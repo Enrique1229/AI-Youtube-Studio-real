@@ -1,0 +1,48 @@
+{
+  "language": "es",
+  "tts": {
+    "engine": "kokoro-onnx",
+    "model": "models/kokoro-v1.0.onnx",
+    "voices": "models/voices-v1.0.bin",
+    "voice": "em_alex",
+    "lang": "es",
+    "speed": 1.0,
+    "license": "Apache-2.0 (hexgrad/Kokoro-82M, verificada en Hugging Face el 2026-11-13)"
+  },
+  "image": {
+    "backend": "comfy",
+    "comfy_url": "http://127.0.0.1:8188",
+    "workflow": "templates/comfy/txt2img_sd15_lcm.json",
+    "timeout_s": 900,
+    "size": {
+      "9:16": [
+        512,
+        896
+      ],
+      "16:9": [
+        896,
+        512
+      ]
+    },
+    "params": {
+      "ckpt": "v1-5-pruned-emaonly.safetensors",
+      "lora": "lcm-lora-sdv1-5.safetensors",
+      "steps": 6,
+      "cfg": 1.5
+    },
+    "license": "CreativeML OpenRAIL-M (SD 1.5) + OpenRAIL++ (LCM LoRA); verificadas en Hugging Face el 2026-11-13"
+  },
+  "video": {
+    "fps": 30,
+    "zoom": 0.12
+  },
+  "subtitles": {
+    "font": "Inter Display",
+    "max_words": 3,
+    "max_chars": 18
+  },
+  "vps_threshold": {
+    "short": 65,
+    "long": 70
+  }
+}

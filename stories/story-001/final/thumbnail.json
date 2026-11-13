@@ -1,0 +1,13 @@
+{
+  "concepts": [
+    {
+      "prompt": "extreme close-up of a woman's finger in a mustard coat sleeve pressing a smooth blank unmarked elevator button between the numbers 7 and 8, small amber glow around the button, dark cold teal elevator panel, vertical 9:16, single subject centered in the middle third, empty dark space in the upper third for overlay text, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+      "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+      "seed": 1001,
+      "text": "SIN NÚMERO",
+      "focal": "Botón liso sin número con el dedo a punto de pulsarlo, acento ámbar en el tercio central",
+      "scores": {"clarity": 9, "curiosity": 8, "mobile": 9}
+    }
+  ],
+  "chosen": 0
+}

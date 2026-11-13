@@ -1,0 +1,22 @@
+[
+  {
+    "id": "b20261113-2-l04",
+    "format": "long",
+    "logline": "Una espeleóloga baja por un pozo cuya pared tiene una escalera de peldaños tallados con nombres de rescatistas, y en el último hueco encuentra el suyo aún sin grabar.",
+    "hook": "Linterna sobre piedra húmeda: un peldaño con un nombre; voz: \"Este pozo lleva escalera. Nadie la instaló.\"",
+    "twist": "Cada profundidad añade una era de rescatistas que bajaron a salvar al anterior; el fondo no tiene salida, tiene la cuerda de quien la envió: ella fue la rescatista del primer nombre, y su propio nombre sin grabar es el que debe tallar para que alguien más baje.",
+    "why_retains": "Descenso con hitos nítidos (niveles, nombres, objetos de cada época), mapa mental creciente y dilema final: grabar o romper el ciclo.",
+    "series_potential": "alto: otros pozos/umbrales con rescate en bucle",
+    "tags": [
+      "misterio",
+      "cueva",
+      "descenso",
+      "bucle-causal"
+    ],
+    "audience": null,
+    "vps": 66.6,
+    "batch": "20261113-2",
+    "story_id": "story-002",
+    "critic_improve": "Hacer que cada era deje un objeto distinto y reconocible que ella reutiliza en el fondo, de modo que el giro del bucle se sienta ganado y no impuesto."
+  }
+]

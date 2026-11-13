@@ -1,0 +1,78 @@
+[
+  {
+    "id": "b20261113-2-l04",
+    "scores": {
+      "hook": 7,
+      "curiosity": 7,
+      "retention": 8,
+      "originality": 7,
+      "visual": 8,
+      "emotion": 7,
+      "ending": 8,
+      "series": 7,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 4
+    },
+    "why": "El descenso por eras da hitos visuales y estructura de capítulos natural, y el dilema grabar-o-romper el ciclo cierra con carga emocional; el bucle causal es algo familiar.",
+    "improve": "Hacer que cada era deje un objeto distinto y reconocible que ella reutiliza en el fondo, de modo que el giro del bucle se sienta ganado y no impuesto.",
+    "vps": 66.6
+  },
+  {
+    "id": "b20261113-2-l02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 8,
+      "retention": 6,
+      "originality": 7,
+      "visual": 4,
+      "emotion": 7,
+      "ending": 8,
+      "series": 5,
+      "differentiation": 7,
+      "production_difficulty": 4,
+      "repetition_risk": 4
+    },
+    "why": "Enigma numérico verificable y final de 'habitante 0' con dilema moral fuerte, pero visualmente es libreta y gente hablando, con riesgo de monotonía en 6-10 min.",
+    "improve": "Añadir un elemento visual recurrente (pared de fotos o nombres que se desvanecen) que muestre cada olvido y rompa la estática de la libreta.",
+    "vps": 62.4
+  },
+  {
+    "id": "b20261113-2-l01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 6,
+      "visual": 8,
+      "emotion": 5,
+      "ending": 7,
+      "series": 8,
+      "differentiation": 6,
+      "production_difficulty": 7,
+      "repetition_risk": 5
+    },
+    "why": "Regla visual clara y gancho concreto (buzones en una calle inexistente), pero la inversión mapa/territorio es un trope conocido y la carga emocional es floja.",
+    "improve": "Dar a la cartógrafa un vínculo personal en el pueblo (alguien que borra por error) para que el coste de borrar duela y el final emocione.",
+    "vps": 62.2
+  },
+  {
+    "id": "b20261113-2-l03",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 4,
+      "visual": 6,
+      "emotion": 5,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 4,
+      "production_difficulty": 5,
+      "repetition_risk": 7
+    },
+    "why": "El gancho de los siete platos es nítido, pero 'el intruso eres tú' en base aislada es un giro muy gastado (The Thing, Los Otros) y se anticipa.",
+    "improve": "Sustituir el giro del narrador-intruso por una regla propia (p. ej. el séptimo plato cambia de sitio según quién lo mire) para evitar el desenlace previsible.",
+    "vps": 53.1
+  }
+]

@@ -1,0 +1,78 @@
+[
+  {
+    "id": "b20261113-1-s03",
+    "scores": {
+      "hook": 7,
+      "curiosity": 8,
+      "retention": 7,
+      "originality": 6,
+      "visual": 8,
+      "emotion": 7,
+      "ending": 8,
+      "series": 9,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 4
+    },
+    "why": "El boton sin numero y el cambio de epoca por piso dan imagen fuerte y un giro de identidad con carga emocional, aunque exige varios decorados.",
+    "improve": "Limitar a 3 paradas con un unico decorado reutilizado y cambios de iluminacion/vestuario para contener el coste.",
+    "vps": 66.6
+  },
+  {
+    "id": "b20261113-1-s01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 5,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 7,
+      "series": 8,
+      "differentiation": 5,
+      "production_difficulty": 3,
+      "repetition_risk": 5
+    },
+    "why": "Contradiccion visual hora/luz muy clara y barata de producir, pero el motivo del objeto que predice el futuro es muy visto.",
+    "improve": "Hacer que el primer plano incluya un detalle que cambie al re-ver (p. ej. la sombra de la ventana) para premiar el rewatch.",
+    "vps": 62.6
+  },
+  {
+    "id": "b20261113-1-s04",
+    "scores": {
+      "hook": 7,
+      "curiosity": 7,
+      "retention": 6,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 7,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 4,
+      "repetition_risk": 4
+    },
+    "why": "La luz roja en un faro sin corriente es una imagen potente y el giro del octavo nombre funciona, pero la lista de nombres puede resultar abstracta.",
+    "improve": "Mostrar cada nombre como una silueta que se desvanece en la ventana del pueblo para volver tangible la lista.",
+    "vps": 60.3
+  },
+  {
+    "id": "b20261113-1-s02",
+    "scores": {
+      "hook": 6,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 4,
+      "visual": 3,
+      "emotion": 6,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 4,
+      "production_difficulty": 4,
+      "repetition_risk": 6
+    },
+    "why": "El eco que responde es un buen gancho sonoro, pero un tunel oscuro ofrece poco material visual y el bucle es un recurso muy gastado.",
+    "improve": "Dar al tunel un elemento visual propio (luz que se apaga tramo a tramo) y mostrar el eco como texto o forma en pantalla.",
+    "vps": 47.2
+  }
+]

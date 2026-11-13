@@ -1,0 +1,20 @@
+[
+  {
+    "id": "b20261113-1-s03",
+    "format": "short",
+    "logline": "Un ascensor con un botón sin número lleva al mismo edificio en otras décadas, hasta el piso donde ella vive.",
+    "hook": "Un dedo pulsa un botón liso, sin número, entre el 7 y el 8; el ascensor tiembla y suena una radio de los años 50.",
+    "twist": "En el último piso la puerta de su casa ya está abierta y dentro hay una familia desconocida cenando: es el edificio donde ella nunca nació.",
+    "why_retains": "Cada parada cambia época y decorado, promete un nuevo salto y paga con un giro inesperado de identidad.",
+    "series_potential": "alto: un nuevo piso/época por episodio con reglas fijas",
+    "tags": [
+      "sci-fi",
+      "viaje-temporal",
+      "espacio-imposible",
+      "ascensor"
+    ],
+    "audience": "Quién: adultos de 18 a 34 años que consumen Shorts de sci-fi, misterio y situaciones imposibles (loops temporales, edificios con secretos, Black Mirror en formato corto).\nPor qué le importa: en pocos segundos promete un viaje visual a una época nueva y una pregunta de identidad (¿por qué ese piso?) que invita a comentar y a volver a ver.\nPalancas de retención: 1) cambio de época visible en cada parada (luz, radio, muebles) en menos de 5 s; 2) una regla fija del botón sin número que el espectador puede deducir y anticipar; 3) el giro de la puerta abierta en el último tramo, con un cierre que deja gancho para la serie.\nRiesgo de abandono: hacia el segundo ~10, si la segunda parada repite el mismo recurso sin cambio de luz o época visible, el espectador desconecta. Mitigación: cambio de luz inmediato en esa parada.",
+    "vps": 66.6,
+    "director_notes": "Aplicar la mejora del crítico: máximo 3 paradas, un único decorado (el rellano) con cambios de luz y época."
+  }
+]

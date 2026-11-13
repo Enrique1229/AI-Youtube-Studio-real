@@ -1,0 +1,17 @@
+{
+  "id": "story-001",
+  "format": "short",
+  "title": "El botón sin número",
+  "stage": "assembled",
+  "gates": {
+    "critic": "PASS",
+    "continuity": "PASS",
+    "policy": "FAIL",
+    "qc": "PENDING"
+  },
+  "vps": 66.6,
+  "quality_score": null,
+  "fix_rounds": 1,
+  "final_file": "stories/story-001/final/video.mp4",
+  "updated": "2026-11-13"
+}

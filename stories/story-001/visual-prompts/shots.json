@@ -1,0 +1,200 @@
+[
+ {
+  "id": "ch01-s01-a",
+  "scene": "ch01-s01",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "extreme close-up of a finger pressing a smooth blank elevator button with no number, cold teal elevator panel, single amber glow on the button, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1011,
+  "motion": "slow zoom in"
+ },
+ {
+  "id": "ch01-s01-b",
+  "scene": "ch01-s01",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "medium shot inside a night elevator, mujer de ~30, pelo negro corto, abrigo mostaza, bolso de tela verde, ojeras suaves, hand raised to the panel, panel vibrating, motion blur on the metal walls, cold green light, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1012,
+  "motion": "slow zoom in"
+ },
+ {
+  "id": "ch01-s01-c",
+  "scene": "ch01-s01",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "close-up of mujer de ~30, pelo negro corto, abrigo mostaza, bolso de tela verde, ojeras suaves, face lit by an amber glow leaking through the elevator door gap, listening, wary expression, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1013,
+  "motion": "pan right"
+ },
+ {
+  "id": "ch01-s02-a",
+  "scene": "ch01-s02",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "elevator doors opening onto an apartment-building landing, 1950s, warm amber light, old tiles, empty hallway, central framing, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1021,
+  "motion": "zoom in"
+ },
+ {
+  "id": "ch01-s02-b",
+  "scene": "ch01-s02",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "close-up of a vintage metal mailbox with a surname hand-painted in white paint, amber light, peeling paint, no legible text, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1022,
+  "motion": "slow zoom in"
+ },
+ {
+  "id": "ch01-s02-c",
+  "scene": "ch01-s02",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "over-the-shoulder shot of mujer de ~30, pelo negro corto, abrigo mostaza, bolso de tela verde, ojeras suaves, from behind, staring at the amber landing, stunned, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1023,
+  "motion": "static"
+ },
+ {
+  "id": "ch01-s03-a",
+  "scene": "ch01-s03",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "elevator interior panel with buttons, neon pink and blue light spilling from the landing outside, 1980s, a TV flickering in the distance, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1031,
+  "motion": "slow zoom in"
+ },
+ {
+  "id": "ch01-s03-b",
+  "scene": "ch01-s03",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "mujer de ~30, pelo negro corto, abrigo mostaza, bolso de tela verde, ojeras suaves, hand over the panel, 1980s neon landing visible behind, nobody looks at her, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1032,
+  "motion": "pan right"
+ },
+ {
+  "id": "ch01-s03-c",
+  "scene": "ch01-s03",
+  "duration_s": 4,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "elevator mirror reflecting the panel and neon of the landing, no person reflected, empty reflection, eerie teal and magenta light, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1033,
+  "motion": "zoom in"
+ },
+ {
+  "id": "ch01-s04-a",
+  "scene": "ch01-s04",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "close-up of mujer de ~30, pelo negro corto, abrigo mostaza, bolso de tela verde, ojeras suaves, finger pressing the last blank button, expression of resolve, cold teal light, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1041,
+  "motion": "slow zoom in"
+ },
+ {
+  "id": "ch01-s04-b",
+  "scene": "ch01-s04",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "empty timeless apartment landing, undated, no neon, bare clean walls, cold teal tones, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1042,
+  "motion": "pan right"
+ },
+ {
+  "id": "ch01-s04-c",
+  "scene": "ch01-s04",
+  "duration_s": 4,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "first-person view of an apartment door standing open, warm amber light spilling into the dark hallway, dinner steam in the air, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1043,
+  "motion": "zoom in"
+ },
+ {
+  "id": "ch01-s05-a",
+  "scene": "ch01-s05",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "wide shot of a family dining at a table in a living room, father, mother and girl, ropa beige/marrón atemporal, niña con trenza, calm, all looking up at the camera, one empty plate, warm amber lamp, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1051,
+  "motion": "slow zoom in"
+ },
+ {
+  "id": "ch01-s05-b",
+  "scene": "ch01-s05",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "medium close-up of the girl, ropa beige/marrón atemporal, niña con trenza, looking up serenely at the viewer, warm lamp light, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1052,
+  "motion": "zoom in"
+ },
+ {
+  "id": "ch01-s05-c",
+  "scene": "ch01-s05",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "close-up of a sideboard with a hand-painted sign bearing a surname, no legible text, same style as the mailbox, amber light, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1053,
+  "motion": "pan left"
+ },
+ {
+  "id": "ch01-s06-a",
+  "scene": "ch01-s06",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "close-up of the girl, ropa beige/marrón atemporal, niña con trenza, small knowing smile, warm amber light, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1061,
+  "motion": "slow zoom in"
+ },
+ {
+  "id": "ch01-s06-b",
+  "scene": "ch01-s06",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "medium shot of mujer de ~30, pelo negro corto, abrigo mostaza, bolso de tela verde, ojeras suaves, from the front at the living-room threshold, facing the family, face lit warm, serious expression, elevator behind her, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1062,
+  "motion": "static"
+ },
+ {
+  "id": "ch01-s06-c",
+  "scene": "ch01-s06",
+  "duration_s": 3,
+  "type": "still",
+  "aspect": "9:16",
+  "prompt": "elevator panel in the background, the blank button fading from the metal panel, cold teal light, abrupt hard-cut feel, cinematic still, moody low-key lighting, teal and amber palette, 35mm film grain, shallow depth of field, highly detailed",
+  "negative": "text, watermark, logo, subtitles, deformed hands, extra fingers, cartoon, anime, oversaturated",
+  "seed": 1063,
+  "motion": "static"
+ }
+]

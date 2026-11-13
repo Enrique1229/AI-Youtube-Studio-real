@@ -1,0 +1,7 @@
+kokoro-onnx
+soundfile
+numpy
+pillow
+# opcionales (solo import_metrics.py):
+# google-api-python-client
+# google-auth-oauthlib

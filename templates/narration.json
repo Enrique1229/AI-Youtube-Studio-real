@@ -1,0 +1,2 @@
+{"voice": "em_alex",
+ "segments": [{"id": "ch01-s01", "scene": "ch01-s01", "text": "Texto normalizado para TTS.", "pause_after_ms": 300, "speed": 1.0, "emotion": "tenso"}]}

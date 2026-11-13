@@ -1,0 +1,18 @@
+{
+  "id": "story-003",
+  "format": "short",
+  "title": "El nombre tibio",
+  "stage": "selected",
+  "gates": {
+    "critic": "PASS",
+    "continuity": "PENDING",
+    "policy": "PENDING",
+    "qc": "PENDING"
+  },
+  "vps": 66.6,
+  "quality_score": null,
+  "fix_rounds": 0,
+  "final_file": null,
+  "updated": "2026-11-13",
+  "derived_from": "story-002"
+}
