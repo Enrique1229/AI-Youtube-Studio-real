@@ -1,0 +1,17 @@
+{
+  "id": "story-003",
+  "verdict": "WEAK",
+  "comparables": [
+    {
+      "channel": "27 Shorts de misterio/sci-fi con IA (muestra de búsqueda, es/en)",
+      "url": "https://www.youtube.com/results?search_query=historia+de+misterio+IA+%23shorts",
+      "why_similar": "mismo formato y género",
+      "traction": "mayoría 1-1.000 vistas; mejores 1.000-4.900",
+      "monetization_signals": "no verificable",
+      "risk_signals": "decenas de canales clónicos de 3-539 suscriptores",
+      "source": "búsqueda pública de YouTube vía scripts/yt_lookup.py",
+      "checked": "2026-11-13"
+    }
+  ],
+  "notes": "Short del formato A (ver channel/strategy/market.md): WEAK. Formato con mucha oferta y poca tracción visible. Pasa la puerta como WEAK: producir solo como experimento medible."
+}

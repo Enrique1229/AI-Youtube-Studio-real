@@ -8,18 +8,26 @@ import sys
 from common import CFG, ROOT, story, state, set_state, load, frame_size, run
 
 
+WEAK_END = set("el la los las un una unos unas de del al a en con por para que y o e ni su sus mi mis tu tus se me te lo le no".split())
+
+
 def chunks(words, cfg):
+    """Trozos de 2-4 palabras que no terminan en artículo, preposición o conjunción y no dejan una palabra suelta."""
     cur = []
-    for w in words:
-        if cur and (len(cur) >= cfg["max_words"] or len(" ".join(cur + [w])) > cfg["max_chars"]):
+    for i, w in enumerate(words):
+        full = cur and (len(cur) >= cfg["max_words"] or len(" ".join(cur + [w])) > cfg["max_chars"])
+        if full and cur[-1].lower().strip("¿¡«»\"") in WEAK_END and len(cur) > 1:
+            carry = cur.pop()  # la palabra débil pasa al trozo siguiente
+            yield cur
+            cur = [carry]
+        elif full:
             yield cur
             cur = []
         cur.append(w)
-        if w[-1] in ".,;:!?…":
+        last = i == len(words) - 1
+        if w[-1] in ".;:!?…" or (w[-1] == "," and len(cur) > 1) or last:
             yield cur
             cur = []
-    if cur:
-        yield cur
 
 
 def cues(timing, cfg):

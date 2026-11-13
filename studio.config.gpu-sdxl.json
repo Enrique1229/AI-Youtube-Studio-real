@@ -29,7 +29,8 @@
       "steps": 25,
       "cfg": 7
     },
-    "license": "OpenRAIL++ (stabilityai/stable-diffusion-xl-base-1.0, verificada en Hugging Face el 2026-11-13)"
+    "license": "OpenRAIL++ (stabilityai/stable-diffusion-xl-base-1.0, verificada en Hugging Face el 2026-11-13)",
+    "source": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0"
   },
   "video": {
     "fps": 30,

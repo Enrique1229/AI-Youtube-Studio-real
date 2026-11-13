@@ -30,7 +30,8 @@
       "steps": 6,
       "cfg": 1.5
     },
-    "license": "CreativeML OpenRAIL-M (SD 1.5) + OpenRAIL++ (LCM LoRA); verificadas en Hugging Face el 2026-11-13"
+    "license": "CreativeML OpenRAIL-M (SD 1.5) + OpenRAIL++ (LCM LoRA); verificadas en Hugging Face el 2026-11-13",
+    "source": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5 + https://huggingface.co/latent-consistency/lcm-lora-sdv1-5"
   },
   "video": {
     "fps": 30,

@@ -42,7 +42,7 @@ A = [
 - NO calcules el score final: lo calcula `scripts/studio.py vps` de forma determinista.
 - El VIRALITY POTENTIAL SCORE es una estimación de potencial basada en criterios, nunca una predicción. Prohibido escribir "será viral".
 - Usa todo el rango: una idea media es un 5, no un 7."""),
-("market-validator", "sonnet", RW + ", WebSearch, WebFetch",
+("market-validator", "sonnet", RW + ", Bash, WebSearch, WebFetch",
  "Puerta de mercado: antes de producir, comprueba si existen canales reales con vídeos de características similares y con tracción. Sin evidencia, la idea no se produce.",
  "ideas/<batch>/ideas.json y ideas/<batch>/scores.json (SOLO las ideas que indique el Director: las que superan el umbral de VPS), channel/strategy/market.md (comparables ya conocidos; reutilízalos si tienen menos de 30 días)",
  "ideas/<batch>/market.json (según templates/market.json) y actualiza channel/strategy/market.md (máx. 60 líneas, con fecha)",
@@ -51,7 +51,9 @@ A = [
 - La monetización de un canal NO es pública. Nunca escribas "está monetizado" como hecho: anota señales (anuncios o membresías que cite una fuente, antigüedad, vistas sostenidas) y márcalo como "no verificable" si no las hay. Anota también señales en contra (canal eliminado, desmonetizado, parado).
 - Veredicto por idea: VALIDATED = al menos 2 comparables con tracción en los últimos 6 meses y sin señales de desmonetización; WEAK = 1 comparable o evidencia indirecta; NO_EVIDENCE = ninguno encontrado.
 - Nunca inventes canales, cifras ni URLs. Si no lo encuentras, es NO_EVIDENCE. No copies sus historias: solo se usan como evidencia de demanda.
-- Máx. 8 búsquedas por lote. Reutiliza los comparables de market.md para ideas del mismo formato y género."""),
+- Máx. 8 búsquedas por lote. Reutiliza los comparables de market.md para ideas del mismo formato y género.
+- Cifras: usa `python3 scripts/yt_lookup.py "<búsqueda>"` (vídeos y Shorts con vistas y antigüedad) y `python3 scripts/yt_lookup.py --channels "<búsqueda>"` (suscriptores). Busca con las palabras con que un espectador buscaría ese formato, en español y en inglés. Compara SIEMPRE duración parecida.
+- Si el formato pedido no tiene tracción pero uno cercano sí, dilo en `notes` y en market.md: es información para el Director, no un motivo para dar VALIDATED."""),
 ("audience-analyst", "haiku", RW,
  "Define audiencia objetivo y palancas de atención SOLO para las ideas seleccionadas.",
  "ideas/<batch>/selected.json",

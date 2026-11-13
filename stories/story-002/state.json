@@ -5,7 +5,7 @@
   "stage": "writing-ch02-of-04",
   "gates": {
     "critic": "PASS",
-    "market": "PENDING",
+    "market": "FAIL",
     "continuity": "PENDING",
     "policy": "PENDING",
     "qc": "PENDING"
@@ -16,5 +16,6 @@
   "final_file": null,
   "updated": "2026-11-13",
   "idea_id": "b20261113-2-l04",
-  "forced_below_threshold": true
+  "forced_below_threshold": true,
+  "market_verdict": "NO_EVIDENCE"
 }

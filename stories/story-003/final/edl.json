@@ -10,8 +10,12 @@
   {"shot": "ch01-s04-b", "audio": "ch01-s04", "motion": "pan_down", "weight": 1},
   {"shot": "ch01-s05-a", "audio": "ch01-s05", "motion": "zoom_in", "weight": 1},
   {"shot": "ch01-s05-b", "audio": "ch01-s05", "motion": "zoom_out", "weight": 1},
+  {"shot": "ch01-s05-c", "audio": "ch01-s05", "motion": "pan_right", "weight": 1},
+  {"shot": "ch01-s05-d", "audio": "ch01-s05", "motion": "zoom_in", "weight": 1},
   {"shot": "ch01-s06-a", "audio": "ch01-s06", "motion": "static", "weight": 1},
-  {"shot": "ch01-s06-b", "audio": "ch01-s06", "motion": "pan_down", "weight": 1}
+  {"shot": "ch01-s06-b", "audio": "ch01-s06", "motion": "pan_down", "weight": 1},
+  {"shot": "ch01-s06-c", "audio": "ch01-s06", "motion": "zoom_in", "weight": 1},
+  {"shot": "ch01-s06-d", "audio": "ch01-s06", "motion": "pan_left", "weight": 1}
  ],
  "music": {"mood": "mystery", "level_db": -22},
  "sfx": [

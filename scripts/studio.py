@@ -126,7 +126,10 @@ def cmd_derive(parent, title):
     st = load_state(sid)
     st.update(derived_from=parent, vps=pst.get("vps"), stage="selected")
     st["gates"]["critic"] = "PASS"
-    st["gates"]["market"] = pst["gates"].get("market", "PENDING")
+    st["gates"]["market"] = "PENDING"  # un short derivado es otro formato: necesita su propia validación de mercado
+    (sdir(sid) / "reviews" / "director-notes.md").write_text(
+        f"# Notas del Director — {sid}\n- Short derivado a propósito de {parent} (mismo universo, serie). "
+        "Debe tener protagonista o punto de vista y giro distintos, y no revelar el final del original.\n")
     save_state(sid, st)
 
 

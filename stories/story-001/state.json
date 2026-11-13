@@ -5,7 +5,7 @@
   "stage": "blocked",
   "gates": {
     "critic": "PASS",
-    "market": "PENDING",
+    "market": "PASS",
     "continuity": "PASS",
     "policy": "PASS",
     "qc": "FAIL"
@@ -15,5 +15,6 @@
   "fix_rounds": 2,
   "final_file": "stories/story-001/final/video.mp4",
   "updated": "2026-11-13",
-  "duration_s": 55.3
+  "duration_s": 55.3,
+  "market_verdict": "WEAK"
 }

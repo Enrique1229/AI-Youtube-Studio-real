@@ -1,6 +1,6 @@
 # AI YouTube Studio — Arquitectura
 
-Estado (2026-11-13): Fases 1-3 ejecutadas. El pipeline completo funciona de extremo a extremo en CPU y los 19 trabajadores están probados. Lo que falta para producir con calidad de canal es un motor de imagen mejor (GPU). Resultados de las pruebas: `PILOT-REPORT.md`. Puesta en marcha: `README.md`.
+Estado (2026-11-13): Fases 1-3 ejecutadas. El pipeline completo funciona de extremo a extremo en CPU y los 20 trabajadores están probados (market-validator, solo a través de un agente genérico). Lo que falta para producir con calidad de canal es un motor de imagen mejor (GPU). Resultados de las pruebas: `PILOT-REPORT.md`. Puesta en marcha: `README.md`.
 
 ## 0. Decisiones de diseño que se apartan del encargo literal
 
@@ -30,6 +30,7 @@ Un skill es conocimiento de procedimiento cargado bajo demanda: no ocupa context
 | 2 | trend-researcher | Sonnet + web | `strategy.md` | `channel/strategy/trends.md` |
 | 3 | idea-generator | Sonnet | trends, strategy, ledger resumido | `ideas/<batch>/ideas.json` |
 | 4 | content-critic | Sonnet | `ideas.json` | `ideas/<batch>/scores.json` |
+| 4b | market-validator | Sonnet + web + `yt_lookup.py` | ideas sobre el umbral, `market.md` | `ideas/<batch>/market.json`, `channel/strategy/market.md` |
 | 5 | audience-analyst | Haiku | `selected.json` | campo `audience` |
 | 6 | story-architect | Sonnet | `idea.json`, `narrative.md` | `story-bible.md` |
 | 7 | character-designer (solo LONG) | Sonnet | sección personajes | `characters.md` |
@@ -75,18 +76,22 @@ Fable solo interviene en: selección de ideas, conflictos entre agentes, decisi�
 | `assemble.py` | EDL + imágenes + voz → mp4; reparte la duración según el audio real; escribe `provenance.json` (modelos y licencias) | Probado |
 | `subtitles.py` | `timing.json` → `.srt`, `.ass` y vídeo final con subtítulos quemados | Probado |
 | `thumbnail.py` | Imagen + texto → `thumbnail.jpg` | Probado |
+| `audio_gen.py` | Música ambiental (4 moods) y efectos (whoosh, hit, riser, swell) sintetizados, sin terceros | Probado técnicamente; no evaluado de oído |
+| `gen_video.py` | Anima los planos `i2v` con Wan 2.2 TI2V 5B en ComfyUI | Estructura validada contra ComfyUI 0.45.0; sin ejecutar (no había GPU) |
+| `yt_lookup.py` | Vistas y suscriptores públicos de YouTube para la puerta de mercado | Probado; no es API oficial, puede romperse |
+| `comfy.py` | Cliente de ComfyUI compartido (subida, ejecución, descarga) | Probado contra ComfyUI real |
 | `import_metrics.py` | YouTube Analytics API → `videos.csv` | Probado solo contra una API simulada; necesita tus credenciales |
 | `check_tools.sh`, `setup_models.sh` | Diagnóstico e instalación del modelo de voz | Probados |
 
 Los subtítulos no usan reconocimiento de voz: el texto es el del guion y el tiempo de cada frase lo mide el TTS. Dentro de la frase, las palabras se reparten por longitud.
-No existe `gen_video.py`: el vídeo generativo no está implementado (ver §11).
+El vídeo generado está implementado pero desactivado (`video_gen.enabled: false`) hasta que `/studio-setup` lo pruebe en una GPU.
 
 ## 5. Hooks y automatizaciones
 
 | Mecanismo | Qué hace | Estado |
 |---|---|---|
 | Hook `SessionStart` | Imprime el estado de las producciones en curso: retomar un lote no cuesta relectura. | Verificado en una sesión real |
-| `studio.py select` | Se niega a crear una historia si su VPS no llega al umbral de `studio.config.json` (salvo `--force`). | Probado |
+| `studio.py select` | Se niega a crear una historia si su VPS no llega al umbral o si no tiene validación de mercado VALIDATED/WEAK (salvo `--force`). | Probado |
 | `studio.py deliver` | Se niega a entregar si alguna puerta no es PASS, si no hay vídeo final o si las imágenes son de prueba. | Probado |
 | Tarea programada semanal (opcional) | Refrescar `trends.md` y recordar importar métricas. | No creada: decide tú si la quieres |
 | Publicación en YouTube | No automatizada, por diseño. | — |
@@ -144,15 +149,16 @@ Pendiente de medir: el coste real por Short y por largo se conocerá tras el pri
 ## 9. Pipeline
 
 ```
-orden → preflight → [trends si caducó] → ideas ×4 → critic → VPS (script)
-      → selección (Director) ── puerta 1: critic
+orden → preflight → [trends si caducó] → ideas ×4 → critic → VPS (script) ── puerta 1: critic
+      → market-validator (canales reales comparables) ── puerta 2: market
+      → selección (Director)
       → audiencia (1 llamada)
       → SHORT: architect → writer ─────────────────────────┐
-        LONG:  architect → characters ∥ world → writer×cap ┤→ continuity ── puerta 2
+        LONG:  architect → characters ∥ world → writer×cap ┤→ continuity ── puerta 3
                └→ shorts-specialist (derivados)            ┘
       → visual ∥ voz → TTS → imágenes [→ vídeo] → EDL → montaje → subtítulos
       → thumbnail ∥ packaging
-      → policy ── puerta 3 → QC ── puerta 4 → deliver → READY FOR REVIEW
+      → revisión visual (Director) → policy ── puerta 4 → QC ── puerta 5 → deliver → READY FOR REVIEW
 fallo en una puerta → responsable → corrección → misma puerta (máx. 2) → BLOCKED
 ```
 
@@ -197,10 +203,11 @@ Configuración según hardware:
 1. Publicar en YouTube y marcar "AI use" al subir: manual por diseño.
 2. Ver y oír el vídeo: Quality Control revisa archivos e informes técnicos, no percibe el resultado. Artefactos visuales, voz rara o un ritmo que no funciona solo los detecta tu revisión.
 3. Calidad de imagen: depende de tener GPU y de elegir modelo. Con CPU el sistema funciona pero el resultado no es publicable.
-4. Vídeo generativo: no implementado. Hay que exportar el workflow oficial de Wan desde ComfyUI en una máquina con GPU y ampliar `gen_images.py` para subir la imagen de origen y recoger vídeo.
+4. Vídeo generado: implementado sobre la plantilla oficial de Wan 2.2 5B, pero sin ejecutar nunca. La documentación oficial habla de 8 GB; en 6 GB hay que medirlo. Si no funciona, queda la opción de un ComfyUI remoto (`image.comfy_url`).
 5. Consistencia visual de personajes entre planos: se mitiga (bloque visual fijo, seed), no se garantiza.
 6. Métricas: la API exige crear un proyecto en Google Cloud y autorizar con tu cuenta; el CTR hay que copiarlo a mano.
-7. Música: elegir y descargar pistas, y anotar su licencia.
+7. Música: el sistema sintetiza ambiente y efectos, pero no compone melodías. Para música de verdad hay que descargar pistas y anotar su licencia.
+7b. Mercado: `yt_lookup.py` da vistas y suscriptores, nunca ingresos ni estado de monetización.
 8. Monetización: el Guardian reduce riesgo, no garantiza la aprobación. La norma de YouTube cita expresamente los "image slideshows" y las plantillas de IA; la defensa es narrativa propia y variedad real.
 9. Viralidad: no predecible. Los umbrales de VPS son arbitrarios hasta que haya métricas con las que calibrarlos.
 

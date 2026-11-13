@@ -2,18 +2,20 @@
   "id": "story-003",
   "format": "short",
   "title": "El nombre tibio",
-  "stage": "selected",
+  "stage": "blocked",
   "gates": {
     "critic": "PASS",
-    "market": "PENDING",
+    "market": "PASS",
     "continuity": "PASS",
-    "policy": "PENDING",
-    "qc": "PENDING"
+    "policy": "PASS",
+    "qc": "FAIL"
   },
   "vps": 66.6,
-  "quality_score": null,
-  "fix_rounds": 0,
-  "final_file": null,
+  "quality_score": 58,
+  "fix_rounds": 1,
+  "final_file": "stories/story-003/final/video.mp4",
   "updated": "2026-11-13",
-  "derived_from": "story-002"
+  "derived_from": "story-002",
+  "market_verdict": "WEAK",
+  "duration_s": 50.4
 }

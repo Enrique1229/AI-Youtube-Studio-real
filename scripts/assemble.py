@@ -102,7 +102,7 @@ def main(sid):
         labels.append(f"[fx{i}]")
         used_sfx.append({"type": s["type"], "shot": s["shot"], "at_s": round(start, 2)})
         idx += 1
-    chains.append(f"{''.join(labels)}amix=inputs={len(labels)}:duration=first:normalize=0,alimiter=limit=0.89[a]")
+    chains.append(f"{''.join(labels)}amix=inputs={len(labels)}:duration=first:normalize=0,alimiter=limit=0.8:level=0[a]")
     out = d / "final" / "video_nosub.mp4"
     cmd += ["-filter_complex", ";".join(chains), "-map", "0:v", "-map", "[a]", "-c:v", "copy",
             "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-t", f"{total:.3f}", str(out)]
@@ -118,6 +118,7 @@ def main(sid):
             "voice": {k: CFG["tts"].get(k) for k in ("engine", "model", "license")},
             "images": {"backend": "placeholder" if placeholder else CFG["image"]["backend"],
                        "workflow": CFG["image"]["workflow"], "params": CFG["image"].get("params"),
+                       "source": CFG["image"].get("source"),
                        "license": "n/a (imágenes de prueba)" if placeholder else CFG["image"].get("license")},
             "video_clips": {"count": n_clips, "workflow": CFG["video_gen"]["workflow"], "license": CFG["video_gen"]["license"]} if n_clips else None,
             "music": music_prov,
