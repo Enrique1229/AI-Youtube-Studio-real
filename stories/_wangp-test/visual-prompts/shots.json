@@ -1,0 +1,14 @@
+[
+ {"id": "n1", "scene": "nivel-1", "type": "i2v", "aspect": "9:16", "seed": 4101,
+  "prompt": "3D animated cartoon, a small chubby blue clay creature with big round white eyes and a tiny yellow bowler hat, standing at the edge of a wooden dock facing a wide calm river, full body, side view, bright sunny day, green hills, soft studio lighting, Pixar-style render, clean simple shapes, vertical composition",
+  "negative": "photo, realistic human, text, watermark, logo, extra limbs, deformed, blurry, frame, border",
+  "motion_prompt": "The blue creature walks confidently forward off the end of the dock, falls straight into the river with a big splash and sinks, only the yellow hat floats on the water. Static camera."},
+ {"id": "n2", "scene": "nivel-2", "type": "i2v", "aspect": "9:16", "seed": 4102,
+  "prompt": "3D animated cartoon, a small chubby blue clay creature with big round white eyes and a tiny yellow bowler hat, standing on a long narrow wooden plank laid across a wide calm river, arms out for balance, full body, side view, bright sunny day, green hills, soft studio lighting, Pixar-style render, clean simple shapes, vertical composition",
+  "negative": "photo, realistic human, text, watermark, logo, extra limbs, deformed, blurry, frame, border",
+  "motion_prompt": "The blue creature walks slowly across the wobbling plank, arms waving to keep balance, the plank bends and bounces, it reaches the other side and jumps happily. Static camera."},
+ {"id": "n3", "scene": "nivel-3", "type": "i2v", "aspect": "9:16", "seed": 4103,
+  "prompt": "3D animated cartoon, a small chubby blue clay creature with big round white eyes and a tiny yellow bowler hat, sitting calmly in a small red rowing boat on a wide calm river, holding two oars, full body, side view, bright sunny day, green hills, soft studio lighting, Pixar-style render, clean simple shapes, vertical composition",
+  "negative": "photo, realistic human, text, watermark, logo, extra limbs, deformed, blurry, frame, border",
+  "motion_prompt": "The blue creature rows the red boat smoothly across the river from left to right, small ripples in the water, it tips its yellow hat to the camera. Static camera."}
+]
