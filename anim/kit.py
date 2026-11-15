@@ -14,7 +14,23 @@ FPS = 24
 PALETTE = {"blue": (0.10, 0.38, 0.95), "purple": (0.55, 0.20, 0.85), "orange": (1.0, 0.45, 0.08), "white": (1, 1, 1),
            "black": (0.02, 0.02, 0.02), "yellow": (1.0, 0.78, 0.05), "grass": (0.25, 0.62, 0.18), "wood": (0.45, 0.27, 0.12),
            "water": (0.05, 0.45, 0.75), "red": (0.85, 0.12, 0.10), "foam": (0.9, 0.97, 1.0), "leaf": (0.12, 0.45, 0.16),
-           "rock": (0.5, 0.5, 0.52), "pink": (1.0, 0.45, 0.6), "mud": (0.36, 0.25, 0.16), "metal": (0.6, 0.62, 0.66), "gold": (1.0, 0.72, 0.1)}
+           "rock": (0.5, 0.5, 0.52), "pink": (1.0, 0.45, 0.6), "mud": (0.36, 0.25, 0.16), "metal": (0.6, 0.62, 0.66), "gold": (1.0, 0.72, 0.1),
+           "green": (0.20, 0.72, 0.30), "teal": (0.05, 0.65, 0.62), "lime": (0.62, 0.85, 0.12), "coral": (1.0, 0.42, 0.36), "cream": (0.98, 0.90, 0.70),
+           "brown": (0.50, 0.30, 0.16), "gray": (0.55, 0.57, 0.62), "navy": (0.10, 0.16, 0.45)}
+
+# Reparto: cada episodio usa UN personaje (el mismo en todos sus niveles) y episodios distintos usan personajes distintos.
+SHAPES = {"redondo": (0.55, 0.50, 0.58), "alto": (0.44, 0.42, 0.74), "ancho": (0.68, 0.56, 0.50), "pera": (0.50, 0.48, 0.66), "mini": (0.46, 0.44, 0.48)}
+BODY_COLORS = ["blue", "purple", "orange", "green", "teal", "coral", "lime", "pink", "red", "cream", "brown", "gray"]
+HATS = ["bombin", "gorra", "casco", "cono", "lazo", "antena", "copa", "ninguno"]
+HAT_COLORS = ["yellow", "red", "white", "navy", "gold", "pink", "green"]
+
+
+def look_for(seed):
+    """Aspecto reproducible a partir del id del episodio: forma, color, sombrero y rasgos."""
+    r = random.Random(str(seed))
+    color = r.choice(BODY_COLORS); hc = r.choice([c for c in HAT_COLORS if c != color])
+    return {"shape": r.choice(list(SHAPES)), "color": color, "hat": r.choice(HATS), "hat_color": hc,
+            "eye": r.choice([0.85, 1.0, 1.2]), "eye_gap": r.choice([0.17, 0.20, 0.24]), "cheeks": r.random() < 0.4, "tail": r.random() < 0.3}
 
 
 class Stage:
@@ -109,8 +125,12 @@ class Stage:
             self.sc.frame_set(fr); wp = actor.root.matrix_world.translation
             self.key(self.tgt, fr, loc=(wp.x * weight, 0, max(0.45, min(1.0, wp.z + 0.6))))
 
-    def actor(self, color="blue", hat="bombin", x=0.0, size=1.0):
-        a = Actor(self, color, hat, x, size); self.actors.append(a); return a
+    def actor(self, color=None, hat=None, x=0.0, size=1.0, look=None):
+        """Sin argumentos usa el aspecto del episodio (S.look). `color`/`hat` lo fuerzan (p. ej. un secundario)."""
+        lk = dict(look or getattr(self, "look", None) or look_for("ep001"))
+        if color: lk["color"] = color
+        if hat: lk["hat"] = hat
+        a = Actor(self, lk, x, size); self.actors.append(a); return a
 
     def render(self, out, only=None):
         n = self.f + 10
@@ -125,28 +145,51 @@ class Stage:
 class Actor:
     """Personaje de plastilina: cuerpo, ojos con párpados, pies, brazos con hombro articulado y sombrero."""
 
-    def __init__(self, st, color, hat, x, size):
+    def __init__(self, st, lk, x, size):
         self.st, s = st, st
+        color, hat, hc = lk["color"], lk["hat"], lk.get("hat_color", "yellow")
+        bx, by, bz = SHAPES[lk.get("shape", "redondo")]; e = lk.get("eye", 1.0); g = lk.get("eye_gap", 0.20)
+        top = 0.55 + bz * 0.92                                   # altura de la coronilla
+        ey = 0.55 + bz * 0.40; fy = -by * 0.84                   # altura y profundidad de los ojos
         self.root = s.empty("pj", (x, 0, 0)); self.root.scale = (size,) * 3
         self.body = s.empty("cuerpo", parent=self.root)
-        s.obj("uv_sphere", "panza", color, (0, 0, 0.55), (0.55, 0.50, 0.58), parent=self.body)
+        s.obj("uv_sphere", "panza", color, (0, 0, 0.55), (bx, by, bz), parent=self.body)
         self.lids, self.pupils, self.arms = [], [], []
+        self._pup = (g + 0.01, fy - 0.09 * e, ey)
+        self._lid = (0.158 * e, 0.108 * e, 0.175 * e)
         for sx in (-1, 1):
-            s.obj("uv_sphere", "ojo", "white", (0.20 * sx, -0.42, 0.78), (0.15, 0.10, 0.17), parent=self.body)
-            self.pupils.append(s.obj("uv_sphere", "pupila", "black", (0.21 * sx, -0.51, 0.78), (0.06, 0.04, 0.07), parent=self.body))
-            lid = s.obj("uv_sphere", "parpado", color, (0.20 * sx, -0.425, 0.80), (0.158, 0.108, 0.001), parent=self.body); self.lids.append(lid)
+            s.obj("uv_sphere", "ojo", "white", (g * sx, fy, ey), (0.15 * e, 0.10 * e, 0.17 * e), parent=self.body)
+            self.pupils.append(s.obj("uv_sphere", "pupila", "black", (self._pup[0] * sx, self._pup[1], ey), (0.06 * e, 0.04 * e, 0.07 * e), parent=self.body))
+            lid = s.obj("uv_sphere", "parpado", color, (g * sx, fy - 0.005, ey + 0.02), (self._lid[0], self._lid[1], 0.001), parent=self.body); self.lids.append(lid)
             s.obj("uv_sphere", "pie", color, (0.22 * sx, -0.05, 0.07), (0.17, 0.24, 0.09), parent=self.root)
-            sh = s.empty("hombro", (0.50 * sx, 0, 0.62), parent=self.body); self.arms.append(sh)
+            sh = s.empty("hombro", ((bx - 0.05) * sx, 0, 0.62), parent=self.body); self.arms.append(sh)
             s.obj("uv_sphere", "brazo", color, (0.10 * sx, 0, -0.20), (0.10, 0.10, 0.24), parent=sh)
             s.obj("uv_sphere", "mano", color, (0.12 * sx, 0, -0.42), (0.12, 0.12, 0.12), parent=sh)
-        self.hat = s.empty("sombrero", (0, 0, 1.08), parent=self.body)
+            if lk.get("cheeks"): s.obj("uv_sphere", "moflete", "pink", ((g + 0.16) * sx, fy + 0.06, ey - 0.20), (0.07, 0.03, 0.05), parent=self.body)
+        if lk.get("tail"): s.obj("uv_sphere", "cola", color, (0, by * 0.95, 0.35), (0.12, 0.16, 0.12), parent=self.body)
+        self.hat_z = top
+        self.hat = s.empty("sombrero", (0, 0, top), parent=self.body)
+        H = self.hat
         if hat == "bombin":
-            s.obj("cylinder", "ala", "yellow", (0, 0, 0), (0.34, 0.34, 0.025), parent=self.hat)
-            s.obj("cylinder", "copa", "yellow", (0, 0, 0.13), (0.20, 0.20, 0.13), parent=self.hat)
+            s.obj("cylinder", "ala", hc, (0, 0, 0), (0.34, 0.34, 0.025), parent=H); s.obj("cylinder", "copa", hc, (0, 0, 0.13), (0.20, 0.20, 0.13), parent=H)
+        elif hat == "copa":
+            s.obj("cylinder", "ala", "black", (0, 0, 0), (0.34, 0.34, 0.025), parent=H); s.obj("cylinder", "copa", "black", (0, 0, 0.26), (0.19, 0.19, 0.26), parent=H)
+            s.obj("cylinder", "cinta", hc, (0, 0, 0.07), (0.195, 0.195, 0.04), parent=H)
+        elif hat == "gorra":
+            s.obj("uv_sphere", "casquete", hc, (0, 0, -0.02), (0.30, 0.30, 0.20), parent=H); s.obj("cylinder", "visera", hc, (0, -0.30, 0.0), (0.22, 0.20, 0.02), parent=H)
+        elif hat == "casco":
+            s.obj("uv_sphere", "casco", hc, (0, 0, -0.06), (0.40, 0.40, 0.28), parent=H); s.obj("cylinder", "borde", hc, (0, 0, -0.04), (0.44, 0.44, 0.03), parent=H)
+        elif hat == "cono":
+            s.obj("cone", "cono", hc, (0, 0, 0.22), (0.22, 0.22, 0.28), parent=H); s.obj("uv_sphere", "pompon", "white", (0, 0, 0.50), (0.06, 0.06, 0.06), parent=H)
+        elif hat == "lazo":
+            for sx in (-1, 1): s.obj("cone", "lazo", hc, (0.14 * sx, 0, 0.05), (0.12, 0.05, 0.14), rot=(0, math.radians(90 * sx), 0), parent=H)
+            s.obj("uv_sphere", "nudo", hc, (0, 0, 0.05), (0.06, 0.06, 0.06), parent=H)
+        elif hat == "antena":
+            s.obj("cylinder", "varilla", "gray", (0, 0, 0.16), (0.02, 0.02, 0.18), parent=H); s.obj("uv_sphere", "bola", hc, (0, 0, 0.38), (0.08, 0.08, 0.08), parent=H)
         elif hat == "corona":
-            s.obj("cylinder", "aro", "gold", (0, 0, 0.05), (0.30, 0.30, 0.07), parent=self.hat, smooth=False, vertices=10)
+            s.obj("cylinder", "aro", "gold", (0, 0, 0.05), (0.30, 0.30, 0.07), parent=H, smooth=False, vertices=10)
             for i in range(5):
-                a = i * 1.2566; s.obj("cone", "pico", "gold", (0.26 * math.cos(a), 0.26 * math.sin(a), 0.20), (0.07, 0.07, 0.12), parent=self.hat)
+                a = i * 1.2566; s.obj("cone", "pico", "gold", (0.26 * math.cos(a), 0.26 * math.sin(a), 0.20), (0.07, 0.07, 0.12), parent=H)
         self.x, self.z = x, 0.0
 
     # --- gestos ---
@@ -157,11 +200,13 @@ class Actor:
     def blink(self, f=None):
         f = self.st.f if f is None else f
         for lid in self.lids:
-            self.st.key(lid, f - 1, scale=(0.158, 0.108, 0.001)); self.st.key(lid, f + 1, scale=(0.158, 0.108, 0.175))
-            self.st.key(lid, f + 3, scale=(0.158, 0.108, 0.175)); self.st.key(lid, f + 5, scale=(0.158, 0.108, 0.001))
+            lx, ly, lz = self._lid
+            self.st.key(lid, f - 1, scale=(lx, ly, 0.001)); self.st.key(lid, f + 1, scale=(lx, ly, lz))
+            self.st.key(lid, f + 3, scale=(lx, ly, lz)); self.st.key(lid, f + 5, scale=(lx, ly, 0.001))
 
     def look(self, dx=0.0, dz=0.0, f=None):
-        for sx, p in zip((-1, 1), self.pupils): self.st.key(p, f, loc=(0.21 * sx + dx, -0.51, 0.78 + dz))
+        px, py, pz = self._pup
+        for sx, p in zip((-1, 1), self.pupils): self.st.key(p, f, loc=(px * sx + dx, py, pz + dz))
 
     def tilt(self, deg, f=None, interp="BEZIER"): self.st.key(self.body, f, rot=(0, math.radians(deg), 0), interp=interp)
 
@@ -213,7 +258,7 @@ class Actor:
         s = self.st; hat = self.hat
         mw = {}
         for fr in range(1, upto + 1, 2):
-            s.sc.frame_set(fr); mw[fr] = tuple(self.body.matrix_world @ Vector((0, 0, 1.08)))
+            s.sc.frame_set(fr); mw[fr] = tuple(self.body.matrix_world @ Vector((0, 0, self.hat_z)))
         hat.parent = None
         for fr, p in mw.items(): s.key(hat, fr, loc=p, rot=(0, 0, 0), scale=self.root.scale[:])
         x = self.x

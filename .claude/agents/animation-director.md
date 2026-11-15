@@ -14,6 +14,8 @@ anim/episodes/<id>.py con TITLE y LEVELS = [(iq, función), …]; stories/<id>/r
 
 ## Reglas
 - Una función por nivel: recibe el escenario S, crea el actor, encadena acciones y DEVUELVE el actor (la cámara lo sigue).
+- Protagonista: `S.actor(x=…)` sin color ni sombrero; el sistema le da un aspecto distinto en cada episodio. No reutilices el personaje de otro episodio.
+- Duración: el montaje acelera 1,5x; escribe cada nivel para 4-7 s a velocidad normal (objetivo final 15-25 s).
 - Usa solo la API de anim/README.md. Si un gag necesita un objeto nuevo, constrúyelo en la función con S.obj(...). Si necesita una acción nueva reutilizable, dilo en ISSUES en vez de modificar kit.py.
 - Ritmo: cada nivel dura 4-8 s. Antes del fracaso, una pausa corta (el personaje duda o mira a cámara). El remate, en los últimos 2 s.
 - Cada acción con sonido ya lo anota; añade S.cue(...) para golpes, chapuzones o éxitos que el kit no cubra.

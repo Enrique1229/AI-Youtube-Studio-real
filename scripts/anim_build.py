@@ -3,7 +3,7 @@
 
 Une los niveles renderizados (l1, l2… con sus PNG y level.json), añade el rótulo de IQ y mezcla los sonidos
 que el kit anotó en cada fotograma. Los IQ se leen del episodio vía level.json + argumento --iq.
-Uso típico:  python scripts/anim_build.py render/ep001 final/ep001.mp4 --iq -450,-80,120,900,5469
+Uso típico:  python scripts/anim_build.py render/ep001 final/ep001.mp4 --iq -450,-80,120,900,5469 [--speed 1.5]
 """
 import json, pathlib, subprocess, sys, tempfile
 import numpy as np, soundfile as sf
@@ -17,6 +17,7 @@ def main():
     args = sys.argv[1:]
     src, out = pathlib.Path(args[0]), pathlib.Path(args[1])
     iqs = [int(x) for x in args[args.index("--iq") + 1].split(",")]
+    speed = float(args[args.index("--speed") + 1]) if "--speed" in args else 1.5   # 1.5 = versión rápida (estándar del canal)
     root = pathlib.Path(__file__).resolve().parent.parent
     font = next(str(p) for p in ((root / f if not f.startswith(("/", "C:")) else pathlib.Path(f)) for f in FONT_CANDIDATES) if p.exists()).replace("\\", "/").replace(":", "\\:")
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="anim_")); clips, cues, t0 = [], [], 0.0
@@ -26,10 +27,10 @@ def main():
         vf = (f"scale=1080:1920:flags=lanczos,drawbox=x=270:y=150:w=540:h=118:color=white@0.94:t=fill,"
               f"drawtext=fontfile='{font}':text='{label}':fontcolor={color}:fontsize=70:x=(w-text_w)/2:y=172,format=yuv420p")
         clip = tmp / f"l{i}.mp4"
-        subprocess.run(["ffmpeg", "-y", "-v", "error", "-framerate", str(meta["fps"]), "-i", str(d / "f%04d.png"), "-vf", vf,
-                        "-c:v", "libx264", "-crf", "18", "-r", str(meta["fps"]), str(clip)], check=True)
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-framerate", str(meta["fps"] * speed), "-i", str(d / "f%04d.png"), "-vf", vf,
+                        "-c:v", "libx264", "-crf", "18", "-r", "30", str(clip)], check=True)
         clips.append(clip); cues.append({"t": t0, "type": "whoosh", "vol": -12})
-        cues += [dict(c, t=c["t"] + t0) for c in meta["cues"]]; t0 += meta["frames"] / meta["fps"]
+        cues += [dict(c, t=c["t"] / speed + t0) for c in meta["cues"]]; t0 += meta["frames"] / meta["fps"] / speed
     (tmp / "list.txt").write_text("".join(f"file '{c.as_posix()}'\n" for c in clips))
     # pista de audio: música ambiental + cada efecto en su instante
     n = int(t0 * A.SR) + A.SR; mix = np.zeros(n, np.float32)

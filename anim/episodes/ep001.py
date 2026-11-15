@@ -44,8 +44,8 @@ def l4(S):  # +900: una barca; rema tranquilo y saluda con el sombrero.
         S.key(boat, fr, loc=(-1.9 + 3.6 * e, 0, -0.16 + (0.04 if i % 2 else -0.02)), rot=(0, math.radians(3 if i % 2 else -3), 0))
         S.key(remo, fr, rot=(0.9, math.radians(35 if i % 2 else -35), 0)); a.arms_to(35 if i % 2 else -20, fr)
         if i % 2: S.cue("paddle", fr, vol=-10)
-    S.key(a.hat, 50, loc=(0, 0, 1.08), rot=(0, 0, 0)); S.key(a.hat, 58, loc=(0.25, -0.2, 1.45), rot=(0, math.radians(-40), 0), interp="BACK")
-    S.key(a.hat, 70, loc=(0.25, -0.2, 1.45), rot=(0, math.radians(-40), 0)); S.key(a.hat, 80, loc=(0, 0, 1.08), rot=(0, 0, 0), interp="BACK")
+    hz = a.hat_z; S.key(a.hat, 50, loc=(0, 0, hz), rot=(0, 0, 0)); S.key(a.hat, 58, loc=(0.25, -0.2, hz + 0.37), rot=(0, math.radians(-40), 0), interp="BACK")
+    S.key(a.hat, 70, loc=(0.25, -0.2, hz + 0.37), rot=(0, math.radians(-40), 0)); S.key(a.hat, 80, loc=(0, 0, hz), rot=(0, 0, 0), interp="BACK")
     S.cue("pop", 58, vol=-6); a.blink(64); S.f = n + 6; S.follow_obj = boat; return a
 
 

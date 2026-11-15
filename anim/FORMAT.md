@@ -5,17 +5,19 @@ Referencia de mercado (2026-11-14): la fórmula "distintos niveles de IQ ante el
 Detalle: `FORMAT-STUDY-AGBAPS.md`. Nosotros imitamos la FÓRMULA, no el contenido.
 
 ## Estructura de un episodio
-- Short vertical sin diálogo ni narración. Duración objetivo PROVISIONAL: 15-25 s (los Shorts se repiten en bucle y cuanto más cortos, más fácil que se vean enteros y se repitan). El episodio 1 dura 33 s a velocidad normal y 22 s acelerado: pendiente de que el usuario elija y de medir la duración real de los vídeos de referencia.
+- Short vertical sin diálogo ni narración, de 15-25 s. Decidido por el usuario (2026-11-15): la versión rápida es la buena. El montaje acelera 1,5x por defecto (`anim_build.py --speed`).
 - El último plano debe poder enlazar con el primero (bucle).
 - Un problema físico y 5 niveles, de la solución más torpe a la más ingeniosa.
 - Rótulo fijo arriba: "IQ" y una cifra que sube de negativa (roja) a muy alta (verde).
-- Sonido: efectos sincronizados con cada acción y música ambiental baja.
+- Sonido: efectos sincronizados con cada acción y música ambiental baja. Aprobado por el usuario tal como está en el episodio 1.
 - Título: "Cada nivel de IQ [haciendo X]" / "IQ bajo vs IQ alto: [X]".
 
 ## Mundo y personajes propios
-- Protagonista: "Bolo", criatura azul de plastilina con bombín amarillo. Es SIEMPRE el mismo modelo.
-- Secundarios disponibles: mismos cuerpos en otro color (morado, naranja) y con corona (para episodios de "proteger/llevar al rey").
-- Escenarios: `rio` (hecho). Por construir: desierto, castillo, mina, playa.
+- Decidido por el usuario (2026-11-15): NO el mismo personaje en todos los Shorts.
+- Cada episodio tiene su propio protagonista, generado a partir del nombre del archivo del episodio (`kit.look_for`): forma (redondo, alto, ancho, pera, mini), 12 colores, 8 sombreros, tamaño de ojos, mofletes, cola. Dentro del episodio es SIEMPRE el mismo.
+- Un episodio puede fijar su aspecto con `LOOK = {...}` si el gag lo pide (p. ej. un rey con corona).
+- Lo que da identidad al canal no es un personaje sino el estilo: criaturas de plastilina, colores vivos, el rótulo de IQ y el sonido.
+- Escenarios: `rio` (hecho). Por construir: desierto, castillo, mina, playa, aula.
 - Prohibido: personajes, escenarios reconocibles, marcas de agua o gags concretos de otros canales.
 
 ## Qué NO hacemos

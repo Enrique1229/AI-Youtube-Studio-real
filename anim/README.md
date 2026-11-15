@@ -6,7 +6,8 @@ Montar el episodio: `python scripts/anim_build.py <carpeta_render> <salida.mp4> 
 Motor de render: variable `STUDIO_ENGINE` (por defecto CYCLES en CPU; con GPU, `STUDIO_DEVICE=GPU`). EEVEE no está probado.
 
 ## Escenario S (Stage)
-- `S.actor(color="blue", hat="bombin"|"corona", x=0.0, size=1.0)` → actor
+- `S.actor(x=0.0)` → el protagonista del episodio (aspecto automático, distinto en cada episodio). `S.actor(color=…, hat=…)` para un secundario. Sombreros: bombin, copa, gorra, casco, cono, lazo, antena, corona, ninguno.
+- Altura del sombrero: `a.hat_z` (cambia con la forma del cuerpo; no uses un número fijo).
 - `S.obj(prim, nombre, color, loc, scale, rot, parent)` crea un objeto (prim: cube, uv_sphere, cylinder, cone). Colores: ver PALETTE.
 - `S.empty(nombre, loc, parent)`, `S.key(obj, f, loc, rot, scale, interp)` (interp: BEZIER, BACK, BOUNCE, ELASTIC, LINEAR)
 - `S.wait(n)` avanza n fotogramas (24 por segundo). `S.f` = fotograma actual.
