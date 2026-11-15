@@ -79,7 +79,17 @@ class Stage:
                 except Exception as e:
                     dev = "CPU"; print(f"[kit] GPU no disponible ({e}): render en CPU")
             sc.cycles.device = dev; sc.cycles.samples = samples
+            if dev == "GPU":
+                try: sc.cycles.denoiser = "OPTIX"                              # eliminación de ruido en la propia tarjeta
+                except Exception: pass
             sc.cycles.use_denoising = True; sc.cycles.max_bounces = 3
+        if engine.startswith("BLENDER_EEVEE"):    # motor rápido en GPU (sin probar en esta máquina: no tiene GPU)
+            try:
+                sc.eevee.taa_render_samples = max(8, samples)
+                for attr, val in (("use_shadows", True), ("use_raytracing", True), ("use_gtao", True)):
+                    if hasattr(sc.eevee, attr): setattr(sc.eevee, attr, val)
+            except Exception as e: print(f"[kit] ajustes EEVEE no aplicados: {e}")
+            print(f"[kit] motor {engine}")
         sc.render.resolution_x, sc.render.resolution_y = res
         sc.render.fps = FPS; sc.render.image_settings.file_format = "PNG"; sc.view_settings.view_transform = "Standard"
         w = bpy.data.worlds.new("w"); sc.world = w; w.use_nodes = True
@@ -174,8 +184,13 @@ class Stage:
         self.sc.frame_start, self.sc.frame_end = 1, n
         os.makedirs(out, exist_ok=True)
         json.dump({"frames": n, "fps": FPS, "cues": self.cues}, open(os.path.join(out, "level.json"), "w"), indent=1)
-        for fr in ([only] if only else range(1, n + 1)):
-            self.sc.frame_set(fr); self.sc.render.filepath = os.path.join(out, f"f{fr:04d}.png"); bpy.ops.render.render(write_still=True)
+        if only:
+            self.sc.frame_set(only); self.sc.render.filepath = os.path.join(out, f"f{only:04d}.png"); bpy.ops.render.render(write_still=True)
+            return n
+        # Todo el nivel en UNA llamada: Blender prepara la escena una vez y la reutiliza (mucho más rápido, sobre todo con GPU)
+        self.sc.render.use_persistent_data = True
+        self.sc.render.filepath = os.path.join(out, "f####")
+        bpy.ops.render.render(animation=True)
         return n
 
 
