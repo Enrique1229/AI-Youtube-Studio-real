@@ -2,11 +2,11 @@
 
 Ejecutar un nivel:  `python anim/run_level.py -- anim/episodes/ep001.py <nivel> <carpeta_salida> [fotograma]`
 (con `pip install bpy` en Python 3.13, o dentro de Blender: `blender -b -P anim/run_level.py -- …`).
-Montar el episodio: `python scripts/anim_build.py <carpeta_render> <salida.mp4> --iq -450,-80,120,900,5469`
+Montar el episodio: `python scripts/anim_build.py <carpeta_render> <salida.mp4> --iq -450,-80,120,900,5469 [--speed 1.5] [--music-db -13]`
 Motor de render: variable `STUDIO_ENGINE` (por defecto CYCLES en CPU; con GPU, `STUDIO_DEVICE=GPU`). EEVEE no está probado.
 
 ## Escenario S (Stage)
-- `S.actor(x=0.0)` → el protagonista del episodio (aspecto automático, distinto en cada episodio). `S.actor(color=…, hat=…)` para un secundario. Sombreros: bombin, copa, gorra, casco, cono, lazo, antena, corona, ninguno.
+- `S.actor(x=0.0)` → el protagonista HUMANO del episodio (aspecto automático, distinto en cada episodio). `S.actor(color=…, hat=…)` para un secundario. Sombreros: bombin, copa, gorra, casco, cono, lazo, antena, corona, ninguno.
 - Altura del sombrero: `a.hat_z` (cambia con la forma del cuerpo; no uses un número fijo).
 - `S.obj(prim, nombre, color, loc, scale, rot, parent)` crea un objeto (prim: cube, uv_sphere, cylinder, cone). Colores: ver PALETTE.
 - `S.empty(nombre, loc, parent)`, `S.key(obj, f, loc, rot, scale, interp)` (interp: BEZIER, BACK, BOUNCE, ELASTIC, LINEAR)

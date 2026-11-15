@@ -34,7 +34,8 @@ def main():
     (tmp / "list.txt").write_text("".join(f"file '{c.as_posix()}'\n" for c in clips))
     # pista de audio: música ambiental + cada efecto en su instante
     n = int(t0 * A.SR) + A.SR; mix = np.zeros(n, np.float32)
-    bed = A.music("wonder", t0 + 1, 11); mix[:len(bed)] += bed[:n] * 10 ** (-20 / 20)
+    mdb = float(args[args.index("--music-db") + 1]) if "--music-db" in args else -13.0
+    bed = A.comedy_music(t0 + 0.5, A.seed_of(out.stem)); mix[:len(bed)] += bed[:n].astype(np.float32) * 10 ** (mdb / 20)   # música original, distinta por episodio
     cache = {}
     for c in cues:
         w = cache.setdefault(c["type"], A.sfx(c["type"], A.seed_of(c["type"])))

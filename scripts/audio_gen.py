@@ -63,6 +63,52 @@ def music(mood, seconds, seed):
     return norm(fade(x, min(2.0, seconds / 4), min(2.5, seconds / 4)), 0.6)
 
 
+def _note(freq, dur, kind="pluck"):
+    t = np.arange(int(SR * dur)) / SR
+    if kind == "bass":   # tuba/bajo: redondo y corto
+        return (np.sin(2 * np.pi * freq * t) + 0.35 * np.sin(2 * np.pi * 2 * freq * t) + 0.15 * np.sin(2 * np.pi * 3 * freq * t)) * np.exp(-t * 6) * np.minimum(1, t * 200)
+    if kind == "chord":  # acorde corto a contratiempo
+        return (np.sin(2 * np.pi * freq * t) + 0.3 * np.sin(2 * np.pi * 2 * freq * t)) * np.exp(-t * 16) * np.minimum(1, t * 300)
+    return (np.sin(2 * np.pi * freq * t) + 0.5 * np.sin(2 * np.pi * 4 * freq * t) * np.exp(-t * 30) + 0.2 * np.sin(2 * np.pi * 2 * freq * t)) * np.exp(-t * 9) * np.minimum(1, t * 400)
+
+
+def comedy_music(seconds, seed):
+    """Música original alegre y marcada para comedia: bajo 'um-pa', acordes a contratiempo, melodía saltarina y percusión.
+    Cada semilla da otro tempo, tonalidad, progresión y melodía. Sintetizada aquí: sin derechos de terceros."""
+    rng = np.random.default_rng(seed)
+    bpm = int(rng.choice([126, 132, 138, 144, 152])); beat = 60 / bpm
+    root = 110.0 * 2 ** (int(rng.integers(0, 7)) / 12)                                  # tónica (La2 a Mi3)
+    prog = [[0, 5, 7, 0], [0, 9, 5, 7], [0, 7, 9, 5], [0, 5, 0, 7]][int(rng.integers(0, 4))]  # grados en semitonos por compás
+    minor = {9}                                                                         # el vi es menor
+    scale = [0, 2, 4, 7, 9, 12, 14, 16]                                                 # pentatónica mayor (dos octavas)
+    motifs = [[int(rng.integers(0, len(scale))) if rng.random() > 0.25 else None for _ in range(8)] for _ in range(2)]
+    form = [0, 0, 1, 0]
+    n = int(SR * seconds) + SR; out = np.zeros(n)
+    def put(sig, at, gain):
+        k = int(at * SR)
+        if k < n: out[k:k + len(sig)] += sig[:max(0, n - k)] * gain
+    kick_t = np.arange(int(SR * 0.16)) / SR; kick = np.sin(2 * np.pi * (110 * np.exp(-kick_t * 28) + 42) * kick_t) * np.exp(-kick_t * 18)
+    sn_t = np.arange(int(SR * 0.11)) / SR; snare = rng.standard_normal(len(sn_t)) * np.exp(-sn_t * 34)
+    hh_t = np.arange(int(SR * 0.035)) / SR; hat = np.diff(rng.standard_normal(len(hh_t) + 1)) * np.exp(-hh_t * 110)
+    bar, t0 = 0, 0.0
+    while t0 < seconds:
+        deg = prog[bar % 4]; third = 3 if deg in minor else 4; base = root * 2 ** (deg / 12)
+        for b in range(4):
+            at = t0 + b * beat
+            if b % 2 == 0:
+                put(_note(base / 2 * (1.0 if b == 0 else 1.498), beat * 0.9, "bass"), at, 0.55); put(kick, at, 0.6)
+            else:
+                for st in (0, third, 7): put(_note(base * 2 ** (st / 12), beat * 0.5, "chord"), at, 0.16)
+                put(snare, at, 0.16)
+            for h in (0, 0.5): put(hat, at + h * beat, 0.10 if h else 0.06)
+        m = motifs[form[bar % 4]]
+        for i, deg_i in enumerate(m):
+            if deg_i is not None: put(_note(base * 2 * 2 ** (scale[deg_i] / 12) if scale[deg_i] < 12 else base * 2 ** (scale[deg_i] / 12), beat * 0.45), t0 + i * beat / 2, 0.30)
+        bar += 1; t0 += 4 * beat
+    out = out[:int(SR * seconds)]
+    return norm(fade(np.tanh(out * 1.3), 0.03, min(0.6, seconds / 6)), 0.7)
+
+
 def sfx(kind, seed):
     rng = np.random.default_rng(seed)
     if kind == "hit":
@@ -79,6 +125,9 @@ def sfx(kind, seed):
         t = np.arange(int(SR * 3.0)) / SR
         x = chord([0, 7, 12], 82.4, t, rng) * np.sin(np.pi * t / 3.0) ** 2
         return norm(lowpass(x, 1200), 0.7)
+    if kind == "step":       # paso: golpe corto y seco
+        t = np.arange(int(SR * 0.09)) / SR
+        return norm(np.sin(2 * np.pi * (160 - 600 * t) * t) * np.exp(-t * 55) + 0.4 * lowpass(rng.standard_normal(len(t)), 2500) * np.exp(-t * 80) * 3, 0.5)
     if kind == "boing":      # muelle: tono que sube y vibra
         t = np.arange(int(SR * 0.32)) / SR
         f = 180 + 520 * (t / 0.32) ** 0.6 + 40 * np.sin(2 * np.pi * 28 * t)

@@ -9,14 +9,14 @@ Detalle: `FORMAT-STUDY-AGBAPS.md`. Nosotros imitamos la FÓRMULA, no el contenid
 - El último plano debe poder enlazar con el primero (bucle).
 - Un problema físico y 5 niveles, de la solución más torpe a la más ingeniosa.
 - Rótulo fijo arriba: "IQ" y una cifra que sube de negativa (roja) a muy alta (verde).
-- Sonido: efectos sincronizados con cada acción y música ambiental baja. Aprobado por el usuario tal como está en el episodio 1.
+- Sonido: efectos sincronizados con cada acción (aprobados por el usuario) y MÚSICA DE FONDO con ritmo en todos los vídeos (pedido por el usuario). La música es original, sintetizada por `audio_gen.comedy_music`, distinta en cada episodio (tempo, tonalidad y melodía). No imita la de ningún canal: no se ha podido oír la de referencia.
 - Título: "Cada nivel de IQ [haciendo X]" / "IQ bajo vs IQ alto: [X]".
 
 ## Mundo y personajes propios
-- Decidido por el usuario (2026-11-15): NO el mismo personaje en todos los Shorts.
-- Cada episodio tiene su propio protagonista, generado a partir del nombre del archivo del episodio (`kit.look_for`): forma (redondo, alto, ancho, pera, mini), 12 colores, 8 sombreros, tamaño de ojos, mofletes, cola. Dentro del episodio es SIEMPRE el mismo.
-- Un episodio puede fijar su aspecto con `LOOK = {...}` si el gag lo pide (p. ej. un rey con corona).
-- Lo que da identidad al canal no es un personaje sino el estilo: criaturas de plastilina, colores vivos, el rótulo de IQ y el sonido.
+- Decidido por el usuario (2026-11-15): los personajes son HUMANOS, con el mismo estilo de plastilina, y NO se repite el mismo en todos los Shorts.
+- Cada episodio tiene su propio protagonista humano, generado a partir del nombre del archivo del episodio (`kit.look_for`): 6 tonos de piel, 7 peinados, 5 colores de pelo, 12 camisetas, 6 pantalones, 5 complexiones, gafas y sombrero opcionales. Dentro del episodio es SIEMPRE el mismo.
+- Un episodio puede fijar su aspecto con `LOOK = {...}` si el gag lo pide. Las criaturas (`kind` distinto de "humano") siguen existiendo para secundarios o mascotas.
+- La variedad de aspecto es aleatoria y no tiene relación con el nivel de IQ: el mismo personaje hace todos los niveles.
 - Escenarios: `rio` (hecho). Por construir: desierto, castillo, mina, playa, aula.
 - Prohibido: personajes, escenarios reconocibles, marcas de agua o gags concretos de otros canales.
 

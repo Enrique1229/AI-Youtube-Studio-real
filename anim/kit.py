@@ -16,7 +16,11 @@ PALETTE = {"blue": (0.10, 0.38, 0.95), "purple": (0.55, 0.20, 0.85), "orange": (
            "water": (0.05, 0.45, 0.75), "red": (0.85, 0.12, 0.10), "foam": (0.9, 0.97, 1.0), "leaf": (0.12, 0.45, 0.16),
            "rock": (0.5, 0.5, 0.52), "pink": (1.0, 0.45, 0.6), "mud": (0.36, 0.25, 0.16), "metal": (0.6, 0.62, 0.66), "gold": (1.0, 0.72, 0.1),
            "green": (0.20, 0.72, 0.30), "teal": (0.05, 0.65, 0.62), "lime": (0.62, 0.85, 0.12), "coral": (1.0, 0.42, 0.36), "cream": (0.98, 0.90, 0.70),
-           "brown": (0.50, 0.30, 0.16), "gray": (0.55, 0.57, 0.62), "navy": (0.10, 0.16, 0.45)}
+           "brown": (0.50, 0.30, 0.16), "gray": (0.55, 0.57, 0.62), "navy": (0.10, 0.16, 0.45),
+           # humanos: tonos de piel, pelo y ropa
+           "skin1": (1.0, 0.82, 0.68), "skin2": (0.95, 0.70, 0.52), "skin3": (0.80, 0.55, 0.38), "skin4": (0.60, 0.38, 0.24), "skin5": (0.42, 0.26, 0.16), "skin6": (0.28, 0.17, 0.11),
+           "hair_black": (0.03, 0.03, 0.04), "hair_brown": (0.26, 0.14, 0.07), "hair_blond": (0.93, 0.74, 0.30), "hair_red": (0.70, 0.25, 0.08), "hair_gray": (0.70, 0.70, 0.72),
+           "denim": (0.16, 0.28, 0.55), "khaki": (0.70, 0.60, 0.40), "shoe": (0.10, 0.10, 0.12), "mouth": (0.35, 0.05, 0.08)}
 
 # Reparto: cada episodio usa UN personaje (el mismo en todos sus niveles) y episodios distintos usan personajes distintos.
 SHAPES = {"redondo": (0.55, 0.50, 0.58), "alto": (0.44, 0.42, 0.74), "ancho": (0.68, 0.56, 0.50), "pera": (0.50, 0.48, 0.66), "mini": (0.46, 0.44, 0.48)}
@@ -25,9 +29,22 @@ HATS = ["bombin", "gorra", "casco", "cono", "lazo", "antena", "copa", "ninguno"]
 HAT_COLORS = ["yellow", "red", "white", "navy", "gold", "pink", "green"]
 
 
-def look_for(seed):
-    """Aspecto reproducible a partir del id del episodio: forma, color, sombrero y rasgos."""
+SKINS = ["skin1", "skin2", "skin3", "skin4", "skin5", "skin6"]
+HAIRS = ["corto", "afro", "mono", "coletas", "flequillo", "calvo", "largo"]
+HAIR_COLORS = ["hair_black", "hair_black", "hair_brown", "hair_brown", "hair_blond", "hair_red", "hair_gray"]
+SHIRTS = ["red", "blue", "green", "orange", "purple", "teal", "white", "yellow", "coral", "navy", "pink", "lime"]
+PANTS = ["denim", "khaki", "navy", "gray", "brown", "black"]
+BUILDS = {"normal": (1.0, 1.0), "alto": (0.92, 1.18), "bajo": (1.08, 0.86), "fuerte": (1.25, 1.0), "flaco": (0.82, 1.08)}
+
+
+def look_for(seed, kind="humano"):
+    """Aspecto reproducible a partir del id del episodio. Por defecto, un HUMANO de plastilina (decisión del usuario)."""
     r = random.Random(str(seed))
+    if kind == "humano":
+        shirt = r.choice(SHIRTS)
+        return {"kind": "humano", "skin": r.choice(SKINS), "hair": r.choice(HAIRS), "hair_color": r.choice(HAIR_COLORS), "shirt": shirt,
+                "pants": r.choice(PANTS), "build": r.choice(list(BUILDS)), "hat": r.choice(["ninguno", "ninguno", "ninguno", "gorra", "bombin", "casco"]),
+                "hat_color": r.choice([c for c in HAT_COLORS if c != shirt]), "eye": r.choice([0.9, 1.0, 1.15]), "glasses": r.random() < 0.2, "color": shirt}
     color = r.choice(BODY_COLORS); hc = r.choice([c for c in HAT_COLORS if c != color])
     return {"shape": r.choice(list(SHAPES)), "color": color, "hat": r.choice(HATS), "hat_color": hc,
             "eye": r.choice([0.85, 1.0, 1.2]), "eye_gap": r.choice([0.17, 0.20, 0.24]), "cheeks": r.random() < 0.4, "tail": r.random() < 0.3}
@@ -48,9 +65,9 @@ class Stage:
         sc.render.resolution_x, sc.render.resolution_y = res
         sc.render.fps = FPS; sc.render.image_settings.file_format = "PNG"; sc.view_settings.view_transform = "Standard"
         w = bpy.data.worlds.new("w"); sc.world = w; w.use_nodes = True
-        bg = w.node_tree.nodes["Background"]; bg.inputs[0].default_value = (0.50, 0.75, 1.0, 1); bg.inputs[1].default_value = 1.0
+        bg = w.node_tree.nodes["Background"]; bg.inputs[0].default_value = (0.50, 0.75, 1.0, 1); bg.inputs[1].default_value = 0.85
         sun = bpy.data.objects.new("sun", bpy.data.lights.new("sun", "SUN")); sc.collection.objects.link(sun)
-        sun.data.energy = 3.5; sun.data.angle = 0.3; sun.rotation_euler = (math.radians(50), 0, math.radians(-35))
+        sun.data.energy = 3.0; sun.data.angle = 0.3; sun.rotation_euler = (math.radians(50), 0, math.radians(-35))
         self.cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam")); sc.collection.objects.link(self.cam); sc.camera = self.cam
         self.tgt = self.empty("mira", (-0.5, 0, 0.6)); self.cam.data.lens = 44; self.cam.location = (-6.2, -7.6, 3.3)
         tc = self.cam.constraints.new("TRACK_TO"); tc.target = self.tgt; tc.track_axis = "TRACK_NEGATIVE_Z"; tc.up_axis = "UP_Y"
@@ -61,7 +78,8 @@ class Stage:
         if name not in self.mats:
             m = bpy.data.materials.new(name); m.use_nodes = True
             b = m.node_tree.nodes["Principled BSDF"]; b.inputs["Base Color"].default_value = (*PALETTE[name], 1)
-            b.inputs["Roughness"].default_value = 0.08 if name == "water" else rough
+            b.inputs["Roughness"].default_value = 0.08 if name == "water" else (0.95 if name.startswith(("hair", "skin")) else rough)
+            if "Specular IOR Level" in b.inputs and name.startswith(("hair", "skin", "shoe")): b.inputs["Specular IOR Level"].default_value = 0.15
             self.mats[name] = m
         return self.mats[name]
 
@@ -147,6 +165,9 @@ class Actor:
 
     def __init__(self, st, lk, x, size):
         self.st, s = st, st
+        self.legs, self.has_hat = [], lk.get("hat", "ninguno") != "ninguno"
+        if lk.get("kind") == "humano":
+            self._human(lk, x, size); self._hat(lk.get("hat", "ninguno"), lk.get("hat_color", "yellow")); self.x, self.z = x, 0.0; return
         color, hat, hc = lk["color"], lk["hat"], lk.get("hat_color", "yellow")
         bx, by, bz = SHAPES[lk.get("shape", "redondo")]; e = lk.get("eye", 1.0); g = lk.get("eye_gap", 0.20)
         top = 0.55 + bz * 0.92                                   # altura de la coronilla
@@ -168,7 +189,13 @@ class Actor:
             if lk.get("cheeks"): s.obj("uv_sphere", "moflete", "pink", ((g + 0.16) * sx, fy + 0.06, ey - 0.20), (0.07, 0.03, 0.05), parent=self.body)
         if lk.get("tail"): s.obj("uv_sphere", "cola", color, (0, by * 0.95, 0.35), (0.12, 0.16, 0.12), parent=self.body)
         self.hat_z = top
-        self.hat = s.empty("sombrero", (0, 0, top), parent=self.body)
+        self._hat(hat, hc)
+        self.x, self.z = x, 0.0
+
+
+    def _hat(self, hat, hc):
+        s = self.st
+        self.hat = s.empty("sombrero", (0, 0, self.hat_z), parent=self.body)
         H = self.hat
         if hat == "bombin":
             s.obj("cylinder", "ala", hc, (0, 0, 0), (0.34, 0.34, 0.025), parent=H); s.obj("cylinder", "copa", hc, (0, 0, 0.13), (0.20, 0.20, 0.13), parent=H)
@@ -190,7 +217,53 @@ class Actor:
             s.obj("cylinder", "aro", "gold", (0, 0, 0.05), (0.30, 0.30, 0.07), parent=H, smooth=False, vertices=10)
             for i in range(5):
                 a = i * 1.2566; s.obj("cone", "pico", "gold", (0.26 * math.cos(a), 0.26 * math.sin(a), 0.20), (0.07, 0.07, 0.12), parent=H)
-        self.x, self.z = x, 0.0
+
+    def _human(self, lk, x, size):
+        """Humano de plastilina: cabeza grande, torso con camiseta, piernas y brazos articulados, pelo y cara."""
+        s = self.st; skin, shirt, pants = lk["skin"], lk["shirt"], lk["pants"]
+        wd, ht = BUILDS[lk.get("build", "normal")]; e = lk.get("eye", 1.0)
+        self.root = s.empty("pj", (x, 0, 0)); self.root.scale = (size,) * 3
+        self.body = s.empty("cuerpo", parent=self.root)
+        hip = 0.40 * ht; tz = hip + 0.30 * ht; hz = tz + 0.30 * ht + 0.30          # cadera, centro del torso, centro de la cabeza
+        for sx in (-1, 1):                                                         # piernas (cuelgan de la cadera) y zapatos
+            lp = s.empty("cadera", (0.13 * wd * sx, 0, hip), parent=self.root); self.legs.append(lp)
+            s.obj("cylinder", "pierna", pants, (0, 0, -hip * 0.48), (0.105 * wd, 0.105 * wd, hip * 0.48), parent=lp)
+            s.obj("uv_sphere", "zapato", "shoe", (0, -0.06, -hip + 0.07), (0.13 * wd, 0.20, 0.08), parent=lp)
+        s.obj("uv_sphere", "torso", shirt, (0, 0, tz), (0.30 * wd, 0.21 * wd, 0.36 * ht), parent=self.body)
+        s.obj("cylinder", "cintura", pants, (0, 0, hip + 0.02), (0.25 * wd, 0.18 * wd, 0.08), parent=self.body)
+        self.lids, self.pupils, self.arms = [], [], []
+        for sx in (-1, 1):                                                         # brazos: manga + antebrazo + mano
+            sh = s.empty("hombro", (0.30 * wd * sx, 0, tz + 0.20 * ht), parent=self.body); self.arms.append(sh)
+            s.obj("uv_sphere", "manga", shirt, (0.05 * sx, 0, -0.10), (0.10 * wd, 0.10 * wd, 0.15), parent=sh)
+            s.obj("uv_sphere", "brazo", skin, (0.08 * sx, 0, -0.27), (0.075, 0.075, 0.17), parent=sh)
+            s.obj("uv_sphere", "mano", skin, (0.10 * sx, 0, -0.43), (0.095, 0.095, 0.095), parent=sh)
+        H = self.head = s.empty("cabeza", (0, 0, hz), parent=self.body)
+        s.obj("cylinder", "cuello", skin, (0, 0, -0.30), (0.08, 0.08, 0.08), parent=H)
+        s.obj("uv_sphere", "craneo", skin, (0, 0, 0), (0.34, 0.32, 0.33), parent=H)
+        for sx in (-1, 1):
+            s.obj("uv_sphere", "oreja", skin, (0.33 * sx, 0.02, -0.02), (0.05, 0.07, 0.09), parent=H)
+            s.obj("uv_sphere", "ojo", "white", (0.13 * sx, -0.27, 0.05), (0.105 * e, 0.07 * e, 0.125 * e), parent=H)
+        self._pup = (0.135, -0.325 - 0.01 * e, hz + 0.05); self._lid = (0.112 * e, 0.078 * e, 0.132 * e)
+        for sx in (-1, 1):
+            self.pupils.append(s.obj("uv_sphere", "pupila", "black", (self._pup[0] * sx, self._pup[1], self._pup[2]), (0.045 * e, 0.03 * e, 0.055 * e), parent=self.body))
+            self.lids.append(s.obj("uv_sphere", "parpado", skin, (0.13 * sx, -0.275, hz + 0.07), (self._lid[0], self._lid[1], 0.001), parent=self.body))
+            s.obj("cube", "ceja", lk["hair_color"], (0.13 * sx, -0.31, 0.20), (0.075, 0.015, 0.016), rot=(0, math.radians(7 * sx), 0), parent=H, smooth=False)
+        s.obj("uv_sphere", "nariz", skin, (0, -0.33, -0.04), (0.05, 0.06, 0.05), parent=H)
+        s.obj("uv_sphere", "boca", "mouth", (0, -0.295, -0.17), (0.10, 0.03, 0.022), parent=H)
+        for sx in (-1, 1): s.obj("uv_sphere", "comisura", "mouth", (0.10 * sx, -0.285, -0.155), (0.025, 0.02, 0.025), parent=H)   # sonrisa
+        if lk.get("glasses"):
+            for sx in (-1, 1): s.obj("torus", "gafa", "black", (0.13 * sx, -0.335, 0.05), (1, 1, 1), rot=(math.radians(90), 0, 0), parent=H, major_radius=0.105, minor_radius=0.012)
+        hc, hair = lk["hair_color"], lk.get("hair", "corto"); top = 0.33
+        if hair in ("corto", "flequillo", "mono", "coletas", "largo"):
+            s.obj("uv_sphere", "pelo", hc, (0, 0.035, 0.07), (0.355, 0.335, 0.30), parent=H); top = 0.37
+        if hair == "flequillo": s.obj("uv_sphere", "flequillo", hc, (0, -0.24, 0.22), (0.26, 0.10, 0.09), parent=H)
+        if hair == "mono": s.obj("uv_sphere", "mono", hc, (0, 0.05, 0.42), (0.14, 0.14, 0.13), parent=H); top = 0.50
+        if hair == "coletas":
+            for sx in (-1, 1): s.obj("uv_sphere", "coleta", hc, (0.36 * sx, 0.06, -0.08), (0.10, 0.10, 0.20), parent=H)
+        if hair == "largo": s.obj("uv_sphere", "melena", hc, (0, 0.14, -0.20), (0.33, 0.20, 0.38), parent=H)
+        if hair == "afro":
+            s.obj("uv_sphere", "afro", hc, (0, 0.05, 0.12), (0.46, 0.42, 0.40), parent=H); top = 0.50
+        self.hat_z = hz + top - 0.02
 
     # --- gestos ---
     def arms_to(self, deg, f=None, interp="BEZIER"):
@@ -214,11 +287,14 @@ class Actor:
     def hop_to(self, x, z=None, h=0.55, dur=10, sound="boing"):
         s, f0 = self.st, self.st.f
         z1 = self.z if z is None else z
+        if self.legs and sound == "boing": sound = "step"                          # los humanos dan pasos, no botes de goma
         s.key(self.body, f0, scale=(1, 1, 1)); s.key(self.root, f0, loc=(self.x, 0, self.z)); self.arms_to(10, f0)
         s.key(self.body, f0 + 2, scale=(1.18, 1.18, 0.78)); s.key(self.root, f0 + 2, loc=(self.x, 0, self.z)); self.arms_to(-25, f0 + 2)
         if sound: s.cue(sound, f0 + 2, vol=-6)
         mid = f0 + 2 + dur // 2
         s.key(self.body, mid, scale=(0.88, 0.88, 1.22)); s.key(self.root, mid, loc=((self.x + x) / 2, 0, max(self.z, z1) + h)); self.arms_to(95, mid)
+        for i, lg in enumerate(self.legs):                                         # zancada
+            s.key(lg, f0 + 2, rot=(0, 0, 0)); s.key(lg, mid, rot=(0, math.radians(38 if i else -38), 0)); s.key(lg, f0 + 2 + dur, rot=(0, 0, 0))
         end = f0 + 2 + dur
         s.key(self.root, end, loc=(x, 0, z1)); s.key(self.body, end, scale=(1.25, 1.25, 0.70)); self.arms_to(40, end)
         s.key(self.body, end + 3, scale=(1, 1, 1), interp="BACK"); self.arms_to(10, end + 3)
@@ -256,6 +332,7 @@ class Actor:
     def drop_hat_floating(self, upto, water_z=-0.18):
         """El sombrero se suelta y queda flotando donde cayó el personaje. Llamar ANTES de fall_in_water no hace falta: úsalo después."""
         s = self.st; hat = self.hat
+        if not self.has_hat: return
         mw = {}
         for fr in range(1, upto + 1, 2):
             s.sc.frame_set(fr); mw[fr] = tuple(self.body.matrix_world @ Vector((0, 0, self.hat_z)))
