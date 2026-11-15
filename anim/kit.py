@@ -406,17 +406,25 @@ class Actor:
             mod = ob.modifiers.new("Armature", "ARMATURE"); mod.object = rig
         rig.hide_render = True; self.rig = rig
 
-    def hold_stick(self, name, color, length, world_dir, side=1, above=0.3, blade=True):
+    def hold_stick(self, name, color, length, world_dir, side=1, above=0.3, blade=True, free=False):
         """Pone un palo (remo, escoba, caña) en la mano: sigue al antebrazo y apunta hacia `world_dir` en la pose actual."""
         s = self.st; s.sc.frame_set(s.f); bpy.context.view_layer.update()
         el = self.elbows[side]; fa = self._dims["fa"]
         grip = s.empty("agarre", (0, -0.005, -fa - 0.07), parent=el); bpy.context.view_layer.update()
         M = grip.matrix_world.to_3x3().normalized()
         d = (M.inverted() @ Vector(world_dir)).normalized()
-        st = s.empty(name, (0, 0, 0), parent=grip); st.rotation_euler = d.to_track_quat("Z", "Y").to_euler()
+        if free:  # solo sigue la POSICIÓN de la mano; el ángulo se anima aparte con aim_stick (no atraviesa nada al mover el brazo)
+            st = s.empty(name, (0, 0, 0)); c = st.constraints.new("COPY_LOCATION"); c.target = grip
+            st.rotation_euler = Vector(world_dir).normalized().to_track_quat("Z", "Y").to_euler()
+        else:
+            st = s.empty(name, (0, 0, 0), parent=grip); st.rotation_euler = d.to_track_quat("Z", "Y").to_euler()
         s.obj("cylinder", name + "_palo", color, (0, 0, length / 2 - above), (0.02, 0.02, length / 2), parent=st, vertices=12)
         if blade: s.obj("cube", name + "_pala", color, (0, 0, length - above - 0.12), (0.09, 0.015, 0.16), parent=st, smooth=False)
         return st
+
+    def aim_stick(self, st, f, world_dir, interp="BEZIER"):
+        """Orienta (en coordenadas del mundo) un palo creado con hold_stick(free=True) en el fotograma f."""
+        self.st.key(st, f, rot=tuple(Vector(world_dir).normalized().to_track_quat("Z", "Y").to_euler()), interp=interp)
 
     def sit(self, f=None, knee=20, lean=0):
         """Postura sentada: muslos al frente, rodillas algo dobladas. Devuelve la altura de la cadera sobre los pies."""
