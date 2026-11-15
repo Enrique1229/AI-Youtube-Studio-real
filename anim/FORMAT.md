@@ -13,8 +13,9 @@ Detalle: `FORMAT-STUDY-AGBAPS.md`. Nosotros imitamos la FÓRMULA, no el contenid
 - Título: "Cada nivel de IQ [haciendo X]" / "IQ bajo vs IQ alto: [X]".
 
 ## Mundo y personajes propios
-- Decidido por el usuario (2026-11-15): los personajes son HUMANOS, con el mismo estilo de plastilina, y NO se repite el mismo en todos los Shorts.
-- Cada episodio tiene su propio protagonista humano, generado a partir del nombre del archivo del episodio (`kit.look_for`): 6 tonos de piel, 7 peinados, 5 colores de pelo, 12 camisetas, 6 pantalones, 5 complexiones, gafas y sombrero opcionales. Dentro del episodio es SIEMPRE el mismo.
+- Decidido por el usuario (2026-11-15): los personajes son HUMANOS y NO se repite el mismo en todos los Shorts.
+- Decidido por el usuario (2026-11-16): proporciones como las del canal de referencia: larguiruchos, extremidades largas con codos y rodillas, cabeza proporcionada, ojos grandes y saltones con el párpado a media altura (cara de aburrido), cejas gruesas, labios marcados y pelo con textura. Diseño propio: no se copian sus personajes.
+- Cada episodio tiene su propio protagonista humano, generado a partir del nombre del archivo del episodio (`kit.look_for`): 6 tonos de piel, 9 peinados (incluidos rizos con textura), 5 colores de pelo, 12 colores de camiseta, camiseta/tirantes/sin camiseta, pantalón corto o largo, 5 complexiones, gafas y sombrero opcionales. Dentro del episodio es SIEMPRE el mismo.
 - Un episodio puede fijar su aspecto con `LOOK = {...}` si el gag lo pide. Las criaturas (`kind` distinto de "humano") siguen existiendo para secundarios o mascotas.
 - La variedad de aspecto es aleatoria y no tiene relación con el nivel de IQ: el mismo personaje hace todos los niveles.
 - Escenarios: `rio` (hecho). Por construir: desierto, castillo, mina, playa, aula.

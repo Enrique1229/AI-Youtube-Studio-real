@@ -20,7 +20,7 @@ PALETTE = {"blue": (0.10, 0.38, 0.95), "purple": (0.55, 0.20, 0.85), "orange": (
            # humanos: tonos de piel, pelo y ropa
            "skin1": (1.0, 0.82, 0.68), "skin2": (0.95, 0.70, 0.52), "skin3": (0.80, 0.55, 0.38), "skin4": (0.60, 0.38, 0.24), "skin5": (0.42, 0.26, 0.16), "skin6": (0.28, 0.17, 0.11),
            "hair_black": (0.03, 0.03, 0.04), "hair_brown": (0.26, 0.14, 0.07), "hair_blond": (0.93, 0.74, 0.30), "hair_red": (0.70, 0.25, 0.08), "hair_gray": (0.70, 0.70, 0.72),
-           "denim": (0.16, 0.28, 0.55), "khaki": (0.70, 0.60, 0.40), "shoe": (0.10, 0.10, 0.12), "mouth": (0.35, 0.05, 0.08)}
+           "denim": (0.16, 0.28, 0.55), "khaki": (0.70, 0.60, 0.40), "shoe": (0.10, 0.10, 0.12), "mouth": (0.35, 0.05, 0.08), "lips": (0.62, 0.22, 0.20), "olive": (0.35, 0.40, 0.16), "maroon": (0.42, 0.08, 0.12)}
 
 # Reparto: cada episodio usa UN personaje (el mismo en todos sus niveles) y episodios distintos usan personajes distintos.
 SHAPES = {"redondo": (0.55, 0.50, 0.58), "alto": (0.44, 0.42, 0.74), "ancho": (0.68, 0.56, 0.50), "pera": (0.50, 0.48, 0.66), "mini": (0.46, 0.44, 0.48)}
@@ -30,11 +30,11 @@ HAT_COLORS = ["yellow", "red", "white", "navy", "gold", "pink", "green"]
 
 
 SKINS = ["skin1", "skin2", "skin3", "skin4", "skin5", "skin6"]
-HAIRS = ["corto", "afro", "mono", "coletas", "flequillo", "calvo", "largo"]
+HAIRS = ["corto", "corto", "rizado", "afro", "mono", "coletas", "flequillo", "calvo", "largo"]
 HAIR_COLORS = ["hair_black", "hair_black", "hair_brown", "hair_brown", "hair_blond", "hair_red", "hair_gray"]
 SHIRTS = ["red", "blue", "green", "orange", "purple", "teal", "white", "yellow", "coral", "navy", "pink", "lime"]
-PANTS = ["denim", "khaki", "navy", "gray", "brown", "black"]
-BUILDS = {"normal": (1.0, 1.0), "alto": (0.92, 1.18), "bajo": (1.08, 0.86), "fuerte": (1.25, 1.0), "flaco": (0.82, 1.08)}
+PANTS = ["denim", "navy", "brown", "black", "olive", "maroon"]
+BUILDS = {"normal": (1.0, 1.0), "alto": (0.95, 1.10), "bajo": (1.05, 0.90), "fuerte": (1.30, 1.0), "flaco": (0.85, 1.04)}
 
 
 def look_for(seed, kind="humano"):
@@ -43,7 +43,7 @@ def look_for(seed, kind="humano"):
     if kind == "humano":
         shirt = r.choice(SHIRTS)
         return {"kind": "humano", "skin": r.choice(SKINS), "hair": r.choice(HAIRS), "hair_color": r.choice(HAIR_COLORS), "shirt": shirt,
-                "pants": r.choice(PANTS), "build": r.choice(list(BUILDS)), "hat": r.choice(["ninguno", "ninguno", "ninguno", "gorra", "bombin", "casco"]),
+                "pants": r.choice(PANTS), "build": r.choice(list(BUILDS)), "top": r.choice(["camiseta", "camiseta", "tirantes", "sin"]), "bottom": r.choice(["corto", "corto", "largo"]), "hat": r.choice(["ninguno", "ninguno", "ninguno", "gorra", "bombin", "casco"]),
                 "hat_color": r.choice([c for c in HAT_COLORS if c != shirt]), "eye": r.choice([0.9, 1.0, 1.15]), "glasses": r.random() < 0.2, "color": shirt}
     color = r.choice(BODY_COLORS); hc = r.choice([c for c in HAT_COLORS if c != color])
     return {"shape": r.choice(list(SHAPES)), "color": color, "hat": r.choice(HATS), "hat_color": hc,
@@ -59,8 +59,26 @@ class Stage:
         self.f, self.cues, self.mats, self.actors = 1, [], {}, []
         engine = engine or os.environ.get("STUDIO_ENGINE", "CYCLES")
         sc.render.engine = engine
+        res = tuple(int(v) for v in os.environ["STUDIO_RES"].split("x")) if os.environ.get("STUDIO_RES") else res
+        samples = int(os.environ.get("STUDIO_SAMPLES", samples))
         if engine == "CYCLES":
-            sc.cycles.device = os.environ.get("STUDIO_DEVICE", "CPU"); sc.cycles.samples = samples
+            dev = os.environ.get("STUDIO_DEVICE", "CPU")
+            if dev == "GPU":   # activa la tarjeta (OptiX y, si no, CUDA); si falla, sigue en CPU y lo dice
+                try:
+                    prefs = bpy.context.preferences.addons["cycles"].preferences
+                    for kind in ("OPTIX", "CUDA"):
+                        try:
+                            prefs.compute_device_type = kind; prefs.get_devices()
+                            gpus = [d for d in prefs.devices if d.type == kind]
+                            if gpus:
+                                for d in prefs.devices: d.use = d.type == kind
+                                print(f"[kit] GPU {kind}: {[d.name for d in gpus]}"); break
+                        except Exception: pass
+                    else:
+                        dev = "CPU"; print("[kit] no se encontró GPU compatible: render en CPU")
+                except Exception as e:
+                    dev = "CPU"; print(f"[kit] GPU no disponible ({e}): render en CPU")
+            sc.cycles.device = dev; sc.cycles.samples = samples
             sc.cycles.use_denoising = True; sc.cycles.max_bounces = 3
         sc.render.resolution_x, sc.render.resolution_y = res
         sc.render.fps = FPS; sc.render.image_settings.file_format = "PNG"; sc.view_settings.view_transform = "Standard"
@@ -69,7 +87,7 @@ class Stage:
         sun = bpy.data.objects.new("sun", bpy.data.lights.new("sun", "SUN")); sc.collection.objects.link(sun)
         sun.data.energy = 3.0; sun.data.angle = 0.3; sun.rotation_euler = (math.radians(50), 0, math.radians(-35))
         self.cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam")); sc.collection.objects.link(self.cam); sc.camera = self.cam
-        self.tgt = self.empty("mira", (-0.5, 0, 0.6)); self.cam.data.lens = 44; self.cam.location = (-6.2, -7.6, 3.3)
+        self.tgt = self.empty("mira", (-0.5, 0, 0.9)); self.cam.data.lens = 72; self.cam.location = (-5.8, -7.2, 2.7)
         tc = self.cam.constraints.new("TRACK_TO"); tc.target = self.tgt; tc.track_axis = "TRACK_NEGATIVE_Z"; tc.up_axis = "UP_Y"
         getattr(self, "env_" + env)()
 
@@ -141,7 +159,8 @@ class Stage:
         """La cámara mira a un punto entre el actor y el centro de la escena."""
         for fr in range(1, n_frames + 1, 4):
             self.sc.frame_set(fr); wp = actor.root.matrix_world.translation
-            self.key(self.tgt, fr, loc=(wp.x * weight, 0, max(0.45, min(1.0, wp.z + 0.6))))
+            hz = 0.95 if getattr(actor, "human", False) else 0.6
+            self.key(self.tgt, fr, loc=(wp.x * (0.92 if hz > 0.9 else weight), 0, max(0.45, min(1.35, wp.z + hz))))
 
     def actor(self, color=None, hat=None, x=0.0, size=1.0, look=None):
         """Sin argumentos usa el aspecto del episodio (S.look). `color`/`hat` lo fuerzan (p. ej. un secundario)."""
@@ -166,6 +185,8 @@ class Actor:
     def __init__(self, st, lk, x, size):
         self.st, s = st, st
         self.legs, self.has_hat = [], lk.get("hat", "ninguno") != "ninguno"
+        self.human, self.squash, self.knees, self.elbows, self.yaw, self._stepn = False, 1.0, [], [], 0.0, 0
+        self._lid_rest = 0.001
         if lk.get("kind") == "humano":
             self._human(lk, x, size); self._hat(lk.get("hat", "ninguno"), lk.get("hat_color", "yellow")); self.x, self.z = x, 0.0; return
         color, hat, hc = lk["color"], lk["hat"], lk.get("hat_color", "yellow")
@@ -196,6 +217,7 @@ class Actor:
     def _hat(self, hat, hc):
         s = self.st
         self.hat = s.empty("sombrero", (0, 0, self.hat_z), parent=self.body)
+        if getattr(self, "human", False): self.hat.scale = (0.62, 0.62, 0.62)
         H = self.hat
         if hat == "bombin":
             s.obj("cylinder", "ala", hc, (0, 0, 0), (0.34, 0.34, 0.025), parent=H); s.obj("cylinder", "copa", hc, (0, 0, 0.13), (0.20, 0.20, 0.13), parent=H)
@@ -219,51 +241,82 @@ class Actor:
                 a = i * 1.2566; s.obj("cone", "pico", "gold", (0.26 * math.cos(a), 0.26 * math.sin(a), 0.20), (0.07, 0.07, 0.12), parent=H)
 
     def _human(self, lk, x, size):
-        """Humano de plastilina: cabeza grande, torso con camiseta, piernas y brazos articulados, pelo y cara."""
+        """Humano larguirucho de dibujo animado: extremidades largas con codos y rodillas, cabeza proporcionada,
+        ojos grandes con párpado a media altura, cejas gruesas, labios y pelo con textura. Mide ~1,8 unidades."""
         s = self.st; skin, shirt, pants = lk["skin"], lk["shirt"], lk["pants"]
-        wd, ht = BUILDS[lk.get("build", "normal")]; e = lk.get("eye", 1.0)
-        self.root = s.empty("pj", (x, 0, 0)); self.root.scale = (size,) * 3
+        wd, ht = BUILDS[lk.get("build", "normal")]; e = lk.get("eye", 1.0); hc = lk["hair_color"]
+        top_style = lk.get("top", "camiseta"); legs_style = lk.get("bottom", "corto")
+        self.human, self.squash, self.yaw, self._stepn = True, 0.3, -30.0, 0
+        self.root = s.empty("pj", (x, 0, 0)); self.root.scale = (size,) * 3; self.root.rotation_euler = (0, 0, math.radians(self.yaw))
         self.body = s.empty("cuerpo", parent=self.root)
-        hip = 0.40 * ht; tz = hip + 0.30 * ht; hz = tz + 0.30 * ht + 0.30          # cadera, centro del torso, centro de la cabeza
-        for sx in (-1, 1):                                                         # piernas (cuelgan de la cadera) y zapatos
-            lp = s.empty("cadera", (0.13 * wd * sx, 0, hip), parent=self.root); self.legs.append(lp)
-            s.obj("cylinder", "pierna", pants, (0, 0, -hip * 0.48), (0.105 * wd, 0.105 * wd, hip * 0.48), parent=lp)
-            s.obj("uv_sphere", "zapato", "shoe", (0, -0.06, -hip + 0.07), (0.13 * wd, 0.20, 0.08), parent=lp)
-        s.obj("uv_sphere", "torso", shirt, (0, 0, tz), (0.30 * wd, 0.21 * wd, 0.36 * ht), parent=self.body)
-        s.obj("cylinder", "cintura", pants, (0, 0, hip + 0.02), (0.25 * wd, 0.18 * wd, 0.08), parent=self.body)
+        r = 0.052 * wd                                                    # grosor de extremidades
+        thigh, shin = 0.43 * ht, 0.42 * ht; hip = thigh + shin + 0.07
+        torso_h = 0.50 * ht; sh_z = hip + torso_h; neck = 0.10
+        hz = sh_z + neck + 0.20                                           # centro de la cabeza
+        self.knees, self.elbows = [], []
+        def limb(name, color, parent, length, rad):
+            s.obj("uv_sphere", name, color, (0, 0, -length / 2), (rad, rad, length / 2 + rad * 0.6), parent=parent)
+        for sx in (-1, 1):                                                # piernas: cadera → muslo → rodilla → espinilla → zapato
+            lp = s.empty("cadera", (0.085 * wd * sx, 0, hip), parent=self.root); self.legs.append(lp)
+            limb("muslo", pants if legs_style == "largo" else skin, lp, thigh, r * 1.2)
+            if legs_style != "largo":                                       # pantalón corto: tubo hasta media pierna
+                s.obj("cylinder", "pantalon", pants, (0, 0, -thigh * 0.33), (r * 1.75, r * 1.75, thigh * 0.36), parent=lp)
+            kn = s.empty("rodilla", (0, 0, -thigh), parent=lp); self.knees.append(kn)
+            limb("espinilla", pants if legs_style == "largo" else skin, kn, shin, r * 1.05)
+            s.obj("uv_sphere", "rodilla_bola", pants if legs_style == "largo" else skin, (0, 0, 0), (r * 1.12,) * 3, parent=kn)
+            s.obj("uv_sphere", "zapato", "shoe", (0, -0.07, -shin - 0.02), (0.075 * wd, 0.15, 0.055), parent=kn)
+        s.obj("cylinder", "pelvis", pants, (0, 0, hip + 0.02), (0.150 * wd, 0.098 * wd, 0.075), parent=self.body)
+        torso_col = skin if top_style == "sin" else shirt
+        s.obj("uv_sphere", "torso", torso_col, (0, 0, hip + torso_h * 0.52), (0.155 * wd, 0.10 * wd, torso_h * 0.55), parent=self.body)
+        if top_style == "sin": s.obj("cylinder", "cinturon", pants, (0, 0, hip + 0.10), (0.145 * wd, 0.095 * wd, 0.06), parent=self.body)
         self.lids, self.pupils, self.arms = [], [], []
-        for sx in (-1, 1):                                                         # brazos: manga + antebrazo + mano
-            sh = s.empty("hombro", (0.30 * wd * sx, 0, tz + 0.20 * ht), parent=self.body); self.arms.append(sh)
-            s.obj("uv_sphere", "manga", shirt, (0.05 * sx, 0, -0.10), (0.10 * wd, 0.10 * wd, 0.15), parent=sh)
-            s.obj("uv_sphere", "brazo", skin, (0.08 * sx, 0, -0.27), (0.075, 0.075, 0.17), parent=sh)
-            s.obj("uv_sphere", "mano", skin, (0.10 * sx, 0, -0.43), (0.095, 0.095, 0.095), parent=sh)
+        ua, fa = 0.31 * ht, 0.29 * ht
+        for sx in (-1, 1):                                                # brazos: hombro → brazo → codo → antebrazo → mano
+            sh = s.empty("hombro", (0.17 * wd * sx, 0, sh_z - 0.03), parent=self.body); self.arms.append(sh)
+            s.obj("uv_sphere", "hombro_bola", torso_col if top_style == "camiseta" else skin, (0, 0, 0), (r * 1.12,) * 3, parent=sh)
+            limb("brazo", shirt if top_style == "camiseta" and False else skin, sh, ua, r)
+            if top_style == "camiseta": s.obj("cylinder", "manga", shirt, (0, 0, -ua * 0.22), (r * 1.5, r * 1.5, ua * 0.24), parent=sh)
+            el = s.empty("codo", (0, 0, -ua), parent=sh); el.rotation_euler = (math.radians(-12), 0, 0); self.elbows.append(el)
+            limb("antebrazo", skin, el, fa, r * 0.9)
+            s.obj("uv_sphere", "mano", skin, (0, -0.01, -fa - 0.03), (0.055, 0.045, 0.07), parent=el)
+        s.obj("cylinder", "cuello", skin, (0, 0, sh_z + neck * 0.4), (0.045 * wd, 0.045 * wd, neck * 0.7), parent=self.body)
         H = self.head = s.empty("cabeza", (0, 0, hz), parent=self.body)
-        s.obj("cylinder", "cuello", skin, (0, 0, -0.30), (0.08, 0.08, 0.08), parent=H)
-        s.obj("uv_sphere", "craneo", skin, (0, 0, 0), (0.34, 0.32, 0.33), parent=H)
+        s.obj("uv_sphere", "craneo", skin, (0, 0, 0), (0.175, 0.185, 0.21), parent=H)
+        s.obj("uv_sphere", "mandibula", skin, (0, -0.03, -0.10), (0.135, 0.14, 0.12), parent=H)
+        for sx in (-1, 1): s.obj("uv_sphere", "oreja", skin, (0.175 * sx, 0.02, -0.01), (0.03, 0.045, 0.06), parent=H)
+        # ojos grandes que sobresalen; párpado superior a media altura (mirada de aburrido) que también sirve para parpadear
+        ex, ey, ez, er = 0.082, -0.15, 0.04, 0.085 * e
+        self._pup = (ex + 0.002, ey - er * 0.78, ez - 0.012); self._lid = (er * 1.08, er * 1.0, er * 1.08); self._lid_rest = er * 0.55
         for sx in (-1, 1):
-            s.obj("uv_sphere", "oreja", skin, (0.33 * sx, 0.02, -0.02), (0.05, 0.07, 0.09), parent=H)
-            s.obj("uv_sphere", "ojo", "white", (0.13 * sx, -0.27, 0.05), (0.105 * e, 0.07 * e, 0.125 * e), parent=H)
-        self._pup = (0.135, -0.325 - 0.01 * e, hz + 0.05); self._lid = (0.112 * e, 0.078 * e, 0.132 * e)
-        for sx in (-1, 1):
-            self.pupils.append(s.obj("uv_sphere", "pupila", "black", (self._pup[0] * sx, self._pup[1], self._pup[2]), (0.045 * e, 0.03 * e, 0.055 * e), parent=self.body))
-            self.lids.append(s.obj("uv_sphere", "parpado", skin, (0.13 * sx, -0.275, hz + 0.07), (self._lid[0], self._lid[1], 0.001), parent=self.body))
-            s.obj("cube", "ceja", lk["hair_color"], (0.13 * sx, -0.31, 0.20), (0.075, 0.015, 0.016), rot=(0, math.radians(7 * sx), 0), parent=H, smooth=False)
-        s.obj("uv_sphere", "nariz", skin, (0, -0.33, -0.04), (0.05, 0.06, 0.05), parent=H)
-        s.obj("uv_sphere", "boca", "mouth", (0, -0.295, -0.17), (0.10, 0.03, 0.022), parent=H)
-        for sx in (-1, 1): s.obj("uv_sphere", "comisura", "mouth", (0.10 * sx, -0.285, -0.155), (0.025, 0.02, 0.025), parent=H)   # sonrisa
+            s.obj("uv_sphere", "ojo", "white", (ex * sx, ey, ez), (er, er * 0.75, er * 1.1), parent=H)
+            self.pupils.append(s.obj("uv_sphere", "pupila", "black", (self._pup[0] * sx, self._pup[1], self._pup[2]), (er * 0.55, er * 0.2, er * 0.6), parent=H))
+            lid = s.obj("uv_sphere", "parpado", skin, (ex * sx, ey - 0.004, ez + er * 0.45), (self._lid[0], self._lid[1], self._lid_rest), parent=H); self.lids.append(lid)
+            s.obj("uv_sphere", "ceja", hc, (ex * sx, ey - 0.02, ez + er * 1.25), (er * 1.05, 0.02, 0.022), rot=(0, math.radians(-10 * sx), 0), parent=H)
+        s.obj("uv_sphere", "nariz", skin, (0, -0.205, -0.045), (0.032, 0.045, 0.05), parent=H)
+        s.obj("uv_sphere", "labios", "lips", (0, -0.175, -0.125), (0.065, 0.03, 0.026), parent=H)
         if lk.get("glasses"):
-            for sx in (-1, 1): s.obj("torus", "gafa", "black", (0.13 * sx, -0.335, 0.05), (1, 1, 1), rot=(math.radians(90), 0, 0), parent=H, major_radius=0.105, minor_radius=0.012)
-        hc, hair = lk["hair_color"], lk.get("hair", "corto"); top = 0.33
-        if hair in ("corto", "flequillo", "mono", "coletas", "largo"):
-            s.obj("uv_sphere", "pelo", hc, (0, 0.035, 0.07), (0.355, 0.335, 0.30), parent=H); top = 0.37
-        if hair == "flequillo": s.obj("uv_sphere", "flequillo", hc, (0, -0.24, 0.22), (0.26, 0.10, 0.09), parent=H)
-        if hair == "mono": s.obj("uv_sphere", "mono", hc, (0, 0.05, 0.42), (0.14, 0.14, 0.13), parent=H); top = 0.50
-        if hair == "coletas":
-            for sx in (-1, 1): s.obj("uv_sphere", "coleta", hc, (0.36 * sx, 0.06, -0.08), (0.10, 0.10, 0.20), parent=H)
-        if hair == "largo": s.obj("uv_sphere", "melena", hc, (0, 0.14, -0.20), (0.33, 0.20, 0.38), parent=H)
-        if hair == "afro":
-            s.obj("uv_sphere", "afro", hc, (0, 0.05, 0.12), (0.46, 0.42, 0.40), parent=H); top = 0.50
-        self.hat_z = hz + top - 0.02
+            for sx in (-1, 1): s.obj("torus", "gafa", "black", (ex * sx, ey - er * 0.8, ez), (1, 1, 1), rot=(math.radians(90), 0, 0), parent=H, major_radius=er * 1.15, minor_radius=0.008)
+        # pelo: rizos = muchas bolitas sobre el cráneo; otros estilos, volúmenes lisos
+        hair = lk.get("hair", "corto"); rnd = random.Random(str(lk))
+        top = 0.21
+        def curls(n, rad, zmin, scale_r=1.0, back=0.0):
+            for i in range(n):
+                th = rnd.uniform(0, 2 * math.pi); ph = rnd.uniform(0, math.acos(zmin))
+                px, py, pz = math.sin(ph) * math.cos(th), math.sin(ph) * math.sin(th), math.cos(ph)
+                if py < -0.55 and pz < 0.75: continue                          # despeja la frente
+                rr = rnd.uniform(rad * 0.8, rad * 1.2)
+                s.obj("uv_sphere", "rizo", hc, (0.18 * px * scale_r, 0.19 * py * scale_r + back, 0.205 * pz * scale_r + 0.01), (rr,) * 3, parent=H, segments=10, ring_count=8)
+        if hair in ("corto", "afro", "rizado"):
+            s.obj("uv_sphere", "base_pelo", hc, (0, 0.02, 0.03), (0.178, 0.185, 0.20), parent=H)
+            curls(70 if hair == "afro" else 46, 0.05 if hair == "afro" else 0.04, 0.05, scale_r=1.12 if hair == "afro" else 1.0); top = 0.30 if hair == "afro" else 0.25
+        elif hair in ("flequillo", "largo", "coletas", "mono"):
+            s.obj("uv_sphere", "pelo", hc, (0, 0.03, 0.05), (0.19, 0.195, 0.205), parent=H); top = 0.25
+            if hair == "flequillo": s.obj("uv_sphere", "flequillo", hc, (0.03, -0.15, 0.13), (0.15, 0.06, 0.06), rot=(0, 0.25, 0), parent=H)
+            if hair == "largo": s.obj("uv_sphere", "melena", hc, (0, 0.10, -0.12), (0.19, 0.11, 0.24), parent=H)
+            if hair == "coletas":
+                for sx in (-1, 1): s.obj("uv_sphere", "coleta", hc, (0.20 * sx, 0.05, -0.06), (0.055, 0.055, 0.12), parent=H)
+            if hair == "mono": s.obj("uv_sphere", "mono", hc, (0, 0.04, 0.24), (0.08, 0.08, 0.075), parent=H); top = 0.31
+        self.hat_z = hz + top - 0.03
 
     # --- gestos ---
     def arms_to(self, deg, f=None, interp="BEZIER"):
@@ -274,8 +327,9 @@ class Actor:
         f = self.st.f if f is None else f
         for lid in self.lids:
             lx, ly, lz = self._lid
-            self.st.key(lid, f - 1, scale=(lx, ly, 0.001)); self.st.key(lid, f + 1, scale=(lx, ly, lz))
-            self.st.key(lid, f + 3, scale=(lx, ly, lz)); self.st.key(lid, f + 5, scale=(lx, ly, 0.001))
+            rz = self._lid_rest
+            self.st.key(lid, f - 1, scale=(lx, ly, rz)); self.st.key(lid, f + 1, scale=(lx, ly, lz))
+            self.st.key(lid, f + 3, scale=(lx, ly, lz)); self.st.key(lid, f + 5, scale=(lx, ly, rz))
 
     def look(self, dx=0.0, dz=0.0, f=None):
         px, py, pz = self._pup
@@ -283,28 +337,56 @@ class Actor:
 
     def tilt(self, deg, f=None, interp="BEZIER"): self.st.key(self.body, f, rot=(0, math.radians(deg), 0), interp=interp)
 
+    def face(self, deg, f=None, turn=3):
+        """Gira el cuerpo: 0 = de frente (eje -y); -30 = hacia la cámara; +55 = de perfil caminando hacia +x."""
+        f = self.st.f if f is None else f
+        self.st.key(self.root, f, rot=(0, 0, math.radians(self.yaw))); self.yaw = deg
+        self.st.key(self.root, f + turn, rot=(0, 0, math.radians(deg)))
+
+    def _sq(self, a, b, c):
+        k = self.squash; return (1 + (a - 1) * k, 1 + (b - 1) * k, 1 + (c - 1) * k)
+
+    def _stride(self, f0, mid, end, big):
+        """Zancada: muslos adelante/atrás, rodilla de la pierna trasera doblada, brazos al contrario."""
+        s = self.st; sgn = 1 if self._stepn % 2 else -1; self._stepn += 1; a = 38 if big else 26
+        for i, (lg, kn) in enumerate(zip(self.legs, self.knees)):
+            d = sgn if i else -sgn
+            s.key(lg, f0, rot=(0, 0, 0)); s.key(lg, mid, rot=(math.radians(-a * d), 0, 0)); s.key(lg, end, rot=(0, 0, 0))
+            s.key(kn, f0, rot=(0, 0, 0)); s.key(kn, mid, rot=(math.radians(55 if d < 0 else 10), 0, 0)); s.key(kn, end, rot=(0, 0, 0))
+        for i, sh in enumerate(self.arms):
+            d = sgn if i else -sgn; sx = -1 if i == 0 else 1
+            s.key(sh, f0, rot=(0, math.radians(-8 * sx), 0)); s.key(sh, mid, rot=(math.radians(a * 0.9 * d), math.radians(-14 * sx), 0)); s.key(sh, end, rot=(0, math.radians(-8 * sx), 0))
+
     # --- acciones (avanzan el tiempo) ---
     def hop_to(self, x, z=None, h=0.55, dur=10, sound="boing"):
         s, f0 = self.st, self.st.f
         z1 = self.z if z is None else z
         if self.legs and sound == "boing": sound = "step"                          # los humanos dan pasos, no botes de goma
-        s.key(self.body, f0, scale=(1, 1, 1)); s.key(self.root, f0, loc=(self.x, 0, self.z)); self.arms_to(10, f0)
-        s.key(self.body, f0 + 2, scale=(1.18, 1.18, 0.78)); s.key(self.root, f0 + 2, loc=(self.x, 0, self.z)); self.arms_to(-25, f0 + 2)
+        if self.human and abs(x - self.x) > 0.05:                                  # mira hacia donde va
+            tgt_yaw = 55 if x > self.x else -60
+            if tgt_yaw != self.yaw: self.face(tgt_yaw, f0, turn=2)
+        s.key(self.body, f0, scale=(1, 1, 1)); s.key(self.root, f0, loc=(self.x, 0, self.z))
+        if not self.human: self.arms_to(10, f0)
+        s.key(self.body, f0 + 2, scale=self._sq(1.18, 1.18, 0.78)); s.key(self.root, f0 + 2, loc=(self.x, 0, self.z))
+        if not self.human: self.arms_to(-25, f0 + 2)
         if sound: s.cue(sound, f0 + 2, vol=-6)
         mid = f0 + 2 + dur // 2
-        s.key(self.body, mid, scale=(0.88, 0.88, 1.22)); s.key(self.root, mid, loc=((self.x + x) / 2, 0, max(self.z, z1) + h)); self.arms_to(95, mid)
-        for i, lg in enumerate(self.legs):                                         # zancada
-            s.key(lg, f0 + 2, rot=(0, 0, 0)); s.key(lg, mid, rot=(0, math.radians(38 if i else -38), 0)); s.key(lg, f0 + 2 + dur, rot=(0, 0, 0))
+        s.key(self.body, mid, scale=self._sq(0.88, 0.88, 1.22)); s.key(self.root, mid, loc=((self.x + x) / 2, 0, max(self.z, z1) + h))
+        if not self.human: self.arms_to(95, mid)
+        if self.human: self._stride(f0 + 2, mid, f0 + 2 + dur, big=h > 0.3)
         end = f0 + 2 + dur
-        s.key(self.root, end, loc=(x, 0, z1)); s.key(self.body, end, scale=(1.25, 1.25, 0.70)); self.arms_to(40, end)
-        s.key(self.body, end + 3, scale=(1, 1, 1), interp="BACK"); self.arms_to(10, end + 3)
+        s.key(self.root, end, loc=(x, 0, z1)); s.key(self.body, end, scale=self._sq(1.25, 1.25, 0.70))
+        if not self.human: self.arms_to(40, end)
+        s.key(self.body, end + 3, scale=(1, 1, 1), interp="BACK")
+        if not self.human: self.arms_to(10, end + 3)
         self.x, self.z = x, z1; s.f = end + 4
 
     def walk_to(self, x, steps=None, **kw):
         n = steps or max(1, round(abs(x - self.x) / 0.75)); x0 = self.x
-        for i in range(1, n + 1): self.hop_to(x0 + (x - x0) * i / n, h=0.32, dur=7, **kw)
+        for i in range(1, n + 1): self.hop_to(x0 + (x - x0) * i / n, h=0.07 if self.human else 0.32, dur=8 if self.human else 7, **kw)
 
     def cheer(self, times=2):
+        if self.human: self.face(-30)
         self.st.cue("tada")
         for i in range(times):
             self.hop_to(self.x, h=0.8 - 0.2 * i, dur=8, sound=None); self.arms_to(155, self.st.f - 8, interp="BACK")
@@ -312,7 +394,9 @@ class Actor:
 
     def think(self, n=18):
         """Se queda quieto, parpadea y mira arriba: 'está pensando'."""
-        s = self.st; self.look(0.0, 0.03, s.f); self.look(0.03, 0.06, s.f + 5); self.blink(s.f + 8); self.look(0, 0, s.f + n)
+        s = self.st
+        if self.human and self.yaw != -30: self.face(-30, turn=4)
+        self.look(0.0, 0.03, s.f); self.look(0.03, 0.06, s.f + 5); self.blink(s.f + 8); self.look(0, 0, s.f + n)
         self.tilt(0, s.f); self.tilt(8, s.f + 6); self.tilt(0, s.f + n); s.f += n
 
     def shiver(self, n=12, deg=10):
