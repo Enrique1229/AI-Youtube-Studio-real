@@ -172,6 +172,11 @@ class Stage:
             hz = 0.95 if getattr(actor, "human", False) else 0.6
             self.key(self.tgt, fr, loc=(wp.x * (0.92 if hz > 0.9 else weight), 0, max(0.45, min(1.35, wp.z + hz))))
 
+    def ground(self, x, default=0.0):
+        """Altura del suelo en x: encima del muelle 0.12, en la hierba 0; sobre el río, `default` (lo decide el nivel)."""
+        if -3.5 <= x <= -1.7: return 0.12
+        return 0.0 if abs(x) > 2.5 else default
+
     def actor(self, color=None, hat=None, x=0.0, size=1.0, look=None):
         """Sin argumentos usa el aspecto del episodio (S.look). `color`/`hat` lo fuerzan (p. ej. un secundario)."""
         lk = dict(look or getattr(self, "look", None) or look_for("ep001"))
@@ -203,13 +208,14 @@ class Actor:
         self.human, self.squash, self.knees, self.elbows, self.yaw, self._stepn = False, 1.0, [], [], 0.0, 0
         self._lid_rest = 0.001
         if lk.get("kind") == "humano":
-            self._human(lk, x, size); self._hat(lk.get("hat", "ninguno"), lk.get("hat_color", "yellow")); self.x, self.z = x, 0.0; return
+            self._human(lk, x, size); self._hat(lk.get("hat", "ninguno"), lk.get("hat_color", "yellow"))
+            self.x, self.z = x, st.ground(x); self.root.location.z = self.z; return
         color, hat, hc = lk["color"], lk["hat"], lk.get("hat_color", "yellow")
         bx, by, bz = SHAPES[lk.get("shape", "redondo")]; e = lk.get("eye", 1.0); g = lk.get("eye_gap", 0.20)
         top = 0.55 + bz * 0.92                                   # altura de la coronilla
         ey = 0.55 + bz * 0.40; fy = -by * 0.84                   # altura y profundidad de los ojos
         self.root = s.empty("pj", (x, 0, 0)); self.root.scale = (size,) * 3
-        self.body = s.empty("cuerpo", parent=self.root)
+        self.body = self.pivot = s.empty("cuerpo", parent=self.root)
         s.obj("uv_sphere", "panza", color, (0, 0, 0.55), (bx, by, bz), parent=self.body)
         self.lids, self.pupils, self.arms = [], [], []
         self._pup = (g + 0.01, fy - 0.09 * e, ey)
@@ -263,21 +269,23 @@ class Actor:
         top_style = lk.get("top", "camiseta"); legs_style = lk.get("bottom", "corto")
         self.human, self.squash, self.yaw, self._stepn = True, 0.3, -30.0, 0
         self.root = s.empty("pj", (x, 0, 0)); self.root.scale = (size,) * 3; self.root.rotation_euler = (0, 0, math.radians(self.yaw))
-        self.body = s.empty("cuerpo", parent=self.root)
-        r = 0.052 * wd                                                    # grosor de extremidades
+        r = 0.068 * wd                                                    # grosor de extremidades (humano, no palitos)
         thigh, shin = 0.43 * ht, 0.42 * ht; hip = thigh + shin + 0.07
         torso_h = 0.50 * ht; sh_z = hip + torso_h; neck = 0.10
         hz = sh_z + neck + 0.20                                           # centro de la cabeza
+        # el torso gira y se encoge desde la CADERA (pivot), no desde los pies: así nunca se separa de las piernas
+        self.pivot = s.empty("pelvis", (0, 0, hip), parent=self.root)
+        self.body = s.empty("cuerpo", (0, 0, -hip), parent=self.pivot)
         self.knees, self.elbows = [], []
         # Esqueleto de control (empties). El cuerpo es UNA malla continua que se deforma con ellos: sin bolas ni huecos.
         for sx in (-1, 1):
-            lp = s.empty("cadera", (0.085 * wd * sx, 0, hip), parent=self.root); self.legs.append(lp)
+            lp = s.empty("cadera", (0.105 * wd * sx, 0, hip), parent=self.root); self.legs.append(lp)
             kn = s.empty("rodilla", (0, 0, -thigh), parent=lp); self.knees.append(kn)
-            s.obj("uv_sphere", "zapato", "shoe", (0, -0.07, -shin - 0.02), (0.078 * wd, 0.15, 0.058), parent=kn)
+            s.obj("uv_sphere", "zapato", "shoe", (0, -0.07, -shin - 0.02), (0.085 * wd, 0.16, 0.062), parent=kn)
         self.lids, self.pupils, self.arms = [], [], []
         ua, fa = 0.31 * ht, 0.29 * ht
         for sx in (-1, 1):
-            sh = s.empty("hombro", (0.165 * wd * sx, 0, sh_z - 0.04), parent=self.body); self.arms.append(sh)
+            sh = s.empty("hombro", (0.205 * wd * sx, 0, sh_z - 0.05), parent=self.body); self.arms.append(sh)
             el = s.empty("codo", (0, 0, -ua), parent=sh); el.rotation_euler = (math.radians(-12), 0, 0); self.elbows.append(el)
         self._dims = dict(r=r, thigh=thigh, shin=shin, hip=hip, torso_h=torso_h, sh_z=sh_z, neck=neck, ua=ua, fa=fa, wd=wd)
         H = self.head = s.empty("cabeza", (0, 0, hz), parent=self.body)
@@ -328,23 +336,24 @@ class Actor:
         B = self.body
         # Cadenas separadas (torso, brazos, piernas) que nacen DENTRO del torso: sin nudos de varias ramas, que el
         # modificador Skin convierte en pinchos. Lo que queda dentro del torso no se ve.
-        chains = [[(W(B, (0, 0, d["hip"] + 0.03)), "body", 0.135 * wd, 0.10 * wd),
-                   (W(B, (0, 0, d["hip"] + d["torso_h"] * 0.40)), "body", 0.135 * wd, 0.095 * wd),
-                   (W(B, (0, 0, d["hip"] + d["torso_h"] * 0.78)), "body", 0.15 * wd, 0.10 * wd),
-                   (W(B, (0, 0, d["sh_z"] - 0.03)), "body", 0.115 * wd, 0.08 * wd),
-                   (W(B, (0, 0, d["sh_z"] + 0.03)), "body", 0.048 * wd, None),
-                   (W(self.head, (0, 0, -0.14)), "head", 0.05 * wd, None)]]
+        chains = [[(W(B, (0, 0, d["hip"] - 0.02)), "body", 0.17 * wd, 0.115 * wd),
+                   (W(B, (0, 0, d["hip"] + d["torso_h"] * 0.35)), "body", 0.155 * wd, 0.11 * wd),
+                   (W(B, (0, 0, d["hip"] + d["torso_h"] * 0.72)), "body", 0.19 * wd, 0.125 * wd),
+                   (W(B, (0, 0, d["sh_z"] - 0.06)), "body", 0.20 * wd, 0.11 * wd),
+                   (W(B, (0, 0, d["sh_z"] + 0.02)), "body", 0.075 * wd, 0.065 * wd),
+                   (W(self.head, (0, 0, -0.14)), "head", 0.062 * wd, None)]]
         for i, (lp, kn, sh, el) in enumerate(zip(self.legs, self.knees, self.arms, self.elbows)):
             sx = -1 if i == 0 else 1; gL, gK, gS, gE = f"leg{i}", f"knee{i}", f"arm{i}", f"elbow{i}"
-            chains.append([(W(B, (0.03 * wd * sx, 0, d["hip"] + 0.11)), "body", r * 1.2, None),
-                           (W(lp), gL, r * 1.30, None), (W(lp, (0, 0, -d["thigh"] * 0.5)), gL, r * 1.18, None),
-                           (W(lp, (0, 0, -d["thigh"] * 0.86)), gL, r * 1.08, None), (W(kn), gK, r * 1.04, None),
-                           (W(kn, (0, 0, -d["shin"] * 0.5)), gK, r * 0.98, None), (W(kn, (0, 0, -d["shin"] + 0.02)), gK, r * 0.80, None)])
-            chains.append([(W(B, (0.07 * wd * sx, 0, d["sh_z"] - 0.06)), "body", r * 1.05, None),
-                           (W(sh), gS, r * 1.10, None), (W(sh, (0, 0, -d["ua"] * 0.5)), gS, r * 0.98, None),
-                           (W(sh, (0, 0, -d["ua"] * 0.86)), gS, r * 0.90, None), (W(el), gE, r * 0.88, None),
-                           (W(el, (0, 0, -d["fa"] * 0.6)), gE, r * 0.80, None), (W(el, (0, 0, -d["fa"])), gE, r * 0.68, None),
-                           (W(el, (0, -0.005, -d["fa"] - 0.075)), gE, 0.050, None)])
+            chains.append([(W(B, (0.04 * wd * sx, 0, d["hip"] + 0.10)), "body", r * 1.3, None),
+                           (W(lp), gL, r * 1.45, None), (W(lp, (0, 0, -d["thigh"] * 0.45)), gL, r * 1.30, None),
+                           (W(lp, (0, 0, -d["thigh"] * 0.86)), gL, r * 0.98, None), (W(kn), gK, r * 0.92, None),
+                           (W(kn, (0, 0, -d["shin"] * 0.30)), gK, r * 1.02, None), (W(kn, (0, 0, -d["shin"] * 0.70)), gK, r * 0.78, None),
+                           (W(kn, (0, 0, -d["shin"] + 0.02)), gK, r * 0.62, None)])
+            chains.append([(W(B, (0.10 * wd * sx, 0, d["sh_z"] - 0.07)), "body", r * 1.0, None),
+                           (W(sh), gS, r * 1.08, None), (W(sh, (0, 0, -d["ua"] * 0.45)), gS, r * 0.92, None),
+                           (W(sh, (0, 0, -d["ua"] * 0.86)), gS, r * 0.76, None), (W(el), gE, r * 0.72, None),
+                           (W(el, (0, 0, -d["fa"] * 0.35)), gE, r * 0.78, None), (W(el, (0, 0, -d["fa"])), gE, r * 0.55, None),
+                           (W(el, (0, -0.005, -d["fa"] - 0.065)), gE, (0.045, 0.028), None)])
         names = ["body", "head"] + [f"{k}{i}" for i in range(2) for k in ("leg", "knee", "arm", "elbow")]
         hipz = W(B, (0, 0, d["hip"])).z; shz = W(B, (0, 0, d["sh_z"])).z
         self.skin_parts = []
@@ -356,7 +365,7 @@ class Actor:
             for k, c in enumerate(ch): base.vertex_groups[c[1]].add([k], 1.0, "REPLACE")
             base.modifiers.new("Skin", "SKIN"); sub = base.modifiers.new("Sub", "SUBSURF"); sub.levels = 2; sub.render_levels = 2
             sv = me.skin_vertices[0].data
-            for k, c in enumerate(ch): sv[k].radius = (c[2], c[3] or c[2])
+            for k, c in enumerate(ch): sv[k].radius = tuple(c[2]) if isinstance(c[2], tuple) else (c[2], c[3] or c[2])
             sv[0].use_root = True
             dg = bpy.context.evaluated_depsgraph_get()
             nm = bpy.data.meshes.new_from_object(base.evaluated_get(dg), preserve_all_data_layers=True, depsgraph=dg)
@@ -365,10 +374,20 @@ class Actor:
             if not ob.vertex_groups:
                 for n in names: ob.vertex_groups.new(name=n)
             gi = {g.index: g.name for g in ob.vertex_groups}
-            for v in nm.vertices:                                     # vértices sin hueso: al del punto del esqueleto más cercano
-                if not v.groups or sum(g.weight for g in v.groups) < 0.5:
-                    near = min(ch, key=lambda c: (c[0] - v.co).length)
-                    ob.vertex_groups[near[1]].add([v.index], 1.0, "REPLACE")
+            for v in nm.vertices:                                     # cada vértice: tramo más cercano y mezcla de sus dos huesos
+                best = None
+                for k in range(len(ch) - 1):
+                    a_, b_ = ch[k][0], ch[k + 1][0]; ab = b_ - a_
+                    t = max(0.0, min(1.0, (v.co - a_).dot(ab) / max(ab.length_squared, 1e-9)))
+                    dist = (a_ + ab * t - v.co).length
+                    if best is None or dist < best[0]: best = (dist, k, t)
+                _, k, t = best
+                for g in list(v.groups): ob.vertex_groups[gi[g.group]].remove([v.index])
+                ga, gb = ch[k][1], ch[k + 1][1]
+                if ga == gb: ob.vertex_groups[ga].add([v.index], 1.0, "REPLACE")
+                else:
+                    t = t * t * (3 - 2 * t)
+                    ob.vertex_groups[ga].add([v.index], 1 - t, "REPLACE"); ob.vertex_groups[gb].add([v.index], t, "ADD")
             for m in (skin, shirt, pants): nm.materials.append(s.mat(m))
             for poly in nm.polygons:
                 poly.use_smooth = True
@@ -451,7 +470,7 @@ class Actor:
         px, py, pz = self._pup
         for sx, p in zip((-1, 1), self.pupils): self.st.key(p, f, loc=(px * sx + dx, py, pz + dz))
 
-    def tilt(self, deg, f=None, interp="BEZIER"): self.st.key(self.body, f, rot=(0, math.radians(deg), 0), interp=interp)
+    def tilt(self, deg, f=None, interp="BEZIER"): self.st.key(self.pivot, f, rot=(0, math.radians(deg), 0), interp=interp)
 
     def face(self, deg, f=None, turn=3):
         """Gira el cuerpo: 0 = de frente (eje -y); -30 = hacia la cámara; +55 = de perfil caminando hacia +x."""
@@ -476,30 +495,98 @@ class Actor:
     # --- acciones (avanzan el tiempo) ---
     def hop_to(self, x, z=None, h=0.55, dur=10, sound="boing"):
         s, f0 = self.st, self.st.f
-        z1 = self.z if z is None else z
+        z1 = self.st.ground(x, self.z) if z is None else z
         if self.legs and sound == "boing": sound = "step"                          # los humanos dan pasos, no botes de goma
         if self.human and abs(x - self.x) > 0.05:                                  # mira hacia donde va
-            tgt_yaw = 55 if x > self.x else -60
+            tgt_yaw = 75 if x > self.x else -75
             if tgt_yaw != self.yaw: self.face(tgt_yaw, f0, turn=2)
-        s.key(self.body, f0, scale=(1, 1, 1)); s.key(self.root, f0, loc=(self.x, 0, self.z))
+        if self.human:
+            return self._jump_human(x, z1, h, dur, sound)
+        s.key(self.pivot, f0, scale=(1, 1, 1)); s.key(self.root, f0, loc=(self.x, 0, self.z))
         if not self.human: self.arms_to(10, f0)
-        s.key(self.body, f0 + 2, scale=self._sq(1.18, 1.18, 0.78)); s.key(self.root, f0 + 2, loc=(self.x, 0, self.z))
+        s.key(self.pivot, f0 + 2, scale=self._sq(1.18, 1.18, 0.78)); s.key(self.root, f0 + 2, loc=(self.x, 0, self.z))
         if not self.human: self.arms_to(-25, f0 + 2)
         if sound: s.cue(sound, f0 + 2, vol=-6)
         mid = f0 + 2 + dur // 2
-        s.key(self.body, mid, scale=self._sq(0.88, 0.88, 1.22)); s.key(self.root, mid, loc=((self.x + x) / 2, 0, max(self.z, z1) + h))
+        s.key(self.pivot, mid, scale=self._sq(0.88, 0.88, 1.22)); s.key(self.root, mid, loc=((self.x + x) / 2, 0, max(self.z, z1) + h))
         if not self.human: self.arms_to(95, mid)
         if self.human: self._stride(f0 + 2, mid, f0 + 2 + dur, big=h > 0.3)
         end = f0 + 2 + dur
-        s.key(self.root, end, loc=(x, 0, z1)); s.key(self.body, end, scale=self._sq(1.25, 1.25, 0.70))
+        s.key(self.root, end, loc=(x, 0, z1)); s.key(self.pivot, end, scale=self._sq(1.25, 1.25, 0.70))
         if not self.human: self.arms_to(40, end)
-        s.key(self.body, end + 3, scale=(1, 1, 1), interp="BACK")
+        s.key(self.pivot, end + 3, scale=(1, 1, 1), interp="BACK")
         if not self.human: self.arms_to(10, end + 3)
         self.x, self.z = x, z1; s.f = end + 4
 
     def walk_to(self, x, steps=None, **kw):
+        if self.human: return self._walk_human(x, steps, sound=kw.get("sound", "step"))
         n = steps or max(1, round(abs(x - self.x) / 0.75)); x0 = self.x
         for i in range(1, n + 1): self.hop_to(x0 + (x - x0) * i / n, h=0.07 if self.human else 0.32, dur=8 if self.human else 7, **kw)
+
+    def _walk_human(self, x, steps=None, dur=9, sound="step"):
+        """Ciclo de paso humano: contacto (piernas abiertas, cuerpo abajo) -> paso (pierna que avanza con la rodilla
+        doblada, cuerpo arriba) -> contacto con la otra pierna. Avance lineal para que el pie apoyado no resbale;
+        cadera que gira y se balancea, brazos al contrario que las piernas y cabeza que compensa."""
+        s = self.st; x0, z0 = self.x, self.z; dist = abs(x - x0)
+        if dist < 0.05: return
+        n = steps or max(2, round(dist / 0.62)); step = dist / n
+        L = self._dims["thigh"] + self._dims["shin"]; a = math.degrees(math.asin(min(0.9, step / 2 / L))) * 1.05
+        self.face(75 if x > x0 else -75, s.f, turn=3)
+        f0 = s.f; z1 = s.ground(x, z0)
+        def legs(f, lead, spread, kl, kb):                      # lead = pierna adelantada (0/1)
+            for i, (lg, kn) in enumerate(zip(self.legs, self.knees)):
+                fw = i == lead
+                s.key(lg, f, rot=(math.radians(-spread if fw else spread), 0, 0)); s.key(kn, f, rot=(math.radians(kl if fw else kb), 0, 0))
+        def arms(f, lead, sw):
+            for i, (sh, el) in enumerate(zip(self.arms, self.elbows)):
+                sx = -1 if i == 0 else 1; fw = i != lead                # brazo contrario a la pierna adelantada
+                s.key(sh, f + 1, rot=(math.radians(-sw if fw else sw * 0.8), math.radians(-7 * sx), 0))
+                s.key(el, f + 2, rot=(math.radians(-28 if fw else -10), 0, 0))
+        for k in range(n + 1):
+            fc = f0 + k * dur; lead = k % 2; t = k / n
+            last = k == n
+            sp = 0.0 if last else a
+            legs(fc, lead, sp, 4, 12); arms(fc, lead, 0 if last else a * 0.75)
+            zc = z0 + (z1 - z0) * t
+            s.key(self.root, fc, loc=(x0 + (x - x0) * t, 0, zc - (0 if last or k == 0 else 0.03 * step / 0.62)), interp="LINEAR")
+            s.key(self.pivot, fc, rot=(math.radians(4 if not last else 0), math.radians(3 if lead else -3) * (not last), math.radians(6 if lead else -6) * (not last)))
+            s.key(self.head, fc + 1, rot=(math.radians(-3 if not last else 0), 0, math.radians(-5 if lead else 5) * (not last)))
+            if k > 0 and sound: s.cue(sound, fc, vol=-8)
+            if not last:                                             # posición de paso, a mitad de camino
+                fm = fc + dur // 2; sw = 1 - lead
+                for i, (lg, kn) in enumerate(zip(self.legs, self.knees)):
+                    swing = i == sw
+                    s.key(lg, fm, rot=(math.radians(-a * 0.35 if swing else a * 0.15), 0, 0)); s.key(kn, fm, rot=(math.radians(55 if swing else 6), 0, 0))
+                tm = (k + 0.5) / n
+                s.key(self.root, fm, loc=(x0 + (x - x0) * tm, 0, z0 + (z1 - z0) * tm + 0.015), interp="LINEAR")
+        self.x, self.z = x, z1; s.f = f0 + n * dur + 2
+
+    def _jump_human(self, x, z1, h, dur, sound):
+        """Salto humano: se agacha (anticipación), se impulsa con los brazos, encoge las piernas en el aire,
+        cae doblando las rodillas y se levanta."""
+        s, f0 = self.st, self.st.f
+        T = self._dims["thigh"]; Sh = self._dims["shin"]
+        def crouch(f, th, kn, lean, arm, zbase, xx, interp="BEZIER"):
+            drop = (T + Sh) - (T * math.cos(math.radians(th)) + Sh * math.cos(math.radians(kn - th)))
+            for lg in self.legs: s.key(lg, f, rot=(math.radians(-th), 0, 0), interp=interp)
+            for k in self.knees: s.key(k, f, rot=(math.radians(kn), 0, 0), interp=interp)
+            for i, sh in enumerate(self.arms): s.key(sh, f, rot=(math.radians(arm), math.radians(-8 * (-1 if i == 0 else 1)), 0), interp=interp)
+            s.key(self.pivot, f, rot=(math.radians(lean), 0, 0), interp=interp)
+            s.key(self.root, f, loc=(xx, 0, zbase - drop), interp=interp)
+        x0, z0 = self.x, self.z; big = h > 0.3
+        crouch(f0, 0, 0, 0, 0, z0, x0)
+        crouch(f0 + 3, 32 if big else 20, 60 if big else 40, 18 if big else 10, 35, z0, x0)       # se agacha, brazos atrás
+        if sound: s.cue(sound, f0 + 3, vol=-6)
+        fu = f0 + 5
+        crouch(fu, 5, 5, 4, -70 if big else -40, z0, x0 + (x - x0) * 0.08)                           # despega estirado
+        mid = fu + dur // 2
+        crouch(mid, 45 if big else 25, 80 if big else 45, 8, -110 if big else -50, max(z0, z1) + h + (0.15 if big else 0.05), (x0 + x) / 2)
+        end = fu + dur
+        crouch(end - 2, 20, 25, 4, -40, z1 + 0.04, x - (x - x0) * 0.04)
+        crouch(end, 35 if big else 22, 65 if big else 42, 15 if big else 8, 20, z1, x)                # aterriza amortiguando
+        crouch(end + 5, 0, 0, 0, 0, z1, x)
+        for el in self.elbows: s.key(el, f0, rot=(math.radians(-15), 0, 0)); s.key(el, mid, rot=(math.radians(-35), 0, 0)); s.key(el, end + 5, rot=(math.radians(-12), 0, 0))
+        self.x, self.z = x, z1; s.f = end
 
     def cheer(self, times=2):
         if self.human: self.face(-30)
@@ -526,7 +613,7 @@ class Actor:
         s.key(self.root, f + 4, loc=(self.x + dx * 0.8, 0, self.z + 0.4)); self.tilt(25, f + 4); self.arms_to(120, f + 4)
         s.key(self.root, f + 9, loc=(self.x + dx, 0, self.z + 0.42)); self.tilt(-8, f + 9); self.blink(f + 5)   # suspendido
         s.cue("slide_down", f + 9)
-        s.key(self.root, f + 16, loc=(self.x + dx, 0, depth)); s.key(self.body, f + 16, scale=(0.85, 0.85, 1.3)); self.arms_to(170, f + 14)
+        s.key(self.root, f + 16, loc=(self.x + dx, 0, depth)); s.key(self.pivot, f + 16, scale=(0.85, 0.85, 1.3)); self.arms_to(170, f + 14)
         s.f = f + 13; s.splash(self.x + dx, big=big); self.x += dx; self.z = depth; s.f = f + 22
 
     def drop_hat_floating(self, upto, water_z=-0.18):
