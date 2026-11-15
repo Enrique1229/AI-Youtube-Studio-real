@@ -136,8 +136,116 @@ class Stage:
 
     def wait(self, n): self.f += n
 
-    # ---------- escenarios ----------
+    # ---------- materiales realistas (procedurales, sin texturas de terceros) ----------
+    def pmat(self, name, colors, scale=8.0, rough=0.8, bump=0.3, detail=6.0, alpha=None):
+        """Material con variación natural: ruido -> rampa de colores (+ relieve). colors = [(pos, (r,g,b)), ...]."""
+        key = "p_" + name
+        if key in self.mats: return self.mats[key]
+        m = bpy.data.materials.new(key); m.use_nodes = True; nt = m.node_tree; N = nt.nodes; L = nt.links
+        b = N["Principled BSDF"]; b.inputs["Roughness"].default_value = rough
+        tc = N.new("ShaderNodeTexCoord"); nz = N.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = scale; nz.inputs["Detail"].default_value = detail
+        L.new(tc.outputs["Object"], nz.inputs["Vector"])
+        cr = N.new("ShaderNodeValToRGB"); el = cr.color_ramp.elements
+        el[0].position, el[0].color = colors[0][0], (*colors[0][1], 1); el[1].position, el[1].color = colors[-1][0], (*colors[-1][1], 1)
+        for pos, c in colors[1:-1]: e = el.new(pos); e.color = (*c, 1)
+        L.new(nz.outputs["Fac"], cr.inputs["Fac"]); L.new(cr.outputs["Color"], b.inputs["Base Color"])
+        if bump:
+            bp = N.new("ShaderNodeBump"); bp.inputs["Strength"].default_value = bump
+            L.new(nz.outputs["Fac"], bp.inputs["Height"]); L.new(bp.outputs["Normal"], b.inputs["Normal"])
+        if alpha is not None: b.inputs["Alpha"].default_value = alpha
+        self.mats[key] = m; return m
+
+    def _sky(self):
+        w = self.sc.world; nt = w.node_tree; bg = nt.nodes["Background"]
+        try:
+            sky = nt.nodes.new("ShaderNodeTexSky")
+            for attr, val in (("sky_type", "NISHITA"), ("sun_disc", False), ("sun_elevation", math.radians(38)), ("sun_rotation", math.radians(200)), ("altitude", 0), ("air_density", 1.0), ("dust_density", 1.5)):
+                try: setattr(sky, attr, val)
+                except Exception: pass
+            nt.links.new(sky.outputs["Color"], bg.inputs[0]); bg.inputs[1].default_value = 0.10
+        except Exception as e: print(f"[kit] cielo físico no disponible ({e})")
+
+    def _scatter(self, target, inst, n, seed, length=None, rotate=False):
+        """Reparte copias de `inst` sobre la superficie de `target` (partículas renderizadas como objeto)."""
+        ps = target.modifiers.new("disperso", "PARTICLE_SYSTEM").particle_system; st = ps.settings
+        st.type = "HAIR"; st.count = n; st.hair_length = 1.0; st.render_type = "OBJECT"; st.instance_object = inst
+        st.use_rotations = rotate                                    # sin rotación: el eje X del objeto sigue al pelo (hacia arriba)
+        if rotate: st.rotation_mode = "NOR"; st.phase_factor_random = 2.0; st.rotation_factor_random = 0.6
+        st.particle_size = 1.0; st.size_random = 0.5; ps.seed = seed; st.use_advanced_hair = True
+        inst.hide_render = False; inst.location = (0, 0, -50)
+        return ps
+
     def env_rio(self):
+        if os.environ.get("STUDIO_LOOK", "real") == "real": return self.env_rio_real()
+        self.env_rio_flat()
+
+    def env_rio_real(self):
+        """Parque junto a un río, aspecto realista: cielo físico, suelo de hojas y hierba, briznas en primer plano,
+        árboles con corteza y copas de hojas, agua turquesa con ondas. Todo procedural (propio)."""
+        self._sky()
+        sun = bpy.data.objects["sun"]; sun.data.energy = 3.2; sun.data.color = (1.0, 0.90, 0.75); sun.data.angle = math.radians(2.5)
+        sun.rotation_euler = (math.radians(52), 0, math.radians(-25))
+        try: self.sc.view_settings.view_transform = "AgX"; self.sc.view_settings.look = "AgX - Punchy"; self.sc.view_settings.exposure = -0.3
+        except Exception:
+            try: self.sc.view_settings.view_transform = "Filmic"
+            except Exception: pass
+        ground = self.pmat("suelo", [(0.30, (0.42, 0.20, 0.06)), (0.45, (0.60, 0.33, 0.08)), (0.55, (0.30, 0.38, 0.10)), (0.70, (0.22, 0.34, 0.08))], scale=3.5, rough=0.95, bump=0.6)
+        for nm, x in (("orillaL", -32.5), ("orillaR", 32.5)):
+            bpy.ops.mesh.primitive_plane_add(size=1, location=(x, 0, 0)); o = bpy.context.object; o.name = nm
+            o.scale = (60, 400, 1); o.location.y = 150; o.data.materials.append(ground)
+            bpy.ops.object.mode_set(mode="EDIT"); bpy.ops.mesh.subdivide(number_cuts=6); bpy.ops.object.mode_set(mode="OBJECT")
+            self.obj("cube", nm + "_talud", "mud", (x, 0, -1.5), (30, 60, 1.49), smooth=False).data.materials[0] = ground
+        self.obj("cube", "lecho", "mud", (0, 0, -2.6), (2.5, 60, 1.5), smooth=False)
+        self.water = self.obj("cube", "agua", "water", (0, 0, -1.75), (2.5, 60, 1.5), smooth=False)
+        wm = self.pmat("agua", [(0.3, (0.05, 0.42, 0.48)), (0.7, (0.10, 0.55, 0.58))], scale=6, rough=0.05, bump=0.15)
+        self.water.data.materials[0] = wm
+        self.obj("cube", "muelle", "wood", (-2.6, 0, 0.06), (0.9, 0.5, 0.06), smooth=False).data.materials[0] = \
+            self.pmat("madera", [(0.2, (0.30, 0.18, 0.08)), (0.8, (0.45, 0.29, 0.14))], scale=20, rough=0.8, bump=0.4, detail=3)
+        # briznas de hierba: una hoja curvada instanciada miles de veces SOLO cerca de cámara (barato)
+        def blade(nm, w, h):
+            o = self.obj("cone", nm, "leaf", (0, 0, 0), (w, w * 0.35, h), rot=(0, math.radians(90), 0), vertices=4, smooth=False)
+            for ob in bpy.context.selected_objects: ob.select_set(False)
+            o.select_set(True); bpy.context.view_layer.objects.active = o
+            bpy.ops.object.transform_apply(location=False, rotation=True, scale=True)
+            o.data.transform(__import__("mathutils").Matrix.Translation((h, 0, 0)))   # base en el origen
+            return o
+        bl = blade("brizna", 0.014, 0.20)
+        bl.data.materials[0] = self.pmat("hierba", [(0.2, (0.18, 0.36, 0.06)), (0.6, (0.42, 0.55, 0.12)), (0.9, (0.65, 0.58, 0.20))], scale=2, rough=0.6, bump=0)
+        for nm, x0, x1, y0, y1, n in (("prado_cerca", -9.0, -2.55, -6.5, 3.0, 22000), ("prado_lejos", 2.55, 9.0, -4.0, 6.0, 12000)):
+            bpy.ops.mesh.primitive_plane_add(size=1, location=((x0 + x1) / 2, (y0 + y1) / 2, 0.0)); pr = bpy.context.object; pr.name = nm
+            pr.scale = (x1 - x0, y1 - y0, 1); pr.data.materials.append(ground); pr.location.z = 0.002
+            self._scatter(pr, bl, n, 7 if x0 < 0 else 8)
+        # franja de hierba alta delante de la cámara (desenfocada, da profundidad)
+        bpy.ops.mesh.primitive_plane_add(size=1, location=(-4.4, -5.4, 0.003)); fg = bpy.context.object; fg.name = "hierba_frente"
+        fg.scale = (4.0, 1.4, 1); fg.data.materials.append(ground)
+        big = blade("brizna_alta", 0.022, 0.42); big.data.materials[0] = bl.data.materials[0]
+        self._scatter(fg, big, 1400, 11)
+        # árboles: tronco con corteza + copa de hojas (racimos de esferas cubiertos de hojas planas)
+        bark = self.pmat("corteza", [(0.3, (0.18, 0.12, 0.07)), (0.7, (0.32, 0.24, 0.15))], scale=30, rough=0.9, bump=0.8, detail=8)
+        leafm = self.pmat("hojas", [(0.25, (0.10, 0.26, 0.05)), (0.55, (0.22, 0.40, 0.08)), (0.85, (0.45, 0.50, 0.12))], scale=4, rough=0.7, bump=0)
+        leaf = self.obj("plane", "hoja", "leaf", (0, 0, -50), (0.09, 0.06, 1), smooth=False); leaf.data.materials[0] = leafm
+        random.seed(3)
+        for i in range(22):
+            side = random.choice((-1, 1)); x = side * random.uniform(3.3, 16); y = random.uniform(1.5, 30); h = random.uniform(3.0, 5.5)
+            tr = self.obj("cylinder", f"tronco{i}", "wood", (x, y, h * 0.45), (0.14, 0.14, h * 0.45), vertices=10); tr.data.materials[0] = bark
+            for j in range(4):
+                c = self.obj("ico_sphere", f"copa{i}_{j}", "leaf", (x + random.uniform(-0.8, 0.8), y + random.uniform(-0.8, 0.8), h * random.uniform(0.85, 1.15)),
+                             (random.uniform(0.9, 1.4),) * 3, subdivisions=2)
+                c.data.materials[0] = leafm; self._scatter(c, leaf, 260, i * 10 + j, rotate=True)
+        far = self.pmat("bosque", [(0.3, (0.07, 0.17, 0.04)), (0.6, (0.14, 0.28, 0.07)), (0.85, (0.25, 0.36, 0.10))], scale=1.2, rough=0.9, bump=0.4)
+        for i in range(60):                                           # bosque de fondo (sin hojas sueltas: barato)
+            x = random.uniform(-40, 40); y = random.uniform(32, 45); rr = random.uniform(2.5, 4.5)
+            c = self.obj("ico_sphere", f"fondo{i}", "leaf", (x, y, rr * 1.3), (rr, rr * 0.8, rr * 1.2), subdivisions=3); c.data.materials[0] = far
+        for i in range(10):                                           # piedras
+            side = random.choice((-1, 1)); x = side * random.uniform(2.8, 9); y = random.uniform(-1.5, 9)
+            if abs(y) < 1.2: y += 1.8
+            r_ = self.obj("ico_sphere", f"piedra{i}", "rock", (x, y, 0.05), (0.28, 0.22, 0.14), subdivisions=2)
+            r_.data.materials[0] = self.pmat("piedra", [(0.3, (0.35, 0.35, 0.33)), (0.7, (0.55, 0.54, 0.50))], scale=6, bump=0.5)
+        # cámara baja con desenfoque (foco en el personaje: ver follow)
+        self.cam.data.dof.use_dof = True; self.cam.data.dof.aperture_fstop = 2.2
+        self.cam.data.lens = 45; self.cam.location = (-5.6, -7.8, 1.35)
+
+    def env_rio_flat(self):
         self.obj("cube", "orillaL", "grass", (-32, 0, -1.5), (30, 60, 1.5), smooth=False)
         self.obj("cube", "orillaR", "grass", (32, 0, -1.5), (30, 60, 1.5), smooth=False)
         self.obj("cube", "lecho", "mud", (0, 0, -2.6), (2.5, 60, 1.5), smooth=False)
@@ -171,6 +279,8 @@ class Stage:
             self.sc.frame_set(fr); wp = actor.root.matrix_world.translation
             hz = 0.95 if getattr(actor, "human", False) else 0.6
             self.key(self.tgt, fr, loc=(wp.x * (0.92 if hz > 0.9 else weight), 0, max(0.45, min(1.35, wp.z + hz))))
+        if self.cam.data.dof.use_dof:
+            self.cam.data.dof.focus_object = self.tgt
 
     def ground(self, x, default=0.0):
         """Altura del suelo en x: encima del muelle 0.12, en la hierba 0; sobre el río, `default` (lo decide el nivel)."""

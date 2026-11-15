@@ -109,6 +109,70 @@ def comedy_music(seconds, seed):
     return norm(fade(np.tanh(out * 1.3), 0.03, min(0.6, seconds / 6)), 0.7)
 
 
+def _pizz(freq, dur, bright=1.0):
+    """Cuerda pulsada (pizzicato) por Karplus-Strong: ataque seco y cola corta."""
+    n = int(SR * dur); per = max(2, int(SR / freq)); rng = np.random.default_rng(int(freq * 7))
+    buf = rng.uniform(-1, 1, per); out = np.zeros(n)
+    for i in range(n):
+        out[i] = buf[i % per]; buf[i % per] = 0.5 * (buf[i % per] + buf[(i + 1) % per]) * (0.985 + 0.012 * bright)
+    return fade(out * np.exp(-np.arange(n) / SR * 6), 0.001, 0.03)
+
+
+def sneaky_music(seconds, seed):
+    """Música original de comedia 'a escondidas', tempo tranquilo (~84-94 BPM, como la referencia analizada):
+    bajo pizzicato que camina, chasquidos de dedos en 2 y 4, bombo suave, acordes pulsados a contratiempo y un
+    motivo juguetón que va y viene. Cada semilla cambia tempo, tonalidad, línea de bajo y motivo. Sin terceros."""
+    rng = np.random.default_rng(seed)
+    bpm = int(rng.choice([84, 88, 90, 94])); beat = 60 / bpm; sw = beat * 0.08            # ligero swing
+    root = 73.42 * 2 ** (int(rng.integers(0, 7)) / 12)                                    # Re2..La2
+    prog = [[0, 0, 5, 7], [0, 3, 5, 7], [0, 5, 3, 7], [0, 8, 7, 7]][int(rng.integers(0, 4))]
+    scale = [0, 2, 3, 5, 7, 8, 11, 12, 14, 15]                                             # menor armónica: tono pícaro
+    walk = [[0, 7, 3, 6], [0, 3, 5, 6], [0, 12, 7, 11]][int(rng.integers(0, 3))]          # bajo caminante con cromatismo
+    motif = [int(rng.integers(0, len(scale))) if rng.random() > 0.35 else None for _ in range(8)]
+    n = int(SR * seconds) + SR; out = np.zeros(n)
+    def put(sig, at, gain):
+        k = int(at * SR)
+        if 0 <= k < n: out[k:k + len(sig)] += sig[:max(0, n - k)] * gain
+    kt = np.arange(int(SR * 0.18)) / SR; kick = np.sin(2 * np.pi * (90 * np.exp(-kt * 30) + 45) * kt) * np.exp(-kt * 16)
+    st_ = np.arange(int(SR * 0.06)) / SR; snap = lowpass(rng.standard_normal(len(st_)), 6000) * np.exp(-st_ * 70) * 3
+    snap = snap - lowpass(snap, 1200)                                                      # chasquido: solo agudos
+    sh_ = np.arange(int(SR * 0.05)) / SR; shaker = (rng.standard_normal(len(sh_)) - lowpass(rng.standard_normal(len(sh_)), 4000)) * np.exp(-sh_ * 60)
+    bar, t0 = 0, 0.0
+    while t0 < seconds:
+        deg = prog[bar % 4]; base = root * 2 ** (deg / 12)
+        for b in range(4):
+            at = t0 + b * beat + (sw if b % 2 else 0)
+            put(_pizz(base * 2 ** (walk[b] / 12), beat * 0.8), at, 0.75)
+            if b in (0, 2): put(kick, at, 0.45)
+            if b in (1, 3): put(snap, at, 0.35)
+            put(shaker, at + beat / 2, 0.06)
+            if b in (1, 3):
+                for stp in (0, 3, 7): put(_pizz(base * 4 * 2 ** (stp / 12), beat * 0.35, 0.5), at + beat / 2, 0.10)
+        if bar % 2 == 1 or rng.random() < 0.3:                                              # el motivo, no todo el rato
+            for i, d in enumerate(motif):
+                if d is not None: put(_pizz(base * 4 * 2 ** (scale[d] / 12), beat * 0.4), t0 + i * beat / 2 + (sw if i % 2 else 0), 0.30)
+        bar += 1; t0 += 4 * beat
+    out = out[:int(SR * seconds)]
+    return norm(fade(np.tanh(out * 1.2), 0.02, min(0.6, seconds / 6)), 0.7)
+
+
+def ambience(seconds, seed, birds=True):
+    """Ambiente de parque: aire suave + pájaros ocasionales (chirridos sintetizados)."""
+    rng = np.random.default_rng(seed); n = int(SR * seconds)
+    air = lowpass(rng.standard_normal(n), 500) * (0.6 + 0.4 * np.sin(2 * np.pi * np.arange(n) / SR / 5.3)) * 2
+    out = air
+    if birds:
+        t_ = 0.4
+        while t_ < seconds - 0.5:
+            f0 = rng.uniform(2800, 4800); m = int(rng.integers(2, 5))
+            for k in range(m):
+                d = rng.uniform(0.05, 0.11); tt = np.arange(int(SR * d)) / SR
+                ch = np.sin(2 * np.pi * np.cumsum(f0 * (1 + 0.35 * np.sin(np.pi * tt / d))) / SR) * np.sin(np.pi * tt / d) ** 2
+                kk = int((t_ + k * (d + 0.03)) * SR); out[kk:kk + len(ch)] += ch[:max(0, n - kk)] * 0.25
+            t_ += rng.uniform(1.2, 3.0)
+    return norm(out, 0.5)
+
+
 def sfx(kind, seed):
     rng = np.random.default_rng(seed)
     if kind == "hit":
