@@ -269,32 +269,17 @@ class Actor:
         torso_h = 0.50 * ht; sh_z = hip + torso_h; neck = 0.10
         hz = sh_z + neck + 0.20                                           # centro de la cabeza
         self.knees, self.elbows = [], []
-        def limb(name, color, parent, length, rad):
-            s.obj("uv_sphere", name, color, (0, 0, -length / 2), (rad, rad, length / 2 + rad * 0.6), parent=parent)
-        for sx in (-1, 1):                                                # piernas: cadera → muslo → rodilla → espinilla → zapato
+        # Esqueleto de control (empties). El cuerpo es UNA malla continua que se deforma con ellos: sin bolas ni huecos.
+        for sx in (-1, 1):
             lp = s.empty("cadera", (0.085 * wd * sx, 0, hip), parent=self.root); self.legs.append(lp)
-            limb("muslo", pants if legs_style == "largo" else skin, lp, thigh, r * 1.2)
-            if legs_style != "largo":                                       # pantalón corto: tubo hasta media pierna
-                s.obj("cylinder", "pantalon", pants, (0, 0, -thigh * 0.33), (r * 1.75, r * 1.75, thigh * 0.36), parent=lp)
             kn = s.empty("rodilla", (0, 0, -thigh), parent=lp); self.knees.append(kn)
-            limb("espinilla", pants if legs_style == "largo" else skin, kn, shin, r * 1.05)
-            s.obj("uv_sphere", "rodilla_bola", pants if legs_style == "largo" else skin, (0, 0, 0), (r * 1.12,) * 3, parent=kn)
-            s.obj("uv_sphere", "zapato", "shoe", (0, -0.07, -shin - 0.02), (0.075 * wd, 0.15, 0.055), parent=kn)
-        s.obj("cylinder", "pelvis", pants, (0, 0, hip + 0.02), (0.150 * wd, 0.098 * wd, 0.075), parent=self.body)
-        torso_col = skin if top_style == "sin" else shirt
-        s.obj("uv_sphere", "torso", torso_col, (0, 0, hip + torso_h * 0.52), (0.155 * wd, 0.10 * wd, torso_h * 0.55), parent=self.body)
-        if top_style == "sin": s.obj("cylinder", "cinturon", pants, (0, 0, hip + 0.10), (0.145 * wd, 0.095 * wd, 0.06), parent=self.body)
+            s.obj("uv_sphere", "zapato", "shoe", (0, -0.07, -shin - 0.02), (0.078 * wd, 0.15, 0.058), parent=kn)
         self.lids, self.pupils, self.arms = [], [], []
         ua, fa = 0.31 * ht, 0.29 * ht
-        for sx in (-1, 1):                                                # brazos: hombro → brazo → codo → antebrazo → mano
-            sh = s.empty("hombro", (0.17 * wd * sx, 0, sh_z - 0.03), parent=self.body); self.arms.append(sh)
-            s.obj("uv_sphere", "hombro_bola", torso_col if top_style == "camiseta" else skin, (0, 0, 0), (r * 1.12,) * 3, parent=sh)
-            limb("brazo", shirt if top_style == "camiseta" and False else skin, sh, ua, r)
-            if top_style == "camiseta": s.obj("cylinder", "manga", shirt, (0, 0, -ua * 0.22), (r * 1.5, r * 1.5, ua * 0.24), parent=sh)
+        for sx in (-1, 1):
+            sh = s.empty("hombro", (0.165 * wd * sx, 0, sh_z - 0.04), parent=self.body); self.arms.append(sh)
             el = s.empty("codo", (0, 0, -ua), parent=sh); el.rotation_euler = (math.radians(-12), 0, 0); self.elbows.append(el)
-            limb("antebrazo", skin, el, fa, r * 0.9)
-            s.obj("uv_sphere", "mano", skin, (0, -0.01, -fa - 0.03), (0.055, 0.045, 0.07), parent=el)
-        s.obj("cylinder", "cuello", skin, (0, 0, sh_z + neck * 0.4), (0.045 * wd, 0.045 * wd, neck * 0.7), parent=self.body)
+        self._dims = dict(r=r, thigh=thigh, shin=shin, hip=hip, torso_h=torso_h, sh_z=sh_z, neck=neck, ua=ua, fa=fa, wd=wd)
         H = self.head = s.empty("cabeza", (0, 0, hz), parent=self.body)
         s.obj("uv_sphere", "craneo", skin, (0, 0, 0), (0.175, 0.185, 0.21), parent=H)
         s.obj("uv_sphere", "mandibula", skin, (0, -0.03, -0.10), (0.135, 0.14, 0.12), parent=H)
@@ -332,6 +317,114 @@ class Actor:
                 for sx in (-1, 1): s.obj("uv_sphere", "coleta", hc, (0.20 * sx, 0.05, -0.06), (0.055, 0.055, 0.12), parent=H)
             if hair == "mono": s.obj("uv_sphere", "mono", hc, (0, 0.04, 0.24), (0.08, 0.08, 0.075), parent=H); top = 0.31
         self.hat_z = hz + top - 0.03
+        self._skin_body(skin, shirt, pants, top_style, legs_style)
+
+    def _skin_body(self, skin, shirt, pants, top_style, legs_style):
+        """Cuerpo continuo: esqueleto de puntos -> modificador Skin + suavizado -> malla única con pesos -> armadura
+        cuyos huesos siguen a los empties de control. Ropa por zonas (camiseta, tirantes, sin camiseta; corto o largo)."""
+        s = self.st; d = self._dims; r = d["r"]; wd = d["wd"]
+        bpy.context.view_layer.update()
+        W = lambda emp, loc=(0, 0, 0): emp.matrix_world @ Vector(loc)
+        B = self.body
+        # Cadenas separadas (torso, brazos, piernas) que nacen DENTRO del torso: sin nudos de varias ramas, que el
+        # modificador Skin convierte en pinchos. Lo que queda dentro del torso no se ve.
+        chains = [[(W(B, (0, 0, d["hip"] + 0.03)), "body", 0.135 * wd, 0.10 * wd),
+                   (W(B, (0, 0, d["hip"] + d["torso_h"] * 0.40)), "body", 0.135 * wd, 0.095 * wd),
+                   (W(B, (0, 0, d["hip"] + d["torso_h"] * 0.78)), "body", 0.15 * wd, 0.10 * wd),
+                   (W(B, (0, 0, d["sh_z"] - 0.03)), "body", 0.115 * wd, 0.08 * wd),
+                   (W(B, (0, 0, d["sh_z"] + 0.03)), "body", 0.048 * wd, None),
+                   (W(self.head, (0, 0, -0.14)), "head", 0.05 * wd, None)]]
+        for i, (lp, kn, sh, el) in enumerate(zip(self.legs, self.knees, self.arms, self.elbows)):
+            sx = -1 if i == 0 else 1; gL, gK, gS, gE = f"leg{i}", f"knee{i}", f"arm{i}", f"elbow{i}"
+            chains.append([(W(B, (0.03 * wd * sx, 0, d["hip"] + 0.11)), "body", r * 1.2, None),
+                           (W(lp), gL, r * 1.30, None), (W(lp, (0, 0, -d["thigh"] * 0.5)), gL, r * 1.18, None),
+                           (W(lp, (0, 0, -d["thigh"] * 0.86)), gL, r * 1.08, None), (W(kn), gK, r * 1.04, None),
+                           (W(kn, (0, 0, -d["shin"] * 0.5)), gK, r * 0.98, None), (W(kn, (0, 0, -d["shin"] + 0.02)), gK, r * 0.80, None)])
+            chains.append([(W(B, (0.07 * wd * sx, 0, d["sh_z"] - 0.06)), "body", r * 1.05, None),
+                           (W(sh), gS, r * 1.10, None), (W(sh, (0, 0, -d["ua"] * 0.5)), gS, r * 0.98, None),
+                           (W(sh, (0, 0, -d["ua"] * 0.86)), gS, r * 0.90, None), (W(el), gE, r * 0.88, None),
+                           (W(el, (0, 0, -d["fa"] * 0.6)), gE, r * 0.80, None), (W(el, (0, 0, -d["fa"])), gE, r * 0.68, None),
+                           (W(el, (0, -0.005, -d["fa"] - 0.075)), gE, 0.050, None)])
+        names = ["body", "head"] + [f"{k}{i}" for i in range(2) for k in ("leg", "knee", "arm", "elbow")]
+        hipz = W(B, (0, 0, d["hip"])).z; shz = W(B, (0, 0, d["sh_z"])).z
+        self.skin_parts = []
+        for ci, ch in enumerate(chains):
+            pts = [tuple(c[0]) for c in ch]; edges = [(k, k + 1) for k in range(len(ch) - 1)]
+            me = bpy.data.meshes.new("esqueleto"); me.from_pydata(pts, edges, [])
+            base = bpy.data.objects.new("esqueleto", me); s.sc.collection.objects.link(base)
+            for n in names: base.vertex_groups.new(name=n)
+            for k, c in enumerate(ch): base.vertex_groups[c[1]].add([k], 1.0, "REPLACE")
+            base.modifiers.new("Skin", "SKIN"); sub = base.modifiers.new("Sub", "SUBSURF"); sub.levels = 2; sub.render_levels = 2
+            sv = me.skin_vertices[0].data
+            for k, c in enumerate(ch): sv[k].radius = (c[2], c[3] or c[2])
+            sv[0].use_root = True
+            dg = bpy.context.evaluated_depsgraph_get()
+            nm = bpy.data.meshes.new_from_object(base.evaluated_get(dg), preserve_all_data_layers=True, depsgraph=dg)
+            bpy.data.objects.remove(base)
+            ob = bpy.data.objects.new("cuerpo_piel", nm); s.sc.collection.objects.link(ob)
+            if not ob.vertex_groups:
+                for n in names: ob.vertex_groups.new(name=n)
+            gi = {g.index: g.name for g in ob.vertex_groups}
+            for v in nm.vertices:                                     # vértices sin hueso: al del punto del esqueleto más cercano
+                if not v.groups or sum(g.weight for g in v.groups) < 0.5:
+                    near = min(ch, key=lambda c: (c[0] - v.co).length)
+                    ob.vertex_groups[near[1]].add([v.index], 1.0, "REPLACE")
+            for m in (skin, shirt, pants): nm.materials.append(s.mat(m))
+            for poly in nm.polygons:
+                poly.use_smooth = True
+                vs = [nm.vertices[k] for k in poly.vertices]; z = sum(v.co.z for v in vs) / len(vs)
+                cnt = {}
+                for v in vs:
+                    best = max(v.groups, key=lambda g: g.weight, default=None); g = gi[best.group] if best else "body"; cnt[g] = cnt.get(g, 0) + 1
+                g = max(cnt, key=cnt.get); mi = 0
+                if g == "body":
+                    if ci == 0 or z > hipz + 0.2: mi = 2 if z < hipz + 0.09 else (0 if top_style == "sin" else 1)
+                    else: mi = 2                                          # raíz de la pierna: dentro del pantalón
+                    if ci > 0 and z > hipz + 0.2: mi = 0 if top_style != "camiseta" else 1
+                elif g.startswith("leg"):
+                    kz = W(self.knees[int(g[-1])]).z
+                    mi = 2 if (legs_style == "largo" or (z - kz) / max(hipz - kz, 1e-3) > 0.42) else 0
+                elif g.startswith("knee"):
+                    mi = 2 if legs_style == "largo" else 0
+                elif g.startswith("arm"):
+                    mi = 1 if (top_style == "camiseta" and shz - z < d["ua"] * 0.38) else 0
+                poly.material_index = mi
+            self.skin_parts.append(ob)
+        # armadura: un hueso por empty de control; cada hueso copia el movimiento de su empty (Child Of)
+        ctrl = {"body": B, "head": self.head}
+        for i in range(2): ctrl.update({f"leg{i}": self.legs[i], f"knee{i}": self.knees[i], f"arm{i}": self.arms[i], f"elbow{i}": self.elbows[i]})
+        ad = bpy.data.armatures.new("rig"); rig = bpy.data.objects.new("rig", ad); s.sc.collection.objects.link(rig)
+        prev = bpy.context.view_layer.objects.active
+        bpy.context.view_layer.objects.active = rig; rig.select_set(True)
+        bpy.ops.object.mode_set(mode="EDIT")
+        for n, emp in ctrl.items():
+            b = ad.edit_bones.new(n); hpos = emp.matrix_world.translation; b.head = hpos; b.tail = hpos + Vector((0, 0, 0.1))
+        bpy.ops.object.mode_set(mode="OBJECT"); rig.select_set(False); bpy.context.view_layer.objects.active = prev
+        for n, emp in ctrl.items():
+            c = rig.pose.bones[n].constraints.new("CHILD_OF"); c.target = emp; c.inverse_matrix = emp.matrix_world.inverted()
+        for ob in self.skin_parts:
+            mod = ob.modifiers.new("Armature", "ARMATURE"); mod.object = rig
+        rig.hide_render = True; self.rig = rig
+
+    def hold_stick(self, name, color, length, world_dir, side=1, above=0.3, blade=True):
+        """Pone un palo (remo, escoba, caña) en la mano: sigue al antebrazo y apunta hacia `world_dir` en la pose actual."""
+        s = self.st; s.sc.frame_set(s.f); bpy.context.view_layer.update()
+        el = self.elbows[side]; fa = self._dims["fa"]
+        grip = s.empty("agarre", (0, -0.005, -fa - 0.07), parent=el); bpy.context.view_layer.update()
+        M = grip.matrix_world.to_3x3().normalized()
+        d = (M.inverted() @ Vector(world_dir)).normalized()
+        st = s.empty(name, (0, 0, 0), parent=grip); st.rotation_euler = d.to_track_quat("Z", "Y").to_euler()
+        s.obj("cylinder", name + "_palo", color, (0, 0, length / 2 - above), (0.02, 0.02, length / 2), parent=st, vertices=12)
+        if blade: s.obj("cube", name + "_pala", color, (0, 0, length - above - 0.12), (0.09, 0.015, 0.16), parent=st, smooth=False)
+        return st
+
+    def sit(self, f=None, knee=20, lean=0):
+        """Postura sentada: muslos al frente, rodillas algo dobladas. Devuelve la altura de la cadera sobre los pies."""
+        f = self.st.f if f is None else f
+        for lg in self.legs: self.st.key(lg, f, rot=(math.radians(-88), 0, 0))
+        for kn in self.knees: self.st.key(kn, f, rot=(math.radians(knee), 0, 0))
+        self.tilt(lean, f)
+        return self._dims["hip"]
 
     # --- gestos ---
     def arms_to(self, deg, f=None, interp="BEZIER"):

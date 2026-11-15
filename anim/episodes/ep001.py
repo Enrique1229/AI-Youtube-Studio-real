@@ -32,21 +32,30 @@ def l3(S):  # +120: un tablón que se comba y tambalea; llega y celebra.
     S.key(plank, S.f + 4, loc=(0, 0, 0.14), rot=(0, 0, 0), interp="ELASTIC"); a.tilt(0); a.cheer(); S.wait(6); return a
 
 
-def l4(S):  # +900: una barca; rema tranquilo y saluda con el sombrero.
+def l4(S):  # +900: una barca hinchable; se sienta, rema con calma y saluda.
     boat = S.empty("barca", (-1.9, 0, -0.16))
-    S.obj("uv_sphere", "casco", "red", (0, 0, 0), (1.05, 0.55, 0.32), parent=boat)
-    S.obj("cube", "banco", "wood", (0, 0, 0.16), (0.8, 0.4, 0.03), parent=boat, smooth=False)
-    remo = S.obj("cube", "remo", "wood", (0, -0.62, 0.3), (0.05, 0.05, 0.75), rot=(0.9, 0, 0), parent=boat, smooth=False)
-    a = S.actor(x=0.0); a.root.parent = boat; a.root.location = (0, 0, 0.18)
+    S.obj("uv_sphere", "casco", "red", (0, 0, -0.08), (1.10, 0.62, 0.20), parent=boat)
+    S.obj("torus", "borde", "red", (0, 0, 0.06), (1.0, 0.56, 1.0), parent=boat, major_radius=1.0, minor_radius=0.09)
+    a = S.actor(x=0.0); a.root.parent = boat
+    hip = a.sit(f=1, knee=25); a.root.location = (0.15, 0.12, 0.12 - hip + 0.05)
+    for sh in a.arms: S.key(sh, 1, rot=(math.radians(-55), 0, 0))
+    for el in a.elbows: S.key(el, 1, rot=(math.radians(-50), 0, 0))
+    S.f = 1; a.hold_stick("remo", "wood", 1.35, (0.45, -0.25, -0.86), side=1)
     n = 84
     for i, fr in enumerate(range(1, n + 1, 6)):
-        t = (fr - 1) / (n - 1); e = t * t * (3 - 2 * t)
-        S.key(boat, fr, loc=(-1.9 + 3.6 * e, 0, -0.16 + (0.04 if i % 2 else -0.02)), rot=(0, math.radians(3 if i % 2 else -3), 0))
-        S.key(remo, fr, rot=(0.9, math.radians(35 if i % 2 else -35), 0)); a.arms_to(35 if i % 2 else -20, fr)
+        t_ = (fr - 1) / (n - 1); e_ = t_ * t_ * (3 - 2 * t_)
+        S.key(boat, fr, loc=(-1.9 + 3.6 * e_, 0, -0.16 + (0.04 if i % 2 else -0.02)), rot=(0, math.radians(3 if i % 2 else -3), 0))
+        if fr < 50 or fr > 82:                                           # palada: brazos adelante y atrás
+            for sh in a.arms: S.key(sh, fr, rot=(math.radians(-75 if i % 2 else -30), 0, 0))
+            a.tilt(6 if i % 2 else -4, fr)
         if i % 2: S.cue("paddle", fr, vol=-10)
-    hz = a.hat_z; S.key(a.hat, 50, loc=(0, 0, hz), rot=(0, 0, 0)); S.key(a.hat, 58, loc=(0.25, -0.2, hz + 0.37), rot=(0, math.radians(-40), 0), interp="BACK")
-    S.key(a.hat, 70, loc=(0.25, -0.2, hz + 0.37), rot=(0, math.radians(-40), 0)); S.key(a.hat, 80, loc=(0, 0, hz), rot=(0, 0, 0), interp="BACK")
-    S.cue("pop", 58, vol=-6); a.blink(64); S.f = n + 6; S.follow_obj = boat; return a
+    if a.has_hat:                                                        # saluda con la mano libre (y el sombrero si lo lleva)
+        hz = a.hat_z; S.key(a.hat, 50, loc=(0, 0, hz), rot=(0, 0, 0)); S.key(a.hat, 58, loc=(0.25, -0.2, hz + 0.37), rot=(0, math.radians(-40), 0), interp="BACK")
+        S.key(a.hat, 70, loc=(0.25, -0.2, hz + 0.37), rot=(0, math.radians(-40), 0)); S.key(a.hat, 80, loc=(0, 0, hz), interp="BACK")
+    S.key(a.arms[0], 50, rot=(math.radians(-30), 0, 0)); S.key(a.arms[0], 56, rot=(0, math.radians(150), 0), interp="BACK")
+    for k, fr in enumerate(range(58, 76, 4)): S.key(a.elbows[0], fr, rot=(0, math.radians(-25 if k % 2 else 25), 0))
+    S.key(a.arms[0], 80, rot=(math.radians(-55), 0, 0)); a.face(-45, 50, turn=4); a.blink(64)
+    S.cue("pop", 56, vol=-6); S.f = n + 6; return a
 
 
 def l5(S):  # +5469: tira de una palanca, el río se vacía y cruza andando, silbando.
