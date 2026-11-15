@@ -5,3 +5,4 @@ Estudio completo, con tablas y método: `MARKET-STUDY.md`. Fotogramas: `channel/
 - Ciencia ficción narrada en español con ilustraciones generadas: WEAK. Hubo audiencia (16 K-47 K suscriptores) pero los tres canales dejaron de publicar hace 2-10 meses.
 - Vídeos de 6-10 min de ficción con IA: NO_EVIDENCE. Shorts de ficción con IA: WEAK (casi sin vistas).
 - Factor decisivo observado: la voz (humana y reconocible) y la autoría declarada; la imagen pesa poco.
+- Comedia de animación 3D por niveles de IQ (Shorts, sin narración): VALIDATED en tracción para animación hecha a mano (Agbaps Shorts 9,39 M, mediana 2 M de vistas; Maizen 0,8-13 M por Short). Con vídeo generado por IA: sin casos (2-376 suscriptores). Nuestro método —animación 3D propia por código— no tiene precedente medido: WEAK hasta publicar.

@@ -6,7 +6,7 @@ Lo llama assemble.py; también se puede probar suelto:
     python3 scripts/audio_gen.py <mood> <segundos> <salida.wav>
 
 Música (edl.music.mood): tension | mystery | melancholy | wonder
-Efectos (edl.sfx[].type): whoosh | hit | riser | swell
+Efectos: whoosh | hit | riser | swell | boing | splash | pop | slide_down | tada | creak | paddle | clunk | drain
 """
 import sys, zlib
 import numpy as np, soundfile as sf
@@ -79,6 +79,43 @@ def sfx(kind, seed):
         t = np.arange(int(SR * 3.0)) / SR
         x = chord([0, 7, 12], 82.4, t, rng) * np.sin(np.pi * t / 3.0) ** 2
         return norm(lowpass(x, 1200), 0.7)
+    if kind == "boing":      # muelle: tono que sube y vibra
+        t = np.arange(int(SR * 0.32)) / SR
+        f = 180 + 520 * (t / 0.32) ** 0.6 + 40 * np.sin(2 * np.pi * 28 * t)
+        return norm(fade(np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 7), 0.003, 0.05), 0.8)
+    if kind == "splash":     # chapuzón: ruido que se abre y se apaga
+        t = np.arange(int(SR * 0.9)) / SR
+        x = lowpass(rng.standard_normal(len(t)), 5000) * np.exp(-t * 5.5) + 0.6 * lowpass(rng.standard_normal(len(t)), 600) * np.exp(-t * 3) * 4
+        x += 0.5 * np.sin(2 * np.pi * 70 * t) * np.exp(-t * 12)
+        return norm(fade(x, 0.002, 0.2), 0.9)
+    if kind == "pop":
+        t = np.arange(int(SR * 0.12)) / SR
+        return norm(np.sin(2 * np.pi * (900 - 4000 * t) * t) * np.exp(-t * 40), 0.8)
+    if kind == "slide_down":  # silbido que cae: "se viene abajo"
+        t = np.arange(int(SR * 0.6)) / SR
+        f = 1400 * np.exp(-t * 3.2) + 180
+        return norm(fade(np.sin(2 * np.pi * np.cumsum(f) / SR) * (0.6 + 0.4 * np.sin(2 * np.pi * 9 * t)), 0.01, 0.1), 0.7)
+    if kind == "tada":       # arpegio mayor: éxito
+        out = np.zeros(int(SR * 0.9))
+        for i, st in enumerate((0, 4, 7, 12)):
+            t = np.arange(int(SR * 0.5)) / SR; f = 523.25 * 2 ** (st / 12)
+            n = (np.sin(2 * np.pi * f * t) + 0.4 * np.sin(2 * np.pi * 2 * f * t)) * np.exp(-t * 5)
+            k = int(SR * 0.09 * i); out[k:k + len(n)] += n[:len(out) - k]
+        return norm(out, 0.8)
+    if kind == "creak":      # madera que cruje
+        t = np.arange(int(SR * 0.22)) / SR
+        return norm(np.sign(np.sin(2 * np.pi * (90 + 60 * t) * t)) * lowpass(rng.standard_normal(len(t)), 1800) * np.exp(-t * 9), 0.6)
+    if kind == "paddle":     # remo en el agua
+        t = np.arange(int(SR * 0.35)) / SR
+        return norm(fade(lowpass(rng.standard_normal(len(t)), 1400) * np.sin(np.pi * t / 0.35) ** 2, 0.02, 0.08), 0.6)
+    if kind == "clunk":      # palanca
+        t = np.arange(int(SR * 0.25)) / SR
+        return norm(np.sin(2 * np.pi * 140 * t) * np.exp(-t * 22) + 0.5 * lowpass(rng.standard_normal(len(t)), 3000) * np.exp(-t * 45) * 4, 0.9)
+    if kind == "drain":      # el agua se va por el desagüe
+        t = np.arange(int(SR * 1.5)) / SR
+        f = 900 * np.exp(-t * 1.6) + 120
+        x = lowpass(rng.standard_normal(len(t)), 2500) * (0.5 + 0.5 * np.sin(2 * np.pi * np.cumsum(f / 30) / SR)) + 0.3 * np.sin(2 * np.pi * np.cumsum(f) / SR)
+        return norm(fade(x * (1 - t / 1.5) ** 0.5, 0.05, 0.3), 0.7)
     t = np.arange(int(SR * 0.8)) / SR  # whoosh
     x = lowpass(rng.standard_normal(len(t)), 2500) * np.sin(np.pi * t / 0.8) ** 3
     return norm(x, 0.7)

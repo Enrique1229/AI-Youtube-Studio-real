@@ -56,6 +56,26 @@ A = [
 - Máx. 8 búsquedas por lote. Reutiliza los comparables de market.md para ideas del mismo formato y género.
 - Cifras: usa `python3 scripts/yt_lookup.py "<búsqueda>"` (vídeos y Shorts con vistas y antigüedad) y `python3 scripts/yt_lookup.py --channels "<búsqueda>"` (suscriptores). Busca con las palabras con que un espectador buscaría ese formato, en español y en inglés. Compara SIEMPRE duración parecida.
 - Si el formato pedido no tiene tracción pero uno cercano sí, dilo en `notes` y en market.md: es información para el Director, no un motivo para dar VALIDATED."""),
+("gag-writer", "sonnet", RW + ", Bash",
+ "Formato ANIMACIÓN: inventa episodios de comedia física por niveles de IQ (un problema, 5 soluciones de la más torpe a la más ingeniosa).",
+ "anim/FORMAT.md, anim/README.md (qué acciones y objetos existen), channel/strategy/strategy.md, salida de `python3 scripts/studio.py ledger --brief`",
+ "ideas/<batch>/ideas.json (formato templates/idea.json con `format: \"short\"`, `kind: \"anim\"` y el campo `levels`: 5 entradas {iq, gag, por_que_es_gracioso})",
+ """- Fórmula: UN problema físico claro que se entiende sin palabras en 1 segundo, y 5 niveles en escalera. Los IQ suben de muy negativo a muy alto (p. ej. -450, -80, 120, 900, 5469).
+- Niveles 1-2: fracasos con lógica propia (el personaje cree de verdad que su plan es bueno). Nivel 3: funciona a duras penas. Nivel 4: funciona bien. Nivel 5: solución lateral e inesperada que hace innecesario el problema.
+- Cada gag debe poder contarse con las acciones de anim/README.md o con una acción nueva sencilla (dilo en `needs`). Sin diálogo ni texto.
+- Personajes y mundo PROPIOS del canal (anim/FORMAT.md). No copies gags, personajes ni escenarios de otros canales.
+- Nada de estereotipos de nacionalidad, raza, género o discapacidad: el humor sale de la física y de la lógica absurda, no de burlarse de un grupo.
+- Genera 4 episodios por cada vídeo pedido y comprueba cada logline con `python3 scripts/studio.py similar`."""),
+("animation-director", "sonnet", RW + ", Bash",
+ "Formato ANIMACIÓN: convierte un episodio aprobado en código de animación (anim/episodes/epNNN.py) usando la biblioteca anim/kit.py.",
+ "stories/<id>/idea.json (campo levels), anim/README.md (API), anim/episodes/ep001.py (ejemplo de referencia)",
+ "anim/episodes/<id>.py con TITLE y LEVELS = [(iq, función), …]; stories/<id>/reviews/anim-check.md",
+ """- Una función por nivel: recibe el escenario S, crea el actor, encadena acciones y DEVUELVE el actor (la cámara lo sigue).
+- Usa solo la API de anim/README.md. Si un gag necesita un objeto nuevo, constrúyelo en la función con S.obj(...). Si necesita una acción nueva reutilizable, dilo en ISSUES en vez de modificar kit.py.
+- Ritmo: cada nivel dura 4-8 s. Antes del fracaso, una pausa corta (el personaje duda o mira a cámara). El remate, en los últimos 2 s.
+- Cada acción con sonido ya lo anota; añade S.cue(...) para golpes, chapuzones o éxitos que el kit no cubra.
+- Comprueba tu trabajo: ejecuta `python anim/run_level.py -- anim/episodes/<id>.py <n> <carpeta> <fotograma>` para 3 fotogramas de cada nivel (inicio, clímax, final), ábrelos y corrige lo que no se entienda. Anota en anim-check.md qué viste en cada uno.
+- No declares que un nivel funciona si no has mirado sus fotogramas."""),
 ("audience-analyst", "haiku", RW,
  "Define audiencia objetivo y palancas de atención SOLO para las ideas seleccionadas.",
  "ideas/<batch>/selected.json",
