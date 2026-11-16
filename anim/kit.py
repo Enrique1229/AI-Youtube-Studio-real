@@ -8,6 +8,7 @@ clave con principios de animación (anticipación, estirar y encoger, rebote) y 
 """
 import json, math, os, random
 import bpy
+import numpy as np
 from mathutils import Vector
 
 FPS = 24
@@ -661,7 +662,15 @@ class Actor:
         self.x, self.z = x, z1; s.f = end + 4
 
     def walk_to(self, x, steps=None, **kw):
-        if self.human: return self._walk_human(x, steps, sound=kw.get("sound", "step"))
+        if self.human:
+            if os.environ.get("STUDIO_MOCAP", "1") == "1" and abs(x - self.x) > 0.3:
+                self.face(75 if x > self.x else -75, self.st.f, turn=3); f0 = self.st.f
+                n = self.mocap("caminar", travel_to=x)
+                snd = kw.get("sound", "step")
+                if snd:
+                    for k in range(6, n, 12): self.st.cue(snd, f0 + k, vol=-8)
+                return
+            return self._walk_human(x, steps, sound=kw.get("sound", "step"))
         n = steps or max(1, round(abs(x - self.x) / 0.75)); x0 = self.x
         for i in range(1, n + 1): self.hop_to(x0 + (x - x0) * i / n, h=0.07 if self.human else 0.32, dur=8 if self.human else 7, **kw)
 
@@ -730,6 +739,70 @@ class Actor:
         for el in self.elbows: s.key(el, f0, rot=(math.radians(-15), 0, 0)); s.key(el, mid, rot=(math.radians(-35), 0, 0)); s.key(el, end + 5, rot=(math.radians(-12), 0, 0))
         self.x, self.z = x, z1; s.f = end
 
+    # --- captura de movimiento real (anim/mocap.py) ---
+    def mocap(self, name, frames=None, travel_to=None, root=True, start=0.0, strength=1.0, head=0.7, step=1):
+        """Aplica un clip de captura real al personaje desde el fotograma actual.
+        frames: cuántos fotogramas (24 fps) usar; travel_to: x final (escala el avance para llegar justo ahí y corta
+        el clip cuando llega); root=False: solo la pose (la trayectoria la pone el gag); start: segundo del clip
+        donde empezar. Devuelve el número de fotogramas aplicados y avanza el tiempo."""
+        from mathutils import Vector, Matrix
+        import mocap as MC
+        s = self.st; clip = MC.Clip(name); d = self._dims
+        idx = MC_frames = clip.frames_at(FPS); k0 = int(start / (clip.dt * FPS) / 1) if False else int(round(start * FPS))
+        idx = idx[k0:]
+        r, fw, up = clip.basis()
+        # rumbo suavizado (media móvil de 0,6 s): quita el balanceo de cadera del rumbo pero lo deja en la pose
+        win = max(1, int(0.3 / clip.dt)); ker = np.ones(2 * win + 1) / (2 * win + 1)
+        rs = np.stack([np.convolve(np.pad(r[:, i], win, mode="edge"), ker, "valid") for i in range(3)], 1)
+        rs /= np.linalg.norm(rs, axis=1, keepdims=True) + 1e-9; fs = np.cross(up, rs)
+        J = lambda n_, i: clip.P[i, clip.idx[n_]]
+        foot0 = min(clip.j("LeftFoot")[:, 2].min(), clip.j("RightFoot")[:, 2].min())
+        sc = (d["thigh"] + d["shin"] + 0.08) / max(1e-6, J("Hips", idx[0])[2] - foot0)
+        def loc(v, i):                                      # vector del mundo BVH -> marco del personaje (x der, -y adelante, z arriba)
+            return Vector((float(-(v @ rs[i])), float(-(v @ fs[i])), float(v[2])))   # mirando a -y, la derecha es -x
+        h0 = J("Hips", idx[0]); f0 = s.f; x0, z0 = self.x, self.z
+        sign = 1 if math.sin(math.radians(self.yaw)) >= 0 else -1                      # hacia dónde mira (eje x del mundo)
+        if travel_to is not None:
+            dist = abs(travel_to - x0); fwd = [float((J("Hips", i) - h0) @ fs[idx[0]]) * sc for i in idx]
+            tot = max(fwd) if max(fwd) > 1e-3 else 1.0
+            cut = next((k for k, v in enumerate(fwd) if v >= dist), len(fwd) - 1)
+            if fwd[cut] < dist * 0.97: k_scale = dist / max(fwd[cut], 1e-3)
+            else: k_scale = 1.0
+            idx = idx[:cut + 1]
+        if frames: idx = idx[:frames]
+        Z = Vector((0, 0, -1)); U = Vector((0, 0, 1))
+        def lerp_q(q):                                       # intensidad (1 = como la captura)
+            return Quaternion().slerp(q, strength) if strength < 1 else q
+        from mathutils import Quaternion
+        for k, i in enumerate(idx):
+            if k % step and k != len(idx) - 1: continue
+            fr = f0 + k
+            sp = loc(J("Neck", i) - J("Hips", i), i).normalized(); rt = loc(J("LeftArm", i) - J("RightArm", i), i)   # eje +x local
+            x_ = (rt - sp * rt.dot(sp)).normalized(); y_ = sp.cross(x_)
+            Rt = Matrix((x_, y_, sp)).transposed()                                      # torso (pivote)
+            qt = lerp_q(Rt.to_quaternion()); s.key(self.pivot, fr, rot=qt.to_euler())
+            Rti = qt.to_matrix().inverted()
+            for side, (lg, kn, sh, el) in enumerate(zip(self.legs, self.knees, self.arms, self.elbows)):
+                P_ = "Right" if side == 0 else "Left"                                    # legs[0] está en -x = su lado derecho
+                th = loc(J(P_ + "Leg", i) - J(P_ + "UpLeg", i), i); sh_ = loc(J(P_ + "Foot", i) - J(P_ + "Leg", i), i)
+                qth = Z.rotation_difference(th); qkn = Z.rotation_difference(qth.to_matrix().inverted() @ sh_)
+                s.key(lg, fr, rot=lerp_q(qth).to_euler()); s.key(kn, fr, rot=lerp_q(qkn).to_euler())
+                ua = Rti @ loc(J(P_ + "ForeArm", i) - J(P_ + "Arm", i), i); fa = loc(J(P_ + "Hand", i) - J(P_ + "ForeArm", i), i)
+                qua = Z.rotation_difference(ua); qfa = Z.rotation_difference(qua.to_matrix().inverted() @ (Rti @ fa))
+                s.key(sh, fr, rot=lerp_q(qua).to_euler()); s.key(el, fr, rot=lerp_q(qfa).to_euler())
+            nk = Rti @ loc(J("Head", i) - J("Neck", i), i)
+            s.key(self.head, fr, rot=Quaternion().slerp(U.rotation_difference(nk), head).to_euler())
+            if root:
+                dv = J("Hips", i) - h0; fwd_ = float(dv @ fs[idx[0]]) * sc * (k_scale if travel_to is not None else 1.0)
+                zz = z0 + float(dv[2]) * sc
+                if travel_to is not None: zz += (s.ground(travel_to, z0) - z0) * k / max(1, len(idx) - 1)
+                s.key(self.root, fr, loc=(x0 + sign * fwd_, 0, zz))
+        if root:
+            self.x = travel_to if travel_to is not None else x0 + sign * float((J("Hips", idx[-1]) - h0) @ fs[idx[0]]) * sc
+            self.z = s.ground(self.x, z0) if travel_to is not None else z0
+            s.key(self.root, f0 + len(idx) - 1, loc=(self.x, 0, self.z))
+        s.f = f0 + len(idx); return len(idx)
+
     def cheer(self, times=2):
         if self.human: self.face(-30)
         self.st.cue("tada")
@@ -742,6 +815,8 @@ class Actor:
         s = self.st
         if self.human and self.yaw != -30: self.face(-30, turn=4)
         self.look(0.0, 0.03, s.f); self.look(0.03, 0.06, s.f + 5); self.blink(s.f + 8); self.look(0, 0, s.f + n)
+        if self.human and os.environ.get("STUDIO_MOCAP", "1") == "1":
+            self.mocap("pensar", frames=n, root=False, strength=0.8); return
         self.tilt(0, s.f); self.tilt(8, s.f + 6); self.tilt(0, s.f + n); s.f += n
 
     def shiver(self, n=12, deg=10):
