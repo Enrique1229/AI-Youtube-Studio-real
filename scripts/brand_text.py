@@ -21,7 +21,7 @@ im = Image.alpha_composite(im.convert("RGBA"), shadow.filter(ImageFilter.Gaussia
 d = ImageDraw.Draw(im)
 d.text((tx, ty), name, font=f, fill=(255, 224, 130), stroke_width=8, stroke_fill=(20, 20, 20))
 sub = ImageFont.truetype(font_path, int(size * 0.32))
-d.text((tx + 4, ty + size + 4), "every IQ level, one problem", font=sub, fill=(255, 255, 255), stroke_width=4, stroke_fill=(20, 20, 20))
+d.text((tx + 4, ty + size + 4), "silent 3D comedy shorts", font=sub, fill=(255, 255, 255), stroke_width=4, stroke_fill=(20, 20, 20))
 im.convert("RGB").save(B / "banner.png")
 pv = im.convert("RGB").copy(); ImageDraw.Draw(pv).rectangle((sx0, sy0, sx0 + sw, sy0 + sh), outline=(255, 0, 0), width=6)
 pv.resize((W // 2, H // 2)).save(B / "banner_safe_zone_preview.jpg", quality=85)
