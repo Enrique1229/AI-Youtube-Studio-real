@@ -191,13 +191,13 @@ class Stage:
             try: self.sc.view_settings.view_transform = "Filmic"
             except Exception: pass
         ground = self.pmat("suelo", [(0.30, (0.42, 0.20, 0.06)), (0.45, (0.60, 0.33, 0.08)), (0.55, (0.30, 0.38, 0.10)), (0.70, (0.22, 0.34, 0.08))], scale=3.5, rough=0.95, bump=0.6)
-        for nm, x in (("orillaL", -32.5), ("orillaR", 32.5)):
+        for nm, x in (("orillaL", -202.5), ("orillaR", 202.5)):
             bpy.ops.mesh.primitive_plane_add(size=1, location=(x, 0, 0)); o = bpy.context.object; o.name = nm
-            o.scale = (60, 400, 1); o.location.y = 150; o.data.materials.append(ground)
+            o.scale = (400, 400, 1); o.location.y = 150; o.data.materials.append(ground)
             bpy.ops.object.mode_set(mode="EDIT"); bpy.ops.mesh.subdivide(number_cuts=6); bpy.ops.object.mode_set(mode="OBJECT")
-            self.obj("cube", nm + "_talud", "mud", (x, 0, -1.5), (30, 60, 1.49), smooth=False).data.materials[0] = ground
+            self.obj("cube", nm + "_talud", "mud", (32.5 if x > 0 else -32.5, 0, -1.5), (30, 60, 1.49), smooth=False).data.materials[0] = ground
         self.obj("cube", "lecho", "mud", (0, 0, -2.6), (2.5, 60, 1.5), smooth=False)
-        self.water = self.obj("cube", "agua", "water", (0, 0, -1.75), (2.5, 60, 1.5), smooth=False)
+        self.water = self.obj("cube", "agua", "water", (0, 0, -1.75), (2.49, 60, 1.5), smooth=False)
         wm = self.pmat("agua", [(0.3, (0.05, 0.42, 0.48)), (0.7, (0.10, 0.55, 0.58))], scale=6, rough=0.05, bump=0.15)
         self.water.data.materials[0] = wm
         self.obj("cube", "muelle", "wood", (-2.6, 0, 0.06), (0.9, 0.5, 0.06), smooth=False).data.materials[0] = \
@@ -234,8 +234,8 @@ class Stage:
                              (random.uniform(0.9, 1.4),) * 3, subdivisions=2)
                 c.data.materials[0] = leafm; self._scatter(c, leaf, 260, i * 10 + j, rotate=True)
         far = self.pmat("bosque", [(0.3, (0.07, 0.17, 0.04)), (0.6, (0.14, 0.28, 0.07)), (0.85, (0.25, 0.36, 0.10))], scale=1.2, rough=0.9, bump=0.4)
-        for i in range(60):                                           # bosque de fondo (sin hojas sueltas: barato)
-            x = random.uniform(-40, 40); y = random.uniform(32, 45); rr = random.uniform(2.5, 4.5)
+        for i in range(130):                                          # bosque de fondo (sin hojas sueltas: barato)
+            x = random.uniform(-130, 130); y = random.uniform(32, 48) + abs(x) * 0.25; rr = random.uniform(2.5, 4.5) * (1 + abs(x) / 90)
             c = self.obj("ico_sphere", f"fondo{i}", "leaf", (x, y, rr * 1.3), (rr, rr * 0.8, rr * 1.2), subdivisions=3); c.data.materials[0] = far
         for i in range(10):                                           # piedras
             side = random.choice((-1, 1)); x = side * random.uniform(2.8, 9); y = random.uniform(-1.5, 9)
@@ -250,7 +250,7 @@ class Stage:
         self.obj("cube", "orillaL", "grass", (-32, 0, -1.5), (30, 60, 1.5), smooth=False)
         self.obj("cube", "orillaR", "grass", (32, 0, -1.5), (30, 60, 1.5), smooth=False)
         self.obj("cube", "lecho", "mud", (0, 0, -2.6), (2.5, 60, 1.5), smooth=False)
-        self.water = self.obj("cube", "agua", "water", (0, 0, -1.75), (2.5, 60, 1.5), smooth=False)
+        self.water = self.obj("cube", "agua", "water", (0, 0, -1.75), (2.49, 60, 1.5), smooth=False)
         self.obj("cube", "muelle", "wood", (-2.6, 0, 0.06), (0.9, 0.5, 0.06), smooth=False)
         random.seed(3)
         for i in range(26):
@@ -263,16 +263,28 @@ class Stage:
             self.obj("uv_sphere", f"deco{i}", "rock" if i % 2 else "pink", (x, y, 0.08), ((0.3, 0.25, 0.18) if i % 2 else (0.12, 0.12, 0.12)), segments=12, ring_count=8)
 
     # ---------- efectos ----------
-    def splash(self, x, y=0, z=-0.3, n=22, big=1.0):
+    def splash(self, x, y=0, z=-0.3, n=46, big=1.0):
+        """Chapuzón: corona de agua que se abre, espuma en la superficie y gotas finas."""
         self.cue("splash"); self.splashes = getattr(self, "splashes", []) + [(self.f, x, y, z)]
-        rnd = random.Random(int(x * 100) + self.f)
+        rnd = random.Random(int(x * 100) + self.f); f0 = self.f; ws = -0.25
+        ring = self.obj("torus", "espuma", "foam", (x, y, ws + 0.01), (0.001,) * 3, major_radius=1.0, minor_radius=0.06)
+        self.key(ring, f0 - 1, scale=(0.001,) * 3); self.key(ring, f0 + 2, scale=(0.3 * big, 0.3 * big, 0.3))
+        self.key(ring, f0 + 24, scale=(1.3 * big, 1.3 * big, 0.25)); self.key(ring, f0 + 40, scale=(1.6 * big, 1.6 * big, 0.001))
+        for i in range(36):                                            # corona: gotas que suben en círculo
+            a = i / 36 * 6.283; rr0 = 0.22 * big; sz = rnd.uniform(0.03, 0.06) * big
+            d = self.obj("uv_sphere", "corona", "foam", (x, y, ws), (0.001,) * 3, segments=8, ring_count=6)
+            self.key(d, f0 - 1, scale=(0.001,) * 3)
+            self.key(d, f0 + 1, loc=(x + rr0 * math.cos(a), y + rr0 * math.sin(a), ws + 0.05), scale=(sz, sz, sz * 2.5))
+            self.key(d, f0 + 6, loc=(x + rr0 * 1.9 * math.cos(a), y + rr0 * 1.9 * math.sin(a), ws + rnd.uniform(0.45, 0.7) * big))
+            self.key(d, f0 + 14, loc=(x + rr0 * 2.8 * math.cos(a), y + rr0 * 2.8 * math.sin(a), ws), scale=(sz * 0.7,) * 3)
+            self.key(d, f0 + 15, scale=(0.001,) * 3)
         for i in range(n):
             d = self.obj("uv_sphere", "gota", "foam", (x, y, z), (0.001,) * 3, segments=8, ring_count=6)
-            a = rnd.uniform(0, 6.28); r = rnd.uniform(0.4, 1.5) * big; hgt = rnd.uniform(1.0, 2.6) * big; s = rnd.uniform(0.05, 0.13) * big
-            self.key(d, self.f - 1, loc=(x, y, z), scale=(0.001,) * 3); self.key(d, self.f, loc=(x, y, z + 0.1), scale=(s, s, s))
-            self.key(d, self.f + 7, loc=(x + r * math.cos(a) * 0.5, y + r * math.sin(a) * 0.5, z + hgt))
-            self.key(d, self.f + 16, loc=(x + r * math.cos(a), y + r * math.sin(a), z - 0.05), scale=(s * 0.6,) * 3)
-            self.key(d, self.f + 17, scale=(0.001,) * 3)
+            a = rnd.uniform(0, 6.28); r = rnd.uniform(0.3, 1.2) * big; hgt = rnd.uniform(0.6, 2.0) * big; sz = rnd.uniform(0.015, 0.045) * big
+            self.key(d, f0 - 1, loc=(x, y, z), scale=(0.001,) * 3); self.key(d, f0, loc=(x, y, z + 0.1), scale=(sz, sz, sz * 1.6))
+            self.key(d, f0 + 7, loc=(x + r * math.cos(a) * 0.5, y + r * math.sin(a) * 0.5, z + hgt))
+            self.key(d, f0 + 16, loc=(x + r * math.cos(a), y + r * math.sin(a), ws), scale=(sz * 0.6,) * 3)
+            self.key(d, f0 + 17, scale=(0.001,) * 3)
 
     def follow(self, actor, n_frames, weight=0.75):
         """La cámara mira a un punto entre el actor y el centro de la escena."""
@@ -282,6 +294,12 @@ class Stage:
             self.key(self.tgt, fr, loc=(wp.x * (0.92 if hz > 0.9 else weight), 0, max(0.45, min(1.35, wp.z + hz))))
         if self.cam.data.dof.use_dof:
             self.cam.data.dof.focus_object = self.tgt
+        # la cámara acompaña al personaje en x (suave): nunca se queda diminuto al cruzar
+        rig = self.empty("camara_rig", (0, 0, 0)); self.cam.parent = rig; self.cam_rig = rig
+        self._rigx = {}
+        for fr in range(1, n_frames + 1, 4):
+            self.sc.frame_set(fr); wp = actor.root.matrix_world.translation
+            rx = max(0.0, 0.9 * wp.x + 1.0); self._rigx[fr] = rx; self.key(rig, fr, loc=(rx, 0, 0))
         if os.environ.get("STUDIO_SHOTS", "1") == "1": self.auto_shots(actor, n_frames)
 
     def auto_shots(self, actor, n_frames):
@@ -295,9 +313,11 @@ class Stage:
             cam.location = loc; cam.keyframe_insert("location", frame=f); cam.data.lens = lens; cam.data.keyframe_insert("lens", frame=f)
             c2.influence = 1.0 if detail else 0.0; c2.keyframe_insert("influence", frame=f)
             if dloc: det.location = dloc; det.keyframe_insert("location", frame=f)
+        def rx(f):
+            self.sc.frame_set(f); return self.cam_rig.matrix_world.translation.x if getattr(self, "cam_rig", None) else 0.0
         def medium(f):
             self.sc.frame_set(f); p = actor.root.matrix_world.translation
-            return (p.x - 2.3, p.y - 3.4, max(0.9, p.z + 1.1))
+            return (p.x - 2.3 - rx(f), p.y - 3.4, max(0.9, p.z + 1.1))
         shots = [(1, "wide")]
         if n_frames > 70: shots += [(int(n_frames * 0.38), "med"), (int(n_frames * 0.70), "wide")]
         for (fs, x, y, z) in getattr(self, "splashes", []):
@@ -307,7 +327,7 @@ class Stage:
             if kind == "wide": put(f, L0, lens0)
             elif kind == "med": put(f, medium(f), 50)
             else:
-                _, x, y, z = kind; put(f, (x - 2.4, y - 3.6, 1.0), 35, True, (x, y, max(z, -0.2) + 0.45))
+                _, x, y, z = kind; put(f, (x - 2.4 - rx(f), y - 3.6, 1.0), 35, True, (x, y, max(z, -0.2) + 0.45))
         bpy.context.preferences.edit.keyframe_new_interpolation_type = "BEZIER"
 
     def ground(self, x, default=0.0):
