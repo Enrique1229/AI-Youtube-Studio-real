@@ -305,6 +305,19 @@ class Stage:
             self.key(d, f0 + 16, loc=(x + r * math.cos(a), y + r * math.sin(a), ws), scale=(sz * 0.6,) * 3)
             self.key(d, f0 + 17, scale=(0.001,) * 3)
 
+    @staticmethod
+    def fcurves(idblock):
+        """Curvas de animación de un objeto/dato, también con las acciones por capas de Blender 4.4+/5."""
+        ad = getattr(idblock, "animation_data", None); act = ad.action if ad else None
+        if not act: return []
+        if hasattr(act, "fcurves") and len(getattr(act, "fcurves", [])): return list(act.fcurves)
+        return [fc for l in getattr(act, "layers", []) for st in l.strips for cb in st.channelbags for fc in cb.fcurves]
+
+    def set_interp(self, idblock, interp, paths=None):
+        for fc in self.fcurves(idblock):
+            if paths is None or fc.data_path in paths:
+                for k in fc.keyframe_points: k.interpolation = interp
+
     def flame(self, parent, f_on, f_off=None, size=1.0, z=0.12):
         """Llama con brillo propio y luz que parpadea, encendida en f_on (y apagada en f_off)."""
         m = self.mats.get("llama")
@@ -344,7 +357,7 @@ class Stage:
         for fr in range(1, n_frames + 1, 4):
             self.sc.frame_set(fr); wp = actor.root.matrix_world.translation
             hz = 0.95 if getattr(actor, "human", False) else 0.6
-            self.key(self.tgt, fr, loc=(wp.x * (0.92 if hz > 0.9 else weight), 0, max(0.45, min(3.2, wp.z + hz))))   # sube con los saltos
+            self.key(self.tgt, fr, loc=(wp.x * (0.92 if hz > 0.9 else weight), 0, max(0.45, min(3.2, wp.z + hz + 0.25))))   # sube con los saltos; cabeza bajo el rótulo
         if self.cam.data.dof.use_dof:
             self.cam.data.dof.focus_object = self.tgt
         # la cámara acompaña al personaje en x (suave): nunca se queda diminuto al cruzar
@@ -386,6 +399,11 @@ class Stage:
             else:
                 _, x, y, z = kind; put(f, (x - 2.4 - rx(f), y - 3.6, 1.0), 35, True, (x, y, max(z, -0.2) + 0.45))
         bpy.context.preferences.edit.keyframe_new_interpolation_type = "BEZIER"
+        # Blender 5 ignora la preferencia al insertar desde Python: se fuerza en las curvas (si no, la cámara se desliza entre planos)
+        self.set_interp(cam, "CONSTANT", ("location",)); self.set_interp(cam.data, "CONSTANT"); self.set_interp(det, "CONSTANT")
+        for fc in self.fcurves(cam):
+            if fc.data_path.startswith("constraints"):
+                for k in fc.keyframe_points: k.interpolation = "CONSTANT"
 
     def ground(self, x, default=0.0):
         """Altura del suelo en x: encima del muelle 0.12, en la hierba 0; sobre el río, `default` (lo decide el nivel)."""
