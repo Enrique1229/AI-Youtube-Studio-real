@@ -24,3 +24,21 @@ música ni marca de agua.
 
 ## Pendiente
 - Varios planos de cámara por nivel; ropa larga (sudadera/vaqueros); movimiento de captura real (mocap libre).
+
+# Dos referencias más del mismo canal (aportadas por el usuario, 2026-11-16)
+
+## R2 — "cerillas vivas" (20,4 s)
+- Objetos con cara (cerillas con ojos, cejas y boca) como protagonistas; un humano gigante aparece al principio (enciende).
+- Mini-drama sin diálogo: una cerilla se enciende, contagia a otras, hay una "pareja" (una con peluca rubia), sustos, remate
+  con emoji de calavera. Mucha cámara a la altura de los objetos, primeros planos de caras y llamas con brillo.
+- Escenario realista de cocina (encimera, luz cálida). Música melódica ≈117 BPM (Fa mayor), golpes moderados.
+
+## R3 — "POV: You Hop In A Kids Race Car" (9,3 s)
+- Rótulo fijo arriba con la premisa "POV: …" (recuadro blanco, texto negro), sin niveles de IQ.
+- Gag único y rápido: un adulto se sube al coche de juguete de un niño, nitro, sale disparado, el niño grita. Cierre con
+  "follow for more". Música muy tonal ≈99 BPM y muchos efectos (7,6 golpes/s). Duración muy corta: 9 s.
+
+## Conclusión para nuestro canal
+El canal de referencia NO es solo IQ: alterna (1) escalera de IQ, (2) objetos vivos con mini-drama, (3) POV de 9-15 s.
+Nuestro kit necesita: personajes-objeto con cara, fuego/brillo, rótulo de premisa "POV:" y formatos de 9-15 s.
+Se imita la FÓRMULA, nunca los personajes, gags concretos, música ni rótulos idénticos.

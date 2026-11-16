@@ -6,3 +6,10 @@ Estudio completo, con tablas y método: `MARKET-STUDY.md`. Fotogramas: `channel/
 - Vídeos de 6-10 min de ficción con IA: NO_EVIDENCE. Shorts de ficción con IA: WEAK (casi sin vistas).
 - Factor decisivo observado: la voz (humana y reconocible) y la autoría declarada; la imagen pesa poco.
 - Comedia de animación 3D por niveles de IQ (Shorts, sin narración): VALIDATED en tracción para animación hecha a mano (Agbaps Shorts 9,39 M, mediana 2 M de vistas; Maizen 0,8-13 M por Short). Con vídeo generado por IA: sin casos (2-376 suscriptores). Nuestro método —animación 3D propia por código— no tiene precedente medido: WEAK hasta publicar.
+
+## Formatos de comedia animada 3D (2026-11-16) — detalle en `channel/strategy/formats-mix.md`
+- VALIDATED: mini-historias slapstick con giro (Studio Wrong 631 K subs, mediana de muestra ~1,6 M; Avenu 2,15 M); POV/relatable (hits 2D de 17-56 M, 3D de 2-5 M); mascota/bicho vs humano (Avenu, riesgo de repetición); escalera de niveles (Agbaps).
+- WEAK: Types of people (hits aislados 2-4,6 M, resto ~1 K); Expectation vs Reality (hits 2D/meme, 3D ~1 K).
+- REJECTED: Rich vs Poor como pilar; Hacks that fail animado (los hits son acción real).
+- Límite: la búsqueda da Shorts sin fecha ni canal; medianas = muestra sesgada al alza. Duración de hits 3D: 9-30 s. Monetización: no verificable.
+- Mezcla recomendada y regla de nombre sin "IQ": ver formats-mix.md.
