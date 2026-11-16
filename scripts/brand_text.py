@@ -14,7 +14,7 @@ while True:
     f = ImageFont.truetype(font_path, size); tw = f.getlength(name)
     if tw < sw * 0.52 or size < 60: break
     size -= 6
-tx = sx0 + sw - tw - 40; ty = sy0 + (sh - size) // 2 - 10                        # a la derecha del personaje
+tx = sx0 + sw - tw - 60; ty = sy0 + (sh - size) // 2 - 10                        # a la derecha del personaje
 shadow = Image.new("RGBA", im.size, (0, 0, 0, 0)); d = ImageDraw.Draw(shadow)
 d.rounded_rectangle((tx - 40, ty - 30, tx + tw + 40, ty + size + 50), 40, fill=(15, 20, 25, 150))
 im = Image.alpha_composite(im.convert("RGBA"), shadow.filter(ImageFilter.GaussianBlur(6)))

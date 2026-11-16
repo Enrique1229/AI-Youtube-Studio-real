@@ -33,8 +33,9 @@ if kind == "avatar":
     cam.location = (head.x - 0.35, head.y - 2.1, head.z + 0.02); cam.data.lens = 55
     cam.data.dof.use_dof = True; cam.data.dof.focus_object = act.head; cam.data.dof.aperture_fstop = 1.8
 else:
-    tgt.location = (head.x + 1.6, head.y, head.z - 0.55)
-    cam.location = (head.x - 1.2, head.y - 6.2, head.z - 0.1); cam.data.lens = 38
+    # personaje entero dentro de la zona segura (1546x423 centrada): lejos y a la izquierda; el nombre va a la derecha
+    tgt.location = (head.x + 2.9, head.y, 0.95)
+    cam.location = (head.x - 1.5, head.y - 14.5, 1.15); cam.data.lens = 38
     cam.data.dof.use_dof = True; cam.data.dof.focus_object = act.head; cam.data.dof.aperture_fstop = 4.0
 S.sc.render.filepath = out
 bpy.ops.render.render(write_still=True)
