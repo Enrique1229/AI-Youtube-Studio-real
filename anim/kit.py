@@ -378,7 +378,7 @@ class Stage:
         shots = [(1, "wide")]
         if n_frames > 70: shots += [(int(n_frames * 0.38), "med"), (int(n_frames * 0.70), "wide")]
         for (fs, x, y, z) in getattr(self, "splashes", []):
-            shots = [s_ for s_ in shots if not (fs - 2 <= s_[0] < fs + 20)] + [(fs - 2, ("det", x, y, z)), (fs + 20, "wide")]
+            shots = [s_ for s_ in shots if not (fs <= s_[0] < fs + 24)] + [(fs + 3, ("det", x, y, z)), (fs + 24, "wide")]   # tras entrar en el agua: nunca corta al personaje en el aire
         for f, kind in sorted(shots, key=lambda t: t[0]):
             if f > n_frames: continue
             if kind == "wide": put(f, L0, lens0)

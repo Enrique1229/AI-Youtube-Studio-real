@@ -81,11 +81,11 @@ def main():
     if cta:                                                                           # llamada a la acción en el último segundo y medio
         vid2 = tmp / "video_cta.mp4"; c_ = cta.replace("'", "\u2019").replace(":", "\\:")
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(vid), "-vf",
-                        f"drawtext=fontfile='{font}':text='{c_}':fontcolor=white:fontsize=48:box=1:boxcolor=black@0.85:boxborderw=16:"
+                        f"drawtext=fontfile='{font}':text='{c_}':fontcolor=white:fontsize=72:box=1:boxcolor=black@0.85:boxborderw=24:"
                         f"x=(w-text_w)/2:y=h*0.78:enable='gte(t,{max(0, t0 - 1.6):.2f})',format=yuv420p",
                         "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", str(vid2)], check=True); vid = vid2
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(vid), "-i", str(tmp / "audio.wav"),
-                    "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-af", "loudnorm=I=-14:TP=-1.5", "-t", f"{t0:.3f}", str(out)], check=True)
+                    "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-af", "loudnorm=I=-14:TP=-1.5,alimiter=limit=0.84:level=false", "-t", f"{t0:.3f}", str(out)], check=True)
     print(f"{out}: {t0:.1f} s, {len(iqs)} niveles, {len(cues)} sonidos")
 
 
