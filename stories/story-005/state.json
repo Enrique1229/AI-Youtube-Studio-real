@@ -2,16 +2,16 @@
   "id": "story-005",
   "format": "short",
   "title": "A Match Warms Up an Ice Cube",
-  "stage": "selected",
+  "stage": "delivered",
   "gates": {
     "critic": "PASS",
     "market": "PASS",
     "continuity": "PASS",
     "policy": "PASS",
-    "qc": "PENDING"
+    "qc": "PASS"
   },
   "vps": 67.6,
-  "quality_score": null,
+  "quality_score": 80,
   "fix_rounds": 0,
   "final_file": "stories/story-005/final/video.mp4",
   "updated": "2026-11-16",

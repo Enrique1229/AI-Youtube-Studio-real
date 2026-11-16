@@ -1,0 +1,6 @@
+{"generated": "2026-11-16", "animation": "Blender 5 (Cycles) por código: anim/kit.py + anim/episodes/ep002.py — propio",
+ "characters_sets": "propios (cerilla, cubito de hielo, encimera procedural)", "motion_capture": null,
+ "music": {"source": "sintetizada por scripts/audio_gen.py (sneaky_music)", "license": "propia, sin terceros"},
+ "sfx": {"source": "sintetizados por scripts/audio_gen.py", "license": "propia, sin terceros"},
+ "editing": "FFmpeg (scripts/anim_build.py)", "ai_use_disclosure": false,
+ "ai_use_note": "YouTube pide la etiqueta de contenido alterado/sintético para material realista que pueda confundirse con real; esto es animación claramente ficticia. La descripción informa de herramientas con IA."}
