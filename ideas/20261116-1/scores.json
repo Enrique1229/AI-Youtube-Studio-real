@@ -1,0 +1,173 @@
+[
+  {
+    "id": "b20261116-1-o03v2",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 7,
+      "visual": 7,
+      "emotion": 8,
+      "ending": 8,
+      "series": 5,
+      "differentiation": 7,
+      "production_difficulty": 6,
+      "repetition_risk": 3
+    },
+    "why": "El tiritar en primer plano en 0-2 s arregla el gancho y el remate de vapor con caritas es mas dulce, aunque pierde algo del mordiente tragico de la v1 y el vapor semitransparente anade coste.",
+    "improve": "Dejar un silencio de un segundo con el charco y la cerilla apagada antes de que suba el vapor, para que el giro sorprenda y no se anticipe.",
+    "vps": 67.6
+  },
+  {
+    "id": "b20261116-1-o03",
+    "scores": {
+      "hook": 7,
+      "curiosity": 7,
+      "retention": 6,
+      "originality": 7,
+      "visual": 6,
+      "emotion": 8,
+      "ending": 8,
+      "series": 5,
+      "differentiation": 7,
+      "production_difficulty": 6,
+      "repetition_risk": 3
+    },
+    "why": "Amistad que destruye a ambos es el giro mas emotivo y alejado de los gags de cerillas de la referencia (sin contagio, pareja ni peluca).",
+    "improve": "Cerrar el hook con el tiritar en primer plano en los primeros 2 s y validar pronto la accion nueva 'melt' para que el charco se lea sin palabras.",
+    "vps": 63.3
+  },
+  {
+    "id": "b20261116-1-p02v2",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 7,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 8,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "La sombra gigante en 0-1 s y el remate de medir y soltar son mejores que la inversion simple de la v1, pero sigue siendo animal-vs-humano con riesgo de parecido y el plano submarino mas la regla suben el coste.",
+    "improve": "Mostrar la regla antes del tiron (en el muelle) como plantado visual para que el 'medir' se lea como pago y no como invento de ultimo momento.",
+    "vps": 62.4
+  },
+  {
+    "id": "b20261116-1-o02v2",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 7,
+      "visual": 6,
+      "emotion": 7,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 7,
+      "production_difficulty": 5,
+      "repetition_risk": 3
+    },
+    "why": "La intrusa en 0-2 s y el giro de utilidad (reencender las velas) mejoran la v1, pero el ciclo soplo-reencendido se repite dos veces y es predecible, y la cerilla que prende velas roza el contagio de fuego de la referencia.",
+    "improve": "Variar el segundo reencendido (una vela se resiste o la cerilla ya no tiene llama suficiente) para que la repeticion escale en vez de duplicarse.",
+    "vps": 62.1
+  },
+  {
+    "id": "b20261116-1-o02",
+    "scores": {
+      "hook": 6,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 7,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 7,
+      "production_difficulty": 5,
+      "repetition_risk": 3
+    },
+    "why": "Drama de pertenencia en un cumpleanos, universal y distinto del fuego contagioso, pero los beats 11-20 s se alargan.",
+    "improve": "Recortar a 18 s eliminando el vaso de agua: que la cerilla se apague sola tras la reverencia y el bucle llegue antes.",
+    "vps": 57.8
+  },
+  {
+    "id": "b20261116-1-p02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 6,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 8,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 6
+    },
+    "why": "La inversion pez-pescador se entiende al instante y tiene buen remate, aunque la accion nueva y el pez compuesto suben el coste y hay riesgo de parecido con gags de bichos vs humano.",
+    "improve": "Mostrar el pez gigante sombreado bajo el agua en el segundo 1 como gancho y evitar cualquier cierre tipo 'follow for more' identico a la referencia.",
+    "vps": 56.0
+  },
+  {
+    "id": "b20261116-1-p01",
+    "scores": {
+      "hook": 6,
+      "curiosity": 5,
+      "retention": 5,
+      "originality": 6,
+      "visual": 8,
+      "emotion": 4,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 4,
+      "repetition_risk": 3
+    },
+    "why": "Gag claro y animable con el kit, y la pose imperturbable bajo el agua es buen remate, pero la tension entre el crujido y la caida es previsible.",
+    "improve": "Anadir un segundo crujido falso que no pase nada antes del hundimiento real para romper la prediccion.",
+    "vps": 53.5
+  },
+  {
+    "id": "b20261116-1-o01",
+    "scores": {
+      "hook": 6,
+      "curiosity": 5,
+      "retention": 6,
+      "originality": 5,
+      "visual": 8,
+      "emotion": 5,
+      "ending": 7,
+      "series": 6,
+      "differentiation": 5,
+      "production_difficulty": 3,
+      "repetition_risk": 6
+    },
+    "why": "Muy legible y barato de producir, pero cerilla con cara que se enciende y relevo cae demasiado cerca de las cerillas vivas de la referencia.",
+    "improve": "Cambiar el protagonista a otro objeto de cocina con cara (no cerilla) o alterar el mecanismo del fallo para romper el parecido.",
+    "vps": 51.8
+  },
+  {
+    "id": "b20261116-1-p03",
+    "scores": {
+      "hook": 5,
+      "curiosity": 4,
+      "retention": 5,
+      "originality": 5,
+      "visual": 8,
+      "emotion": 4,
+      "ending": 6,
+      "series": 4,
+      "differentiation": 5,
+      "production_difficulty": 3,
+      "repetition_risk": 3
+    },
+    "why": "Facil de animar y de entender, pero el gag del sombrero salvador carece de sorpresa y de gancho inicial.",
+    "improve": "Empezar con la ultima piedra ya hundiendose como hook y dejar el cruce limpio como setup visible en 3 s.",
+    "vps": 47.2
+  }
+]

@@ -1,74 +1,325 @@
 [
- {"id":"b20261116-1-o01","format":"objects","kind":"anim","title_en":"The Match Who Couldn't Strike a Light","caption_en":null,
-  "logline_es":"Una cerilla tímida intenta encenderse sola contra la caja y fracasa de forma cada vez más absurda; cuando por fin prende, un soplo la apaga y la siguiente sale de la caja con la misma cara de determinación.",
-  "beats":[
-   {"t":"0-3","beat":"Encimera en penumbra. Una cerilla de pie junto a una caja (cubo con franja rugosa). Mira la franja, traga saliva (think)."},
-   {"t":"3-7","beat":"Toma carrerilla (walk_to) y se frota la cabeza contra la franja: se dobla como un muelle y rebota hacia atrás (key BACK). Humo no, chispa tampoco: cara de decepción."},
-   {"t":"7-11","beat":"Segundo intento con más carrerilla y salto (hop_to): resbala por la caja y cae de espaldas. Se levanta, se sacude."},
-   {"t":"11-15","beat":"Tercer intento: se coloca de lado y se desliza con los brazos pegados; la franja le hace cosquillas, se ríe, y chispea: Stage.flame se enciende. Cara de orgullo, mira a cámara."},
-   {"t":"15-19","beat":"Cheer con la llama puesta. Un soplo de aire (whoosh, la llama se apaga de golpe, la cerilla queda con la cabeza negra y ojos en blanco)."},
-   {"t":"19-22","beat":"Silencio. De detrás de la caja asoma otra cerilla (misma cara de determinación), traga saliva y toma carrerilla: corte al primer plano = bucle."}],
-  "payoff":"Tras todo el esfuerzo la victoria dura un segundo; la siguiente cerilla repite el ciclo.",
-  "sin_palabras":"Un objeto que quiere encenderse y no puede: la meta es obvia desde el primer plano.",
-  "needs":"Caja de cerillas = S.obj cube con franja (sin acción nueva). Soplo = cue whoosh + apagar flame.",
-  "riesgo_copia":"medio","diferencia":"No hay contagio de fuego, ni pareja, ni peluca: es un solo personaje con arco de intentos fallidos y un remate de relevo. Tono de perseverancia, no de pánico."},
- {"id":"b20261116-1-o02","format":"objects","kind":"anim","title_en":"The Match Who Wanted to Be a Candle","caption_en":null,
-  "logline_es":"Una cerilla se cuela entre las velas de una magdalena para vivir su momento de cumpleaños, pero cuando todo el mundo sopla la única que sigue encendida es ella.",
-  "beats":[
-   {"t":"0-3","beat":"Magdalena (cilindro + esfera) con 3 velas (cilindros finos) en la encimera. Una cerilla llega mirando a los lados."},
-   {"t":"3-7","beat":"Salta (hop_to) sobre la magdalena y se clava entre las velas, tiesa, con sonrisa forzada. Las velas la miran de reojo."},
-   {"t":"7-11","beat":"Llamas en las 3 velas y en ella (S.flame): las velas se mecen, ella intenta mecerse igual, desacompasada."},
-   {"t":"11-15","beat":"Soplo fuera de plano: las 3 velas se apagan a la vez (whoosh). La cerilla sigue ardiendo; mira de reojo, cierra los ojos y sopla hacia dentro con los mofletes: no pasa nada."},
-   {"t":"15-20","beat":"Se acerca un vaso de agua (cilindro) deslizado desde el borde; la cerilla se baja de la magdalena a toda prisa, se queda de pie avergonzada con la llama pequeña, la cabeza se dobla (shiver)."},
-   {"t":"20-23","beat":"Las velas, apagadas, se inclinan y aplauden; ella hace una reverencia y se apaga con un pof. Cierra con la magdalena intacta: bucle al inicio."}],
-  "payoff":"El único objeto que no puede 'pedir un deseo' soplando es la que sigue encendida.",
-  "sin_palabras":"Velas de cumpleaños apagándose frente a la intrusa: situación universal.",
-  "needs":"Velas y magdalena con S.obj; vaso optional; sin acción nueva.",
-  "riesgo_copia":"bajo","diferencia":"Escenario temático de cumpleaños, el drama es de pertenencia y no de fuego que se transmite; sin pareja ni peluca."},
- {"id":"b20261116-1-o03","format":"objects","kind":"anim","title_en":"A Match Warms Up an Ice Cube","caption_en":null,
-  "logline_es":"Una cerilla enciende su llama para calentar a un cubito de hielo que tirita; el hielo se derrite a charco y el charco, ya convertido en gota, abraza a la cerilla y la apaga.",
-  "beats":[
-   {"t":"0-3","beat":"Encimera en penumbra. Un cubito de hielo (cubo azul claro con dos ojos de esfera) tirita (shiver). Una cerilla se acerca."},
-   {"t":"3-7","beat":"La cerilla duda, mira la caja, se frota y se enciende (flame). Se coloca cerca del hielo, que sonríe."},
-   {"t":"7-12","beat":"El cubo se encoge poco a poco (S.key scale) mientras suena un goteo. La cerilla nota que la sonrisa baja y acerca más la llama."},
-   {"t":"12-16","beat":"Ya solo queda un charco plano con ojos. La cerilla, desesperada, abanica la llama; el charco levanta una gota con ojos."},
-   {"t":"16-21","beat":"La gota se lanza a abrazar a la cerilla: pssh, la llama se apaga, ambos quedan juntos, mojados, con cara feliz (cheer). Fundido a bucle."}],
-  "payoff":"El gesto de amistad destruye a ambos y los dos quedan contentos.",
-  "sin_palabras":"Dos personajes: el que tirita y el que lo calienta; el fallo se entiende sin palabras.",
-  "needs":"Hielo y charco = S.obj + dos esferas de ojos; acción nueva sencilla: 'melt' (escala en Y a 0,2 y X a 1,6). Sin humano.",
-  "riesgo_copia":"bajo","diferencia":"Personaje no-cerilla (hielo) con una dinámica de amistad trágico-cómica; no hay contagio ni pareja."},
- {"id":"b20261116-1-p01","format":"pov","kind":"anim","title_en":"POV: The Pier Is Shorter Than It Looks","caption_en":"POV: You sit at the very end of the pier",
-  "logline_es":"Un tipo se sienta feliz en el borde exacto del muelle; el tablón cede, se desliza a cámara lenta hasta el agua y sale sentado en el lecho con el sombrero flotando.",
-  "beats":[
-   {"t":"0-2","beat":"Cámara baja: el protagonista camina por el muelle (walk_to x=-2.6) y se sienta en el borde (sit)."},
-   {"t":"2-5","beat":"Se pone cómodo, mece los pies, silba (think). Crujido (cue creak)."},
-   {"t":"5-7","beat":"El tablón se inclina (S.key rot del tablón) y se desliza despacio; él no se da cuenta hasta que los pies tocan el agua."},
-   {"t":"7-10","beat":"Cae al agua (fall_in_water, splash). El sombrero queda flotando (drop_hat_floating)."},
-   {"t":"10-12","beat":"Plano bajo el nivel del agua: sigue sentado en el lecho, mira a cámara, cheer lento."}],
-  "payoff":"Sigue sentado con la misma pose cuando ya está bajo el agua.",
-  "sin_palabras":"Un hombre sentado, un crujido, una caída: universal.",
-  "needs":"Tablón = S.obj cube con rotación; sin acción nueva.",
-  "riesgo_copia":"bajo","diferencia":"Gag original con el escenario propio; sin nitro ni coche."},
- {"id":"b20261116-1-p02","format":"pov","kind":"anim","title_en":"POV: You Finally Catch Something Big","caption_en":"POV: You finally catch something big",
-  "logline_es":"Con un palo y una cuerda, un pescador novato siente tirón: tira, el pez es enorme y tira más fuerte; termina en el agua y el pez, sentado en el muelle, lo 'pesca' a él.",
-  "beats":[
-   {"t":"0-2","beat":"Sentado en el muelle con un palo (grab_stick) y cuerda (cilindro fino) en el agua, aburrido."},
-   {"t":"2-4","beat":"Tirón de la cuerda: se levanta de golpe, planta los pies (hop_to), tira hacia atrás (key BACK)."},
-   {"t":"4-8","beat":"Un pez naranja gigante (esfera + cono) arrastra al pescador hop a hop hasta el borde; splash; él cae al agua."},
-   {"t":"8-12","beat":"El pez sale del agua y se posa en el muelle con el palo en las aletas. Tira de la cuerda con el protagonista enganchado por el cinturón: cheer del pez, cámara retrocede."}],
-  "payoff":"Inversión de roles: el pez pesca al pescador.",
-  "sin_palabras":"Pescar es una acción visual clara; el giro es inmediato.",
-  "needs":"Pez = S.obj composición; acción nueva sencilla: 'pull_to' (hop_to con key BACK).",
-  "riesgo_copia":"medio","diferencia":"El giro de roles y el escenario propio; sin coche ni nitro."},
- {"id":"b20261116-1-p03","format":"pov","kind":"anim","title_en":"POV: The Last Stepping Stone Is Optional","caption_en":"POV: You cross the river on stepping stones",
-  "logline_es":"Un tipo cruza el río saltando de piedra en piedra; la última se hunde, su sombrero cae al agua y aterriza sobre él con un pie y se queda de puntillas, estable, flotando.",
-  "beats":[
-   {"t":"0-2","beat":"Orilla izquierda. Tres piedras (cilindros bajos) en el agua. Se frota las manos."},
-   {"t":"2-5","beat":"Hop a la primera, segunda y tercera (hop_to) con equilibrio de brazos (arms_to)."},
-   {"t":"5-8","beat":"La tercera piedra se hunde (key z, splash pequeño); su sombrero cae (drop_hat_floating)."},
-   {"t":"8-12","beat":"Salta sobre el sombrero flotante: queda de puntillas, estable, con cara de sorpresa, y la corriente lo lleva lejos de cámara (cheer)."}],
-  "payoff":"El sombrero aguanta lo que la piedra no.",
-  "sin_palabras":"Cruzar un río saltando: objetivo claro.",
-  "needs":"Piedras con S.obj cylinder; sin acción nueva.",
-  "riesgo_copia":"bajo","diferencia":"Gag de equilibrio propio del escenario río."}
+ {
+  "id": "b20261116-1-o01",
+  "format": "objects",
+  "kind": "anim",
+  "title_en": "The Match Who Couldn't Strike a Light",
+  "caption_en": null,
+  "logline_es": "Una cerilla tímida intenta encenderse sola contra la caja y fracasa de forma cada vez más absurda; cuando por fin prende, un soplo la apaga y la siguiente sale de la caja con la misma cara de determinación.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Encimera en penumbra. Una cerilla de pie junto a una caja (cubo con franja rugosa). Mira la franja, traga saliva (think)."
+   },
+   {
+    "t": "3-7",
+    "beat": "Toma carrerilla (walk_to) y se frota la cabeza contra la franja: se dobla como un muelle y rebota hacia atrás (key BACK). Humo no, chispa tampoco: cara de decepción."
+   },
+   {
+    "t": "7-11",
+    "beat": "Segundo intento con más carrerilla y salto (hop_to): resbala por la caja y cae de espaldas. Se levanta, se sacude."
+   },
+   {
+    "t": "11-15",
+    "beat": "Tercer intento: se coloca de lado y se desliza con los brazos pegados; la franja le hace cosquillas, se ríe, y chispea: Stage.flame se enciende. Cara de orgullo, mira a cámara."
+   },
+   {
+    "t": "15-19",
+    "beat": "Cheer con la llama puesta. Un soplo de aire (whoosh, la llama se apaga de golpe, la cerilla queda con la cabeza negra y ojos en blanco)."
+   },
+   {
+    "t": "19-22",
+    "beat": "Silencio. De detrás de la caja asoma otra cerilla (misma cara de determinación), traga saliva y toma carrerilla: corte al primer plano = bucle."
+   }
+  ],
+  "payoff": "Tras todo el esfuerzo la victoria dura un segundo; la siguiente cerilla repite el ciclo.",
+  "sin_palabras": "Un objeto que quiere encenderse y no puede: la meta es obvia desde el primer plano.",
+  "needs": "Caja de cerillas = S.obj cube con franja (sin acción nueva). Soplo = cue whoosh + apagar flame.",
+  "riesgo_copia": "medio",
+  "diferencia": "No hay contagio de fuego, ni pareja, ni peluca: es un solo personaje con arco de intentos fallidos y un remate de relevo. Tono de perseverancia, no de pánico."
+ },
+ {
+  "id": "b20261116-1-o02",
+  "format": "objects",
+  "kind": "anim",
+  "title_en": "The Match Who Wanted to Be a Candle",
+  "caption_en": null,
+  "logline_es": "Una cerilla se cuela entre las velas de una magdalena para vivir su momento de cumpleaños, pero cuando todo el mundo sopla la única que sigue encendida es ella.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Magdalena (cilindro + esfera) con 3 velas (cilindros finos) en la encimera. Una cerilla llega mirando a los lados."
+   },
+   {
+    "t": "3-7",
+    "beat": "Salta (hop_to) sobre la magdalena y se clava entre las velas, tiesa, con sonrisa forzada. Las velas la miran de reojo."
+   },
+   {
+    "t": "7-11",
+    "beat": "Llamas en las 3 velas y en ella (S.flame): las velas se mecen, ella intenta mecerse igual, desacompasada."
+   },
+   {
+    "t": "11-15",
+    "beat": "Soplo fuera de plano: las 3 velas se apagan a la vez (whoosh). La cerilla sigue ardiendo; mira de reojo, cierra los ojos y sopla hacia dentro con los mofletes: no pasa nada."
+   },
+   {
+    "t": "15-20",
+    "beat": "Se acerca un vaso de agua (cilindro) deslizado desde el borde; la cerilla se baja de la magdalena a toda prisa, se queda de pie avergonzada con la llama pequeña, la cabeza se dobla (shiver)."
+   },
+   {
+    "t": "20-23",
+    "beat": "Las velas, apagadas, se inclinan y aplauden; ella hace una reverencia y se apaga con un pof. Cierra con la magdalena intacta: bucle al inicio."
+   }
+  ],
+  "payoff": "El único objeto que no puede 'pedir un deseo' soplando es la que sigue encendida.",
+  "sin_palabras": "Velas de cumpleaños apagándose frente a la intrusa: situación universal.",
+  "needs": "Velas y magdalena con S.obj; vaso optional; sin acción nueva.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Escenario temático de cumpleaños, el drama es de pertenencia y no de fuego que se transmite; sin pareja ni peluca."
+ },
+ {
+  "id": "b20261116-1-o03",
+  "format": "objects",
+  "kind": "anim",
+  "title_en": "A Match Warms Up an Ice Cube",
+  "caption_en": null,
+  "logline_es": "Una cerilla enciende su llama para calentar a un cubito de hielo que tirita; el hielo se derrite a charco y el charco, ya convertido en gota, abraza a la cerilla y la apaga.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Encimera en penumbra. Un cubito de hielo (cubo azul claro con dos ojos de esfera) tirita (shiver). Una cerilla se acerca."
+   },
+   {
+    "t": "3-7",
+    "beat": "La cerilla duda, mira la caja, se frota y se enciende (flame). Se coloca cerca del hielo, que sonríe."
+   },
+   {
+    "t": "7-12",
+    "beat": "El cubo se encoge poco a poco (S.key scale) mientras suena un goteo. La cerilla nota que la sonrisa baja y acerca más la llama."
+   },
+   {
+    "t": "12-16",
+    "beat": "Ya solo queda un charco plano con ojos. La cerilla, desesperada, abanica la llama; el charco levanta una gota con ojos."
+   },
+   {
+    "t": "16-21",
+    "beat": "La gota se lanza a abrazar a la cerilla: pssh, la llama se apaga, ambos quedan juntos, mojados, con cara feliz (cheer). Fundido a bucle."
+   }
+  ],
+  "payoff": "El gesto de amistad destruye a ambos y los dos quedan contentos.",
+  "sin_palabras": "Dos personajes: el que tirita y el que lo calienta; el fallo se entiende sin palabras.",
+  "needs": "Hielo y charco = S.obj + dos esferas de ojos; acción nueva sencilla: 'melt' (escala en Y a 0,2 y X a 1,6). Sin humano.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Personaje no-cerilla (hielo) con una dinámica de amistad trágico-cómica; no hay contagio ni pareja."
+ },
+ {
+  "id": "b20261116-1-p01",
+  "format": "pov",
+  "kind": "anim",
+  "title_en": "POV: The Pier Is Shorter Than It Looks",
+  "caption_en": "POV: You sit at the very end of the pier",
+  "logline_es": "Un tipo se sienta feliz en el borde exacto del muelle; el tablón cede, se desliza a cámara lenta hasta el agua y sale sentado en el lecho con el sombrero flotando.",
+  "beats": [
+   {
+    "t": "0-2",
+    "beat": "Cámara baja: el protagonista camina por el muelle (walk_to x=-2.6) y se sienta en el borde (sit)."
+   },
+   {
+    "t": "2-5",
+    "beat": "Se pone cómodo, mece los pies, silba (think). Crujido (cue creak)."
+   },
+   {
+    "t": "5-7",
+    "beat": "El tablón se inclina (S.key rot del tablón) y se desliza despacio; él no se da cuenta hasta que los pies tocan el agua."
+   },
+   {
+    "t": "7-10",
+    "beat": "Cae al agua (fall_in_water, splash). El sombrero queda flotando (drop_hat_floating)."
+   },
+   {
+    "t": "10-12",
+    "beat": "Plano bajo el nivel del agua: sigue sentado en el lecho, mira a cámara, cheer lento."
+   }
+  ],
+  "payoff": "Sigue sentado con la misma pose cuando ya está bajo el agua.",
+  "sin_palabras": "Un hombre sentado, un crujido, una caída: universal.",
+  "needs": "Tablón = S.obj cube con rotación; sin acción nueva.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Gag original con el escenario propio; sin nitro ni coche."
+ },
+ {
+  "id": "b20261116-1-p02",
+  "format": "pov",
+  "kind": "anim",
+  "title_en": "POV: You Finally Catch Something Big",
+  "caption_en": "POV: You finally catch something big",
+  "logline_es": "Con un palo y una cuerda, un pescador novato siente tirón: tira, el pez es enorme y tira más fuerte; termina en el agua y el pez, sentado en el muelle, lo 'pesca' a él.",
+  "beats": [
+   {
+    "t": "0-2",
+    "beat": "Sentado en el muelle con un palo (grab_stick) y cuerda (cilindro fino) en el agua, aburrido."
+   },
+   {
+    "t": "2-4",
+    "beat": "Tirón de la cuerda: se levanta de golpe, planta los pies (hop_to), tira hacia atrás (key BACK)."
+   },
+   {
+    "t": "4-8",
+    "beat": "Un pez naranja gigante (esfera + cono) arrastra al pescador hop a hop hasta el borde; splash; él cae al agua."
+   },
+   {
+    "t": "8-12",
+    "beat": "El pez sale del agua y se posa en el muelle con el palo en las aletas. Tira de la cuerda con el protagonista enganchado por el cinturón: cheer del pez, cámara retrocede."
+   }
+  ],
+  "payoff": "Inversión de roles: el pez pesca al pescador.",
+  "sin_palabras": "Pescar es una acción visual clara; el giro es inmediato.",
+  "needs": "Pez = S.obj composición; acción nueva sencilla: 'pull_to' (hop_to con key BACK).",
+  "riesgo_copia": "medio",
+  "diferencia": "El giro de roles y el escenario propio; sin coche ni nitro."
+ },
+ {
+  "id": "b20261116-1-p03",
+  "format": "pov",
+  "kind": "anim",
+  "title_en": "POV: The Last Stepping Stone Is Optional",
+  "caption_en": "POV: You cross the river on stepping stones",
+  "logline_es": "Un tipo cruza el río saltando de piedra en piedra; la última se hunde, su sombrero cae al agua y aterriza sobre él con un pie y se queda de puntillas, estable, flotando.",
+  "beats": [
+   {
+    "t": "0-2",
+    "beat": "Orilla izquierda. Tres piedras (cilindros bajos) en el agua. Se frota las manos."
+   },
+   {
+    "t": "2-5",
+    "beat": "Hop a la primera, segunda y tercera (hop_to) con equilibrio de brazos (arms_to)."
+   },
+   {
+    "t": "5-8",
+    "beat": "La tercera piedra se hunde (key z, splash pequeño); su sombrero cae (drop_hat_floating)."
+   },
+   {
+    "t": "8-12",
+    "beat": "Salta sobre el sombrero flotante: queda de puntillas, estable, con cara de sorpresa, y la corriente lo lleva lejos de cámara (cheer)."
+   }
+  ],
+  "payoff": "El sombrero aguanta lo que la piedra no.",
+  "sin_palabras": "Cruzar un río saltando: objetivo claro.",
+  "needs": "Piedras con S.obj cylinder; sin acción nueva.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Gag de equilibrio propio del escenario río."
+ },
+ {
+  "id": "b20261116-1-o03v2",
+  "format": "objects",
+  "kind": "anim",
+  "title_en": "A Match Warms Up an Ice Cube (Together Forever)",
+  "caption_en": null,
+  "logline_es": "Una cerilla enciende su llama para calentar a un cubito que tirita; el hielo se derrite, el charco abraza a la cerilla y la apaga, y del abrazo sube un vapor con dos caritas que se eleva feliz.",
+  "beats": [
+   {
+    "t": "0-2",
+    "beat": "Primer plano del cubito azul (cubo + 2 esferas de ojos) tiritando (shiver) con el aliento en forma de nube; cue creak de escarcha. Meta clara: tiene frío."
+   },
+   {
+    "t": "2-5",
+    "beat": "La cerilla entra a plano, mira la caja, se frota (flame). El cubito sonríe."
+   },
+   {
+    "t": "5-10",
+    "beat": "Cue drain de goteo: el cubo se encoge (S.key scale) y aparece un charco bajo él (cilindro plano azul) que crece. La sonrisa baja; la cerilla acerca más la llama sin entender."
+   },
+   {
+    "t": "10-14",
+    "beat": "Solo queda el charco con ojos; la cerilla abanica la llama desesperada; el charco levanta una gota con ojos (esfera, S.key scale) y la mira."
+   },
+   {
+    "t": "14-17",
+    "beat": "La gota salta a abrazarla (hop_to): pssh (cue whoosh), la llama se apaga. Silencio de un segundo, ambos en cuadro, empapados."
+   },
+   {
+    "t": "17-21",
+    "beat": "Giro: del abrazo sube un vapor (3 esferas blancas que crecen y se desvanecen) con dos caritas sonrientes; la nube se eleva fuera de plano (S.key loc z) mientras la cerilla negra y el charco quedan vacíos. Cheer de la nube. Corte."
+   }
+  ],
+  "payoff": "Se calientan tanto que se vuelven una sola nube feliz: el abrazo no los destruye, los transforma.",
+  "sin_palabras": "Tiritar en primer plano en 0-2 s: necesidad inmediata. Goteo + charco que crece se lee solo; las caritas de vapor cierran sin texto.",
+  "needs": "Sin acción nueva obligatoria: el derretido se hace con S.key scale (cubo Y 0.2, X 1.6) sobre S.obj; vapor = esferas con S.key scale/loc. Mínimo: material semitransparente para vapor (opcional, si no, esferas blancas).",
+  "riesgo_copia": "bajo",
+  "diferencia": "Cero contagio, pareja o peluca; protagonista es hielo + cerilla en una amistad con transformación (estados de la materia). Remate de vapor nuevo, no de calavera ni relevo."
+ },
+ {
+  "id": "b20261116-1-o02v2",
+  "format": "objects",
+  "kind": "anim",
+  "title_en": "The Match Who Wanted to Be a Candle",
+  "caption_en": null,
+  "logline_es": "Una cerilla se cuela entre las velas de una magdalena; todos soplan y todas se apagan menos ella, hasta que descubre que su talento es otro: reencender las velas cada vez que soplan.",
+  "beats": [
+   {
+    "t": "0-2",
+    "beat": "Primer plano: 3 velas encendidas sobre la magdalena (cilindro+esfera), llamas meciéndose; una cerilla cae en cuadro desde arriba (S.key loc) y se clava entre ellas con sonrisa forzada (pop). Gancho inmediato: intrusa."
+   },
+   {
+    "t": "2-6",
+    "beat": "Llamas en las velas; la cerilla se enciende (flame) y trata de mecerse igual, desacompasada. Las velas la miran de reojo."
+   },
+   {
+    "t": "6-9",
+    "beat": "Soplo fuera de plano (whoosh): las 3 velas se apagan; la cerilla sigue ardiendo. Mira de reojo, avergonzada (shiver)."
+   },
+   {
+    "t": "9-13",
+    "beat": "Cambio: se inclina (tilt) y prende la primera vela, luego la segunda, la tercera. Las velas se encienden una a una con brillo (flame) y sonríen: cheer."
+   },
+   {
+    "t": "13-16",
+    "beat": "Nuevo soplo (whoosh): las 3 se apagan otra vez. Las velas se giran hacia la cerilla con cara de 'otra vez'; ella ya se está inclinando."
+   },
+   {
+    "t": "16-18",
+    "beat": "Última vez: las velas se encienden, ella se apaga con un pof de humo y las 3 velas la aplauden (arms_to). Bucle al inicio."
+   }
+  ],
+  "payoff": "El objeto que no sabía ser vela descubre que es útil: sirve para volver a encender las velas.",
+  "sin_palabras": "Velas de cumpleaños + soplo = situación universal; el relevo de llama se entiende por el gesto de inclinarse.",
+  "needs": "Sin acción nueva. Sin vaso de agua (recortado). tilt + flame de cada vela con S.obj/Stage.flame.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Escenario de cumpleaños y drama de pertenencia; la cerilla no contagia fuego ni forma pareja: encuentra su utilidad. 18 s."
+ },
+ {
+  "id": "b20261116-1-p02v2",
+  "format": "pov",
+  "kind": "anim",
+  "title_en": "POV: You Finally Catch Something Big (Catch and Release)",
+  "caption_en": "POV: You finally catch something big",
+  "logline_es": "Un pescador novato tira de la cuerda con un tirón gigante; la sombra enorme bajo el agua lo arrastra al río, el pez sale, lo mide con una regla y, por pequeño, lo suelta de nuevo al agua.",
+  "beats": [
+   {
+    "t": "0-1",
+    "beat": "Plano bajo el nivel del agua: una sombra naranja enorme (esfera+cono oscuros) pasa bajo el muelle y muerde la cuerda. Gancho: sombra gigante."
+   },
+   {
+    "t": "1-4",
+    "beat": "Pescador sentado con palo (grab_stick) se levanta de golpe, planta los pies y tira hacia atrás (key BACK), sonriente."
+   },
+   {
+    "t": "4-7",
+    "beat": "La sombra lo arrastra hop a hop (hop_to) hasta el borde: splash, cae al agua (fall_in_water), el sombrero flota (drop_hat_floating)."
+   },
+   {
+    "t": "7-10",
+    "beat": "El pez naranja sale al muelle (hop_to) con el palo en las aletas, saca de la cuerda al pescador, lo mide con una regla (cubo fino): cae un centímetro de cada lado. Mira a cámara, decepcionado."
+   },
+   {
+    "t": "10-13",
+    "beat": "Giro: el pez lo suelta al agua (splash) con un gesto de 'devuélvelo'; el pescador, flotando, hace cheer. El pez se pone el sombrero flotante como trofeo y se va a saltos."
+   }
+  ],
+  "payoff": "Pesca y suelta: el pez trata al humano como pieza pequeña y se queda el sombrero de trofeo.",
+  "sin_palabras": "Cuerda tensa + sombra gigante en 0-1 s: la premisa 'algo grande' se ve. Regla y suelta se leen como gestos.",
+  "needs": "Pez = S.obj composición (esfera+cono); regla = cubo fino. Sin pull_to: se usa hop_to con key BACK. Sin cierre de 'follow for more'.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Remate propio de pesca (medir y soltar, trofeo), escenario de río del canal; no hay coche, nitro ni bichos."
+ }
 ]

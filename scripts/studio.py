@@ -92,7 +92,8 @@ def cmd_select(b, iid, *rest):
     if iid not in ideas or iid not in scores:
         die(f"{iid} no está en ideas.json y scores.json de {b}")
     idea, sc = ideas[iid], scores[iid]
-    thr = json.loads((ROOT / "studio.config.json").read_text())["vps_threshold"][idea["format"]]
+    fmt = idea["format"] if idea["format"] in ("short", "long", "relato") else "short"   # formatos de animación (objects, pov, levels…) son Shorts
+    thr = json.loads((ROOT / "studio.config.json").read_text())["vps_threshold"][fmt]
     if sc["vps"] < thr and not force:
         die(f"{iid}: VPS {sc['vps']} < umbral {thr} para {idea['format']} (usa --force solo con motivo)")
     mk = d / "market.json"
@@ -100,7 +101,7 @@ def cmd_select(b, iid, *rest):
     if not force and (not market or market.get("verdict") not in ("VALIDATED", "WEAK")):
         die(f"{iid}: sin validación de mercado (market-validator debe dar VALIDATED o WEAK en {mk.relative_to(ROOT)}); "
             f"veredicto actual: {market.get('verdict') if market else 'no evaluada'}")
-    sid = cmd_new(idea["format"], rest[0] if rest else idea["logline"][:60])
+    sid = cmd_new(fmt, rest[0] if rest else (idea.get("logline") or idea.get("logline_es") or iid)[:60])
     sd = sdir(sid)
     if market:
         (sd / "reviews" / "market.json").write_text(json.dumps(market, indent=2, ensure_ascii=False) + "\n")
@@ -116,7 +117,7 @@ def cmd_select(b, iid, *rest):
     sel = d / "selected.json"
     cur = json.loads(sel.read_text()) if sel.exists() else []
     sel.write_text(json.dumps([c for c in cur if c["id"] != iid] + [idea], indent=2, ensure_ascii=False) + "\n")
-    ledger_add(iid, idea["logline"], "selected", sc["vps"])
+    ledger_add(iid, idea.get("logline") or idea.get("logline_es", ""), "selected", sc["vps"])
 
 
 def cmd_derive(parent, title):
@@ -140,7 +141,7 @@ def cmd_close_batch(b):
     n = 0
     for iid, idea in ideas.items():
         if iid not in done:
-            ledger_add(iid, idea["logline"], "rejected", scores.get(iid, {}).get("vps"))
+            ledger_add(iid, idea.get("logline") or idea.get("logline_es", ""), "rejected", scores.get(iid, {}).get("vps"))
             n += 1
     print(f"{n} ideas registradas como rechazadas")
 
@@ -219,7 +220,7 @@ def toks(t):
 def cmd_similar(args):
     if args[0] == "--story":
         idea = json.loads((sdir(args[1]) / "idea.json").read_text())
-        text, skip = idea["logline"], idea.get("id")
+        text, skip = idea.get("logline") or idea.get("logline_es", ""), idea.get("id")
     else:
         text, skip = args[0], None
     a, best = toks(text), (0.0, "")

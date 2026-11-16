@@ -1,0 +1,43 @@
+{
+  "id": "b20261116-1-o03v2",
+  "format": "objects",
+  "kind": "anim",
+  "title_en": "A Match Warms Up an Ice Cube (Together Forever)",
+  "caption_en": null,
+  "logline_es": "Una cerilla enciende su llama para calentar a un cubito que tirita; el hielo se derrite, el charco abraza a la cerilla y la apaga, y del abrazo sube un vapor con dos caritas que se eleva feliz.",
+  "beats": [
+    {
+      "t": "0-2",
+      "beat": "Primer plano del cubito azul (cubo + 2 esferas de ojos) tiritando (shiver) con el aliento en forma de nube; cue creak de escarcha. Meta clara: tiene frío."
+    },
+    {
+      "t": "2-5",
+      "beat": "La cerilla entra a plano, mira la caja, se frota (flame). El cubito sonríe."
+    },
+    {
+      "t": "5-10",
+      "beat": "Cue drain de goteo: el cubo se encoge (S.key scale) y aparece un charco bajo él (cilindro plano azul) que crece. La sonrisa baja; la cerilla acerca más la llama sin entender."
+    },
+    {
+      "t": "10-14",
+      "beat": "Solo queda el charco con ojos; la cerilla abanica la llama desesperada; el charco levanta una gota con ojos (esfera, S.key scale) y la mira."
+    },
+    {
+      "t": "14-17",
+      "beat": "La gota salta a abrazarla (hop_to): pssh (cue whoosh), la llama se apaga. Silencio de un segundo, ambos en cuadro, empapados."
+    },
+    {
+      "t": "17-21",
+      "beat": "Giro: del abrazo sube un vapor (3 esferas blancas que crecen y se desvanecen) con dos caritas sonrientes; la nube se eleva fuera de plano (S.key loc z) mientras la cerilla negra y el charco quedan vacíos. Cheer de la nube. Corte."
+    }
+  ],
+  "payoff": "Se calientan tanto que se vuelven una sola nube feliz: el abrazo no los destruye, los transforma.",
+  "sin_palabras": "Tiritar en primer plano en 0-2 s: necesidad inmediata. Goteo + charco que crece se lee solo; las caritas de vapor cierran sin texto.",
+  "needs": "Sin acción nueva obligatoria: el derretido se hace con S.key scale (cubo Y 0.2, X 1.6) sobre S.obj; vapor = esferas con S.key scale/loc. Mínimo: material semitransparente para vapor (opcional, si no, esferas blancas).",
+  "riesgo_copia": "bajo",
+  "diferencia": "Cero contagio, pareja o peluca; protagonista es hielo + cerilla en una amistad con transformación (estados de la materia). Remate de vapor nuevo, no de calavera ni relevo.",
+  "vps": 67.6,
+  "batch": "20261116-1",
+  "story_id": "story-005",
+  "critic_improve": "Dejar un silencio de un segundo con el charco y la cerilla apagada antes de que suba el vapor, para que el giro sorprenda y no se anticipe."
+}
