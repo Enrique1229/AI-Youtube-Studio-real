@@ -2,7 +2,7 @@
   "id": "story-005",
   "format": "short",
   "title": "A Match Warms Up an Ice Cube",
-  "stage": "delivered",
+  "stage": "published",
   "gates": {
     "critic": "PASS",
     "market": "PASS",
@@ -17,5 +17,6 @@
   "updated": "2026-11-16",
   "idea_id": "b20261116-1-o03v2",
   "market_verdict": "VALIDATED",
-  "duration_s": 17.5
+  "duration_s": 17.5,
+  "youtube_url": "https://www.youtube.com/shorts/Oj-6SQY_aiE"
 }

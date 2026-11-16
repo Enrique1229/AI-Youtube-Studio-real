@@ -4,7 +4,7 @@ Explicaciones internas en español. Todo lo marcado como **[PÚBLICO]** va tal c
 
 ## NOMBRE ELEGIDO: Klunk Studio
 - Nombre [PÚBLICO]: **Klunk Studio**
-- @handle: **@klunkstudio** (sugerido por el Director). **El usuario confirma el @handle** en YouTube Studio. El canal ya está creado en YouTube por el usuario, así que el nombre se da por comprobado por él.
+- @handle: **@KlunkStudio** (confirmado: primer Short publicado el 2026-11-16, https://www.youtube.com/shorts/Oj-6SQY_aiE).
 - Formatos que cubre (no es un canal de IQ): mini-historias de humor físico con giro, POV de un gag, objetos vivos con cara (mini-drama), niveles (IQ y otras escalas) y mascota/bicho vs humano. Ver `anim/FORMAT.md`, sección "Formatos del canal".
 - Sustituye como nombre oficial a "The Wit Ladder" y a las propuestas de la sección 1 (históricas).
 
