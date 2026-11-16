@@ -1,11 +1,11 @@
 {
-  "language": "es",
+  "language": "en",
   "tts": {
     "engine": "kokoro-onnx",
     "model": "models/kokoro-v1.0.onnx",
     "voices": "models/voices-v1.0.bin",
-    "voice": "em_alex",
-    "lang": "es",
+    "voice": "am_michael",
+    "lang": "en-us",
     "speed": 1.0,
     "license": "Apache-2.0 (hexgrad/Kokoro-82M, verificada en Hugging Face el 2026-11-13)"
   },

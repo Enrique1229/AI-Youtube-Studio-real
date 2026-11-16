@@ -20,6 +20,8 @@ def main():
     speed = float(args[args.index("--speed") + 1]) if "--speed" in args else 1.5   # 1.5 = versión rápida (estándar del canal)
     root = pathlib.Path(__file__).resolve().parent.parent
     font = next(str(p) for p in ((root / f if not f.startswith(("/", "C:")) else pathlib.Path(f)) for f in FONT_CANDIDATES) if p.exists()).replace("\\", "/").replace(":", "\\:")
+    lang = json.loads((root / "studio.config.json").read_text(encoding="utf-8")).get("language", "en")
+    LABEL = {"es": "NIVEL DE IQ"}.get(lang, "IQ LEVEL")                                # idioma del canal
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="anim_")); clips, durs, cues, t0 = [], [], [], 0.0
     X = float(args[args.index("--xfade") + 1]) if "--xfade" in args else 0.22          # barrido entre niveles (s)
     order = sorted(iqs)
@@ -31,7 +33,7 @@ def main():
         # rótulo propio del canal: banda oscura translúcida, "NIVEL DE IQ" pequeño y el número grande con barra de color
         vf = (f"scale=1080:1920:flags=lanczos,drawbox=x=300:y=140:w=480:h=170:color=black@0.55:t=fill,"
               f"drawbox=x=300:y=300:w=480:h=10:color={color}@1:t=fill,"
-              f"drawtext=fontfile='{font}':text='NIVEL DE IQ':fontcolor=0xFFE082:fontsize=38:x=(w-text_w)/2:y=156,"
+              f"drawtext=fontfile='{font}':text='{LABEL}':fontcolor=0xFFE082:fontsize=38:x=(w-text_w)/2:y=156,"
               f"drawtext=fontfile='{font}':text='{num}':fontcolor={color}:borderw=4:bordercolor=black:fontsize=92:x=(w-text_w)/2:y=200,format=yuv420p")
         clip = tmp / f"l{i}.mp4"
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-framerate", str(meta["fps"] * speed), "-i", str(d / "f%04d.png"), "-vf", vf,

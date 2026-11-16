@@ -291,7 +291,7 @@ class Stage:
         for fr in range(1, n_frames + 1, 4):
             self.sc.frame_set(fr); wp = actor.root.matrix_world.translation
             hz = 0.95 if getattr(actor, "human", False) else 0.6
-            self.key(self.tgt, fr, loc=(wp.x * (0.92 if hz > 0.9 else weight), 0, max(0.45, min(1.35, wp.z + hz))))
+            self.key(self.tgt, fr, loc=(wp.x * (0.92 if hz > 0.9 else weight), 0, max(0.45, min(3.2, wp.z + hz))))   # sube con los saltos
         if self.cam.data.dof.use_dof:
             self.cam.data.dof.focus_object = self.tgt
         # la cámara acompaña al personaje en x (suave): nunca se queda diminuto al cruzar
@@ -313,11 +313,15 @@ class Stage:
             cam.location = loc; cam.keyframe_insert("location", frame=f); cam.data.lens = lens; cam.data.keyframe_insert("lens", frame=f)
             c2.influence = 1.0 if detail else 0.0; c2.keyframe_insert("influence", frame=f)
             if dloc: det.location = dloc; det.keyframe_insert("location", frame=f)
+        def _rz(a_, g): self.sc.frame_set(g); return a_.root.matrix_world.translation.z
+        self._root_z = _rz
         def rx(f):
             self.sc.frame_set(f); return self.cam_rig.matrix_world.translation.x if getattr(self, "cam_rig", None) else 0.0
         def medium(f):
             self.sc.frame_set(f); p = actor.root.matrix_world.translation
-            return (p.x - 2.3 - rx(f), p.y - 3.4, max(0.9, p.z + 1.1))
+            top = max(p.z for p in [actor.root.matrix_world.translation] + [actor.root.matrix_world.translation])
+            zmax = max((self._root_z(actor, g) for g in range(f, min(n_frames, f + 40), 3)), default=p.z)   # el plano debe caber todo el salto
+            return (p.x - 3.0 - rx(f), p.y - 4.4, max(1.0, min(2.6, zmax + 1.2)))
         shots = [(1, "wide")]
         if n_frames > 70: shots += [(int(n_frames * 0.38), "med"), (int(n_frames * 0.70), "wide")]
         for (fs, x, y, z) in getattr(self, "splashes", []):
@@ -325,7 +329,7 @@ class Stage:
         for f, kind in sorted(shots, key=lambda t: t[0]):
             if f > n_frames: continue
             if kind == "wide": put(f, L0, lens0)
-            elif kind == "med": put(f, medium(f), 50)
+            elif kind == "med": put(f, medium(f), 42)
             else:
                 _, x, y, z = kind; put(f, (x - 2.4 - rx(f), y - 3.6, 1.0), 35, True, (x, y, max(z, -0.2) + 0.45))
         bpy.context.preferences.edit.keyframe_new_interpolation_type = "BEZIER"

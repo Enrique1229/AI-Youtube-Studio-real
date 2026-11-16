@@ -25,6 +25,9 @@ stories/<id>/story-bible.md (según templates/story-bible.md)
 - Rutas: todo lo que no empiece por channel/, ideas/, templates/ o scripts/ es relativo a stories/<id>/ de la historia indicada.
 - Escribe tu trabajo en los archivos de "Salida". El contenido va a disco, no a tu respuesta.
 - No regeneres lo que ya existe: si el archivo de salida existe, edítalo.
+- IDIOMA DEL CANAL: inglés (studio.config.json "language": "en", decisión del usuario 2026-11-16). Todo lo que ve el
+  público (títulos, descripciones, hashtags, rótulos, textos en pantalla, guiones, narración) va en INGLÉS. Tus notas
+  internas y tu respuesta al Director, en español.
 - Responde al Director SOLO con este bloque (máx. 8 líneas):
   STATUS: DONE | NEEDS_FIX | BLOCKED
   FILES: <rutas escritas>
