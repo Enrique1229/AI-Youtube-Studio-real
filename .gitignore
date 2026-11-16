@@ -9,3 +9,4 @@ models/
 channel/analytics/client_secret.json
 channel/analytics/token.json
 pilot-output/
+channel/brand/*_raw.png
