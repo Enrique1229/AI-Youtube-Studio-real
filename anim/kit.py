@@ -43,7 +43,7 @@ def look_for(seed, kind="humano"):
     if kind == "humano":
         shirt = r.choice(SHIRTS)
         return {"kind": "humano", "skin": r.choice(SKINS), "hair": r.choice(HAIRS), "hair_color": r.choice(HAIR_COLORS), "shirt": shirt,
-                "pants": r.choice(PANTS), "build": r.choice(list(BUILDS)), "top": r.choice(["camiseta", "camiseta", "tirantes", "sin"]), "bottom": r.choice(["corto", "corto", "largo"]), "hat": r.choice(["ninguno", "ninguno", "ninguno", "gorra", "bombin", "casco"]),
+                "pants": r.choice(PANTS), "build": r.choice(list(BUILDS)), "top": r.choice(["sudadera", "sudadera", "camiseta", "camiseta", "tirantes"]), "bottom": r.choice(["largo", "largo", "corto"]), "hat": r.choice(["ninguno", "ninguno", "ninguno", "gorra", "bombin", "casco"]),
                 "hat_color": r.choice([c for c in HAT_COLORS if c != shirt]), "eye": r.choice([0.9, 1.0, 1.15]), "glasses": r.random() < 0.2, "color": shirt}
     color = r.choice(BODY_COLORS); hc = r.choice([c for c in HAT_COLORS if c != color])
     return {"shape": r.choice(list(SHAPES)), "color": color, "hat": r.choice(HATS), "hat_color": hc,
@@ -243,7 +243,7 @@ class Stage:
             r_.data.materials[0] = self.pmat("piedra", [(0.3, (0.35, 0.35, 0.33)), (0.7, (0.55, 0.54, 0.50))], scale=6, bump=0.5)
         # cámara baja con desenfoque (foco en el personaje: ver follow)
         self.cam.data.dof.use_dof = True; self.cam.data.dof.aperture_fstop = 2.2
-        self.cam.data.lens = 45; self.cam.location = (-5.6, -7.8, 1.35)
+        self.cam.data.lens = 45; self.cam.location = (-4.7, -6.5, 1.3)
 
     def env_rio_flat(self):
         self.obj("cube", "orillaL", "grass", (-32, 0, -1.5), (30, 60, 1.5), smooth=False)
@@ -263,7 +263,7 @@ class Stage:
 
     # ---------- efectos ----------
     def splash(self, x, y=0, z=-0.3, n=22, big=1.0):
-        self.cue("splash")
+        self.cue("splash"); self.splashes = getattr(self, "splashes", []) + [(self.f, x, y, z)]
         rnd = random.Random(int(x * 100) + self.f)
         for i in range(n):
             d = self.obj("uv_sphere", "gota", "foam", (x, y, z), (0.001,) * 3, segments=8, ring_count=6)
@@ -281,6 +281,33 @@ class Stage:
             self.key(self.tgt, fr, loc=(wp.x * (0.92 if hz > 0.9 else weight), 0, max(0.45, min(1.35, wp.z + hz))))
         if self.cam.data.dof.use_dof:
             self.cam.data.dof.focus_object = self.tgt
+        if os.environ.get("STUDIO_SHOTS", "1") == "1": self.auto_shots(actor, n_frames)
+
+    def auto_shots(self, actor, n_frames):
+        """Montaje dentro del nivel (como la referencia): plano general -> plano medio en la acción -> general,
+        y un primer plano del chapuzón cuando lo hay. Cortes secos (interpolación constante)."""
+        cam = self.cam; L0 = tuple(cam.location); lens0 = cam.data.lens
+        det = self.empty("mira_detalle", (0, 0, 0))
+        c2 = cam.constraints.new("TRACK_TO"); c2.target = det; c2.track_axis = "TRACK_NEGATIVE_Z"; c2.up_axis = "UP_Y"
+        def put(f, loc, lens, detail=False, dloc=None):
+            bpy.context.preferences.edit.keyframe_new_interpolation_type = "CONSTANT"
+            cam.location = loc; cam.keyframe_insert("location", frame=f); cam.data.lens = lens; cam.data.keyframe_insert("lens", frame=f)
+            c2.influence = 1.0 if detail else 0.0; c2.keyframe_insert("influence", frame=f)
+            if dloc: det.location = dloc; det.keyframe_insert("location", frame=f)
+        def medium(f):
+            self.sc.frame_set(f); p = actor.root.matrix_world.translation
+            return (p.x - 2.3, p.y - 3.4, max(0.9, p.z + 1.1))
+        shots = [(1, "wide")]
+        if n_frames > 70: shots += [(int(n_frames * 0.38), "med"), (int(n_frames * 0.70), "wide")]
+        for (fs, x, y, z) in getattr(self, "splashes", []):
+            shots = [s_ for s_ in shots if not (fs - 2 <= s_[0] < fs + 20)] + [(fs - 2, ("det", x, y, z)), (fs + 20, "wide")]
+        for f, kind in sorted(shots, key=lambda t: t[0]):
+            if f > n_frames: continue
+            if kind == "wide": put(f, L0, lens0)
+            elif kind == "med": put(f, medium(f), 50)
+            else:
+                _, x, y, z = kind; put(f, (x - 2.4, y - 3.6, 1.0), 35, True, (x, y, max(z, -0.2) + 0.45))
+        bpy.context.preferences.edit.keyframe_new_interpolation_type = "BEZIER"
 
     def ground(self, x, default=0.0):
         """Altura del suelo en x: encima del muelle 0.12, en la hierba 0; sobre el río, `default` (lo decide el nivel)."""
@@ -379,9 +406,9 @@ class Actor:
         top_style = lk.get("top", "camiseta"); legs_style = lk.get("bottom", "corto")
         self.human, self.squash, self.yaw, self._stepn = True, 0.3, -30.0, 0
         self.root = s.empty("pj", (x, 0, 0)); self.root.scale = (size,) * 3; self.root.rotation_euler = (0, 0, math.radians(self.yaw))
-        r = 0.068 * wd                                                    # grosor de extremidades (humano, no palitos)
-        thigh, shin = 0.43 * ht, 0.42 * ht; hip = thigh + shin + 0.07
-        torso_h = 0.50 * ht; sh_z = hip + torso_h; neck = 0.10
+        r = 0.074 * wd                                                    # grosor de extremidades (humano, no palitos)
+        thigh, shin = 0.40 * ht, 0.38 * ht; hip = thigh + shin + 0.08
+        torso_h = 0.54 * ht; sh_z = hip + torso_h; neck = 0.09
         hz = sh_z + neck + 0.20                                           # centro de la cabeza
         # el torso gira y se encoge desde la CADERA (pivot), no desde los pies: así nunca se separa de las piernas
         self.pivot = s.empty("pelvis", (0, 0, hip), parent=self.root)
@@ -391,7 +418,8 @@ class Actor:
         for sx in (-1, 1):
             lp = s.empty("cadera", (0.105 * wd * sx, 0, hip), parent=self.root); self.legs.append(lp)
             kn = s.empty("rodilla", (0, 0, -thigh), parent=lp); self.knees.append(kn)
-            s.obj("uv_sphere", "zapato", "shoe", (0, -0.07, -shin - 0.02), (0.085 * wd, 0.16, 0.062), parent=kn)
+            s.obj("uv_sphere", "zapato", "shoe", (0, -0.07, -shin - 0.01), (0.085 * wd, 0.16, 0.062), parent=kn)
+            s.obj("uv_sphere", "suela", "white", (0, -0.07, -shin - 0.045), (0.09 * wd, 0.168, 0.03), parent=kn)
         self.lids, self.pupils, self.arms = [], [], []
         ua, fa = 0.31 * ht, 0.29 * ht
         for sx in (-1, 1):
@@ -509,14 +537,18 @@ class Actor:
                 if g == "body":
                     if ci == 0 or z > hipz + 0.2: mi = 2 if z < hipz + 0.09 else (0 if top_style == "sin" else 1)
                     else: mi = 2                                          # raíz de la pierna: dentro del pantalón
-                    if ci > 0 and z > hipz + 0.2: mi = 0 if top_style != "camiseta" else 1
+                    if ci > 0 and z > hipz + 0.2: mi = 1 if top_style in ("camiseta", "sudadera") else 0
                 elif g.startswith("leg"):
                     kz = W(self.knees[int(g[-1])]).z
                     mi = 2 if (legs_style == "largo" or (z - kz) / max(hipz - kz, 1e-3) > 0.42) else 0
                 elif g.startswith("knee"):
                     mi = 2 if legs_style == "largo" else 0
                 elif g.startswith("arm"):
-                    mi = 1 if (top_style == "camiseta" and shz - z < d["ua"] * 0.38) else 0
+                    mi = 1 if (top_style == "sudadera" or (top_style == "camiseta" and shz - z < d["ua"] * 0.38)) else 0
+                elif g.startswith("elbow") and top_style == "sudadera":     # manga larga hasta la muñeca
+                    el_ = self.elbows[int(g[-1])]; wr = W(el_, (0, 0, -d["fa"] * 0.95))
+                    cen = sum((nm.vertices[k].co for k in poly.vertices), Vector()) / len(poly.vertices)
+                    mi = 1 if (cen - W(el_)).length < (wr - W(el_)).length else 0
                 poly.material_index = mi
             self.skin_parts.append(ob)
         # armadura: un hueso por empty de control; cada hueso copia el movimiento de su empty (Child Of)
