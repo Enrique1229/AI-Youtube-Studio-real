@@ -1,0 +1,42 @@
+[
+  {
+    "id": "b20261116-3-o03v2",
+    "format": "objects",
+    "kind": "anim",
+    "env": "mesa",
+    "title_en": "The Little Bubble Who Stayed",
+    "caption_en": null,
+    "logline_es": "Una pompa con cara sale de una esponja y flota entre un tenedor y un lápiz hacia la ventana; el lápiz la revienta, y la esponja, sola, se estruja una vez y saca una pompita que se posa en su cabeza y guiña a cámara.",
+    "beats": [
+      {
+        "t": "0-1",
+        "beat": "Gancho inmediato: plano cerrado, la esponja (cubo amarillo con cara) se estruja con un squash y la pompa (esfera translúcida, ojos enormes, happy_face) sale disparada hacia arriba justo encima de un tenedor con las puntas hacia arriba."
+      },
+      {
+        "t": "1-6",
+        "beat": "La pompa baja un poco, flota (S.key loc z suave) rozando las puntas del tenedor; encoge el cuerpo (shiver) y sigue, sonriente. La esponja mira desde atrás con cara de preocupación."
+      },
+      {
+        "t": "6-10",
+        "beat": "Llega junto a la ventana, sonríe feliz al sol; detrás, un lápiz asoma la punta. Cue pop: estalla en gotitas (esferas diminutas)."
+      },
+      {
+        "t": "10-13",
+        "beat": "Silencio. Las gotitas caen. La esponja baja la cabeza (sad_face) y se queda quieta."
+      },
+      {
+        "t": "13-18",
+        "beat": "Giro: la esponja se estruja despacio una sola vez; sale UNA pompita con carita (misma esfera, escala 0.4) que flota hasta posarse en su cabeza. Ambas sonríen; la pompita guiña a cámara. Imagen final fija y clara. Bucle."
+      }
+    ],
+    "payoff": "Una pompa se va, pero la esponja siempre puede hacer otra: queda una sola pompita sobre su cabeza.",
+    "sin_palabras": "Esfera frágil con ojos enormes sobre un tenedor de puntas: peligro en 1 s; final con una sola pompita guiñando.",
+    "needs": "Esponja, pompa (esfera translúcida), tenedor, lápiz con S.obj; caras mkface/happy_face/sad_face como ep002; pop = cue pop; gotitas = esferas con S.key; una sola pompita con S.key scale. Sin cactus ni clones masivos. Sin acción nueva.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Fregadero: dos amenazas (tenedor, lápiz) y un único superviviente final; ternura sin fuego, comida ni caída.",
+    "vps": 67.9,
+    "batch": "20261116-3",
+    "story_id": "story-007",
+    "critic_improve": "Dar un segundo casi-roce con el lapiz antes del pop (la punta ya visible desde 1-6 s) para que el estallido se anticipe y duela, y mantener la pompita final inmovil 2 s con el guino en el ultimo fotograma."
+  }
+]

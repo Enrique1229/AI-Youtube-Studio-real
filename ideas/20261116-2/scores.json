@@ -1,0 +1,154 @@
+[
+  {
+    "id": "b20261116-2-o01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 7,
+      "visual": 7,
+      "emotion": 8,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 7,
+      "production_difficulty": 6,
+      "repetition_risk": 3
+    },
+    "why": "Un personaje con los ojos cerrados al borde del vacio da peligro en 1 s y el rescate ritual del huevero cierra con ternura, aunque la caida salvada por un tercero es un patron que se puede anticipar.",
+    "improve": "Que la cuchara falle de verdad (sin que el espectador sepa que el huevero espera) y retrasar la aparicion del huevero hasta el ultimo medio segundo de la caida para que el giro no se lea antes.",
+    "vps": 68.2
+  },
+  {
+    "id": "b20261116-2-p01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 5,
+      "repetition_risk": 3
+    },
+    "why": "La vela encendida en equilibrio da una meta legible en el segundo 0 y la tarta seca bajo el agua es un buen remate, pero el muelle y la caida al rio se acercan a gags ya producidos y el falso susto es previsible.",
+    "improve": "Mantener la vela encendida tambien al emerger y cortar el plano de la caida a negro un instante, para que el espectador dude de si la llama sobrevive antes de ver las manos en alto.",
+    "vps": 62.3
+  },
+  {
+    "id": "b20261116-2-s01",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 8,
+      "originality": 6,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 8,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 7,
+      "repetition_risk": 4
+    },
+    "why": "La reaccion en cadena con un tercero involuntario y el sandwich como premio dan el mejor remate de los slapstick y mucha retencion, pero 21 s con dos actores, balancin y lanzamiento aumentan el coste y la lectura fisica puede confundirse.",
+    "improve": "Recortar a 15-16 s eliminando la medicion del balancin en 2-6 s y mostrar el sandwich en la mano del desconocido en el primer plano del balancin, para plantar el pago final.",
+    "vps": 59.7
+  },
+  {
+    "id": "b20261116-2-p02",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 6,
+      "originality": 6,
+      "visual": 6,
+      "emotion": 5,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 5,
+      "repetition_risk": 5
+    },
+    "why": "Un sombrero a la deriva es un gancho raro y el dueno que emerge es un giro limpio, pero repite la mecanica de pescar algo del agua y tirar de algo oculto del pez-pescador ya puntuado, y la emocion es baja.",
+    "improve": "Eliminar el segundo intento de tirar (4-6 s) y poner la reverencia del nadador como unico remate, o hacer que devuelva al protagonista un objeto a cambio para dar pago emocional.",
+    "vps": 58.4
+  },
+  {
+    "id": "b20261116-2-s02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 7,
+      "repetition_risk": 4
+    },
+    "why": "El tiron del cometa que lo despega es un buen inicio, pero el flashback del banco de 2-6 s enturbia la meta, el vuelo con pendulo es costoso de animar y el final de manta tranquilo baja el pico de risa.",
+    "improve": "Mostrar el banco vacio de la otra orilla en el plano 0-1 junto al tiron (sin flashback) y cerrar con un ultimo gag corto, por ejemplo el cometa tirandolo del banco otra vez.",
+    "vps": 55.5
+  },
+  {
+    "id": "b20261116-2-o02",
+    "scores": {
+      "hook": 6,
+      "curiosity": 5,
+      "retention": 6,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 7,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 4
+    },
+    "why": "El miedo a la mantequilla y el remate de aceptacion son claros y encajan en objetos vivos, pero huir y quemarse es una cadena previsible, el hook de la tostada que salta es debil y el cambio de color con humo anade coste.",
+    "improve": "Empezar con el cuchillo ya acercandose a la tostada en primer plano y que la tostada nunca llegue a esconderse: que el giro sea que el calor la mejora (dorada, crujiente) antes de quemarse.",
+    "vps": 54.2
+  },
+  {
+    "id": "b20261116-2-p01v2",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 7,
+      "visual": 7,
+      "emotion": 5,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 5,
+      "repetition_risk": 4
+    },
+    "why": "El corte a negro que siembra la duda y la vela trucada que no se apaga mejoran el remate de p01, pero el muelle y la caida con la tarta en alto siguen siendo el mismo gag base y la emocion es baja.",
+    "improve": "Que la vela trucada se insinue sin avisar (una chispa al soplar en el plano 5-8) y cortar el segundo soplo para que el hundimiento final sea el unico remate.",
+    "vps": 63.0
+  },
+  {
+    "id": "b20261116-2-s01v2",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 5,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "Plantar el sandwich en el plano inicial y recortar a 16 s mejora el ritmo y el pago, pero al quitar la construccion del balancin pierde el ingenio de s01 y sigue siendo una reaccion en cadena con dos actores.",
+    "improve": "Dar al protagonista un gesto claro de ver el sandwich en 3-6 s (mirada pelota-sandwich) para que el premio lateral parezca una decision y no una casualidad.",
+    "vps": 54.1
+  }
+]

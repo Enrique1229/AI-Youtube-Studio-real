@@ -1,0 +1,39 @@
+{
+  "id": "b20261116-2-o01",
+  "format": "objects",
+  "kind": "anim",
+  "title_en": "The Sleepwalking Egg",
+  "caption_en": null,
+  "logline_es": "Un huevo con cara sonámbulo camina con los ojos cerrados hasta el borde de la encimera y cae, pero un huevero con cara lo atrapa y vuelve a dormirse.",
+  "beats": [
+    {
+      "t": "0-1",
+      "beat": "Gancho: primer plano del huevo (esfera achatada) de pie en el borde de la encimera, con los ojos cerrados y los brazos estirados, balanceándose (shiver). Debajo, el vacío."
+    },
+    {
+      "t": "1-5",
+      "beat": "Cámara retrocede: camina hacia delante (walk_to) pasando entre una taza, una sal y una cuchara, sin despertar; ronca (cue creak)."
+    },
+    {
+      "t": "5-9",
+      "beat": "Pone el pie en el aire y cae: la cuchara (con cara) lo ve, corre (hop_to) y no llega por un pelo. Mira a cámara y se tapa los ojos."
+    },
+    {
+      "t": "9-12",
+      "beat": "El huevo cae: plano de cámara baja con silencio. De detrás del tarro asoma un huevero (cilindro pequeño con cara) que se desliza justo debajo con un guiño (key BACK)."
+    },
+    {
+      "t": "12-15",
+      "beat": "El huevo cae dentro del huevero con un boing suave (cue boing), se acomoda, sonríe y vuelve a dormirse con una burbuja de moco. La cuchara hace cheer. Bucle."
+    }
+  ],
+  "payoff": "El huevo nunca se enteró: el huevero estaba esperando como cada noche.",
+  "sin_palabras": "Un personaje con los ojos cerrados al borde del vacío: peligro en 1 s.",
+  "needs": "Huevo, huevero, cuchara y tarro con S.obj; caras como mkface (ojos cerrados = esferas escaladas en Y). Acción nueva sencilla: 'sleepwalk' = walk_to con brazos arms_to 90.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Peligro de caída con rescate y sin fuego; personajes de desayuno (no cerillas) y un giro de ternura.",
+  "vps": 68.2,
+  "batch": "20261116-2",
+  "story_id": "story-006",
+  "critic_improve": "Que la cuchara falle de verdad (sin que el espectador sepa que el huevero espera) y retrasar la aparicion del huevero hasta el ultimo medio segundo de la caida para que el giro no se lea antes."
+}

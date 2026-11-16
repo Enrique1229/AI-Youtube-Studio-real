@@ -1,0 +1,20 @@
+{
+  "id": "story-006",
+  "format": "short",
+  "title": "The Sleepwalking Egg",
+  "stage": "selected",
+  "gates": {
+    "critic": "PASS",
+    "market": "PASS",
+    "continuity": "PENDING",
+    "policy": "PENDING",
+    "qc": "PENDING"
+  },
+  "vps": 68.2,
+  "quality_score": null,
+  "fix_rounds": 0,
+  "final_file": null,
+  "updated": "2026-11-16",
+  "idea_id": "b20261116-2-o01",
+  "market_verdict": "VALIDATED"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "story-007",
+  "format": "short",
+  "title": "The Little Bubble Who Stayed",
+  "stage": "selected",
+  "gates": {
+    "critic": "PASS",
+    "market": "PASS",
+    "continuity": "PENDING",
+    "policy": "PENDING",
+    "qc": "PENDING"
+  },
+  "vps": 67.9,
+  "quality_score": null,
+  "fix_rounds": 0,
+  "final_file": null,
+  "updated": "2026-11-16",
+  "idea_id": "b20261116-3-o03v2",
+  "market_verdict": "VALIDATED"
+}

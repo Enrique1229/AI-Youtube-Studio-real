@@ -1,0 +1,344 @@
+[
+ {
+  "id": "b20261116-2-p01",
+  "format": "pov",
+  "kind": "anim",
+  "title_en": "POV: You Carry Your Own Birthday Cake",
+  "caption_en": "POV: You carry your own birthday cake",
+  "logline_es": "Un tipo lleva su tarta de cumpleaños con una vela encendida por el muelle, cae al río y emerge con la tarta intacta en alto y la vela aún encendida.",
+  "beats": [
+   {
+    "t": "0-1",
+    "beat": "Primer plano de la tarta (cilindros apilados) sobre una bandeja con una vela encendida (S.flame) que tiembla; las manos la sostienen. Gancho: equilibrio precario."
+   },
+   {
+    "t": "1-4",
+    "beat": "Camina por el muelle (walk_to) con la tarta nivelada, brazos rígidos, cara de concentración (think). Crujido (cue creak)."
+   },
+   {
+    "t": "4-6",
+    "beat": "Falso susto: tropieza con un tablón suelto, la tarta se inclina, él la recupera con la rodilla (knees) sin mirar. Respira."
+   },
+   {
+    "t": "6-9",
+    "beat": "El tablón cede de verdad: cae al agua (fall_in_water, splash) con los brazos estirados hacia arriba. Silencio."
+   },
+   {
+    "t": "9-12",
+    "beat": "Emerge del agua solo hasta los ojos; la tarta, seca y la vela aún encendida, sobre sus manos en alto. Mira a cámara y sopla la vela con un mohín (cheer). Bucle."
+   }
+  ],
+  "payoff": "Lo único que no se moja es lo que importa: la tarta y la vela siguen encendidas.",
+  "sin_palabras": "Vela encendida en equilibrio en el segundo 0: la meta (no apagarla ni tirarla) se entiende sola.",
+  "needs": "Tarta y bandeja con S.obj; vela con Stage.flame; manos en alto con arms_to. Sin acción nueva.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Gag de equilibrio con llama y cumpleaños propios; sin coche, nitro ni bichos. Distinto del muelle de sentarse ya producido: aquí el protagonista cae con éxito."
+ },
+ {
+  "id": "b20261116-2-p02",
+  "format": "pov",
+  "kind": "anim",
+  "title_en": "POV: You Rescue a Floating Hat",
+  "caption_en": "POV: You rescue a floating hat",
+  "logline_es": "Un hombre pesca con un palo un sombrero flotante y de debajo del agua emerge su dueño nadando, que lo recoge y le hace una reverencia.",
+  "beats": [
+   {
+    "t": "0-1",
+    "beat": "Un sombrero de copa solo, flotando y avanzando despacio por el río (S.key loc x). Gancho visual raro."
+   },
+   {
+    "t": "1-4",
+    "beat": "El protagonista en el muelle agarra un palo (grab_stick), se tumba, estira el palo hacia el sombrero; casi llega, casi llega (key BACK)."
+   },
+   {
+    "t": "4-6",
+    "beat": "Engancha el sombrero y tira: el sombrero no viene, tira de algo; se levanta, tira más fuerte, mira bajo el agua con cara de duda."
+   },
+   {
+    "t": "6-9",
+    "beat": "Del agua sube un segundo humano (S.actor(color=..., hat=copa)) con el sombrero puesto, nadando con calma; el palo estaba enganchado a su sombrero. Los dos se miran."
+   },
+   {
+    "t": "9-12",
+    "beat": "El nadador le quita el palo con cortesía, hace una reverencia con el sombrero (tilt, arms_to) y se sumerge de nuevo. El protagonista se queda con el palo, se rasca la cabeza (think). Bucle."
+   }
+  ],
+  "payoff": "El sombrero abandonado tenía dueño debajo del agua, que agradece el rescate con educación.",
+  "sin_palabras": "Sombrero a la deriva y palo: objetivo claro; el giro es el humano que emerge.",
+  "needs": "Un secundario con S.actor(color, hat); sumergir/emerger con S.key de loc z (simple, usa fall_in_water inverso o S.key). Sin acción nueva obligatoria.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Giro de identidad (el sombrero tiene dueño) sin pez, sin cuerda y sin soltar al agua; mantiene el escenario río."
+ },
+ {
+  "id": "b20261116-2-s01",
+  "format": "slapstick",
+  "kind": "anim",
+  "title_en": "The Seesaw Plan",
+  "caption_en": null,
+  "logline_es": "Un hombre intenta bajar una pelota de un árbol con una tabla basculante; un desconocido que merienda en el otro extremo sale disparado, coge la pelota y al caer lanza al primero al río.",
+  "beats": [
+   {
+    "t": "0-2",
+    "beat": "Gancho: una pelota roja (esfera) atrapada en una rama; el protagonista salta bajo ella (hop_to) sin llegar, una y otra vez."
+   },
+   {
+    "t": "2-6",
+    "beat": "Idea: coloca un tronco (cilindro) y una tabla (cubo plano) como balancín. Mide, asiente (think). Se sube a un extremo y lo mira: no tiene peso en el otro."
+   },
+   {
+    "t": "6-10",
+    "beat": "Llega un segundo humano con un sándwich y se sienta en el extremo bajo de la tabla (sit) sin ver nada. El protagonista sonríe, sube un par de pasos atrás para tomar carrerilla (walk_to)."
+   },
+   {
+    "t": "10-14",
+    "beat": "Salta sobre el extremo alto: el desconocido sale disparado hacia arriba (hop_to alto, whoosh), roza la rama, coge la pelota y el sándwich sigue en su mano."
+   },
+   {
+    "t": "14-18",
+    "beat": "El desconocido cae con la pelota sobre el extremo alto del balancín, que lanza al protagonista por el aire hasta el río (splash, fall_in_water)."
+   },
+   {
+    "t": "18-21",
+    "beat": "Giro: el desconocido, de pie con pelota y sándwich intactos, se la ofrece al protagonista que emerge empapado con el sándwich en la cabeza; lo mira, lo toma y le da un mordisco (cheer). Corte."
+   }
+  ],
+  "payoff": "El plan funciona, pero con otra persona: el premio es un sándwich en vez de una pelota.",
+  "sin_palabras": "Pelota fuera de alcance en 0-2 s; el balancín y la reacción en cadena se leen visualmente.",
+  "needs": "Tronco, tabla, pelota con S.obj; rama como cilindro; un secundario S.actor. Acción nueva sencilla: 'launch' = hop_to con h grande y dur corta.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Reacción en cadena con tercero involuntario y premio inesperado; no hay IQ ni cruce de río; usa el parque, no el muelle."
+ },
+ {
+  "id": "b20261116-2-s02",
+  "format": "slapstick",
+  "kind": "anim",
+  "title_en": "The Kite That Knew Where to Go",
+  "caption_en": null,
+  "logline_es": "Un cometa levanta a un hombre por el parque, lo lleva sobre el río y lo deja sentado en el banco de la otra orilla al que miraba al principio.",
+  "beats": [
+   {
+    "t": "0-2",
+    "beat": "Gancho: un tirón del cometa (cono con cuerda) y los pies del protagonista despegan del suelo en primer plano; cara de sorpresa."
+   },
+   {
+    "t": "2-6",
+    "beat": "Antes (corto flashback visual: 0-1 s previos con un plano de la orilla opuesta): cansado, miraba el banco vacío al otro lado del río. Ahora el viento lo arrastra a saltos (hop_to) por el césped, agarrado a la cuerda."
+   },
+   {
+    "t": "6-10",
+    "beat": "Se eleva sobre el río (S.key loc z), pedalea en el aire (knees), su sombra en el agua; mira hacia abajo y traga saliva (shiver)."
+   },
+   {
+    "t": "10-14",
+    "beat": "La cuerda se enreda en un poste y el cometa se detiene: él se balancea como péndulo (key BACK) y se suelta."
+   },
+   {
+    "t": "14-18",
+    "beat": "Cae perfectamente sentado (sit) en el banco de la otra orilla, con las manos sobre las rodillas; tiene el cometa enredado sobre el regazo."
+   },
+   {
+    "t": "18-20",
+    "beat": "Giro: suspira, se tumba y el cometa se acomoda como manta sobre él (cheer, tilt). Corte."
+   }
+  ],
+  "payoff": "Sin pretenderlo, el cometa lo deja justo donde quería sentarse.",
+  "sin_palabras": "El banco al otro lado del río es el objetivo claro; el vuelo se entiende sin palabras.",
+  "needs": "Cometa = S.obj cono + cuerda fina; banco con S.obj; vuelo con S.key loc z. Sin acción nueva.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Un final amable y accidental (no hay caída ni castigo); la geografía del río hace de obstáculo."
+ },
+ {
+  "id": "b20261116-2-o01",
+  "format": "objects",
+  "kind": "anim",
+  "title_en": "The Sleepwalking Egg",
+  "caption_en": null,
+  "logline_es": "Un huevo con cara sonámbulo camina con los ojos cerrados hasta el borde de la encimera y cae, pero un huevero con cara lo atrapa y vuelve a dormirse.",
+  "beats": [
+   {
+    "t": "0-1",
+    "beat": "Gancho: primer plano del huevo (esfera achatada) de pie en el borde de la encimera, con los ojos cerrados y los brazos estirados, balanceándose (shiver). Debajo, el vacío."
+   },
+   {
+    "t": "1-5",
+    "beat": "Cámara retrocede: camina hacia delante (walk_to) pasando entre una taza, una sal y una cuchara, sin despertar; ronca (cue creak)."
+   },
+   {
+    "t": "5-9",
+    "beat": "Pone el pie en el aire y cae: la cuchara (con cara) lo ve, corre (hop_to) y no llega por un pelo. Mira a cámara y se tapa los ojos."
+   },
+   {
+    "t": "9-12",
+    "beat": "El huevo cae: plano de cámara baja con silencio. De detrás del tarro asoma un huevero (cilindro pequeño con cara) que se desliza justo debajo con un guiño (key BACK)."
+   },
+   {
+    "t": "12-15",
+    "beat": "El huevo cae dentro del huevero con un boing suave (cue boing), se acomoda, sonríe y vuelve a dormirse con una burbuja de moco. La cuchara hace cheer. Bucle."
+   }
+  ],
+  "payoff": "El huevo nunca se enteró: el huevero estaba esperando como cada noche.",
+  "sin_palabras": "Un personaje con los ojos cerrados al borde del vacío: peligro en 1 s.",
+  "needs": "Huevo, huevero, cuchara y tarro con S.obj; caras como mkface (ojos cerrados = esferas escaladas en Y). Acción nueva sencilla: 'sleepwalk' = walk_to con brazos arms_to 90.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Peligro de caída con rescate y sin fuego; personajes de desayuno (no cerillas) y un giro de ternura."
+ },
+ {
+  "id": "b20261116-2-o02",
+  "format": "objects",
+  "kind": "anim",
+  "title_en": "The Toast Who Hid From the Butter",
+  "caption_en": null,
+  "logline_es": "Una tostada con cara se esconde de un cuchillo de mantequilla dentro de la tostadora, se quema ennegrecida, y el cuchillo la unta igual y ella sonríe.",
+  "beats": [
+   {
+    "t": "0-1",
+    "beat": "Gancho: una tostada dorada salta de la tostadora (cubo + ranura) con un pop; cae de pie en la encimera con cara de alegría."
+   },
+   {
+    "t": "1-5",
+    "beat": "Un cuchillo de mantequilla (cubo fino con cara) se acerca con una porción de mantequilla; la tostada se asusta (shiver) y retrocede."
+   },
+   {
+    "t": "5-9",
+    "beat": "Corre (hop_to) y se mete de nuevo en la tostadora, baja la palanca con la cabeza (cue clunk). Plano de la ranura: el brillo naranja crece, la tostada se oscurece (S.key color)."
+   },
+   {
+    "t": "9-13",
+    "beat": "La tostadora salta: sale la tostada completamente negra, humo (esferas grises), ojos blancos. El cuchillo la mira, se encoge de hombros."
+   },
+   {
+    "t": "13-17",
+    "beat": "Giro: la unta igual; la mantequilla se funde y la tostada negra se ilumina por dentro, sonríe y hace cheer. El cuchillo choca la hoja con ella. Bucle."
+   }
+  ],
+  "payoff": "Huir de lo que la iba a mejorar la quemó, y aun así la mantequilla lo arregla.",
+  "sin_palabras": "Un miedo (cuchillo) y un escondite (tostadora): se entiende sin palabras.",
+  "needs": "Tostadora, tostada y cuchillo con S.obj; cambio de color con S.key en el material (nueva acción sencilla: 'toast_color'); humo = esferas.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Objetos de desayuno con miedo y perdón; sin llama ni contagio; el remate es de aceptación."
+ },
+ {
+  "id": "b20261116-2-p01v2",
+  "format": "pov",
+  "kind": "anim",
+  "title_en": "POV: Your Birthday Candle Is Unbeatable",
+  "caption_en": "POV: Your birthday candle is unbeatable",
+  "logline_es": "Un tipo cruza un muelle con su tarta y una vela encendida, cae al río, corte a negro, y sus manos emergen con la tarta seca y la vela encendida; sopla y la vela, de las que no se apagan, sigue prendida mientras él se hunde.",
+  "beats": [
+   {
+    "t": "0-1.5",
+    "beat": "Plano cerrado de la tarta con la vela encendida (Stage.flame) temblando sobre las manos, al borde del muelle. Gancho: equilibrio precario desde el frame 0."
+   },
+   {
+    "t": "1.5-4",
+    "beat": "Camina rígido (walk_to), brazos nivelados; el tablón cruje (cue creak). El tablón cede: cae (fall_in_water, splash) con los brazos estirados hacia arriba."
+   },
+   {
+    "t": "4-5",
+    "beat": "Corte a negro con splash. Silencio: no se sabe si la llama sobrevive."
+   },
+   {
+    "t": "5-8",
+    "beat": "Río en calma; primero emergen solo las manos con la tarta seca y la vela encendida (arms_to, S.key loc z). Después sube la cabeza hasta los ojos."
+   },
+   {
+    "t": "8-11",
+    "beat": "Mira a cámara, sopla: la llama se dobla y vuelve a encenderse (vela trucada). Sopla otra vez, igual. Se rinde, sonríe (cheer) y se hunde despacio manteniendo la tarta en alto con la vela encendida. Bucle."
+   }
+  ],
+  "payoff": "Ni el río apaga la vela: ni siquiera él puede soplarla.",
+  "sin_palabras": "Vela encendida en equilibrio desde el segundo 0; el corte a negro crea duda; el soplo fallido se lee sin texto.",
+  "needs": "Solo kit actual: S.obj tarta, Stage.flame, fall_in_water, arms_to, S.key (hundirse), cue splash/creak. Relanzar llama = S.key scale de la llama (escala 0.4 a 1.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Gag de vela trucada propio; caída exitosa con giro final, un solo muelle, sin falso susto previo.",
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Camina con la tarta nivelada y cae al agua; la tarta se hunde con él y la vela se apaga.",
+    "por_que_es_gracioso": "Cree que andar muy recto basta."
+   },
+   {
+    "iq": -80,
+    "gag": "Sujeta la tarta con la boca y las manos libres para equilibrarse; cae igual y la vela se apaga.",
+    "por_que_es_gracioso": "Su plan empeora la meta."
+   },
+   {
+    "iq": 120,
+    "gag": "Cae con los brazos arriba y salva la tarta, pero la vela se apaga.",
+    "por_que_es_gracioso": "Salva lo importante a medias."
+   },
+   {
+    "iq": 900,
+    "gag": "Cae con los brazos arriba y salva tarta y vela encendida.",
+    "por_que_es_gracioso": "Todo seco menos él."
+   },
+   {
+    "iq": 5469,
+    "gag": "Con vela trucada que nunca se apaga, ya no puede soplarla: el problema desaparece.",
+    "por_que_es_gracioso": "Solución lateral: el deseo ya es imposible de apagar."
+   }
+  ]
+ },
+ {
+  "id": "b20261116-2-s01v2",
+  "format": "slapstick",
+  "kind": "anim",
+  "title_en": "The Seesaw Plan (Snack Edition)",
+  "caption_en": null,
+  "logline_es": "Un hombre quiere bajar una pelota de un árbol con un balancín ya montado; un desconocido con un sándwich en el extremo bajo sale disparado, coge la pelota y al caer lanza al primero al río, que emerge con el sándwich en la cabeza.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Plano abierto: pelota roja en una rama; el protagonista salta (hop_to) debajo sin llegar. En el mismo plano, el balancín ya montado y un desconocido en el extremo bajo comiendo un sándwich (plantado)."
+   },
+   {
+    "t": "3-6",
+    "beat": "El protagonista mira el balancín, asiente (think) y sube por el extremo alto con carrerilla (walk_to hacia atrás)."
+   },
+   {
+    "t": "6-9",
+    "beat": "Salta sobre el extremo alto: el desconocido sale disparado (hop_to h grande, whoosh), roza la rama, coge la pelota con una mano y conserva el sándwich en la otra."
+   },
+   {
+    "t": "9-12",
+    "beat": "Cae sobre el extremo alto, que lanza al protagonista hasta el río (fall_in_water, splash)."
+   },
+   {
+    "t": "12-16",
+    "beat": "Giro: el desconocido le ofrece la pelota; el protagonista emerge con el sándwich en la cabeza, lo coge y lo muerde (cheer), ignorando la pelota. Corte."
+   }
+  ],
+  "payoff": "El plan funciona, pero el premio es el sándwich y no la pelota.",
+  "sin_palabras": "Pelota inalcanzable y sándwich visibles en el primer plano; la cadena física se lee sola.",
+  "needs": "Tronco, tabla, pelota y rama con S.obj; segundo S.actor. Acción 'launch' = hop_to con h grande y dur corta (variante simple de hop_to).",
+  "riesgo_copia": "bajo",
+  "diferencia": "Sin construcción ni medición, 16 s, sándwich plantado; tercero involuntario y premio inesperado.",
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Salta bajo la pelota sin parar hasta caer al suelo.",
+    "por_que_es_gracioso": "Insiste en lo imposible."
+   },
+   {
+    "iq": -80,
+    "gag": "Se sube a la tabla sin nadie en el otro extremo y se cae.",
+    "por_que_es_gracioso": "Olvida el contrapeso."
+   },
+   {
+    "iq": 120,
+    "gag": "El desconocido lanzado coge la pelota, pero él acaba en el río.",
+    "por_que_es_gracioso": "Funciona a duras penas."
+   },
+   {
+    "iq": 900,
+    "gag": "Con un contrapeso planeado, la pelota baja y él cae a salvo.",
+    "por_que_es_gracioso": "Ciencia limpia."
+   },
+   {
+    "iq": 5469,
+    "gag": "Ignora la pelota y coge el sándwich: el problema era otro.",
+    "por_que_es_gracioso": "Solución lateral: prefería el premio."
+   }
+  ]
+ }
+]

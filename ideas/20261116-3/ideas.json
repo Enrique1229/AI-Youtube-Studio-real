@@ -1,0 +1,178 @@
+[
+ {
+  "id": "b20261116-3-o01",
+  "format": "objects",
+  "kind": "anim",
+  "title_en": "The Sugar Cube Who Wanted to Be Tea",
+  "caption_en": null,
+  "logline_es": "Un terrón de azúcar con cara tiembla al borde de una taza de té humeante, se anima, salta y se disuelve; la taza, antes pálida y triste, sonríe con el té ya dulce.",
+  "beats": [
+   {
+    "t": "0-2",
+    "beat": "Gancho: primer plano del terrón (cubo blanco con cara) en el borde de una taza humeante (cilindro con cara triste, vapor de esferas); el terrón tiembla (shiver) mirando abajo."
+   },
+   {
+    "t": "2-6",
+    "beat": "Se asoma, mete un pie, lo retira quemado (hop_to atrás); la cuchara (con cara) le hace gestos de ánimo. Prueba otra vez y retrocede."
+   },
+   {
+    "t": "6-10",
+    "beat": "Respira, cierra los ojos y salta (hop_to alto, cue splash suave). Plano de la superficie: el terrón se encoge (S.key scale) y desaparece con burbujas."
+   },
+   {
+    "t": "10-13",
+    "beat": "Silencio. La taza se queda inmóvil, mira dentro; el té cambia a un tono más cálido (S.key color)."
+   },
+   {
+    "t": "13-17",
+    "beat": "Giro: la taza sonríe por primera vez, sonroja y la cuchara hace cheer; en la superficie asoma un corazoncito de vapor (esferas). Bucle."
+   }
+  ],
+  "payoff": "El terrón no desaparece: se queda dentro y es lo que hace feliz a la taza.",
+  "sin_palabras": "Un personaje temblando al borde de algo caliente: miedo y salto en 1 s.",
+  "needs": "Terrón, taza, cuchara con S.obj; caras estilo mkface; vapor = esferas; disolver = S.key scale; cambio de color = S.key en material (ya usado como 'toast_color'). Sin acción nueva compleja.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Sacrificio tierno y transformación (disolverse) con objetos de té; sin fuego, sin caída al vacío, sin desayuno de tostada/huevo."
+ },
+ {
+  "id": "b20261116-3-o02",
+  "format": "objects",
+  "kind": "anim",
+  "title_en": "The Banana Who Slipped on Style",
+  "caption_en": null,
+  "logline_es": "Un plátano con cara se pela para ir guapo, pisa su propia piel, se desliza por toda la encimera y cae de pie en el frutero ante la admiración de las demás frutas.",
+  "beats": [
+   {
+    "t": "0-2",
+    "beat": "Gancho: un plátano (cilindro curvo amarillo con cara) se pela con las manos; las tiras (conos) caen a sus pies mientras se arregla y posa."
+   },
+   {
+    "t": "2-5",
+    "beat": "Camina orgulloso (walk_to) hacia el frutero; una manzana y una naranja (con cara) lo miran. Se gira para saludar y pisa la piel."
+   },
+   {
+    "t": "5-10",
+    "beat": "Resbala: gran deslizamiento (cue slide_down, whoosh) por toda la encimera, girando, pasando entre taza y salero sin tocarlos; cara de pánico."
+   },
+   {
+    "t": "10-13",
+    "beat": "Sale volando por el borde hacia el frutero (hop_to alto)."
+   },
+   {
+    "t": "13-16",
+    "beat": "Cae de pie dentro del frutero con un boing, brazos en alto; manzana y naranja aplauden (cheer) y el plátano hace una reverencia. Bucle."
+   }
+  ],
+  "payoff": "El accidente sale mejor que el plan: aterriza con estilo.",
+  "sin_palabras": "Cáscara en el suelo y un plátano distraído: se lee el resbalón venir en 1 s.",
+  "needs": "Plátano, piel, manzana, naranja y frutero con S.obj; deslizar = S.key loc con BEZIER + rot; cues slide_down/whoosh/boing. Sin acción nueva.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Chiste clásico de piel de plátano reinventado con el plátano como víctima y verdugo; remate de aplauso, no de castigo."
+ },
+ {
+  "id": "b20261116-3-o03",
+  "format": "objects",
+  "kind": "anim",
+  "title_en": "The Soap Bubble's Window Trip",
+  "caption_en": null,
+  "logline_es": "Una pompa de jabón con cara sale de una esponja, flota esquivando un tenedor y un cactus hacia la ventana, y explota en la punta de un lápiz; la esponja se estruja y suelta mil pompitas que flotan juntas.",
+  "beats": [
+   {
+    "t": "0-2",
+    "beat": "Gancho: una esponja (cubo amarillo con cara) se estruja y sale una pompa (esfera translúcida con cara) que sube con ojos enormes."
+   },
+   {
+    "t": "2-7",
+    "beat": "Flota (S.key loc z suave) sobre la encimera esquivando un tenedor de punta hacia arriba y un cactus; casi roza, encoge el cuerpo (shiver)."
+   },
+   {
+    "t": "7-10",
+    "beat": "Llega junto a la ventana, sonríe; detrás, un lápiz asoma su punta. Pop (cue pop): la pompa estalla en gotitas."
+   },
+   {
+    "t": "10-13",
+    "beat": "Silencio. La esponja mira desde lejos, baja la cabeza."
+   },
+   {
+    "t": "13-17",
+    "beat": "Giro: la esponja se estruja con fuerza y suelta muchas pompitas con caritas que suben juntas; una guiña a cámara. Bucle."
+   }
+  ],
+  "payoff": "Una pompa se va, pero la esponja nunca se queda sola.",
+  "sin_palabras": "Una frágil esfera con cara rodeada de objetos punzantes: peligro claro.",
+  "needs": "Esponja, pompa, tenedor, cactus y lápiz con S.obj; pompa translúcida (material alfa); pop = cue pop; disparo de pompitas = S.obj clonadas con S.key. Sin acción nueva.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Fragilidad y multiplicación en objetos de fregadero; sin fuego, comida ni caída; final de ternura."
+ },
+ {
+  "id": "b20261116-3-o04",
+  "format": "objects",
+  "kind": "anim",
+  "title_en": "The Cookie That Took the Plunge",
+  "caption_en": null,
+  "logline_es": "Una galleta con cara duda ante un vaso de leche; otra galleta, sobreconfiada, la empuja y cae ella dentro. La primera la rescata y las dos acaban blandas y felices mientras el vaso luce bigote de migas.",
+  "beats": [
+   {
+    "t": "0-2",
+    "beat": "Gancho: dos galletas (cilindros planos con chispas y cara) al borde de un vaso de leche (cilindro translúcido, nivel blanco); la primera mira abajo y duda (think)."
+   },
+   {
+    "t": "2-6",
+    "beat": "La segunda sonríe segura, la toma del hombro y se burla del miedo; se acerca demasiado al borde."
+   },
+   {
+    "t": "6-9",
+    "beat": "Pierde el equilibrio y cae ella (hop_to, cue splash). Se hunde despacio (S.key loc z), burbujas."
+   },
+   {
+    "t": "9-13",
+    "beat": "La primera lo piensa un segundo, se lanza y la saca tirando de ella; ambas emergen blandas (S.key scale y), goteando."
+   },
+   {
+    "t": "13-17",
+    "beat": "Giro: las dos, caídas y felices, se sientan en el borde (sit) y el vaso, con cara, luce un bigote de migas y sonríe. Chocan el puño. Bucle."
+   }
+  ],
+  "payoff": "La galleta miedosa se moja por amistad y descubre que le gusta.",
+  "sin_palabras": "Dos galletas ante un abismo de leche: duda y empujón se entienden solos.",
+  "needs": "Galletas y vaso con S.obj; leche translúcida bajable con S.key; deformación blanda = S.key scale y; bigote = cilindro. Sin acción nueva compleja.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Amistad con rescate en líquido; sin quemarse, sin fuego, sin desayuno de huevo o tostada; remate de bigote lechoso."
+ },
+ {
+  "id": "b20261116-3-o03v2",
+  "format": "objects",
+  "kind": "anim",
+  "env": "mesa",
+  "title_en": "The Little Bubble Who Stayed",
+  "caption_en": null,
+  "logline_es": "Una pompa con cara sale de una esponja y flota entre un tenedor y un lápiz hacia la ventana; el lápiz la revienta, y la esponja, sola, se estruja una vez y saca una pompita que se posa en su cabeza y guiña a cámara.",
+  "beats": [
+   {
+    "t": "0-1",
+    "beat": "Gancho inmediato: plano cerrado, la esponja (cubo amarillo con cara) se estruja con un squash y la pompa (esfera translúcida, ojos enormes, happy_face) sale disparada hacia arriba justo encima de un tenedor con las puntas hacia arriba."
+   },
+   {
+    "t": "1-6",
+    "beat": "La pompa baja un poco, flota (S.key loc z suave) rozando las puntas del tenedor; encoge el cuerpo (shiver) y sigue, sonriente. La esponja mira desde atrás con cara de preocupación."
+   },
+   {
+    "t": "6-10",
+    "beat": "Llega junto a la ventana, sonríe feliz al sol; detrás, un lápiz asoma la punta. Cue pop: estalla en gotitas (esferas diminutas)."
+   },
+   {
+    "t": "10-13",
+    "beat": "Silencio. Las gotitas caen. La esponja baja la cabeza (sad_face) y se queda quieta."
+   },
+   {
+    "t": "13-18",
+    "beat": "Giro: la esponja se estruja despacio una sola vez; sale UNA pompita con carita (misma esfera, escala 0.4) que flota hasta posarse en su cabeza. Ambas sonríen; la pompita guiña a cámara. Imagen final fija y clara. Bucle."
+   }
+  ],
+  "payoff": "Una pompa se va, pero la esponja siempre puede hacer otra: queda una sola pompita sobre su cabeza.",
+  "sin_palabras": "Esfera frágil con ojos enormes sobre un tenedor de puntas: peligro en 1 s; final con una sola pompita guiñando.",
+  "needs": "Esponja, pompa (esfera translúcida), tenedor, lápiz con S.obj; caras mkface/happy_face/sad_face como ep002; pop = cue pop; gotitas = esferas con S.key; una sola pompita con S.key scale. Sin cactus ni clones masivos. Sin acción nueva.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Fregadero: dos amenazas (tenedor, lápiz) y un único superviviente final; ternura sin fuego, comida ni caída."
+ }
+]

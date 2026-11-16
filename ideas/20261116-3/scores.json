@@ -1,0 +1,97 @@
+[
+  {
+    "id": "b20261116-3-o03v2",
+    "scores": {
+      "hook": 9,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 8,
+      "ending": 9,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 4,
+      "repetition_risk": 4
+    },
+    "why": "La pompa con ojos enormes sobre un tenedor da peligro en el segundo 0 y el final con una sola pompita guinando es una imagen unica y clara, pero la premisa es la de o03 con menos escala, asi que gana en ejecucion mas que en originalidad.",
+    "improve": "Dar un segundo casi-roce con el lapiz antes del pop (la punta ya visible desde 1-6 s) para que el estallido se anticipe y duela, y mantener la pompita final inmovil 2 s con el guino en el ultimo fotograma.",
+    "vps": 67.9
+  },
+  {
+    "id": "b20261116-3-o03",
+    "scores": {
+      "hook": 8,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 7,
+      "visual": 7,
+      "emotion": 7,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 7,
+      "production_difficulty": 6,
+      "repetition_risk": 3
+    },
+    "why": "Una esfera fragil entre un tenedor y un cactus da peligro inmediato y el estallido seguido de mil pompitas es un giro de ternura limpio y distinto, aunque la pompa translucida y los clones suben el coste.",
+    "improve": "Quitar el cactus (dos amenazas bastan) y dejar la pompa que guina a camara como unica superviviente visible en el ultimo plano para que el pago sea una sola imagen clara.",
+    "vps": 64.4
+  },
+  {
+    "id": "b20261116-3-o01",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 7,
+      "visual": 6,
+      "emotion": 8,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 5,
+      "repetition_risk": 4
+    },
+    "why": "El terron que tiembla ante algo caliente se lee en 1 s y el remate (se queda dentro y alegra a la taza) es el mas tierno del lote, pero el salto al liquido tras dos dudas es una estructura ya vista en el lote anterior.",
+    "improve": "Recortar el segundo intento de 2-6 s a un solo gesto y empezar ya con el terron mirando la superficie, para que el silencio de 10-13 s pese mas antes del cambio de color.",
+    "vps": 61.2
+  },
+  {
+    "id": "b20261116-3-o02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 5,
+      "retention": 7,
+      "originality": 5,
+      "visual": 7,
+      "emotion": 5,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 4
+    },
+    "why": "El deslizamiento largo esquivando objetos da movimiento y ritmo, pero el chiste de la piel de platano se anticipa en el segundo 0 y el aterrizaje con aplauso es un remate comodo, con poca emocion.",
+    "improve": "Ocultar la piel en el primer plano y que pise otra cosa al girarse, o dar un casi-choque real con la taza para subir la tension antes del frutero.",
+    "vps": 54.5
+  },
+  {
+    "id": "b20261116-3-o04",
+    "scores": {
+      "hook": 6,
+      "curiosity": 5,
+      "retention": 6,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 7,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 5,
+      "repetition_risk": 5
+    },
+    "why": "La amistad con rescate es calida y el bigote de leche es un buen detalle, pero el empujon y el salto al liquido repiten el patron de caida-rescate ya puntuado y el gancho de dos galletas dudando es flojo.",
+    "improve": "Abrir con el bigote de leche ya visible y contar hacia atras, o hacer que la galleta miedosa salte sola primero, para romper el patron previsible empujon-rescate.",
+    "vps": 50.2
+  }
+]
