@@ -13,8 +13,9 @@
   "vps": 67.6,
   "quality_score": null,
   "fix_rounds": 0,
-  "final_file": null,
+  "final_file": "stories/story-005/final/video.mp4",
   "updated": "2026-11-16",
   "idea_id": "b20261116-1-o03v2",
-  "market_verdict": "VALIDATED"
+  "market_verdict": "VALIDATED",
+  "duration_s": 17.5
 }

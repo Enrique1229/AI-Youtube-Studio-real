@@ -85,7 +85,7 @@ def main():
                         f"x=(w-text_w)/2:y=h*0.78:enable='gte(t,{max(0, t0 - 1.6):.2f})',format=yuv420p",
                         "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", str(vid2)], check=True); vid = vid2
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(vid), "-i", str(tmp / "audio.wav"),
-                    "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-af", "loudnorm=I=-14:TP=-2,alimiter=limit=0.75:level=false", "-t", f"{t0:.3f}", str(out)], check=True)
+                    "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-af", "loudnorm=I=-14:TP=-2:LRA=11,alimiter=limit=0.7:level=false:attack=2:release=50,volume=-1dB", "-t", f"{t0:.3f}", str(out)], check=True)
     print(f"{out}: {t0:.1f} s, {len(iqs)} niveles, {len(cues)} sonidos")
 
 
