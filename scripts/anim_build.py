@@ -46,7 +46,7 @@ def main():
         fc.append(f"{prev}[{i}:v]xfade=transition=slideleft:duration={X}:offset={off:.3f}{lab}"); prev = lab; off = off
     vid = tmp / "video.mp4"
     if fc:
-        subprocess.run(["ffmpeg", "-y", "-v", "error", *inputs, "-filter_complex", ";".join(fc), "-map", prev, "-c:v", "libx264", "-crf", "18", "-r", "30", str(vid)], check=True)
+        subprocess.run(["ffmpeg", "-y", "-v", "error", *inputs, "-filter_complex", ";".join(fc), "-map", prev, "-c:v", "libx264", "-pix_fmt", "yuv420p", "-profile:v", "high", "-crf", "18", "-r", "30", str(vid)], check=True)
     else: vid = clips[0]
     # audio: música (estilo referencia: tranquila y pícara) + ambiente de parque + efectos bien presentes
     n = int(t0 * A.SR) + A.SR; mix = np.zeros(n, np.float32)
