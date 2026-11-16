@@ -1,0 +1,18 @@
+{
+  "id": "story-004",
+  "format": "short",
+  "title": "Cada nivel de IQ cruzando un río",
+  "stage": "created",
+  "gates": {
+    "critic": "PASS",
+    "market": "PASS",
+    "continuity": "PASS",
+    "policy": "PENDING",
+    "qc": "PENDING"
+  },
+  "vps": null,
+  "quality_score": null,
+  "fix_rounds": 0,
+  "final_file": null,
+  "updated": "2026-11-16"
+}
