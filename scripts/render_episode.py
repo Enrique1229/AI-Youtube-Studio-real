@@ -21,13 +21,29 @@ def find_blender(arg):
     sys.exit("ERROR: no encuentro Blender. Pasa la ruta con --blender \"C:/Program Files/Blender Foundation/Blender X.Y/blender.exe\"")
 
 
+def episode_settings(path):
+    """Lee los ajustes del episodio SIN ejecutarlo (el episodio usa bpy, que solo existe dentro de Blender):
+    LEVELS (los IQ), CAPTION, CTA, SPEED, TITLE."""
+    import ast
+    tree = ast.parse(pathlib.Path(path).read_text(encoding="utf-8")); cfg = {}
+    for node in tree.body:
+        if isinstance(node, ast.Assign) and len(node.targets) == 1 and isinstance(node.targets[0], ast.Name):
+            name = node.targets[0].id
+            if name == "LEVELS":
+                cfg["iqs"] = [ast.literal_eval(el.elts[0]) for el in node.value.elts]
+            elif name in ("CAPTION", "CTA", "SPEED", "TITLE"):
+                try: cfg[name] = ast.literal_eval(node.value)
+                except ValueError: pass
+    if "iqs" not in cfg: sys.exit(f"ERROR: {path} no define LEVELS")
+    return cfg
+
+
 def main():
     a = sys.argv[1:]
     if len(a) < 2: sys.exit(__doc__)
     ep, out = pathlib.Path(a[0]).resolve(), pathlib.Path(a[1]).resolve()
     blender = find_blender(a[a.index("--blender") + 1] if "--blender" in a else None)
-    spec = importlib.util.spec_from_file_location("ep", ep); mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
-    iqs = [lv[0] for lv in mod.LEVELS]
+    cfg = episode_settings(ep); iqs = cfg["iqs"]
     env = dict(os.environ, STUDIO_DEVICE="CPU" if "--cpu" in a else "GPU", STUDIO_ENGINE="BLENDER_EEVEE" if "--eevee" in a else "CYCLES",
                STUDIO_RES="540x960" if "--draft" in a else "1080x1920", STUDIO_SAMPLES="16" if "--draft" in a else "32")
     out.mkdir(parents=True, exist_ok=True)
@@ -44,7 +60,11 @@ def main():
     if only:
         print("Nivel suelto renderizado (sin montaje). Fotogramas en", out / f"l{only}"); return
     final = out / f"{ep.stem}.mp4"
-    subprocess.run([sys.executable, str(ROOT / "scripts" / "anim_build.py"), str(out), str(final), "--iq", ",".join(map(str, iqs))], check=True)
+    cmd = [sys.executable, str(ROOT / "scripts" / "anim_build.py"), str(out), str(final), "--speed", str(cfg.get("SPEED", 1.5))]
+    if cfg.get("CAPTION") or not any(iqs): cmd += ["--caption", cfg["CAPTION"]] if cfg.get("CAPTION") else ["--no-label"]
+    else: cmd += ["--iq", ",".join(map(str, iqs))]
+    if cfg.get("CTA"): cmd += ["--cta", cfg["CTA"]]
+    subprocess.run(cmd, check=True)
     print("LISTO:", final)
 
 

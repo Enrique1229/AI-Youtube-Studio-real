@@ -17,6 +17,7 @@ def main():
     args = sys.argv[1:]
     src, out = pathlib.Path(args[0]), pathlib.Path(args[1])
     caption = args[args.index("--caption") + 1] if "--caption" in args else None      # formato POV / mini-historia: premisa fija arriba
+    no_label = "--no-label" in args                                                   # objetos vivos / mini-historias: sin rótulo
     cta = args[args.index("--cta") + 1] if "--cta" in args else None                  # p. ej. "follow for more" en el último segundo
     if "--iq" in args: iqs = [int(x) for x in args[args.index("--iq") + 1].split(",")]
     else: iqs = [0] * len([d for d in src.iterdir() if d.is_dir() and d.name.startswith("l") and d.name[1:].isdigit()])
@@ -34,7 +35,9 @@ def main():
         num = f"{'+ ' if iq > 0 else '- '}{abs(iq)}"
         color = "0xE53935" if iq == order[0] else ("0xFFC107" if iq == order[-1] else ("0x43A047" if iq > 0 else "white"))
         # rótulo propio del canal: banda oscura translúcida, "NIVEL DE IQ" pequeño y el número grande con barra de color
-        if caption:
+        if no_label:
+            vf = "scale=1080:1920:flags=lanczos,format=yuv420p"
+        elif caption:
             import textwrap
             cap = "\n".join(textwrap.wrap(caption, 24)).replace("'", "\u2019").replace(":", "\\:")
             vf = (f"scale=1080:1920:flags=lanczos,drawtext=fontfile='{font}':text='{cap}':fontcolor=black:fontsize=58:"

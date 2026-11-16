@@ -1,7 +1,7 @@
 """ep001 — Cómo cruza el río cada nivel de IQ. Personaje y gags propios."""
 import math
 
-TITLE = "Cada nivel de IQ cruzando un río"
+TITLE = "Every IQ Level Tries to Cross a River"
 
 
 def l1(S):  # -450: camina tan seguro… y al agua. Solo queda el sombrero.

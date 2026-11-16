@@ -4,6 +4,8 @@ import bpy
 
 TITLE = "A Match Warms Up an Ice Cube"
 CAPTION = None            # sin rótulo de IQ
+SPEED = 1.0               # velocidad real: a 1.5x quedaría en 13 s y se pierde el gag
+CTA = "follow for more"
 ENV = "mesa"              # run_level.py crea Stage(env=ENV)
 CUSTOM_CAMERA = True      # el nivel keyea su propia cámara (sin S.follow)
 
@@ -30,11 +32,11 @@ def mkface(S, parent, k=1.0, gap=0.055, lid_col=None):
 def face_mood(S, P, f, mood):
     """mood: cold (tiembla, cejas preocupadas), smile, sad, neutral, wide"""
     k = P["k"]
-    mo = {"cold": ((0.034, 0.008, 0.006), 14), "smile": ((0.05, 0.010, 0.032), -10), "sad": ((0.026, 0.008, 0.007), 22),
-          "neutral": ((0.03, 0.008, 0.006), 0), "wide": ((0.02, 0.008, 0.02), 18)}[mood]
+    mo = {"cold": ((0.022, 0.006, 0.005), 14), "smile": ((0.034, 0.008, 0.015), -4), "sad": ((0.018, 0.006, 0.005), 22),
+          "neutral": ((0.02, 0.006, 0.005), 0), "wide": ((0.012, 0.007, 0.012), 18)}[mood]
     S.key(P["mouth"], f, scale=tuple(v * k for v in mo[0]))
     for sx, b in zip((-1, 1), P["brows"]):
-        S.key(b, f, rot=(0, math.radians(-mo[1] * sx), 0))
+        S.key(b, f, rot=(0, math.radians(mo[1] * sx), 0))
 
 
 def face_blink(S, P, f, hold=0):
@@ -49,7 +51,7 @@ def face_look(S, P, f, dx, dz=0.0):
     for sx, p in zip((-1, 1), P["pupils"]): S.key(p, f, loc=(P["gap"] * sx + dx, -r * 0.55, dz))
 
 
-def shot(S, f, cam, tgt, lens=50, tg_interp="CONSTANT"):
+def shot(S, f, cam, tgt, lens=35, tg_interp="CONSTANT"):
     S.key(S.cam, f, loc=cam, interp="CONSTANT"); S.cam.data.lens = lens; S.cam.data.keyframe_insert("lens", frame=f)
     S.key(S.tgt, f, loc=tgt, interp=tg_interp)
 
@@ -60,15 +62,22 @@ def mist(S, name, alpha=0.55):
 
 def l1(S):
     S.cam.data.dof.aperture_fstop = 5.0; S.cam.data.dof.focus_object = S.tgt
-    ice = S.pmat("hielo", [(0.3, (0.55, 0.80, 0.97)), (0.7, (0.72, 0.92, 1.0))], scale=4, rough=0.08, bump=0.04, alpha=0.7)
-    water = S.pmat("charco", [(0.3, (0.40, 0.72, 0.95)), (0.7, (0.55, 0.85, 1.0))], scale=3, rough=0.05, bump=0.0, alpha=0.75)
+    ice = S.pmat("hielo", [(0.3, (0.40, 0.68, 0.95)), (0.7, (0.58, 0.82, 1.0))], scale=4, rough=0.08, bump=0.04, alpha=0.8)
+    water = S.pmat("charco", [(0.3, (0.20, 0.55, 0.92)), (0.7, (0.35, 0.70, 1.0))], scale=3, rough=0.05, bump=0.0, alpha=0.85)
+    for m_, tr, ior, rg in ((ice, 0.85, 1.31, 0.12), (water, 0.9, 1.33, 0.03)):   # hielo y agua translúcidos de verdad (transmisión)
+        b_ = m_.node_tree.nodes["Principled BSDF"]
+        b_.inputs["Alpha"].default_value = 1.0; b_.inputs["Transmission Weight"].default_value = tr
+        b_.inputs["IOR"].default_value = ior; b_.inputs["Roughness"].default_value = rg
+        if "Subsurface Weight" in b_.inputs: b_.inputs["Subsurface Weight"].default_value = 0.15
     # --- objetos ---
     box = S.obj("cube", "caja", "red", (-0.64, 0.14, 0.26), (0.05, 0.08, 0.26), smooth=False)       # caja de cerillas de pie
     S.obj("cube", "tira", "black", (0.052, 0, 0.0), (0.004, 0.06, 0.2), parent=box, smooth=False)
+    S.obj("cube", "tira_f", "black", (0, -0.082, -0.1), (0.04, 0.004, 0.09), parent=box, smooth=False)
     S.obj("cube", "etiqueta", "yellow", (-0.052, 0, 0.0), (0.004, 0.07, 0.10), parent=box, smooth=False)
     hielo = S.empty("hielo", (CX, 0, 0))
     block = S.empty("bloque", (0, 0, 0), parent=hielo)
     cube = S.obj("cube", "cubito", "white", (0, 0, 0.15), (0.15, 0.15, 0.15), parent=block); cube.data.materials[0] = ice
+    bv = cube.modifiers.new("bisel", "BEVEL"); bv.width = 0.18; bv.segments = 4; bv.limit_method = "NONE"   # aristas redondeadas de hielo
     for p in cube.data.polygons: p.use_smooth = False
     puddle = S.obj("cylinder", "charco", "water", (CX, -0.02, 0.006), (0.001, 0.001, 0.006), vertices=48); puddle.data.materials[0] = water
     cf = mkface(S, hielo, 1.0); S.key(cf["root"], 1, loc=(0, -0.158, 0.19))
@@ -80,16 +89,18 @@ def l1(S):
     face_mood(S, cf, 1, "cold"); face_mood(S, df, 1, "smile"); face_mood(S, pf, 1, "sad")
 
     m = S.actor(look={"kind": "cerilla", "color": "red"}, x=-1.0, size=0.6)
+    for b in (o for o in m.head.children if o.name.startswith("ceja")):                          # cejas amables (por defecto parecen enfadadas)
+        S.key(b, 1, rot=(0, math.radians(9 * (1 if b.location.x > 0 else -1)), 0))
     headmat = S.mat("red").copy(); next(o for o in m.head.children if o.name.startswith("fosforo")).data.materials[0] = headmat
     bsdf = headmat.node_tree.nodes["Principled BSDF"]
 
     # --- cámara: primer plano del cubito / plano medio / (plano del vapor) ---
-    shot(S, 1, (CX, -1.15, 0.30), (CX, 0, 0.20))
-    shot(S, 49, (-0.12, -2.0, 0.42), (-0.12, 0, 0.32))
-    shot(S, 241, (-0.02, -1.55, 0.36), (-0.02, 0, 0.30))
-    shot(S, 337, (-0.05, -1.75, 0.42), (-0.05, 0, 0.36))
-    shot(S, 400, (-0.05, -1.75, 0.42), (-0.05, 0, 0.36), tg_interp="BEZIER")
-    shot(S, 470, (-0.05, -1.75, 0.80), (-0.05, 0, 1.15), tg_interp="BEZIER")
+    shot(S, 1, (CX, -1.3, 0.30), (CX, 0, 0.20))
+    shot(S, 49, (-0.12, -2.2, 0.45), (-0.12, 0, 0.36))
+    shot(S, 241, (0.0, -2.0, 0.42), (0.0, 0, 0.34))
+    shot(S, 337, (-0.05, -1.9, 0.45), (-0.05, 0, 0.40))
+    shot(S, 400, (-0.05, -1.9, 0.45), (-0.05, 0, 0.40), tg_interp="BEZIER")
+    S.key(S.tgt, 470, loc=(0.0, 0, 0.48), interp="BEZIER")
 
     # --- 0-2 s: primer plano, tirita con aliento ---
     for f in range(1, 50, 2):
@@ -156,17 +167,17 @@ def l1(S):
 
     # --- 17-21 s: del abrazo sube una nube con dos caritas ---
     nube = S.empty("nube", (hx - 0.02, -0.06, hz - 0.05)); S.key(nube, 1, scale=(0.001,) * 3)
-    mm = mist(S, "vapor", 0.62)
-    for i, (dx, dz, r) in enumerate(((0, 0, 0.09), (-0.09, -0.03, 0.07), (0.09, -0.02, 0.075), (0.03, 0.08, 0.07), (-0.05, 0.06, 0.06))):
+    mm = mist(S, "vapor", 0.9)
+    for i, (dx, dz, r) in enumerate(((0, 0.01, 0.10), (-0.13, -0.02, 0.085), (0.13, -0.02, 0.085), (0.0, 0.09, 0.08), (-0.07, 0.07, 0.07), (0.07, 0.07, 0.07))):
         s_ = S.obj("uv_sphere", "vapor", "white", (dx, 0, dz), (r, r, r), parent=nube); s_.data.materials[0] = mm
-    nf1 = mkface(S, nube, 0.8, gap=0.05); nf1["root"].location = (-0.07, -0.085, -0.01)
-    nf2 = mkface(S, nube, 0.8, gap=0.05); nf2["root"].location = (0.08, -0.08, 0.0)
+    nf1 = mkface(S, nube, 0.75, gap=0.04); nf1["root"].location = (-0.13, -0.088, -0.01)
+    nf2 = mkface(S, nube, 0.75, gap=0.04); nf2["root"].location = (0.13, -0.088, -0.01)
     for nf in (nf1, nf2): face_mood(S, nf, 1, "smile")
     S.key(drop, F_HUG + 30, scale=(1.2, 1.1, 0.85)); S.key(drop, F_HUG + 40, scale=(0.001,) * 3)       # la gota se vuelve vapor
     S.key(nube, F_HUG + 28, loc=(hx - 0.02, -0.06, hz - 0.05), scale=(0.001,) * 3)
     S.key(nube, F_HUG + 42, loc=(hx - 0.02, -0.06, hz + 0.05), scale=(0.8, 0.8, 0.8), interp="BACK")
-    S.key(nube, F_HUG + 70, loc=(0.0, -0.06, 0.95), scale=(1.2, 1.2, 1.2))
-    S.key(nube, F_HUG + 125, loc=(0.05, -0.06, 2.6), scale=(1.5, 1.5, 1.5))
+    S.key(nube, F_HUG + 70, loc=(0.0, -0.06, 0.85), scale=(1.2, 1.2, 1.2))
+    S.key(nube, F_HUG + 108, loc=(0.05, -0.06, 2.0), scale=(1.5, 1.5, 1.5))
     S.cue("pop", F_HUG + 32, vol=-4); S.cue("tada", F_HUG + 52, vol=-3)
     face_blink(S, nf1, F_HUG + 60); face_blink(S, nf2, F_HUG + 66)
     S.f = F_HUG + 120                                                                                    # remate; el kit añade +10 de margen
