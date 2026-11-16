@@ -2,7 +2,7 @@
   "id": "story-004",
   "format": "short",
   "title": "Cada nivel de IQ cruzando un río",
-  "stage": "delivered",
+  "stage": "published",
   "gates": {
     "critic": "PASS",
     "market": "PASS",
@@ -15,5 +15,6 @@
   "fix_rounds": 0,
   "final_file": "stories/story-004/final/video.mp4",
   "updated": "2026-11-16",
-  "duration_s": 20
+  "duration_s": 20,
+  "youtube_url": "https://www.youtube.com/shorts/iwAH54I6TRQ"
 }
