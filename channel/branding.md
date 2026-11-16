@@ -21,7 +21,7 @@ Por qué: son dos palabras fáciles de recordar y de deletrear, cubren los dos e
 
 ## 2. Descripción del canal [PÚBLICO] (inglés, ~800 caracteres)
 
-Oops & Eureka is a short-form animation channel about one clumsy-to-brilliant ladder: the same character tries to solve the same everyday problem at five levels of "IQ", from the worst idea to the most ingenious. Every episode is original fiction. The characters, settings, animation (3D, built with code and AI-assisted tools), music and sound effects are created for this channel. Nothing shown is real footage or a real event. The motion capture comes from the CMU Graphics Lab Motion Capture Database. Episodes are short vertical videos with no dialogue, so the gags work without subtitles. We do not mock real people or groups: the "IQ" numbers are a joke about one character's own good and bad ideas. We make no promises about results; we post, watch what works and keep the jokes that land.
+The Wit Ladder is a short-form animation channel about one clumsy-to-brilliant ladder: the same character tries to solve the same everyday problem at five levels of "IQ", from the worst idea to the most ingenious. Every episode is original fiction. The characters, settings, animation (3D, built with code and AI-assisted tools), music and sound effects are created for this channel. Nothing shown is real footage or a real event. The motion capture comes from the CMU Graphics Lab Motion Capture Database. Episodes are short vertical videos with no dialogue, so the gags work without subtitles. We do not mock real people or groups: the "IQ" numbers are a joke about one character's own good and bad ideas. We make no promises about results; we post, watch what works and keep the jokes that land.
 
 ## 3. Palabras clave del canal [PÚBLICO] (13)
 
@@ -38,7 +38,7 @@ Nota: a 98 px sólo debe leerse la cara y el pelo. Sin texto en la foto.
 ### 4b. Banner (2560x1440)
 Zona segura central: 1546x423 px. Todo lo importante (personaje y nombre) va dentro de esa franja; los bordes solo llevan fondo.
 Prompt [PÚBLICO, para generador de imágenes]:
-> Wide channel banner, 2560x1440 pixels, landscape. Stylized 3D cartoon character with big expressive eyes and bushy curly blond hair, mid-action pose, in a sunny park with a river and trees behind, vivid saturated colors. Keep the character and the channel name fully inside the central horizontal band, centered, about 1546 by 423 pixels; the left and right edges contain only background scenery. Channel name "Oops & Eureka" in bold, rounded, clean lettering, large and readable, in the center band. No other text, no logos, no watermark.
+> Wide channel banner, 2560x1440 pixels, landscape. Stylized 3D cartoon character with big expressive eyes and bushy curly blond hair, mid-action pose, in a sunny park with a river and trees behind, vivid saturated colors. Keep the character and the channel name fully inside the central horizontal band, centered, about 1546 by 423 pixels; the left and right edges contain only background scenery. Channel name "The Wit Ladder" in bold, rounded, clean lettering, large and readable, in the center band. No other text, no logos, no watermark.
 
 Nota: los generadores no siempre respetan el tamaño exacto; reescalar/recortar a 2560x1440 y comprobar la zona segura en la vista previa de YouTube Studio.
 
