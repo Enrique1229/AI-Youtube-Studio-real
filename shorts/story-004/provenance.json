@@ -1,0 +1,4 @@
+{"generated": "2026-11-16", "animation": "Blender 5 (Cycles) por código: anim/kit.py + anim/episodes/ep001.py — propio",
+ "motion_capture": {"source": "CMU Graphics Lab Motion Capture Database (BVH 2010, B. Hahne)", "license": "sin restricciones de uso", "credit_in_description": true},
+ "music": {"source": "scripts/audio_gen.py (sneaky_music)", "license": "propia"}, "sfx": {"source": "scripts/audio_gen.py", "license": "propia"},
+ "editing": "FFmpeg (scripts/anim_build.py)", "ai_use_disclosure": false}

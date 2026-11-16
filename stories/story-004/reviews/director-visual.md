@@ -9,3 +9,6 @@ Revisado el vídeo completo v6 (hoja de contactos a 2 fps: contact-sheet-v6.jpg)
   ahora le acompaña: fix-camera.jpg); chapuzón con "pelotas" blancas (ahora corona de gotas y anillo de espuma: fix-splash.jpg).
 - Pendiente: re-render v7 en el PC del usuario con estas correcciones antes de QC final.
 - Técnica v6: 1080x1920, 30 fps, H.264 High yuv420p, AAC, 20,0 s, −16,1 LUFS integrado.
+
+## Render v10 (final) — 2026-11-16
+Revisado entero (contact-sheet-v10.jpg). Cabeza dentro del cuadro y bajo el rótulo en todos los saltos (anim/check_framing.py: 0 fotogramas fuera en los 5 niveles); rótulo "IQ LEVEL"; chapuzón con corona; pico -2,2 dBFS. El gag del nivel 2 (quedarse de pie en el aire y caer) se lee entero. OK para QC.
