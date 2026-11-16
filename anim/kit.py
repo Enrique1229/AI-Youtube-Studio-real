@@ -254,7 +254,15 @@ class Stage:
         self.sc.world.node_tree.nodes["Background"].inputs[1].default_value = 0.02   # interior en penumbra: la llama manda
         top = self.obj("cube", "encimera", "wood", (0, 0, -0.05), (6, 3, 0.05), smooth=False)
         top.data.materials[0] = self.pmat("encimera", [(0.3, (0.55, 0.40, 0.25)), (0.7, (0.70, 0.55, 0.36))], scale=6, rough=0.35, bump=0.1)
+        base = self.obj("cube", "mueble_bajo", "wood", (0, 0, -1.0), (6, 3, 0.95), smooth=False)          # muebles bajo la encimera: sin vacío negro
+        base.data.materials[0] = self.pmat("mueble", [(0.3, (0.30, 0.21, 0.14)), (0.7, (0.40, 0.29, 0.19))], scale=8, rough=0.6, bump=0.15)
+        floor = self.obj("cube", "suelo_cocina", "white", (0, 0, -2.0), (14, 14, 0.05), smooth=False)
+        floor.data.materials[0] = self.pmat("baldosa", [(0.3, (0.55, 0.52, 0.48)), (0.7, (0.68, 0.65, 0.60))], scale=2, rough=0.4, bump=0.2)
+        for sx in (-1, 1):                                                                     # paredes laterales y frontal (fuera de foco)
+            sw = self.obj("cube", "pared_lado", "white", (sx * 7.5, 0, 0.5), (0.1, 8, 3), smooth=False)
         wall = self.obj("cube", "pared", "white", (0, 3.2, 1.5), (8, 0.1, 3), smooth=False)
+        for o in self.sc.objects:
+            if o.name.startswith("pared_lado"): o.data.materials[0] = self.pmat("pared", [(0.3, (0.75, 0.72, 0.68)), (0.7, (0.85, 0.82, 0.78))], scale=3, rough=0.8, bump=0.05)
         wall.data.materials[0] = self.pmat("pared", [(0.3, (0.75, 0.72, 0.68)), (0.7, (0.85, 0.82, 0.78))], scale=3, rough=0.8, bump=0.05)
         cab = self.obj("cube", "armario", "wood", (0, 2.9, 2.2), (6, 0.35, 0.6), smooth=False)
         cab.data.materials[0] = self.pmat("armario", [(0.3, (0.25, 0.17, 0.11)), (0.7, (0.35, 0.24, 0.15))], scale=10, rough=0.5, bump=0.2)
