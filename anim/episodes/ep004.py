@@ -11,11 +11,11 @@ CTA = "follow for more"
 ENV = "mesa"
 CUSTOM_CAMERA = True
 
-SX = -0.21                 # x de la esponja
-FX = 0.04                  # x del tenedor
-PX = 0.59                  # x de la base del lápiz
-WX = 0.38                  # x del centro de la ventana
-BX, BZ = 0.35, 0.54        # posición de la pompa junto a la ventana
+SX = -0.28                 # x de la esponja
+FX = 0.0                  # x del tenedor
+PX = 0.57                  # x de la base del lápiz
+WX = 0.33                  # x del centro de la ventana
+BX, BZ = 0.33, 0.54        # posición de la pompa junto a la ventana
 F_POP = 186
 F_END = 390
 
@@ -66,8 +66,10 @@ def face_blink(S, P, f, hold=0):
 
 
 def face_wink(S, P, f, idx=1):
-    lid, r = P["lids"][idx]; lx, ly = r * 1.1, r * 0.8
-    S.key(lid, f - 1, scale=(lx, ly, 0.001)); S.key(lid, f + 1, scale=(lx, ly, r * 1.1))      # se queda cerrado hasta el final
+    lid, r = P["lids"][idx]; lx, ly = r * 1.15, r * 0.8
+    S.key(lid, f - 1, loc=(P["gap"] * (1 if idx else -1), -r * 0.1, r * 0.5), scale=(lx, ly, 0.001)); S.key(lid, f + 1, loc=(P["gap"] * (1 if idx else -1), -r * 0.1, 0.0), scale=(lx, ly, r * 1.25))      # el párpado tapa el ojo y se queda cerrado
+    lash = S.obj("cube", "pestana", "black", (P["gap"] * (1 if idx else -1), -r * 1.05, -r * 0.1), (0.001,) * 3, parent=P["root"], smooth=False)
+    S.key(lash, f - 1, scale=(0.001,) * 3); S.key(lash, f + 1, scale=(r * 1.1, 0.003, 0.0035))
 
 
 def face_look(S, P, f, dx, dz=0.0):
@@ -130,23 +132,24 @@ def l1(S):
     for i in range(3): bpy.data.objects[f"foco{i}"].data.energy = 14
     bm = bubble_mat(S)
 
-    # --- esponja (amarilla con poros, base verde) ---
-    sp_y = S.pmat("esponja", [(0.25, (0.93, 0.74, 0.10)), (0.55, (1.0, 0.86, 0.22)), (0.8, (0.88, 0.66, 0.06))], scale=14, rough=0.9, bump=0.6, detail=8)
-    sp_g = S.pmat("estropajo", [(0.3, (0.12, 0.45, 0.16)), (0.7, (0.22, 0.62, 0.22))], scale=40, rough=0.95, bump=0.8, detail=8)
+    # --- esponja (azul, base de estropajo verde oscuro) ---
+    # esponja AZUL CLARO (no amarilla: evita parecerse a un personaje de dibujos con marca registrada); textura porosa fina, sin manchas
+    sp_y = S.pmat("esponja", [(0.25, (0.30, 0.62, 0.86)), (0.55, (0.42, 0.74, 0.95)), (0.8, (0.26, 0.55, 0.80))], scale=40, rough=0.95, bump=0.9, detail=10)
+    sp_g = S.pmat("estropajo", [(0.3, (0.05, 0.22, 0.10)), (0.7, (0.10, 0.32, 0.14))], scale=40, rough=0.95, bump=0.8, detail=8)
     sponge = S.empty("esponja", (SX, 0, 0))
     body = S.obj("cube", "esponja_cuerpo", "yellow", (0, 0, 0.125), (0.13, 0.10, 0.115), parent=sponge); body.data.materials[0] = sp_y
     bv = body.modifiers.new("bisel", "BEVEL"); bv.width = 0.25; bv.segments = 4; bv.limit_method = "NONE"
     base = S.obj("cube", "estropajo", "green", (0, 0, 0.012), (0.134, 0.104, 0.012), parent=sponge); base.data.materials[0] = sp_g
     bv2 = base.modifiers.new("bisel", "BEVEL"); bv2.width = 0.3; bv2.segments = 3; bv2.limit_method = "NONE"
-    for i in range(9):                                                                     # poros
+    for i in range(0):                                                                     # sin "poros" marrones (rasgo del personaje famoso)
         px = random.uniform(-0.10, 0.10); pz = random.uniform(0.05, 0.22)
         if abs(px) < 0.075 and 0.07 < pz < 0.215 and px * 0 == 0 and random.random() < 0.85 and abs(px) < 0.08: px = math.copysign(random.uniform(0.09, 0.115), px)
         o = S.obj("uv_sphere", "poro", "brown", (px, -0.098, pz), (0.011, 0.004, 0.008), parent=sponge, segments=10, ring_count=6)
-    for i in range(5):
+    for i in range(0):
         px = random.uniform(-0.1, 0.1); py = random.uniform(-0.07, 0.07)
         S.obj("uv_sphere", "poro", "brown", (px, py, 0.238), (0.012, 0.012, 0.004), parent=sponge, segments=10, ring_count=6)
-    fA = mkface(S, sponge, 1.1); fA["root"].location = (0, -0.1, 0.138)
-    fB = mkface(S, sponge, 1.1); fB["root"].location = (0, -0.1, 0.138); happy_face(S, fB)
+    fA = mkface(S, sponge, 1.1); fA["root"].location = (0, -0.1, 0.148)
+    fB = mkface(S, sponge, 1.1); fB["root"].location = (0, -0.1, 0.148); happy_face(S, fB)
     S.key(fA["root"], 1, scale=(1, 1, 1)); S.key(fB["root"], 1, scale=(0.001,) * 3)
 
     # --- tenedor ---
@@ -175,19 +178,19 @@ def l1(S):
     pane = S.obj("cube", "cristal", "white", (WX, 0.45, 0.30), (0.19, 0.004, 0.30), smooth=False); pane.data.materials[0] = wm
     for loc, sc in (((WX - 0.195, 0.44, 0.30), (0.012, 0.012, 0.31)), ((WX + 0.195, 0.44, 0.30), (0.012, 0.012, 0.31)),
                     ((WX, 0.44, 0.615), (0.20, 0.012, 0.012)), ((WX, 0.44, 0.0), (0.20, 0.012, 0.012)),
-                    ((WX, 0.44, 0.31), (0.007, 0.01, 0.30)), ((WX, 0.44, 0.31), (0.19, 0.01, 0.007))):
+                    ((WX, 0.44, 0.31), (0.19, 0.01, 0.007))):
         S.obj("cube", "marco", "white", loc, sc, smooth=False)
 
     # --- pompa principal ---
     pom = make_bubble(S, "pompa", bm)
-    pH = mkface(S, pom, 1.0); pH["root"].location = (0, -0.098, 0.004); happy_face(S, pH)
-    pW = mkface(S, pom, 1.0); pW["root"].location = (0, -0.098, 0.004)
+    pH = mkface(S, pom, 1.0); pH["root"].location = (0, -0.132, 0.004); happy_face(S, pH)
+    pW = mkface(S, pom, 1.0); pW["root"].location = (0, -0.132, 0.004)
     S.key(pH["root"], 1, scale=(1, 1, 1)); S.key(pW["root"], 1, scale=(0.001,) * 3)
     face_mood(S, pW, 1, "wide")
 
     # --- pompita final ---
     pit = make_bubble(S, "pompita", bm)
-    qH = mkface(S, pit, 1.0); qH["root"].location = (0, -0.098, 0.004); happy_face(S, qH)
+    qH = mkface(S, pit, 1.0); qH["root"].location = (0, -0.132, 0.004); happy_face(S, qH)
     S.key(pit, 1, loc=(SX, 0, 0.3), scale=(0.001,) * 3)
 
     # --- gotitas ---
@@ -199,12 +202,12 @@ def l1(S):
 
     # --- cámara: cortes entre planos cerrados ---
     S.cam.data.lens = 50; S.cam.data.keyframe_insert("lens", frame=1)
-    shot(S, 1, SX + 0.115, 0.42, d=0.78)          # A: nace la pompa sobre el tenedor
-    shot(S, 30, 0.15, 0.45, d=0.65)              # B: roza las puntas
-    shot(S, 70, WX, 0.40, d=0.75)                # C: el lápiz casi la toca
+    shot(S, 1, SX + 0.15, 0.42, d=0.82)          # A: nace la pompa sobre el tenedor
+    shot(S, 30, 0.10, 0.45, d=0.68)              # B: roza las puntas
+    shot(S, 58, WX, 0.40, d=0.75)                # C: el lápiz casi la toca
     shot(S, 102, SX, 0.26, d=0.55)               # D: la esponja mira preocupada
     shot(S, 124, WX, 0.40, d=0.75)               # E: ventana, sonríe, pop
-    shot(S, 207, SX, 0.30, d=0.50)               # F: esponja triste, giro, imagen final
+    shot(S, 207, SX, 0.28, d=0.50)               # F: esponja triste, giro, imagen final
 
     # --- esponja ---
     S.key(sponge, 1, scale=(1.08, 1.05, 0.8)); S.key(sponge, 4, scale=(0.92, 0.94, 1.1)); S.key(sponge, 10, scale=(1.03, 1.03, 0.97)); S.key(sponge, 16, scale=(1, 1, 1))
@@ -216,9 +219,9 @@ def l1(S):
     P = [(1, (SX, 0, 0.27), (0.7, 0.7, 0.7)), (4, (SX + 0.02, 0, 0.38), (0.9, 0.9, 1.2)), (10, (-0.10, 0, 0.58), (1.05, 1.05, 0.95)),
          (17, (0.0, 0, 0.58), (1, 1, 1)), (24, (FX, 0, 0.535), (1, 1, 1)), (32, (FX, 0, 0.52), (1, 1, 1)), (40, (FX, 0, 0.50), (1, 1, 1)),
          (46, (FX, 0, 0.51), (1.06, 1.06, 0.86)), (50, (FX + 0.01, 0, 0.525), (0.95, 0.95, 1.06)),
-         (54, (0.08, 0, 0.51), (0.96, 0.96, 0.97)), (58, (0.12, 0, 0.53), (1.02, 1.02, 1.0)), (62, (0.17, 0, 0.51), (0.96, 0.96, 0.97)),
-         (66, (0.22, 0, 0.53), (1.02, 1.02, 1.0)), (72, (0.27, 0, 0.55), (0.97, 0.97, 0.98)), (80, (0.30, 0, 0.53), (1, 1, 1)),
-         (86, (0.325, 0, 0.525), (0.88, 1.0, 1.04)), (92, (BX - 0.01, 0, 0.52), (1.02, 1.0, 1.0)), (98, (BX, 0, 0.52), (1, 1, 1)),
+         (54, (0.10, 0, 0.51), (0.96, 0.96, 0.97)), (58, (0.21, 0, 0.53), (1.02, 1.02, 1.0)), (64, (0.24, 0, 0.51), (0.96, 0.96, 0.97)),
+         (70, (0.26, 0, 0.53), (1.02, 1.02, 1.0)), (76, (0.27, 0, 0.545), (0.97, 0.97, 0.98)), (82, (0.29, 0, 0.53), (1, 1, 1)),
+         (87, (0.30, 0, 0.525), (0.88, 1.0, 1.04)), (92, (BX - 0.01, 0, 0.52), (1.02, 1.0, 1.0)), (98, (BX, 0, 0.52), (1, 1, 1)),
          (112, (BX, 0, 0.53), (1, 1, 1)), (130, (BX + 0.01, 0, 0.515), (1.02, 1.02, 0.99)), (150, (BX, 0, 0.53), (1, 1, 1)),
          (170, (BX, 0, 0.52), (1.02, 1.02, 0.99)), (F_POP - 1, (BX, 0, BZ), (1.15, 1.15, 1.15)), (F_POP, (BX, 0, BZ), (0.001,) * 3)]
     for f, l, s_ in P:
@@ -232,7 +235,7 @@ def l1(S):
 
     # --- lápiz: asoma, casi roza, amenaza y revienta ---
     a = math.radians
-    for f, deg in ((1, -5), (74, -5), (84, -13.5), (88, -13), (98, -5), (168, -5), (180, -15), (F_POP - 1, -19), (200, -19), (216, -6), (230, -6)):
+    for f, deg in ((1, -5), (76, -5), (85, -13.5), (89, -13), (99, -5), (168, -5), (180, -15), (F_POP - 1, -19), (200, -19), (216, -6), (230, -6)):
         S.key(pen, f, rot=(0, a(deg), 0))
     S.cue("creak", 82, vol=-10); S.cue("creak", 170, vol=-12)
 
