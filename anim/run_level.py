@@ -5,8 +5,8 @@ from kit import Stage, look_for
 a = sys.argv[sys.argv.index("--") + 1:]
 spec = importlib.util.spec_from_file_location("ep", a[0]); ep = importlib.util.module_from_spec(spec); spec.loader.exec_module(ep)
 iq, fn = ep.LEVELS[int(a[1]) - 1]
-S = Stage(); S.look = getattr(ep, 'LOOK', None) or look_for(os.path.basename(a[0]))   # un personaje distinto por episodio
+S = Stage(env=getattr(ep, "ENV", "rio")); S.look = getattr(ep, 'LOOK', None) or look_for(os.path.basename(a[0]))   # un personaje distinto por episodio
 actor = fn(S)
-S.follow(actor, S.f + 10)
+if not getattr(ep, "CUSTOM_CAMERA", False): S.follow(actor, S.f + 10)   # CUSTOM_CAMERA: el episodio keyea su propia cámara
 n = S.render(a[2], int(a[3]) if len(a) > 3 else None)
 print(f"NIVEL {a[1]} IQ {iq}: {n} fotogramas")
