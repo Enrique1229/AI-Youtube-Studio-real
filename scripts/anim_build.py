@@ -28,9 +28,11 @@ def main():
         # rótulo: recuadro blanco "IQ:" y debajo el número con contorno; color por posición (rojo el peor, oro el mejor)
         num = f"{'+ ' if iq > 0 else '- '}{abs(iq)}"
         color = "0xE53935" if iq == order[0] else ("0xFFC107" if iq == order[-1] else ("0x43A047" if iq > 0 else "white"))
-        vf = (f"scale=1080:1920:flags=lanczos,drawbox=x=390:y=150:w=300:h=104:color=white@0.96:t=fill,"
-              f"drawtext=fontfile='{font}':text='IQ\\:':fontcolor=black:fontsize=72:x=(w-text_w)/2:y=166,"
-              f"drawtext=fontfile='{font}':text='{num}':fontcolor={color}:borderw=6:bordercolor=black:fontsize=66:x=(w-text_w)/2:y=272,format=yuv420p")
+        # rótulo propio del canal: banda oscura translúcida, "NIVEL DE IQ" pequeño y el número grande con barra de color
+        vf = (f"scale=1080:1920:flags=lanczos,drawbox=x=300:y=140:w=480:h=170:color=black@0.55:t=fill,"
+              f"drawbox=x=300:y=300:w=480:h=10:color={color}@1:t=fill,"
+              f"drawtext=fontfile='{font}':text='NIVEL DE IQ':fontcolor=0xFFE082:fontsize=38:x=(w-text_w)/2:y=156,"
+              f"drawtext=fontfile='{font}':text='{num}':fontcolor={color}:borderw=4:bordercolor=black:fontsize=92:x=(w-text_w)/2:y=200,format=yuv420p")
         clip = tmp / f"l{i}.mp4"
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-framerate", str(meta["fps"] * speed), "-i", str(d / "f%04d.png"), "-vf", vf,
                         "-c:v", "libx264", "-crf", "18", "-r", "30", str(clip)], check=True)

@@ -2,7 +2,7 @@
 
 Fuente: CMU Graphics Lab Motion Capture Database (http://mocap.cs.cmu.edu/), conversión BVH de 2010
 (B. Hahne), copia en github.com/una-dinosauria/cmu-mocap. Licencia: "CMU places no restrictions on the use of the
-original dataset" — se permite uso comercial. Crédito sugerido en la descripción: "Motion capture: CMU Graphics Lab Motion Capture Database".
+original dataset" — se permite uso comercial. La conversión BVH de B. Hahne (READMEFIRST.txt de la copia): "I (Bruce) place no additional restrictions on the use of this particular" conversión. Crédito sugerido en la descripción: "Motion capture: CMU Graphics Lab Motion Capture Database".
 
 | Nombre en el kit | Archivo | Descripción CMU | Uso |
 |---|---|---|---|
