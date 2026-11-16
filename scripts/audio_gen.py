@@ -201,6 +201,11 @@ def sfx(kind, seed):
         x = lowpass(rng.standard_normal(len(t)), 5000) * np.exp(-t * 5.5) + 0.6 * lowpass(rng.standard_normal(len(t)), 600) * np.exp(-t * 3) * 4
         x += 0.5 * np.sin(2 * np.pi * 70 * t) * np.exp(-t * 12)
         return norm(fade(x, 0.002, 0.2), 0.9)
+    if kind == "ignite":     # cerilla que se enciende: raspado + soplo de llama
+        t = np.arange(int(SR * 0.7)) / SR; n_ = rng.standard_normal(len(t))
+        scratch = (n_ - lowpass(n_, 2500)) * np.exp(-t * 30) * 1.5
+        whoosh = lowpass(rng.standard_normal(len(t)), 900) * np.sin(np.pi * np.minimum(t / 0.6, 1)) * 3
+        return norm(fade(scratch + whoosh, 0.002, 0.1), 0.8)
     if kind == "pop":
         t = np.arange(int(SR * 0.12)) / SR
         return norm(np.sin(2 * np.pi * (900 - 4000 * t) * t) * np.exp(-t * 40), 0.8)

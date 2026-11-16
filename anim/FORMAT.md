@@ -31,3 +31,13 @@ Detalle: `FORMAT-STUDY-AGBAPS.md`. Nosotros imitamos la FÓRMULA, no el contenid
 - Personajes humanoides de cuerpo completo, recurrentes; escenarios detallados (aula, refugio de animales, calle).
 - En el de IQ los niveles no van en orden ascendente (+1002, -234, +6070).
 - Nuestro episodio 1 (una criatura sencilla en un prado) está por debajo de ese nivel de detalle. Siguiente mejora necesaria: personajes humanoides articulados y escenarios más ricos a partir de modelos 3D con licencia de uso comercial.
+
+## Formatos del canal (2026-11-16): el IQ es solo uno de ellos
+Decisión del usuario: no todos los vídeos son de niveles de IQ. Referencias: channel/reference/agbaps-bees-analysis.md (3 vídeos)
+y mezcla con datos en channel/strategy/formats-mix.md.
+- **Niveles** (IQ u otra escala): `anim_build.py … --iq -450,-80,…` → rótulo "IQ LEVEL".
+- **POV de un gag (9-15 s)**: un solo nivel, `anim_build.py … --caption "POV: …" --cta "follow for more"`.
+- **Objetos vivos con mini-drama (15-25 s)**: personajes-objeto con cara (`S.actor(look={"kind": "cerilla", …})`),
+  escenario `Stage(env="mesa")` (encimera en penumbra), `S.flame(parent, f_on, f_off)` para encender; `--caption` opcional.
+- **Mini-historias de humor físico con giro (15-30 s)** y **mascota/bicho vs humano**: con humanos del kit, `--caption` opcional.
+Reglas: nunca dos Shorts seguidos del mismo formato; cada episodio cambia escenario, protagonista y ≥3 beats.

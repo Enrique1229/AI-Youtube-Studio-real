@@ -246,6 +246,25 @@ class Stage:
         self.cam.data.dof.use_dof = True; self.cam.data.dof.aperture_fstop = 2.2
         self.cam.data.lens = 45; self.cam.location = (-4.7, -6.5, 1.3)
 
+    def env_mesa(self):
+        """Encimera de cocina a escala de objetos (cerillas, juguetes): luz cálida, pared, fondo desenfocado."""
+        self._sky()
+        self.sc.view_settings.view_transform = "Standard"           # Standard: la llama conserva su naranja saturado
+        sun = bpy.data.objects["sun"]; sun.data.energy = 0.25; sun.data.color = (1.0, 0.85, 0.7)
+        self.sc.world.node_tree.nodes["Background"].inputs[1].default_value = 0.02   # interior en penumbra: la llama manda
+        top = self.obj("cube", "encimera", "wood", (0, 0, -0.05), (6, 3, 0.05), smooth=False)
+        top.data.materials[0] = self.pmat("encimera", [(0.3, (0.55, 0.40, 0.25)), (0.7, (0.70, 0.55, 0.36))], scale=6, rough=0.35, bump=0.1)
+        wall = self.obj("cube", "pared", "white", (0, 3.2, 1.5), (8, 0.1, 3), smooth=False)
+        wall.data.materials[0] = self.pmat("pared", [(0.3, (0.75, 0.72, 0.68)), (0.7, (0.85, 0.82, 0.78))], scale=3, rough=0.8, bump=0.05)
+        cab = self.obj("cube", "armario", "wood", (0, 2.9, 2.2), (6, 0.35, 0.6), smooth=False)
+        cab.data.materials[0] = self.pmat("armario", [(0.3, (0.25, 0.17, 0.11)), (0.7, (0.35, 0.24, 0.15))], scale=10, rough=0.5, bump=0.2)
+        for i, x in enumerate((-2.5, 0, 2.5)):                       # focos cálidos bajo el armario
+            li = bpy.data.objects.new(f"foco{i}", bpy.data.lights.new(f"foco{i}", "AREA")); self.sc.collection.objects.link(li)
+            li.location = (x, 2.4, 1.55); li.data.energy = 35; li.data.size = 1.2; li.data.color = (1.0, 0.85, 0.65)
+        self.water = None
+        self.cam.data.lens = 50; self.cam.location = (0.0, -3.2, 0.55)
+        self.cam.data.dof.use_dof = True; self.cam.data.dof.aperture_fstop = 1.6
+
     def env_rio_flat(self):
         self.obj("cube", "orillaL", "grass", (-32, 0, -1.5), (30, 60, 1.5), smooth=False)
         self.obj("cube", "orillaR", "grass", (32, 0, -1.5), (30, 60, 1.5), smooth=False)
@@ -285,6 +304,40 @@ class Stage:
             self.key(d, f0 + 7, loc=(x + r * math.cos(a) * 0.5, y + r * math.sin(a) * 0.5, z + hgt))
             self.key(d, f0 + 16, loc=(x + r * math.cos(a), y + r * math.sin(a), ws), scale=(sz * 0.6,) * 3)
             self.key(d, f0 + 17, scale=(0.001,) * 3)
+
+    def flame(self, parent, f_on, f_off=None, size=1.0, z=0.12):
+        """Llama con brillo propio y luz que parpadea, encendida en f_on (y apagada en f_off)."""
+        m = self.mats.get("llama")
+        if not m:
+            m = bpy.data.materials.new("llama"); m.use_nodes = True; N = m.node_tree.nodes
+            b = N["Principled BSDF"]; b.inputs["Base Color"].default_value = (1.0, 0.35, 0.02, 1)
+            b.inputs["Emission Color"].default_value = (1.0, 0.38, 0.03, 1); b.inputs["Emission Strength"].default_value = 7.0
+            self.mats["llama"] = m
+        fl = self.empty("llama", (0, 0, z), parent=parent)
+        core = self.mats.get("llama_nucleo")
+        if not core:
+            core = bpy.data.materials.new("llama_nucleo"); core.use_nodes = True; bb = core.node_tree.nodes["Principled BSDF"]
+            bb.inputs["Base Color"].default_value = (1.0, 0.8, 0.3, 1); bb.inputs["Emission Color"].default_value = (1.0, 0.75, 0.25, 1)
+            bb.inputs["Emission Strength"].default_value = 14.0; self.mats["llama_nucleo"] = core
+        for k, (sc, zz, col) in enumerate(((1.0, 0.0, None), (0.5, -0.02, core))):
+            bpy.ops.mesh.primitive_uv_sphere_add(location=(0, 0, 0.09 * size + zz), segments=16, ring_count=10)
+            o = bpy.context.object; o.name = "fuego"; o.scale = (0.06 * size * sc, 0.06 * size * sc, 0.13 * size * sc); o.parent = fl
+            o.data.materials.append(col or m)
+            for v in o.data.vertices:                                   # forma de gota: punta arriba
+                if v.co.z > 0: v.co.x *= (1 - v.co.z * 0.85); v.co.y *= (1 - v.co.z * 0.85)
+        li = bpy.data.objects.new("luz_llama", bpy.data.lights.new("luz_llama", "POINT")); self.sc.collection.objects.link(li)
+        li.parent = fl; li.location = (0, 0, 0.12 * size); li.data.color = (1.0, 0.6, 0.25); li.data.shadow_soft_size = 0.05
+        self.key(fl, f_on - 1, scale=(0.001,) * 3); li.data.energy = 0; li.data.keyframe_insert("energy", frame=f_on - 1)
+        end = f_off or (f_on + 400)
+        rnd = random.Random(f_on)
+        for f in range(f_on, end, 2):
+            k = 1.0 if f > f_on + 3 else 1.6
+            self.key(fl, f, scale=(k * rnd.uniform(0.9, 1.1), k * rnd.uniform(0.9, 1.1), k * rnd.uniform(0.85, 1.2)))
+            li.data.energy = 25 * size * rnd.uniform(0.8, 1.2); li.data.keyframe_insert("energy", frame=f)
+        if f_off:
+            self.key(fl, f_off, scale=(0.001,) * 3); li.data.energy = 0; li.data.keyframe_insert("energy", frame=f_off)
+        self.cue("ignite", f_on, vol=-4)
+        return fl
 
     def follow(self, actor, n_frames, weight=0.75):
         """La cámara mira a un punto entre el actor y el centro de la escena."""
@@ -369,6 +422,9 @@ class Actor:
         self.legs, self.has_hat = [], lk.get("hat", "ninguno") != "ninguno"
         self.human, self.squash, self.knees, self.elbows, self.yaw, self._stepn = False, 1.0, [], [], 0.0, 0
         self._lid_rest = 0.001
+        if lk.get("kind") == "cerilla":
+            self._match(lk, x, size); self.x, self.z = x, st.ground(x) if hasattr(st, "ground") else 0.0
+            self.root.location.z = self.z; return
         if lk.get("kind") == "humano":
             self._human(lk, x, size); self._hat(lk.get("hat", "ninguno"), lk.get("hat_color", "yellow"))
             self.x, self.z = x, st.ground(x); self.root.location.z = self.z; return
@@ -396,6 +452,29 @@ class Actor:
         self._hat(hat, hc)
         self.x, self.z = x, 0.0
 
+
+    def _match(self, lk, x, size):
+        """Cerilla viva: palo de madera + cabeza roja con ojos, párpados, cejas y boca. Se dobla por la mitad
+        (self.body = parte alta) y puede encenderse (Stage.flame). Mide ~1 unidad: la escena la escala."""
+        s = self.st; e = lk.get("eye", 1.0)
+        self.root = s.empty("cerilla", (x, 0, 0)); self.root.scale = (size,) * 3
+        self.pivot = s.empty("dobla", (0, 0, 0.45), parent=self.root)               # se dobla desde la mitad del palo
+        s.obj("cylinder", "palo_bajo", "wood", (0, 0, 0.225), (0.045, 0.045, 0.225), parent=self.root, vertices=16)
+        self.body = s.empty("cuerpo", (0, 0, 0), parent=self.pivot)
+        s.obj("cylinder", "palo_alto", "wood", (0, 0, 0.22), (0.045, 0.045, 0.22), parent=self.body, vertices=16)
+        s.obj("uv_sphere", "codo_palo", "wood", (0, 0, 0), (0.045, 0.045, 0.045), parent=self.pivot, segments=16, ring_count=10)   # doblez sin rotura
+        H = self.head = s.empty("cabeza", (0, 0, 0.53), parent=self.body)
+        s.obj("uv_sphere", "fosforo", lk.get("color", "red"), (0, 0, 0), (0.105, 0.105, 0.13), parent=H)
+        ex, ey, ez, er = 0.042, -0.085, 0.02, 0.034 * e
+        self.lids, self.pupils, self.arms, self.legs, self.knees, self.elbows = [], [], [], [], [], []
+        self._pup = (ex, ey - er * 0.7, ez - 0.004); self._lid = (er * 1.08, er * 1.0, er * 1.08); self._lid_rest = er * 0.45
+        for sx in (-1, 1):
+            s.obj("uv_sphere", "ojo", "white", (ex * sx, ey, ez), (er, er * 0.7, er * 1.15), parent=H)
+            self.pupils.append(s.obj("uv_sphere", "pupila", "black", (self._pup[0] * sx, self._pup[1], self._pup[2]), (er * 0.5, er * 0.2, er * 0.55), parent=H))
+            lid = s.obj("uv_sphere", "parpado", lk.get("color", "red"), (ex * sx, ey - 0.003, ez + er * 0.45), (self._lid[0], self._lid[1], self._lid_rest), parent=H); self.lids.append(lid)
+            s.obj("cube", "ceja", "black", (ex * sx, ey - 0.012, ez + er * 1.45), (er * 1.0, 0.008, 0.009), rot=(0, math.radians(-12 * sx), 0), parent=H, smooth=False)
+        self.mouth = s.obj("uv_sphere", "boca", "black", (0, -0.098, -0.05), (0.03, 0.01, 0.008), parent=H)
+        self.hat_z = 0.68; self.human = False; self.squash = 0.6
 
     def _hat(self, hat, hc):
         s = self.st

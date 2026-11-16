@@ -16,7 +16,10 @@ FONT_CANDIDATES = ["models/fonts/InterDisplay-Bold.ttf", "/usr/share/fonts/truet
 def main():
     args = sys.argv[1:]
     src, out = pathlib.Path(args[0]), pathlib.Path(args[1])
-    iqs = [int(x) for x in args[args.index("--iq") + 1].split(",")]
+    caption = args[args.index("--caption") + 1] if "--caption" in args else None      # formato POV / mini-historia: premisa fija arriba
+    cta = args[args.index("--cta") + 1] if "--cta" in args else None                  # p. ej. "follow for more" en el último segundo
+    if "--iq" in args: iqs = [int(x) for x in args[args.index("--iq") + 1].split(",")]
+    else: iqs = [0] * len([d for d in src.iterdir() if d.is_dir() and d.name.startswith("l") and d.name[1:].isdigit()])
     speed = float(args[args.index("--speed") + 1]) if "--speed" in args else 1.5   # 1.5 = versión rápida (estándar del canal)
     root = pathlib.Path(__file__).resolve().parent.parent
     font = next(str(p) for p in ((root / f if not f.startswith(("/", "C:")) else pathlib.Path(f)) for f in FONT_CANDIDATES) if p.exists()).replace("\\", "/").replace(":", "\\:")
@@ -31,7 +34,13 @@ def main():
         num = f"{'+ ' if iq > 0 else '- '}{abs(iq)}"
         color = "0xE53935" if iq == order[0] else ("0xFFC107" if iq == order[-1] else ("0x43A047" if iq > 0 else "white"))
         # rótulo propio del canal: banda oscura translúcida, "NIVEL DE IQ" pequeño y el número grande con barra de color
-        vf = (f"scale=1080:1920:flags=lanczos,drawbox=x=300:y=140:w=480:h=170:color=black@0.55:t=fill,"
+        if caption:
+            import textwrap
+            cap = "\n".join(textwrap.wrap(caption, 24)).replace("'", "\u2019").replace(":", "\\:")
+            vf = (f"scale=1080:1920:flags=lanczos,drawtext=fontfile='{font}':text='{cap}':fontcolor=black:fontsize=58:"
+                  f"line_spacing=8:text_align=C:box=1:boxcolor=white@0.97:boxborderw=22:x=(w-text_w)/2:y=170,format=yuv420p")
+        else:
+          vf = (f"scale=1080:1920:flags=lanczos,drawbox=x=300:y=140:w=480:h=170:color=black@0.55:t=fill,"
               f"drawbox=x=300:y=300:w=480:h=10:color={color}@1:t=fill,"
               f"drawtext=fontfile='{font}':text='{LABEL}':fontcolor=0xFFE082:fontsize=38:x=(w-text_w)/2:y=156,"
               f"drawtext=fontfile='{font}':text='{num}':fontcolor={color}:borderw=4:bordercolor=black:fontsize=92:x=(w-text_w)/2:y=200,format=yuv420p")
@@ -66,6 +75,12 @@ def main():
     mix = np.tanh(mix * 1.3) * 0.85
     sf.write(tmp / "audio.wav", mix, A.SR)
     out.parent.mkdir(parents=True, exist_ok=True)
+    if cta:                                                                           # llamada a la acción en el último segundo y medio
+        vid2 = tmp / "video_cta.mp4"; c_ = cta.replace("'", "\u2019").replace(":", "\\:")
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(vid), "-vf",
+                        f"drawtext=fontfile='{font}':text='{c_}':fontcolor=white:fontsize=48:box=1:boxcolor=black@0.85:boxborderw=16:"
+                        f"x=(w-text_w)/2:y=h*0.78:enable='gte(t,{max(0, t0 - 1.6):.2f})',format=yuv420p",
+                        "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", str(vid2)], check=True); vid = vid2
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(vid), "-i", str(tmp / "audio.wav"),
                     "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-af", "loudnorm=I=-14:TP=-1.5", "-t", f"{t0:.3f}", str(out)], check=True)
     print(f"{out}: {t0:.1f} s, {len(iqs)} niveles, {len(cues)} sonidos")
