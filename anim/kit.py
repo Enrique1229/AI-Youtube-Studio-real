@@ -868,10 +868,12 @@ class Actor:
         crouch(end, 35 if big else 22, 65 if big else 42, 15 if big else 8, 20, z1, x)                # aterriza amortiguando
         crouch(end + 5, 0, 0, 0, 0, z1, x)
         for el in self.elbows: s.key(el, f0, rot=(math.radians(-15), 0, 0)); s.key(el, mid, rot=(math.radians(-35), 0, 0)); s.key(el, end + 5, rot=(math.radians(-12), 0, 0))
+        if os.environ.get("STUDIO_MOCAP", "1") == "1":     # pose de un salto real (agacharse, impulso, aire, aterrizaje)
+            self.mocap("saltar", timemap=[(0.55, f0), (1.12, fu), (1.55, end), (2.0, end + 5)], strength=0.9)
         self.x, self.z = x, z1; s.f = end
 
     # --- captura de movimiento real (anim/mocap.py) ---
-    def mocap(self, name, frames=None, travel_to=None, root=True, start=0.0, strength=1.0, head=0.7, step=1):
+    def mocap(self, name, frames=None, travel_to=None, root=True, start=0.0, strength=1.0, head=0.7, step=1, timemap=None):
         """Aplica un clip de captura real al personaje desde el fotograma actual.
         frames: cuántos fotogramas (24 fps) usar; travel_to: x final (escala el avance para llegar justo ahí y corta
         el clip cuando llega); root=False: solo la pose (la trayectoria la pone el gag); start: segundo del clip
@@ -901,12 +903,20 @@ class Actor:
             else: k_scale = 1.0
             idx = idx[:cut + 1]
         if frames: idx = idx[:frames]
+        pairs = list(enumerate(idx))
+        if timemap:                                          # [(segundo_del_clip, fotograma), ...]: ajusta el clip a la animación del gag
+            root = False; tm = sorted(timemap, key=lambda t: t[1]); f0 = tm[0][1]; pairs = []
+            for fr in range(tm[0][1], tm[-1][1] + 1):
+                for (ta, fa), (tb, fb) in zip(tm, tm[1:]):
+                    if fa <= fr <= fb:
+                        t = ta + (tb - ta) * (fr - fa) / max(1, fb - fa); break
+                pairs.append((fr - f0, min(clip.n - 1, max(0, int(round(t / clip.dt))))))
         Z = Vector((0, 0, -1)); U = Vector((0, 0, 1))
         def lerp_q(q):                                       # intensidad (1 = como la captura)
             return Quaternion().slerp(q, strength) if strength < 1 else q
         from mathutils import Quaternion
-        for k, i in enumerate(idx):
-            if k % step and k != len(idx) - 1: continue
+        for k, i in pairs:
+            if k % step and k != len(pairs) - 1: continue
             fr = f0 + k
             sp = loc(J("Neck", i) - J("Hips", i), i).normalized(); rt = loc(J("LeftArm", i) - J("RightArm", i), i)   # eje +x local
             x_ = (rt - sp * rt.dot(sp)).normalized(); y_ = sp.cross(x_)
@@ -932,10 +942,20 @@ class Actor:
             self.x = travel_to if travel_to is not None else x0 + sign * float((J("Hips", idx[-1]) - h0) @ fs[idx[0]]) * sc
             self.z = s.ground(self.x, z0) if travel_to is not None else z0
             s.key(self.root, f0 + len(idx) - 1, loc=(self.x, 0, self.z))
+        if timemap: return len(pairs)                      # no avanza el tiempo: el gag ya lo hizo
         s.f = f0 + len(idx); return len(idx)
+
+    def reach_up(self, dur=24):
+        """Salta estirándose para alcanzar algo alto (captura real "saltar_alto", trayectoria vertical del gag)."""
+        s = self.st; f0 = s.f; z = self.z
+        s.key(self.root, f0, loc=(self.x, 0, z)); s.key(self.root, f0 + dur // 2, loc=(self.x, 0, z + 0.35)); s.key(self.root, f0 + dur, loc=(self.x, 0, z))
+        self.mocap("saltar_alto", timemap=[(1.4, f0), (2.2, f0 + dur // 2), (2.9, f0 + dur)], strength=0.9)
+        s.f = f0 + dur
 
     def cheer(self, times=2):
         if self.human: self.face(-30)
+        if self.human and os.environ.get("STUDIO_MOCAP", "1") == "1":   # celebración real (clip "muy contento")
+            self.st.cue("tada"); self.mocap("contento", frames=30 * times, root=False, start=0.4); return
         self.st.cue("tada")
         for i in range(times):
             self.hop_to(self.x, h=0.8 - 0.2 * i, dur=8, sound=None); self.arms_to(155, self.st.f - 8, interp="BACK")

@@ -1,0 +1,284 @@
+[
+ {
+  "id": "b20261117-2-l01",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Flies a Kite",
+  "caption_en": null,
+  "logline_es": "Un hombre quiere que su cometa vuele sin viento; el más listo la ata a un globo de helio de un vendedor y se sienta a mirar cómo sube.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (acción en el fotograma 1). IQ -450: Ya corriendo con la cometa arrastrando por la hierba (frame 1); se engancha en una piedra, la cometa se queda y él, sin darse cuenta, sigue corriendo con la cuerda hasta que se tensa y cae de espaldas."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -70: Se agacha y salta muy alto lanzando la cometa al cielo; sube dos metros, se queda un instante y le cae justo en la cabeza; él celebra igual."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 120: Corre en círculos por el parque con la cuerda; la cometa sube a trompicones y se mantiene arriba mientras él corre; se detiene a respirar y cae lentamente."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 900: Se coloca en el borde del agua, mira alrededor buscando el viento (whoosh), alza el dedo, empuja un ventilador gigante de feria sobre ruedas hasta ponerlo delante; la cometa vuela fija sobre el ventilador."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 5469: Sin correr: ata la cuerda a un globo grande de helio que compra al vendedor; la cometa sube sola hasta lo alto; él se sienta y saluda a la cometa."
+   }
+  ],
+  "levels": [
+   [
+    -450,
+    "Ya corriendo con la cometa arrastrando por la hierba (frame 1); se engancha en una piedra, la cometa se queda y él, sin darse cuenta, sigue corriendo con la cuerda hasta que se tensa y cae de espaldas."
+   ],
+   [
+    -70,
+    "Se agacha y salta muy alto lanzando la cometa al cielo; sube dos metros, se queda un instante y le cae justo en la cabeza; él celebra igual."
+   ],
+   [
+    120,
+    "Corre en círculos por el parque con la cuerda; la cometa sube a trompicones y se mantiene arriba mientras él corre; se detiene a respirar y cae lentamente."
+   ],
+   [
+    900,
+    "Se coloca en el borde del agua, mira alrededor buscando el viento (whoosh), alza el dedo, empuja un ventilador gigante de feria sobre ruedas hasta ponerlo delante; la cometa vuela fija sobre el ventilador."
+   ],
+   [
+    5469,
+    "Sin correr: ata la cuerda a un globo grande de helio que compra al vendedor; la cometa sube sola hasta lo alto; él se sienta y saluda a la cometa."
+   ]
+  ],
+  "mocap": [
+   [
+    -450,
+    [
+     "correr"
+    ]
+   ],
+   [
+    -70,
+    [
+     "saltar_alto",
+     "contento"
+    ]
+   ],
+   [
+    120,
+    [
+     "correr"
+    ]
+   ],
+   [
+    900,
+    [
+     "mirar_alrededor",
+     "empujar"
+    ]
+   ],
+   [
+    5469,
+    [
+     "caminar",
+     "saludar"
+    ]
+   ]
+  ],
+  "payoff": "El viento no hacía falta: bastaba con algo que ya flotara.",
+  "sin_palabras": "Cometa en la hierba sin viento: objetivo en 1 s.",
+  "needs": "Cometa = S.obj cubo plano rotado 45 grados + cuerda cylinder fino con S.key; globo = uv_sphere; ventilador = cylinder + cubes con giro S.key. Mocap: correr, saltar_alto, contento, empujar, saludar ya existen. Acción nueva sencilla: 'fly_up' = S.key loc de la cometa.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Juguete que vuela en el parque; no usa animal, barco, ni fruta."
+ },
+ {
+  "id": "b20261117-2-l02",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Moves a Boulder",
+  "caption_en": null,
+  "logline_es": "Una roca enorme bloquea el camino al banco; el más listo la mira, la toca con un dedo y descubre que es de espuma y puede llevarla en la punta del dedo.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (acción en el fotograma 1). IQ -500: Ya empujando la roca con la espalda (frame 1); no se mueve; se aleja corriendo y se estrella contra ella; rebota y queda sentado con estrellas."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -80: Salta encima para empujar con su peso (saltar), resbala por el otro lado y se queda colgado del borde; la roca, impertérrita."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 130: Empuja con todo el cuerpo durante mucho tiempo; la roca avanza centímetro a centímetro; llega al lado y se tumba exhausto, orgulloso."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 900: Pone un tablón como palanca; salta y cae sobre el extremo; la roca sube un poco y rueda lentamente al lado; salta de alegría."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 5200: Mira alrededor, se acerca, toca la roca con un dedo: se tambalea, es de espuma. La levanta con un dedo, la lleva a un lado y la deja; saluda a cámara."
+   }
+  ],
+  "levels": [
+   [
+    -500,
+    "Ya empujando la roca con la espalda (frame 1); no se mueve; se aleja corriendo y se estrella contra ella; rebota y queda sentado con estrellas."
+   ],
+   [
+    -80,
+    "Salta encima para empujar con su peso (saltar), resbala por el otro lado y se queda colgado del borde; la roca, impertérrita."
+   ],
+   [
+    130,
+    "Empuja con todo el cuerpo durante mucho tiempo; la roca avanza centímetro a centímetro; llega al lado y se tumba exhausto, orgulloso."
+   ],
+   [
+    900,
+    "Pone un tablón como palanca; salta y cae sobre el extremo; la roca sube un poco y rueda lentamente al lado; salta de alegría."
+   ],
+   [
+    5200,
+    "Mira alrededor, se acerca, toca la roca con un dedo: se tambalea, es de espuma. La levanta con un dedo, la lleva a un lado y la deja; saluda a cámara."
+   ]
+  ],
+  "mocap": [
+   [
+    -500,
+    [
+     "empujar",
+     "correr"
+    ]
+   ],
+   [
+    -80,
+    [
+     "saltar"
+    ]
+   ],
+   [
+    130,
+    [
+     "empujar",
+     "contento"
+    ]
+   ],
+   [
+    900,
+    [
+     "saltar_alto",
+     "contento"
+    ]
+   ],
+   [
+    5200,
+    [
+     "mirar_alrededor",
+     "caminar",
+     "saludar"
+    ]
+   ]
+  ],
+  "payoff": "El obstáculo pesaba menos que el esfuerzo.",
+  "sin_palabras": "Roca gigante que no se mueve ante alguien que empuja: lectura inmediata.",
+  "needs": "Roca = S.obj uv_sphere gris; tablón = cube; empujar con a.mocap('empujar'); mirar con a.think. Acción nueva sencilla: 'lift_finger' = S.key de la roca sobre la mano.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Obstáculo pesado con remate de espuma; no es cruzar ni alcanzar."
+ },
+ {
+  "id": "b20261117-2-l03",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Carries a Tower of Picnic Boxes",
+  "caption_en": null,
+  "logline_es": "Un hombre lleva una torre de cajas de picnic hasta la manta al otro lado del parque; el más listo extiende la manta donde está y se sienta a comer.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (acción en el fotograma 1). IQ -420: Ya caminando con la torre tapándole la cara (frame 1); no ve un arroyo, se cae con todo y las cajas flotan."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -90: Corre con la torre y salta el arroyo (saltar); en el aire las cajas se separan; aterriza con una sola."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 110: Camina muy despacio, tambaleándose con la torre, mirando alrededor; llega al borde y deja la torre justo antes de que caiga."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 850: Empuja una carretilla con todas las cajas por el parque, con paso firme; llega y celebra."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 5469: Sin moverse más: extiende la manta en el sitio, se sienta, saluda a la gente que pasa, come."
+   }
+  ],
+  "levels": [
+   [
+    -420,
+    "Ya caminando con la torre tapándole la cara (frame 1); no ve un arroyo, se cae con todo y las cajas flotan."
+   ],
+   [
+    -90,
+    "Corre con la torre y salta el arroyo (saltar); en el aire las cajas se separan; aterriza con una sola."
+   ],
+   [
+    110,
+    "Camina muy despacio, tambaleándose con la torre, mirando alrededor; llega al borde y deja la torre justo antes de que caiga."
+   ],
+   [
+    850,
+    "Empuja una carretilla con todas las cajas por el parque, con paso firme; llega y celebra."
+   ],
+   [
+    5469,
+    "Sin moverse más: extiende la manta en el sitio, se sienta, saluda a la gente que pasa, come."
+   ]
+  ],
+  "mocap": [
+   [
+    -420,
+    [
+     "caminar"
+    ]
+   ],
+   [
+    -90,
+    [
+     "correr",
+     "saltar"
+    ]
+   ],
+   [
+    110,
+    [
+     "caminar",
+     "mirar_alrededor"
+    ]
+   ],
+   [
+    850,
+    [
+     "empujar",
+     "contento"
+    ]
+   ],
+   [
+    5469,
+    [
+     "saludar",
+     "caminar"
+    ]
+   ]
+  ],
+  "payoff": "El picnic estaba donde él estuviera.",
+  "sin_palabras": "Torre de cajas que se tambalea sobre un hombre: tensión en 1 s.",
+  "needs": "Cajas = cubes de colores sobre a.arms; carretilla = cube + cylinder; manta = cube plano; arroyo = el río. Acción nueva sencilla: 'carry' = parent de cubes a las manos.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Equilibrio y carga; no es ave, barco ni fruta."
+ }
+]
