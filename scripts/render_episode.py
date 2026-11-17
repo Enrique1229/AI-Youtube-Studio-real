@@ -31,7 +31,7 @@ def episode_settings(path):
             name = node.targets[0].id
             if name == "LEVELS":
                 cfg["iqs"] = [ast.literal_eval(el.elts[0]) for el in node.value.elts]
-            elif name in ("CAPTION", "CTA", "SPEED", "TITLE"):
+            elif name in ("CAPTION", "CTA", "SPEED", "TITLE", "ONSCREEN"):
                 try: cfg[name] = ast.literal_eval(node.value)
                 except ValueError: pass
     if "iqs" not in cfg: sys.exit(f"ERROR: {path} no define LEVELS")
@@ -48,7 +48,7 @@ def main():
                STUDIO_RES="540x960" if "--draft" in a else "1080x1920", STUDIO_SAMPLES="16" if "--draft" in a else "32")
     out.mkdir(parents=True, exist_ok=True)
     only = int(a[a.index("--only") + 1]) if "--only" in a else None
-    for i in ([only] if only else range(1, len(iqs) + 1)):
+    for i in ([] if "--rebuild" in a else [only] if only else range(1, len(iqs) + 1)):   # --rebuild: solo vuelve a montar
         lv = out / f"l{i}"; t = time.time()
         r = subprocess.run([blender, "-b", "--python-exit-code", "1", "-P", str(ROOT / "anim" / "run_level.py"), "--", str(ep), str(i), str(lv)],
                            env=env, capture_output=True, text=True, encoding="utf-8", errors="replace")
@@ -62,7 +62,9 @@ def main():
     final = out / f"{ep.stem}.mp4"
     cmd = [sys.executable, str(ROOT / "scripts" / "anim_build.py"), str(out), str(final), "--speed", str(cfg.get("SPEED", 1.5))]
     if cfg.get("CAPTION") or not any(iqs): cmd += ["--caption", cfg["CAPTION"]] if cfg.get("CAPTION") else ["--no-label"]
-    else: cmd += ["--iq", ",".join(map(str, iqs))]
+    else:
+        cmd += ["--iq", ",".join(map(str, iqs))]
+        if cfg.get("ONSCREEN"): cmd += ["--title", cfg["ONSCREEN"]]                      # el reto escrito arriba
     if cfg.get("CTA"): cmd += ["--cta", cfg["CTA"]]
     subprocess.run(cmd, check=True)
     print("LISTO:", final)

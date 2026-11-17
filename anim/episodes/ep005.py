@@ -373,4 +373,5 @@ def l5(S):  # +5100: se pone la hogaza de sombrero y se queda quieto; el pato sa
     return a
 
 
+ONSCREEN = "Every IQ level feeds a duck"   # texto fijo arriba (reto)
 LEVELS = [(-420, l1), (-60, l2), (130, l3), (850, l4), (5100, l5)]

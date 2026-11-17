@@ -18,6 +18,7 @@ def main():
     src, out = pathlib.Path(args[0]), pathlib.Path(args[1])
     caption = args[args.index("--caption") + 1] if "--caption" in args else None      # formato POV / mini-historia: premisa fija arriba
     no_label = "--no-label" in args                                                   # objetos vivos / mini-historias: sin rótulo
+    topline = args[args.index("--title") + 1] if "--title" in args else None          # niveles: el reto escrito encima del rótulo de IQ
     cta = args[args.index("--cta") + 1] if "--cta" in args else None                  # p. ej. "follow for more" en el último segundo
     if "--iq" in args: iqs = [int(x) for x in args[args.index("--iq") + 1].split(",")]
     else: iqs = [0] * len([d for d in src.iterdir() if d.is_dir() and d.name.startswith("l") and d.name[1:].isdigit()])
@@ -41,9 +42,14 @@ def main():
             import textwrap
             cap = "\n".join(textwrap.wrap(caption, 24)).replace("'", "\u2019").replace(":", "\\:")
             vf = (f"scale=1080:1920:flags=lanczos,drawtext=fontfile='{font}':text='{cap}':fontcolor=black:fontsize=58:"
-                  f"line_spacing=8:text_align=C:box=1:boxcolor=white@0.97:boxborderw=22:x=(w-text_w)/2:y=170,format=yuv420p")
+                  f"line_spacing=8:text_align=C:box=1:boxcolor=white@0.97:boxborderw=22:x=(w-text_w)/2:y=60,format=yuv420p")
         else:
-          vf = (f"scale=1080:1920:flags=lanczos,drawbox=x=300:y=140:w=480:h=170:color=black@0.55:t=fill,"
+          pre = ""
+          if topline:                                                                   # reto en una línea ARRIBA del rótulo (no lo mueve)
+            tl = topline.replace("'", "\u2019").replace(":", "\\:")
+            pre = (f"drawtext=fontfile='{font}':text='{tl}':fontcolor=black:fontsize=44:"
+                   f"box=1:boxcolor=white@0.95:boxborderw=14:x=(w-text_w)/2:y=46,")
+          vf = (f"scale=1080:1920:flags=lanczos,{pre}drawbox=x=300:y=140:w=480:h=170:color=black@0.55:t=fill,"
               f"drawbox=x=300:y=300:w=480:h=10:color={color}@1:t=fill,"
               f"drawtext=fontfile='{font}':text='{LABEL}':fontcolor=0xFFE082:fontsize=38:x=(w-text_w)/2:y=156,"
               f"drawtext=fontfile='{font}':text='{num}':fontcolor={color}:borderw=4:bordercolor=black:fontsize=92:x=(w-text_w)/2:y=200,format=yuv420p")

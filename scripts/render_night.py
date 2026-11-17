@@ -17,7 +17,9 @@ def main():
         src = ROOT / "anim" / "episodes" / f"{ep}.py"; out = ROOT / "render" / ep; mp4 = out / f"{ep}.mp4"
         if not src.exists(): report.append(f"{ep}: NO EXISTE {src}"); continue
         t = time.time()
-        if not mp4.exists():
+        if "--rebuild" in sys.argv and (out / "l1").exists():                     # vuelve a montar (textos, audio) sin renderizar
+            subprocess.run([sys.executable, str(ROOT / "scripts" / "render_episode.py"), str(src), str(out), "--rebuild"])
+        elif not mp4.exists():
             print(f"\n=== Renderizando {ep} ({time.strftime('%H:%M')}) ===", flush=True)
             r = subprocess.run([sys.executable, str(ROOT / "scripts" / "render_episode.py"), str(src), str(out)])
             if r.returncode or not mp4.exists(): report.append(f"{ep}: FALLO EN EL RENDER (mira la ventana)"); continue

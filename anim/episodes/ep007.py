@@ -5,7 +5,7 @@ import bpy
 import bmesh
 
 TITLE = "The Butter Who Learned to Skate"
-CAPTION = None
+CAPTION = "This butter wants to skate"   # premisa fija arriba
 SPEED = 1.0
 CTA = "follow for more"
 ENV = "mesa"

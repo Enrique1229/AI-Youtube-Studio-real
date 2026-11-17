@@ -374,4 +374,5 @@ def _l5_build(S, a, sand, M, xm):
     return a
 
 
+ONSCREEN = "Every IQ level protects a sandwich"   # texto fijo arriba (reto)
 LEVELS = [(-400, l1), (-90, l2), (110, l3), (800, l4), (5469, l5)]
