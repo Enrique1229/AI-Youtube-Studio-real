@@ -310,7 +310,7 @@ def l4(S):  # +850: reguero de migas que sube por su pierna hasta el regazo; el 
     set_head(S, d, f, hx=-0.24, hz=0.42); set_head(S, d, f + 8, hx=-0.2, hz=0.38, pitch=10)
     a.face(-20, f - 6, turn=8)                      # él mira al pato, quieto
     a.blink(f + 12); a.look(-0.03, -0.03, f + 4)
-    S.f = f + 40
+    S.f = f + 30
     return a
 
 
@@ -364,7 +364,7 @@ def l5(S):  # +5100: se pone la hogaza de sombrero y se queda quieto; el pato sa
     # guiño de perfil a cámara
     fw = 82 + 3 * 12 + 14
     a.face(40, fw - 12, turn=8)
-    lid = a.lids[0]; lx, ly, lz = a._lid; rz = a._lid_rest
+    lid = a.lids[1]; lx, ly, lz = a._lid; rz = a._lid_rest
     S.key(lid, fw, scale=(lx, ly, lz)); S.key(lid, fw + 2, scale=(lx, ly, rz)); S.key(lid, fw + 12, scale=(lx, ly, rz)); S.key(lid, fw + 14, scale=(lx, ly, lz))
     S.cue("pop", fw + 2, vol=-6)
     for dd in [d0] + kids:
