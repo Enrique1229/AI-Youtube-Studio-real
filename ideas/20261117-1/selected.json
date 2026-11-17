@@ -1,0 +1,166 @@
+[
+  {
+    "id": "b20261117-1-l01",
+    "format": "levels",
+    "kind": "anim",
+    "env": "rio",
+    "title_en": "Every IQ Level Feeds a Duck",
+    "caption_en": null,
+    "logline_es": "Un hombre quiere darle pan a un pato en el muelle; cada nivel falla de una forma distinta hasta que el más listo pone el pan en su cabeza, el pato se sube y llegan sus patitos en fila.",
+    "beats": [
+      {
+        "t": "0-4",
+        "beat": "Gancho (acción en el fotograma 1): el pato ya mira el pan que el protagonista sostiene, tenso. IQ -420: Lanza la hogaza entera: golpea al pato, que huye nadando indignado; él saluda feliz a la nada."
+      },
+      {
+        "t": "4-8",
+        "beat": "IQ -60: Desmigaja el pan con cuidado, pero un soplo de viento (whoosh) se lleva las migas; las persigue y casi cae del muelle."
+      },
+      {
+        "t": "8-12",
+        "beat": "IQ 130: Se agacha inmóvil con una miga en la palma; el pato duda, avanza, picotea y se la come; él casi llora de emoción."
+      },
+      {
+        "t": "12-16",
+        "beat": "IQ 850: Deja un reguero de migas que sube por su pierna hasta su regazo (sit); el pato lo sigue y se sienta encima."
+      },
+      {
+        "t": "16-20",
+        "beat": "IQ 5100: Se pone la hogaza de sombrero y se queda quieto: el pato salta a su cabeza y detrás desfilan seis patitos que se suben uno a uno en torre; él, de perfil, guiña a cámara."
+      }
+    ],
+    "levels": [
+      [
+        -420,
+        "Lanza la hogaza entera: golpea al pato, que huye nadando indignado; él saluda feliz a la nada."
+      ],
+      [
+        -60,
+        "Desmigaja el pan con cuidado, pero un soplo de viento (whoosh) se lleva las migas; las persigue y casi cae del muelle."
+      ],
+      [
+        130,
+        "Se agacha inmóvil con una miga en la palma; el pato duda, avanza, picotea y se la come; él casi llora de emoción."
+      ],
+      [
+        850,
+        "Deja un reguero de migas que sube por su pierna hasta su regazo (sit); el pato lo sigue y se sienta encima."
+      ],
+      [
+        5100,
+        "Se pone la hogaza de sombrero y se queda quieto: el pato salta a su cabeza y detrás desfilan seis patitos que se suben uno a uno en torre; él, de perfil, guiña a cámara."
+      ]
+    ],
+    "payoff": "No hay que dar de comer al pato: basta con ser el sitio donde el pato quiere estar.",
+    "sin_palabras": "Pato con pan fuera de alcance: se entiende el objetivo en 1 s; cada fallo es físico.",
+    "needs": "Pato = S.obj (uv_sphere cuerpo, cone pico, esferas ojos) con hop_to/shake; migas = esferas pequeñas con S.key; hogaza = cube/uv_sphere marrón; patitos = clones escala 0.4. Acción nueva sencilla: 'peck' = S.key de rotación de cabeza.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Parque/orilla, un animal como secundario y remate de torre de patitos; no es cruzar el río ni objetos.",
+    "vps": 66.4,
+    "batch": "20261117-1",
+    "story_id": "story-008",
+    "critic_improve": "Simplificar a tres patitos en torre y reutilizar el cuerpo del pato como unico animal con solo hop_to y giro de cabeza, y mostrar la hogaza ya sobre la cabeza del protagonista en el ultimo segundo del gancho para sembrar el pago."
+  },
+  {
+    "id": "b20261117-1-l03",
+    "format": "levels",
+    "kind": "anim",
+    "env": "rio",
+    "title_en": "Every IQ Level Protects a Sandwich From a Seagull",
+    "caption_en": null,
+    "logline_es": "Un hombre quiere comerse tranquilo su bocadillo con una gaviota al lado; el más listo le planta un espejo y la gaviota se pelea con su reflejo mientras él come.",
+    "beats": [
+      {
+        "t": "0-4",
+        "beat": "Gancho (acción en el fotograma 1): la gaviota aterriza justo al lado del bocadillo, ojos enormes. IQ -400: Esconde el bocadillo en el sombrero; la gaviota se lleva el sombrero con bocadillo y todo, y él se queda con el pelo al aire."
+      },
+      {
+        "t": "4-8",
+        "beat": "IQ -90: Lo sostiene muy arriba y salta una y otra vez; la gaviota lo mira, baja y se lo quita de la mano mientras él está en el aire."
+      },
+      {
+        "t": "8-12",
+        "beat": "IQ 110: Se lo come de tres bocados enormes; la gaviota espera; él se atraganta (shiver), se golpea el pecho y traga justo a tiempo."
+      },
+      {
+        "t": "12-16",
+        "beat": "IQ 800: Construye una jaula de ramas sobre el bocadillo; la gaviota se mete por abajo, y se queda dentro con él."
+      },
+      {
+        "t": "16-20",
+        "beat": "IQ 5469: Planta un espejo de mano frente a la gaviota: ve a otra gaviota con bocadillo, la ataca, rebota y se va; él, sentado, se come el bocadillo y le saluda en el espejo."
+      }
+    ],
+    "levels": [
+      [
+        -400,
+        "Esconde el bocadillo en el sombrero; la gaviota se lleva el sombrero con bocadillo y todo, y él se queda con el pelo al aire."
+      ],
+      [
+        -90,
+        "Lo sostiene muy arriba y salta una y otra vez; la gaviota lo mira, baja y se lo quita de la mano mientras él está en el aire."
+      ],
+      [
+        110,
+        "Se lo come de tres bocados enormes; la gaviota espera; él se atraganta (shiver), se golpea el pecho y traga justo a tiempo."
+      ],
+      [
+        800,
+        "Construye una jaula de ramas sobre el bocadillo; la gaviota se mete por abajo, y se queda dentro con él."
+      ],
+      [
+        5469,
+        "Planta un espejo de mano frente a la gaviota: ve a otra gaviota con bocadillo, la ataca, rebota y se va; él, sentado, se come el bocadillo y le saluda en el espejo."
+      ]
+    ],
+    "payoff": "El enemigo del bocadillo era él mismo (en reflejo).",
+    "sin_palabras": "Gaviota con ojos fijos en un bocadillo: amenaza en 1 s.",
+    "needs": "Gaviota = S.obj (esferas + cone pico, alas cubos que baten con S.key); bocadillo = cubes; espejo = cube plano claro; sit, shiver, hop_to. Acción nueva sencilla: 'flap' = S.key rotación de alas.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Comida amenazada por animal; solución del reflejo; sin pelota ni agua.",
+    "vps": 66.2,
+    "batch": "20261117-1",
+    "story_id": "story-009",
+    "critic_improve": "Quitar la jaula de ramas del nivel 800 (sustituir por un gesto con el sombrero ya existente) y limitar la gaviota a un cuerpo con alas fijas que solo hacen hop_to y un temblor de ala."
+  },
+  {
+    "id": "b20261117-1-o01",
+    "format": "objects",
+    "kind": "anim",
+    "env": "mesa",
+    "title_en": "The Butter Who Learned to Skate",
+    "caption_en": null,
+    "logline_es": "Una mantequilla con cara cae en una sartén caliente y descubre que patina; esquiva un molinillo de pimienta, se derrite en un charco y acaba cubriendo una tortita, que sonríe.",
+    "beats": [
+      {
+        "t": "0-2",
+        "beat": "Gancho: la mantequilla (cubo amarillo con cara) aterriza en la sartén y se desliza al instante, ojos enormes (slide_down)."
+      },
+      {
+        "t": "2-7",
+        "beat": "Patina en círculos esquivando un molinillo de pimienta; cada giro, un poco más pequeña (S.key scale)."
+      },
+      {
+        "t": "7-11",
+        "beat": "Pose de patinadora con un pie alto, ya casi un charco; mira a cámara orgullosa (whoosh)."
+      },
+      {
+        "t": "11-15",
+        "beat": "Se queda en un charco liso y quieto; silencio; la tortita (cilindro con cara) mira desde el lado."
+      },
+      {
+        "t": "15-18",
+        "beat": "Giro: el charco se extiende sobre la tortita, que sonríe dorada; la mantequilla, ya parte de ella, guiña. Bucle."
+      }
+    ],
+    "payoff": "Se deshace patinando y acaba haciendo feliz a la tortita.",
+    "sin_palabras": "Un cubo amarillo que resbala con cara de alegría: se entiende en 1 s.",
+    "needs": "Sartén, mantequilla, molinillo, tortita con S.obj; caras mkface; deslizar = S.key loc BEZIER; derretir = S.key scale. Sin acción nueva.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Cocina caliente con resbalón alegre; sin fuego, hielo, huevo ni líquido frío.",
+    "vps": 66.1,
+    "batch": "20261117-1",
+    "story_id": "story-010",
+    "critic_improve": "Recortar el giro de 7-11 s (pose de patinadora) y mantener el charco inmovil 2 s antes de extenderse sobre la tortita, con el guiño de la mantequilla en el ultimo fotograma."
+  }
+]

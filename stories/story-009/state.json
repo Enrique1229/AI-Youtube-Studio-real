@@ -1,0 +1,20 @@
+{
+  "id": "story-009",
+  "format": "short",
+  "title": "Every IQ Level Protects a Sandwich",
+  "stage": "selected",
+  "gates": {
+    "critic": "PASS",
+    "market": "PASS",
+    "continuity": "PENDING",
+    "policy": "PENDING",
+    "qc": "PENDING"
+  },
+  "vps": 66.2,
+  "quality_score": null,
+  "fix_rounds": 0,
+  "final_file": null,
+  "updated": "2026-11-17",
+  "idea_id": "b20261117-1-l03",
+  "market_verdict": "VALIDATED"
+}

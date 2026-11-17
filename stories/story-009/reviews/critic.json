@@ -1,0 +1,19 @@
+{
+  "id": "b20261117-1-l03",
+  "scores": {
+    "hook": 8,
+    "curiosity": 7,
+    "retention": 8,
+    "originality": 7,
+    "visual": 4,
+    "emotion": 6,
+    "ending": 9,
+    "series": 8,
+    "differentiation": 7,
+    "production_difficulty": 7,
+    "repetition_risk": 4
+  },
+  "why": "La gaviota con ojos enormes junto al bocadillo da amenaza en 1 s y el espejo que la hace pelear con su reflejo es el mejor remate del lote, pero gaviota con alas batiendo, jaula de ramas y espejo son tres construcciones nuevas.",
+  "improve": "Quitar la jaula de ramas del nivel 800 (sustituir por un gesto con el sombrero ya existente) y limitar la gaviota a un cuerpo con alas fijas que solo hacen hop_to y un temblor de ala.",
+  "vps": 66.2
+}

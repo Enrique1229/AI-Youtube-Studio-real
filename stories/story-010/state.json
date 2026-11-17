@@ -1,0 +1,20 @@
+{
+  "id": "story-010",
+  "format": "short",
+  "title": "The Skating Butter",
+  "stage": "selected",
+  "gates": {
+    "critic": "PASS",
+    "market": "PASS",
+    "continuity": "PENDING",
+    "policy": "PENDING",
+    "qc": "PENDING"
+  },
+  "vps": 66.1,
+  "quality_score": null,
+  "fix_rounds": 0,
+  "final_file": null,
+  "updated": "2026-11-17",
+  "idea_id": "b20261117-1-o01",
+  "market_verdict": "VALIDATED"
+}

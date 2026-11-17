@@ -1,0 +1,306 @@
+[
+ {
+  "id": "b20261117-1-l01",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Feeds a Duck",
+  "caption_en": null,
+  "logline_es": "Un hombre quiere darle pan a un pato en el muelle; cada nivel falla de una forma distinta hasta que el más listo pone el pan en su cabeza, el pato se sube y llegan sus patitos en fila.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (acción en el fotograma 1): el pato ya mira el pan que el protagonista sostiene, tenso. IQ -420: Lanza la hogaza entera: golpea al pato, que huye nadando indignado; él saluda feliz a la nada."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -60: Desmigaja el pan con cuidado, pero un soplo de viento (whoosh) se lleva las migas; las persigue y casi cae del muelle."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 130: Se agacha inmóvil con una miga en la palma; el pato duda, avanza, picotea y se la come; él casi llora de emoción."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 850: Deja un reguero de migas que sube por su pierna hasta su regazo (sit); el pato lo sigue y se sienta encima."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 5100: Se pone la hogaza de sombrero y se queda quieto: el pato salta a su cabeza y detrás desfilan seis patitos que se suben uno a uno en torre; él, de perfil, guiña a cámara."
+   }
+  ],
+  "levels": [
+   [
+    -420,
+    "Lanza la hogaza entera: golpea al pato, que huye nadando indignado; él saluda feliz a la nada."
+   ],
+   [
+    -60,
+    "Desmigaja el pan con cuidado, pero un soplo de viento (whoosh) se lleva las migas; las persigue y casi cae del muelle."
+   ],
+   [
+    130,
+    "Se agacha inmóvil con una miga en la palma; el pato duda, avanza, picotea y se la come; él casi llora de emoción."
+   ],
+   [
+    850,
+    "Deja un reguero de migas que sube por su pierna hasta su regazo (sit); el pato lo sigue y se sienta encima."
+   ],
+   [
+    5100,
+    "Se pone la hogaza de sombrero y se queda quieto: el pato salta a su cabeza y detrás desfilan seis patitos que se suben uno a uno en torre; él, de perfil, guiña a cámara."
+   ]
+  ],
+  "payoff": "No hay que dar de comer al pato: basta con ser el sitio donde el pato quiere estar.",
+  "sin_palabras": "Pato con pan fuera de alcance: se entiende el objetivo en 1 s; cada fallo es físico.",
+  "needs": "Pato = S.obj (uv_sphere cuerpo, cone pico, esferas ojos) con hop_to/shake; migas = esferas pequeñas con S.key; hogaza = cube/uv_sphere marrón; patitos = clones escala 0.4. Acción nueva sencilla: 'peck' = S.key de rotación de cabeza.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Parque/orilla, un animal como secundario y remate de torre de patitos; no es cruzar el río ni objetos."
+ },
+ {
+  "id": "b20261117-1-l02",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Launches a Toy Boat",
+  "caption_en": null,
+  "logline_es": "Un hombre quiere que su barquito llegue al otro lado del río; el más listo se sienta en el muelle con una sombrilla clavada en el barco y el viento lo lleva hasta un niño que lo devuelve con un helado.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (acción en el fotograma 1): el hombre ya lanza el barquito al agua con cara de seguridad. IQ -500: Pone el barquito en la hierba y lo empuja: se arrastra tres pasos y se queda; lo empuja más fuerte y se rompe el mástil."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -70: Lo lanza al río como un frisbi: vuela, rebota en el agua una vez y se hunde (splash); se mete el sombrero hasta los ojos."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 140: Lo deja flotar y lo empuja con un palo largo (hold_stick); avanza a trompicones y casi toca la orilla contraria."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 900: Ata una cuerda al barco y lo arrastra sentado en el muelle (sit) como un pescador; llega al medio y la cuerda se tensa."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 6200: Abre un paraguas sobre el barco como vela, se tumba con las manos tras la nuca: el viento lo cruza solo y vuelve con un cucurucho de helado clavado en el mástil."
+   }
+  ],
+  "levels": [
+   [
+    -500,
+    "Pone el barquito en la hierba y lo empuja: se arrastra tres pasos y se queda; lo empuja más fuerte y se rompe el mástil."
+   ],
+   [
+    -70,
+    "Lo lanza al río como un frisbi: vuela, rebota en el agua una vez y se hunde (splash); se mete el sombrero hasta los ojos."
+   ],
+   [
+    140,
+    "Lo deja flotar y lo empuja con un palo largo (hold_stick); avanza a trompicones y casi toca la orilla contraria."
+   ],
+   [
+    900,
+    "Ata una cuerda al barco y lo arrastra sentado en el muelle (sit) como un pescador; llega al medio y la cuerda se tensa."
+   ],
+   [
+    6200,
+    "Abre un paraguas sobre el barco como vela, se tumba con las manos tras la nuca: el viento lo cruza solo y vuelve con un cucurucho de helado clavado en el mástil."
+   ]
+  ],
+  "payoff": "El barquito no solo cruza: vuelve con regalo.",
+  "sin_palabras": "Un barquito de juguete y la otra orilla: objetivo claro sin palabras.",
+  "needs": "Barco = S.obj (cube/cone), mástil cilindro, paraguas = cone/cylinder; cuerda = cylinder fino con S.key; hold_stick, sit, splash, cheer ya existen. Acción nueva sencilla: 'throw' = hop_to del objeto con arco.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Juguete en el agua y vuelta con helado; sin muelle roto ni cruzar andando."
+ },
+ {
+  "id": "b20261117-1-l03",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Protects a Sandwich From a Seagull",
+  "caption_en": null,
+  "logline_es": "Un hombre quiere comerse tranquilo su bocadillo con una gaviota al lado; el más listo le planta un espejo y la gaviota se pelea con su reflejo mientras él come.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (acción en el fotograma 1): la gaviota aterriza justo al lado del bocadillo, ojos enormes. IQ -400: Esconde el bocadillo en el sombrero; la gaviota se lleva el sombrero con bocadillo y todo, y él se queda con el pelo al aire."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -90: Lo sostiene muy arriba y salta una y otra vez; la gaviota lo mira, baja y se lo quita de la mano mientras él está en el aire."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 110: Se lo come de tres bocados enormes; la gaviota espera; él se atraganta (shiver), se golpea el pecho y traga justo a tiempo."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 800: Construye una jaula de ramas sobre el bocadillo; la gaviota se mete por abajo, y se queda dentro con él."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 5469: Planta un espejo de mano frente a la gaviota: ve a otra gaviota con bocadillo, la ataca, rebota y se va; él, sentado, se come el bocadillo y le saluda en el espejo."
+   }
+  ],
+  "levels": [
+   [
+    -400,
+    "Esconde el bocadillo en el sombrero; la gaviota se lleva el sombrero con bocadillo y todo, y él se queda con el pelo al aire."
+   ],
+   [
+    -90,
+    "Lo sostiene muy arriba y salta una y otra vez; la gaviota lo mira, baja y se lo quita de la mano mientras él está en el aire."
+   ],
+   [
+    110,
+    "Se lo come de tres bocados enormes; la gaviota espera; él se atraganta (shiver), se golpea el pecho y traga justo a tiempo."
+   ],
+   [
+    800,
+    "Construye una jaula de ramas sobre el bocadillo; la gaviota se mete por abajo, y se queda dentro con él."
+   ],
+   [
+    5469,
+    "Planta un espejo de mano frente a la gaviota: ve a otra gaviota con bocadillo, la ataca, rebota y se va; él, sentado, se come el bocadillo y le saluda en el espejo."
+   ]
+  ],
+  "payoff": "El enemigo del bocadillo era él mismo (en reflejo).",
+  "sin_palabras": "Gaviota con ojos fijos en un bocadillo: amenaza en 1 s.",
+  "needs": "Gaviota = S.obj (esferas + cone pico, alas cubos que baten con S.key); bocadillo = cubes; espejo = cube plano claro; sit, shiver, hop_to. Acción nueva sencilla: 'flap' = S.key rotación de alas.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Comida amenazada por animal; solución del reflejo; sin pelota ni agua."
+ },
+ {
+  "id": "b20261117-1-l04",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Picks an Apple",
+  "caption_en": null,
+  "logline_es": "Un hombre quiere la manzana de lo alto de un árbol; el más listo se da la vuelta y descubre un montón de manzanas caídas detrás del tronco, que se le caen encima en el remate.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (acción en el fotograma 1): el hombre ya salta bajo la manzana, brazos estirados. IQ -380: Salta bajo la manzana una y otra vez mirando arriba; cae sentado y se queda mirándola."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -70: Sacude el árbol abrazado al tronco: cae una rama (hit) sobre su cabeza y la manzana sigue ahí."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 130: Apila tres cajas y se sube; las cajas se tambalean (tilt), llega justo y la roza con la punta del dedo."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 900: Cuelga una cuerda con gancho de la rama y trepa; la coge, la muerde y es de cera."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 5300: Se da la vuelta sin más: detrás del tronco hay un cesto lleno de manzanas; coge una y la muerde mientras la manzana alta cae sola en su sombrero."
+   }
+  ],
+  "levels": [
+   [
+    -380,
+    "Salta bajo la manzana una y otra vez mirando arriba; cae sentado y se queda mirándola."
+   ],
+   [
+    -70,
+    "Sacude el árbol abrazado al tronco: cae una rama (hit) sobre su cabeza y la manzana sigue ahí."
+   ],
+   [
+    130,
+    "Apila tres cajas y se sube; las cajas se tambalean (tilt), llega justo y la roza con la punta del dedo."
+   ],
+   [
+    900,
+    "Cuelga una cuerda con gancho de la rama y trepa; la coge, la muerde y es de cera."
+   ],
+   [
+    5300,
+    "Se da la vuelta sin más: detrás del tronco hay un cesto lleno de manzanas; coge una y la muerde mientras la manzana alta cae sola en su sombrero."
+   ]
+  ],
+  "payoff": "El problema estaba mirando para el lado equivocado.",
+  "sin_palabras": "Una manzana inalcanzable: objetivo en 1 s.",
+  "needs": "Árbol = S.obj (cylinder, uv_sphere); manzanas = esferas rojas; cajas = cubes; cuerda = cylinder; hop_to, tilt, sit, cheer ya existen. Acción nueva: 'climb' = hop_to sucesivos en z.",
+  "riesgo_copia": "medio",
+  "diferencia": "Fruta inalcanzable; solución lateral de darse la vuelta; no es la pelota del árbol."
+ },
+ {
+  "id": "b20261117-1-o01",
+  "format": "objects",
+  "kind": "anim",
+  "env": "mesa",
+  "title_en": "The Butter Who Learned to Skate",
+  "caption_en": null,
+  "logline_es": "Una mantequilla con cara cae en una sartén caliente y descubre que patina; esquiva un molinillo de pimienta, se derrite en un charco y acaba cubriendo una tortita, que sonríe.",
+  "beats": [
+   {
+    "t": "0-2",
+    "beat": "Gancho: la mantequilla (cubo amarillo con cara) aterriza en la sartén y se desliza al instante, ojos enormes (slide_down)."
+   },
+   {
+    "t": "2-7",
+    "beat": "Patina en círculos esquivando un molinillo de pimienta; cada giro, un poco más pequeña (S.key scale)."
+   },
+   {
+    "t": "7-11",
+    "beat": "Pose de patinadora con un pie alto, ya casi un charco; mira a cámara orgullosa (whoosh)."
+   },
+   {
+    "t": "11-15",
+    "beat": "Se queda en un charco liso y quieto; silencio; la tortita (cilindro con cara) mira desde el lado."
+   },
+   {
+    "t": "15-18",
+    "beat": "Giro: el charco se extiende sobre la tortita, que sonríe dorada; la mantequilla, ya parte de ella, guiña. Bucle."
+   }
+  ],
+  "payoff": "Se deshace patinando y acaba haciendo feliz a la tortita.",
+  "sin_palabras": "Un cubo amarillo que resbala con cara de alegría: se entiende en 1 s.",
+  "needs": "Sartén, mantequilla, molinillo, tortita con S.obj; caras mkface; deslizar = S.key loc BEZIER; derretir = S.key scale. Sin acción nueva.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Cocina caliente con resbalón alegre; sin fuego, hielo, huevo ni líquido frío."
+ },
+ {
+  "id": "b20261117-1-o02",
+  "format": "objects",
+  "kind": "anim",
+  "env": "mesa",
+  "title_en": "The Jar That Was Never Empty",
+  "caption_en": null,
+  "logline_es": "Un tarro con cara se esfuerza por abrirse con ayuda de un tenedor y una cuchara; la tapa sale volando (boing) y dentro hay otro tarro más pequeño con la misma cara de esfuerzo.",
+  "beats": [
+   {
+    "t": "0-2",
+    "beat": "Gancho: el tarro (cilindro con cara de esfuerzo) tiembla y su tapa gira sin abrirse (shiver)."
+   },
+   {
+    "t": "2-6",
+    "beat": "Un tenedor y una cuchara (con cara) hacen palanca con la tapa; el tarro hace fuerza, rojo."
+   },
+   {
+    "t": "6-10",
+    "beat": "La tapa sale disparada (cue pop, boing); los cubiertos caen sentados; el tarro suspira aliviado."
+   },
+   {
+    "t": "10-14",
+    "beat": "Silencio: dentro asoma otro tarro más pequeño con la misma cara de esfuerzo, mirando a cámara."
+   },
+   {
+    "t": "14-17",
+    "beat": "Giro: el tarro pequeño tiembla con su tapa, y los cubiertos suspiran y se arremangan. Bucle."
+   }
+  ],
+  "payoff": "El tarro no estaba vacío: tenía otro igual, y vuelve a empezar.",
+  "sin_palabras": "Tarro que hace fuerza con cara roja: se lee en 1 s; el giro se ve de un vistazo.",
+  "needs": "Tarros, tapas, tenedor, cuchara con S.obj; caras mkface; tapa = S.key loc con arco; tarro pequeño = clon escala 0.5. Sin acción nueva.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Muñecas rusas en la cocina con humor de esfuerzo; sin fuego, comida con cara ni caída."
+ }
+]

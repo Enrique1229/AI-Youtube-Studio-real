@@ -1,0 +1,40 @@
+{
+  "id": "b20261117-1-o01",
+  "format": "objects",
+  "kind": "anim",
+  "env": "mesa",
+  "title_en": "The Butter Who Learned to Skate",
+  "caption_en": null,
+  "logline_es": "Una mantequilla con cara cae en una sartén caliente y descubre que patina; esquiva un molinillo de pimienta, se derrite en un charco y acaba cubriendo una tortita, que sonríe.",
+  "beats": [
+    {
+      "t": "0-2",
+      "beat": "Gancho: la mantequilla (cubo amarillo con cara) aterriza en la sartén y se desliza al instante, ojos enormes (slide_down)."
+    },
+    {
+      "t": "2-7",
+      "beat": "Patina en círculos esquivando un molinillo de pimienta; cada giro, un poco más pequeña (S.key scale)."
+    },
+    {
+      "t": "7-11",
+      "beat": "Pose de patinadora con un pie alto, ya casi un charco; mira a cámara orgullosa (whoosh)."
+    },
+    {
+      "t": "11-15",
+      "beat": "Se queda en un charco liso y quieto; silencio; la tortita (cilindro con cara) mira desde el lado."
+    },
+    {
+      "t": "15-18",
+      "beat": "Giro: el charco se extiende sobre la tortita, que sonríe dorada; la mantequilla, ya parte de ella, guiña. Bucle."
+    }
+  ],
+  "payoff": "Se deshace patinando y acaba haciendo feliz a la tortita.",
+  "sin_palabras": "Un cubo amarillo que resbala con cara de alegría: se entiende en 1 s.",
+  "needs": "Sartén, mantequilla, molinillo, tortita con S.obj; caras mkface; deslizar = S.key loc BEZIER; derretir = S.key scale. Sin acción nueva.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Cocina caliente con resbalón alegre; sin fuego, hielo, huevo ni líquido frío.",
+  "vps": 66.1,
+  "batch": "20261117-1",
+  "story_id": "story-010",
+  "critic_improve": "Recortar el giro de 7-11 s (pose de patinadora) y mantener el charco inmovil 2 s antes de extenderse sobre la tortita, con el guiño de la mantequilla en el ultimo fotograma."
+}

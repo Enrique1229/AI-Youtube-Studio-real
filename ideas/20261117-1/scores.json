@@ -1,0 +1,116 @@
+[
+  {
+    "id": "b20261117-1-l01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 8,
+      "originality": 6,
+      "visual": 5,
+      "emotion": 8,
+      "ending": 8,
+      "series": 8,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 4
+    },
+    "why": "Formato de niveles de IQ (el que mas vistas tuvo) con el pato mirando el pan en el fotograma 1 y un remate de torre de patitos muy tierno, pero el pato, el 'peck' y seis clones suponen construir bastante nuevo.",
+    "improve": "Simplificar a tres patitos en torre y reutilizar el cuerpo del pato como unico animal con solo hop_to y giro de cabeza, y mostrar la hogaza ya sobre la cabeza del protagonista en el ultimo segundo del gancho para sembrar el pago.",
+    "vps": 66.4
+  },
+  {
+    "id": "b20261117-1-l03",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 8,
+      "originality": 7,
+      "visual": 4,
+      "emotion": 6,
+      "ending": 9,
+      "series": 8,
+      "differentiation": 7,
+      "production_difficulty": 7,
+      "repetition_risk": 4
+    },
+    "why": "La gaviota con ojos enormes junto al bocadillo da amenaza en 1 s y el espejo que la hace pelear con su reflejo es el mejor remate del lote, pero gaviota con alas batiendo, jaula de ramas y espejo son tres construcciones nuevas.",
+    "improve": "Quitar la jaula de ramas del nivel 800 (sustituir por un gesto con el sombrero ya existente) y limitar la gaviota a un cuerpo con alas fijas que solo hacen hop_to y un temblor de ala.",
+    "vps": 66.2
+  },
+  {
+    "id": "b20261117-1-o01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 7,
+      "visual": 8,
+      "emotion": 7,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 4,
+      "repetition_risk": 4
+    },
+    "why": "La mantequilla que patina con ojos enormes se lee en 1 s y se deshace para hacer feliz a la tortita con un remate de bucle limpio, todo sin acciones nuevas, aunque el formato de objetos tuvo menos tirón en el dia 1.",
+    "improve": "Recortar el giro de 7-11 s (pose de patinadora) y mantener el charco inmovil 2 s antes de extenderse sobre la tortita, con el guiño de la mantequilla en el ultimo fotograma.",
+    "vps": 66.1
+  },
+  {
+    "id": "b20261117-1-o02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 7,
+      "visual": 8,
+      "emotion": 5,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 4,
+      "repetition_risk": 4
+    },
+    "why": "El tarro dentro del tarro es un giro de muñeca rusa claro y el bucle recompensa el reinicio, con coste minimo y sin acciones nuevas, pero la emocion es baja y el cierre depende de la sorpresa de un unico plano.",
+    "improve": "Insinuar el segundo tarro antes del giro (una sombra o un temblor interior en 6-10 s) y hacer que el tarro pequeño mire a los cubiertos con cara de culpa para dar emocion, no solo repeticion.",
+    "vps": 64.0
+  },
+  {
+    "id": "b20261117-1-l02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 6,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 7,
+      "series": 8,
+      "differentiation": 6,
+      "production_difficulty": 5,
+      "repetition_risk": 4
+    },
+    "why": "Objetivo claro (barquito a la otra orilla) y casi todo reutiliza acciones existentes sin animales, pero el gancho es plano, el retorno con helado sale de la nada y el nivel 130 y el 900 son poco distintos.",
+    "improve": "Abrir con el barquito ya en el aire sobre el agua y la otra orilla visible, y plantar al niño con el helado en el fondo del primer plano para que el regreso del barco sea un pago esperado y no un añadido.",
+    "vps": 60.1
+  },
+  {
+    "id": "b20261117-1-l04",
+    "scores": {
+      "hook": 6,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 5,
+      "visual": 7,
+      "emotion": 5,
+      "ending": 7,
+      "series": 8,
+      "differentiation": 5,
+      "production_difficulty": 5,
+      "repetition_risk": 6
+    },
+    "why": "Sin animales y con acciones casi todas existentes, pero el remate de darse la vuelta y ver el cesto es el gag de 'la solucion estaba al lado' ya muy visto y la manzana de cera del nivel 900 se anticipa.",
+    "improve": "Esconder el cesto de forma que el espectador lo vea de reojo en el primer segundo (sin que el protagonista lo vea) y cortar el nivel 900 para que el giro del 5300 llegue antes de los 16 s.",
+    "vps": 54.1
+  }
+]
