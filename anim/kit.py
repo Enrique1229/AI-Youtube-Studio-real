@@ -562,7 +562,7 @@ class Actor:
         for sx in (-1, 1): s.obj("uv_sphere", "oreja", skin, (0.175 * sx, 0.02, -0.01), (0.03, 0.045, 0.06), parent=H)
         # ojos grandes que sobresalen; párpado superior a media altura (mirada de aburrido) que también sirve para parpadear
         ex, ey, ez, er = 0.082, -0.15, 0.04, 0.085 * e
-        self._pup = (ex + 0.002, ey - er * 0.78, ez - 0.012); self._lid = (er * 1.08, er * 1.0, er * 1.08); self._lid_rest = er * 0.55
+        self._pup = (ex + 0.002, ey - er * 0.78, ez - er * 0.32); self._lid = (er * 1.08, er * 1.0, er * 1.08); self._lid_rest = er * 0.42   # pupila centrada bajo el párpado: mirada al frente, no "ojos en blanco"
         for sx in (-1, 1):
             s.obj("uv_sphere", "ojo", "white", (ex * sx, ey, ez), (er, er * 0.75, er * 1.1), parent=H)
             self.pupils.append(s.obj("uv_sphere", "pupila", "black", (self._pup[0] * sx, self._pup[1], self._pup[2]), (er * 0.55, er * 0.2, er * 0.6), parent=H))
@@ -740,6 +740,8 @@ class Actor:
 
     def look(self, dx=0.0, dz=0.0, f=None):
         px, py, pz = self._pup
+        if getattr(self, "human", False):                       # en ojos humanos la pupila nunca sale del globo
+            lim = self._lid[0] * 0.30; dx = max(-lim, min(lim, dx)); dz = max(-lim * 0.5, min(0.0, dz))   # nunca hacia arriba: el párpado tapa la pupila
         for sx, p in zip((-1, 1), self.pupils): self.st.key(p, f, loc=(px * sx + dx, py, pz + dz))
 
     def tilt(self, deg, f=None, interp="BEZIER"): self.st.key(self.pivot, f, rot=(0, math.radians(deg), 0), interp=interp)
