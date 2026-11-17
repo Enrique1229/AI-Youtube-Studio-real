@@ -141,7 +141,8 @@ def bscale(f):
 def l1(S):
     S.cam.data.dof.aperture_fstop = 6.0; S.cam.data.dof.focus_object = S.tgt
     # --- materiales ---
-    butter = S.pmat("mantequilla", [(0.3, (1.0, 0.74, 0.12)), (0.7, (1.0, 0.84, 0.26))], scale=4, rough=0.32, bump=0.015)
+    # crema pálido de mantequilla real (no amarillo intenso: evita parecido con un personaje de dibujos con marca registrada)
+    butter = S.pmat("mantequilla", [(0.3, (0.98, 0.90, 0.62)), (0.7, (1.0, 0.95, 0.74))], scale=4, rough=0.32, bump=0.015)
     bsdf = butter.node_tree.nodes["Principled BSDF"]
     for nm, v in (("Subsurface Weight", 0.08), ("Subsurface Scale", 0.05)):
         if nm in bsdf.inputs: bsdf.inputs[nm].default_value = v
@@ -222,7 +223,7 @@ def l1(S):
         sh = S.empty("hombro", (0.105 * sx, 0, BZ0 + 0.10), parent=B)
         O("cylinder", "brazo", butter, (0.035 * sx, 0, 0), rot=(0, rad(90), 0), radius=0.012, depth=0.07, vertices=16, parent=sh)
         O("uv_sphere", "mano", butter, (0.075 * sx, 0, 0), (0.02, 0.02, 0.02), parent=sh, segments=16, ring_count=10)
-        arms.append((sh, sx))
+        arms.append((sh, sx)); sh.scale = (0.001, 0.001, 0.001)   # sin bracitos: solo patines (más propio, menos "personaje de serie")
     bf = mkface(S, B, 1.0); bf["root"].location = (0, -0.079, BZ0 + 0.108)
     happy_face(S, bf)
 
@@ -324,13 +325,13 @@ def l1(S):
     k_pud = (0.31, 0.23, 0.02)
     S.key(body, F_D - 1, scale=(0.22, 0.16, 0.20)); S.key(body, F_D, scale=(0.001,) * 3)
     for hip, sx in legs: S.key(hip, F_D - 1, scale=(1, 1, 1)); S.key(hip, F_D, scale=(0.001,) * 3)
-    for sh, sx in arms: S.key(sh, F_D - 1, scale=(1, 1, 1)); S.key(sh, F_D, scale=(0.001,) * 3)
+    for sh, sx in arms: S.key(sh, F_D - 1, scale=(0.001,) * 3); S.key(sh, F_D, scale=(0.001,) * 3)
     S.key(B, F_D - 1, loc=(bx, by, PZ), rot=(0, rad(-10), 0), scale=(s * 0.98, s * 0.98, s * 1.03))
     S.key(B, F_D, loc=(bx, by, PZ), rot=(0, 0, 0), scale=(sB, sB, sB))
     S.key(puddle, F_D - 1, scale=(0.001,) * 3); S.key(puddle, F_D, scale=(k_pud[0] * 0.92, k_pud[1] * 0.92, k_pud[2]))
     S.key(puddle, F_PK - 1, scale=(k_pud[0], k_pud[1], k_pud[2]))
     S.key(bf["root"], F_D - 1, loc=(0, -0.079, BZ0 + 0.108), rot=(0, 0, 0))
-    S.key(bf["root"], F_D, loc=(0, -0.05, 0.075), rot=(rad(-30), 0, 0))
+    S.key(bf["root"], F_D, loc=(0, -0.04, 0.06), rot=(rad(-60), 0, 0))
     S.key(bf["smile"], F_D, scale=(1, 1, 1))              # sigue sonriendo al derretirse (alegre)
     face_look(S, bf, F_D, 0.0, 0.0, pop=1.0)
     face_blink(S, bf, F_D + 22); face_look(S, bf, F_D + 34, 0.0, 0.01); face_blink(S, bf, F_D + 44)
@@ -359,7 +360,7 @@ def l1(S):
     S.key(puddle, F_E + 28, scale=(k_pud[0], k_pud[1], k_pud[2])); S.key(puddle, F_E + 36, scale=(k_pud[0] * 0.8, k_pud[1] * 1.0, k_pud[2] * 1.8))
     S.key(puddle, F_E + 48, scale=(k_pud[0] * 0.65, k_pud[1] * 0.85, k_pud[2] * 1.5))
     S.key(puddle, F_E + 60, scale=(0.20, 0.20, 0.022), interp="BACK")                               # cubre la tapa
-    S.key(bf["root"], F_E + 48, loc=(0, -0.05, 0.075), rot=(rad(-30), 0, 0)); S.key(bf["root"], F_E + 60, loc=(0, -0.06, 0.08), rot=(rad(-30), 0, 0))
+    S.key(bf["root"], F_E + 48, loc=(0, -0.04, 0.06), rot=(rad(-60), 0, 0)); S.key(bf["root"], F_E + 60, loc=(0, -0.05, 0.065), rot=(rad(-60), 0, 0))
     face_look(S, bf, F_E + 2, 0.02, 0.0, pop=1.2)
     face_look(S, bf, F_E + 30, 0.0, 0.0, pop=1.1)
     S.cue("pop", F_E + 46, vol=-6)
@@ -382,6 +383,9 @@ def l1(S):
     S.cue("pop", F + 52, vol=-6)
     face_blink(S, bf, F + 52, hold=26, only=1)                                                         # guiño: ojo derecho cerrado
     face_look(S, kf, F + 54, 0.0, 0.0)
+    pr = bf["r"]; pb = (pr * 0.5, pr * 0.25, pr * 0.55)
+    S.key(bf["pupils"][1], F + 52, scale=pb); S.key(bf["pupils"][1], F + 53, scale=(0.001,) * 3)
+    S.key(bf["pupils"][1], F + 80, scale=(0.001,) * 3); S.key(bf["pupils"][1], F + 82, scale=pb)
     S.key(B, F, loc=(PK_X, 0.0, PZ + PK_H), scale=(sE, sE, sE)); S.key(B, F_END - 10, loc=(PK_X, 0.0, PZ + PK_H), scale=(sE * 1.02, sE * 1.02, sE * 0.98))
     S.f = F_END - 10
     return B
