@@ -6,8 +6,8 @@
   "gates": {
     "critic": "PASS",
     "market": "PASS",
-    "continuity": "PENDING",
-    "policy": "PENDING",
+    "continuity": "PASS",
+    "policy": "PASS",
     "qc": "PENDING"
   },
   "vps": 66.2,
