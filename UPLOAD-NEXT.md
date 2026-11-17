@@ -1,23 +1,33 @@
-# Próximos Shorts — renderizar, comprobar y subir SIN gastar uso (Klunk Studio)
+# Próximos Shorts — Klunk Studio (renderizar, comprobar y subir SIN gastar uso)
 
-Orden de publicación recomendado (no seguidos dos de objetos el mismo día): **huevo** → al día siguiente → **pompa**.
-
-## 1. En PowerShell (uno detrás de otro; cada render tarda ~25-35 min)
+## 1. Esta noche (PowerShell, uno detrás de otro)
 ```
 cd C:\Users\enriq\AI-Youtube-Studio-real
 git pull
-python scripts/render_episode.py anim/episodes/ep003.py render/ep003
-python scripts/render_episode.py anim/episodes/ep004.py render/ep004
-python scripts/qc_local.py render/ep003/ep003.mp4 render/ep004/ep004.mp4
+python scripts/render_night.py ep004 ep005 ep006 ep007
 ```
-Si `qc_local` dice **OK** para cada uno, sube el archivo `*_SUBIR.mp4` que indica. Si dice **FALLO**, no lo subas.
-Míralo antes de subir: si ves algo raro (algo atraviesa a otro objeto, una cara cortada…), no lo subas.
+PC enchufado y sin suspensión. Por la mañana mira `render\NOCHE.txt`: sube el `*_SUBIR.mp4` de cada uno que diga OK. Si dice FALLO, no lo subas.
+Míralo antes de subir: si algo se ve mal, no lo subas.
 
-## 2. Ajustes comunes al subir
-Made for kids: No (decisión tuya) · AI use: No · Category: Comedy · Language: English · License: Standard ·
-Comments: On + "Hold potentially inappropriate comments" · Shorts remixing: permitido · Playlist: "Objects With Faces".
+## 2. Ajustes comunes
+Made for kids: No (tu decisión) · AI use: No · Category: Comedy · Language: English · License: Standard · Comments: On + hold inappropriate · Shorts remixing: permitido.
 
-## 3. Huevo — `render\ep003\ep003_SUBIR.mp4`
+## 3. Orden de publicación (uno por día, alternando formatos)
+
+### Día 1 — `render\ep005\ep005_SUBIR.mp4`
+**Title:** Every IQ Level Feeds a Duck
+**Description:**
+```
+A man just wants to feed a duck on the pier. Five IQ levels, five ways to get it wrong, and a loaf of bread that ends up as a hat with a duck family on top.
+Fiction made with AI-assisted tools; nothing here is real footage or a real event.
+Original animation, music and sound effects.
+Motion capture: CMU Graphics Lab Motion Capture Database.
+#shorts #animation #comedy #iqlevels #funny
+```
+**Tags:** `every iq level, iq levels, rating levels, duck, river, silent comedy, 3D animation, physical comedy, funny shorts`
+**Playlist:** Rating Levels
+
+### Día 2 — `render\ep003\ep003_SUBIR.mp4` (ya renderizado: el huevo)
 **Title:** The Sleepwalking Egg Falls Off the Counter (Safely)
 **Description:**
 ```
@@ -29,8 +39,22 @@ Original animation, music and sound effects.
 #shorts #silentcomedy #3danimation #objectswithfaces #funnyshorts
 ```
 **Tags:** `sleepwalking egg, egg cup, objects with faces, silent comedy, 3D animation, funny shorts, breakfast comedy, cartoon comedy`
+**Playlist:** Objects With Faces
 
-## 4. Pompa — `render\ep004\ep004_SUBIR.mp4`
+### Día 3 — `render\ep006\ep006_SUBIR.mp4`
+**Title:** Every IQ Level Protects a Sandwich From a Seagull
+**Description:**
+```
+A man wants a quiet sandwich, but a seagull has other plans. Five IQ levels, from a hat that backfires to one hand mirror that ends the fight.
+Fiction made with AI-assisted tools; nothing here is real footage or a real event.
+Original animation, music and sound effects.
+Motion capture: CMU Graphics Lab Motion Capture Database.
+#shorts #animation #comedy #iqlevels #funny
+```
+**Tags:** `every iq level, iq levels, rating levels, seagull, sandwich, silent comedy, 3D animation, physical comedy, funny shorts`
+**Playlist:** Rating Levels
+
+### Día 4 — `render\ep004\ep004_SUBIR.mp4`
 **Title:** One Bubble Pops, the Sponge Makes Another
 **Description:**
 ```
@@ -42,7 +66,19 @@ Original animation, music and sound effects.
 #shorts #silentcomedy #3danimation #objectswithfaces #funnyshorts
 ```
 **Tags:** `bubble, sponge, objects with faces, silent comedy, 3D animation, funny shorts, kitchen comedy, cartoon comedy`
+**Playlist:** Objects With Faces
 
-## 5. Después
-Anota cada enlace publicado. Cuando vuelvas a tener uso, pásamelos junto con capturas de Analytics de los 4 vídeos
-(visualizaciones, "Viewed vs. swiped away", duración media, me gusta, suscriptores) y ajusto la estrategia.
+### Día 5 — `render\ep007\ep007_SUBIR.mp4`
+**Title:** The Butter Who Learned to Skate
+**Description:**
+```
+A pat of butter with a face lands in a hot pan and discovers it can skate. It dodges a pepper mill, melts into a puddle and ends up covering a pancake that smiles back.
+Fiction made with AI-assisted tools; nothing here is real footage or a real event.
+Original animation, music and sound effects.
+#shorts #silentcomedy #3danimation #objectswithfaces #funnyshorts
+```
+**Tags:** `animated butter, objects with faces, silent comedy, 3D animation, cooking comedy, pancake, skating, funny shorts`
+**Playlist:** Objects With Faces
+
+## 4. Después
+Apunta cada enlace. Cuando vuelvas a tener uso, pásame los enlaces y capturas de Analytics de cada vídeo (vistas, 'se quedaron para mirar', duración media).
