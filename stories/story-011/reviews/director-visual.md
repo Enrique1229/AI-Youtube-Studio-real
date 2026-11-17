@@ -1,0 +1,2 @@
+# Revisión visual del Director — story-011 (ep008, premium) — 2026-11-17
+Fotogramas l1:15,120 l2:60 l3:100 l4:80,140 l5:60,130 (director-frames.jpg). Detalle: camino con flores, arbustos, banco, roca con textura, palanca con tronco, roca de espuma amarilla en el remate. Movimiento con captura (empujar, saltar, celebrar). Choque del -500 amable (boing/pop, estrellas 22 f). check_framing: ninguno. OK para render.
