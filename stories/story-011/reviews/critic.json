@@ -1,0 +1,19 @@
+{
+  "id": "b20261117-2-l02",
+  "scores": {
+    "hook": 8,
+    "curiosity": 7,
+    "retention": 8,
+    "originality": 6,
+    "visual": 7,
+    "emotion": 6,
+    "ending": 8,
+    "series": 8,
+    "differentiation": 6,
+    "production_difficulty": 5,
+    "repetition_risk": 4
+  },
+  "why": "Formato de niveles de IQ con una roca que no se mueve ante alguien que empuja en el fotograma 1, se lee sin palabras y lo que se luce es el mocap (empujar con la espalda, correr y estrellarse, saltar sobre la palanca), con remate de espuma levantada con un dedo; el riesgo es el gag 'pesaba menos de lo que parecia' y el rodar de la roca por la palanca.",
+  "improve": "Que la roca tiemble o 'ceda' un pelo en el nivel 5200 antes del dedo para sembrar la espuma, y sustituir el rodar de la roca del nivel 900 por un simple salto lateral de la roca (S.key) para evitar fisica nueva.",
+  "vps": 66.9
+}

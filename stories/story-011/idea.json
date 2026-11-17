@@ -1,0 +1,99 @@
+{
+  "id": "b20261117-2-l02",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Moves a Boulder",
+  "caption_en": null,
+  "logline_es": "Una roca enorme bloquea el camino al banco; el más listo la mira, la toca con un dedo y descubre que es de espuma y puede llevarla en la punta del dedo.",
+  "beats": [
+    {
+      "t": "0-4",
+      "beat": "Gancho (acción en el fotograma 1). IQ -500: Ya empujando la roca con la espalda (frame 1); no se mueve; se aleja corriendo y se estrella contra ella; rebota y queda sentado con estrellas."
+    },
+    {
+      "t": "4-8",
+      "beat": "IQ -80: Salta encima para empujar con su peso (saltar), resbala por el otro lado y se queda colgado del borde; la roca, impertérrita."
+    },
+    {
+      "t": "8-12",
+      "beat": "IQ 130: Empuja con todo el cuerpo durante mucho tiempo; la roca avanza centímetro a centímetro; llega al lado y se tumba exhausto, orgulloso."
+    },
+    {
+      "t": "12-16",
+      "beat": "IQ 900: Pone un tablón como palanca; salta y cae sobre el extremo; la roca sube un poco y rueda lentamente al lado; salta de alegría."
+    },
+    {
+      "t": "16-20",
+      "beat": "IQ 5200: Mira alrededor, se acerca, toca la roca con un dedo: se tambalea, es de espuma. La levanta con un dedo, la lleva a un lado y la deja; saluda a cámara."
+    }
+  ],
+  "levels": [
+    [
+      -500,
+      "Ya empujando la roca con la espalda (frame 1); no se mueve; se aleja corriendo y se estrella contra ella; rebota y queda sentado con estrellas."
+    ],
+    [
+      -80,
+      "Salta encima para empujar con su peso (saltar), resbala por el otro lado y se queda colgado del borde; la roca, impertérrita."
+    ],
+    [
+      130,
+      "Empuja con todo el cuerpo durante mucho tiempo; la roca avanza centímetro a centímetro; llega al lado y se tumba exhausto, orgulloso."
+    ],
+    [
+      900,
+      "Pone un tablón como palanca; salta y cae sobre el extremo; la roca sube un poco y rueda lentamente al lado; salta de alegría."
+    ],
+    [
+      5200,
+      "Mira alrededor, se acerca, toca la roca con un dedo: se tambalea, es de espuma. La levanta con un dedo, la lleva a un lado y la deja; saluda a cámara."
+    ]
+  ],
+  "mocap": [
+    [
+      -500,
+      [
+        "empujar",
+        "correr"
+      ]
+    ],
+    [
+      -80,
+      [
+        "saltar"
+      ]
+    ],
+    [
+      130,
+      [
+        "empujar",
+        "contento"
+      ]
+    ],
+    [
+      900,
+      [
+        "saltar_alto",
+        "contento"
+      ]
+    ],
+    [
+      5200,
+      [
+        "mirar_alrededor",
+        "caminar",
+        "saludar"
+      ]
+    ]
+  ],
+  "payoff": "El obstáculo pesaba menos que el esfuerzo.",
+  "sin_palabras": "Roca gigante que no se mueve ante alguien que empuja: lectura inmediata.",
+  "needs": "Roca = S.obj uv_sphere gris; tablón = cube; empujar con a.mocap('empujar'); mirar con a.think. Acción nueva sencilla: 'lift_finger' = S.key de la roca sobre la mano.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Obstáculo pesado con remate de espuma; no es cruzar ni alcanzar.",
+  "vps": 66.9,
+  "batch": "20261117-2",
+  "story_id": "story-011",
+  "critic_improve": "Que la roca tiemble o 'ceda' un pelo en el nivel 5200 antes del dedo para sembrar la espuma, y sustituir el rodar de la roca del nivel 900 por un simple salto lateral de la roca (S.key) para evitar fisica nueva."
+}

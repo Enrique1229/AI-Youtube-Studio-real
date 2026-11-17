@@ -1,0 +1,59 @@
+[
+  {
+    "id": "b20261117-2-l02",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 8,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 8,
+      "series": 8,
+      "differentiation": 6,
+      "production_difficulty": 5,
+      "repetition_risk": 4
+    },
+    "why": "Formato de niveles de IQ con una roca que no se mueve ante alguien que empuja en el fotograma 1, se lee sin palabras y lo que se luce es el mocap (empujar con la espalda, correr y estrellarse, saltar sobre la palanca), con remate de espuma levantada con un dedo; el riesgo es el gag 'pesaba menos de lo que parecia' y el rodar de la roca por la palanca.",
+    "improve": "Que la roca tiemble o 'ceda' un pelo en el nivel 5200 antes del dedo para sembrar la espuma, y sustituir el rodar de la roca del nivel 900 por un simple salto lateral de la roca (S.key) para evitar fisica nueva.",
+    "vps": 66.9
+  },
+  {
+    "id": "b20261117-2-l01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 7,
+      "series": 8,
+      "differentiation": 5,
+      "production_difficulty": 5,
+      "repetition_risk": 4
+    },
+    "why": "Correr con la cometa arrastrando es un gancho claro y el mocap de correr y saltar_alto luce, pero la cometa es un objeto pequeño y el remate del globo es predecible, con cuerda, ventilador y globo que construir.",
+    "improve": "Abrir con la cometa ya en el suelo y el rostro del hombre mirando al cielo sin viento, cortar el nivel 900 del ventilador (se parece al 5469) y hacer que el globo arrastre a la cometa con un gesto de saludo mas grande.",
+    "vps": 60.3
+  },
+  {
+    "id": "b20261117-2-l03",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 6,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 7,
+      "series": 8,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "La torre de cajas tapando la cara crea tension en 1 s, pero el mocap (caminar, correr, saltar) se luce poco, el remate de 'extiende la manta donde esta' es el gag de la solucion al lado ya visto, y las cajas flotantes, la carretilla y el carry exigen mas construccion.",
+    "improve": "Reducir la torre a 3 cajas de colores y quitar la carretilla (nivel 850), y mostrar la manta ya en el suelo a su lado en el fotograma 1 para que el espectador adelante el pago.",
+    "vps": 56.4
+  }
+]
