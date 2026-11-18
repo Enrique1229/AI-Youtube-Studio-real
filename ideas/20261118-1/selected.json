@@ -1,0 +1,106 @@
+[
+  {
+    "id": "b20261118-1-l01",
+    "format": "levels",
+    "kind": "anim",
+    "env": "rio",
+    "title_en": "Every IQ Level Stays Dry Under a Personal Rain Cloud",
+    "caption_en": null,
+    "logline_es": "Una nubecita de lluvia sigue solo a un hombre por el parque; el más listo se detiene, y la nube, tras mojar unas flores secas junto al banco, se pone a regarlas y florecen.",
+    "beats": [
+      {
+        "t": "0-4",
+        "beat": "Gancho (acción en el fotograma 1). IQ -450: Ya corriendo a toda velocidad por el sendero (frame 1) con la nube pegada sobre su cabeza lloviéndole; frena en seco, la nube le pasa por delante y vuelve a su sitio; él mira al cielo, empapado, y sigue corriendo."
+      },
+      {
+        "t": "4-8",
+        "beat": "IQ -80: Salta muy alto para salir del chorro; la nube sube con él, y cae al suelo con un charco; vuelve a saltar con cara de confianza."
+      },
+      {
+        "t": "8-12",
+        "beat": "IQ 120: Se esconde bajo el diminuto árbol del parque; la nube se estira y se coloca encima; solo le cae una gota fina por la nariz y se queda quieto, casi seco, orgulloso."
+      },
+      {
+        "t": "12-16",
+        "beat": "IQ 900: Arranca el banco del suelo, lo levanta con ambos brazos y lo lleva como tejado (reach_up); la nube llueve a cántaros encima del banco y él, completamente seco y con paso firme, sonríe."
+      },
+      {
+        "t": "16-20",
+        "beat": "IQ 5400: Deja el banco, se queda quieto y mira alrededor: junto al sendero hay un parterre de flores marchitas; la nube se desliza hacia las flores y riega con cariño, que se abren con color; él se sienta en el banco, seco, y saluda a la nube."
+      }
+    ],
+    "levels": [
+      {
+        "iq": -450,
+        "gag": "Ya corriendo a toda velocidad por el sendero (frame 1) con la nube pegada sobre su cabeza lloviéndole; frena en seco, la nube le pasa por delante y vuelve a su sitio; él mira al cielo, empapado, y sigue corriendo.",
+        "por_que_es_gracioso": "Cree que correr más rápido que una nube que vuela a su misma velocidad es un plan; la nube siempre llega antes."
+      },
+      {
+        "iq": -80,
+        "gag": "Salta muy alto para salir del chorro; la nube sube con él, y cae al suelo con un charco; vuelve a saltar con cara de confianza.",
+        "por_que_es_gracioso": "Salta como si la nube fuera un charco y no un perseguidor: lógica propia, resultado idéntico."
+      },
+      {
+        "iq": 120,
+        "gag": "Se esconde bajo el diminuto árbol del parque; la nube se estira y se coloca encima; solo le cae una gota fina por la nariz y se queda quieto, casi seco, orgulloso.",
+        "por_que_es_gracioso": "Funciona a duras penas y él lo celebra por una sola gota."
+      },
+      {
+        "iq": 900,
+        "gag": "Arranca el banco del suelo, lo levanta con ambos brazos y lo lleva como tejado (reach_up); la nube llueve a cántaros encima del banco y él, completamente seco y con paso firme, sonríe.",
+        "por_que_es_gracioso": "El techo es el mismo banco donde quería sentarse: un plan que funciona de verdad y es absurdo."
+      },
+      {
+        "iq": 5400,
+        "gag": "Deja el banco, se queda quieto y mira alrededor: junto al sendero hay un parterre de flores marchitas; la nube se desliza hacia las flores y riega con cariño, que se abren con color; él se sienta en el banco, seco, y saluda a la nube.",
+        "por_que_es_gracioso": "Era una nube sedienta de ayudar a unas flores: el problema nunca fue la lluvia sobre él."
+      }
+    ],
+    "mocap": [
+      [
+        -450,
+        [
+          "correr"
+        ]
+      ],
+      [
+        -80,
+        [
+          "saltar_alto",
+          "contento"
+        ]
+      ],
+      [
+        120,
+        [
+          "caminar",
+          "mirar_alrededor"
+        ]
+      ],
+      [
+        900,
+        [
+          "empujar",
+          "reach_up"
+        ]
+      ],
+      [
+        5400,
+        [
+          "mirar_alrededor",
+          "sit",
+          "saludar"
+        ]
+      ]
+    ],
+    "payoff": "La lluvia solo quería a alguien que mirara hacia las flores.",
+    "sin_palabras": "Un hombre bajo una nube que le llueve solo a él: lectura inmediata.",
+    "needs": "Nube = 3-4 uv_sphere blancas/grises con S.key para seguir al actor; lluvia = cylinders finos con S.key en bucle; flores = cones/cylinders con S.key de escala. Banco = cubes. Mocap existente: correr, saltar_alto, caminar, empujar, mirar, saludar, reach_up, sit. Acción nueva sencilla: 'cloud_follow' = S.key de la nube sobre el actor.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Fantasía de nube con lluvia propia; sin río, animal ni objeto de picnic; remate amable de flores.",
+    "vps": 67.2,
+    "batch": "20261118-1",
+    "story_id": "story-012",
+    "critic_improve": "Dejar la lluvia como un solo cylinder fino en bucle y la nube en 3 esferas con un unico S.key de seguimiento, y sembrar el remate con las flores marchitas visibles al fondo desde el nivel 120 para que el pago se sienta ganado."
+  }
+]

@@ -1,0 +1,301 @@
+[
+ {
+  "id": "b20261118-1-l01",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Stays Dry Under a Personal Rain Cloud",
+  "caption_en": null,
+  "logline_es": "Una nubecita de lluvia sigue solo a un hombre por el parque; el más listo se detiene, y la nube, tras mojar unas flores secas junto al banco, se pone a regarlas y florecen.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (acción en el fotograma 1). IQ -450: Ya corriendo a toda velocidad por el sendero (frame 1) con la nube pegada sobre su cabeza lloviéndole; frena en seco, la nube le pasa por delante y vuelve a su sitio; él mira al cielo, empapado, y sigue corriendo."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -80: Salta muy alto para salir del chorro; la nube sube con él, y cae al suelo con un charco; vuelve a saltar con cara de confianza."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 120: Se esconde bajo el diminuto árbol del parque; la nube se estira y se coloca encima; solo le cae una gota fina por la nariz y se queda quieto, casi seco, orgulloso."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 900: Arranca el banco del suelo, lo levanta con ambos brazos y lo lleva como tejado (reach_up); la nube llueve a cántaros encima del banco y él, completamente seco y con paso firme, sonríe."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 5400: Deja el banco, se queda quieto y mira alrededor: junto al sendero hay un parterre de flores marchitas; la nube se desliza hacia las flores y riega con cariño, que se abren con color; él se sienta en el banco, seco, y saluda a la nube."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya corriendo a toda velocidad por el sendero (frame 1) con la nube pegada sobre su cabeza lloviéndole; frena en seco, la nube le pasa por delante y vuelve a su sitio; él mira al cielo, empapado, y sigue corriendo.",
+    "por_que_es_gracioso": "Cree que correr más rápido que una nube que vuela a su misma velocidad es un plan; la nube siempre llega antes."
+   },
+   {
+    "iq": -80,
+    "gag": "Salta muy alto para salir del chorro; la nube sube con él, y cae al suelo con un charco; vuelve a saltar con cara de confianza.",
+    "por_que_es_gracioso": "Salta como si la nube fuera un charco y no un perseguidor: lógica propia, resultado idéntico."
+   },
+   {
+    "iq": 120,
+    "gag": "Se esconde bajo el diminuto árbol del parque; la nube se estira y se coloca encima; solo le cae una gota fina por la nariz y se queda quieto, casi seco, orgulloso.",
+    "por_que_es_gracioso": "Funciona a duras penas y él lo celebra por una sola gota."
+   },
+   {
+    "iq": 900,
+    "gag": "Arranca el banco del suelo, lo levanta con ambos brazos y lo lleva como tejado (reach_up); la nube llueve a cántaros encima del banco y él, completamente seco y con paso firme, sonríe.",
+    "por_que_es_gracioso": "El techo es el mismo banco donde quería sentarse: un plan que funciona de verdad y es absurdo."
+   },
+   {
+    "iq": 5400,
+    "gag": "Deja el banco, se queda quieto y mira alrededor: junto al sendero hay un parterre de flores marchitas; la nube se desliza hacia las flores y riega con cariño, que se abren con color; él se sienta en el banco, seco, y saluda a la nube.",
+    "por_que_es_gracioso": "Era una nube sedienta de ayudar a unas flores: el problema nunca fue la lluvia sobre él."
+   }
+  ],
+  "mocap": [
+   [
+    -450,
+    [
+     "correr"
+    ]
+   ],
+   [
+    -80,
+    [
+     "saltar_alto",
+     "contento"
+    ]
+   ],
+   [
+    120,
+    [
+     "caminar",
+     "mirar_alrededor"
+    ]
+   ],
+   [
+    900,
+    [
+     "empujar",
+     "reach_up"
+    ]
+   ],
+   [
+    5400,
+    [
+     "mirar_alrededor",
+     "sit",
+     "saludar"
+    ]
+   ]
+  ],
+  "payoff": "La lluvia solo quería a alguien que mirara hacia las flores.",
+  "sin_palabras": "Un hombre bajo una nube que le llueve solo a él: lectura inmediata.",
+  "needs": "Nube = 3-4 uv_sphere blancas/grises con S.key para seguir al actor; lluvia = cylinders finos con S.key en bucle; flores = cones/cylinders con S.key de escala. Banco = cubes. Mocap existente: correr, saltar_alto, caminar, empujar, mirar, saludar, reach_up, sit. Acción nueva sencilla: 'cloud_follow' = S.key de la nube sobre el actor.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Fantasía de nube con lluvia propia; sin río, animal ni objeto de picnic; remate amable de flores."
+ },
+ {
+  "id": "b20261118-1-l02",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Rides a Seesaw Alone",
+  "caption_en": null,
+  "logline_es": "Un hombre quiere subirse solo a un balancín con un extremo en alto; el más listo se sienta junto al eje y una ardillita en la otra punta lo levanta y lo baja.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (acción en el fotograma 1). IQ -500: Ya saltando y agarrándose del extremo alto (frame 1), cuelga de las manos; el balancín baja, lo golpea el otro extremo y él sale volando al césped."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -90: Corre y se tira de golpe sobre el extremo bajo (correr, saltar); el otro extremo no sube ni un centímetro; se queda sentado con la cara de 'raro'."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 130: Camina por el tablón con los brazos abiertos hasta el centro; el balancín se inclina a un lado y al otro mientras él lo equilibra; llega al otro extremo y se sienta, tembloroso, con la cabeza alta."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 900: Trae una gran bolsa de arena del césped, la coloca en el extremo alto; el balancín baja por el lado de la bolsa; él se sienta en el otro; sube y baja lento; celebra."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 5469: Se agacha y mira el tablón; desliza el balancín hasta sentarse junto al eje; una ardilla sube por la otra punta con su bellota; sube y baja él con la ardilla, saludando a cámara."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -500,
+    "gag": "Ya saltando y agarrándose del extremo alto (frame 1), cuelga de las manos; el balancín baja, lo golpea el otro extremo y él sale volando al césped.",
+    "por_que_es_gracioso": "Cree que colgarse del extremo alto es montarse; el balancín responde con ley propia."
+   },
+   {
+    "iq": -90,
+    "gag": "Corre y se tira de golpe sobre el extremo bajo (correr, saltar); el otro extremo no sube ni un centímetro; se queda sentado con la cara de 'raro'.",
+    "por_que_es_gracioso": "Su plan lógico: si salto muy fuerte sube más; en realidad es solo un gran golpe."
+   },
+   {
+    "iq": 130,
+    "gag": "Camina por el tablón con los brazos abiertos hasta el centro; el balancín se inclina a un lado y al otro mientras él lo equilibra; llega al otro extremo y se sienta, tembloroso, con la cabeza alta.",
+    "por_que_es_gracioso": "Es un equilibrista que funciona a duras penas."
+   },
+   {
+    "iq": 900,
+    "gag": "Trae una gran bolsa de arena del césped, la coloca en el extremo alto; el balancín baja por el lado de la bolsa; él se sienta en el otro; sube y baja lento; celebra.",
+    "por_que_es_gracioso": "Usa un contrapeso: funciona, pero llevó la bolsa a cuestas."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se agacha y mira el tablón; desliza el balancín hasta sentarse junto al eje; una ardilla sube por la otra punta con su bellota; sube y baja él con la ardilla, saludando a cámara.",
+    "por_que_es_gracioso": "La palanca lo hace innecesario: la ardillita pesa tan poco como necesita; solución lateral y tierna."
+   }
+  ],
+  "mocap": [
+   [
+    -500,
+    [
+     "saltar"
+    ]
+   ],
+   [
+    -90,
+    [
+     "correr",
+     "saltar"
+    ]
+   ],
+   [
+    130,
+    [
+     "caminar"
+    ]
+   ],
+   [
+    900,
+    [
+     "empujar",
+     "contento"
+    ]
+   ],
+   [
+    5469,
+    [
+     "mirar_alrededor",
+     "sit",
+     "saludar"
+    ]
+   ]
+  ],
+  "payoff": "Una palanca perfecta necesita un compañero pequeño.",
+  "sin_palabras": "Un balancín con un extremo en el aire y un hombre que mira hacia arriba: objetivo en 1 s.",
+  "needs": "Balancín = cube plano + cylinder eje, S.key de rotación del tablón con sincronía a la caída del actor; ardilla = S.actor(look kind criatura) pequeña; bolsa de arena = uv_sphere achatada. Acción nueva sencilla: 'seesaw_tilt' = S.key rot del tablón. Mocap existente: saltar, correr, caminar, empujar, contento, sit, saludar.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Palanca y equilibrio; no es cruzar, subir a un árbol ni alcanzar un objeto; sin pato ni gaviota."
+ },
+ {
+  "id": "b20261118-1-l03",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Fixes a Wobbly Bench",
+  "caption_en": null,
+  "logline_es": "Un banco con una pata corta se tambalea cada vez que alguien se sienta; el más listo se sienta en el césped apoyado en el respaldo y el banco, balanceándose, arrulla a una ardilla dormida.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (acción en el fotograma 1). IQ -450: Ya sentándose de golpe en el banco que se tambalea (frame 1); el banco se inclina, él cae de espaldas con los pies al aire; se levanta, se sienta otra vez y cae igual."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -80: Salta sobre el banco para aplastarlo contra el suelo (saltar); el banco ni se inmuta y él rebota lejos; vuelve a probar con salto doble."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 120: Dobla un papel de periódico y lo mete bajo la pata corta; el banco queda más o menos recto; se sienta con cuidado y no respira; la pata se mueve un poco."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 900: Trae una piedra plana del borde del río y la pone bajo la pata; ajusta con el pie, se sienta con firmeza y cierra los ojos con alegría."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 5000: Mira el banco, se encoge de hombros y se sienta en el césped apoyado en el respaldo, bajo el árbol; el banco sigue meciéndose y una ardillita dormida encima se queda profunda en su mecedora; él la mira, sonríe y saluda."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya sentándose de golpe en el banco que se tambalea (frame 1); el banco se inclina, él cae de espaldas con los pies al aire; se levanta, se sienta otra vez y cae igual.",
+    "por_que_es_gracioso": "Sentarse más fuerte no arregla una pata corta; él cree que es cuestión de práctica."
+   },
+   {
+    "iq": -80,
+    "gag": "Salta sobre el banco para aplastarlo contra el suelo (saltar); el banco ni se inmuta y él rebota lejos; vuelve a probar con salto doble.",
+    "por_que_es_gracioso": "Ataca la pata corta con peso: la lógica de la plancha."
+   },
+   {
+    "iq": 120,
+    "gag": "Dobla un papel de periódico y lo mete bajo la pata corta; el banco queda más o menos recto; se sienta con cuidado y no respira; la pata se mueve un poco.",
+    "por_que_es_gracioso": "Casi funciona y él no quiere mover ni un músculo."
+   },
+   {
+    "iq": 900,
+    "gag": "Trae una piedra plana del borde del río y la pone bajo la pata; ajusta con el pie, se sienta con firmeza y cierra los ojos con alegría.",
+    "por_que_es_gracioso": "Funciona de verdad; el esfuerzo está en cargar la piedra."
+   },
+   {
+    "iq": 5000,
+    "gag": "Mira el banco, se encoge de hombros y se sienta en el césped apoyado en el respaldo, bajo el árbol; el banco sigue meciéndose y una ardillita dormida encima se queda profunda en su mecedora; él la mira, sonríe y saluda.",
+    "por_que_es_gracioso": "El banco cojo era una cuna: el defecto resulta ser lo que otro necesitaba."
+   }
+  ],
+  "mocap": [
+   [
+    -450,
+    [
+     "empujar"
+    ]
+   ],
+   [
+    -80,
+    [
+     "saltar",
+     "saltar_alto"
+    ]
+   ],
+   [
+    120,
+    [
+     "mirar_alrededor",
+     "caminar"
+    ]
+   ],
+   [
+    900,
+    [
+     "caminar",
+     "contento"
+    ]
+   ],
+   [
+    5000,
+    [
+     "mirar_alrededor",
+     "sit",
+     "saludar"
+    ]
+   ]
+  ],
+  "payoff": "Lo cojo de un banco es la comodidad de otro.",
+  "sin_palabras": "Banco que se tambalea y un hombre que cae sentado: lectura en 1 s.",
+  "needs": "Banco = cubes con rot S.key en bucle; papel = cube plano; piedra = uv_sphere achatada; ardilla = actor criatura pequeño. Acción nueva sencilla: 'wobble' = S.key rot oscilante del banco. Mocap existente: empujar, saltar, saltar_alto, caminar, contento, sit, saludar.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Arreglar un objeto cotidiano; no es cruzar, alcanzar ni transportar; mismo tipo de ardilla que el 02 es opcional: cambiar a pájaro en caso de colisión."
+ }
+]
