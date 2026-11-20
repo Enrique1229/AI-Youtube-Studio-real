@@ -46,7 +46,7 @@ def mmat(S, name, rgb, rough=0.5, metal=0.0, emit=None):
 
 def mud_mat(S):
     """Barro mojado: marrón muy oscuro con variación, brillo húmedo irregular (rugosidad baja + capa clara) y relieve."""
-    if "mud" in S.mats: return S.mats["mud"]
+    if "barro_ep011" in S.mats: return S.mats["barro_ep011"]
     m = bpy.data.materials.new("barro"); m.use_nodes = True; nt = m.node_tree; N = nt.nodes; L = nt.links
     b = N["Principled BSDF"]
     tc = N.new("ShaderNodeTexCoord")
@@ -61,17 +61,17 @@ def mud_mat(S):
     L.new(n1.outputs["Fac"], rr.inputs["Value"]); L.new(rr.outputs["Result"], b.inputs["Roughness"])
     mix = N.new("ShaderNodeMath"); mix.operation = "ADD"; mix.inputs[1].default_value = 0.0
     L.new(n2.outputs["Fac"], mix.inputs[0])
-    bp = N.new("ShaderNodeBump"); bp.inputs["Strength"].default_value = 0.9; bp.inputs["Distance"].default_value = 0.05
+    bp = N.new("ShaderNodeBump"); bp.inputs["Strength"].default_value = 1.4; bp.inputs["Distance"].default_value = 0.08
     L.new(mix.outputs["Value"], bp.inputs["Height"]); L.new(bp.outputs["Normal"], b.inputs["Normal"])
-    for k, v in (("Coat Weight", 0.25), ("Coat Roughness", 0.08), ("Specular IOR Level", 0.6)):
+    for k, v in (("Coat Weight", 0.4), ("Coat Roughness", 0.06), ("Specular IOR Level", 0.7)):
         if k in b.inputs: b.inputs[k].default_value = v
-    S.mats["mud"] = m
+    S.mats["barro_ep011"] = m
     return m
 
 
 def checker_mat(S):
     """Manta de cuadros rojos y blancos (cuadros de ~12 cm) con trama de tela."""
-    if "checker" in S.mats: return S.mats["checker"]
+    if "manta_ep011" in S.mats: return S.mats["manta_ep011"]
     m = bpy.data.materials.new("manta"); m.use_nodes = True; nt = m.node_tree; N = nt.nodes; L = nt.links
     b = N["Principled BSDF"]; b.inputs["Roughness"].default_value = 0.85
     tc = N.new("ShaderNodeTexCoord"); ck = N.new("ShaderNodeTexChecker"); ck.inputs["Scale"].default_value = 4.0
@@ -81,7 +81,7 @@ def checker_mat(S):
     L.new(tc.outputs["Object"], nz.inputs["Vector"])
     bp = N.new("ShaderNodeBump"); bp.inputs["Strength"].default_value = 0.15
     L.new(nz.outputs["Fac"], bp.inputs["Height"]); L.new(bp.outputs["Normal"], b.inputs["Normal"])
-    S.mats["checker"] = m
+    S.mats["manta_ep011"] = m
     return m
 
 
@@ -126,7 +126,7 @@ def head_pos(S, a, f):
     return a.head.matrix_world.translation.copy()
 
 
-def cam_static(S, cx=-8.0, lens=30, dist=6.0, ch=1.9, tz=1.15):
+def cam_static(S, cx=-8.0, lens=30, dist=6.0, ch=1.7, tz=1.8):
     S.cam.location = (cx, -dist, ch); S.cam.data.lens = lens; S.tgt.location = (cx, 0, tz)
     S.cam.keyframe_insert("location", frame=1); S.cam.data.keyframe_insert("lens", frame=1); S.tgt.keyframe_insert("location", frame=1)
 
