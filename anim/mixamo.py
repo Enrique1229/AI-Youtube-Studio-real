@@ -16,7 +16,7 @@ import bpy
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 FOLDER = ROOT / "assets" / "mixamo"
-HIPS = 'pose.bones["mixamorig:Hips"].location'
+HIPS = 'pose.bones["mixamorig:Hips"].location'        # el prefijo real (mixamorig, mixamorig12...) se detecta al importar
 
 
 def _fcurves(action):
@@ -57,6 +57,7 @@ class MixamoActor:
             else:
                 for o in new: bpy.data.objects.remove(o, do_unlink=True)
         if self.arm is None: raise MixamoError("ningún .fbx trae el personaje (descarga uno 'With Skin')")
+        self.pfx = next((b.name[:-4] for b in self.arm.data.bones if b.name.endswith("Hips")), "mixamorig:")   # p. ej. "mixamorig12:"
         for act in self.clips.values(): self._in_place(act)
         self._matte()
         self.arm.animation_data.action = None
@@ -64,15 +65,16 @@ class MixamoActor:
         self.root = S.empty("mixamo_raiz", (x, 0, self.z)); self.root.rotation_euler = (0, 0, math.radians(yaw)); self.root.scale = (scale,) * 3
         self.arm.parent = self.root
         self.head = S.empty("mixamo_cabeza", (0, 0, 0))
-        self.head.parent = self.arm; self.head.parent_type = "BONE"; self.head.parent_bone = "mixamorig:Head"
+        self.head.parent = self.arm; self.head.parent_type = "BONE"; self.head.parent_bone = self.pfx + "Head"
         self.tracks = [self.arm.animation_data.nla_tracks.new() for _ in range(2)]        # dos pistas: los clips se solapan al fundirse
         for i, t in enumerate(self.tracks): t.name = f"gag{i}"
         self.strips = []
 
     def _in_place(self, act):
         """Quita el avance horizontal de la cadera (en Mixamo: ejes x y z locales, Y es arriba)."""
+        hips = f'pose.bones["{self.pfx}Hips"].location'
         for fc in _fcurves(act):
-            if fc.data_path == HIPS and fc.array_index in (0, 2):
+            if fc.data_path == hips and fc.array_index in (0, 2):
                 v0 = fc.keyframe_points[0].co[1] if fc.keyframe_points else 0.0
                 for k in fc.keyframe_points:
                     k.co[1] = v0; k.handle_left[1] = v0; k.handle_right[1] = v0

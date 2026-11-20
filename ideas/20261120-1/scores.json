@@ -1,0 +1,78 @@
+[
+  {
+    "id": "b20261120-1-l01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 8,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 8,
+      "series": 8,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 4
+    },
+    "why": "Campana en lo alto y hombre ya saltando con el brazo estirado en el fotograma 1 se lee sin palabras, cada nivel usa un clip distinto (Jumping, Throw, Climbing Up Wall, Climbing A Rope, Picking Up) y el remate de mirar al suelo y tirar de la cuerda es limpio, aunque el nivel 900 ya usa cuerda y le resta contraste al 5469 y el dling con balanceo de la campana es lo mas delicado de construir.",
+    "improve": "Cambiar el 900 para que no use cuerda (por ejemplo apilar un banco o una papelera y trepar) de modo que la cuerda de tirar sea una sorpresa solo en el 5469, y dejar la cuerda visible de reojo al fondo desde el fotograma 1 para que el remate sea justo.",
+    "vps": 66.4
+  },
+  {
+    "id": "b20261120-1-l04",
+    "scores": {
+      "hook": 8,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 6,
+      "visual": 8,
+      "emotion": 8,
+      "ending": 8,
+      "series": 8,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "Hombre corriendo tras una mariposa en el fotograma 1 es la premisa mas legible y mas natural en un parque realista, y el remate de quedarse quieto y que la mariposa se pose en la nariz es el mas tierno del lote, pero el nivel 900 con Thinking y la flor extendida se lee mal sin palabras, y la mariposa posada en la nariz exige un contacto preciso con el actor.",
+    "improve": "Sustituir el Thinking del 900 por el hombre ofreciendo la flor con el brazo estirado y la mariposa rozandola sin posarse (una sola trayectoria clara), y fijar la mariposa a la cabeza del actor con un parent al hueso de la nariz para que el remate no flote.",
+    "vps": 64.7
+  },
+  {
+    "id": "b20261120-1-l02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 7,
+      "retention": 6,
+      "originality": 6,
+      "visual": 6,
+      "emotion": 7,
+      "ending": 7,
+      "series": 8,
+      "differentiation": 5,
+      "production_difficulty": 7,
+      "repetition_risk": 5
+    },
+    "why": "El gato dormido sobre el doblez es un remate simpatico, pero el nivel 900 ya estira el tubo y hace salir el agua, lo que contradice que el gato sea la causa, y la manguera con agua en bucle, flor y gato suman mucha construccion para un gag de manguera pisada muy conocido.",
+    "improve": "Hacer que el 900 no toque el doblez (por ejemplo sube el caudal en la llave sin resultado) para que el gato siga siendo la unica causa, y plantar el gato dormido visible y pequeno al fondo desde el fotograma 1.",
+    "vps": 58.1
+  },
+  {
+    "id": "b20261120-1-l03",
+    "scores": {
+      "hook": 6,
+      "curiosity": 5,
+      "retention": 6,
+      "originality": 5,
+      "visual": 5,
+      "emotion": 5,
+      "ending": 5,
+      "series": 7,
+      "differentiation": 5,
+      "production_difficulty": 8,
+      "repetition_risk": 6
+    },
+    "why": "Nieve y muneco en un parque realista chocan con el escenario, el gag de levantar un objeto pesado se parece a cajas y rocas ya usadas, el remate de tumbar el cuerpo y poner la cabeza no se entiende sin palabras, y rodar, volcar y encajar bolas de nieve es lo mas dificil de animar con S.key.",
+    "improve": "Descartar o rehacer con un objeto de parque que encaje con el HDRI (por ejemplo una farola o un cartel que hay que enderezar), con un remate que se vea en un solo plano en vez de tumbar y levantar el cuerpo.",
+    "vps": 45.3
+  }
+]

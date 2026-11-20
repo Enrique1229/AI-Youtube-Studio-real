@@ -1,0 +1,105 @@
+{
+  "id": "b20261120-1-l01",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Rings the Bell on a Tall Post",
+  "caption_en": null,
+  "logline_es": "Una campana cuelga en lo alto de un poste del parque; el hombre quiere tocarla y prueba saltos, zapatos lanzados y trepadas; el más listo mira detrás del poste y encuentra la cuerda de tirar en el suelo.",
+  "beats": [
+    {
+      "t": "0-4",
+      "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya saltando (frame 1) con el brazo estirado bajo la campana; no llega; salta otra vez más fuerte y cae de culo, mirando la campana con rabia."
+    },
+    {
+      "t": "4-9",
+      "beat": "IQ -80: Lanza su zapato (Throw); el zapato rebota en el poste y le da en la cabeza; se cae de espaldas sin llegar a la campana."
+    },
+    {
+      "t": "9-13",
+      "beat": "IQ 120: Trepa por el poste como por un muro (Climbing Up Wall); roza la campana con un dedo: dling mínimo; se agarra temblando."
+    },
+    {
+      "t": "13-18",
+      "beat": "IQ 900: Cuelga una cuerda de la rama y trepa (Climbing A Rope) hasta la campana, que suena a lo grande; se balancea sonriendo."
+    },
+    {
+      "t": "18-22",
+      "beat": "IQ 5469: Se queda quieto y mira alrededor: detrás del poste hay una cuerda de tirar en el suelo; la recoge (Picking Up), tira con un dedo: la campana suena fuerte; levanta los brazos."
+    }
+  ],
+  "levels": [
+    {
+      "iq": -450,
+      "gag": "Ya saltando (frame 1) con el brazo estirado bajo la campana; no llega; salta otra vez más fuerte y cae de culo, mirando la campana con rabia.",
+      "por_que_es_gracioso": "Cree que es un problema de ganas, no de altura."
+    },
+    {
+      "iq": -80,
+      "gag": "Lanza su zapato (Throw); el zapato rebota en el poste y le da en la cabeza; se cae de espaldas sin llegar a la campana.",
+      "por_que_es_gracioso": "Su plan tiene lógica de lanzador y puntería de ciego."
+    },
+    {
+      "iq": 120,
+      "gag": "Trepa por el poste como por un muro (Climbing Up Wall); roza la campana con un dedo: dling mínimo; se agarra temblando.",
+      "por_que_es_gracioso": "Funciona a duras penas: el sonido es un hilito."
+    },
+    {
+      "iq": 900,
+      "gag": "Cuelga una cuerda de la rama y trepa (Climbing A Rope) hasta la campana, que suena a lo grande; se balancea sonriendo.",
+      "por_que_es_gracioso": "Funciona de verdad, pero con un esfuerzo enorme."
+    },
+    {
+      "iq": 5469,
+      "gag": "Se queda quieto y mira alrededor: detrás del poste hay una cuerda de tirar en el suelo; la recoge (Picking Up), tira con un dedo: la campana suena fuerte; levanta los brazos.",
+      "por_que_es_gracioso": "La solución estaba a ras de suelo desde el principio: nadie miró abajo."
+    }
+  ],
+  "clips": [
+    [
+      -450,
+      [
+        "Jumping",
+        "Angry"
+      ]
+    ],
+    [
+      -80,
+      [
+        "Throw",
+        "Falling Back Death"
+      ]
+    ],
+    [
+      120,
+      [
+        "Climbing Up Wall",
+        "Victory"
+      ]
+    ],
+    [
+      900,
+      [
+        "Climbing A Rope",
+        "Laughing"
+      ]
+    ],
+    [
+      5469,
+      [
+        "Looking Around",
+        "Picking Up",
+        "Victory"
+      ]
+    ]
+  ],
+  "payoff": "La cuerda estaba a la altura de su mano todo el rato.",
+  "sin_palabras": "Campana en alto y hombre que estira el brazo: se lee en 1 s.",
+  "needs": "Poste = cylinder; campana = cone + uv_sphere con S.key de balanceo (dling = temblor + rotacion); cuerda = cylinder fino. Zapato = cube pequeno lanzado con S.key. Clips existentes de Mixamo solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Alcanzar algo alto con cuerda escondida; sin nube, manzana, cometa ni cajas; remate de mirar al suelo.",
+  "vps": 66.4,
+  "batch": "20261120-1",
+  "story_id": "story-013",
+  "critic_improve": "Cambiar el 900 para que no use cuerda (por ejemplo apilar un banco o una papelera y trepar) de modo que la cuerda de tirar sea una sorpresa solo en el 5469, y dejar la cuerda visible de reojo al fondo desde el fotograma 1 para que el remate sea justo."
+}

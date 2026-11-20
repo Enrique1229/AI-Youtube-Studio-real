@@ -1,0 +1,19 @@
+{
+  "id": "b20261120-1-l01",
+  "scores": {
+    "hook": 8,
+    "curiosity": 7,
+    "retention": 8,
+    "originality": 6,
+    "visual": 7,
+    "emotion": 6,
+    "ending": 8,
+    "series": 8,
+    "differentiation": 6,
+    "production_difficulty": 6,
+    "repetition_risk": 4
+  },
+  "why": "Campana en lo alto y hombre ya saltando con el brazo estirado en el fotograma 1 se lee sin palabras, cada nivel usa un clip distinto (Jumping, Throw, Climbing Up Wall, Climbing A Rope, Picking Up) y el remate de mirar al suelo y tirar de la cuerda es limpio, aunque el nivel 900 ya usa cuerda y le resta contraste al 5469 y el dling con balanceo de la campana es lo mas delicado de construir.",
+  "improve": "Cambiar el 900 para que no use cuerda (por ejemplo apilar un banco o una papelera y trepar) de modo que la cuerda de tirar sea una sorpresa solo en el 5469, y dejar la cuerda visible de reojo al fondo desde el fotograma 1 para que el remate sea justo.",
+  "vps": 66.4
+}
