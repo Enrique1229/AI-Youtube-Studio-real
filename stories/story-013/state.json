@@ -2,11 +2,11 @@
   "id": "story-013",
   "format": "short",
   "title": "Every IQ Level Rings the Bell on a Tall Post",
-  "stage": "selected",
+  "stage": "published",
   "gates": {
     "critic": "PASS",
     "market": "PASS",
-    "continuity": "PENDING",
+    "continuity": "PASS",
     "policy": "PENDING",
     "qc": "PENDING"
   },

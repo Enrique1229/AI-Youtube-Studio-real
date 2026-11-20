@@ -1,0 +1,78 @@
+[
+  {
+    "id": "b20261120-2-l01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 5,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 8,
+      "series": 8,
+      "differentiation": 6,
+      "production_difficulty": 4,
+      "repetition_risk": 4
+    },
+    "why": "Puerta sola en el cesped y hombre ya empujando en el fotograma 1 se lee sin palabras, los cinco niveles usan clips distintos y el remate de rodearla andando no es mirar abajo ni detras, pero la puerta sin pared es un meme conocido y el nivel 120 ya trepa el marco a la vista, lo que adelanta el remate.",
+    "improve": "Hacer que el 120 no trepe sino que empuje de lado el marco con una tabla (o se cuelgue sin pasar), para que el hecho de que la puerta no tiene pared solo se revele con el giro de camara en el 5469.",
+    "vps": 63.3
+  },
+  {
+    "id": "b20261120-2-l04",
+    "scores": {
+      "hook": 8,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 7,
+      "ending": 7,
+      "series": 8,
+      "differentiation": 6,
+      "production_difficulty": 7,
+      "repetition_risk": 4
+    },
+    "why": "Hombre corriendo hacia el barro con la manta al otro lado se lee en un segundo y arrastrar la manta es un remate nuevo que no depende de mirar abajo ni detras, aunque acumula props (barro, tablon, cuerda, rama, manta con S.key) y el 900 con cuerda y rama es el nivel mas caro y menos creible en un parque.",
+    "improve": "Quitar la cuerda y la rama del 900 y sustituirlo por un salto con carrerilla sobre un banco o tablon ya visibles, y dejar la manta con una esquina claramente doblada hacia la orilla del hombre desde el fotograma 1 para que el tiron sea justo.",
+    "vps": 62.6
+  },
+  {
+    "id": "b20261120-2-l03",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 5,
+      "ending": 5,
+      "series": 7,
+      "differentiation": 5,
+      "production_difficulty": 7,
+      "repetition_risk": 6
+    },
+    "why": "Llaves al fondo de una papelera son legibles de entrada y el cuerpo de los niveles varia, pero el remate de la trampilla en la base es mirar abajo como la campana, la trampilla no se ve nunca antes y el 900 de volcarla es casi la solucion obvia que deja poco margen al 5469.",
+    "improve": "Cambiar el remate por algo que se vea en un plano sin mirar abajo, como golpear la papelera de lado y que las llaves salgan por un agujero lateral ya visible desde el principio, y pasar la piedra del 80 a un gesto mas claro sin sonido.",
+    "vps": 50.1
+  },
+  {
+    "id": "b20261120-2-l02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 5,
+      "retention": 6,
+      "originality": 4,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 4,
+      "series": 7,
+      "differentiation": 4,
+      "production_difficulty": 5,
+      "repetition_risk": 7
+    },
+    "why": "Banco ocupado por una caja y hombre con ganas de sentarse se lee al instante, pero el remate de girarse y ver otro banco detras es la campana en version banco, el 900 de empujar la caja ya resuelve el problema y deja sin sentido el 5469, y la caja sobre el banco repite las cajas de lotes anteriores.",
+    "improve": "Eliminar el segundo banco detras y hacer que el 5469 sea una solucion visible desde el principio, por ejemplo sentarse en el respaldo o en la propia caja, con el 900 fallando al empujar para que el 5469 sea el unico que resuelve.",
+    "vps": 46.6
+  }
+]

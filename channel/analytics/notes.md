@@ -24,3 +24,4 @@ Total 17.736 vistas · "Stayed to watch" 50,9 %.
 Lectura: niveles media 50,4 % vs objetos 43,4 %. El premium (roca: detalle + captura real) es el 2.º en retención
 pese a ser el más reciente. Las vistas se concentran en el primero (río, 41 %). Prioridad: niveles premium, gancho del
 primer segundo, mejor audio y caras más realistas (petición del usuario).
+- 2026-11-20: subido ep010 'Every IQ Level Rings the Bell on a Tall Post' (story-013), primer episodio con personaje Mixamo y parque realista. Comparar retención con River 61,3 % / Boulder 53,8 %.

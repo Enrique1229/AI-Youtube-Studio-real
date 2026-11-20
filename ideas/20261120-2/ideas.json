@@ -1,0 +1,408 @@
+[
+ {
+  "id": "b20261120-2-l01",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Opens a Door in the Park",
+  "caption_en": null,
+  "logline_es": "Una puerta con marco, sola en medio del césped, no se abre; el hombre empuja, embiste, trepa y tira del pomo; el más listo se limita a rodearla andando.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya empujando la puerta con todo el cuerpo (frame 1); no cede; empuja con más cara de esfuerzo hasta que resbala y cae de espaldas."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -80: Retrocede, coge carrerilla (Running) y embiste la puerta; rebota y queda sentado mirando la puerta, que sigue intacta."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 120: Trepa por el marco como por un muro (Climbing Up Wall), llega arriba temblando y se deja caer al otro lado de forma torpe."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 900: Agarra el pomo (Picking Up), tira y la puerta se abre; cruza entre risas y la cierra con orgullo."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 5469: Se queda quieto y mira alrededor (Looking Around): la puerta no tiene pared; se encoge de hombros y la rodea andando; levanta los brazos."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya empujando la puerta con todo el cuerpo (frame 1); no cede; empuja con más cara de esfuerzo hasta que resbala y cae de espaldas.",
+    "por_que_es_gracioso": "Empuja una puerta que se abre tirando: mas fuerza, mismo error."
+   },
+   {
+    "iq": -80,
+    "gag": "Retrocede, coge carrerilla (Running) y embiste la puerta; rebota y queda sentado mirando la puerta, que sigue intacta.",
+    "por_que_es_gracioso": "Si empujar no basta, empujar corriendo."
+   },
+   {
+    "iq": 120,
+    "gag": "Trepa por el marco como por un muro (Climbing Up Wall), llega arriba temblando y se deja caer al otro lado de forma torpe.",
+    "por_que_es_gracioso": "Funciona a duras penas: pasa, pero de cabeza."
+   },
+   {
+    "iq": 900,
+    "gag": "Agarra el pomo (Picking Up), tira y la puerta se abre; cruza entre risas y la cierra con orgullo.",
+    "por_que_es_gracioso": "Funciona bien pero tras tres fracasos de empujar."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se queda quieto y mira alrededor (Looking Around): la puerta no tiene pared; se encoge de hombros y la rodea andando; levanta los brazos.",
+    "por_que_es_gracioso": "El problema nunca existio: la puerta estaba sola en el cesped."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Pushing",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Running",
+     "Sitting Idle"
+    ]
+   ],
+   [
+    120,
+    [
+     "Climbing Up Wall",
+     "Victory"
+    ]
+   ],
+   [
+    900,
+    [
+     "Picking Up",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Looking Around",
+     "Walking Left Turn",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "Una puerta sin pared es solo un adorno.",
+  "sin_palabras": "Puerta sola en el cesped y hombre que empuja: se lee en 1 s.",
+  "needs": "Puerta = cube fino + marco de 3 cubes + pomo uv_sphere; S.key de bisagra para abrir. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Obstaculo cotidiano; sin cuerda ni altura ni objeto escondido; remate de rodear. Ledger similitud 0,11."
+ },
+ {
+  "id": "b20261120-2-l02",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Takes the Park Bench",
+  "caption_en": null,
+  "logline_es": "Una caja enorme ocupa el banco y el hombre quiere sentarse; empuja, lanza, la levanta y la tira; el más listo se gira y descubre otro banco vacío justo detrás.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya inclinado para sentarse en el borde (frame 1); la caja ocupa casi todo; se sienta en una esquina, resbala y cae al suelo."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -80: Empuja la caja (Pushing) con el hombro; no se mueve; coge un palo y la golpea; se rinde sentado en el suelo."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 120: Levanta la caja (Picking Up) tambaleándose y la deja caer sobre un pie; se sienta cojeando."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 900: Empuja la caja fuera del banco (Pushing) con las dos manos; se sienta y se rie (Laughing)."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 5469: Se queda pensando (Thinking), se gira (Looking Around) y ve otro banco vacío detras; lo mira, se sienta alli (Sitting Idle) y saluda a la caja."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya inclinado para sentarse en el borde (frame 1); la caja ocupa casi todo; se sienta en una esquina, resbala y cae al suelo.",
+    "por_que_es_gracioso": "Cree que un cuarto de banco es un banco."
+   },
+   {
+    "iq": -80,
+    "gag": "Empuja la caja (Pushing) con el hombro; no se mueve; coge un palo y la golpea; se rinde sentado en el suelo.",
+    "por_que_es_gracioso": "Empujar una caja pesada: logica de cabezota."
+   },
+   {
+    "iq": 120,
+    "gag": "Levanta la caja (Picking Up) tambaleándose y la deja caer sobre un pie; se sienta cojeando.",
+    "por_que_es_gracioso": "Funciona a duras penas: gana el banco y pierde el pie."
+   },
+   {
+    "iq": 900,
+    "gag": "Empuja la caja fuera del banco (Pushing) con las dos manos; se sienta y se rie (Laughing).",
+    "por_que_es_gracioso": "Funciona bien con un esfuerzo enorme."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se queda pensando (Thinking), se gira (Looking Around) y ve otro banco vacío detras; lo mira, se sienta alli (Sitting Idle) y saluda a la caja.",
+    "por_que_es_gracioso": "Habia otro banco a su espalda desde el principio."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Sitting Idle",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Pushing",
+     "Angry"
+    ]
+   ],
+   [
+    120,
+    [
+     "Picking Up",
+     "Sitting Idle"
+    ]
+   ],
+   [
+    900,
+    [
+     "Pushing",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Thinking",
+     "Looking Around",
+     "Sitting Idle",
+     "Waving"
+    ]
+   ]
+  ],
+  "payoff": "El banco libre estaba justo detras de el.",
+  "sin_palabras": "Banco ocupado por una caja y hombre con ganas de sentarse: se lee en 1 s.",
+  "needs": "Banco = 3 cubes (asiento, respaldo, patas); caja = cube grande; palo = cylinder; segundo banco igual detras. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Objeto universal (banco) pero el problema es ocupado, no cojo; remate de darse la vuelta distinto al de la manzana. Ledger 0,24."
+ },
+ {
+  "id": "b20261120-2-l03",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Gets Keys Out of a Trash Can",
+  "caption_en": null,
+  "logline_es": "Sus llaves cayeron al fondo de una papelera alta; el hombre salta, lanza una piedra, trepa y la vacía; el más listo abre la trampilla de la base.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya saltando con el brazo estirado sobre la boca de la papelera (frame 1); cae de cabeza dentro con las piernas fuera, pataleando."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -80: Lanza una piedra (Throw) para empujar las llaves; la piedra cae dentro, suena un clonc y se oye que las llaves se hunden mas; cae de espaldas."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 120: Trepa por el lateral (Climbing Up Wall), mete el brazo y roza las llaves con un dedo; cuelga con cara de agobio."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 900: Levanta la papelera (Picking Up), la vuelca y la sacude; las llaves caen entre la basura; se ríe (Laughing)."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 5469: Mira alrededor (Looking Around) y descubre una trampilla en la base de la papelera; la abre, las llaves caen a su mano y levanta los brazos."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya saltando con el brazo estirado sobre la boca de la papelera (frame 1); cae de cabeza dentro con las piernas fuera, pataleando.",
+    "por_que_es_gracioso": "Cree que alcanzar es cuestion de ganas."
+   },
+   {
+    "iq": -80,
+    "gag": "Lanza una piedra (Throw) para empujar las llaves; la piedra cae dentro, suena un clonc y se oye que las llaves se hunden mas; cae de espaldas.",
+    "por_que_es_gracioso": "Su lógica: golpear arriba empuja abajo."
+   },
+   {
+    "iq": 120,
+    "gag": "Trepa por el lateral (Climbing Up Wall), mete el brazo y roza las llaves con un dedo; cuelga con cara de agobio.",
+    "por_que_es_gracioso": "Funciona a duras penas: las rozó."
+   },
+   {
+    "iq": 900,
+    "gag": "Levanta la papelera (Picking Up), la vuelca y la sacude; las llaves caen entre la basura; se ríe (Laughing).",
+    "por_que_es_gracioso": "Funciona bien pero ensucia todo el cesped."
+   },
+   {
+    "iq": 5469,
+    "gag": "Mira alrededor (Looking Around) y descubre una trampilla en la base de la papelera; la abre, las llaves caen a su mano y levanta los brazos.",
+    "por_que_es_gracioso": "Las papeleras se vacian por abajo: nadie miro abajo."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Jumping",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Throw",
+     "Angry"
+    ]
+   ],
+   [
+    120,
+    [
+     "Climbing Up Wall",
+     "Victory"
+    ]
+   ],
+   [
+    900,
+    [
+     "Picking Up",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Looking Around",
+     "Picking Up",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "La papelera tenia puerta abajo desde siempre.",
+  "sin_palabras": "Llaves visibles al fondo de una papelera alta: se lee en 1 s.",
+  "needs": "Papelera = cylinder + tapa; trampilla = cube fino en la base con S.key; llaves = torus/cylinders pequenos; piedra = uv_sphere. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Objeto cotidiano; remate de mirar abajo parecido en espiritu a la campana pero con otro objeto y mecanismo (trampilla), sin cuerda. Ledger 0,12."
+ },
+ {
+  "id": "b20261120-2-l04",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Reaches the Picnic Blanket",
+  "caption_en": null,
+  "logline_es": "Una manta de picnic está al otro lado de un charco de barro; el hombre salta, lanza piedras, usa un tablón y una cuerda; el más listo agarra una esquina y tira de la manta hacia su lado.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya corriendo hacia el barro (frame 1) y saltando con los brazos abiertos; se queda corto y se hunde hasta las rodillas con cara de pena."
+   },
+   {
+    "t": "4-8",
+    "beat": "IQ -80: Lanza piedras (Throw) para hacer pasarela; todas se hunden sin ruido; se sienta, enfadado, mirando el barro."
+   },
+   {
+    "t": "8-12",
+    "beat": "IQ 120: Coloca un tablón (Pushing) y cruza con los brazos abiertos; el tablón se hunde a medias y llega con un pie manchado."
+   },
+   {
+    "t": "12-16",
+    "beat": "IQ 900: Cuelga una cuerda de una rama y se columpia (Climbing A Rope) por encima del barro; cae de pie en la manta y se rie."
+   },
+   {
+    "t": "16-20",
+    "beat": "IQ 5469: Se queda pensando (Thinking), agarra una esquina de la manta (Picking Up) y la arrastra hacia su orilla; se sienta encima (Sitting Idle) y saluda."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya corriendo hacia el barro (frame 1) y saltando con los brazos abiertos; se queda corto y se hunde hasta las rodillas con cara de pena.",
+    "por_que_es_gracioso": "Cree que saltar es lo mismo que llegar."
+   },
+   {
+    "iq": -80,
+    "gag": "Lanza piedras (Throw) para hacer pasarela; todas se hunden sin ruido; se sienta, enfadado, mirando el barro.",
+    "por_que_es_gracioso": "Su logica: el barro tiene hambre y se las come."
+   },
+   {
+    "iq": 120,
+    "gag": "Coloca un tablón (Pushing) y cruza con los brazos abiertos; el tablón se hunde a medias y llega con un pie manchado.",
+    "por_que_es_gracioso": "Funciona a duras penas: cruza, pero no limpio."
+   },
+   {
+    "iq": 900,
+    "gag": "Cuelga una cuerda de una rama y se columpia (Climbing A Rope) por encima del barro; cae de pie en la manta y se rie.",
+    "por_que_es_gracioso": "Funciona bien con mucho teatro."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se queda pensando (Thinking), agarra una esquina de la manta (Picking Up) y la arrastra hacia su orilla; se sienta encima (Sitting Idle) y saluda.",
+    "por_que_es_gracioso": "Trajo el destino hasta él: la manta nunca estuvo lejos."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Running",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Throw",
+     "Angry"
+    ]
+   ],
+   [
+    120,
+    [
+     "Pushing",
+     "Victory"
+    ]
+   ],
+   [
+    900,
+    [
+     "Climbing A Rope",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Thinking",
+     "Picking Up",
+     "Sitting Idle",
+     "Waving"
+    ]
+   ]
+  ],
+  "payoff": "Si no puedes ir a la manta, trae la manta.",
+  "sin_palabras": "Manta al otro lado del barro y hombre que mide el salto: se lee en 1 s.",
+  "needs": "Barro = cylinder aplanado marron; manta = cube fino con S.key de arrastre; tablon = cube; cuerda = cylinder fino; rama del arbol del parque. Sin agua. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Cruzar un obstaculo; sin rio, sin cajas; remate de traer el destino. Ledger 0,29."
+ }
+]
