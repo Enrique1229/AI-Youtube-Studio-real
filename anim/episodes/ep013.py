@@ -358,7 +358,7 @@ def l2(S):
     place(S, a, 84, xr, yr, 0, 90); place(S, a, f_rel - 1, xr - 0.10, yr - 0.05, 0, 90, interp="LINEAR")
     place(S, a, f_rel + 14, xr - 0.12, yr - 0.80, 0, 90)
     ik_infl(ikc, 1, 0.0); ik_infl(ikc, 12, 0.0); ik_infl(ikc, 28, 1.0); ik_infl(ikc, f_rel - 1, 1.0); ik_infl(ikc, f_rel + 2, 0.0)
-    wx = FLAP_X + 0.02
+    wx = FLAP_X + 0.07
     ik_to(S, ikt, 1, (wx, FRONT_Y - 0.25, 0.55)); ik_to(S, ikt, 12, (wx, FRONT_Y - 0.12, 0.45))
     ik_to(S, ikt, 30, (wx, FRONT_Y + 0.11, FLAP_Z - 0.04)); ik_to(S, ikt, f_rel - 1, (wx, FRONT_Y + 0.11, FLAP_Z - 0.04))
     S.key(w.hinge, 18, rot=(0, 0, 0)); S.key(w.hinge, 30, rot=(R(52), 0, 0)); S.key(w.hinge, f_rel, rot=(R(52), 0, 0))
@@ -421,7 +421,7 @@ def l4(S):
         want = z_roof * t + 0.85 * math.sin(math.pi * t)
         xk = x_a + (x_b - x_a) * sstep((t - 0.42) / 0.58)
         place(S, a, f, xk, y0, want - lifts[f], 270, interp="LINEAR")
-    place(S, a, f_land + 2, x_b, y0, z_roof, 270, interp="LINEAR"); place(S, a, f_land + 70, x_b, y0, z_roof, 270)
+    place(S, a, f_land + 2, x_b, y0, z_roof, 270, interp="LINEAR"); place(S, a, f_land + 3, x_b, y0, z_roof, 270, interp="LINEAR"); place(S, a, f_land + 70, x_b, y0, z_roof, 270)
     # impacto: el techo retumba y la bolsa baja un escalón (se queda colgada, más ladeada)
     shake_machine(S, w, f_land, amp_deg=2.0, n=5, step=3, toward=-1.0)
     bag_pose(S, w, f_land - 1, POSE_A)
