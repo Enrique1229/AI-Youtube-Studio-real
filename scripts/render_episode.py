@@ -27,7 +27,7 @@ def guard_protected(ep, allow=False):
     lock = ROOT / "channel" / "locks" / "episodes-1-8.sha256"
     locked = dict(l.split()[::-1] for l in lock.read_text().splitlines() if l.strip()) if lock.exists() else {}
     changed = [n for n, h in locked.items() if (ROOT / "anim" / "episodes" / n).exists()
-               and hashlib.sha256((ROOT / "anim" / "episodes" / n).read_bytes()).hexdigest() != h]
+               and hashlib.sha256((ROOT / "anim" / "episodes" / n).read_bytes().replace(b"\r\n", b"\n")).hexdigest() != h]   # Windows: saltos CRLF
     if changed: sys.exit(f"ERROR: episodios protegidos modificados: {changed}. Restáuralos con: git checkout -- anim/episodes/")
     if ep.name in locked and not allow:
         sys.exit(f"ERROR: {ep.name} es un episodio protegido (1-8). No se vuelve a renderizar (usa --allow-protected solo si de verdad lo quieres).")
