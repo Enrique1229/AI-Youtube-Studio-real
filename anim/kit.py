@@ -278,6 +278,10 @@ class Stage:
         self.cam.data.lens = 50; self.cam.location = (0.0, -3.2, 0.55)
         self.cam.data.dof.use_dof = True; self.cam.data.dof.aperture_fstop = 1.6
 
+    def env_parque(self):
+        """Parque con río realista (HDRI + texturas + modelos CC0 de Poly Haven) para episodios 9+: ver env_real.py."""
+        import env_real; env_real.build(self)
+
     def env_rio_flat(self):
         self.obj("cube", "orillaL", "grass", (-32, 0, -1.5), (30, 60, 1.5), smooth=False)
         self.obj("cube", "orillaR", "grass", (32, 0, -1.5), (30, 60, 1.5), smooth=False)

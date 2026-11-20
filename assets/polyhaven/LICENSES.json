@@ -1,0 +1,141 @@
+{
+  "greenwich_park": {
+    "name": "Greenwich Park",
+    "type": "hdri",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/greenwich_park",
+    "authors": [
+      "Andreas Mischok"
+    ],
+    "files": [
+      "assets/polyhaven/greenwich_park/greenwich_park_2k.hdr"
+    ]
+  },
+  "island_tree_01": {
+    "name": "Island Tree 01",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/island_tree_01",
+    "authors": [
+      "Rob Tuytel",
+      "Rico Cilliers"
+    ],
+    "files": [
+      "assets/polyhaven/island_tree_01/island_tree_01_1k.gltf",
+      "assets/polyhaven/island_tree_01/textures/island_tree_01_nor_gl_1k.jpg",
+      "assets/polyhaven/island_tree_01/textures/island_tree_01_diff_1k.jpg",
+      "assets/polyhaven/island_tree_01/textures/island_tree_01_arm_1k.jpg",
+      "assets/polyhaven/island_tree_01/textures/island_tree_01_leaves_nor_gl_1k.jpg",
+      "assets/polyhaven/island_tree_01/textures/island_tree_01_leaves_diff_1k.jpg",
+      "assets/polyhaven/island_tree_01/textures/island_tree_01_leaves_arm_1k.jpg",
+      "assets/polyhaven/island_tree_01/textures/island_tree_01_branches_nor_gl_1k.jpg",
+      "assets/polyhaven/island_tree_01/textures/island_tree_01_branches_diff_1k.jpg",
+      "assets/polyhaven/island_tree_01/textures/island_tree_01_branches_arm_1k.jpg",
+      "assets/polyhaven/island_tree_01/island_tree_01.bin"
+    ]
+  },
+  "island_tree_02": {
+    "name": "Island Tree 02",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/island_tree_02",
+    "authors": [
+      "Rob Tuytel",
+      "Rico Cilliers"
+    ],
+    "files": [
+      "assets/polyhaven/island_tree_02/island_tree_02_1k.gltf",
+      "assets/polyhaven/island_tree_02/textures/island_tree_02_nor_gl_1k.jpg",
+      "assets/polyhaven/island_tree_02/textures/island_tree_02_diff_1k.jpg",
+      "assets/polyhaven/island_tree_02/textures/island_tree_02_arm_1k.jpg",
+      "assets/polyhaven/island_tree_02/textures/island_tree_02_leaves_nor_gl_1k.jpg",
+      "assets/polyhaven/island_tree_02/textures/island_tree_02_leaves_diff_1k.jpg",
+      "assets/polyhaven/island_tree_02/textures/island_tree_02_leaves_arm_1k.jpg",
+      "assets/polyhaven/island_tree_02/textures/island_tree_02_branches_nor_gl_1k.jpg",
+      "assets/polyhaven/island_tree_02/textures/island_tree_02_branches_diff_1k.jpg",
+      "assets/polyhaven/island_tree_02/textures/island_tree_02_branches_arm_1k.jpg",
+      "assets/polyhaven/island_tree_02/island_tree_02.bin"
+    ]
+  },
+  "grass_medium_01": {
+    "name": "Grass Medium 01",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/grass_medium_01",
+    "authors": [
+      "Rob Tuytel",
+      "Rico Cilliers"
+    ],
+    "files": [
+      "assets/polyhaven/grass_medium_01/grass_medium_01_1k.gltf",
+      "assets/polyhaven/grass_medium_01/textures/grass_medium_01_nor_gl_1k.jpg",
+      "assets/polyhaven/grass_medium_01/textures/grass_medium_01_diff_1k.jpg",
+      "assets/polyhaven/grass_medium_01/textures/grass_medium_01_arm_1k.jpg",
+      "assets/polyhaven/grass_medium_01/grass_medium_01.bin"
+    ]
+  },
+  "boulder_01": {
+    "name": "Boulder 01",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/boulder_01",
+    "authors": [
+      "Rico Cilliers"
+    ],
+    "files": [
+      "assets/polyhaven/boulder_01/boulder_01_1k.gltf",
+      "assets/polyhaven/boulder_01/textures/boulder_01_arm_1k.jpg",
+      "assets/polyhaven/boulder_01/textures/boulder_01_diff_1k.jpg",
+      "assets/polyhaven/boulder_01/boulder_01.bin",
+      "assets/polyhaven/boulder_01/textures/boulder_01_nor_gl_1k.jpg"
+    ]
+  },
+  "dead_tree_trunk": {
+    "name": "Dead Tree Trunk",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/dead_tree_trunk",
+    "authors": [
+      "Rob Tuytel"
+    ],
+    "files": [
+      "assets/polyhaven/dead_tree_trunk/dead_tree_trunk_1k.gltf",
+      "assets/polyhaven/dead_tree_trunk/textures/dead_tree_trunk_arm_1k.jpg",
+      "assets/polyhaven/dead_tree_trunk/textures/dead_tree_trunk_nor_gl_1k.jpg",
+      "assets/polyhaven/dead_tree_trunk/textures/dead_tree_trunk_diff_1k.jpg",
+      "assets/polyhaven/dead_tree_trunk/dead_tree_trunk.bin"
+    ]
+  },
+  "aerial_grass_rock": {
+    "name": "Aerial Grass Rock",
+    "type": "texture",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/aerial_grass_rock",
+    "authors": [
+      "Rob Tuytel"
+    ],
+    "files": [
+      "assets/polyhaven/aerial_grass_rock/aerial_grass_rock_diff_2k.jpg",
+      "assets/polyhaven/aerial_grass_rock/aerial_grass_rock_nor_gl_2k.jpg",
+      "assets/polyhaven/aerial_grass_rock/aerial_grass_rock_rough_2k.jpg",
+      "assets/polyhaven/aerial_grass_rock/aerial_grass_rock_disp_2k.jpg",
+      "assets/polyhaven/aerial_grass_rock/aerial_grass_rock_ao_2k.jpg"
+    ]
+  },
+  "brown_planks_03": {
+    "name": "Brown Planks 03",
+    "type": "texture",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/brown_planks_03",
+    "authors": [
+      "Rob Tuytel"
+    ],
+    "files": [
+      "assets/polyhaven/brown_planks_03/brown_planks_03_diff_1k.jpg",
+      "assets/polyhaven/brown_planks_03/brown_planks_03_nor_gl_1k.jpg",
+      "assets/polyhaven/brown_planks_03/brown_planks_03_rough_1k.jpg",
+      "assets/polyhaven/brown_planks_03/brown_planks_03_disp_1k.jpg",
+      "assets/polyhaven/brown_planks_03/brown_planks_03_ao_1k.jpg"
+    ]
+  }
+}

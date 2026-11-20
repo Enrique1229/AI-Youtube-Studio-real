@@ -1,0 +1,406 @@
+[
+ {
+  "id": "b20261120-1-l01",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Rings the Bell on a Tall Post",
+  "caption_en": null,
+  "logline_es": "Una campana cuelga en lo alto de un poste del parque; el hombre quiere tocarla y prueba saltos, zapatos lanzados y trepadas; el más listo mira detrás del poste y encuentra la cuerda de tirar en el suelo.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya saltando (frame 1) con el brazo estirado bajo la campana; no llega; salta otra vez más fuerte y cae de culo, mirando la campana con rabia."
+   },
+   {
+    "t": "4-9",
+    "beat": "IQ -80: Lanza su zapato (Throw); el zapato rebota en el poste y le da en la cabeza; se cae de espaldas sin llegar a la campana."
+   },
+   {
+    "t": "9-13",
+    "beat": "IQ 120: Trepa por el poste como por un muro (Climbing Up Wall); roza la campana con un dedo: dling mínimo; se agarra temblando."
+   },
+   {
+    "t": "13-18",
+    "beat": "IQ 900: Cuelga una cuerda de la rama y trepa (Climbing A Rope) hasta la campana, que suena a lo grande; se balancea sonriendo."
+   },
+   {
+    "t": "18-22",
+    "beat": "IQ 5469: Se queda quieto y mira alrededor: detrás del poste hay una cuerda de tirar en el suelo; la recoge (Picking Up), tira con un dedo: la campana suena fuerte; levanta los brazos."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya saltando (frame 1) con el brazo estirado bajo la campana; no llega; salta otra vez más fuerte y cae de culo, mirando la campana con rabia.",
+    "por_que_es_gracioso": "Cree que es un problema de ganas, no de altura."
+   },
+   {
+    "iq": -80,
+    "gag": "Lanza su zapato (Throw); el zapato rebota en el poste y le da en la cabeza; se cae de espaldas sin llegar a la campana.",
+    "por_que_es_gracioso": "Su plan tiene lógica de lanzador y puntería de ciego."
+   },
+   {
+    "iq": 120,
+    "gag": "Trepa por el poste como por un muro (Climbing Up Wall); roza la campana con un dedo: dling mínimo; se agarra temblando.",
+    "por_que_es_gracioso": "Funciona a duras penas: el sonido es un hilito."
+   },
+   {
+    "iq": 900,
+    "gag": "Cuelga una cuerda de la rama y trepa (Climbing A Rope) hasta la campana, que suena a lo grande; se balancea sonriendo.",
+    "por_que_es_gracioso": "Funciona de verdad, pero con un esfuerzo enorme."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se queda quieto y mira alrededor: detrás del poste hay una cuerda de tirar en el suelo; la recoge (Picking Up), tira con un dedo: la campana suena fuerte; levanta los brazos.",
+    "por_que_es_gracioso": "La solución estaba a ras de suelo desde el principio: nadie miró abajo."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Jumping",
+     "Angry"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Throw",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    120,
+    [
+     "Climbing Up Wall",
+     "Victory"
+    ]
+   ],
+   [
+    900,
+    [
+     "Climbing A Rope",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Looking Around",
+     "Picking Up",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "La cuerda estaba a la altura de su mano todo el rato.",
+  "sin_palabras": "Campana en alto y hombre que estira el brazo: se lee en 1 s.",
+  "needs": "Poste = cylinder; campana = cone + uv_sphere con S.key de balanceo (dling = temblor + rotacion); cuerda = cylinder fino. Zapato = cube pequeno lanzado con S.key. Clips existentes de Mixamo solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Alcanzar algo alto con cuerda escondida; sin nube, manzana, cometa ni cajas; remate de mirar al suelo."
+ },
+ {
+  "id": "b20261120-1-l02",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Waters a Flower With a Dry Hose",
+  "caption_en": null,
+  "logline_es": "Una manguera no suelta agua y el hombre prueba con rabia y fuerza; el más listo sigue el tubo con la vista y encuentra un gato dormido sentado encima del doblez; lo saluda y el gato se estira y el agua sale.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya mirando con rabia la boquilla seca (frame 1); la sacude, la mira por dentro; el agua sale de golpe y le empapa la cara."
+   },
+   {
+    "t": "4-9",
+    "beat": "IQ -80: Empuja la manguera (Pushing) hacia la flor para que el agua llegue; solo la arrastra por el cesped; se sienta rendido con la flor mustia al lado."
+   },
+   {
+    "t": "9-13",
+    "beat": "IQ 120: Camina por el tubo hacia la llave y sigue girando a la izquierda (Walking Left Turn) dando vueltas; abre la llave al maximo; sale un hilito de agua a la flor."
+   },
+   {
+    "t": "13-18",
+    "beat": "IQ 900: Recoge el tubo del suelo (Picking Up), lo estira en linea recta y el agua sale a chorro; la flor se levanta de golpe; el hombre ríe."
+   },
+   {
+    "t": "18-22",
+    "beat": "IQ 5469: Mira alrededor y ve a un gato dormido sentado justo sobre el doblez; saluda al gato (Waving) y este se estira y se va; el agua sale limpia sobre la flor, que se abre."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya mirando con rabia la boquilla seca (frame 1); la sacude, la mira por dentro; el agua sale de golpe y le empapa la cara.",
+    "por_que_es_gracioso": "Cree que un tubo seco es un tubo roto: la lógica de mirar por la boca."
+   },
+   {
+    "iq": -80,
+    "gag": "Empuja la manguera (Pushing) hacia la flor para que el agua llegue; solo la arrastra por el cesped; se sienta rendido con la flor mustia al lado.",
+    "por_que_es_gracioso": "Empujar agua con la manguera: logica de escoba."
+   },
+   {
+    "iq": 120,
+    "gag": "Camina por el tubo hacia la llave y sigue girando a la izquierda (Walking Left Turn) dando vueltas; abre la llave al maximo; sale un hilito de agua a la flor.",
+    "por_que_es_gracioso": "Funciona a duras penas; el hilito moja una sola hoja."
+   },
+   {
+    "iq": 900,
+    "gag": "Recoge el tubo del suelo (Picking Up), lo estira en linea recta y el agua sale a chorro; la flor se levanta de golpe; el hombre ríe.",
+    "por_que_es_gracioso": "Sin entenderlo del todo, hace lo correcto: un tubo recto va mejor."
+   },
+   {
+    "iq": 5469,
+    "gag": "Mira alrededor y ve a un gato dormido sentado justo sobre el doblez; saluda al gato (Waving) y este se estira y se va; el agua sale limpia sobre la flor, que se abre.",
+    "por_que_es_gracioso": "El problema no era la manguera: un gato dormido era el grifo."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Angry",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Pushing",
+     "Sitting Idle"
+    ]
+   ],
+   [
+    120,
+    [
+     "Walking Left Turn",
+     "Victory"
+    ]
+   ],
+   [
+    900,
+    [
+     "Picking Up",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Looking Around",
+     "Waving",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "Un gato dormido es el mejor tapon que existe.",
+  "sin_palabras": "Manguera seca y hombre enfadado: se lee en 1 s.",
+  "needs": "Manguera = cylinders encadenados con S.key; agua = cylinders finos con S.key en bucle; flor = cone + uv_sphere con S.key de escala; gato = uv_spheres con S.key de estirar. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Arreglar un tubo; sin pato ni gaviota ni rio; remate de gato dormido."
+ },
+ {
+  "id": "b20261120-1-l03",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Builds a Snowman Head",
+  "caption_en": null,
+  "logline_es": "Un muñeco de nieve sin cabeza espera con una gran bola en el suelo; el hombre prueba levantarla, lanzarla y trepar por una rampa; el más listo tumba el cuerpo, coloca la cabeza y lo levanta de pie.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya agarrando la bola enorme (frame 1) con ambas manos (Picking Up); no la levanta ni un centímetro, se agacha y se cae de espaldas."
+   },
+   {
+    "t": "4-9",
+    "beat": "IQ -80: Lanza la bola (Throw) hacia el cuerpo: la bola se pega a medias y se desmorona; el hombre mira el montón desanimado."
+   },
+   {
+    "t": "9-13",
+    "beat": "IQ 120: Empuja una rampa de nieve (Pushing) y rueda la bola por ella con esfuerzo; queda casi sobre el cuerpo; la bola se tambalea y él no respira."
+   },
+   {
+    "t": "13-18",
+    "beat": "IQ 900: Salta sobre el cuerpo (Jumping) y la sube con las manos; encaja la cabeza; el muñeco queda recto con él sonriendo y riendo."
+   },
+   {
+    "t": "18-22",
+    "beat": "IQ 5469: Se queda pensando (Thinking); tumba el cuerpo, coloca la cabeza encima del cuerpo tumbado y empuja (Pushing): el muñeco se levanta de pie con la cabeza puesta."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya agarrando la bola enorme (frame 1) con ambas manos (Picking Up); no la levanta ni un centímetro, se agacha y se cae de espaldas.",
+    "por_que_es_gracioso": "Cree que la fuerza se lo debe todo."
+   },
+   {
+    "iq": -80,
+    "gag": "Lanza la bola (Throw) hacia el cuerpo: la bola se pega a medias y se desmorona; el hombre mira el montón desanimado.",
+    "por_que_es_gracioso": "Lanzar bolas: lógica de pelea de bolas."
+   },
+   {
+    "iq": 120,
+    "gag": "Empuja una rampa de nieve (Pushing) y rueda la bola por ella con esfuerzo; queda casi sobre el cuerpo; la bola se tambalea y él no respira.",
+    "por_que_es_gracioso": "Funciona a duras penas: la cabeza oscila."
+   },
+   {
+    "iq": 900,
+    "gag": "Salta sobre el cuerpo (Jumping) y la sube con las manos; encaja la cabeza; el muñeco queda recto con él sonriendo y riendo.",
+    "por_que_es_gracioso": "Funciona, con una vuelta de más."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se queda pensando (Thinking); tumba el cuerpo, coloca la cabeza encima del cuerpo tumbado y empuja (Pushing): el muñeco se levanta de pie con la cabeza puesta.",
+    "por_que_es_gracioso": "Nunca hubo que subir la cabeza: bastaba con levantar al cuerpo."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Picking Up",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Throw",
+     "Angry"
+    ]
+   ],
+   [
+    120,
+    [
+     "Pushing",
+     "Victory"
+    ]
+   ],
+   [
+    900,
+    [
+     "Jumping",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Thinking",
+     "Pushing",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "Subir al muñeco es mas facil que subir la cabeza.",
+  "sin_palabras": "Muñeco sin cabeza con bola gigante al lado: se lee en 1 s.",
+  "needs": "Nieve = uv_spheres blancas; zanahoria = cone; rampa = cube inclinado; S.key de rodar y volcar el cuerpo. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Construir un objeto pesado; sin cajas, roca ni transporte; remate de tumbar el cuerpo."
+ },
+ {
+  "id": "b20261120-1-l04",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Catches a Butterfly",
+  "caption_en": null,
+  "logline_es": "Una mariposa vuela a su alrededor y el hombre intenta atraparla corriendo, saltando y lanzando; el más listo se sienta quieto con una flor en la mano y la mariposa se posa en su nariz.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya corriendo tras la mariposa (frame 1) con los brazos estirados; trastabilla y se cae de espaldas; la mariposa se posa en su zapato."
+   },
+   {
+    "t": "4-9",
+    "beat": "IQ -80: Salta alto (Jumping) con las manos juntas; cierra los puños: vacíos; mira dentro con cara de confianza; la mariposa pasa por encima de su cabeza."
+   },
+   {
+    "t": "9-13",
+    "beat": "IQ 120: Lanza su gorra (Throw) para cubrirla; la gorra cae al suelo; levanta la gorra (Picking Up): vacía, y la mariposa sobre ella."
+   },
+   {
+    "t": "13-18",
+    "beat": "IQ 900: Va a por una flor y la pone en la mano estirada (Thinking); la mariposa duda, se acerca y se aleja; él sostiene la flor sin respirar."
+   },
+   {
+    "t": "18-22",
+    "beat": "IQ 5469: Se sienta con la flor en la mano y se queda quieto (Sitting Idle); mira alrededor sin moverse; la mariposa se posa en su nariz; él se ríe en silencio y saluda con la otra mano."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya corriendo tras la mariposa (frame 1) con los brazos estirados; trastabilla y se cae de espaldas; la mariposa se posa en su zapato.",
+    "por_que_es_gracioso": "Cree que atrapar es correr mas rapido."
+   },
+   {
+    "iq": -80,
+    "gag": "Salta alto (Jumping) con las manos juntas; cierra los puños: vacíos; mira dentro con cara de confianza; la mariposa pasa por encima de su cabeza.",
+    "por_que_es_gracioso": "Su lógica: si salto más, vuelo más."
+   },
+   {
+    "iq": 120,
+    "gag": "Lanza su gorra (Throw) para cubrirla; la gorra cae al suelo; levanta la gorra (Picking Up): vacía, y la mariposa sobre ella.",
+    "por_que_es_gracioso": "Casi funciona y la mariposa se burla de él."
+   },
+   {
+    "iq": 900,
+    "gag": "Va a por una flor y la pone en la mano estirada (Thinking); la mariposa duda, se acerca y se aleja; él sostiene la flor sin respirar.",
+    "por_que_es_gracioso": "Funciona a duras penas: la mariposa sigue en el aire."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se sienta con la flor en la mano y se queda quieto (Sitting Idle); mira alrededor sin moverse; la mariposa se posa en su nariz; él se ríe en silencio y saluda con la otra mano.",
+    "por_que_es_gracioso": "Atrapar era dejar de perseguir: la mariposa lo atrapó a él."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Running",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Jumping",
+     "Looking Around"
+    ]
+   ],
+   [
+    120,
+    [
+     "Throw",
+     "Picking Up"
+    ]
+   ],
+   [
+    900,
+    [
+     "Thinking",
+     "Picking Up"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Sitting Idle",
+     "Laughing",
+     "Waving"
+    ]
+   ]
+  ],
+  "payoff": "La mariposa atrapó al hombre, no al revés.",
+  "sin_palabras": "Hombre persiguiendo una mariposa: se lee en 1 s.",
+  "needs": "Mariposa = dos cones aplanados con S.key de aleteo y trayectoria; flor = cone + uv_sphere; gorra = cylinder aplanado. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Paciencia como solucion; sin pato ni gaviota, nube, cometa; remate de quedarse quieto."
+ }
+]
