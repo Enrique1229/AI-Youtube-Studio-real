@@ -26,3 +26,4 @@ pese a ser el más reciente. Las vistas se concentran en el primero (río, 41 %)
 primer segundo, mejor audio y caras más realistas (petición del usuario).
 - 2026-11-20: subido ep010 'Every IQ Level Rings the Bell on a Tall Post' (story-013), primer episodio con personaje Mixamo y parque realista. Comparar retención con River 61,3 % / Boulder 53,8 %.
 - 2026-11-20 suscriptores 28 d: +6 en total con ~17.700 vistas (≈1 suscriptor por 3.000 vistas). Por vídeo: Egg 2; Sandwich, Bubble, Match, Butter, River 1; Boulder y Duck 0. Lectura: el contenido se ve, pero el canal no da razón para suscribirse (personajes y formatos distintos cada vez). Acción: personaje fijo recurrente (el humano de Mixamo) + serie fija "Every IQ Level…" + CTA visual al final.
+- 2026-11-20: subido ep011 'Every IQ Level Reaches the Picnic Blanket' (story-014), primer episodio con el protagonista estilo dibujo (klunk_toon). El usuario dice que salió 'un poco bugeado': pendiente saber qué.
