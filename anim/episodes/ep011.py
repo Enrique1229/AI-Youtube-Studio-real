@@ -10,7 +10,7 @@ import bmesh
 import bpy
 from mathutils import Vector, noise
 from mixamo import MixamoActor
-from klunk_look import apply as klunk   # protagonista fijo del canal (afro, rayas naranjas, zapatillas rojas)
+from klunk_toon import apply as klunk, expression, blink   # protagonista fijo del canal (estilo dibujo)
 
 TITLE = "Every IQ Level Reaches the Picnic Blanket"
 ONSCREEN = "Every IQ level reaches the picnic blanket"
@@ -295,6 +295,7 @@ def l1(S):
     ripple(S, x_l, YA, f_land + 2, r1=0.50); ripple(S, x_l, YA, f_land + 2, r1=0.38, delay=6)
     S.f = 128
     a.verify(S.f)
+    _faces(S, a, "sorpresa")
     return a
 
 
@@ -333,6 +334,7 @@ def l2(S):
         S.cue("whoosh", f_rel - 2, vol=-11)                         # la piedra no suena al caer: es el chiste
     S.f = 136
     a.verify(S.f)
+    _faces(S, a, "enfado")
     return a
 
 
@@ -395,6 +397,7 @@ def l3(S):
     S.cue("pop", fb, vol=-8)
     S.f = 142
     a.verify(S.f)
+    _faces(S, a, "sorpresa")
     return a
 
 
@@ -435,6 +438,7 @@ def l4(S):
     ripple(S, xf, ya, f_land + 24, r1=0.62); ripple(S, xf, ya, f_land + 24, r1=0.46, delay=6)
     S.f = 128
     a.verify(S.f)
+    _faces(S, a, "sorpresa")
     return a
 
 
@@ -496,7 +500,15 @@ def l5(S):
     S.cue("slide_down", f_rel + 2, vol=-12); S.cue("tada", f_wave + 4, vol=-9)
     S.f = 150
     a.verify(S.f)
+    _faces(S, a, "feliz")
     return a
+
+
+
+def _faces(S, a, name):
+    """Cara del protagonista: parpadeos regulares y la expresión del remate en el último tramo del nivel."""
+    for f in range(18, max(19, S.f - 10), 55): blink(a, f)
+    expression(a, name, max(2, S.f - 34), 1.0, ramp=3)
 
 
 LEVELS = [(-450, l1), (-80, l2), (120, l3), (900, l4), (5469, l5)]
