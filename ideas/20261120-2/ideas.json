@@ -6,54 +6,54 @@
   "env": "rio",
   "title_en": "Every IQ Level Opens a Door in the Park",
   "caption_en": null,
-  "logline_es": "Una puerta con marco, sola en medio del césped, no se abre; el hombre empuja, embiste, trepa y tira del pomo; el más listo se limita a rodearla andando.",
+  "logline_es": "Una puerta con marco, sola en medio del césped (se ve a ambos lados), no se abre; el hombre empuja, embiste, la saca de sus bisagras con un tablón y tira del pomo; el más listo se detiene, ladea la cabeza y la rodea; la cámara gira y revela que nunca hubo pared.",
   "beats": [
    {
     "t": "0-4",
-    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya empujando la puerta con todo el cuerpo (frame 1); no cede; empuja con más cara de esfuerzo hasta que resbala y cae de espaldas."
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Plano abierto: puerta sola en el cesped, hierba a ambos lados del marco; ya empujandola con todo el cuerpo (frame 1); no cede y resbala de espaldas."
    },
    {
     "t": "4-8",
-    "beat": "IQ -80: Retrocede, coge carrerilla (Running) y embiste la puerta; rebota y queda sentado mirando la puerta, que sigue intacta."
+    "beat": "IQ -80: Retrocede, coge carrerilla (Running) y embiste; rebota y queda sentado mirando la puerta, que sigue intacta."
    },
    {
     "t": "8-12",
-    "beat": "IQ 120: Trepa por el marco como por un muro (Climbing Up Wall), llega arriba temblando y se deja caer al otro lado de forma torpe."
+    "beat": "IQ 120: Mete un tablon como palanca (Pushing) y la puerta salta de las bisagras y cae plana; la pisa y cruza el marco con orgullo, y la puerta se desliza."
    },
    {
     "t": "12-16",
-    "beat": "IQ 900: Agarra el pomo (Picking Up), tira y la puerta se abre; cruza entre risas y la cierra con orgullo."
+    "beat": "IQ 900: Con la puerta de nuevo en pie, agarra el pomo (Picking Up), tira y se abre; entra por el marco riendo (Laughing)."
    },
    {
     "t": "16-20",
-    "beat": "IQ 5469: Se queda quieto y mira alrededor (Looking Around): la puerta no tiene pared; se encoge de hombros y la rodea andando; levanta los brazos."
+    "beat": "IQ 5469: Se detiene, ladea la cabeza (Thinking), se encoge de hombros y rodea el marco andando (Walking Left Turn); la camara gira y revela que no hay pared; saluda a la puerta desde el otro lado (Waving)."
    }
   ],
   "levels": [
    {
     "iq": -450,
-    "gag": "Ya empujando la puerta con todo el cuerpo (frame 1); no cede; empuja con más cara de esfuerzo hasta que resbala y cae de espaldas.",
-    "por_que_es_gracioso": "Empuja una puerta que se abre tirando: mas fuerza, mismo error."
+    "gag": "Plano abierto: puerta sola en el cesped, hierba a ambos lados del marco; ya empujandola con todo el cuerpo (frame 1); no cede y resbala de espaldas.",
+    "por_que_es_gracioso": "El publico ve el cesped vacio a los lados y el no: ironia dramatica desde el segundo 1."
    },
    {
     "iq": -80,
-    "gag": "Retrocede, coge carrerilla (Running) y embiste la puerta; rebota y queda sentado mirando la puerta, que sigue intacta.",
-    "por_que_es_gracioso": "Si empujar no basta, empujar corriendo."
+    "gag": "Retrocede, coge carrerilla (Running) y embiste; rebota y queda sentado mirando la puerta, que sigue intacta.",
+    "por_que_es_gracioso": "Si empujar no basta, empujar corriendo; sigue sin ver el cesped."
    },
    {
     "iq": 120,
-    "gag": "Trepa por el marco como por un muro (Climbing Up Wall), llega arriba temblando y se deja caer al otro lado de forma torpe.",
-    "por_que_es_gracioso": "Funciona a duras penas: pasa, pero de cabeza."
+    "gag": "Mete un tablon como palanca (Pushing) y la puerta salta de las bisagras y cae plana; la pisa y cruza el marco con orgullo, y la puerta se desliza.",
+    "por_que_es_gracioso": "Funciona a duras penas: destroza la puerta para pasar por un hueco que ya estaba libre."
    },
    {
     "iq": 900,
-    "gag": "Agarra el pomo (Picking Up), tira y la puerta se abre; cruza entre risas y la cierra con orgullo.",
-    "por_que_es_gracioso": "Funciona bien pero tras tres fracasos de empujar."
+    "gag": "Con la puerta de nuevo en pie, agarra el pomo (Picking Up), tira y se abre; entra por el marco riendo (Laughing).",
+    "por_que_es_gracioso": "Funciona bien pero tras tres fracasos: gana la puerta, no el sentido comun."
    },
    {
     "iq": 5469,
-    "gag": "Se queda quieto y mira alrededor (Looking Around): la puerta no tiene pared; se encoge de hombros y la rodea andando; levanta los brazos.",
-    "por_que_es_gracioso": "El problema nunca existio: la puerta estaba sola en el cesped."
+    "gag": "Se detiene, ladea la cabeza (Thinking), se encoge de hombros y rodea el marco andando (Walking Left Turn); la camara gira y revela que no hay pared; saluda a la puerta desde el otro lado (Waving).",
+    "por_que_es_gracioso": "El giro de camara revela lo que el publico veia: nunca hubo pared."
    }
   ],
   "clips": [
@@ -74,7 +74,7 @@
    [
     120,
     [
-     "Climbing Up Wall",
+     "Pushing",
      "Victory"
     ]
    ],
@@ -88,17 +88,17 @@
    [
     5469,
     [
-     "Looking Around",
+     "Thinking",
      "Walking Left Turn",
-     "Victory"
+     "Waving"
     ]
    ]
   ],
-  "payoff": "Una puerta sin pared es solo un adorno.",
-  "sin_palabras": "Puerta sola en el cesped y hombre que empuja: se lee en 1 s.",
-  "needs": "Puerta = cube fino + marco de 3 cubes + pomo uv_sphere; S.key de bisagra para abrir. Clips existentes solamente.",
+  "payoff": "Una puerta sin pared es solo un adorno: la camara lo muestra al final.",
+  "sin_palabras": "Puerta sola en el cesped y hombre que empuja sin notarlo: se lee en 1 s.",
+  "needs": "Puerta = cube fino + marco de 3 cubes + pomo uv_sphere; S.key de bisagra y de caida; tablon = cube; giro de camara con S.key. Clips existentes solamente.",
   "riesgo_copia": "bajo",
-  "diferencia": "Obstaculo cotidiano; sin cuerda ni altura ni objeto escondido; remate de rodear. Ledger similitud 0,11."
+  "diferencia": "Obstaculo cotidiano; la ironia (el publico lo ve, el no) desde el frame 1; remate de rodear con giro de camara, no mirar abajo ni detras."
  },
  {
   "id": "b20261120-2-l02",
@@ -310,54 +310,54 @@
   "env": "rio",
   "title_en": "Every IQ Level Reaches the Picnic Blanket",
   "caption_en": null,
-  "logline_es": "Una manta de picnic está al otro lado de un charco de barro; el hombre salta, lanza piedras, usa un tablón y una cuerda; el más listo agarra una esquina y tira de la manta hacia su lado.",
+  "logline_es": "Una manta de picnic está al otro lado de un charco de barro, con una esquina doblada hacia su orilla; el hombre salta, lanza piedras, usa un tablón y toma carrerilla desde un banco; el más listo piensa, agarra la esquina y arrastra la manta hasta sentarse encima.",
   "beats": [
    {
     "t": "0-4",
-    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya corriendo hacia el barro (frame 1) y saltando con los brazos abiertos; se queda corto y se hunde hasta las rodillas con cara de pena."
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Plano abierto: manta con una esquina doblada hacia el, barro en medio y un banco al lado; ya corriendo y saltando con los brazos abiertos (frame 1); se queda corto y se hunde hasta las rodillas."
    },
    {
     "t": "4-8",
-    "beat": "IQ -80: Lanza piedras (Throw) para hacer pasarela; todas se hunden sin ruido; se sienta, enfadado, mirando el barro."
+    "beat": "IQ -80: Lanza piedras (Throw) para hacer pasarela; todas se hunden sin ruido; se sienta enfadado mirando el barro."
    },
    {
     "t": "8-12",
-    "beat": "IQ 120: Coloca un tablón (Pushing) y cruza con los brazos abiertos; el tablón se hunde a medias y llega con un pie manchado."
+    "beat": "IQ 120: Coloca un tablon (Pushing) y cruza con los brazos abiertos; el tablon se hunde a medias y llega con un pie manchado."
    },
    {
     "t": "12-16",
-    "beat": "IQ 900: Cuelga una cuerda de una rama y se columpia (Climbing A Rope) por encima del barro; cae de pie en la manta y se rie."
+    "beat": "IQ 900: Sube al banco (Running desde atras), salta (Jumping) por encima del barro y cae de pie en la manta; se rie (Laughing)."
    },
    {
     "t": "16-20",
-    "beat": "IQ 5469: Se queda pensando (Thinking), agarra una esquina de la manta (Picking Up) y la arrastra hacia su orilla; se sienta encima (Sitting Idle) y saluda."
+    "beat": "IQ 5469: Se queda pensando (Thinking), agarra la esquina doblada (Picking Up) y arrastra la manta hasta su orilla; se sienta encima (Sitting Idle) y saluda."
    }
   ],
   "levels": [
    {
     "iq": -450,
-    "gag": "Ya corriendo hacia el barro (frame 1) y saltando con los brazos abiertos; se queda corto y se hunde hasta las rodillas con cara de pena.",
+    "gag": "Plano abierto: manta con una esquina doblada hacia el, barro en medio y un banco al lado; ya corriendo y saltando con los brazos abiertos (frame 1); se queda corto y se hunde hasta las rodillas.",
     "por_que_es_gracioso": "Cree que saltar es lo mismo que llegar."
    },
    {
     "iq": -80,
-    "gag": "Lanza piedras (Throw) para hacer pasarela; todas se hunden sin ruido; se sienta, enfadado, mirando el barro.",
+    "gag": "Lanza piedras (Throw) para hacer pasarela; todas se hunden sin ruido; se sienta enfadado mirando el barro.",
     "por_que_es_gracioso": "Su logica: el barro tiene hambre y se las come."
    },
    {
     "iq": 120,
-    "gag": "Coloca un tablón (Pushing) y cruza con los brazos abiertos; el tablón se hunde a medias y llega con un pie manchado.",
+    "gag": "Coloca un tablon (Pushing) y cruza con los brazos abiertos; el tablon se hunde a medias y llega con un pie manchado.",
     "por_que_es_gracioso": "Funciona a duras penas: cruza, pero no limpio."
    },
    {
     "iq": 900,
-    "gag": "Cuelga una cuerda de una rama y se columpia (Climbing A Rope) por encima del barro; cae de pie en la manta y se rie.",
-    "por_que_es_gracioso": "Funciona bien con mucho teatro."
+    "gag": "Sube al banco (Running desde atras), salta (Jumping) por encima del barro y cae de pie en la manta; se rie (Laughing).",
+    "por_que_es_gracioso": "Funciona bien y con estilo, a base de carrerilla."
    },
    {
     "iq": 5469,
-    "gag": "Se queda pensando (Thinking), agarra una esquina de la manta (Picking Up) y la arrastra hacia su orilla; se sienta encima (Sitting Idle) y saluda.",
-    "por_que_es_gracioso": "Trajo el destino hasta él: la manta nunca estuvo lejos."
+    "gag": "Se queda pensando (Thinking), agarra la esquina doblada (Picking Up) y arrastra la manta hasta su orilla; se sienta encima (Sitting Idle) y saluda.",
+    "por_que_es_gracioso": "Trajo el destino hasta el: la esquina estaba ahi desde el plano 1."
    }
   ],
   "clips": [
@@ -385,7 +385,8 @@
    [
     900,
     [
-     "Climbing A Rope",
+     "Running",
+     "Jumping",
      "Laughing"
     ]
    ],
@@ -400,9 +401,9 @@
    ]
   ],
   "payoff": "Si no puedes ir a la manta, trae la manta.",
-  "sin_palabras": "Manta al otro lado del barro y hombre que mide el salto: se lee en 1 s.",
-  "needs": "Barro = cylinder aplanado marron; manta = cube fino con S.key de arrastre; tablon = cube; cuerda = cylinder fino; rama del arbol del parque. Sin agua. Clips existentes solamente.",
+  "sin_palabras": "Manta con esquina doblada hacia el hombre y barro en medio: se lee en 1 s.",
+  "needs": "Barro = cylinder aplanado marron; manta = cube fino con esquina doblada y S.key de arrastre; tablon = cube; banco = 3 cubes. Sin cuerda ni rama. Sin agua. Clips existentes solamente.",
   "riesgo_copia": "bajo",
-  "diferencia": "Cruzar un obstaculo; sin rio, sin cajas; remate de traer el destino. Ledger 0,29."
+  "diferencia": "Cruzar un obstaculo; sin rio, sin cajas, sin cuerda; la esquina doblada hace justo el remate de arrastrar la manta, no mirar abajo ni detras."
  }
 ]
