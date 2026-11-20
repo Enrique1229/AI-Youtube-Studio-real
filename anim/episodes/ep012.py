@@ -270,8 +270,8 @@ def l1(S):
 
     # ---- hombre ----
     seg(S, a, "Running", 1, F_SIT - 3, start=0, repeat=4, blend=3)
-    seg(S, a, "Sitting Idle", F_SIT - 4, F_HOP + 2, start=0, blend=5)
-    seg(S, a, "Running", F_HOP, F_M1 + 3, start=0, repeat=6, blend=4)
+    seg(S, a, "Sitting Idle", F_SIT - 4, F_HOP, start=0, blend=5)
+    seg(S, a, "Running", F_HOP - 2, F_M1 + 3, start=0, repeat=6, blend=3)
     seg(S, a, "Falling Back Death", F_FALL, F_HOP2 - 1, start=0, blend=3)
     seg(S, a, "Running", F_HOP2 - 3, F_HOP2 + 9, start=4, blend=3)               # el salto de vuelta al banco es un salto en pose de carrera
     seg(S, a, "Sitting Idle", F_HOP2 + 7, None, start=0, blend=3)                 # solo se sienta cuando ya está sobre el asiento
@@ -289,7 +289,7 @@ def l1(S):
     place(S, a, F_HOP - 1, BX, sy, SIT_DZ + LIFT, 0)
     # salta al suelo (carril de carrera), gira hacia el árbol y arranca
     # salta hacia delante-izquierda por encima del extremo del banco (1,7 m de largo) y cae en el carril, fuera de su giro
-    place(S, a, F_HOP + 3, (BX + LANE_X) / 2, 1.15, 0.55, 60)
+    place(S, a, F_HOP + 3, (BX + LANE_X) / 2, 1.15, 0.30, 60)
     place(S, a, F_M0, LANE_X, ym(F_M0), 0.0, 180)
     for f in range(F_M0 + 1, F_M1 + 1):
         place(S, a, f, LANE_X, ym(f), 0, 180, interp="LINEAR")
@@ -381,7 +381,7 @@ def l1(S):
     for f in range(77, 98):
         hp = head_pos(S, a, f); cam.append((f, (hp.x, hp.y - 1.7, hp.z + 0.12), (hp.x, hp.y, hp.z + 0.1), 50))
     # 5 medio: salta del banco, el banco da media vuelta y arranca
-    shot(98, 120, lambda f: ((BX - 0.7, -1.0, 1.25), (BX - 0.55, BY0 + 0.3, 1.0), 30))
+    shot(98, 120, lambda f: ((BX - 0.9, -1.9, 1.35), (BX - 0.9, BY0 + 0.3, 1.45), 28))
     # 6 persecución: plano lateral que sigue al banco y al hombre en profundidad
     shot(121, 147, lambda f: ((-1.2, (yb(f) + ym(f)) / 2 - 1.5, 1.3), (-7.9, (yb(f) + ym(f)) / 2 + 0.5, 1.0), 27))
     # 7 el árbol con sombra: el banco llega, se sienta; el hombre frena fuera de la sombra y cae de culo
