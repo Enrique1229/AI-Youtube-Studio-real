@@ -200,6 +200,41 @@ def sfx(kind, seed):
         for k in range(1, 26):
             x += np.exp(-((k * f0 - fc) / 260.0) ** 2) * np.sin(2 * np.pi * k * ph) / (1 + 0.05 * k)
         return norm(fade(x * np.exp(-t * 3.2), 0.002, 0.12), 0.85)
+    if kind in ("huh", "oof", "laugh", "sigh", "hmm", "yay"):     # voz del personaje sin palabras (síntesis por formantes)
+        def vowel(f0, dur, F, bw=110, jitter=0.0):
+            t = np.arange(int(SR * dur)) / SR; f = np.interp(t, np.linspace(0, dur, len(f0)), f0) if hasattr(f0, "__len__") else np.full_like(t, f0)
+            f = f * (1 + jitter * np.sin(2 * np.pi * 5.5 * t)); ph = np.cumsum(f) / SR; x = np.zeros_like(t)
+            for k in range(1, 40):
+                a = sum(np.exp(-((k * f - Fi) / bw) ** 2) * g for Fi, g in F)
+                x += a * np.sin(2 * np.pi * k * ph) / (1 + 0.04 * k)
+            return x + 0.04 * lowpass(rng.standard_normal(len(t)), 3000)
+        if kind == "huh":    # "¿eh?": sube el tono
+            x = vowel([170, 175, 260], 0.32, [(650, 1.0), (1150, 0.6), (2500, 0.2)]) * np.sin(np.pi * np.linspace(0, 1, int(SR * 0.32))) ** 0.6
+        elif kind == "oof":  # "¡uf!": golpe que saca el aire
+            x = vowel([210, 150], 0.22, [(400, 1.0), (800, 0.5), (2400, 0.1)]) * np.exp(-np.linspace(0, 5, int(SR * 0.22)))
+        elif kind == "hmm":  # "mmm" pensando / molesto (boca cerrada)
+            x = vowel([140, 132, 145], 0.55, [(250, 1.0), (2200, 0.05)], bw=80, jitter=0.01) * np.sin(np.pi * np.linspace(0, 1, int(SR * 0.55))) ** 0.4
+        elif kind == "sigh": # suspiro de alivio: aire que cae
+            n = int(SR * 0.8); t = np.arange(n) / SR; nz = rng.standard_normal(n)
+            x = (lowpass(nz, 1800) - 0.6 * lowpass(nz, 300)) * np.sin(np.pi * t / 0.8) ** 1.5 * 2.5
+            x += 0.35 * vowel([180, 120], 0.8, [(600, 1.0), (1000, 0.4)]) * np.sin(np.pi * t / 0.8) ** 2
+        elif kind == "yay":  # "¡bien!": vocal abierta que sube
+            x = vowel([220, 300, 330], 0.4, [(800, 1.0), (1300, 0.7), (2600, 0.3)], jitter=0.02) * np.sin(np.pi * np.linspace(0, 1, int(SR * 0.4))) ** 0.5
+        else:                # risa: "ja-ja-ja-ja"
+            parts = []
+            for i, f0 in enumerate((260, 245, 235, 220)):
+                h = vowel([f0, f0 * 0.93], 0.11, [(850, 1.0), (1250, 0.7), (2600, 0.2)]); h *= np.sin(np.pi * np.linspace(0, 1, len(h))) ** 0.7
+                parts += [h, np.zeros(int(SR * 0.045))]
+            x = np.concatenate(parts)
+        return norm(fade(x, 0.005, 0.04), 0.75)
+    if kind == "wahwah":     # trombón triste ("fracaso"): tres notas que bajan y la última tiembla
+        out = []
+        for i, (f0, d) in enumerate(((233, 0.28), (220, 0.28), (208, 0.28), (196, 0.9))):
+            t = np.arange(int(SR * d)) / SR; f = f0 * (1 + (0.03 * np.sin(2 * np.pi * 6 * t) if i == 3 else 0) - (0.06 * t if i == 3 else 0))
+            ph = np.cumsum(f) / SR; x = np.zeros_like(t); fc = 900 + 500 * np.sin(np.pi * np.minimum(t / 0.15, 1))
+            for k in range(1, 30): x += np.exp(-((k * f - fc) / 500) ** 2) * np.sin(2 * np.pi * k * ph) / k ** 0.6
+            out.append(x * np.minimum(1, t / 0.02) * (np.exp(-t * 1.2) if i == 3 else 1))
+        return norm(fade(np.concatenate(out), 0.005, 0.2), 0.7)
     if kind == "whoosh":     # zas: ruido de aire que pasa (banda que sube y baja)
         dur = 0.45; t = np.arange(int(SR * dur)) / SR; n_ = rng.standard_normal(len(t))
         lo = lowpass(n_, 3200) - lowpass(n_, 500); env = np.sin(np.pi * t / dur) ** 2.2
