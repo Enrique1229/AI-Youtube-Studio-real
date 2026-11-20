@@ -21,6 +21,18 @@ def find_blender(arg):
     sys.exit("ERROR: no encuentro Blender. Pasa la ruta con --blender \"C:/Program Files/Blender Foundation/Blender X.Y/blender.exe\"")
 
 
+def guard_protected(ep, allow=False):
+    """Episodios 1-8: ya producidos. No se renderizan de nuevo y sus archivos no deben cambiar."""
+    import hashlib
+    lock = ROOT / "channel" / "locks" / "episodes-1-8.sha256"
+    locked = dict(l.split()[::-1] for l in lock.read_text().splitlines() if l.strip()) if lock.exists() else {}
+    changed = [n for n, h in locked.items() if (ROOT / "anim" / "episodes" / n).exists()
+               and hashlib.sha256((ROOT / "anim" / "episodes" / n).read_bytes()).hexdigest() != h]
+    if changed: sys.exit(f"ERROR: episodios protegidos modificados: {changed}. Restáuralos con: git checkout -- anim/episodes/")
+    if ep.name in locked and not allow:
+        sys.exit(f"ERROR: {ep.name} es un episodio protegido (1-8). No se vuelve a renderizar (usa --allow-protected solo si de verdad lo quieres).")
+
+
 def episode_settings(path):
     """Lee los ajustes del episodio SIN ejecutarlo (el episodio usa bpy, que solo existe dentro de Blender):
     LEVELS (los IQ), CAPTION, CTA, SPEED, TITLE."""
@@ -31,7 +43,7 @@ def episode_settings(path):
             name = node.targets[0].id
             if name == "LEVELS":
                 cfg["iqs"] = [ast.literal_eval(el.elts[0]) for el in node.value.elts]
-            elif name in ("CAPTION", "CTA", "SPEED", "TITLE", "ONSCREEN"):
+            elif name in ("CAPTION", "CTA", "SPEED", "TITLE", "ONSCREEN", "ASSETS"):
                 try: cfg[name] = ast.literal_eval(node.value)
                 except ValueError: pass
     if "iqs" not in cfg: sys.exit(f"ERROR: {path} no define LEVELS")
@@ -43,7 +55,13 @@ def main():
     if len(a) < 2: sys.exit(__doc__)
     ep, out = pathlib.Path(a[0]).resolve(), pathlib.Path(a[1]).resolve()
     blender = find_blender(a[a.index("--blender") + 1] if "--blender" in a else None)
+    guard_protected(ep, "--allow-protected" in a)
     cfg = episode_settings(ep); iqs = cfg["iqs"]
+    if cfg.get("ASSETS"):                                                              # modelos externos: archivos presentes y sin alterar
+        sys.path.insert(0, str(ROOT / "anim")); from assets import load_manifest, check_files
+        probs = check_files(load_manifest(cfg["ASSETS"]))
+        if probs: sys.exit("ERROR en los modelos del episodio:\n  " + "\n  ".join(probs))
+        print(f"modelos OK: {cfg['ASSETS']}")
     env = dict(os.environ, STUDIO_DEVICE="CPU" if "--cpu" in a else "GPU", STUDIO_ENGINE="BLENDER_EEVEE" if "--eevee" in a else "CYCLES",
                STUDIO_RES="540x960" if "--draft" in a else "1080x1920", STUDIO_SAMPLES="16" if "--draft" in a else "32")
     out.mkdir(parents=True, exist_ok=True)
