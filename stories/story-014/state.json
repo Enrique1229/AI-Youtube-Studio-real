@@ -1,0 +1,20 @@
+{
+  "id": "story-014",
+  "format": "short",
+  "title": "Every IQ Level Reaches the Picnic Blanket",
+  "stage": "selected",
+  "gates": {
+    "critic": "PASS",
+    "market": "PASS",
+    "continuity": "PENDING",
+    "policy": "PENDING",
+    "qc": "PENDING"
+  },
+  "vps": 67.1,
+  "quality_score": null,
+  "fix_rounds": 0,
+  "final_file": null,
+  "updated": "2026-11-20",
+  "idea_id": "b20261120-2-l04",
+  "market_verdict": "VALIDATED"
+}

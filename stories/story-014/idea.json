@@ -1,0 +1,107 @@
+{
+  "id": "b20261120-2-l04",
+  "format": "levels",
+  "kind": "anim",
+  "env": "rio",
+  "title_en": "Every IQ Level Reaches the Picnic Blanket",
+  "caption_en": null,
+  "logline_es": "Una manta de picnic está al otro lado de un charco de barro, con una esquina doblada hacia su orilla; el hombre salta, lanza piedras, hunde un banco como puente y se lanza sobre la manta, que lo arrastra al barro; el más listo agarra la esquina y la manta lo sigue limpia hasta sentarse encima.",
+  "beats": [
+    {
+      "t": "0-4",
+      "beat": "Gancho (accion en el fotograma 1). IQ -450: Plano abierto: manta con una esquina doblada hacia el, barro en medio y un banco al lado; ya corriendo y saltando con los brazos abiertos (frame 1); se queda corto y se hunde hasta las rodillas."
+    },
+    {
+      "t": "4-8",
+      "beat": "IQ -80: Lanza piedras (Throw) para hacer pasarela; todas se hunden sin ruido; se sienta enfadado mirando el barro."
+    },
+    {
+      "t": "8-12",
+      "beat": "IQ 120: Empuja el banco al barro (Pushing) para usarlo de puente; el banco se hunde del todo y solo asoma el respaldo; se sienta en el respaldo (Sitting Idle) con cara de gran idea, y se hunde despacio con el."
+    },
+    {
+      "t": "12-16",
+      "beat": "IQ 900: Toma carrerilla (Running), salta (Jumping) y cae justo en el borde de la manta; la manta resbala bajo sus pies y lo lleva de culo al barro (Falling Back Death), manta incluida."
+    },
+    {
+      "t": "16-20",
+      "beat": "IQ 5469: Se queda pensando (Thinking), agarra la esquina doblada (Picking Up) y tira: la manta sigue a la mano y cruza el barro limpia hasta su orilla; se sienta encima (Sitting Idle) y saluda (Waving)."
+    }
+  ],
+  "levels": [
+    {
+      "iq": -450,
+      "gag": "Plano abierto: manta con una esquina doblada hacia el, barro en medio y un banco al lado; ya corriendo y saltando con los brazos abiertos (frame 1); se queda corto y se hunde hasta las rodillas.",
+      "por_que_es_gracioso": "Cree que saltar es lo mismo que llegar."
+    },
+    {
+      "iq": -80,
+      "gag": "Lanza piedras (Throw) para hacer pasarela; todas se hunden sin ruido; se sienta enfadado mirando el barro.",
+      "por_que_es_gracioso": "Su logica: el barro tiene hambre y se las come."
+    },
+    {
+      "iq": 120,
+      "gag": "Empuja el banco al barro (Pushing) para usarlo de puente; el banco se hunde del todo y solo asoma el respaldo; se sienta en el respaldo (Sitting Idle) con cara de gran idea, y se hunde despacio con el.",
+      "por_que_es_gracioso": "Fallo poco visto: construye un puente con un mueble y lo traga; sigue sentado con dignidad."
+    },
+    {
+      "iq": 900,
+      "gag": "Toma carrerilla (Running), salta (Jumping) y cae justo en el borde de la manta; la manta resbala bajo sus pies y lo lleva de culo al barro (Falling Back Death), manta incluida.",
+      "por_que_es_gracioso": "Casi lo logra: la propia meta lo traiciona y se lo lleva al barro."
+    },
+    {
+      "iq": 5469,
+      "gag": "Se queda pensando (Thinking), agarra la esquina doblada (Picking Up) y tira: la manta sigue a la mano y cruza el barro limpia hasta su orilla; se sienta encima (Sitting Idle) y saluda (Waving).",
+      "por_que_es_gracioso": "El unico limpio: no cruza nada, trae la manta; la esquina doblada estaba ahi desde el plano 1."
+    }
+  ],
+  "clips": [
+    [
+      -450,
+      [
+        "Running",
+        "Falling Back Death"
+      ]
+    ],
+    [
+      -80,
+      [
+        "Throw",
+        "Angry"
+      ]
+    ],
+    [
+      120,
+      [
+        "Pushing",
+        "Sitting Idle"
+      ]
+    ],
+    [
+      900,
+      [
+        "Running",
+        "Jumping",
+        "Falling Back Death"
+      ]
+    ],
+    [
+      5469,
+      [
+        "Thinking",
+        "Picking Up",
+        "Sitting Idle",
+        "Waving"
+      ]
+    ]
+  ],
+  "payoff": "Si no puedes ir a la manta, trae la manta.",
+  "sin_palabras": "Manta con esquina doblada hacia el hombre y barro en medio: se lee en 1 s.",
+  "needs": "Barro = cylinder aplanado marron; manta = cube fino con esquina doblada y S.key de arrastre/deslizamiento; banco = 3 cubes con S.key de hundimiento; piedras = uv_spheres. Sin tablon, cuerda ni rama. Sin agua. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Cruzar un obstaculo; sin rio, cajas, cuerda ni tablon; fallos cada vez mas absurdos (banco-puente que se hunde, manta traidora); remate de arrastrar la manta, no mirar abajo ni detras.",
+  "vps": 67.1,
+  "batch": "20261120-2",
+  "story_id": "story-014",
+  "critic_improve": "Acortar el 120 a un solo plano de hundimiento del banco con el hombre sentado y simplificar el 900 a que la manta se deslice sin contacto fino con los pies (solo S.key de la manta y caida del actor), para bajar el riesgo de produccion."
+}

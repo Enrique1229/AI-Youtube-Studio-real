@@ -1,0 +1,19 @@
+{
+  "id": "b20261120-2-l04",
+  "scores": {
+    "hook": 8,
+    "curiosity": 6,
+    "retention": 8,
+    "originality": 7,
+    "visual": 7,
+    "emotion": 8,
+    "ending": 8,
+    "series": 8,
+    "differentiation": 6,
+    "production_difficulty": 7,
+    "repetition_risk": 4
+  },
+  "why": "Ahora los cuatro primeros niveles fallan con escalada clara (salto corto, piedras, banco-puente que se traga con dignidad, manta traidora) y el 5469 es el unico limpio con la esquina visible desde el plano 1, lo que mejora retencion y emocion, pero el banco que se hunde con S.key y la manta que resbala y arrastra al actor son los dos efectos mas delicados de animar.",
+  "improve": "Acortar el 120 a un solo plano de hundimiento del banco con el hombre sentado y simplificar el 900 a que la manta se deslice sin contacto fino con los pies (solo S.key de la manta y caida del actor), para bajar el riesgo de produccion.",
+  "vps": 67.1
+}
