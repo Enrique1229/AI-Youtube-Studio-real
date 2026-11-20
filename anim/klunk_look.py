@@ -16,7 +16,8 @@ STRIPE_A = (1.00, 0.42, 0.04)    # naranja
 STRIPE_B = (0.95, 0.90, 0.80)    # crema
 PANTS = (0.05, 0.08, 0.22)       # azul marino
 SHOES = (0.75, 0.05, 0.04)       # rojo
-SKIN = (0.24, 0.14, 0.09)        # multiplica la piel clara de Mixamo: tono marrón
+SKIN = (0.30, 0.18, 0.12)        # multiplica la piel clara de Mixamo: tono marrón
+SKIN_EVEN = (0.12, 0.068, 0.045)  # tono fijo con el que se iguala (cara y manos del mismo color)
 
 
 def _base_tex(obj, name, bright):
@@ -43,6 +44,19 @@ def _tint(obj, color, name, bright=0.35):
     """Multiplica la textura por un color: conserva pliegues y costuras de la ropa."""
     nt, b, out = _base_tex(obj, name, bright); _multiply(nt, b, out, color=color)
     for k in ("Subsurface Weight", "Subsurface"):                       # la dispersión aclara la piel teñida
+        if k in b.inputs: b.inputs[k].default_value = 0.0
+
+
+def _skin(obj):
+    """Piel morena uniforme: la textura de Mixamo es más clara en la cara que en las manos, así que se mezcla el
+    tinte con un tono fijo (conserva poros y sombras suaves, iguala cara y manos)."""
+    nt, b, out = _base_tex(obj, "klunk_piel", 0.0)
+    tint = nt.nodes.new("ShaderNodeMix"); tint.data_type = "RGBA"; tint.blend_type = "MULTIPLY"; tint.inputs["Factor"].default_value = 1.0
+    nt.links.new(out, tint.inputs[6]); tint.inputs[7].default_value = (*SKIN, 1)
+    even = nt.nodes.new("ShaderNodeMix"); even.data_type = "RGBA"; even.inputs["Factor"].default_value = 0.6
+    nt.links.new(tint.outputs[2], even.inputs[6]); even.inputs[7].default_value = (*SKIN_EVEN, 1)
+    nt.links.new(even.outputs[2], b.inputs["Base Color"])
+    for k in ("Subsurface Weight", "Subsurface"):
         if k in b.inputs: b.inputs[k].default_value = 0.0
 
 
@@ -104,7 +118,7 @@ def apply(actor, seed=3):
     if "Ch01_Shirt" in parts: _stripes(parts["Ch01_Shirt"], "klunk_camiseta", STRIPE_A, STRIPE_B)
     if "Ch01_Pants" in parts: _tint(parts["Ch01_Pants"], PANTS, "klunk_pantalon", bright=0.1)
     if "Ch01_Sneakers" in parts: _tint(parts["Ch01_Sneakers"], SHOES, "klunk_zapatillas", bright=0.15)
-    if "Ch01_Body" in parts: _tint(parts["Ch01_Body"], SKIN, "klunk_piel", bright=0.0)
+    if "Ch01_Body" in parts: _skin(parts["Ch01_Body"])
     head = next(b.name for b in arm.data.bones if b.name.split(":")[-1] == "Head")
     # se construye en coordenadas del personaje en reposo (mirando a -Y, ~1,8 m) y luego se cuelga del hueso
     old_pp = arm.data.pose_position; arm.data.pose_position = "REST"; bpy.context.view_layer.update()
