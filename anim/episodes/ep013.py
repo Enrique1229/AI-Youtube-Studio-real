@@ -303,7 +303,8 @@ def lift_feet(S, a, f0, f1, floor=-0.01):
     fix = {}
     for f in range(f0, f1 + 1):
         S.sc.frame_set(f); bpy.context.view_layer.update()
-        z = min((a.arm.matrix_world @ a.arm.pose.bones[a.pfx + b].head).z for b in ("LeftFoot", "RightFoot", "LeftToeBase", "RightToeBase"))
+        z = min((a.arm.matrix_world @ a.arm.pose.bones[a.pfx + b].head).z for b in ("LeftFoot", "RightFoot"))
+        z = min(z, *((a.arm.matrix_world @ a.arm.pose.bones[a.pfx + b].tail).z for b in ("LeftToeBase", "RightToeBase")))
         if z < floor: fix[f] = (a.root.location.copy(), a.root.rotation_euler.z, floor - z)
     for f, (loc, yaw, d) in fix.items():
         S.key(a.root, f, loc=(loc.x, loc.y, loc.z + d), rot=(0, 0, yaw), interp="LINEAR")
@@ -369,10 +370,10 @@ def l2(S):
     for f, d in tug: place(S, a, f, xr + d, yr, 0, 90, interp="LINEAR")
     place(S, a, 84, xr, yr, 0, 90); place(S, a, f_rel - 1, xr - 0.10, yr - 0.05, 0, 90, interp="LINEAR")
     place(S, a, f_rel + 14, xr - 0.12, yr - 0.80, 0, 90)
-    ik_infl(ikc, 1, 0.0); ik_infl(ikc, 12, 0.0); ik_infl(ikc, 28, 1.0); ik_infl(ikc, f_rel - 1, 1.0); ik_infl(ikc, f_rel + 2, 0.0)
+    ik_infl(ikc, 1, 1.0); ik_infl(ikc, f_rel - 4, 1.0); ik_infl(ikc, f_rel - 1, 0.0)
     wx = FLAP_X + 0.07
-    ik_to(S, ikt, 1, (wx, FRONT_Y - 0.25, 0.55)); ik_to(S, ikt, 12, (wx, FRONT_Y - 0.12, 0.45))
-    ik_to(S, ikt, 30, (wx, FRONT_Y + 0.11, FLAP_Z - 0.04)); ik_to(S, ikt, f_rel - 1, (wx, FRONT_Y + 0.11, FLAP_Z - 0.04))
+    ik_to(S, ikt, 1, (wx, FRONT_Y - 0.30, 0.50)); ik_to(S, ikt, 12, (wx, FRONT_Y - 0.12, 0.45))
+    ik_to(S, ikt, 30, (wx, FRONT_Y + 0.11, FLAP_Z - 0.04)); ik_to(S, ikt, f_rel - 4, (wx, FRONT_Y + 0.11, FLAP_Z - 0.04))
     S.key(w.hinge, 18, rot=(0, 0, 0)); S.key(w.hinge, 30, rot=(R(52), 0, 0)); S.key(w.hinge, f_rel, rot=(R(52), 0, 0))
     S.key(w.hinge, f_rel + 6, rot=(R(-6), 0, 0), interp="BOUNCE"); S.key(w.hinge, f_rel + 14, rot=(0, 0, 0))
     S.cue("hit", 33, vol=-15); S.cue("hit", 47, vol=-16); S.cue("hmm", 56, vol=-8)
