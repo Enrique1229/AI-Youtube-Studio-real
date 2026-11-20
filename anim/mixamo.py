@@ -94,11 +94,13 @@ class MixamoActor:
     def clip_frames(self, name):
         a = self.clips[name]; return int(a.frame_range[1] - a.frame_range[0])
 
-    def play(self, name, frames=None, speed=1.0, blend=4, travel_to=None, repeat=1):
-        """Añade el clip `name` en S.f (con fundido). frames: recorta; repeat: bucle; travel_to: x final de la raíz."""
+    def play(self, name, frames=None, speed=1.0, blend=4, travel_to=None, repeat=1, start=0):
+        """Añade el clip `name` en S.f (con fundido). frames: recorta; repeat: bucle; travel_to: x final de la raíz;
+        start: salta los primeros `start` fotogramas del clip (empezar ya a mitad de la acción)."""
         if name not in self.clips: raise MixamoError(f"no existe el clip '{name}'. Hay: {sorted(self.clips)}")
         S = self.st; a = self.clips[name]; f0 = S.f
         st = self.tracks[len(self.strips) % 2].strips.new(f"{name}_{f0}", int(f0), a)
+        if start: st.action_frame_start = a.frame_range[0] + start
         st.scale = 1.0 / speed; st.repeat = repeat
         if frames: st.frame_end = f0 + frames
         st.blend_in = st.blend_out = blend if self.strips else 0
