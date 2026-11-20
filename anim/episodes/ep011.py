@@ -10,6 +10,7 @@ import bmesh
 import bpy
 from mathutils import Vector, noise
 from mixamo import MixamoActor
+from klunk_look import apply as klunk   # protagonista fijo del canal (afro, rayas naranjas, zapatillas rojas)
 
 TITLE = "Every IQ Level Reaches the Picnic Blanket"
 ONSCREEN = "Every IQ level reaches the picnic blanket"
@@ -268,7 +269,7 @@ def tab_tip(rot_deg=TAB_A):
 def l1(S):
     """-450: ya corriendo en el fotograma 1; salta con los brazos abiertos, se queda corto y se hunde hasta las rodillas."""
     w = build_set(S); cam_static(S)
-    a = MixamoActor(S, x=-9.35, yaw=90, use=["Running", "Jumping", "Looking Around"])
+    a = MixamoActor(S, x=-9.35, yaw=90, use=["Running", "Jumping", "Looking Around"]); klunk(a)
     f_run, f_jump = 1, 13
     seg(S, a, "Running", f_run, f_jump, start=0, repeat=2, blend=3)
     sp = 1.25; j0 = 6                                               # fotograma del clip Jumping al despegar
@@ -302,7 +303,7 @@ def l2(S):
     """-80: lanza tres piedras (Throw) para hacer pasarela; cada una se hunde sin ruido; se queda mirando el barro, enfadado."""
     w = build_set(S); cam_static(S)
     xc = -8.55
-    a = MixamoActor(S, x=xc, yaw=90, use=["Throw", "Angry"])
+    a = MixamoActor(S, x=xc, yaw=90, use=["Throw", "Angry"]); klunk(a)
     place(S, a, 1, xc, YA, 0, 90)
     seg(S, a, "Throw", 1, 33, start=0)
     seg(S, a, "Throw", 31, 60, start=8)
@@ -342,7 +343,7 @@ def l3(S):
     w = build_set(S); cam_static(S)
     HX = 0.5 + 0.80                                                 # raíz -> centro del banco (extremo del banco + alcance de las manos)
     r0 = BEN_X - HX
-    a = MixamoActor(S, x=r0, yaw=90, use=["Pushing", "Jumping", "Sitting Idle"])
+    a = MixamoActor(S, x=r0, yaw=90, use=["Pushing", "Jumping", "Sitting Idle"]); klunk(a)
     f_p = 56
     seg(S, a, "Pushing", 1, f_p - 4, start=0, blend=4)
     seg(S, a, "Jumping", f_p - 4, f_p + 8, start=14, speed=2.0, blend=3)           # salto de un solo impulso hasta el banco
@@ -402,7 +403,7 @@ def l4(S):
     """900: carrerilla, salto y cae en el borde de la manta; ésta resbala bajo sus pies y lo lleva de culo al charco, manta incluida."""
     w = build_set(S); cam_static(S)
     ya = YA + 0.05
-    a = MixamoActor(S, x=-9.35, yaw=90, use=["Running", "Jumping", "Falling Back Death"])
+    a = MixamoActor(S, x=-9.35, yaw=90, use=["Running", "Jumping", "Falling Back Death"]); klunk(a)
     f_jump = 13; sp = 1.25; j0 = 6
     seg(S, a, "Running", 1, f_jump, start=0, repeat=2, blend=3)
     seg(S, a, "Jumping", f_jump, 46, start=j0, speed=sp, blend=4)
@@ -443,7 +444,7 @@ def l5(S):
     ENCIMA del barro (inclinada por la esquina), la suelta y se desliza hasta su orilla; saluda y se sienta encima."""
     w = build_set(S); cam_static(S)
     yt = TAB_Y
-    a = MixamoActor(S, x=-7.95, yaw=90, use=["Thinking", "Picking Up", "Waving", "Sitting Idle"])
+    a = MixamoActor(S, x=-7.95, yaw=90, use=["Thinking", "Picking Up", "Waving", "Sitting Idle"]); klunk(a)
     seg(S, a, "Thinking", 1, 40, start=0, blend=5)
     f0p, st_p, spd = 36, 18, 1.6
     seg(S, a, "Picking Up", f0p, 84, start=st_p, speed=spd, blend=5)
