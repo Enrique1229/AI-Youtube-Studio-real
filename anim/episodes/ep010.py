@@ -16,11 +16,13 @@ ENV = "parque"
 CUSTOM_CAMERA = True
 LABEL_STYLE = "big"
 
-PX = -4.6            # x del poste (y = 0)
+PX = -6.2            # x del poste (y = 0)
 POLE_H = 3.55
-BX = PX + 0.30       # x de la campana (cuelga de un brazo a la derecha del poste)
+BX = PX + 0.40       # x de la campana (cuelga de un brazo a la derecha del poste)
+BELL_S = 1.3         # escala de la campana (grande en móvil)
 BZ = 3.42            # punto de cuelgue de la campana
 RY = 0.55            # y de la cuerda de tirar (detrás del plano del poste)
+KX = PX + 0.20       # x donde la cuerda está enrollada en el suelo (detrás del poste)
 BIN_H = 0.96
 
 
@@ -83,7 +85,8 @@ def bone_pos(S, a, bone, f, frac=0.0):
     return a.arm.matrix_world @ (pb.head + (pb.tail - pb.head) * frac)
 
 
-def cam_static(S, loc=(PX - 0.2, -7.2, 1.95), tgt=(PX - 0.2, 0, 1.9), lens=38):
+def cam_static(S, cx=PX - 0.2, lens=44, dist=6.5, tz=2.0):
+    loc = (cx, -dist, tz + 0.05); tgt = (cx, 0, tz)
     S.cam.location = loc; S.cam.data.lens = lens; S.tgt.location = tgt
     S.cam.keyframe_insert("location", frame=1); S.cam.data.keyframe_insert("lens", frame=1); S.tgt.keyframe_insert("location", frame=1)
 
@@ -100,7 +103,7 @@ def seg(S, a, clip, f0, f1=None, start=0, speed=1.0, blend=4):
 
 
 def dust(S, x, y, z, f, n=5, spread=0.4, size=0.07, rise=0.3, seed=0):
-    rr = random.Random(seed + int(x * 10) + f); m = mmat(S, "polvo", (0.55, 0.45, 0.30), rough=1.0)
+    rr = random.Random(seed + int(x * 10) + f); m = mmat(S, "polvo", (0.36, 0.29, 0.19), rough=1.0)
     for i in range(n):
         d = S.obj("uv_sphere", "polvo", "white", (x, y, z), (0.001,) * 3, segments=8, ring_count=6); d.data.materials[0] = m
         dx = rr.uniform(-spread, spread); dy = rr.uniform(-spread * 0.5, spread * 0.5); sz = size * rr.uniform(0.7, 1.3)
@@ -128,8 +131,11 @@ def daze(S, p, f0, n=40):
 class W: pass
 
 
-def build_set(S):
+def build_set(S, rope=False):
     w = W()
+    for o in list(S.sc.objects):                                   # matas de hierba fuera del pie del poste y de la cuerda enrollada
+        if o.instance_type == "COLLECTION" and "grass" in o.name and math.hypot(o.location.x - PX, o.location.y - 0.35) < 0.95:
+            bpy.data.objects.remove(o, do_unlink=True)
     wood = pole_wood(S)
     iron = mmat(S, "hierro", (0.07, 0.075, 0.08), rough=0.45, metal=0.9)
     brass = mmat(S, "laton", (0.85, 0.58, 0.18), rough=0.26, metal=1.0)
@@ -145,10 +151,8 @@ def build_set(S):
     O(S, "cube", "brazo", iron, ((PX + BX) / 2, 0, BZ + 0.03), ((BX - PX) / 2 + 0.05, 0.028, 0.028), smooth=False)
     O(S, "cube", "refuerzo", iron, (PX + 0.15, 0, BZ - 0.14), (0.20, 0.016, 0.016), rot=(0, R(-45), 0), smooth=False)
     O(S, "cylinder", "colgador", iron, (BX, 0, BZ - 0.02), (0.012, 0.012, 0.045), vertices=8)
-    # gancho trasero del que cuelga la cuerda de tirar (apunta hacia atrás, lejos de cámara)
-    O(S, "cube", "gancho_cuerda", iron, (BX, RY / 2, BZ + 0.03), (0.016, RY / 2 + 0.02, 0.016), smooth=False)
     # campana de latón con badajo
-    w.bell = S.empty("campana", (BX, 0, BZ))
+    w.bell = S.empty("campana", (BX, 0, BZ)); w.bell.scale = (BELL_S,) * 3
     prof = [(0.0, -0.10), (0.045, -0.105), (0.085, -0.125), (0.112, -0.20), (0.128, -0.29), (0.148, -0.37), (0.185, -0.44), (0.225, -0.495), (0.238, -0.51)]
     b = lathe(S, "campana_cuerpo", prof, brass); b.parent = w.bell
     O(S, "cylinder", "boca_campana", dark, (0, 0, -0.50), (0.222, 0.222, 0.004), parent=w.bell, vertices=32, smooth=False)
@@ -156,14 +160,8 @@ def build_set(S):
     O(S, "cylinder", "varilla_badajo", iron, (0, 0, -0.14), (0.006, 0.006, 0.14), parent=w.clapper, vertices=8)
     O(S, "uv_sphere", "bola_badajo", iron, (0, 0, -0.31), (0.036, 0.036, 0.036), parent=w.clapper, segments=12, ring_count=8)
     S.key(w.bell, 1, rot=(0, 0, 0)); S.key(w.clapper, 1, rot=(0, 0, 0))
-    # cuerda de tirar: del gancho al suelo, con una bolita de madera al final y el sobrante enrollado
-    w.rope = O(S, "cylinder", "cuerda", rope_m, (BX, RY, BZ / 2), (0.014, 0.014, BZ / 2), vertices=8, smooth=False)
-    w.toggle = O(S, "uv_sphere", "tirador", wood, (BX, RY, 0.22), (0.032, 0.032, 0.05), segments=12, ring_count=8)
-    w.K0 = Vector((BX, RY, 0.26)); w.top = Vector((BX, RY, BZ + 0.03))
-    rope_set(S, w, 1, w.K0)
-    for k in range(3):
-        O(S, "uv_sphere", "enrollado", rope_m, (BX + 0.10 * math.cos(k * 2.1), RY + 0.07 * math.sin(k * 2.1), 0.025), (0.085, 0.03, 0.022),
-          rot=(0, 0, k * 1.1), segments=12, ring_count=6)
+    w.top = Vector((BX, RY, BZ + 0.03)); w.K0 = Vector((KX, RY + 0.05, 0.14))
+    if rope: build_rope(S, w, iron, wood)
     # papelera de parque (1 m): chapa verde con aros y boca negra
     w.bin = S.empty("papelera", (-9, -0.45, 0))
     gm = mmat(S, "papelera", (0.10, 0.30, 0.16), rough=0.4, metal=0.7)
@@ -175,7 +173,7 @@ def build_set(S):
         O(S, "cylinder", "pap_banda", iron, (0, 0, z), (0.276, 0.276, 0.012), parent=w.bin, vertices=32)
     S.key(w.bin, 1, loc=(-9, -0.45, 0))                        # fuera de cuadro salvo en el 900
     # zapato de cuero marrón (para el -80)
-    leather = mmat(S, "cuero", (0.38, 0.17, 0.07), rough=0.55)
+    leather = mmat(S, "cuero", (0.16, 0.07, 0.03), rough=0.5)
     sole = mmat(S, "suela", (0.05, 0.04, 0.035), rough=0.9)
     w.shoe = S.empty("zapato", (0, 0, -9))
     O(S, "cube", "suela", sole, (0.0, 0, 0.0), (0.145, 0.052, 0.018), parent=w.shoe, smooth=False)
@@ -183,8 +181,22 @@ def build_set(S):
     O(S, "uv_sphere", "puntera", leather, (0.10, 0, 0.03), (0.06, 0.048, 0.036), parent=w.shoe, segments=12, ring_count=8)
     O(S, "cylinder", "caña", leather, (-0.07, 0, 0.09), (0.045, 0.04, 0.06), parent=w.shoe, vertices=12)
     O(S, "cube", "tacon", sole, (-0.09, 0, -0.015), (0.04, 0.05, 0.016), parent=w.shoe, smooth=False)
-    S.key(w.shoe, 1, loc=(0, 0, -9), scale=(1, 1, 1))
+    w.shoe.scale = (1.4, 1.4, 1.4)
     return w
+
+
+def build_rope(S, w, iron, wood):
+    """Solo en el 5469: gancho trasero, cuerda (oculta hasta que la recoge) y el sobrante enrollado en el suelo detrás del poste."""
+    rope_m = mmat(S, "cuerda", (0.62, 0.48, 0.26), rough=0.95)
+    O(S, "cube", "gancho_cuerda", iron, (BX, RY / 2, BZ + 0.03), (0.016, RY / 2 + 0.02, 0.016), smooth=False)
+    w.rope = O(S, "cylinder", "cuerda", rope_m, tuple(w.top), (0.001,) * 3, vertices=8, smooth=False)
+    w.toggle = O(S, "uv_sphere", "tirador", wood, tuple(w.K0), (0.001,) * 3, segments=12, ring_count=8)
+    w.coil = S.empty("cuerda_enrollada", (KX, RY + 0.05, 0.0))
+    for k in range(4):
+        O(S, "uv_sphere", "vuelta", rope_m, (0.03 * math.cos(k * 1.7), 0.03 * math.sin(k * 1.7), 0.04 + 0.045 * (k % 3)), (0.17 - 0.016 * k, 0.17 - 0.016 * k, 0.034),
+          rot=(0, 0, k * 0.9), parent=w.coil, segments=16, ring_count=6)
+    O(S, "uv_sphere", "tirador_suelo", wood, (0.0, 0.0, 0.14), (0.032, 0.032, 0.05), parent=w.coil, segments=12, ring_count=8)
+    S.key(w.coil, 1, scale=(1, 1, 1)); S.key(w.rope, 1, scale=(0.001,) * 3); S.key(w.toggle, 1, scale=(0.001,) * 3)
 
 
 def rope_set(S, w, f, K):
@@ -192,7 +204,7 @@ def rope_set(S, w, f, K):
     A = w.top; d = Vector(K) - A; L = d.length
     q = Vector((0, 0, 1)).rotation_difference(d.normalized()); e = q.to_euler()
     S.key(w.rope, f, loc=tuple((A + Vector(K)) / 2), rot=(e.x, e.y, e.z), scale=(0.014, 0.014, L / 2), interp="LINEAR")
-    S.key(w.toggle, f, loc=tuple(K), interp="LINEAR")
+    S.key(w.toggle, f, loc=tuple(K), scale=(0.032, 0.032, 0.05), interp="LINEAR")
 
 
 def ring(S, w, f, amp, decay=22.0, n=22, big=True, sound=True):
@@ -204,7 +216,7 @@ def ring(S, w, f, amp, decay=22.0, n=22, big=True, sound=True):
         S.key(w.clapper, g + 1, rot=(0, -th * 1.8, 0), interp="BEZIER")
     S.key(w.bell, f + n * 3, rot=(0, 0, 0)); S.key(w.clapper, f + n * 3, rot=(0, 0, 0))
     m = mmat(S, "dling", (1.0, 0.9, 0.35), rough=0.3, emit=(1.0, 0.85, 0.2))
-    zc = BZ - 0.25; rays = ((20, 0.34, 0.46), (48, 0.34, 0.46), (76, 0.34, 0.46)) if big else ((35, 0.30, 0.36),)
+    zc = BZ - 0.33; rays = ((20, 0.44, 0.60), (48, 0.44, 0.60), (76, 0.44, 0.60)) if big else ((35, 0.40, 0.47),)
     for sx in (-1, 1):
         for (deg, r0, r1) in rays:
             ang = R(deg); c, s_ = math.cos(ang) * sx, math.sin(ang)
@@ -224,7 +236,7 @@ def l1(S):
     x, y = BX - 0.05, -0.35
     a = MixamoActor(S, x=x, yaw=0, use=["Victory", "Jumping", "Angry"])
     # salto 1 (ya en el aire en el fotograma 1), cuclillas, salto 2 más alto, caída
-    for f, z in ((1, 0.30), (3, 0.50), (5, 0.56), (8, 0.30), (11, 0.0), (20, 0.0), (22, 0.3), (26, 0.78), (28, 0.80), (31, 0.5), (34, 0.0)):
+    for f, z in ((1, 0.24), (3, 0.40), (5, 0.45), (8, 0.25), (11, 0.0), (20, 0.0), (22, 0.25), (26, 0.62), (28, 0.65), (31, 0.4), (34, 0.0)):
         place(S, a, f, x, y, z, 0)
     seg(S, a, "Victory", 1, 12, start=33)
     seg(S, a, "Jumping", 12, 24, start=41)
@@ -242,8 +254,8 @@ def l1(S):
 # ------------------------------------------------------------------ nivel -80
 def l2(S):
     """-80: lanza su zapato (Throw); rebota en el poste y le cae en la cabeza; se desploma de espaldas sin llegar a la campana."""
-    w = build_set(S); cam_static(S)
-    xc = PX - 1.0
+    w = build_set(S); cam_static(S, cx=PX - 0.55)
+    xc = PX - 0.85
     a = MixamoActor(S, x=xc, yaw=90, use=["Throw", "Falling Back Death"])
     place(S, a, 1, xc, 0, 0, 90)
     seg(S, a, "Throw", 1, 33, start=0)
@@ -270,7 +282,7 @@ def l2(S):
     # estrellitas sobre la cabeza ya en el suelo
     hl = head_pos(S, a, f_head + 45)
     daze(S, hl, f_head + 40, n=44)
-    dust(S, xc - 0.9, 0.0, 0.03, f_head + 24, n=6, spread=0.55, size=0.08, rise=0.2)
+    dust(S, xc - 0.8, 0.0, 0.03, f_head + 24, n=6, spread=0.55, size=0.08, rise=0.2)
     S.f = 112
     a.verify(S.f)
     return a
@@ -279,29 +291,29 @@ def l2(S):
 # ------------------------------------------------------------------ nivel 120
 def l3(S):
     """120: trepa el poste como por un muro (Climbing Up Wall); roza la campana con un dedo: dling mínimo; se agarra temblando."""
-    w = build_set(S); cam_static(S, tgt=(PX - 0.1, 0, 2.0))
+    w = build_set(S); cam_static(S, cx=PX - 0.1)
     xc = PX - 0.30
     a = MixamoActor(S, x=xc, yaw=90, use=["Climbing Up Wall"])
     place(S, a, 1, xc, 0, 0, 90)
-    seg(S, a, "Climbing Up Wall", 1, None, start=0)
+    seg(S, a, "Climbing Up Wall", 1, None, start=0, speed=0.65)
     # al final del ascenso se estira hacia la campana (la campana está a la derecha del poste)
-    place(S, a, 36, xc, 0, 0, 90); place(S, a, 46, xc + 0.09, 0, 0, 90)
+    place(S, a, 55, xc, 0, 0, 90); place(S, a, 64, xc + 0.14, 0, 0, 90)
     rr = random.Random(3)
-    for f in range(50, 108, 2):                                    # tiembla agarrado al poste
-        t = (f - 50) / 58.0
-        place(S, a, f, xc + 0.09 + rr.uniform(-0.008, 0.008), 0, -0.14 * max(0.0, (t - 0.45) / 0.55) + rr.uniform(-0.007, 0.007), 90, "LINEAR")
-    ft = 44
+    for f in range(66, 114, 2):                                    # tiembla agarrado al poste
+        t = (f - 66) / 48.0
+        place(S, a, f, xc + 0.14 + rr.uniform(-0.008, 0.008), 0, -0.14 * max(0.0, (t - 0.45) / 0.55) + rr.uniform(-0.007, 0.007), 90, "LINEAR")
+    ft = 63
     ring(S, w, ft, amp=5.0, decay=14.0, n=9, big=False)            # dling mínimo
     S.cue("bell", ft, vol=-15)
-    for f in (3, 9, 15, 21, 27):
+    for f in (4, 14, 24, 34, 44):
         S.cue("creak", f, vol=-16)
-    S.cue("slide_down", 82, vol=-14)
+    S.cue("slide_down", 90, vol=-14)
     # gotita de sudor
-    hp = head_pos(S, a, 62)
+    hp = head_pos(S, a, 75)
     d = S.obj("uv_sphere", "sudor", "water", (hp.x, hp.y - 0.13, hp.z + 0.04), (0.001,) * 3, segments=8, ring_count=6)
-    S.key(d, 60, loc=(hp.x, hp.y - 0.13, hp.z + 0.04), scale=(0.001,) * 3); S.key(d, 63, loc=(hp.x, hp.y - 0.13, hp.z + 0.03), scale=(0.025, 0.025, 0.036))
-    S.key(d, 76, loc=(hp.x, hp.y - 0.13, hp.z - 0.35), scale=(0.022, 0.022, 0.04)); S.key(d, 79, loc=(hp.x, hp.y - 0.13, hp.z - 0.5), scale=(0.001,) * 3)
-    S.f = 108
+    S.key(d, 73, loc=(hp.x, hp.y - 0.13, hp.z + 0.04), scale=(0.001,) * 3); S.key(d, 76, loc=(hp.x, hp.y - 0.13, hp.z + 0.03), scale=(0.025, 0.025, 0.036))
+    S.key(d, 89, loc=(hp.x, hp.y - 0.13, hp.z - 0.35), scale=(0.022, 0.022, 0.04)); S.key(d, 92, loc=(hp.x, hp.y - 0.13, hp.z - 0.5), scale=(0.001,) * 3)
+    S.f = 118
     a.verify(S.f)
     return a
 
@@ -309,7 +321,7 @@ def l3(S):
 # ------------------------------------------------------------------ nivel 900
 def l4(S):
     """900 (sin cuerda, mejora del crítico): empuja la papelera bajo la campana, se sube de un salto y salta otra vez: dling a lo grande; se ríe."""
-    w = build_set(S); cam_static(S)
+    w = build_set(S); cam_static(S, cx=PX - 0.45)
     by = -0.45
     x0 = BX - 1.93                                                 # raíz al empezar a empujar (la papelera, 1,08 m por delante)
     a = MixamoActor(S, x=x0, yaw=90, use=["Pushing", "Victory", "Jumping", "Laughing"])
@@ -344,9 +356,9 @@ def l4(S):
 def l5(S):
     """5469: se queda quieto y mira alrededor; ve la cuerda de tirar a ras de suelo (colgaba del gancho desde el principio); la recoge (Picking Up),
     tira: la campana suena fuerte; levanta los brazos y suelta la cuerda, que vuelve al suelo."""
-    w = build_set(S); cam_static(S)
-    ry = RY
-    xr = BX + 0.50
+    w = build_set(S, rope=True); cam_static(S, cx=PX - 0.1)
+    ry = RY + 0.05
+    xr = KX + 0.50
     a = MixamoActor(S, x=xr, yaw=-90, use=["Looking Around", "Picking Up", "Victory"])
     place(S, a, 1, xr, ry, 0, -90)
     speed = 1.8
@@ -359,6 +371,14 @@ def l5(S):
     place(S, a, 1, xr + dx, ry + dy, 0, -90)                       # coloca al personaje para que su mano alcance el tirador
     # tirador: quieto en el suelo hasta fp; luego sigue a la mano; tirón; suelta y vuelve al suelo
     f_tug, f_rel = 84, 94
+    # plano corto de la cuerda enrollada en el suelo, detrás del poste (mientras mira alrededor)
+    cam, tg, ln = S.cam, S.tgt, S.cam.data
+    for f, loc, tl, lens in ((12, (PX + 1.0, -2.4, 0.8), (PX + 0.25, 0.5, 0.2), 44), (31, (PX - 0.1, -6.5, 2.05), (PX - 0.1, 0, 2.0), 44)):
+        cam.location = loc; cam.keyframe_insert("location", frame=f); ln.lens = lens; ln.keyframe_insert("lens", frame=f)
+        tg.location = tl; tg.keyframe_insert("location", frame=f)
+    S.set_interp(cam, "CONSTANT", ("location",)); S.set_interp(ln, "CONSTANT"); S.set_interp(tg, "CONSTANT")
+    S.key(w.coil, fp - 1, scale=(1, 1, 1)); S.key(w.coil, fp, scale=(0.001,) * 3)             # la recoge: el montón desaparece
+    S.key(w.rope, fp - 2, scale=(0.001,) * 3); S.key(w.toggle, fp - 2, scale=(0.001,) * 3)
     rope_set(S, w, fp - 1, w.K0)
     for f in range(fp, f_tug):
         p = bone_pos(S, a, "RightHand", f, 0.8)
