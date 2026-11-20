@@ -309,7 +309,7 @@ def l2(S):
     seg(S, a, "Throw", 58, 88, start=8)
     seg(S, a, "Angry", 86, None, start=0, blend=6)
     stone = mmat(S, "piedra", (0.30, 0.28, 0.25), rough=0.9)
-    for (f_rel, xt, seed) in ((20, -7.75, 1), (43, -7.45, 2), (70, -7.15, 3)):
+    for (f_rel, xt, seed) in ((20, -7.45, 1), (43, -7.28, 2), (70, -7.12, 3)):
         st = S.obj("uv_sphere", "piedra", "white", (0, 0, -9), (0.085, 0.07, 0.065), segments=12, ring_count=8); st.data.materials[0] = stone
         f0 = f_rel - 13
         S.key(st, f0 - 1, loc=(0, 0, -9), scale=(0.001,) * 3, interp="LINEAR")
@@ -328,7 +328,7 @@ def l2(S):
         S.key(st, fa + 15, loc=(xt, YA, -0.30), scale=(0.085, 0.07, 0.065), interp="LINEAR")
         mud_splash(S, xt, YA, fa, n=5, size=0.03, up=0.9, spread=0.28, seed=seed)
         lumps(S, xt, YA, fa + 2, n=5, r=0.11, size=0.045, seed=seed)
-        ripple(S, xt, YA, fa, r1=0.34); ripple(S, xt, YA, fa, r1=0.24, delay=5)
+        ripple(S, xt, YA, fa, r1=0.26); ripple(S, xt, YA, fa, r1=0.18, delay=5)
         S.cue("whoosh", f_rel - 2, vol=-11)                         # la piedra no suena al caer: es el chiste
     S.f = 136
     a.verify(S.f)
