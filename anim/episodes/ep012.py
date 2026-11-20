@@ -26,7 +26,7 @@ Y_STOP = 8.6                        # donde frena (aún al sol)
 SIT_DY = 0.0                        # desfase y de la raíz del hombre sentado respecto al banco (se ajusta mirando fotogramas)
 SIT_DZ = 0.0
 LIFT = 0.21                         # altura del banco "de pie"
-SLIDE = 0.95                        # deslizamiento final (x)
+SLIDE = 0.50                        # deslizamiento final (x): se corre para dejar sitio
 
 # ---- tiempos (fotogramas, 24 fps)
 F_SIT = 27                          # el hombre se derrumba en el banco
@@ -36,7 +36,7 @@ F_HOP = 100                         # el hombre salta del banco
 F_B0, F_B1 = 108, 146               # el banco corre hacia el árbol
 F_M0, F_M1 = 105, 152               # el hombre corre
 F_FALL = 153                        # empieza Falling Back Death
-K_IMPACT = 16                       # fotogramas desde F_FALL hasta el golpe
+K_IMPACT = 22                       # fotogramas desde F_FALL hasta el golpe
 F_IMP = F_FALL + K_IMPACT
 F_SLIDE = F_IMP + 20
 F_HOP2 = F_IMP + 30
@@ -107,6 +107,24 @@ def place(S, a, f, x, y, z=0.0, yaw=0.0, interp="BEZIER"):
     S.key(a.root, f, loc=(x, y, z), rot=(0, 0, R(yaw)), interp=interp)
 
 
+def foot_z(S, a, f):
+    """Altura mundial del punto más bajo de los pies (pie y puntera) en el fotograma f."""
+    S.sc.frame_set(f); bpy.context.view_layer.update()
+    return min((a.arm.matrix_world @ a.arm.pose.bones[a.pfx + b].head).z for b in ("LeftFoot", "RightFoot", "LeftToeBase", "RightToeBase"))
+
+
+def ground_feet(S, a, f0, f1, rest=0.015):
+    """Pies en el suelo: el clip va en el sitio y la raíz lo desplaza, así que se baja la raíz en cada fotograma lo que el pie más bajo
+    queda por encima de `rest` (sin fase de vuelo): el pie más bajo queda a z ≈ 0 (±3 cm)."""
+    out = []
+    for f in range(f0, f1 + 1):
+        fz = foot_z(S, a, f)
+        l = a.root.location.copy(); yaw = math.degrees(a.root.rotation_euler.z)
+        place(S, a, f, l.x, l.y, l.z - (fz - rest), yaw, interp="LINEAR")
+        out.append((f, round(fz - (fz - rest), 3)))
+    return out
+
+
 def seg(S, a, clip, f0, f1=None, start=0, speed=1.0, blend=4, repeat=1):
     S.f = f0
     cl = a.clips[clip]; avail = int((cl.frame_range[1] - cl.frame_range[0] - start) / speed)
@@ -139,6 +157,7 @@ def sun_and_tree(S):
     try: S.sc.view_settings.exposure = 0.15
     except Exception: pass
     disc = O(S, "cylinder", "sol", mmat(S, "sol", (1, 0.95, 0.7), emit=(1.0, 0.92, 0.6, 40.0)), (-7.6, 45.0, 24.0), (2.6, 2.6, 0.05), (R(90), 0, 0), vertices=48)
+    S.key(disc, 29, scale=(2.6, 2.6, 0.05), interp="CONSTANT"); S.key(disc, 30, scale=(0.001,) * 3, interp="CONSTANT")   # el sol solo se ve en el plano 1
     col = bpy.data.collections.get("ph_island_tree_01") or env_real._model("island_tree_01")
     env_real._place(S, col, (TREE[0], TREE[1], 0), 0.4, 1.9)
     # sombra clara: elipse oscura semitransparente bajo el árbol (la sombra real del sol a plomo la refuerza)
@@ -162,13 +181,13 @@ def build_bench(S):
     w = W()
     w.root = S.empty("banco", (BX, BY0, 0))
     wood = wood_mat(S); iron = mmat(S, "hierro_banco", (0.05, 0.05, 0.055), rough=0.5, metal=0.9)
-    box(S, "asiento", wood, (1.00, 0.44, 0.04), (0, 0.0, 0.44), parent=w.root)
+    box(S, "asiento", wood, (1.70, 0.44, 0.04), (0, 0.0, 0.44), parent=w.root)
     for dz, hh in ((0.62, 0.11), (0.77, 0.11)):
-        box(S, "respaldo", wood, (1.00, 0.035, hh), (0, 0.22, dz + hh / 2), parent=w.root)
-    for xx in (-0.46, 0.46):
+        box(S, "respaldo", wood, (1.70, 0.035, hh), (0, 0.22, dz + hh / 2), parent=w.root)
+    for xx in (-0.80, 0.80):
         box(S, "poste", iron, (0.05, 0.05, 0.46), (xx, 0.22, 0.67), parent=w.root)
     w.legs = {}
-    for nm, (lx, ly) in {"fl": (-0.42, -0.17), "fr": (0.42, -0.17), "bl": (-0.42, 0.17), "br": (0.42, 0.17)}.items():
+    for nm, (lx, ly) in {"fl": (-0.76, -0.17), "fr": (0.76, -0.17), "bl": (-0.76, 0.17), "br": (0.76, 0.17)}.items():
         p = S.empty("pata_" + nm, (lx, ly, 0.42), parent=w.root)
         box(S, "pata", iron, (0.06, 0.06, 0.42), (0, 0, -0.21), parent=p)
         w.legs[nm] = p
@@ -247,20 +266,19 @@ def l1(S):
     clear_env(S); sun_and_tree(S)
     w = build_bench(S)
     S.cam.data.dof.use_dof = False
-    a = MixamoActor(S, x=-10.6, yaw=90, use=["Running", "Sitting Idle", "Falling Back Death", "Laughing"]); klunk(a)
+    a = MixamoActor(S, x=-9.9, yaw=90, use=["Running", "Sitting Idle", "Falling Back Death"]); klunk(a)
 
     # ---- hombre ----
     seg(S, a, "Running", 1, F_SIT - 3, start=0, repeat=4, blend=3)
     seg(S, a, "Sitting Idle", F_SIT - 4, F_HOP + 2, start=0, blend=5)
     seg(S, a, "Running", F_HOP, F_M1 + 3, start=0, repeat=6, blend=4)
     seg(S, a, "Falling Back Death", F_FALL, F_HOP2 + 1, start=0, blend=3)
-    seg(S, a, "Sitting Idle", F_HOP2 - 2, F_END - 28, start=0, blend=4)
-    seg(S, a, "Laughing", F_END - 30, None, start=0, blend=6)
+    seg(S, a, "Sitting Idle", F_HOP2 - 2, None, start=0, blend=4)
 
     # A) carrera lateral hacia el banco (en el carril y = 1.45), gira y se derrumba de espaldas en el asiento
     sy = BY0 + SIT_DY
-    place(S, a, 1, -10.6, 1.45, 0, 90, interp="LINEAR")
-    place(S, a, F_SIT - 8, BX - 0.1, 1.45, 0, 90, interp="LINEAR")
+    place(S, a, 1, -9.9, 1.45, 0, 90, interp="LINEAR")
+    for f in range(2, F_SIT - 7): place(S, a, f, -9.9 + (BX - 0.1 + 9.9) * (f - 1) / float(F_SIT - 9), 1.45, 0, 90, interp="LINEAR")
     place(S, a, F_SIT - 3, BX, 1.75, 0.12, 45)
     place(S, a, F_SIT + 2, BX, sy, SIT_DZ, 0)
     # sentado: sigue al banco mientras éste sube
@@ -276,12 +294,16 @@ def l1(S):
     place(S, a, F_FALL, LANE_X, Y_STOP + 0.15, 0, 180)
     place(S, a, F_IMP + 4, LANE_X, Y_STOP + 0.15, 0, 180)
     # salta a la hueco que deja el banco (a la sombra, de cara a cámara)
-    xh = BX
+    xh = BX - 0.0
     place(S, a, F_HOP2 - 1, LANE_X, Y_STOP - 0.9, 0, 180)
     place(S, a, F_HOP2 + 5, (LANE_X + xh) / 2, (Y_STOP + BY1) / 2, 0.55, 90)
     place(S, a, F_HOP2 + 11, xh, BY1 + SIT_DY, SIT_DZ, 0)
-    place(S, a, F_END, xh, BY1 + SIT_DY, SIT_DZ, 0)
+    for f in range(F_HOP2 + 14, F_END + 1, 3):                       # risa: sacudidas de los hombros (el clip Laughing es de pie)
+        place(S, a, f, xh, BY1 + SIT_DY, SIT_DZ + (0.025 if ((f - F_HOP2) // 3) % 2 else 0.0), 0, interp="LINEAR")
 
+    # pies en el suelo durante la carrera (compensa la altura del clip)
+    gf = ground_feet(S, a, 2, F_SIT - 7) + ground_feet(S, a, F_M0 + 2, F_M1)
+    print("[ep012] pies (f, z del pie más bajo tras compensar):", gf[::4])
     # ---- banco ----
     bench_key(S, w, 1, BX, BY0, 0, 0); legs_pose(S, w, 1, 0, 1.0)
     eyes_blink(S, w, F_EYES)
@@ -341,25 +363,25 @@ def l1(S):
             loc, tg, lens = fn(f); cam.append((f, loc, tg, lens))
     ex, ey = BX, 0.0
     # 1 general: carrera hacia el banco, árbol y sol al fondo
-    shot(1, 30, lambda f: ((-8.9 + 0.5 * (f / 30.0), -3.6, 1.55), (-8.4 + 0.5 * (f / 30.0), 6.0, 1.75), 28))
+    shot(1, 30, lambda f: ((-9.3 + 0.9 * (f / 30.0), -2.4, 1.15), (-8.9 + 0.9 * (f / 30.0), 6.0, 1.45), 30))
     # 2 medio: se derrumba en el banco
-    shot(31, 56, lambda f: ((BX + 0.1, -0.9, 1.15), (BX, BY0, 0.95), 34))
+    shot(31, 56, lambda f: ((BX + 0.1, -0.9, 1.15), (BX, BY0, 1.2), 34))
     # 3 primer plano del banco: parpadeo
-    shot(57, 76, lambda f: ((BX + 0.05, 0.0, 1.0), (BX, BY0 + 0.1, 0.85), 38))
+    shot(57, 76, lambda f: ((BX + 0.05, 0.0, 1.0), (BX, BY0 + 0.1, 1.1), 38))
     # 4 primer plano de la cara: sorpresa (sigue a la cabeza)
     for f in range(77, 98):
-        hp = head_pos(S, a, f); cam.append((f, (hp.x, hp.y - 1.35, hp.z + 0.05), (hp.x, hp.y, hp.z - 0.02), 52))
+        hp = head_pos(S, a, f); cam.append((f, (hp.x, hp.y - 1.7, hp.z + 0.12), (hp.x, hp.y, hp.z + 0.1), 50))
     # 5 medio: salta del banco, el banco da media vuelta y arranca
-    shot(98, 120, lambda f: ((BX - 0.3, -0.7, 1.2), (BX - 0.1, BY0 + 0.3, 0.85), 33))
+    shot(98, 120, lambda f: ((BX - 0.7, -1.0, 1.25), (BX - 0.55, BY0 + 0.3, 1.0), 30))
     # 6 persecución: plano lateral que sigue al banco y al hombre en profundidad
-    shot(121, 147, lambda f: ((-3.4, (yb(f) + ym(f)) / 2 - 1.2, 1.5), (-7.9, (yb(f) + ym(f)) / 2 + 0.8, 0.95), 30))
+    shot(121, 147, lambda f: ((-1.2, (yb(f) + ym(f)) / 2 - 1.5, 1.3), (-7.9, (yb(f) + ym(f)) / 2 + 0.5, 1.0), 27))
     # 7 el árbol con sombra: el banco llega, se sienta; el hombre frena fuera de la sombra y cae de culo
-    shot(148, F_IMP - 1, lambda f: ((-1.2, 9.6, 1.5), (-7.4, 9.9, 1.1), 24))
+    shot(148, F_IMP - 1, lambda f: ((-4.4, 8.2, 1.3), (-7.6, 8.9, 1.0), 24))
     # 8 primer plano de la cara: enfado al caer al sol
     for f in range(F_IMP, F_IMP + 17):
-        hp = head_pos(S, a, f); cam.append((f, (hp.x + 0.2, hp.y - 1.25, hp.z + 0.25), (hp.x, hp.y, hp.z), 50))
+        hp = head_pos(S, a, f); cam.append((f, (hp.x + 0.25, hp.y + 0.95, hp.z + 0.85), (hp.x, hp.y, hp.z), 40))
     # 9 el banco se desliza y hace sitio (plano lateral con árbol y perro)
-    shot(F_IMP + 17, F_HOP2 + 12, lambda f: ((-2.6, 9.2, 1.3), (-7.2, 10.4, 1.0), 26))
+    shot(F_IMP + 17, F_HOP2 + 12, lambda f: ((-0.4, 9.0, 1.4), (-7.4, 9.2, 0.9), 22))
     # 10 remate: sentados a la sombra, cara a cámara, se ríe
     shot(F_HOP2 + 13, F_END + 10, lambda f: ((BX + 0.1, BY1 - 3.6, 1.2), (BX - 0.1, BY1, 1.0), 34))
     for f, loc, tg, lens in cam: cam_set(S, f, loc, tg, lens)

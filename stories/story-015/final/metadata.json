@@ -1,0 +1,34 @@
+{
+  "story_id": "story-015",
+  "channel": "Klunk Studio",
+  "title": "Why Did the Bench Leave Me in the Sun?",
+  "titles": [
+    "Why Did the Bench Leave Me in the Sun?",
+    "The Bench Ran Off to the Shade Without Me",
+    "I Chased a Bench to the Only Shady Tree",
+    "POV: The Bench Has Other Plans",
+    "The Bench That Walked Away"
+  ],
+  "recommended_title": 0,
+  "description": "A silent 3D mini-story with a twist: a sweaty man flops onto a park bench in the blazing sun, and the bench has other plans. It heads for the only shady tree in the park, and the man has to chase it.\nFiction made with AI-assisted tools. Original 3D animation; nothing here is real footage or a real event.\nCharacter animations: Mixamo.\nWas the bench right? Tell us in the comments and subscribe for the next story.\n#shorts #animation #comedy #silentcomedy #plottwist",
+  "hashtags": ["#shorts", "#animation", "#comedy", "#silentcomedy", "#plottwist"],
+  "cta": "Was the bench right? Tell us in the comments and subscribe for the next story.",
+  "tags": "mini stories with a twist, silent comedy, 3D animation, physical comedy, park bench, POV comedy, funny shorts, animated comedy",
+  "playlist": "Mini Stories With a Twist",
+  "ai_disclosure": "Fiction made with AI-assisted tools. Original 3D animation; nothing here is real footage or a real event.",
+  "ai_use_disclosure": false,
+  "category": "Comedy",
+  "language": "en",
+  "onscreen_en": "POV: The bench has other plans",
+  "upload_checklist": [
+    "AI use: No (stylized 3D animation, clearly non-realistic style; the park backdrop is a stylized render, not a realistic scene)",
+    "Fiction notice in description: yes",
+    "Credit in description: Mixamo character animations (source confirmed in anim/episodes/ep012.py: MixamoActor)",
+    "Music license/attribution: none detected (no final/provenance.json in story-015); confirm before upload if any music is used",
+    "Audience: not made for kids",
+    "Playlist: Mini Stories With a Twist; category Comedy; language en",
+    "On-screen text: 'POV: The bench has other plans' (CAPTION, no IQ label)",
+    "Chapters: not applicable (short mini-story, not RELATO)",
+    "Gates: critic PASS, market PASS; continuity, policy and qc still PENDING (deliver will block until they pass)"
+  ]
+}
