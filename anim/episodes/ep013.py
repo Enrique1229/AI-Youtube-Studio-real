@@ -257,10 +257,10 @@ def build_set(S):
     O(S, "cylinder", "farola_brazo", pole, (-8.55, 2.8, 3.38), (0.025, 0.025, 0.17), rot=(0, R(90), 0), vertices=10)
     O(S, "uv_sphere", "farola_globo", mmat(S, "globo", (1.0, 0.95, 0.8), rough=0.3, emit=(1.0, 0.92, 0.7, 2.0)), (-8.40, 2.8, 3.30), (0.13, 0.13, 0.11), segments=20, ring_count=12)
     bin_m = mmat(S, "papelera", (0.05, 0.22, 0.10), rough=0.45, metal=0.5)
-    O(S, "cylinder", "papelera_cuerpo", bin_m, (-5.90, 3.3, 0.42), (0.23, 0.23, 0.42), vertices=28)
-    O(S, "cylinder", "papelera_tapa", pole, (-5.90, 3.3, 0.86), (0.25, 0.25, 0.025), vertices=28)
-    O(S, "torus", "papelera_aro", pole, (-5.90, 3.3, 0.55), (1, 1, 1), major_radius=0.235, minor_radius=0.012, major_segments=28, minor_segments=6)
-    O(S, "cylinder", "papelera_boca", mmat(S, "boca_pap", (0.01, 0.01, 0.01), rough=0.9), (-5.90, 3.3, 0.89), (0.15, 0.06, 0.012), vertices=20)
+    O(S, "cylinder", "papelera_cuerpo", bin_m, (-8.85, 1.7, 0.42), (0.23, 0.23, 0.42), vertices=28)
+    O(S, "cylinder", "papelera_tapa", pole, (-8.85, 1.7, 0.86), (0.25, 0.25, 0.025), vertices=28)
+    O(S, "torus", "papelera_aro", pole, (-8.85, 1.7, 0.55), (1, 1, 1), major_radius=0.235, minor_radius=0.012, major_segments=28, minor_segments=6)
+    O(S, "cylinder", "papelera_boca", mmat(S, "boca_pap", (0.01, 0.01, 0.01), rough=0.9), (-8.85, 1.7, 0.89), (0.15, 0.06, 0.012), vertices=20)
     # tablilla en el suelo con el hueco para tirar: nada más; las ruedas del suelo ya son baldosas
     S.key(w.m, 1, loc=(MX, MY, 0), rot=(0, 0, 0))
     S.key(w.bag_a, 1, loc=(BAG_X, BAG_Y, POSE_A["z"]), rot=(0, R(POSE_A["roll"]), 0))
@@ -322,7 +322,7 @@ def machine_box(margin=0.0):
 def l1(S):
     """-450: ya empujando el lateral con las dos manos en el fotograma 1; la máquina ni se mueve; empuja más fuerte y rebota de espaldas.
     Silencio total (sin ningún cue)."""
-    w = build_set(S); cam_static(S)
+    w = build_set(S); cam_static(S, dist=4.6, cx=-6.9)
     y0 = MY - 0.02
     a = MixamoActor(S, x=-6.25, yaw=270, use=["Pushing", "Falling Back Death"]); klunk(a)
     seg(S, a, "Pushing", 1, 70, start=0, blend=4)
@@ -332,7 +332,7 @@ def l1(S):
     place(S, a, 1, -6.25, y0, 0, 270)
     x0 = fit_push(S, a, y0, range(1, 100, 2))                                         # manos a 2 cm del lateral en el punto más cercano del ciclo
     place(S, a, 1, x0, y0, 0, 270); place(S, a, f_fall - 1, x0, y0, 0, 270)
-    x1 = x0 + 0.15
+    x1 = x0 + 0.10
     place(S, a, f_fall + 14, x1, y0, 0, 270); place(S, a, f_fall + 26, x1 + 0.05, y0, 0, 270)
     S.f = 128
     a.verify(S.f)
@@ -349,17 +349,17 @@ def l2(S):
     a = MixamoActor(S, x=xr, yaw=90, use=["Picking Up", "Falling Back Death", "Looking Around"]); klunk(a)
     ikc, ikt = add_ik(S, a, "Left")
     seg(S, a, "Picking Up", 1, 40, start=22, speed=1.2, blend=4)                       # ya inclinándose en el fotograma 1
-    seg(S, a, "Picking Up", 38, 84, start=47, speed=0.05, blend=4)                     # inclinado, casi congelado
+    seg(S, a, "Picking Up", 38, 94, start=47, speed=0.05, blend=4)                     # inclinado, casi congelado
     f_rel = 90
     seg(S, a, "Falling Back Death", f_rel, None, start=0, blend=3)
     place(S, a, 1, xr, yr, 0, 90); place(S, a, 30, xr, yr, 0, 90)
     tug = ((44, 0.0), (48, -0.07), (52, 0.0), (62, 0.0), (66, -0.09), (70, 0.0))
     for f, d in tug: place(S, a, f, xr + d, yr, 0, 90, interp="LINEAR")
-    place(S, a, 80, xr, yr, 0, 90); place(S, a, f_rel - 2, xr - 0.10, yr - 0.05, 0, 90, interp="LINEAR")
+    place(S, a, 84, xr, yr, 0, 90); place(S, a, f_rel - 1, xr - 0.10, yr - 0.05, 0, 90, interp="LINEAR")
     place(S, a, f_rel + 14, xr - 0.12, yr - 0.80, 0, 90)
     ik_infl(ikc, 1, 0.0); ik_infl(ikc, 12, 0.0); ik_infl(ikc, 28, 1.0); ik_infl(ikc, f_rel - 1, 1.0); ik_infl(ikc, f_rel + 2, 0.0)
     wx = FLAP_X + 0.02
-    ik_to(S, ikt, 1, (wx, FRONT_Y - 0.25, 0.70)); ik_to(S, ikt, 12, (wx, FRONT_Y - 0.15, 0.60))
+    ik_to(S, ikt, 1, (wx, FRONT_Y - 0.25, 0.55)); ik_to(S, ikt, 12, (wx, FRONT_Y - 0.12, 0.45))
     ik_to(S, ikt, 30, (wx, FRONT_Y + 0.11, FLAP_Z - 0.04)); ik_to(S, ikt, f_rel - 1, (wx, FRONT_Y + 0.11, FLAP_Z - 0.04))
     S.key(w.hinge, 18, rot=(0, 0, 0)); S.key(w.hinge, 30, rot=(R(52), 0, 0)); S.key(w.hinge, f_rel, rot=(R(52), 0, 0))
     S.key(w.hinge, f_rel + 6, rot=(R(-6), 0, 0), interp="BOUNCE"); S.key(w.hinge, f_rel + 14, rot=(0, 0, 0))
@@ -385,7 +385,7 @@ def l3(S):
     place(S, a, 1, x0, y0, 0, 270); place(S, a, 60, x0, y0, 0, 270)
     # máquina y bolsa
     f_c = 42
-    shake_machine(S, w, f_c, amp_deg=0.9, n=4, step=3, toward=-1.0)
+    shake_machine(S, w, f_c, amp_deg=1.8, n=4, step=3, toward=-1.0)
     bag_pose(S, w, f_c - 3, POSE_A)
     for k, (dz, dr) in enumerate(((0.012, -2.2), (0.0, +1.5), (0.006, -1.0), (0.0, +0.6))):
         S.key(w.bag_a, f_c + 1 + 3 * k, loc=(BAG_X, BAG_Y, POSE_A["z"] - dz - 0.003 * (k > 1)), rot=(0, R(POSE_A["roll"] + dr), 0))
@@ -401,39 +401,40 @@ def l3(S):
 
 # ------------------------------------------------------------------ nivel 900
 def l4(S):
-    """900: salta y cae con todo el peso: la máquina tiembla y la bolsa baja UN escalón, pero sigue colgada (clunk grande sin premio);
-    él mira, se le cae la cara y suena el "wahwah"."""
-    w = build_set(S); cam_static(S)
-    y0 = MY - 0.10
-    xj = X_R + 0.95
-    a = MixamoActor(S, x=xj, yaw=270, use=["Jumping", "Angry"]); klunk(a)
-    f_jump = 1; sp = 1.15; j0 = 8
-    seg(S, a, "Jumping", f_jump, 46, start=j0, speed=sp, blend=3)
+    """900: coge carrerilla con el cuerpo y SALTA ENCIMA de la máquina: aterriza pesado en el techo; la máquina retumba y la bolsa baja
+    UN escalón, pero sigue colgada (clunk grande sin premio); él mira hacia abajo, se le cae la cara y suena el "wahwah"."""
+    w = build_set(S); cam_static(S, dist=5.6, tz=2.45, cx=-7.2, az=12.0, ch=2.3)
+    y0 = MY
+    x_a, x_b = X_R + 0.65, MX + 0.05                  # salida (a la derecha de la máquina) y techo
+    z_roof = MH + 0.03
+    a = MixamoActor(S, x=x_a, yaw=270, use=["Jumping", "Angry", "Thinking"]); klunk(a)
+    f_jump = 12; sp = 1.15; j0 = 8
+    seg(S, a, "Thinking", 1, f_jump + 3, start=0, blend=3)
+    seg(S, a, "Jumping", f_jump, 74, start=j0, speed=sp, blend=4)
     f_land = int(f_jump + (43 - j0) / sp)
-    seg(S, a, "Angry", f_land + 30, None, start=0, blend=8)
+    seg(S, a, "Angry", 70, None, start=0, blend=8)
+    place(S, a, 1, x_a, y0, 0, 270); place(S, a, f_jump, x_a, y0, 0, 270); place(S, a, f_land + 3, x_a, y0, 0, 270)
     base = foot_lift(S, a, f_land + 3)
-    place(S, a, 1, xj, y0, 0.0, 270, interp="LINEAR"); place(S, a, f_land, xj, y0, 0.0, 270, interp="LINEAR")
+    lifts = {f: foot_lift(S, a, f) - base for f in range(f_jump, f_land + 1)}
     for f in range(f_jump, f_land + 1):
         t = (f - f_jump) / float(f_land - f_jump)
-        want = 0.50 * math.sin(math.pi * min(1.0, 0.18 + 0.82 * t)) ** 0.9 if t < 1 else 0.0
-        zz = want - (foot_lift(S, a, f) - base)
-        place(S, a, f, xj, y0, max(zz, -1.3) if t < 1 else 0.0, 270, interp="LINEAR")
-    place(S, a, f_land + 40, xj, y0, 0, 270)
-    # impacto: la máquina tiembla y la bolsa baja un escalón (se queda colgada, más ladeada)
-    shake_machine(S, w, f_land, amp_deg=1.6, n=5, step=3, toward=-1.0)
+        want = z_roof * t + 0.85 * math.sin(math.pi * t)
+        xk = x_a + (x_b - x_a) * sstep((t - 0.42) / 0.58)
+        place(S, a, f, xk, y0, want - lifts[f], 270, interp="LINEAR")
+    place(S, a, f_land + 2, x_b, y0, z_roof, 270, interp="LINEAR"); place(S, a, f_land + 70, x_b, y0, z_roof, 270)
+    # impacto: el techo retumba y la bolsa baja un escalón (se queda colgada, más ladeada)
+    shake_machine(S, w, f_land, amp_deg=2.0, n=5, step=3, toward=-1.0)
     bag_pose(S, w, f_land - 1, POSE_A)
     S.key(w.bag_a, f_land + 2, loc=(BAG_X, BAG_Y, POSE_A["z"] + 0.012), rot=(0, R(POSE_A["roll"] + 3), 0))
     S.key(w.bag_a, f_land + 7, loc=(BAG_X, BAG_Y, POSE_C["z"] - 0.012), rot=(0, R(POSE_C["roll"] - 3), 0))
     S.key(w.bag_a, f_land + 11, loc=(BAG_X, BAG_Y, POSE_C["z"] + 0.006), rot=(0, R(POSE_C["roll"] + 1.5), 0))
     bag_pose(S, w, f_land + 16, POSE_C)
-    S.cue("hit", f_land, vol=-9); S.cue("clunk", f_land + 5, vol=-1)
-    S.cue("wahwah", f_land + 26, vol=-6)
-    S.f = f_land + 80
+    S.cue("whoosh", f_jump + 2, vol=-12); S.cue("hit", f_land, vol=-6); S.cue("clunk", f_land + 5, vol=-1)
+    S.cue("wahwah", f_land + 30, vol=-6)
+    S.f = f_land + 84
     a.verify(S.f)
-    for f in (14,):
-        blink(a, f)
-    blink(a, f_land + 55)
-    expression(a, "feliz", f_jump, 0.8, ramp=1); expression(a, "sorpresa", f_land + 3, 1.0, ramp=3); expression(a, "enfado", f_land + 22, 0.8, ramp=5)
+    blink(a, 6); blink(a, f_land + 58); blink(a, f_land + 90)
+    expression(a, "feliz", f_jump, 0.8, ramp=1); expression(a, "sorpresa", f_land + 3, 1.0, ramp=3); expression(a, "enfado", f_land + 26, 0.8, ramp=5)
     return a
 
 
@@ -447,15 +448,15 @@ def l5(S):
     ikc, ikt = add_ik(S, a, "Right")
     seg(S, a, "Thinking", 1, 50, start=12, blend=4)
     f_idea, f_in, f_coin = 46, 62, 66
-    seg(S, a, "Thinking", 46, 82, start=60, speed=0.04, blend=4)
+    seg(S, a, "Thinking", 46, 104, start=60, speed=0.04, blend=4)
     f_win = 96
     seg(S, a, "Victory", f_win, None, start=18, speed=1.2, blend=6)
     # raíz: de cara a cámara pensando -> gira hacia la máquina -> gira otra vez a cámara
     S.key(a.root, 1, loc=(xr, yr, 0), rot=(0, 0, R(YC)), interp="BEZIER")
     S.key(a.root, f_idea, loc=(xr, yr, 0), rot=(0, 0, R(YC)), interp="BEZIER")
     S.key(a.root, f_idea + 9, loc=(xr, yr, 0), rot=(0, 0, R(180)), interp="BEZIER")
-    S.key(a.root, f_win - 3, loc=(xr, yr, 0), rot=(0, 0, R(180)), interp="BEZIER")
-    S.key(a.root, f_win + 7, loc=(xr, yr, 0), rot=(0, 0, R(YC)), interp="BEZIER")
+    S.key(a.root, f_win - 11, loc=(xr, yr, 0), rot=(0, 0, R(180)), interp="BEZIER")
+    S.key(a.root, f_win - 1, loc=(xr, yr, 0), rot=(0, 0, R(YC)), interp="BEZIER")
     # brazo derecho a la ranura
     ik_infl(ikc, 1, 0.0); ik_infl(ikc, f_idea + 6, 0.0); ik_infl(ikc, f_idea + 16, 1.0); ik_infl(ikc, f_win - 8, 1.0); ik_infl(ikc, f_win - 2, 0.0)
     ik_to(S, ikt, f_idea + 6, (COIN_SLOT.x, FRONT_Y - 0.28, COIN_SLOT.z - 0.12)); ik_to(S, ikt, f_in, (COIN_SLOT.x, FRONT_Y - 0.075, COIN_SLOT.z))
