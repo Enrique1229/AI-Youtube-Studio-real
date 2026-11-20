@@ -32,8 +32,8 @@ POSE_B = dict(z=0.925, roll=-21.5)                    # tras el empujón del 120
 POSE_C = dict(z=0.865, roll=-34.0)                    # tras el salto del 900: baja UN escalón y sigue colgada
 BAG_W, BAG_H, BAG_T = 0.155, 0.22, 0.035
 COIN_SLOT = Vector((MX + 0.325, FRONT_Y, 1.07))       # centro de la ranura iluminada (mundo)
-FLAP_X = MX - 0.145                                   # centro de la trampilla
-FLAP_Z = 0.50
+FLAP_X = MX - 0.29                                   # centro de la trampilla
+FLAP_Z = 0.53
 
 
 def R(d): return math.radians(d)
@@ -183,8 +183,8 @@ def build_machine(S, w):
     to.parent = m; to.location = (-0.0, -0.4125, 1.82); to.rotation_euler = (R(90), 0, 0)
     box(S, "col_mandos", red, (0.27, 0.04, 1.57), (0.325, -0.38, 0.965), m)
     box(S, "divisor", dark, (0.03, 0.05, 1.04), (0.18, -0.385, 1.235), m)
-    for nm, dims, loc in (("faja_baja", (0.63, 0.04, 0.12), (-0.145, -0.38, 0.24)), ("faja_alta", (0.63, 0.04, 0.10), (-0.145, -0.38, 0.67)),
-                          ("faja_izq", (0.06, 0.04, 0.32), (-0.43, -0.38, 0.46)), ("faja_der", (0.06, 0.04, 0.32), (0.14, -0.38, 0.46))):
+    for nm, dims, loc in (("faja_baja", (0.63, 0.04, 0.18), (-0.145, -0.38, 0.27)), ("faja_alta", (0.63, 0.04, 0.06), (-0.145, -0.38, 0.69)),
+                          ("faja_der", (0.29, 0.04, 0.30), (0.025, -0.38, 0.51))):
         box(S, nm, red, dims, loc, m)
     # interior de la ventana: fondo oscuro, luz superior, baldas, espirales y bolsas
     box(S, "fondo_ventana", inner, (0.63, 0.01, 1.03), (-0.145, 0.34, 1.235), m)
@@ -213,13 +213,13 @@ def build_machine(S, w):
     box(S, "reflejo1", refl, (0.05, 0.002, 0.95), (-0.31, -0.4068, 1.235), m, rot=(0, R(16), 0))
     box(S, "reflejo2", refl, (0.022, 0.002, 0.95), (-0.21, -0.4068, 1.235), m, rot=(0, R(16), 0))
     # trampilla de salida (humo translúcido, bisagra arriba) y bahía iluminada detrás
-    box(S, "bahia_suelo", gray, (0.51, 0.70, 0.02), (-0.145, -0.05, 0.21), m)
-    box(S, "bahia_fondo", gray, (0.51, 0.02, 0.40), (-0.145, 0.31, 0.41), m)
-    for sx in (-0.405, 0.115): box(S, "bahia_lado", gray, (0.01, 0.70, 0.40), (sx, -0.05, 0.41), m)
-    box(S, "bahia_luz", mmat(S, "luz_bahia", (1, 1, 1), emit=(1, 1, 0.95, 9.0)), (0.40, 0.25, 0.01), (-0.145, -0.12, 0.60), m)
-    w.hinge = S.empty("bisagra", (-0.145, -0.395, 0.61), m)
-    box(S, "trampilla", mmat(S, "humo", (0.03, 0.03, 0.035), rough=0.12, alpha=0.42, spec=1.0), (0.51, 0.015, 0.30), (0, 0, -0.155), w.hinge)
-    box(S, "asa_trampilla", dark, (0.30, 0.02, 0.02), (0, -0.01, -0.29), w.hinge)
+    box(S, "bahia_suelo", gray, (0.34, 0.70, 0.02), (-0.29, -0.05, 0.27), m)
+    box(S, "bahia_fondo", gray, (0.34, 0.02, 0.40), (-0.29, 0.31, 0.47), m)
+    for sx in (-0.455, -0.125): box(S, "bahia_lado", gray, (0.01, 0.70, 0.40), (sx, -0.05, 0.47), m)
+    box(S, "bahia_luz", mmat(S, "luz_bahia", (1, 1, 1), emit=(1, 1, 0.95, 9.0)), (0.28, 0.25, 0.01), (-0.29, -0.12, 0.665), m)
+    w.hinge = S.empty("bisagra", (-0.29, -0.395, 0.66), m)
+    box(S, "trampilla", mmat(S, "humo", (0.03, 0.03, 0.035), rough=0.12, alpha=0.42, spec=1.0), (0.34, 0.015, 0.30), (0, 0, -0.155), w.hinge)
+    box(S, "asa_trampilla", dark, (0.22, 0.02, 0.02), (0, -0.01, -0.29), w.hinge)
     # mandos: pantalla, teclado, ranura de monedas iluminada (ámbar), lector y devolución
     box(S, "pantalla", dark, (0.16, 0.012, 0.07), (0.325, -0.405, 1.62), m)
     box(S, "pantalla_lcd", mmat(S, "lcd", (0.1, 1.0, 0.25), emit=(0.15, 1.0, 0.3, 2.2)), (0.14, 0.004, 0.05), (0.325, -0.4115, 1.62), m)
@@ -339,7 +339,7 @@ def l2(S):
     """-80: de perfil (cara y afro a cámara), inclinado delante de la trampilla, mete el BRAZO IZQUIERDO de lado por ella: queda con el hombro
     pegado a la trampilla; tira dos veces, duda ("hmm") y a la tercera se suelta y cae de espaldas ("oof")."""
     w = build_set(S); cam_static(S, cx=-8.2, az=-12.0)
-    xr, yr = -8.42, 0.10
+    xr, yr = -8.34, 0.19
     a = MixamoActor(S, x=xr, yaw=90, use=["Picking Up", "Falling Back Death", "Looking Around"]); klunk(a)
     ikc, ikt = add_ik(S, a, "Left")
     seg(S, a, "Picking Up", 1, 40, start=22, speed=1.2, blend=4)                       # ya inclinándose en el fotograma 1
@@ -349,12 +349,12 @@ def l2(S):
     place(S, a, 1, xr, yr, 0, 90); place(S, a, 30, xr, yr, 0, 90)
     tug = ((44, 0.0), (48, -0.07), (52, 0.0), (62, 0.0), (66, -0.09), (70, 0.0))
     for f, d in tug: place(S, a, f, xr + d, yr, 0, 90, interp="LINEAR")
-    place(S, a, 80, xr, yr, 0, 90); place(S, a, f_rel - 2, xr - 0.10, yr, 0, 90, interp="LINEAR")
-    place(S, a, f_rel + 14, xr - 0.15, yr, 0, 90)
+    place(S, a, 80, xr, yr, 0, 90); place(S, a, f_rel - 2, xr - 0.10, yr - 0.05, 0, 90, interp="LINEAR")
+    place(S, a, f_rel + 14, xr - 0.35, yr - 0.80, 0, 90)
     ik_infl(ikc, 1, 0.0); ik_infl(ikc, 12, 0.0); ik_infl(ikc, 28, 1.0); ik_infl(ikc, f_rel - 1, 1.0); ik_infl(ikc, f_rel + 2, 0.0)
-    wx = -7.82
+    wx = FLAP_X + 0.02
     ik_to(S, ikt, 1, (wx, FRONT_Y - 0.25, 0.70)); ik_to(S, ikt, 12, (wx, FRONT_Y - 0.15, 0.60))
-    ik_to(S, ikt, 30, (wx, FRONT_Y + 0.10, FLAP_Z)); ik_to(S, ikt, f_rel - 1, (wx, FRONT_Y + 0.10, FLAP_Z))
+    ik_to(S, ikt, 30, (wx, FRONT_Y + 0.11, FLAP_Z - 0.04)); ik_to(S, ikt, f_rel - 1, (wx, FRONT_Y + 0.11, FLAP_Z - 0.04))
     S.key(w.hinge, 18, rot=(0, 0, 0)); S.key(w.hinge, 30, rot=(R(52), 0, 0)); S.key(w.hinge, f_rel, rot=(R(52), 0, 0))
     S.key(w.hinge, f_rel + 6, rot=(R(-6), 0, 0), interp="BOUNCE"); S.key(w.hinge, f_rel + 14, rot=(0, 0, 0))
     S.cue("hit", 33, vol=-15); S.cue("hit", 47, vol=-16); S.cue("hmm", 56, vol=-8)
@@ -484,15 +484,15 @@ def l5(S):
     S.key(w.bag_a, f_hit - 4, loc=(BAG_X, BAG_Y, POSE_A["z"]), rot=(0, R(POSE_A["roll"]), 0), interp="LINEAR")
     S.key(w.bag_a, f_hit, loc=(BAG_X - 0.01, -0.30, POSE_A["z"] - 0.01), rot=(0, R(POSE_A["roll"] - 6), 0), interp="LINEAR")
     # caída (gravedad) hasta el suelo de la bahía: b primero un poco antes, a encima
-    z_floor = 0.22 + BAG_T / 2 + 0.002
+    z_floor = 0.28 + BAG_T / 2 + 0.002
     for (bg, fx, zs, yaw0, ex) in ((w.bag_b, f_hit, bz - 0.01, -10, 0.02), (w.bag_a, f_hit, POSE_A["z"] - 0.01, POSE_A["roll"] - 6, -0.0)):
         tf = 9
         for k in range(1, tf + 1):
             t = k / tf; z = zs - (zs - (z_floor + (0.04 if bg is w.bag_a else 0.0))) * t * t
             rr = yaw0 + (-8 - yaw0) * t
             rx = R(90 * t * t) if bg is w.bag_b else R(60 * t * t)
-            S.key(bg, fx + k, loc=(BAG_X + (0.03 if bg is w.bag_b else -0.01) + ex * t, -0.30 + 0.04 * t, z), rot=(rx, R(rr), 0), interp="LINEAR")
-        S.key(bg, fx + tf + 3, loc=(BAG_X + (0.04 if bg is w.bag_b else -0.04), -0.26, z_floor + (0.045 if bg is w.bag_a else 0.0)),
+            S.key(bg, fx + k, loc=(BAG_X - 0.145 * t + (0.04 if bg is w.bag_b else -0.04) * t, -0.30 + 0.04 * t, z), rot=(rx, R(rr), 0), interp="LINEAR")
+        S.key(bg, fx + tf + 3, loc=(-0.29 + (0.04 if bg is w.bag_b else -0.04), -0.26, z_floor + (0.045 if bg is w.bag_a else 0.0)),
               rot=(R(90 if bg is w.bag_b else 78), R(-4 if bg is w.bag_b else 10), 0), interp="BEZIER")
     # sonido
     S.cue("pop", f_idea, vol=-9); S.cue("pop", f_coin, vol=-8)
