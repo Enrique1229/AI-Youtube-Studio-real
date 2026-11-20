@@ -102,7 +102,7 @@ def _head(seed):
     def skull(bm):
         bmesh.ops.create_uvsphere(bm, u_segments=48, v_segments=28, radius=1.0)
         for v in bm.verts:
-            z = v.co.z; narrow = 1.0 - 0.18 * max(0.0, -z) ** 1.5           # mandíbula más estrecha abajo
+            z = v.co.z; narrow = 1.0 - 0.12 * max(0.0, -z) ** 2           # mandíbula más estrecha abajo
             v.co.x *= narrow; v.co.y *= (1.0 - 0.10 * max(0.0, -z))
             if z < -0.55: v.co.y -= 0.06 * (-z - 0.55)                         # barbilla un poco adelantada
     parts["cabeza"] = _new("toon_cabeza", skull, HC, tuple(HR), mat=skin)
@@ -125,16 +125,16 @@ def _head(seed):
     # cejas gruesas (tubos) — se suben/bajan/inclinan para las expresiones
     parts["cejas"] = []
     for sx in (1, -1):
-        bz = ez + er * 1.55; by = ey - 0.012
+        bz = ez + er * 1.22; by = ey - 0.010
         c = _tube("toon_ceja", [(sx * 0.014, by + 0.004, bz - 0.003), (sx * 0.038, by - 0.002, bz + 0.004), (sx * 0.062, by + 0.008, bz)], 0.0062, hairm,
                   radii=[1.15, 1.0, 0.65])
         parts["cejas"].append(c)
     # nariz pequeña y redondeada
     parts["nariz"] = _new("toon_nariz", _sphere(0.017, 24, 12), (0, HC.y - HR.y * 0.98, HC.z - 0.03), (1.15, 0.9, 0.9), mat=skin)
     # boca: tubo oscuro con curva (sonrisa por defecto ligera) + labio inferior sutil
-    my, mz = HC.y - HR.y * 0.86, HC.z - 0.068
+    my, mz = HC.y - HR.y * 0.90, HC.z - 0.058
     parts["boca"] = _tube("toon_boca", [(-0.030, my + 0.012, mz + 0.004), (-0.012, my + 0.001, mz - 0.002), (0.0, my, mz - 0.003),
-                                        (0.012, my + 0.001, mz - 0.002), (0.030, my + 0.012, mz + 0.004)], 0.0045, mouthm)
+                                        (0.012, my + 0.001, mz - 0.002), (0.030, my + 0.012, mz + 0.004)], 0.0032, mouthm)
     # orejas
     parts["orejas"] = [_new("toon_oreja", _sphere(0.026, 20, 10), (sx * HR.x * 0.98, HC.y + 0.005, HC.z - 0.005), (0.45, 0.8, 1.0), mat=skin)
                        for sx in (1, -1)]
@@ -143,12 +143,12 @@ def _head(seed):
     def afro(bm):
         core = bmesh.ops.create_uvsphere(bm, u_segments=32, v_segments=16, radius=1.0)
         for v in core["verts"]: v.co = Vector((v.co.x * R.x * 0.9, v.co.y * R.y * 0.9, v.co.z * R.z * 0.9))
-        bmesh.ops.delete(bm, geom=[v for v in core["verts"] if (v.co.y < -0.03 and v.co.z < -0.005) or v.co.z < -0.075], context="VERTS")
+        bmesh.ops.delete(bm, geom=[v for v in core["verts"] if (v.co.y < -0.025 and v.co.z < 0.015) or v.co.z < -0.075], context="VERTS")
         n = 0
         while n < 650:
             u = Vector((rnd.gauss(0, 1), rnd.gauss(0, 1), rnd.gauss(0, 1))).normalized()
             p = Vector((u.x * R.x, u.y * R.y, u.z * R.z)) * rnd.uniform(0.92, 1.02)
-            if p.y < -0.05 and p.z < 0.005: continue
+            if p.y < -0.04 and p.z < 0.022: continue
             if p.z < -0.09 or (p.y < -0.01 and p.z < -0.035): continue
             r = rnd.uniform(0.014, 0.022); g = bmesh.ops.create_uvsphere(bm, u_segments=10, v_segments=7, radius=r)
             bmesh.ops.translate(bm, vec=p, verts=g["verts"]); n += 1
