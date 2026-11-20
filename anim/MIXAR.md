@@ -18,3 +18,10 @@ importa ese GLB. Con 0 créditos NO funcionan: generación IA (model_3d, image_t
   y avisa si su código cambió; mixar_fetch se niega a escribir en ellos.
 - Nunca imágenes fijas: los modelos son mallas 3D importadas y animadas en Blender.
 - Audio, montaje (anim_build) y control (qc_local) sin cambios.
+
+## Personajes de Mixamo (probado 2026-11-20)
+`anim/mixamo.py` → `MixamoActor(S, x, yaw)`: carga el personaje ("With Skin") y todos los clips de `assets/mixamo/*.fbx`
+(nombre de archivo = nombre del clip), quita el avance horizontal de la cadera (lo da la raíz), materiales mates,
+`play(clip, frames, speed, travel_to, repeat)` con fundidos entre clips (dos pistas NLA), `walk_to(x)`, `face(deg)`,
+`verify(n)`. La cabeza sigue al hueso Head (cámara automática y check_framing funcionan igual).
+Prueba: Victory → Walking → Jumping → Pushing encadenados en el parque (channel/brand/prueba-mixamo.jpg).
