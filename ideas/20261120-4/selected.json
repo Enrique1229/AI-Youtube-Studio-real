@@ -1,0 +1,108 @@
+[
+  {
+    "id": "b20261120-4-l01",
+    "format": "levels",
+    "kind": "anim",
+    "env": "parque",
+    "title_en": "Every IQ Level Gets a Snack From the Vending Machine",
+    "caption_en": null,
+    "logline_es": "Una máquina expendedora deja una bolsa de patatas colgada del muelle; el hombre la sacude, lanza un zapato y la patea; el más listo mete otra moneda y las dos bolsas caen.",
+    "beats": [
+      {
+        "t": "0-4",
+        "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya empujando la maquina con ambas manos (frame 1); la maquina ni se mueve; empuja mas fuerte y rebota hacia atras sobre el culo. Sonido: silencio."
+      },
+      {
+        "t": "4-9",
+        "beat": "IQ -80: Lanza un zapato (Throw) contra el cristal; el zapato rebota y le da en la cabeza; se cae de espaldas. Sonido: tonk flojo."
+      },
+      {
+        "t": "9-13",
+        "beat": "IQ 120: Se pone a un lado y la empuja de lado (Pushing) con el hombro; la bolsa se tambalea y cae medio centimetro: clunk pequeño; se queda mirando sin respirar."
+      },
+      {
+        "t": "13-18",
+        "beat": "IQ 900: Salta sobre la maquina (Jumping) y cae pesado; la bolsa cae con un clunk grande; la recoge (Picking Up) y rie."
+      },
+      {
+        "t": "18-22",
+        "beat": "IQ 5469: Se queda pensando (Thinking); mete otra moneda y compra una segunda bolsa: la nueva empuja a la colgada y las dos caen con un gran clunk; levanta los brazos."
+      }
+    ],
+    "levels": [
+      {
+        "iq": -450,
+        "gag": "Ya empujando la maquina con ambas manos (frame 1); la maquina ni se mueve; empuja mas fuerte y rebota hacia atras sobre el culo. Sonido: silencio.",
+        "por_que_es_gracioso": "Cree que la maquina se mueve si uno quiere de verdad."
+      },
+      {
+        "iq": -80,
+        "gag": "Lanza un zapato (Throw) contra el cristal; el zapato rebota y le da en la cabeza; se cae de espaldas. Sonido: tonk flojo.",
+        "por_que_es_gracioso": "Pelea con una maquina con lógica de lanzador y puntería de ciego."
+      },
+      {
+        "iq": 120,
+        "gag": "Se pone a un lado y la empuja de lado (Pushing) con el hombro; la bolsa se tambalea y cae medio centimetro: clunk pequeño; se queda mirando sin respirar.",
+        "por_que_es_gracioso": "Funciona a duras penas: la bolsa sigue colgando."
+      },
+      {
+        "iq": 900,
+        "gag": "Salta sobre la maquina (Jumping) y cae pesado; la bolsa cae con un clunk grande; la recoge (Picking Up) y rie.",
+        "por_que_es_gracioso": "Funciona de verdad, pero a costa de dejar la maquina hecha polvo."
+      },
+      {
+        "iq": 5469,
+        "gag": "Se queda pensando (Thinking); mete otra moneda y compra una segunda bolsa: la nueva empuja a la colgada y las dos caen con un gran clunk; levanta los brazos.",
+        "por_que_es_gracioso": "Resolvio el problema pagando un poco mas: el remate es de logica de bolsillo, no de buscar."
+      }
+    ],
+    "clips": [
+      [
+        -450,
+        [
+          "Pushing",
+          "Falling Back Death"
+        ]
+      ],
+      [
+        -80,
+        [
+          "Throw",
+          "Angry"
+        ]
+      ],
+      [
+        120,
+        [
+          "Pushing",
+          "Victory"
+        ]
+      ],
+      [
+        900,
+        [
+          "Jumping",
+          "Picking Up",
+          "Laughing"
+        ]
+      ],
+      [
+        5469,
+        [
+          "Thinking",
+          "Picking Up",
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "Comprar otra bolsa era mas barato que pelearse con la maquina.",
+    "sin_palabras": "Bolsa de patatas colgando en una maquina y hombre que mira: se lee en 1 s.",
+    "needs": "Maquina = cube + cube cristal; bolsa = cube aplanado con S.key de caida; moneda = cylinder aplanado; zapato = cube pequeno con S.key. Clips existentes solamente. Sonidos: clunk, hit, tada.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Objeto atascado en maquina, remate de pagar mas; sin postes, campanas, mangueras, mariposas ni muneco; parque con zona de maquina.",
+    "vps": 65.6,
+    "batch": "20261120-4",
+    "story_id": "story-016",
+    "critic_improve": "Hacer que en el 900 el salto solo baje la bolsa un nivel y siga colgada (clunk grande pero sin premio) para que la segunda moneda sea la unica solucion completa, y mostrar la moneda brillando en la mano del hombre o en la ranura iluminada desde el fotograma 1 para que el remate sea justo."
+  }
+]

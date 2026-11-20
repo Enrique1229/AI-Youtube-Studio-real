@@ -1,0 +1,19 @@
+{
+  "id": "b20261120-4-l01",
+  "scores": {
+    "hook": 8,
+    "curiosity": 7,
+    "retention": 8,
+    "originality": 6,
+    "visual": 6,
+    "emotion": 6,
+    "ending": 8,
+    "series": 8,
+    "differentiation": 6,
+    "production_difficulty": 6,
+    "repetition_risk": 4
+  },
+  "why": "Bolsa colgada del muelle y hombre empujando la maquina en el fotograma 1 se lee en 1 s en vertical, el clunk crece en cada nivel acertado como la campana y el remate de pagar otra bolsa se ve en un solo plano (sin mirar detras ni abajo), pero el 900 ya hace caer la bolsa, lo que resta contraste al 5469, y la moneda es pequena en 9:16.",
+  "improve": "Hacer que en el 900 el salto solo baje la bolsa un nivel y siga colgada (clunk grande pero sin premio) para que la segunda moneda sea la unica solucion completa, y mostrar la moneda brillando en la mano del hombre o en la ranura iluminada desde el fotograma 1 para que el remate sea justo.",
+  "vps": 65.6
+}

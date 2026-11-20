@@ -1,0 +1,20 @@
+{
+  "id": "story-016",
+  "format": "short",
+  "title": "Every IQ Level Gets a Snack From the Vending Machine",
+  "stage": "selected",
+  "gates": {
+    "critic": "PASS",
+    "market": "PASS",
+    "continuity": "PENDING",
+    "policy": "PENDING",
+    "qc": "PENDING"
+  },
+  "vps": 65.6,
+  "quality_score": null,
+  "fix_rounds": 0,
+  "final_file": null,
+  "updated": "2026-11-20",
+  "idea_id": "b20261120-4-l01",
+  "market_verdict": "VALIDATED"
+}

@@ -1,0 +1,409 @@
+[
+ {
+  "id": "b20261120-4-l01",
+  "format": "levels",
+  "kind": "anim",
+  "env": "parque",
+  "title_en": "Every IQ Level Gets a Snack From the Vending Machine",
+  "caption_en": null,
+  "logline_es": "Una máquina expendedora deja una bolsa de patatas colgada del muelle; el hombre la sacude, lanza un zapato y la patea; el más listo mete otra moneda y las dos bolsas caen.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya empujando la maquina con ambas manos (frame 1); la maquina ni se mueve; empuja mas fuerte y rebota hacia atras sobre el culo. Sonido: silencio."
+   },
+   {
+    "t": "4-9",
+    "beat": "IQ -80: Lanza un zapato (Throw) contra el cristal; el zapato rebota y le da en la cabeza; se cae de espaldas. Sonido: tonk flojo."
+   },
+   {
+    "t": "9-13",
+    "beat": "IQ 120: Se pone a un lado y la empuja de lado (Pushing) con el hombro; la bolsa se tambalea y cae medio centimetro: clunk pequeño; se queda mirando sin respirar."
+   },
+   {
+    "t": "13-18",
+    "beat": "IQ 900: Salta sobre la maquina (Jumping) y cae pesado; la bolsa cae con un clunk grande; la recoge (Picking Up) y rie."
+   },
+   {
+    "t": "18-22",
+    "beat": "IQ 5469: Se queda pensando (Thinking); mete otra moneda y compra una segunda bolsa: la nueva empuja a la colgada y las dos caen con un gran clunk; levanta los brazos."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya empujando la maquina con ambas manos (frame 1); la maquina ni se mueve; empuja mas fuerte y rebota hacia atras sobre el culo. Sonido: silencio.",
+    "por_que_es_gracioso": "Cree que la maquina se mueve si uno quiere de verdad."
+   },
+   {
+    "iq": -80,
+    "gag": "Lanza un zapato (Throw) contra el cristal; el zapato rebota y le da en la cabeza; se cae de espaldas. Sonido: tonk flojo.",
+    "por_que_es_gracioso": "Pelea con una maquina con lógica de lanzador y puntería de ciego."
+   },
+   {
+    "iq": 120,
+    "gag": "Se pone a un lado y la empuja de lado (Pushing) con el hombro; la bolsa se tambalea y cae medio centimetro: clunk pequeño; se queda mirando sin respirar.",
+    "por_que_es_gracioso": "Funciona a duras penas: la bolsa sigue colgando."
+   },
+   {
+    "iq": 900,
+    "gag": "Salta sobre la maquina (Jumping) y cae pesado; la bolsa cae con un clunk grande; la recoge (Picking Up) y rie.",
+    "por_que_es_gracioso": "Funciona de verdad, pero a costa de dejar la maquina hecha polvo."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se queda pensando (Thinking); mete otra moneda y compra una segunda bolsa: la nueva empuja a la colgada y las dos caen con un gran clunk; levanta los brazos.",
+    "por_que_es_gracioso": "Resolvio el problema pagando un poco mas: el remate es de logica de bolsillo, no de buscar."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Pushing",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Throw",
+     "Angry"
+    ]
+   ],
+   [
+    120,
+    [
+     "Pushing",
+     "Victory"
+    ]
+   ],
+   [
+    900,
+    [
+     "Jumping",
+     "Picking Up",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Thinking",
+     "Picking Up",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "Comprar otra bolsa era mas barato que pelearse con la maquina.",
+  "sin_palabras": "Bolsa de patatas colgando en una maquina y hombre que mira: se lee en 1 s.",
+  "needs": "Maquina = cube + cube cristal; bolsa = cube aplanado con S.key de caida; moneda = cylinder aplanado; zapato = cube pequeno con S.key. Clips existentes solamente. Sonidos: clunk, hit, tada.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Objeto atascado en maquina, remate de pagar mas; sin postes, campanas, mangueras, mariposas ni muneco; parque con zona de maquina."
+ },
+ {
+  "id": "b20261120-4-l02",
+  "format": "levels",
+  "kind": "anim",
+  "env": "parque",
+  "title_en": "Every IQ Level Sinks a Basket on a Court",
+  "caption_en": null,
+  "logline_es": "Un aro de baloncesto esta muy alto; el hombre tira de lejos, lanza desde los hombros de una caja y salta; el más listo gira la manivela del soporte y baja el aro hasta su altura.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya tirando el balon (Throw) con los dos brazos desde muy lejos (frame 1); el balon no llega ni al tablero; se cae de espaldas. Sonido: silencio."
+   },
+   {
+    "t": "4-9",
+    "beat": "IQ -80: Corre y salta (Jumping) con el balon pegado a la cabeza; lo suelta demasiado tarde y rebota en el aro: clank; el balon le da en la cara."
+   },
+   {
+    "t": "9-13",
+    "beat": "IQ 120: Se sube a una caja y tira: el balon rueda por el aro y entra casi parado: swish pequeno; el hombre se tambalea en la caja."
+   },
+   {
+    "t": "13-18",
+    "beat": "IQ 900: Se acerca y salta con un empujon (Jumping) para meter el balon con las dos manos: gran swish y red moviendose; rie."
+   },
+   {
+    "t": "18-22",
+    "beat": "IQ 5469: Se queda quieto (Thinking), gira la manivela del soporte (Pushing) y el aro baja hasta su altura; deja caer el balon dentro: gran swish; levanta los brazos."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya tirando el balon (Throw) con los dos brazos desde muy lejos (frame 1); el balon no llega ni al tablero; se cae de espaldas. Sonido: silencio.",
+    "por_que_es_gracioso": "Cree que el aro esta cerca porque lo ve."
+   },
+   {
+    "iq": -80,
+    "gag": "Corre y salta (Jumping) con el balon pegado a la cabeza; lo suelta demasiado tarde y rebota en el aro: clank; el balon le da en la cara.",
+    "por_que_es_gracioso": "Su plan es correr mas y confiar en la suerte."
+   },
+   {
+    "iq": 120,
+    "gag": "Se sube a una caja y tira: el balon rueda por el aro y entra casi parado: swish pequeno; el hombre se tambalea en la caja.",
+    "por_que_es_gracioso": "Funciona a duras penas: el sonido es un hilito."
+   },
+   {
+    "iq": 900,
+    "gag": "Se acerca y salta con un empujon (Jumping) para meter el balon con las dos manos: gran swish y red moviendose; rie.",
+    "por_que_es_gracioso": "Funciona de verdad, con salto de lo que sea."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se queda quieto (Thinking), gira la manivela del soporte (Pushing) y el aro baja hasta su altura; deja caer el balon dentro: gran swish; levanta los brazos.",
+    "por_que_es_gracioso": "El aro estaba hecho para bajar: bastaba con una manivela en el soporte."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Throw",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Jumping",
+     "Angry"
+    ]
+   ],
+   [
+    120,
+    [
+     "Throw",
+     "Victory"
+    ]
+   ],
+   [
+    900,
+    [
+     "Jumping",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Thinking",
+     "Pushing",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "Un aro con manivela esta hecho para bajarse.",
+  "sin_palabras": "Aro muy alto y balon en las manos: se lee en 1 s.",
+  "needs": "Aro = cylinder fino + cube tablero; red = cone; balon = uv_sphere naranja; manivela = cylinder fino con S.key de giro y aro con S.key de bajada. Sonidos: hit, clunk, tada. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Baloncesto con aro bajable; sin postes de campana, cuerdas ni ramas; parque con pista."
+ },
+ {
+  "id": "b20261120-4-l03",
+  "format": "levels",
+  "kind": "anim",
+  "env": "parque",
+  "title_en": "Every IQ Level Turns On a Streetlamp",
+  "caption_en": null,
+  "logline_es": "Una farola apagada de noche; el hombre sacude el poste, trepa a por la bombilla y lanza un zapato; el más listo se sienta en el sensor de la base y la farola se enciende.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya empujando el poste con las manos (frame 1) para que se encienda; el poste ni se mueve; se cae de culo. Sonido: silencio."
+   },
+   {
+    "t": "4-9",
+    "beat": "IQ -80: Trepa por el poste (Climbing Up Wall) hasta la bombilla y la acaricia: zzt pequeno; se resbala y cae de espaldas."
+   },
+   {
+    "t": "9-13",
+    "beat": "IQ 120: Lanza un zapato (Throw) contra la bombilla: parpadea y se apaga: zzt flojo; se queda mirando con cara de esperanza."
+   },
+   {
+    "t": "13-18",
+    "beat": "IQ 900: Pone un cubo sobre el sensor de la base: la farola se enciende con un hum grande y brilla; rie y se toca la cabeza."
+   },
+   {
+    "t": "18-22",
+    "beat": "IQ 5469: Se queda pensando (Thinking), se sienta (Sitting Idle) sobre el sensor de la base: la farola se enciende con un gran hum calido; levanta los brazos."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya empujando el poste con las manos (frame 1) para que se encienda; el poste ni se mueve; se cae de culo. Sonido: silencio.",
+    "por_que_es_gracioso": "Cree que una farola es una cosa que hay que agitar."
+   },
+   {
+    "iq": -80,
+    "gag": "Trepa por el poste (Climbing Up Wall) hasta la bombilla y la acaricia: zzt pequeno; se resbala y cae de espaldas.",
+    "por_que_es_gracioso": "Cree que la bombilla tiene la culpa."
+   },
+   {
+    "iq": 120,
+    "gag": "Lanza un zapato (Throw) contra la bombilla: parpadea y se apaga: zzt flojo; se queda mirando con cara de esperanza.",
+    "por_que_es_gracioso": "Funciona a duras penas: parpadea y se rinde."
+   },
+   {
+    "iq": 900,
+    "gag": "Pone un cubo sobre el sensor de la base: la farola se enciende con un hum grande y brilla; rie y se toca la cabeza.",
+    "por_que_es_gracioso": "Funciona de verdad, pero con un cubo ridiculo."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se queda pensando (Thinking), se sienta (Sitting Idle) sobre el sensor de la base: la farola se enciende con un gran hum calido; levanta los brazos.",
+    "por_que_es_gracioso": "El sensor solo necesitaba que alguien se sentara encima: la solucion es el propio hombre."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Pushing",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Climbing Up Wall",
+     "Angry"
+    ]
+   ],
+   [
+    120,
+    [
+     "Throw",
+     "Looking Around"
+    ]
+   ],
+   [
+    900,
+    [
+     "Picking Up",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Thinking",
+     "Sitting Idle",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "El hombre es el mejor tapon para un sensor.",
+  "sin_palabras": "Farola apagada y hombre en la oscuridad: se lee en 1 s.",
+  "needs": "Farola = cylinder + uv_sphere bombilla con S.key de brillo; sensor = cube pequeno en la base; cubo = cylinder; oscuridad = fondo mas oscuro. Sonidos: hum (clunk), zzt (pop), tada. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Encender luz sentandose en el sensor; sin campanas, cuerdas ni manguera; parque de noche."
+ },
+ {
+  "id": "b20261120-4-l04",
+  "format": "levels",
+  "kind": "anim",
+  "env": "parque",
+  "title_en": "Every IQ Level Throws a Shoe Into a Bucket From a Swing",
+  "caption_en": null,
+  "logline_es": "Un cubo cuelga lejos del columpio; el hombre lanza su zapato desde el suelo, lo lanza sin parar y se balancea mal; el más listo se sienta en el columpio vecino donde cuelga el cubo y deja caer el zapato.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya lanzando el zapato (Throw) desde el suelo (frame 1); el zapato cae lejos del cubo; se agacha y se cae de espaldas. Sonido: silencio."
+   },
+   {
+    "t": "4-9",
+    "beat": "IQ -80: Se sienta en el columpio y se balancea mal; lanza el zapato (Throw) hacia atras y le da en la cabeza: clunk flojo."
+   },
+   {
+    "t": "9-13",
+    "beat": "IQ 120: Se balancea bien y suelta el zapato (Throw); entra casi parado: ping pequeno; se tambalea con los brazos arriba."
+   },
+   {
+    "t": "13-18",
+    "beat": "IQ 900: Se balancea alto y suelta el zapato (Throw) en el momento justo: ping grande; rie con el viento en la cara."
+   },
+   {
+    "t": "18-22",
+    "beat": "IQ 5469: Se sienta en el columpio vecino, donde cuelga el cubo de la cadena; deja caer el zapato (Throw) dentro: ping grande; levanta los brazos."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya lanzando el zapato (Throw) desde el suelo (frame 1); el zapato cae lejos del cubo; se agacha y se cae de espaldas. Sonido: silencio.",
+    "por_que_es_gracioso": "Cree que el cubo esta mas cerca por lo mucho que quiere."
+   },
+   {
+    "iq": -80,
+    "gag": "Se sienta en el columpio y se balancea mal; lanza el zapato (Throw) hacia atras y le da en la cabeza: clunk flojo.",
+    "por_que_es_gracioso": "Su plan tiene fuerza pero direccion de brujula rota."
+   },
+   {
+    "iq": 120,
+    "gag": "Se balancea bien y suelta el zapato (Throw); entra casi parado: ping pequeno; se tambalea con los brazos arriba.",
+    "por_que_es_gracioso": "Funciona a duras penas: el zapato casi se queda en el borde."
+   },
+   {
+    "iq": 900,
+    "gag": "Se balancea alto y suelta el zapato (Throw) en el momento justo: ping grande; rie con el viento en la cara.",
+    "por_que_es_gracioso": "Funciona de verdad, pero con muchas vueltas."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se sienta en el columpio vecino, donde cuelga el cubo de la cadena; deja caer el zapato (Throw) dentro: ping grande; levanta los brazos.",
+    "por_que_es_gracioso": "El cubo siempre estuvo al alcance de la mano: solo habia que moverse al columpio de al lado."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Throw",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Sitting Idle",
+     "Angry"
+    ]
+   ],
+   [
+    120,
+    [
+     "Sitting Idle",
+     "Throw",
+     "Victory"
+    ]
+   ],
+   [
+    900,
+    [
+     "Sitting Idle",
+     "Throw",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Thinking",
+     "Sitting Idle",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "El cubo colgaba del columpio vecino, a un paso.",
+  "sin_palabras": "Cubo lejano y zapato en la mano: se lee en 1 s.",
+  "needs": "Columpios = cylinders + cube; cubo = cylinder con S.key de balanceo; zapato = cube pequeno con S.key. Sonidos: ping (pop), clunk, tada. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Lanzar al blanco desde un columpio; sin campana, cuerda ni manguera; parque con columpios."
+ }
+]
