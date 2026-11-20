@@ -23,8 +23,8 @@ BL_XR = -5.75                                     # borde lejano (derecho) de la
 BL_L, BL_W, BL_T = 1.0, 1.0, 0.03                 # largo (x), ancho (y), grosor
 TAB_L, TAB_W, TAB_A = 0.55, 0.36, 28.0            # esquina doblada: largo, ancho, ángulo de levantamiento
 TAB_Y = -0.32
-BEN_X = -9.20                                     # plano del respaldo del banco
-BEN_Y = 1.00
+BEN_X = -8.35                                     # centro del banco (largo en x, de cara a la cámara)
+BEN_Y = 0.95
 YA = -0.15                                        # línea del actor en los niveles 1, 2 y 4
 
 
@@ -57,13 +57,13 @@ def mud_mat(S):
     e[0].position, e[0].color = 0.30, (0.030, 0.017, 0.008, 1); e[1].position, e[1].color = 0.70, (0.105, 0.060, 0.030, 1)
     L.new(n1.outputs["Fac"], cr.inputs["Fac"]); L.new(cr.outputs["Color"], b.inputs["Base Color"])
     rr = N.new("ShaderNodeMapRange"); rr.inputs["From Min"].default_value = 0.35; rr.inputs["From Max"].default_value = 0.65
-    rr.inputs["To Min"].default_value = 0.07; rr.inputs["To Max"].default_value = 0.45
+    rr.inputs["To Min"].default_value = 0.04; rr.inputs["To Max"].default_value = 0.35
     L.new(n1.outputs["Fac"], rr.inputs["Value"]); L.new(rr.outputs["Result"], b.inputs["Roughness"])
     mix = N.new("ShaderNodeMath"); mix.operation = "ADD"; mix.inputs[1].default_value = 0.0
     L.new(n2.outputs["Fac"], mix.inputs[0])
     bp = N.new("ShaderNodeBump"); bp.inputs["Strength"].default_value = 1.4; bp.inputs["Distance"].default_value = 0.08
     L.new(mix.outputs["Value"], bp.inputs["Height"]); L.new(bp.outputs["Normal"], b.inputs["Normal"])
-    for k, v in (("Coat Weight", 0.4), ("Coat Roughness", 0.06), ("Specular IOR Level", 0.7)):
+    for k, v in (("Coat Weight", 0.7), ("Coat Roughness", 0.04), ("Specular IOR Level", 0.7)):
         if k in b.inputs: b.inputs[k].default_value = v
     S.mats["barro_ep011"] = m
     return m
@@ -126,7 +126,7 @@ def head_pos(S, a, f):
     return a.head.matrix_world.translation.copy()
 
 
-def cam_static(S, cx=-8.0, lens=30, dist=6.0, ch=1.7, tz=1.8):
+def cam_static(S, cx=-7.70, lens=30, dist=4.7, ch=2.0, tz=0.75):
     S.cam.location = (cx, -dist, ch); S.cam.data.lens = lens; S.tgt.location = (cx, 0, tz)
     S.cam.keyframe_insert("location", frame=1); S.cam.data.keyframe_insert("lens", frame=1); S.tgt.keyframe_insert("location", frame=1)
 
@@ -168,12 +168,12 @@ def mud_splash(S, x, y, f, n=12, size=0.045, up=1.6, spread=0.5, seed=0):
 
 def ripple(S, x, y, f, r1=0.5, delay=0, life=22):
     """Onda sencilla: aro bajo que se expande sobre la superficie del barro y se desvanece (encoge su sección)."""
-    m = mmat(S, "onda", (0.13, 0.08, 0.04), rough=0.08)
+    m = mud_mat(S)
     o = S.obj("torus", "onda_barro", "white", (x, y, 0.03), (0.001,) * 3, major_radius=1.0, minor_radius=0.03, major_segments=40, minor_segments=8)
     o.data.materials[0] = m; g = f + delay
     S.key(o, g - 1, loc=(x, y, 0.03), scale=(0.001,) * 3, interp="LINEAR")
-    S.key(o, g, loc=(x, y, 0.025), scale=(0.08, 0.08, 0.5), interp="LINEAR")
-    S.key(o, g + life // 2, loc=(x, y, 0.025), scale=(r1 * 0.7, r1 * 0.7, 0.45), interp="LINEAR")
+    S.key(o, g, loc=(x, y, 0.025), scale=(0.08, 0.08, 0.25), interp="LINEAR")
+    S.key(o, g + life // 2, loc=(x, y, 0.025), scale=(r1 * 0.7, r1 * 0.7, 0.25), interp="LINEAR")
     S.key(o, g + life, loc=(x, y, 0.025), scale=(r1, r1, 0.001), interp="LINEAR")
 
 
@@ -213,7 +213,7 @@ def clear_env(S):
     """Quita hierba, rocas y troncos de la zona de juego y del primer plano, y TAPA el río (hierba en su lugar): no se ve agua."""
     for o in list(S.sc.objects):
         if o.instance_type == "COLLECTION" and -14.0 < o.location.x < -3.0 and -8.0 < o.location.y < 9.0:
-            keep = "grass" in o.name and o.location.y > 2.6 and abs(o.location.x + 8) > 0.0
+            keep = "grass" in o.name and o.location.y > 4.5
             if not keep: bpy.data.objects.remove(o, do_unlink=True)
     ref = bpy.data.objects.get("orillaL")
     if getattr(S, "water", None): S.water.hide_render = True; S.water.hide_viewport = True
@@ -240,21 +240,21 @@ def build_set(S, bench=True):
     nzt = wick.node_tree; bp = nzt.nodes.new("ShaderNodeBump"); nn = nzt.nodes.new("ShaderNodeTexNoise"); nn.inputs["Scale"].default_value = 120
     nzt.links.new(nn.outputs["Fac"], bp.inputs["Height"]); nzt.links.new(bp.outputs["Normal"], nzt.nodes["Principled BSDF"].inputs["Normal"])
     cloth = mmat(S, "pano_cesta", (0.85, 0.82, 0.74), rough=0.9)
-    w.basket = S.empty("cesta", (-0.40, 0.18, BL_T), parent=w.bl)
+    w.basket = S.empty("cesta", (-0.28, 0.20, BL_T), parent=w.bl)
     box(S, "cesta_cuerpo", wick, (0.34, 0.24, 0.17), (0, 0, 0.085), parent=w.basket)
     box(S, "cesta_tapa", wick, (0.36, 0.26, 0.025), (0, 0, 0.19), parent=w.basket)
     box(S, "cesta_pano", cloth, (0.20, 0.10, 0.03), (0.05, 0.0, 0.215), parent=w.basket, rot=(0, 0, R(12)))
     O(S, "torus", "cesta_asa", wick, (0, 0, 0.19), (1, 1, 1), (math.pi / 2, 0, 0), w.basket, major_radius=0.13, minor_radius=0.014, major_segments=24, minor_segments=8)
-    # banco de madera de parque (perfil: respaldo en x = 0, asiento hacia +x)
+    # banco de madera de parque (largo en x, de cara a la cámara: asiento delante, respaldo detrás en y = +0.22)
     w.bench = S.empty("banco", (BEN_X, BEN_Y, 0))
     wood = wood_mat(S); iron = mmat(S, "hierro_banco", (0.05, 0.05, 0.055), rough=0.5, metal=0.9)
-    box(S, "asiento", wood, (0.46, 1.10, 0.04), (0.25, 0, 0.44), parent=w.bench)
+    box(S, "asiento", wood, (1.00, 0.44, 0.04), (0, 0.0, 0.44), parent=w.bench)
     for dz, hh in ((0.62, 0.11), (0.77, 0.11)):
-        box(S, "respaldo", wood, (0.035, 1.10, hh), (0.0, 0, dz + hh / 2), parent=w.bench)
-    for yy in (-0.50, 0.50):
-        box(S, "pata_tras", iron, (0.05, 0.05, 0.90), (0.0, yy, 0.45), parent=w.bench)
-        box(S, "pata_del", iron, (0.05, 0.05, 0.44), (0.46, yy, 0.22), parent=w.bench)
-        box(S, "brazo", iron, (0.50, 0.045, 0.04), (0.23, yy, 0.62), parent=w.bench)
+        box(S, "respaldo", wood, (1.00, 0.035, hh), (0, 0.22, dz + hh / 2), parent=w.bench)
+    for xx in (-0.46, 0.46):
+        box(S, "pata_tras", iron, (0.05, 0.05, 0.90), (xx, 0.22, 0.45), parent=w.bench)
+        box(S, "pata_del", iron, (0.05, 0.05, 0.44), (xx, -0.22, 0.22), parent=w.bench)
+        box(S, "brazo", iron, (0.045, 0.50, 0.04), (xx + (0.04 if xx > 0 else -0.04), 0.0, 0.62), parent=w.bench)
     S.key(w.bench, 1, loc=(BEN_X, BEN_Y, 0), rot=(0, 0, 0))
     return w
 
@@ -268,17 +268,17 @@ def tab_tip(rot_deg=TAB_A):
 def l1(S):
     """-450: ya corriendo en el fotograma 1; salta con los brazos abiertos, se queda corto y se hunde hasta las rodillas."""
     w = build_set(S); cam_static(S)
-    a = MixamoActor(S, x=-10.1, yaw=90, use=["Running", "Jumping", "Looking Around"])
+    a = MixamoActor(S, x=-9.6, yaw=90, use=["Running", "Jumping", "Looking Around"])
     f_run, f_jump = 1, 13
     seg(S, a, "Running", f_run, f_jump, start=0, repeat=2, blend=3)
     sp = 1.25; j0 = 6                                               # fotograma del clip Jumping al despegar
     seg(S, a, "Jumping", f_jump, 52, start=j0, speed=sp, blend=4)
     seg(S, a, "Looking Around", 50, None, start=0, blend=6)
     f_land = int(f_jump + (43 - j0) / sp)                           # aterriza (clip 43)
-    x_t, x_l = -8.55, -7.35
+    x_t, x_l = -8.45, -7.35
     # altura de los pies del clip: se compensa para que la trayectoria sea la deseada (arco de ~0.45 m)
     base = foot_lift(S, a, f_land + 3)
-    place(S, a, 1, -10.1, YA, 0, 90, interp="LINEAR"); place(S, a, f_jump, x_t, YA, 0, 90, interp="LINEAR")
+    place(S, a, 1, -9.6, YA, 0, 90, interp="LINEAR"); place(S, a, f_jump, x_t, YA, 0, 90, interp="LINEAR")
     for f in range(f_jump + 1, f_land + 1):
         t = (f - f_jump) / float(f_land - f_jump)
         want = 0.5 * math.sin(math.pi * t) ** 0.9
@@ -312,9 +312,10 @@ def l2(S):
     for (f_rel, xt, seed) in ((20, -7.75, 1), (43, -7.45, 2), (70, -7.15, 3)):
         st = S.obj("uv_sphere", "piedra", "white", (0, 0, -9), (0.085, 0.07, 0.065), segments=12, ring_count=8); st.data.materials[0] = stone
         f0 = f_rel - 13
+        S.key(st, f0 - 1, loc=(0, 0, -9), scale=(0.001,) * 3, interp="LINEAR")
         for f in range(f0, f_rel + 1):                              # va en la mano hasta soltarla
             p = bone_pos(S, a, "RightHand", f, 0.8)
-            S.key(st, f, loc=(p.x, p.y, p.z), interp="LINEAR")
+            S.key(st, f, loc=(p.x, p.y, p.z), scale=(0.085, 0.07, 0.065), interp="LINEAR")
         p0 = bone_pos(S, a, "RightHand", f_rel, 0.8); T = 15
         for k in range(1, T + 1):                                   # vuelo parabólico hasta la superficie del barro
             t = k / float(T)
@@ -336,57 +337,56 @@ def l2(S):
 
 # ------------------------------------------------------------------ nivel 120
 def l3(S):
-    """120: empuja el banco al barro (Pushing); se hunde hasta que solo asoma el respaldo; se sienta en el respaldo con cara de
-    gran idea (bombilla) y se hunde despacio con él."""
+    """120: empuja el banco al barro (Pushing); se hunde hasta que solo asoma el respaldo; se sienta en la barra del respaldo,
+    de cara a cámara, con cara de gran idea (bombilla) y se hunde despacio con él."""
     w = build_set(S); cam_static(S)
-    a = MixamoActor(S, x=BEN_X - 0.85, yaw=90, use=["Pushing", "Sitting Idle"])
-    r0 = BEN_X - 0.85                                               # raíz al empezar (manos en el respaldo)
+    HX = 0.5 + 0.80                                                 # raíz -> centro del banco (extremo del banco + alcance de las manos)
+    r0 = BEN_X - HX
+    a = MixamoActor(S, x=r0, yaw=90, use=["Pushing", "Sitting Idle"])
     f_p = 56
     seg(S, a, "Pushing", 1, f_p, start=0, blend=5)
     seg(S, a, "Sitting Idle", f_p - 4, None, start=0, blend=7)
-    r1 = -8.20                                                      # raíz al terminar de empujar (pies en la orilla)
-    bx1 = r1 + 0.85
-    # raíz y banco avanzan juntos (LINEAR); el banco se hunde al entrar en el charco
+    bx1 = -7.35                                                     # centro del banco al terminar
+    r1 = bx1 - HX
     place(S, a, 1, r0, BEN_Y, 0, 90, interp="LINEAR"); place(S, a, f_p - 6, r1, BEN_Y, 0, 90, interp="LINEAR")
     S.key(w.bench, 1, loc=(BEN_X, BEN_Y, 0), rot=(0, 0, 0), interp="LINEAR")
-    x_edge = -7.87
+    x_edge = -7.88
+    f_in = 1
     for f in range(2, f_p - 5):
         t = (f - 1) / float(f_p - 7); bx = BEN_X + (bx1 - BEN_X) * t
-        front = bx + 0.50
-        d = max(0.0, front - x_edge)                                # cuánto ha entrado el frente en el barro
-        sink = min(0.60, d * 1.15); pitch = min(14.0, d * 28.0)
+        d = max(0.0, bx + 0.5 - x_edge)                             # cuánto ha entrado el extremo delantero en el barro
+        sink = min(0.45, d * 0.9); pitch = min(12.0, d * 20.0)
+        if d > 0.12 and f_in == 1: f_in = f
         S.key(w.bench, f, loc=(bx, BEN_Y, -sink), rot=(0, R(pitch), 0), interp="LINEAR")
-    f_in = int(1 + (x_edge - 0.50 - BEN_X) / (bx1 - BEN_X) * (f_p - 7))
-    S.cue("slide_down", 4, vol=-14); S.cue("slide_down", 20, vol=-14); S.cue("splash", f_in + 2, vol=-8); S.cue("drain", f_in + 6, vol=-8)
-    mud_splash(S, x_edge + 0.35, BEN_Y, f_in + 2, n=9, size=0.04, up=1.1, spread=0.5)
-    lumps(S, x_edge + 0.45, BEN_Y, f_in + 6, n=7, r=0.30, size=0.07)
-    ripple(S, bx1 + 0.30, BEN_Y, f_in + 10, r1=0.55); ripple(S, bx1 + 0.30, BEN_Y, f_in + 10, r1=0.40, delay=7)
-    S.key(w.bench, f_p - 4, loc=(bx1, BEN_Y, -0.60), rot=(0, R(14), 0), interp="LINEAR")
-    # se sube de un salto al respaldo (pose sentada sobre la barra superior) y se hunde despacio con el banco
-    xs = bx1 + 0.02
-    zs = 0.10
+    S.cue("slide_down", 4, vol=-14); S.cue("slide_down", 20, vol=-14); S.cue("splash", f_in + 1, vol=-8); S.cue("drain", f_in + 8, vol=-8)
+    mud_splash(S, x_edge + 0.2, BEN_Y - 0.1, f_in + 2, n=10, size=0.04, up=1.2, spread=0.5)
+    lumps(S, x_edge + 0.25, BEN_Y - 0.1, f_in + 6, n=7, r=0.34, size=0.07)
+    ripple(S, bx1, BEN_Y - 0.2, f_in + 14, r1=0.60); ripple(S, bx1, BEN_Y - 0.2, f_in + 14, r1=0.42, delay=7)
+    S.key(w.bench, f_p - 4, loc=(bx1, BEN_Y, -0.45), rot=(0, R(12), 0), interp="LINEAR")
+    # salta sobre la barra del respaldo (de cara a cámara) y se hunde despacio con el banco
+    ys = BEN_Y + 0.22; zs = -0.05
     place(S, a, f_p - 4, r1, BEN_Y, 0, 90)
-    place(S, a, f_p + 1, (r1 + xs) / 2, BEN_Y, 0.55, 90)
-    place(S, a, f_p + 6, xs, BEN_Y, zs, 90)
-    for f in range(f_p + 7, 128, 3):
-        t = (f - f_p - 6) / 60.0
-        place(S, a, f, xs, BEN_Y, zs - 0.30 * min(1.0, t), 90, interp="LINEAR")
-        S.key(w.bench, f, loc=(bx1, BEN_Y, -0.60 - 0.30 * min(1.0, t)), rot=(0, R(14), 0), interp="LINEAR")
-    S.cue("pop", f_p + 3, vol=-9); S.cue("clunk", f_p + 6, vol=-8)
-    for f in (f_p + 24, f_p + 44):
+    place(S, a, f_p + 2, (r1 + bx1) / 2, (BEN_Y + ys) / 2, 0.55, 45)
+    place(S, a, f_p + 8, bx1, ys, zs, 0)
+    for f in range(f_p + 9, 142, 3):
+        t = (f - f_p - 8) / 60.0
+        place(S, a, f, bx1, ys, zs - 0.20 * min(1.0, t), 0, interp="LINEAR")
+        S.key(w.bench, f, loc=(bx1, BEN_Y, -0.45 - 0.20 * min(1.0, t)), rot=(0, R(8), 0), interp="LINEAR")
+    S.cue("pop", f_p + 5, vol=-9); S.cue("clunk", f_p + 8, vol=-8)
+    for f in (f_p + 28, f_p + 48):
         S.cue("drain", f, vol=-12)
-        ripple(S, xs, BEN_Y, f - 6, r1=0.5)
-    ripple(S, xs, BEN_Y, f_p + 8, r1=0.50)
+        ripple(S, bx1, ys - 0.5, f - 6, r1=0.5)
+    ripple(S, bx1, ys - 0.4, f_p + 10, r1=0.55)
     # bombilla de «gran idea» sobre la cabeza
-    hp = head_pos(S, a, f_p + 16)
+    hp = head_pos(S, a, f_p + 22)
     gl = mmat(S, "bombilla", (1.0, 0.92, 0.45), rough=0.2, emit=(1.0, 0.85, 0.25))
     bu = S.obj("uv_sphere", "bombilla", "white", (hp.x, hp.y, hp.z + 0.34), (0.001,) * 3, segments=14, ring_count=8); bu.data.materials[0] = gl
     ba = S.obj("cylinder", "casquillo", "white", (hp.x, hp.y, hp.z + 0.26), (0.001,) * 3, vertices=10); ba.data.materials[0] = mmat(S, "casquillo", (0.5, 0.5, 0.5), rough=0.4, metal=0.8)
-    fb = f_p + 14
-    S.key(bu, fb - 1, scale=(0.001,) * 3); S.key(bu, fb + 3, loc=(hp.x, hp.y, hp.z + 0.36), scale=(0.075, 0.075, 0.09)); S.key(bu, fb + 24, scale=(0.075, 0.075, 0.09)); S.key(bu, fb + 27, scale=(0.001,) * 3)
-    S.key(ba, fb - 1, scale=(0.001,) * 3); S.key(ba, fb + 3, loc=(hp.x, hp.y, hp.z + 0.275), scale=(0.035, 0.035, 0.03)); S.key(ba, fb + 24, scale=(0.035, 0.035, 0.03)); S.key(ba, fb + 27, scale=(0.001,) * 3)
+    fb = f_p + 20
+    S.key(bu, fb - 1, scale=(0.001,) * 3); S.key(bu, fb + 3, loc=(hp.x, hp.y, hp.z + 0.12), scale=(0.075, 0.075, 0.09)); S.key(bu, fb + 30, scale=(0.075, 0.075, 0.09)); S.key(bu, fb + 33, scale=(0.001,) * 3)
+    S.key(ba, fb - 1, scale=(0.001,) * 3); S.key(ba, fb + 3, loc=(hp.x, hp.y, hp.z + 0.045), scale=(0.035, 0.035, 0.03)); S.key(ba, fb + 30, scale=(0.035, 0.035, 0.03)); S.key(ba, fb + 33, scale=(0.001,) * 3)
     S.cue("pop", fb, vol=-8)
-    S.f = 128
+    S.f = 142
     a.verify(S.f)
     return a
 
@@ -396,16 +396,16 @@ def l4(S):
     """900: carrerilla, salto y cae en el borde de la manta; ésta resbala bajo sus pies y lo lleva de culo al charco, manta incluida."""
     w = build_set(S); cam_static(S)
     ya = YA + 0.25
-    a = MixamoActor(S, x=-10.1, yaw=90, use=["Running", "Jumping", "Falling Back Death"])
+    a = MixamoActor(S, x=-9.6, yaw=90, use=["Running", "Jumping", "Falling Back Death"])
     f_jump = 13; sp = 1.25; j0 = 6
     seg(S, a, "Running", 1, f_jump, start=0, repeat=2, blend=3)
     seg(S, a, "Jumping", f_jump, 46, start=j0, speed=sp, blend=4)
     f_land = int(f_jump + (43 - j0) / sp)
     f_fall = f_land + 6
     seg(S, a, "Falling Back Death", f_fall, None, start=0, blend=4)
-    x_t, x_l = -8.55, -6.50
+    x_t, x_l = -8.45, -6.50
     base = foot_lift(S, a, f_land + 3)
-    place(S, a, 1, -10.1, ya, 0, 90, interp="LINEAR"); place(S, a, f_jump, x_t, ya, 0, 90, interp="LINEAR")
+    place(S, a, 1, -9.6, ya, 0, 90, interp="LINEAR"); place(S, a, f_jump, x_t, ya, 0, 90, interp="LINEAR")
     for f in range(f_jump + 1, f_land + 1):
         t = (f - f_jump) / float(f_land - f_jump)
         want = 0.45 * math.sin(math.pi * t) ** 0.9 + BL_T * t
@@ -462,8 +462,8 @@ def l5(S):
         t = (f - f_low) / float(f_rel - f_low)
         place(S, a, f, x_r + (x_end - x_r) * (t * t * (3 - 2 * t)), yt, 0, 90, 6.0 * (1 - t) - 4.0 * math.sin(math.pi * t), interp="LINEAR")
     place(S, a, f_rel + 14, x_end, yt, 0, 90, 0.0)
-    x_sit = x_end - 0.0
-    place(S, a, f_sit - 2, x_sit, yt, 0, 90)
+    x_sit = -8.68
+    place(S, a, f_rel + 22, x_end, yt, 0, 90); place(S, a, f_sit - 2, x_sit, yt, 0, 90)
     # 3) la manta sigue a la mano: la esquina (distancia D a lo largo de la manta) coincide con la mano; se inclina por esa punta
     D = BL_L + TAB_L
     S.key(w.tab, f_low - 3, rot=(0, R(TAB_A), 0)); S.key(w.tab, f_low + 1, rot=(0, R(2.0), 0))
