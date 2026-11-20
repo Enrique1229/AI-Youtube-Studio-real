@@ -519,7 +519,7 @@ def l5(S):
     S.cue("pop", f_idea, vol=-9); S.cue("pop", f_coin, vol=-8)
     S.cue("clunk", f_hit + 1, vol=-3); S.cue("clunk", f_hit + 10, vol=-1); S.cue("hit", f_hit + 10, vol=-10)
     S.cue("tada", f_hit + 15, vol=-6); S.cue("yay", f_hit + 17, vol=-6)
-    S.f = f_hit + 70
+    S.f = f_hit + 56
     a.verify(S.f)
     f_blink = 8
     blink(a, f_blink); blink(a, 56); blink(a, f_win + 40)
