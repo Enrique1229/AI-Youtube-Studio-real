@@ -10,8 +10,8 @@ from mathutils import Vector
 TITLE = "Every IQ Level Stays Dry Under a Personal Rain Cloud"
 ONSCREEN = "Every IQ level vs a rain cloud"
 
-BNX, BNY = -5.0, 0.66          # banco
-FBX, FBY = -3.35, 1.50         # parterre
+BNX, BNY = -5.6, 0.66          # banco
+FBX, FBY = -3.8, 1.50         # parterre
 TRX, TRY = -7.4, 0.55          # arbolito
 HOVER = 2.7                    # altura del centro de la nube sobre la cabeza
 
@@ -240,8 +240,8 @@ def build_set(S, flowers=True):
 
     bpy.data.objects["prado_cerca"].modifiers.clear()
     bl = bpy.data.objects["brizna"]
-    regs = (("hA", -9.2, -2.55, -6.5, -0.66, 13500), ("hB", -9.2, -6.3, 0.66, 3.0, 3200), ("hC", -6.3, -3.95, 1.3, 3.0, 2300),
-            ("hD", -3.75, -2.55, 0.66, 1.2, 800), ("hE", -3.95, -2.55, 1.8, 3.0, 1100))
+    regs = (("hA", -9.2, -2.55, -6.5, -0.66, 13500), ("hB", -9.2, -6.95, 0.66, 3.0, 2400), ("hC", -6.95, -4.5, 1.25, 3.0, 2300),
+            ("hD", -4.3, -2.55, 0.66, 1.2, 900), ("hE", -4.5, -2.55, 1.85, 3.0, 1100), ("hF", -3.1, -2.55, 1.2, 1.85, 300))
     for k, (nm, x0, x1, y0, y1, n) in enumerate(regs):
         bpy.ops.mesh.primitive_plane_add(size=1, location=((x0 + x1) / 2, (y0 + y1) / 2, 0.003)); pr = bpy.context.object; pr.name = nm
         pr.scale = (x1 - x0, y1 - y0, 1); pr.data.materials.append(ground); S._scatter(pr, bl, n, 31 + k)
@@ -275,10 +275,10 @@ def build_set(S, flowers=True):
 
     # arbolito: tronco con corteza y copa pequeña de bolas de hojas
     tr = O("cylinder", "tronco_peque", bark, (TRX, TRY, 1.1), (0.085, 0.085, 1.1), vertices=10)
-    O("cylinder", "rama", bark, (TRX + 0.16, TRY, 2.25), (0.035, 0.035, 0.22), rot=(0, R(35), 0), vertices=8)
-    canopy = S.empty("copa", (TRX, TRY, 2.5))
+    O("cylinder", "rama", bark, (TRX + 0.16, TRY, 2.1), (0.035, 0.035, 0.22), rot=(0, R(35), 0), vertices=8)
+    canopy = S.empty("copa", (TRX, TRY, 2.35))
     for (dx, dy, dz, r) in ((0, 0, 0, 0.5), (-0.42, 0.05, -0.05, 0.36), (0.42, -0.02, -0.04, 0.38), (0.1, 0.2, 0.2, 0.34), (-0.15, -0.18, 0.12, 0.33), (0.26, 0.08, 0.28, 0.26)):
-        O("ico_sphere", "copa_p", leafm, (dx, dy, dz), (r, r, r * 0.78), parent=canopy, subdivisions=3)
+        O("ico_sphere", "copa_p", leafm, (dx * 0.85, dy * 0.85, dz * 0.85), (r * 0.82, r * 0.82, r * 0.66), parent=canopy, subdivisions=3)
     for i in range(9):
         a_ = rnd.uniform(0, 6.28); O("ico_sphere", "hoja_p", leafm, (0.55 * math.cos(a_), 0.4 * math.sin(a_), rnd.uniform(-0.1, 0.25)), (0.12,) * 3, parent=canopy, subdivisions=1)
 
@@ -399,13 +399,13 @@ def l1(S):
 
     def off(f):
         if f < fb: return (0, 0, 0)
-        if f < fb + 9: t = ss((f - fb) / 9.0); return (1.9 * t, 0, 0.08 * t)
-        if f < ft1: return (1.9, 0, 0.0)
-        if f < ft2: t = ss((f - ft1) / 16.0); return (1.9 * (1 - t), 0, 0.0)
+        if f < fb + 9: t = ss((f - fb) / 9.0); return (1.3 * t, 0, 0.08 * t)
+        if f < ft1: return (1.3, 0, 0.0)
+        if f < ft2: t = ss((f - ft1) / 16.0); return (1.3 * (1 - t), 0, 0.0)
         return (0, 0, 0)
     rr = make_rain(S, cl.C, 1, fe + 12, n=28, rx=0.6, seed=2)
     track(S, cl, a, 1, fe, hover=HOVER, lag=2, off=off, rain=[(rr, lambda f: 0.0)])
-    puddle(S, xs + 1.9, -0.05, fb + 8, fb + 34, 0.55)
+    puddle(S, xs + 1.3, -0.05, fb + 8, fb + 34, 0.55)
     puddle(S, xs, 0.02, ft2 + 4, ft2 + 36, 0.5)
     ground_splash(S, xs, 0.0, ft2 + 10, n=5, big=0.5)
     wet(S, a, [(1, 0.9), (fb, 0.7), (fb + 34, 0.62), (fb + 70, 0.4), (fe, 0.35)])
@@ -515,7 +515,7 @@ def l3(S):
     # hojas se mueven con la lluvia; la copa tiembla un pelo
     for k in range(6):
         g = f_c + k * 7
-        S.key(sc.canopy, g, loc=(TRX, TRY, 2.5), scale=(1, 1, 1)); S.key(sc.canopy, g + 3, loc=(TRX, TRY, 2.5 - 0.02), scale=(1.02, 1.02, 0.97)); S.key(sc.canopy, g + 6, loc=(TRX, TRY, 2.5), scale=(1, 1, 1))
+        S.key(sc.canopy, g, loc=(TRX, TRY, 2.35), scale=(1, 1, 1)); S.key(sc.canopy, g + 3, loc=(TRX, TRY, 2.33), scale=(1.02, 1.02, 0.97)); S.key(sc.canopy, g + 6, loc=(TRX, TRY, 2.35), scale=(1, 1, 1))
     # él, quieto, mira alrededor; ¡todo seco!
     S.cue("pop", f_c + 4, vol=-14)
     a.blink(f_c + 6)
@@ -524,10 +524,10 @@ def l3(S):
     f_d = f_c + 18
     ph = head_pos(S, a, f_d + 14)
     nx, ny, nz = ph.x - 0.10, ph.y - 0.20, ph.z - 0.045
-    dr = S.obj("uv_sphere", "gota_nariz", "water", (nx, ny, 2.15), (0.001,) * 3, segments=10, ring_count=6)
-    S.key(dr, f_d - 8, loc=(nx, ny, 2.1), scale=(0.001,) * 3)
-    S.key(dr, f_d - 2, loc=(nx, ny, 2.08), scale=(0.03, 0.03, 0.04))
-    S.key(dr, f_d + 2, loc=(nx, ny, 2.05), scale=(0.028, 0.028, 0.05))
+    dr = S.obj("uv_sphere", "gota_nariz", "water", (nx, ny, 2.0), (0.001,) * 3, segments=10, ring_count=6)
+    S.key(dr, f_d - 8, loc=(nx, ny, 2.0), scale=(0.001,) * 3)
+    S.key(dr, f_d - 2, loc=(nx, ny, 1.99), scale=(0.03, 0.03, 0.04))
+    S.key(dr, f_d + 2, loc=(nx, ny, 1.96), scale=(0.028, 0.028, 0.05))
     S.key(dr, f_d + 12, loc=(nx, ny, nz + 0.05), scale=(0.022, 0.022, 0.05), interp="LINEAR")
     S.key(dr, f_d + 14, loc=(nx, ny, nz), scale=(0.03, 0.03, 0.03))
     S.key(dr, f_d + 20, loc=(nx, ny, nz), scale=(0.034, 0.034, 0.034))
@@ -553,11 +553,11 @@ def l3(S):
     def pos(f, p, d):
         if f < f_s: return d
         t = ss((f - f_s) / 18.0)
-        return (lerp(d[0], TRX, t), lerp(d[1], 0.3, t), lerp(d[2], 3.5, t))
+        return (lerp(d[0], TRX, t), lerp(d[1], 0.3, t), lerp(d[2], 3.1, t))
     rc = make_rain(S, cl.C, 1, fe + 12, n=26, rx=0.5, seed=4)
     re1 = make_rain(S, cl.C, 1, fe + 12, n=8, rx=0.1, ry=0.2, off=(-0.98, 0, -0.38), seed=5)
     re2 = make_rain(S, cl.C, 1, fe + 12, n=8, rx=0.1, ry=0.2, off=(0.98, 0, -0.38), seed=6)
-    track(S, cl, a, 1, fe, hover=HOVER, lag=3, pos=pos, rain=[(rc, lambda f: 0.0 if f < f_s + 6 else (2.88 if f < fe - 20 else None)),
+    track(S, cl, a, 1, fe, hover=HOVER, lag=3, pos=pos, rain=[(rc, lambda f: 0.0 if f < f_s + 6 else (2.5 if f < fe - 20 else None)),
                                                                (re1, lambda f: 0.0 if f >= f_s + 12 else None), (re2, lambda f: 0.0 if f >= f_s + 12 else None)])
     puddle(S, TRX - 1.0, 0.25, f_c, f_c + 36, 0.35); puddle(S, TRX + 1.0, 0.25, f_c + 4, f_c + 42, 0.38)
     wet(S, a, [(1, 0.9), (f_s, 0.6), (f_c, 0.6), (f_c + 40, 0.75), (fe, 0.85)])
@@ -611,7 +611,7 @@ def l4(S):
     for f in range(fl - 10, f_top + 1):
         if f <= fl + 3: bz[f] = 0.0; yb = BNY; rx_ = 0.0
         else:
-            t = ss((f - fl - 3) / 21.0); bz[f] = 1.50 * t + (0.28 * math.sin(math.pi * min(1, t)) if t < 1 else 0); yb = lerp(BNY, 0.0, ss((f - fl - 3) / 21.0)); rx_ = -8 * math.sin(math.pi * t)
+            t = ss((f - fl - 3) / 21.0); bz[f] = 1.43 * t + (0.28 * math.sin(math.pi * min(1, t)) if t < 1 else 0); yb = lerp(BNY, 0.0, ss((f - fl - 3) / 21.0)); rx_ = -8 * math.sin(math.pi * t)
         S.key(B, f, loc=(BNX, yb, bz[f]), rot=(R(rx_), 0, 0), interp="LINEAR" if f % 2 else "BEZIER")
     S.cue("creak", fl + 3, vol=-8); S.cue("clunk", fl + 6, vol=-14); S.cue("pop", f_top, vol=-8)
     for h in sc.holes:                                                       # los huecos que deja el banco
@@ -620,11 +620,11 @@ def l4(S):
     # sostiene con ambos brazos (manos bajo el asiento) y se gira a cámara
     S.f = f_top
     a.face(-30, f_top - 2, turn=6)
-    ZB = 1.47
+    ZB = 1.40
     S.key(B, f_top + 4, loc=(BNX, 0.0, ZB), rot=(0, 0, 0))
     for f in range(f_top, f_top + 8):
         for i in (0, 1):
-            S.key(a.arms[i], f, rot=(R(-168), R((5 if i == 0 else -5)), 0)); S.key(a.elbows[i], f, rot=(R(-8), 0, 0))
+            S.key(a.arms[i], f, rot=(R(-12), R((158 if i == 0 else -158)), 0)); S.key(a.elbows[i], f, rot=(R(-6), 0, 0))
     S.f = f_top + 8
     f_hold = S.f
     # camina con el banco (tejado), paso firme, mirando a cámara
@@ -635,7 +635,7 @@ def l4(S):
     for k in range(5, nw, 12): S.cue("step", fw + k, vol=-8)
     for f in range(fw, fw + nw):
         for i in (0, 1):
-            S.key(a.arms[i], f, rot=(R(-168 + 3 * math.sin((f - fw) * 0.5)), R((5 if i == 0 else -5)), 0)); S.key(a.elbows[i], f, rot=(R(-8), 0, 0))
+            S.key(a.arms[i], f, rot=(R(-12 + 3 * math.sin((f - fw) * 0.5)), R((158 if i == 0 else -158)), 0)); S.key(a.elbows[i], f, rot=(R(-6), 0, 0))
         S.key(a.head, f, rot=(R(-4), 0, 0))
     # el banco acompaña a las manos (muestreo fotograma a fotograma)
     for f in range(f_hold - 4, fw + nw + 1):
@@ -650,7 +650,7 @@ def l4(S):
     S.key(a.root, fz, loc=(xa + 1.5, 0, 0), rot=(0, 0, R(75))); S.key(a.root, fz + 5, loc=(xa + 1.5, 0, 0), rot=(0, 0, R(-30)))
     for f in range(fz, fz + 22):
         for i in (0, 1):
-            S.key(a.arms[i], f, rot=(R(-168), R((5 if i == 0 else -5)), 0)); S.key(a.elbows[i], f, rot=(R(-8), 0, 0))
+            S.key(a.arms[i], f, rot=(R(-12), R((158 if i == 0 else -158)), 0)); S.key(a.elbows[i], f, rot=(R(-6), 0, 0))
         bz[f] = ZB
     S.key(B, fz, loc=(xa + 1.5, 0, ZB)); S.key(B, fz + 22, loc=(xa + 1.5, 0, ZB + 0.0))
     a.look(0.03, 0.0, fz + 4); a.blink(fz + 9); S.key(a.head, fz + 6, rot=(R(-8), 0, R(8)))
@@ -671,7 +671,7 @@ def l4(S):
 
     def off(f):
         if f < f_on - 4: return (0, 0, 0)
-        t = ss((f - f_on + 4) / 14.0); return (0, 0, 0.55 * t)
+        t = ss((f - f_on + 4) / 14.0); return (0, 0, 0.35 * t)
     track(S, cl, a, 1, fe, hover=HOVER, lag=3, off=off,
           rain=[(rc, zt_c), (re1, lambda f: 0.0 if f >= f_on else None), (re2, lambda f: 0.0 if f >= f_on else None)])
     puddle(S, BNX - 1.15, 0.1, f_on, f_on + 40, 0.42); puddle(S, BNX + 1.15, 0.1, f_on + 4, f_on + 46, 0.45)
@@ -688,7 +688,8 @@ def l5(S):
     x0 = -8.9
     a = S.actor(x=x0); a.yaw = 75; S.key(a.root, 1, rot=(0, 0, R(75)), loc=(x0, 0, 0))
     cl = make_cloud(S, (x0, 0, HOVER)); mood(S, cl, 1, "sad")
-    xs = -6.5
+    xs = -7.0
+    SX = BNX + 0.55
     n = a.mocap("caminar", travel_to=xs, start=0.3)
     for k in range(5, n, 12): S.cue("step", 1 + k, vol=-8)
     fa = S.f
@@ -696,7 +697,7 @@ def l5(S):
     a.face(-30, fa, turn=5)
     f_m = fa + 4
     S.f = f_m
-    nm = a.mocap("mirar", frames=34, root=False, start=1.0, strength=0.75)
+    nm = a.mocap("mirar", frames=22, root=False, start=1.0, strength=0.75)
     blinks(S, a, [f_m + 8, f_m + 24])
     f_slide = f_m + 6                                                     # la nube se desliza hacia las flores
     cloud_look(S, cl, f_slide - 4, 0.04, 0.0); cloud_blink(S, cl, f_slide - 2)
@@ -719,39 +720,39 @@ def l5(S):
     S.cue("tada", f_arr + 18, vol=-8); S.cue("pop", f_arr + 26, vol=-12); S.cue("pop", f_arr + 38, vol=-12)
     f_open = f_arr + 10 + 4 * 10 + 15                                    # todas abiertas
     # él camina hasta el banco, se gira, se sienta (de espaldas) y saluda
-    S.f = fn + 30
+    S.f = fn + 22
     a.face(75, S.f, turn=4); S.wait(4)
     fw = S.f
-    nw = a.mocap("caminar", travel_to=BNX - 0.2)
+    nw = a.mocap("caminar", travel_to=SX)
     for k in range(5, nw, 12): S.cue("step", fw + k, vol=-8)
     fq = S.f
     hip = a._dims["hip"]
     zs = 0.52 - hip
     a.face(-30, fq, turn=5)
-    S.key(a.root, fq, loc=(BNX - 0.2, 0, 0), rot=(0, 0, R(75))); S.key(a.root, fq + 5, loc=(BNX - 0.2, 0, 0), rot=(0, 0, R(-30)))
+    S.key(a.root, fq, loc=(SX, 0, 0), rot=(0, 0, R(75))); S.key(a.root, fq + 5, loc=(SX, 0, 0), rot=(0, 0, R(-30)))
     pose(S, a, fq + 5, lean=-4, arm=(6, 6), elbow=(-30, -30))
     pose(S, a, fq + 11, lean=-12, thigh=(-30, -30), knee=(50, 50), arm=(20, 20), elbow=(-25, -25), interp="BACK")
-    S.key(a.root, fq + 11, loc=(BNX - 0.2, 0.25, -0.12))
-    S.key(a.root, fq + 17, loc=(BNX - 0.2, BNY - 0.04, zs + 0.03)); S.cue("pop", fq + 17, vol=-8)
+    S.key(a.root, fq + 11, loc=(SX, 0.25, -0.12))
+    S.key(a.root, fq + 17, loc=(SX, BNY - 0.04, zs + 0.03)); S.cue("pop", fq + 17, vol=-8)
     a.sit(fq + 17, knee=88); S.key(a.pivot, fq + 17, rot=(R(-3), 0, 0), scale=(1.03, 1.03, 0.96))
     for i in (0, 1): S.key(a.arms[i], fq + 17, rot=(R(-12), R((10 if i == 0 else -10)), 0)); S.key(a.elbows[i], fq + 17, rot=(R(-35), 0, 0))
     a.sit(fq + 22, knee=88); S.key(a.pivot, fq + 22, rot=(0, 0, 0), scale=(1, 1, 1))
-    S.key(a.root, fq + 22, loc=(BNX - 0.2, BNY - 0.04, zs + 0.03))
+    S.key(a.root, fq + 22, loc=(SX, BNY - 0.04, zs + 0.03))
     S.key(a.head, fq + 22, rot=(R(-4), 0, R(14)))
     a.look(0.03, 0.0, fq + 22); a.blink(fq + 26)
     # gira un poco el cuerpo hacia la nube y saluda (captura "saludar"), con las piernas sentadas
     a.face(10, fq + 24, turn=6)
     S.f = fq + 26
     fwv = S.f
-    nv = a.mocap("saludar", frames=34, root=False, start=0.6, strength=0.9)
+    nv = a.mocap("saludar", frames=28, root=False, start=0.6, strength=0.9)
     for f in range(fwv, fwv + nv + 1):
         a.sit(f, knee=88)
-        S.key(a.root, f, loc=(BNX - 0.2, BNY - 0.04, zs + 0.03), rot=(0, 0, R(10)))
+        S.key(a.root, f, loc=(SX, BNY - 0.04, zs + 0.03), rot=(0, 0, R(10)))
     S.key(a.head, fwv + 4, rot=(R(-2), 0, R(10)))
     S.cue("pop", fwv + 12, vol=-10)
     a.blink(fwv + 20)
     f_e = fwv + nv
-    S.f = f_e + 8
+    S.f = f_e + 4
     for i in (0, 1): S.key(a.arms[i], f_e + 8, rot=(R(-10), R((10 if i == 0 else -10)), 0)); S.key(a.elbows[i], f_e + 8, rot=(R(-35), 0, 0))
     fe = S.f
     # la nube: se desliza a las flores, baja, riega feliz; al final, bobea y devuelve el saludo
