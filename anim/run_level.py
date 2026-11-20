@@ -12,5 +12,22 @@ if getattr(ep, "ASSETS", None):                         # modelos externos (Mixa
 actor = fn(S)
 if getattr(ep, "ASSETS", None): verify_animated(S, S.f)  # lo marcado como animado debe moverse de verdad
 if not getattr(ep, "CUSTOM_CAMERA", False): S.follow(actor, S.f + 10)   # CUSTOM_CAMERA: el episodio keyea su propia cámara
+def framing_check(S, actor, n):
+    """Encuadre: la cabeza (con margen para pelo) no debe entrar en el 22 % superior (título y etiqueta) ni salir del cuadro."""
+    import bpy
+    from bpy_extras.object_utils import world_to_camera_view
+    head = getattr(actor, "head", None)
+    if head is None: return []
+    bad = []
+    for f in range(1, n + 1, 2):
+        S.sc.frame_set(f); bpy.context.view_layer.update()
+        p = head.matrix_world.translation.copy(); p.z += 0.28
+        v = world_to_camera_view(S.sc, S.cam, p)
+        if v.z > 0 and (v.y > 0.78 or v.x < 0.02 or v.x > 0.98): bad.append((f, round(v.x, 2), round(v.y, 2)))
+    return bad
+
+
+bad = framing_check(S, actor, S.f + 10)
+if bad: print(f"AVISO ENCUADRE nivel {a[1]}: la cabeza entra en la zona del texto o sale del cuadro en {len(bad)} fotogramas, p. ej. {bad[:4]}")
 n = S.render(a[2], int(a[3]) if len(a) > 3 else None)
 print(f"NIVEL {a[1]} IQ {iq}: {n} fotogramas")

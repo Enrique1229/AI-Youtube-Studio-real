@@ -50,3 +50,9 @@ Decisión posterior a 10-15 Shorts publicados: reasignar porcentajes por vistas/
 ## Referencia POV (2026-11-20, vídeo aportado por el usuario)
 Short de 8 s, texto fijo arriba "POV: …" en caja blanca, corte cada 1-2 s, audio de meme/canción en bucle con la acción sincronizada.
 Aplicación: mini-historias de 10-12 s con cortes rápidos y texto POV. El audio con derechos NO se mete en el vídeo; si se quiere, el usuario lo añade al subir desde la app de YouTube (botón Sonido, audios con licencia de YouTube).
+
+## Regla de variedad (petición del usuario, 2026-11-20) — OBLIGATORIA
+Para no caer en "contenido repetitivo" (política de monetización de YouTube), dos episodios seguidos NO pueden repetir a la vez:
+formato (niveles / mini-historia / POV), escenario (parque, casa, calle, playa, oficina…), objeto central y tipo de remate.
+Alternar formatos; cambiar de escenario al menos cada 2 episodios; nunca reutilizar un gag o remate ya publicado
+(`studio.py similar` < 0,5 y revisar los títulos de stories/ publicadas). Lo único fijo es el protagonista (marca del canal).

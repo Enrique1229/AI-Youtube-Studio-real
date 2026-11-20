@@ -244,7 +244,6 @@ def ym(f):   # y del hombre en la carrera (lineal con arranque suave y frenada)
 
 # ------------------------------------------------------------------ la historia
 def l1(S):
-    S.env_parque()
     clear_env(S); sun_and_tree(S)
     w = build_bench(S)
     S.cam.data.dof.use_dof = False
