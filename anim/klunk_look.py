@@ -21,6 +21,13 @@ SKIN = (0.30, 0.18, 0.12)        # multiplica la piel clara de Mixamo: tono marr
 SKIN_EVEN = (0.12, 0.068, 0.045)  # tono fijo con el que se iguala (cara y manos del mismo color)
 
 
+def _mat(name, color, rough=0.5):
+    m = bpy.data.materials.get(name) or bpy.data.materials.new(name)
+    m.use_nodes = True; b = m.node_tree.nodes["Principled BSDF"]
+    b.inputs["Base Color"].default_value = (*color, 1); b.inputs["Roughness"].default_value = rough
+    return m
+
+
 def _base_tex(obj, name, bright):
     """Copia el material del atlas de Mixamo; devuelve (árbol, principled, salida de la textura aclarada o None)."""
     m = obj.data.materials[0].copy(); m.name = name; obj.data.materials[0] = m
@@ -57,7 +64,7 @@ def _eye_mask(obj, arm):
         p = obj.matrix_world @ v.co
         if inv: p = inv @ p
         d = min((p - e).length for e in eyes)
-        k = 0.0 if d < 0.014 else (1.0 if d > 0.02 else (d - 0.014) / 0.006)
+        k = 0.0 if d < 0.0105 else (1.0 if d > 0.0125 else (d - 0.0105) / 0.002)
         at.data[v.index].color = (k, k, k, 1)
 
 
@@ -141,13 +148,13 @@ def _afro(C, R, seed):
     rnd = random.Random(seed); bm = bmesh.new()
     core = bmesh.ops.create_uvsphere(bm, u_segments=32, v_segments=16, radius=1.0)
     for v in core["verts"]: v.co = Vector((v.co.x * R.x * 0.9, v.co.y * R.y * 0.9, v.co.z * R.z * 0.9))
-    kill = [v for v in core["verts"] if (v.co.y < -0.045 and v.co.z < 0.012) or v.co.z < -0.06]
+    kill = [v for v in core["verts"] if (v.co.y < -0.04 and v.co.z < 0.03) or v.co.z < -0.06]
     bmesh.ops.delete(bm, geom=kill, context="VERTS")
     n = 0
     while n < 1500:
         u = Vector((rnd.gauss(0, 1), rnd.gauss(0, 1), rnd.gauss(0, 1))).normalized()
         p = Vector((u.x * R.x, u.y * R.y, u.z * R.z)) * rnd.uniform(0.9, 1.02)
-        if p.y < -0.06 and p.z < -0.002: continue                         # frente y cara libres
+        if p.y < -0.055 and p.z < 0.022: continue                         # frente y cara libres
         if p.z < -0.085 or (p.y < 0 and p.z < -0.03): continue            # sin tapar orejas ni sienes
         r = rnd.uniform(0.009, 0.016); g = bmesh.ops.create_uvsphere(bm, u_segments=8, v_segments=6, radius=r)
         bmesh.ops.translate(bm, vec=p, verts=g["verts"]); n += 1
@@ -177,7 +184,7 @@ def _brows(face):
     """Cejas gruesas y oscuras sobre el arco de la ceja (tubos con grosor que se afina hacia fuera)."""
     m = _mat("klunk_cejas", (0.012, 0.009, 0.007), 0.8); objs = []
     for sx in (1, -1):
-        cu = bpy.data.curves.new("klunk_ceja", "CURVE"); cu.dimensions = "3D"; cu.bevel_depth = 0.0032; cu.bevel_resolution = 2
+        cu = bpy.data.curves.new("klunk_ceja", "CURVE"); cu.dimensions = "3D"; cu.bevel_depth = 0.0042; cu.bevel_resolution = 2
         sp = cu.splines.new("POLY"); xs = [0.010, 0.022, 0.036, 0.050, 0.060]; sp.points.add(len(xs) - 1)
         for i, x in enumerate(xs):
             z = 1.680 + 0.004 * math.sin(math.pi * (x - 0.01) / 0.05) - (0.002 if i == len(xs) - 1 else 0)
@@ -200,7 +207,7 @@ def _expressions(obj, arm, face):
         # sonrisa: máximo en las comisuras (x≈0,024, z≈1,589), con caída suave
         w = math.exp(-(((ax - 0.024) / 0.012) ** 2 + ((p.z - 1.589) / 0.012) ** 2))
         ck = math.exp(-(((ax - 0.038) / 0.016) ** 2 + ((p.z - 1.612) / 0.014) ** 2)) * 0.5
-        d = Vector((sgn * 0.0035 * w, 0.002 * w, 0.0055 * w + 0.003 * ck))
+        d = Vector((sgn * 0.006 * w, 0.003 * w, 0.009 * w + 0.005 * ck))
         smile.data[i].co = me.vertices[i].co + to_local @ d
         # sorpresa: frente y arco de la ceja arriba
         wb = _smooth(p.z, 1.664, 1.678) * (1 - _smooth(p.z, 1.70, 1.73)) * (1 - _smooth(ax, 0.06, 0.075))
