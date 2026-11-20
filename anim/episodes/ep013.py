@@ -257,10 +257,10 @@ def build_set(S):
     O(S, "cylinder", "farola_brazo", pole, (-8.55, 2.8, 3.38), (0.025, 0.025, 0.17), rot=(0, R(90), 0), vertices=10)
     O(S, "uv_sphere", "farola_globo", mmat(S, "globo", (1.0, 0.95, 0.8), rough=0.3, emit=(1.0, 0.92, 0.7, 2.0)), (-8.40, 2.8, 3.30), (0.13, 0.13, 0.11), segments=20, ring_count=12)
     bin_m = mmat(S, "papelera", (0.05, 0.22, 0.10), rough=0.45, metal=0.5)
-    O(S, "cylinder", "papelera_cuerpo", bin_m, (-5.70, 2.4, 0.42), (0.23, 0.23, 0.42), vertices=28)
-    O(S, "cylinder", "papelera_tapa", pole, (-5.70, 2.4, 0.86), (0.25, 0.25, 0.025), vertices=28)
-    O(S, "torus", "papelera_aro", pole, (-5.70, 2.4, 0.55), (1, 1, 1), major_radius=0.235, minor_radius=0.012, major_segments=28, minor_segments=6)
-    O(S, "cylinder", "papelera_boca", mmat(S, "boca_pap", (0.01, 0.01, 0.01), rough=0.9), (-5.70, 2.4, 0.89), (0.15, 0.06, 0.012), vertices=20)
+    O(S, "cylinder", "papelera_cuerpo", bin_m, (-5.90, 3.3, 0.42), (0.23, 0.23, 0.42), vertices=28)
+    O(S, "cylinder", "papelera_tapa", pole, (-5.90, 3.3, 0.86), (0.25, 0.25, 0.025), vertices=28)
+    O(S, "torus", "papelera_aro", pole, (-5.90, 3.3, 0.55), (1, 1, 1), major_radius=0.235, minor_radius=0.012, major_segments=28, minor_segments=6)
+    O(S, "cylinder", "papelera_boca", mmat(S, "boca_pap", (0.01, 0.01, 0.01), rough=0.9), (-5.90, 3.3, 0.89), (0.15, 0.06, 0.012), vertices=20)
     # tablilla en el suelo con el hueco para tirar: nada más; las ruedas del suelo ya son baldosas
     S.key(w.m, 1, loc=(MX, MY, 0), rot=(0, 0, 0))
     S.key(w.bag_a, 1, loc=(BAG_X, BAG_Y, POSE_A["z"]), rot=(0, R(POSE_A["roll"]), 0))
@@ -298,6 +298,13 @@ def ik_to(S, t, f, p, interp="BEZIER"):
     S.key(t, f, loc=tuple(p), interp=interp)
 
 
+def fit_push(S, a, y0, frames, gap=0.02):
+    """Raíz x para que las manos (punta, tramo 1,3 del hueso) no entren nunca en el lateral derecho: la más cercana queda a `gap`."""
+    place(S, a, 1, -6.25, y0, 0, 270)
+    xm = min(min(bone_pos(S, a, b, f, 1.3).x for b in ("RightHand", "LeftHand")) for f in frames)
+    return -6.25 + (X_R + gap - xm)
+
+
 def faces(S, a, ev, n_end=None, first_blink=16):
     """Parpadeos cada 2-3 s (48-66 fotogramas) y una expresión por emoción: ev = [(fotograma, nombre, valor)]."""
     n_end = n_end or S.f
@@ -323,8 +330,7 @@ def l1(S):
     f_fall = 74
     seg(S, a, "Falling Back Death", f_fall, None, start=0, blend=3)
     place(S, a, 1, -6.25, y0, 0, 270)
-    hx = bone_pos(S, a, "RightHand", 1, 0.9).x
-    x0 = -6.25 + (X_R + 0.02 - hx)                                                    # manos a 2 cm del lateral
+    x0 = fit_push(S, a, y0, range(1, 100, 2))                                         # manos a 2 cm del lateral en el punto más cercano del ciclo
     place(S, a, 1, x0, y0, 0, 270); place(S, a, f_fall - 1, x0, y0, 0, 270)
     x1 = x0 + 0.15
     place(S, a, f_fall + 14, x1, y0, 0, 270); place(S, a, f_fall + 26, x1 + 0.05, y0, 0, 270)
@@ -338,7 +344,7 @@ def l1(S):
 def l2(S):
     """-80: de perfil (cara y afro a cámara), inclinado delante de la trampilla, mete el BRAZO IZQUIERDO de lado por ella: queda con el hombro
     pegado a la trampilla; tira dos veces, duda ("hmm") y a la tercera se suelta y cae de espaldas ("oof")."""
-    w = build_set(S); cam_static(S, cx=-8.2, az=-12.0)
+    w = build_set(S); cam_static(S, cx=-8.5, az=-12.0, dist=4.4)
     xr, yr = -8.34, 0.19
     a = MixamoActor(S, x=xr, yaw=90, use=["Picking Up", "Falling Back Death", "Looking Around"]); klunk(a)
     ikc, ikt = add_ik(S, a, "Left")
@@ -350,7 +356,7 @@ def l2(S):
     tug = ((44, 0.0), (48, -0.07), (52, 0.0), (62, 0.0), (66, -0.09), (70, 0.0))
     for f, d in tug: place(S, a, f, xr + d, yr, 0, 90, interp="LINEAR")
     place(S, a, 80, xr, yr, 0, 90); place(S, a, f_rel - 2, xr - 0.10, yr - 0.05, 0, 90, interp="LINEAR")
-    place(S, a, f_rel + 14, xr - 0.35, yr - 0.80, 0, 90)
+    place(S, a, f_rel + 14, xr - 0.12, yr - 0.80, 0, 90)
     ik_infl(ikc, 1, 0.0); ik_infl(ikc, 12, 0.0); ik_infl(ikc, 28, 1.0); ik_infl(ikc, f_rel - 1, 1.0); ik_infl(ikc, f_rel + 2, 0.0)
     wx = FLAP_X + 0.02
     ik_to(S, ikt, 1, (wx, FRONT_Y - 0.25, 0.70)); ik_to(S, ikt, 12, (wx, FRONT_Y - 0.15, 0.60))
@@ -375,8 +381,7 @@ def l3(S):
     seg(S, a, "Pushing", 1, 54, start=8, blend=4)
     seg(S, a, "Pushing", 52, None, start=40, speed=0.02, blend=5)                      # se queda congelado
     place(S, a, 1, -6.25, y0, 0, 270)
-    hx = bone_pos(S, a, "RightHand", 1, 0.9).x
-    x0 = -6.25 + (X_R + 0.02 - hx)
+    x0 = fit_push(S, a, y0, range(1, 130, 2))
     place(S, a, 1, x0, y0, 0, 270); place(S, a, 60, x0, y0, 0, 270)
     # máquina y bolsa
     f_c = 42
@@ -400,14 +405,14 @@ def l4(S):
     él mira, se le cae la cara y suena el "wahwah"."""
     w = build_set(S); cam_static(S)
     y0 = MY - 0.10
-    xj = X_R + 0.62
+    xj = X_R + 0.95
     a = MixamoActor(S, x=xj, yaw=270, use=["Jumping", "Angry"]); klunk(a)
     f_jump = 1; sp = 1.15; j0 = 8
     seg(S, a, "Jumping", f_jump, 46, start=j0, speed=sp, blend=3)
     f_land = int(f_jump + (43 - j0) / sp)
     seg(S, a, "Angry", f_land + 30, None, start=0, blend=8)
     base = foot_lift(S, a, f_land + 3)
-    place(S, a, 1, xj, y0, -1.0, 270, interp="LINEAR")
+    place(S, a, 1, xj, y0, 0.0, 270, interp="LINEAR"); place(S, a, f_land, xj, y0, 0.0, 270, interp="LINEAR")
     for f in range(f_jump, f_land + 1):
         t = (f - f_jump) / float(f_land - f_jump)
         want = 0.50 * math.sin(math.pi * min(1.0, 0.18 + 0.82 * t)) ** 0.9 if t < 1 else 0.0
@@ -436,30 +441,30 @@ def l4(S):
 def l5(S):
     """5469: piensa con la moneda brillando en la mano (mirando a cámara), se le ocurre, mete otra moneda en la ranura iluminada;
     la segunda bolsa empuja a la colgada y caen las dos a la bahía (doble clunk grande); se gira a cámara con los brazos arriba."""
-    w = build_set(S); cam_static(S, cx=-7.45, az=-22.0)
-    xr = COIN_SLOT.x - 0.20; yr = FRONT_Y - 0.48
-    a = MixamoActor(S, x=xr, yaw=25, use=["Thinking", "Victory"]); klunk(a)
+    w = build_set(S); cam_static(S, cx=-7.45, az=20.0)
+    xr = COIN_SLOT.x - 0.20; yr = FRONT_Y - 0.48; YC = -22
+    a = MixamoActor(S, x=xr, yaw=YC, use=["Thinking", "Victory"]); klunk(a)
     ikc, ikt = add_ik(S, a, "Right")
     seg(S, a, "Thinking", 1, 50, start=12, blend=4)
     f_idea, f_in, f_coin = 46, 62, 66
     seg(S, a, "Thinking", 46, 82, start=60, speed=0.04, blend=4)
     f_win = 96
-    seg(S, a, "Victory", f_win, None, start=14, speed=1.2, blend=6)
+    seg(S, a, "Victory", f_win, None, start=18, speed=1.2, blend=6)
     # raíz: de cara a cámara pensando -> gira hacia la máquina -> gira otra vez a cámara
-    S.key(a.root, 1, loc=(xr, yr, 0), rot=(0, 0, R(25)), interp="BEZIER")
-    S.key(a.root, f_idea, loc=(xr, yr, 0), rot=(0, 0, R(25)), interp="BEZIER")
+    S.key(a.root, 1, loc=(xr, yr, 0), rot=(0, 0, R(YC)), interp="BEZIER")
+    S.key(a.root, f_idea, loc=(xr, yr, 0), rot=(0, 0, R(YC)), interp="BEZIER")
     S.key(a.root, f_idea + 9, loc=(xr, yr, 0), rot=(0, 0, R(180)), interp="BEZIER")
     S.key(a.root, f_win - 3, loc=(xr, yr, 0), rot=(0, 0, R(180)), interp="BEZIER")
-    S.key(a.root, f_win + 7, loc=(xr, yr, 0), rot=(0, 0, R(372)), interp="BEZIER")
+    S.key(a.root, f_win + 7, loc=(xr, yr, 0), rot=(0, 0, R(YC)), interp="BEZIER")
     # brazo derecho a la ranura
-    ik_infl(ikc, 1, 0.0); ik_infl(ikc, f_idea + 6, 0.0); ik_infl(ikc, f_idea + 16, 1.0); ik_infl(ikc, f_win - 4, 1.0); ik_infl(ikc, f_win + 1, 0.0)
+    ik_infl(ikc, 1, 0.0); ik_infl(ikc, f_idea + 6, 0.0); ik_infl(ikc, f_idea + 16, 1.0); ik_infl(ikc, f_win - 8, 1.0); ik_infl(ikc, f_win - 2, 0.0)
     ik_to(S, ikt, f_idea + 6, (COIN_SLOT.x, FRONT_Y - 0.28, COIN_SLOT.z - 0.12)); ik_to(S, ikt, f_in, (COIN_SLOT.x, FRONT_Y - 0.075, COIN_SLOT.z))
-    ik_to(S, ikt, f_coin + 3, (COIN_SLOT.x, FRONT_Y - 0.03, COIN_SLOT.z)); ik_to(S, ikt, f_coin + 10, (COIN_SLOT.x, FRONT_Y - 0.22, COIN_SLOT.z - 0.05))
-    ik_to(S, ikt, f_win - 4, (COIN_SLOT.x, FRONT_Y - 0.24, COIN_SLOT.z - 0.12))
+    ik_to(S, ikt, f_coin + 3, (COIN_SLOT.x, FRONT_Y - 0.03, COIN_SLOT.z)); ik_to(S, ikt, f_coin + 8, (COIN_SLOT.x + 0.05, FRONT_Y - 0.25, COIN_SLOT.z - 0.15))
+    ik_to(S, ikt, f_win - 8, (COIN_SLOT.x + 0.15, FRONT_Y - 0.30, COIN_SLOT.z - 0.45))
     # moneda: en la mano desde el fotograma 1, brillando; desaparece al entrar en la ranura
-    gold = mmat(S, "moneda", (1.0, 0.75, 0.10), rough=0.25, metal=0.8, emit=(1.0, 0.72, 0.08, 4.0))
+    gold = mmat(S, "moneda", (1.0, 0.65, 0.05), rough=0.25, metal=0.8, emit=(1.0, 0.6, 0.04, 3.0))
     coin = O(S, "cylinder", "moneda", gold, (0, 0, 0), (0.055, 0.055, 0.007), vertices=24)
-    halo = O(S, "uv_sphere", "halo_moneda", mmat(S, "halo", (1.0, 0.8, 0.2), emit=(1.0, 0.75, 0.15, 3.0), alpha=0.28), (0, 0, 0), (0.085, 0.085, 0.085), segments=16, ring_count=10)
+    halo = O(S, "uv_sphere", "halo_moneda", mmat(S, "halo", (1.0, 0.6, 0.1), emit=(1.0, 0.55, 0.05, 2.0), alpha=0.18), (0, 0, 0), (0.085, 0.085, 0.085), segments=16, ring_count=10)
     for ob in (coin, halo):
         for f in range(1, f_coin + 1):
             p = bone_pos(S, a, "RightHand", f, 1.0)
