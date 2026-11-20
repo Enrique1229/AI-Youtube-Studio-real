@@ -43,7 +43,7 @@ def episode_settings(path):
             name = node.targets[0].id
             if name == "LEVELS":
                 cfg["iqs"] = [ast.literal_eval(el.elts[0]) for el in node.value.elts]
-            elif name in ("CAPTION", "CTA", "SPEED", "TITLE", "ONSCREEN", "ASSETS"):
+            elif name in ("CAPTION", "CTA", "SPEED", "TITLE", "ONSCREEN", "ASSETS", "LABEL_STYLE"):
                 try: cfg[name] = ast.literal_eval(node.value)
                 except ValueError: pass
     if "iqs" not in cfg: sys.exit(f"ERROR: {path} no define LEVELS")
@@ -83,6 +83,7 @@ def main():
     else:
         cmd += ["--iq", ",".join(map(str, iqs))]
         if cfg.get("ONSCREEN"): cmd += ["--title", cfg["ONSCREEN"]]                      # el reto escrito arriba
+        if cfg.get("LABEL_STYLE"): cmd += ["--label-style", cfg["LABEL_STYLE"]]
     if cfg.get("CTA"): cmd += ["--cta", cfg["CTA"]]
     subprocess.run(cmd, check=True)
     print("LISTO:", final)
