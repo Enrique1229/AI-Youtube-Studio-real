@@ -341,21 +341,28 @@ def l1(S):
     S.cue("whoosh", F_B0 - 2, vol=-6); S.cue("whoosh", F_M0 + 2, vol=-10)
     S.cue("boing", F_B1 + 1, vol=-8); S.cue("clunk", F_B1 + 6, vol=-5); S.cue("hit", F_B1 + 6, vol=-12)
     S.cue("whoosh", F_FALL - 4, vol=-10)
-    S.cue("hit", F_IMP, vol=-3); S.cue("slide_down", F_IMP + 4, vol=-8)
+    S.cue("hit", F_IMP, vol=-3); S.cue("slide_down", F_IMP + 6, vol=-9)
     S.cue("creak", F_SLIDE - 2, vol=-9); S.cue("whoosh", F_SLIDE + 1, vol=-12); S.cue("step", F_SLIDE + 5, vol=-9)
     S.cue("clunk", F_SLIDE + 10, vol=-10)
     S.cue("boing", F_HOP2 + 1, vol=-6); S.cue("pop", F_HOP2 + 9, vol=-9)
-    S.cue("tada", F_HOP2 + 14, vol=-7)
+    S.cue("tada", F_HOP2 + 14, vol=-8)
+    # voces sin palabras (una a la vez, separadas >= 0,5 s)
+    S.cue("sigh", F_SIT + 4, vol=-8); S.cue("huh", F_EYES + 8, vol=-7)
+    S.cue("hmm", F_HOP + 14, vol=-9)
+    S.cue("oof", F_IMP + 1, vol=-7); S.cue("wahwah", F_IMP + 14, vol=-8)
+    S.cue("laugh", F_HOP2 + 12, vol=-7)
 
     # ---- cara del protagonista: parpadeo cada 2-3 s y expresiones en los momentos clave ----
     for f in (10, 66, 124, 183, 224, 262, 300):
         if f < F_END - 5: blink(a, f)
     expression(a, "neutra", 1, 1.0, ramp=2)
-    expression(a, "sorpresa", F_EYES + 12, 1.0, ramp=3)
-    expression(a, "neutra", F_HOP + 4, 1.0, ramp=3)
-    expression(a, "enfado", F_IMP, 1.0, ramp=3)
-    expression(a, "neutra", F_HOP2 - 2, 1.0, ramp=3)
-    expression(a, "feliz", F_HOP2 + 16, 1.0, ramp=4)
+    expression(a, "feliz", F_SIT + 2, 0.5, ramp=4)                     # alivio al sentarse
+    expression(a, "sorpresa", F_EYES + 6, 0.7, ramp=3)                 # el banco parpadea: ¿eh?
+    expression(a, "sorpresa", F_RISE, 1.0, ramp=3)                     # el banco se levanta: sorpresa mayor
+    expression(a, "enfado", F_HOP + 6, 0.8, ramp=4)                    # ¡eh! persigue al banco
+    expression(a, "enfado", F_IMP, 1.0, ramp=2)                       # cae de culo al sol
+    expression(a, "neutra", F_HOP2 - 6, 1.0, ramp=4)
+    expression(a, "feliz", F_HOP2 + 9, 1.0, ramp=4)                    # remate
     for f, dx in ((4, 0.04), (12, -0.04), (20, 0.05)): sweat(S, a, f, dx)
 
     # ---- cámara: planos de 1-2 s con cortes secos (CONSTANT) ----
