@@ -18,10 +18,10 @@ CUSTOM_CAMERA = True
 LABEL_STYLE = "big"
 
 # geometría (metros). El hombre viene de la izquierda; y = 0 es la línea de la manta.
-PCX, PCY, PRX, PRY = -7.35, 0.35, 0.60, 1.30      # charco: elipse (centro y semiejes)
+PCX, PCY, PRX, PRY = -7.28, 0.35, 0.55, 1.30      # charco: elipse (centro y semiejes)
 BL_XR = -5.75                                     # borde lejano (derecho) de la manta
 BL_L, BL_W, BL_T = 1.0, 1.0, 0.03                 # largo (x), ancho (y), grosor
-TAB_L, TAB_W, TAB_A = 0.55, 0.36, 28.0            # esquina doblada: largo, ancho, ángulo de levantamiento
+TAB_L, TAB_W, TAB_A = 0.65, 0.36, 30.0            # esquina doblada: largo, ancho, ángulo de levantamiento
 TAB_Y = -0.32
 BEN_X = -8.35                                     # centro del banco (largo en x, de cara a la cámara)
 BEN_Y = 0.95
@@ -240,7 +240,7 @@ def build_set(S, bench=True):
     nzt = wick.node_tree; bp = nzt.nodes.new("ShaderNodeBump"); nn = nzt.nodes.new("ShaderNodeTexNoise"); nn.inputs["Scale"].default_value = 120
     nzt.links.new(nn.outputs["Fac"], bp.inputs["Height"]); nzt.links.new(bp.outputs["Normal"], nzt.nodes["Principled BSDF"].inputs["Normal"])
     cloth = mmat(S, "pano_cesta", (0.85, 0.82, 0.74), rough=0.9)
-    w.basket = S.empty("cesta", (-0.28, 0.20, BL_T), parent=w.bl)
+    w.basket = S.empty("cesta", (-0.28, 0.33, BL_T), parent=w.bl)
     box(S, "cesta_cuerpo", wick, (0.34, 0.24, 0.17), (0, 0, 0.085), parent=w.basket)
     box(S, "cesta_tapa", wick, (0.36, 0.26, 0.025), (0, 0, 0.19), parent=w.basket)
     box(S, "cesta_pano", cloth, (0.20, 0.10, 0.03), (0.05, 0.0, 0.215), parent=w.basket, rot=(0, 0, R(12)))
@@ -268,17 +268,17 @@ def tab_tip(rot_deg=TAB_A):
 def l1(S):
     """-450: ya corriendo en el fotograma 1; salta con los brazos abiertos, se queda corto y se hunde hasta las rodillas."""
     w = build_set(S); cam_static(S)
-    a = MixamoActor(S, x=-9.6, yaw=90, use=["Running", "Jumping", "Looking Around"])
+    a = MixamoActor(S, x=-9.35, yaw=90, use=["Running", "Jumping", "Looking Around"])
     f_run, f_jump = 1, 13
     seg(S, a, "Running", f_run, f_jump, start=0, repeat=2, blend=3)
     sp = 1.25; j0 = 6                                               # fotograma del clip Jumping al despegar
     seg(S, a, "Jumping", f_jump, 52, start=j0, speed=sp, blend=4)
     seg(S, a, "Looking Around", 50, None, start=0, blend=6)
     f_land = int(f_jump + (43 - j0) / sp)                           # aterriza (clip 43)
-    x_t, x_l = -8.45, -7.35
+    x_t, x_l = -8.40, -7.30
     # altura de los pies del clip: se compensa para que la trayectoria sea la deseada (arco de ~0.45 m)
     base = foot_lift(S, a, f_land + 3)
-    place(S, a, 1, -9.6, YA, 0, 90, interp="LINEAR"); place(S, a, f_jump, x_t, YA, 0, 90, interp="LINEAR")
+    place(S, a, 1, -9.35, YA, 0, 90, interp="LINEAR"); place(S, a, f_jump, x_t, YA, 0, 90, interp="LINEAR")
     for f in range(f_jump + 1, f_land + 1):
         t = (f - f_jump) / float(f_land - f_jump)
         want = 0.5 * math.sin(math.pi * t) ** 0.9
@@ -342,15 +342,18 @@ def l3(S):
     w = build_set(S); cam_static(S)
     HX = 0.5 + 0.80                                                 # raíz -> centro del banco (extremo del banco + alcance de las manos)
     r0 = BEN_X - HX
-    a = MixamoActor(S, x=r0, yaw=90, use=["Pushing", "Sitting Idle"])
+    a = MixamoActor(S, x=r0, yaw=90, use=["Pushing", "Jumping", "Sitting Idle"])
     f_p = 56
-    seg(S, a, "Pushing", 1, f_p, start=0, blend=5)
-    seg(S, a, "Sitting Idle", f_p - 4, None, start=0, blend=7)
-    bx1 = -7.35                                                     # centro del banco al terminar
+    seg(S, a, "Pushing", 1, f_p - 4, start=0, blend=4)
+    seg(S, a, "Jumping", f_p - 4, f_p + 8, start=14, speed=2.0, blend=3)           # salto de un solo impulso hasta el banco
+    seg(S, a, "Sitting Idle", f_p + 6, None, start=0, blend=5)
+    base = foot_lift(S, a, 1)
+    lift = {f: foot_lift(S, a, f) - base for f in range(f_p - 3, f_p + 8)}
+    bx1 = -7.30                                                     # centro del banco al terminar
     r1 = bx1 - HX
     place(S, a, 1, r0, BEN_Y, 0, 90, interp="LINEAR"); place(S, a, f_p - 6, r1, BEN_Y, 0, 90, interp="LINEAR")
     S.key(w.bench, 1, loc=(BEN_X, BEN_Y, 0), rot=(0, 0, 0), interp="LINEAR")
-    x_edge = -7.88
+    x_edge = -7.77
     f_in = 1
     for f in range(2, f_p - 5):
         t = (f - 1) / float(f_p - 7); bx = BEN_X + (bx1 - BEN_X) * t
@@ -365,8 +368,11 @@ def l3(S):
     S.key(w.bench, f_p - 4, loc=(bx1, BEN_Y, -0.45), rot=(0, R(12), 0), interp="LINEAR")
     # salta sobre la barra del respaldo (de cara a cámara) y se hunde despacio con el banco
     ys = BEN_Y + 0.22; zs = -0.05
-    place(S, a, f_p - 4, r1, BEN_Y, 0, 90)
-    place(S, a, f_p + 2, (r1 + bx1) / 2, (BEN_Y + ys) / 2, 0.55, 45)
+    place(S, a, f_p - 4, r1, BEN_Y, 0, 90, interp="LINEAR")
+    for f in range(f_p - 3, f_p + 8):
+        t = (f - (f_p - 4)) / 12.0
+        zz = 0.45 * math.sin(math.pi * t) - lift[f]
+        place(S, a, f, r1 + (bx1 - r1) * t, BEN_Y + (ys - BEN_Y) * t, max(zz, -1.2), 90 * (1 - t), interp="LINEAR")
     place(S, a, f_p + 8, bx1, ys, zs, 0)
     for f in range(f_p + 9, 142, 3):
         t = (f - f_p - 8) / 60.0
@@ -395,8 +401,8 @@ def l3(S):
 def l4(S):
     """900: carrerilla, salto y cae en el borde de la manta; ésta resbala bajo sus pies y lo lleva de culo al charco, manta incluida."""
     w = build_set(S); cam_static(S)
-    ya = YA + 0.25
-    a = MixamoActor(S, x=-9.6, yaw=90, use=["Running", "Jumping", "Falling Back Death"])
+    ya = YA + 0.05
+    a = MixamoActor(S, x=-9.35, yaw=90, use=["Running", "Jumping", "Falling Back Death"])
     f_jump = 13; sp = 1.25; j0 = 6
     seg(S, a, "Running", 1, f_jump, start=0, repeat=2, blend=3)
     seg(S, a, "Jumping", f_jump, 46, start=j0, speed=sp, blend=4)
@@ -405,7 +411,7 @@ def l4(S):
     seg(S, a, "Falling Back Death", f_fall, None, start=0, blend=4)
     x_t, x_l = -8.45, -6.50
     base = foot_lift(S, a, f_land + 3)
-    place(S, a, 1, -9.6, ya, 0, 90, interp="LINEAR"); place(S, a, f_jump, x_t, ya, 0, 90, interp="LINEAR")
+    place(S, a, 1, -9.35, ya, 0, 90, interp="LINEAR"); place(S, a, f_jump, x_t, ya, 0, 90, interp="LINEAR")
     for f in range(f_jump + 1, f_land + 1):
         t = (f - f_jump) / float(f_land - f_jump)
         want = 0.45 * math.sin(math.pi * t) ** 0.9 + BL_T * t
@@ -414,13 +420,13 @@ def l4(S):
     # la manta resbala hacia el charco desde que pisa (acelera), llevándoselo encima; luego se asienta sobre el barro
     sl = [(f_land, 0.0), (f_land + 3, -0.02), (f_land + 6, -0.10), (f_land + 9, -0.28), (f_land + 12, -0.52), (f_land + 15, -0.76), (f_land + 18, -0.93), (f_land + 21, -1.02), (f_land + 26, -1.06)]
     for f, dx in sl:
-        S.key(w.bl, f, loc=(BL_XR + dx, 0, 0.015 if dx < -0.01 else 0.0), rot=(0, 0, 0), interp="BEZIER")
-        place(S, a, f, x_l + dx, ya, BL_T if f <= f_land + 12 else BL_T - 0.03 * min(1.0, (f - f_land - 12) / 14.0), 90)
+        S.key(w.bl, f, loc=(BL_XR + dx, 0, 0.03 if dx < -0.01 else 0.0), rot=(0, 0, 0), interp="BEZIER")
+        place(S, a, f, x_l + dx, ya, BL_T + (0.03 if dx < -0.01 else 0.0), 90)
     # termina de caer de espaldas: cadera hundida unos centímetros en el barro, manta apoyada encima
     xf = x_l - 1.06
-    for f, z in ((f_land + 32, -0.05), (f_land + 40, -0.12), (f_land + 60, -0.16)):
+    for f, z in ((f_land + 32, 0.05), (f_land + 40, 0.0), (f_land + 60, -0.03)):
         place(S, a, f, xf, ya, z, 90)
-        S.key(w.bl, f, loc=(BL_XR - 1.06, 0, -0.02 if f < f_land + 60 else -0.05), rot=(0, 0, 0))
+        S.key(w.bl, f, loc=(BL_XR - 1.06, 0, 0.03 if f < f_land + 40 else 0.028), rot=(0, 0, 0))
     S.cue("boing", f_jump + 3, vol=-6); S.cue("clunk", f_land, vol=-8); S.cue("slide_down", f_land + 2, vol=-9); S.cue("whoosh", f_land + 6, vol=-10)
     S.cue("splash", f_land + 24, vol=-4); S.cue("drain", f_land + 28, vol=-9); S.cue("hit", f_land + 26, vol=-8)
     mud_splash(S, xf + 0.1, ya, f_land + 22, n=18, size=0.05, up=2.0, spread=0.8)

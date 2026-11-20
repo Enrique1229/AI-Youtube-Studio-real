@@ -47,13 +47,31 @@ def _tint(obj, color, name, bright=0.35):
         if k in b.inputs: b.inputs[k].default_value = 0.0
 
 
-def _skin(obj):
+def _eye_mask(obj, arm):
+    """Atributo 'klunk_piel' = 0 en los ojos y 1 en el resto, para teñir la piel sin teñir los ojos."""
+    inv = arm.parent.matrix_world.inverted() if arm.parent else None
+    me = obj.data; at = me.color_attributes.get("klunk_piel") or me.color_attributes.new("klunk_piel", "FLOAT_COLOR", "POINT")
+    eyes = [Vector((sx * 0.0328, -0.104, 1.6473)) for sx in (1, -1)]
+    for v in me.vertices:
+        p = obj.matrix_world @ v.co
+        if inv: p = inv @ p
+        d = min((p - e).length for e in eyes)
+        k = 0.0 if d < 0.014 else (1.0 if d > 0.02 else (d - 0.014) / 0.006)
+        at.data[v.index].color = (k, k, k, 1)
+
+
+def _skin(obj, arm):
     """Piel morena uniforme: la textura de Mixamo es más clara en la cara que en las manos, así que se mezcla el
     tinte con un tono fijo (conserva poros y sombras suaves, iguala cara y manos)."""
     nt, b, out = _base_tex(obj, "klunk_piel", 0.0)
-    tint = nt.nodes.new("ShaderNodeMix"); tint.data_type = "RGBA"; tint.blend_type = "MULTIPLY"; tint.inputs["Factor"].default_value = 1.0
+    _eye_mask(obj, arm)
+    mask = nt.nodes.new("ShaderNodeAttribute"); mask.attribute_name = "klunk_piel"
+    tint = nt.nodes.new("ShaderNodeMix"); tint.data_type = "RGBA"; tint.blend_type = "MULTIPLY"
+    nt.links.new(mask.outputs["Fac"], tint.inputs["Factor"])
     nt.links.new(out, tint.inputs[6]); tint.inputs[7].default_value = (*SKIN, 1)
-    even = nt.nodes.new("ShaderNodeMix"); even.data_type = "RGBA"; even.inputs["Factor"].default_value = 0.6
+    even = nt.nodes.new("ShaderNodeMix"); even.data_type = "RGBA"
+    k6 = nt.nodes.new("ShaderNodeMath"); k6.operation = "MULTIPLY"; k6.inputs[1].default_value = 0.6
+    nt.links.new(mask.outputs["Fac"], k6.inputs[0]); nt.links.new(k6.outputs[0], even.inputs["Factor"])
     nt.links.new(tint.outputs[2], even.inputs[6]); even.inputs[7].default_value = (*SKIN_EVEN, 1)
     nt.links.new(even.outputs[2], b.inputs["Base Color"])
     for k in ("Subsurface Weight", "Subsurface"):
@@ -93,7 +111,8 @@ def _hair_mats():
 def _afro(C, R, seed):
     """Casquete con forma de afro (sin tapar frente ni cara) del que salen hebras cortas y muy rizadas."""
     bm = bmesh.new(); bmesh.ops.create_uvsphere(bm, u_segments=48, v_segments=32, radius=1.0)
-    for v in bm.verts: v.co = Vector((v.co.x * R.x, v.co.y * R.y, v.co.z * R.z))
+    for v in bm.verts:
+        v.co = Vector((v.co.x * R.x, v.co.y * R.y * (0.78 if v.co.y < 0 else 1.0), v.co.z * R.z))   # delante pegado a la frente
     kill = [v for v in bm.verts if (v.co.y < -0.05 and v.co.z < 0.012) or v.co.z < -0.085 or (v.co.y < 0.0 and v.co.z < -0.035)]
     bmesh.ops.delete(bm, geom=kill, context="VERTS")
     me = bpy.data.meshes.new("klunk_afro"); bm.to_mesh(me); bm.free()
@@ -118,7 +137,7 @@ def apply(actor, seed=3):
     if "Ch01_Shirt" in parts: _stripes(parts["Ch01_Shirt"], "klunk_camiseta", STRIPE_A, STRIPE_B)
     if "Ch01_Pants" in parts: _tint(parts["Ch01_Pants"], PANTS, "klunk_pantalon", bright=0.1)
     if "Ch01_Sneakers" in parts: _tint(parts["Ch01_Sneakers"], SHOES, "klunk_zapatillas", bright=0.15)
-    if "Ch01_Body" in parts: _skin(parts["Ch01_Body"])
+    if "Ch01_Body" in parts: _skin(parts["Ch01_Body"], arm)
     head = next(b.name for b in arm.data.bones if b.name.split(":")[-1] == "Head")
     # se construye en coordenadas del personaje en reposo (mirando a -Y, ~1,8 m) y luego se cuelga del hueso
     old_pp = arm.data.pose_position; arm.data.pose_position = "REST"; bpy.context.view_layer.update()
