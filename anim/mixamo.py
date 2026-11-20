@@ -31,11 +31,15 @@ class MixamoError(RuntimeError):
 class MixamoActor:
     human = True
 
-    def __init__(self, S, x=0.0, yaw=0.0, folder=FOLDER, character=None, scale=1.0):
+    def __init__(self, S, x=0.0, yaw=0.0, folder=FOLDER, character=None, scale=1.0, use=None):
         self.st = S; self.x, self.z, self.yaw = x, S.ground(x) if hasattr(S, "ground") else 0.0, yaw
         files = sorted(pathlib.Path(folder).glob("*.fbx"))
         if not files: raise MixamoError(f"no hay archivos .fbx en {folder}")
         if character: files = sorted(files, key=lambda f: f.stem != character)
+        if use:                                                   # solo los clips que el nivel usa (cada FBX pesa ~55 MB)
+            missing = [u for u in use if u not in {f.stem for f in files}]
+            if missing: raise MixamoError(f"faltan clips en {folder}: {missing}")
+            files = [f for f in files if f.stem in use]
         self.clips, self.arm, self.meshes = {}, None, []
         for f in files:
             before = set(bpy.data.objects)
