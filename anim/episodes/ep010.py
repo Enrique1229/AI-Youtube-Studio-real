@@ -187,7 +187,7 @@ def build_set(S, rope=False):
 
 def build_rope(S, w, iron, wood):
     """Solo en el 5469: gancho trasero, cuerda (oculta hasta que la recoge) y el sobrante enrollado en el suelo detrás del poste."""
-    rope_m = mmat(S, "cuerda", (0.62, 0.48, 0.26), rough=0.95)
+    rope_m = mmat(S, "cuerda", (0.46, 0.34, 0.18), rough=0.95)
     O(S, "cube", "gancho_cuerda", iron, (BX, RY / 2, BZ + 0.03), (0.016, RY / 2 + 0.02, 0.016), smooth=False)
     w.rope = O(S, "cylinder", "cuerda", rope_m, tuple(w.top), (0.001,) * 3, vertices=8, smooth=False)
     w.toggle = O(S, "uv_sphere", "tirador", wood, tuple(w.K0), (0.001,) * 3, segments=12, ring_count=8)
@@ -266,8 +266,8 @@ def l2(S):
         p = bone_pos(S, a, "RightHand", f, 0.55)
         S.key(w.shoe, f, loc=(p.x, p.y, p.z), rot=(0, R(-20), 0), interp="LINEAR")
     p0 = bone_pos(S, a, "RightHand", f_rel, 0.55)
-    hd = head_pos(S, a, f_head - 1)
-    top = (hd.x + 0.02, 0.0, hd.z + 0.13)
+    hd = head_pos(S, a, f_head)
+    top = (hd.x + 0.02, 0.0, hd.z - 0.20)
     path = [(f_pole, (PX - 0.10, 0, 2.22), (0, R(-30), 0)),
             (f_pole + 4, (PX - 0.50, 0, 2.58), (0, R(-190), 0)),
             (f_head, top, (0, R(-340), 0)),
