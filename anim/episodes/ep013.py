@@ -33,7 +33,7 @@ POSE_C = dict(z=0.865, roll=-34.0)                    # tras el salto del 900: b
 BAG_W, BAG_H, BAG_T = 0.155, 0.22, 0.035
 COIN_SLOT = Vector((MX + 0.325, FRONT_Y, 1.07))       # centro de la ranura iluminada (mundo)
 FLAP_X = MX - 0.145                                   # centro de la trampilla
-FLAP_Z = 0.46
+FLAP_Z = 0.50
 
 
 def R(d): return math.radians(d)
@@ -92,7 +92,7 @@ def foot_lift(S, a, f):
 def sstep(t): t = max(0.0, min(1.0, t)); return t * t * (3 - 2 * t)
 
 
-def cam_static(S, dist=4.5, tz=1.35, cx=-7.0, az=18.0, ch=1.70, lens=30, ty=0.8):
+def cam_static(S, dist=4.1, tz=1.35, cx=-7.0, az=18.0, ch=1.70, lens=30, ty=0.8):
     """Cámara fija algo a la izquierda de la máquina (az grados): se ve el frente de la máquina y la cara del que empuja desde la derecha."""
     S.cam.location = (cx - math.sin(R(az)) * dist, ty - math.cos(R(az)) * dist, ch); S.cam.data.lens = lens; S.tgt.location = (cx, ty, tz)
     S.cam.keyframe_insert("location", frame=1); S.cam.data.keyframe_insert("lens", frame=1); S.tgt.keyframe_insert("location", frame=1)
@@ -252,15 +252,15 @@ def build_set(S):
     build_machine(S, w)
     # farola (detrás, a la izquierda) y papelera (a la derecha, al fondo)
     pole = mmat(S, "farola", (0.025, 0.05, 0.035), rough=0.4, metal=0.7)
-    O(S, "cylinder", "farola_base", pole, (-5.85, 3.0, 0.18), (0.11, 0.11, 0.18), parent=None, vertices=20)
-    O(S, "cylinder", "farola_poste", pole, (-5.85, 3.0, 1.7), (0.045, 0.045, 1.7), parent=None, vertices=16)
-    O(S, "cylinder", "farola_brazo", pole, (-5.99, 3.0, 3.38), (0.025, 0.025, 0.17), rot=(0, R(90), 0), vertices=10)
-    O(S, "uv_sphere", "farola_globo", mmat(S, "globo", (1.0, 0.95, 0.8), rough=0.3, emit=(1.0, 0.92, 0.7, 2.0)), (-6.12, 3.0, 3.30), (0.13, 0.13, 0.11), segments=20, ring_count=12)
+    O(S, "cylinder", "farola_base", pole, (-8.70, 2.8, 0.18), (0.11, 0.11, 0.18), parent=None, vertices=20)
+    O(S, "cylinder", "farola_poste", pole, (-8.70, 2.8, 1.7), (0.045, 0.045, 1.7), parent=None, vertices=16)
+    O(S, "cylinder", "farola_brazo", pole, (-8.55, 2.8, 3.38), (0.025, 0.025, 0.17), rot=(0, R(90), 0), vertices=10)
+    O(S, "uv_sphere", "farola_globo", mmat(S, "globo", (1.0, 0.95, 0.8), rough=0.3, emit=(1.0, 0.92, 0.7, 2.0)), (-8.40, 2.8, 3.30), (0.13, 0.13, 0.11), segments=20, ring_count=12)
     bin_m = mmat(S, "papelera", (0.05, 0.22, 0.10), rough=0.45, metal=0.5)
-    O(S, "cylinder", "papelera_cuerpo", bin_m, (-8.25, 1.5, 0.42), (0.23, 0.23, 0.42), vertices=28)
-    O(S, "cylinder", "papelera_tapa", pole, (-8.25, 1.5, 0.86), (0.25, 0.25, 0.025), vertices=28)
-    O(S, "torus", "papelera_aro", pole, (-8.25, 1.5, 0.55), (1, 1, 1), major_radius=0.235, minor_radius=0.012, major_segments=28, minor_segments=6)
-    O(S, "cylinder", "papelera_boca", mmat(S, "boca_pap", (0.01, 0.01, 0.01), rough=0.9), (-8.25, 1.5, 0.89), (0.15, 0.06, 0.012), vertices=20)
+    O(S, "cylinder", "papelera_cuerpo", bin_m, (-5.70, 2.4, 0.42), (0.23, 0.23, 0.42), vertices=28)
+    O(S, "cylinder", "papelera_tapa", pole, (-5.70, 2.4, 0.86), (0.25, 0.25, 0.025), vertices=28)
+    O(S, "torus", "papelera_aro", pole, (-5.70, 2.4, 0.55), (1, 1, 1), major_radius=0.235, minor_radius=0.012, major_segments=28, minor_segments=6)
+    O(S, "cylinder", "papelera_boca", mmat(S, "boca_pap", (0.01, 0.01, 0.01), rough=0.9), (-5.70, 2.4, 0.89), (0.15, 0.06, 0.012), vertices=20)
     # tablilla en el suelo con el hueco para tirar: nada más; las ruedas del suelo ya son baldosas
     S.key(w.m, 1, loc=(MX, MY, 0), rot=(0, 0, 0))
     S.key(w.bag_a, 1, loc=(BAG_X, BAG_Y, POSE_A["z"]), rot=(0, R(POSE_A["roll"]), 0))
@@ -336,32 +336,28 @@ def l1(S):
 
 # ------------------------------------------------------------------ nivel -80
 def l2(S):
-    """-80: se agacha ante la trampilla y mete el brazo hasta que se le atasca (hombro pegado a la trampilla); tira dos veces,
-    duda ("hmm") y a la tercera se suelta y cae de espaldas ("oof")."""
-    w = build_set(S); cam_static(S)
-    xr, yr = FLAP_X - 0.20, FRONT_Y - 0.30
-    a = MixamoActor(S, x=xr, yaw=180, use=["Picking Up", "Falling Back Death", "Looking Around"]); klunk(a)
-    ikc, ikt = add_ik(S, a, "Right")
+    """-80: de perfil (cara y afro a cámara), inclinado delante de la trampilla, mete el BRAZO IZQUIERDO de lado por ella: queda con el hombro
+    pegado a la trampilla; tira dos veces, duda ("hmm") y a la tercera se suelta y cae de espaldas ("oof")."""
+    w = build_set(S); cam_static(S, cx=-8.2, az=-12.0)
+    xr, yr = -8.42, 0.10
+    a = MixamoActor(S, x=xr, yaw=90, use=["Picking Up", "Falling Back Death", "Looking Around"]); klunk(a)
+    ikc, ikt = add_ik(S, a, "Left")
     seg(S, a, "Picking Up", 1, 40, start=22, speed=1.2, blend=4)                       # ya inclinándose en el fotograma 1
-    seg(S, a, "Picking Up", 38, 84, start=47, speed=0.05, blend=4)                     # agachado, casi congelado
+    seg(S, a, "Picking Up", 38, 84, start=47, speed=0.05, blend=4)                     # inclinado, casi congelado
     f_rel = 90
     seg(S, a, "Falling Back Death", f_rel, None, start=0, blend=3)
-    # raíz: se acerca, tira atrás en tres tirones y sale despedido hacia la cámara
-    place(S, a, 1, xr, yr, 0, 180); place(S, a, 30, xr, yr + 0.06, 0, 180)
+    place(S, a, 1, xr, yr, 0, 90); place(S, a, 30, xr, yr, 0, 90)
     tug = ((44, 0.0), (48, -0.07), (52, 0.0), (62, 0.0), (66, -0.09), (70, 0.0))
-    for f, d in tug: place(S, a, f, xr, yr + 0.06 + d, 0, 180, interp="LINEAR")
-    place(S, a, 80, xr, yr + 0.06, 0, 180); place(S, a, f_rel - 2, xr, yr + 0.06 - 0.16, 0, 180, interp="LINEAR")
-    place(S, a, f_rel + 14, xr, yr - 0.52, 0, 180)
-    # brazo: el objetivo de la muñeca se mete por la trampilla
+    for f, d in tug: place(S, a, f, xr + d, yr, 0, 90, interp="LINEAR")
+    place(S, a, 80, xr, yr, 0, 90); place(S, a, f_rel - 2, xr - 0.10, yr, 0, 90, interp="LINEAR")
+    place(S, a, f_rel + 14, xr - 0.15, yr, 0, 90)
     ik_infl(ikc, 1, 0.0); ik_infl(ikc, 12, 0.0); ik_infl(ikc, 28, 1.0); ik_infl(ikc, f_rel - 1, 1.0); ik_infl(ikc, f_rel + 2, 0.0)
-    wx = FLAP_X + 0.0
-    ik_to(S, ikt, 1, (wx, FRONT_Y - 0.25, 0.60)); ik_to(S, ikt, 12, (wx, FRONT_Y - 0.15, 0.55))
-    ik_to(S, ikt, 30, (wx, FRONT_Y + 0.22, FLAP_Z)); ik_to(S, ikt, f_rel - 1, (wx, FRONT_Y + 0.22, FLAP_Z))
-    # trampilla: el brazo la empuja hacia dentro; al soltarse, se cierra de golpe
+    wx = -7.82
+    ik_to(S, ikt, 1, (wx, FRONT_Y - 0.25, 0.70)); ik_to(S, ikt, 12, (wx, FRONT_Y - 0.15, 0.60))
+    ik_to(S, ikt, 30, (wx, FRONT_Y + 0.10, FLAP_Z)); ik_to(S, ikt, f_rel - 1, (wx, FRONT_Y + 0.10, FLAP_Z))
     S.key(w.hinge, 18, rot=(0, 0, 0)); S.key(w.hinge, 30, rot=(R(52), 0, 0)); S.key(w.hinge, f_rel, rot=(R(52), 0, 0))
     S.key(w.hinge, f_rel + 6, rot=(R(-6), 0, 0), interp="BOUNCE"); S.key(w.hinge, f_rel + 14, rot=(0, 0, 0))
-    # sonido: "tonk" al topar el hombro, "hmm" al dudar, "oof" al caer
-    S.cue("hit", 33, vol=-15); S.cue("hmm", 56, vol=-8); S.cue("hit", 47, vol=-16)
+    S.cue("hit", 33, vol=-15); S.cue("hit", 47, vol=-16); S.cue("hmm", 56, vol=-8)
     S.cue("oof", f_rel + 18, vol=-6)
     S.f = 134
     a.verify(S.f)
@@ -440,8 +436,8 @@ def l4(S):
 def l5(S):
     """5469: piensa con la moneda brillando en la mano (mirando a cámara), se le ocurre, mete otra moneda en la ranura iluminada;
     la segunda bolsa empuja a la colgada y caen las dos a la bahía (doble clunk grande); se gira a cámara con los brazos arriba."""
-    w = build_set(S); cam_static(S)
-    xr = COIN_SLOT.x - 0.20; yr = FRONT_Y - 0.55
+    w = build_set(S); cam_static(S, cx=-7.45, az=-22.0)
+    xr = COIN_SLOT.x - 0.20; yr = FRONT_Y - 0.48
     a = MixamoActor(S, x=xr, yaw=25, use=["Thinking", "Victory"]); klunk(a)
     ikc, ikt = add_ik(S, a, "Right")
     seg(S, a, "Thinking", 1, 50, start=12, blend=4)
