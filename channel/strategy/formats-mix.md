@@ -46,3 +46,7 @@ Decisión posterior a 10-15 Shorts publicados: reasignar porcentajes por vistas/
   "Silent Chaos", "Oops Factory", "Wobble Works"). Comprobar disponibilidad del handle y marcas antes de fijarlo.
 - Los canales con tracción 3D usan nombres de estudio/estilo (Studio Wrong, Avenu Animations), no el formato.
 - Títulos en inglés por formato, p. ej. "POV: …", "Plan A vs Plan Z: …", "Level 1 to Level 5: …". Todo el texto público en inglés.
+
+## Referencia POV (2026-11-20, vídeo aportado por el usuario)
+Short de 8 s, texto fijo arriba "POV: …" en caja blanca, corte cada 1-2 s, audio de meme/canción en bucle con la acción sincronizada.
+Aplicación: mini-historias de 10-12 s con cortes rápidos y texto POV. El audio con derechos NO se mete en el vídeo; si se quiere, el usuario lo añade al subir desde la app de YouTube (botón Sonido, audios con licencia de YouTube).

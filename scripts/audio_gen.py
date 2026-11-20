@@ -192,10 +192,18 @@ def sfx(kind, seed):
     if kind == "step":       # paso: golpe corto y seco
         t = np.arange(int(SR * 0.09)) / SR
         return norm(np.sin(2 * np.pi * (160 - 600 * t) * t) * np.exp(-t * 55) + 0.4 * lowpass(rng.standard_normal(len(t)), 2500) * np.exp(-t * 80) * 3, 0.5)
-    if kind == "boing":      # muelle: tono que sube y vibra
-        t = np.arange(int(SR * 0.32)) / SR
-        f = 180 + 520 * (t / 0.32) ** 0.6 + 40 * np.sin(2 * np.pi * 28 * t)
-        return norm(fade(np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 7), 0.003, 0.05), 0.8)
+    if kind == "boing":      # muelle de dibujos ("doiiing"): tono nasal con vibrato que se apaga y formante que barre
+        dur = 0.75; t = np.arange(int(SR * dur)) / SR
+        f0 = 118 * (1 + 0.10 * np.exp(-t * 5) * np.sin(2 * np.pi * 13 * t)) * (1 + 0.25 * np.exp(-t * 18))
+        ph = np.cumsum(f0) / SR; fc = 380 + 1500 * np.exp(-t * 4.0) * (0.55 + 0.45 * np.sin(2 * np.pi * 13 * t + 0.6))
+        x = np.zeros_like(t)
+        for k in range(1, 26):
+            x += np.exp(-((k * f0 - fc) / 260.0) ** 2) * np.sin(2 * np.pi * k * ph) / (1 + 0.05 * k)
+        return norm(fade(x * np.exp(-t * 3.2), 0.002, 0.12), 0.85)
+    if kind == "whoosh":     # zas: ruido de aire que pasa (banda que sube y baja)
+        dur = 0.45; t = np.arange(int(SR * dur)) / SR; n_ = rng.standard_normal(len(t))
+        lo = lowpass(n_, 3200) - lowpass(n_, 500); env = np.sin(np.pi * t / dur) ** 2.2
+        return norm(fade(lo * env * 3, 0.01, 0.05), 0.75)
     if kind == "splash":     # chapuzón: ruido que se abre y se apaga
         t = np.arange(int(SR * 0.9)) / SR
         x = lowpass(rng.standard_normal(len(t)), 5000) * np.exp(-t * 5.5) + 0.6 * lowpass(rng.standard_normal(len(t)), 600) * np.exp(-t * 3) * 4
@@ -209,10 +217,12 @@ def sfx(kind, seed):
     if kind == "pop":
         t = np.arange(int(SR * 0.12)) / SR
         return norm(np.sin(2 * np.pi * (900 - 4000 * t) * t) * np.exp(-t * 40), 0.8)
-    if kind == "slide_down":  # silbido que cae: "se viene abajo"
-        t = np.arange(int(SR * 0.6)) / SR
-        f = 1400 * np.exp(-t * 3.2) + 180
-        return norm(fade(np.sin(2 * np.pi * np.cumsum(f) / SR) * (0.6 + 0.4 * np.sin(2 * np.pi * 9 * t)), 0.01, 0.1), 0.7)
+    if kind == "slide_down":  # silbato de émbolo que cae ("fiuuu"): tono puro con vibrato y soplo
+        dur = 0.9; t = np.arange(int(SR * dur)) / SR
+        f = (1500 * np.exp(-t * 2.2) + 260) * (1 + 0.012 * np.sin(2 * np.pi * 6.5 * t))
+        tone = np.sin(2 * np.pi * np.cumsum(f) / SR) + 0.15 * np.sin(4 * np.pi * np.cumsum(f) / SR)
+        breath = lowpass(rng.standard_normal(len(t)), 4000) * 0.35
+        return norm(fade((tone + breath) * np.minimum(1, t / 0.03) * np.exp(-t * 0.8), 0.01, 0.15), 0.7)
     if kind == "tada":       # arpegio mayor: éxito
         out = np.zeros(int(SR * 0.9))
         for i, st in enumerate((0, 4, 7, 12)):

@@ -1,0 +1,78 @@
+[
+  {
+    "id": "b20261120-3-m01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 6,
+      "retention": 8,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 8,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 5,
+      "repetition_risk": 4
+    },
+    "why": "Con el sol, el arbol lejano y la carrera ya en el plano 1, el motivo del banco se lee sin palabras, el plano 3 fusionado quita la persecucion muerta y el doble golpe (te tira al sol, luego te hace sitio) da un remate calido, con los ojos solo en un parpadeo para limitar la penalizacion de objeto con cara; sigue siendo un banco que anda, un concepto agradable pero no inedito, y el trote en profundidad con el hombre alcanzando es lo mas delicado de animar.",
+    "improve": "Anadir en el plano 1 un detalle de sombra que el publico lea al instante (un charco de sombra con un pajaro o un perro tumbado ya dentro) para que el banco parezca tener un motivo claro antes de levantarse y la originalidad suba un punto.",
+    "vps": 65.8
+  },
+  {
+    "id": "b20261120-3-m03",
+    "scores": {
+      "hook": 6,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 6,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 8,
+      "repetition_risk": 5
+    },
+    "why": "Hombre trepando por una cuerda para atar una hamaca engancha y la catapulta hacia el banco es un buen remate fisico, pero la roca con ojos vuelve a ser objeto con cara, el aterrizaje en el banco parece casual y no un giro, y tirachinas con S.key mas Falling Back Death como clip de salida es lo mas dificil y menos legible de producir.",
+    "improve": "Quitar los ojos de la roca (que ruede sola, sin cara) y mostrar el banco a lo lejos en el plano 1 para que el aterrizaje sea el pago de algo visto; usar un solo S.key de estiramiento de la hamaca y cortar a la caida sin enseñar el vuelo.",
+    "vps": 51.1
+  },
+  {
+    "id": "b20261120-3-m04",
+    "scores": {
+      "hook": 5,
+      "curiosity": 5,
+      "retention": 6,
+      "originality": 4,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 5,
+      "series": 5,
+      "differentiation": 4,
+      "production_difficulty": 5,
+      "repetition_risk": 6
+    },
+    "why": "El slapstick de la bellota en la cabeza es claro y la cara solo aparece al final (menos penalizacion de objeto-con-cara), pero el fotograma 1 es un hombre dormido sin accion, la lluvia de bellotas es previsible y la bellota culpable es un remate de explicacion mas que de sorpresa, en una premisa muy vista.",
+    "improve": "Abrir con la bellota ya cayendo hacia la cabeza (accion en el fotograma 1) y dejar la bellota con ojos visible escondida entre las hojas desde el plano 2 sin que el hombre la vea, para que el giro final sea ironia dramatica y no una explicacion.",
+    "vps": 43.5
+  },
+  {
+    "id": "b20261120-3-m02",
+    "scores": {
+      "hook": 6,
+      "curiosity": 5,
+      "retention": 5,
+      "originality": 4,
+      "visual": 5,
+      "emotion": 5,
+      "ending": 4,
+      "series": 5,
+      "differentiation": 4,
+      "production_difficulty": 6,
+      "repetition_risk": 6
+    },
+    "why": "Sombrero que rueda con un hombre corriendo se lee de inmediato, pero la roca con ojos que rueda hasta el banco no tiene motivo visible, el giro no se entiende sin palabras, es otro objeto con cara y el sombrero rodando con persecucion repite muchos gags de viento.",
+    "improve": "Dar motivo visible a la roca (el hombre cojea o va cargado) y eliminar el banco como destino arbitrario: que la roca deje al hombre con el sombrero puesto delante de un cartel de sombra o similar ya visto en el plano 1, y quitar el Picking Up para ahorrar un clip.",
+    "vps": 40.9
+  }
+]

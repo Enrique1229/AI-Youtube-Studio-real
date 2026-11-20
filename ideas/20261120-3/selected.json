@@ -1,0 +1,68 @@
+[
+  {
+    "id": "b20261120-3-m01",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "parque",
+    "title_en": "The Bench That Walked Away",
+    "caption_en": null,
+    "onscreen_en": "Free seat?",
+    "logline_es": "Un hombre sudando bajo un sol a plomo corre a un banco; el banco parpadea una vez y trota hacia el unico arbol con sombra (lejos, visible desde el plano 1); el hombre baja y corre tras el, pero el banco se sienta antes y lo deja de culo al sol; luego se desliza a un lado y le hace sitio.",
+    "beats": [
+      {
+        "t": "0-4",
+        "beat": "Gancho (accion en el fotograma 1): sol a plomo, el hombre ya corriendo sudando (Running) hacia el banco; al fondo, lejos, el unico arbol con sombra. Se derrumba en el banco (Sitting Idle)."
+      },
+      {
+        "t": "4-8",
+        "beat": "El banco parpadea UNA sola vez (unica vez que tiene ojos) y se levanta sobre sus patas; el hombre queda sentado en el aire con cara de sorpresa."
+      },
+      {
+        "t": "8-13",
+        "beat": "Un solo plano: el hombre se baja y ya corre (Running) hacia la sombra mientras el banco llega antes y se sienta de golpe bajo el arbol; el hombre frena fuera de la sombra y cae de culo al sol (Falling Back Death)."
+      },
+      {
+        "t": "13-19",
+        "beat": "Remate cariñoso: el banco se desliza un palmo a un lado dejando hueco a la sombra; el hombre se sienta (Sitting Idle) y se rie (Laughing)."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Running",
+          "Sitting Idle"
+        ]
+      ],
+      [
+        2,
+        [
+          "Sitting Idle"
+        ]
+      ],
+      [
+        3,
+        [
+          "Running",
+          "Falling Back Death"
+        ]
+      ],
+      [
+        4,
+        [
+          "Sitting Idle",
+          "Laughing"
+        ]
+      ]
+    ],
+    "payoff": "El banco solo buscaba sombra, lo tira al sol y luego le hace sitio.",
+    "sin_palabras": "Sol a plomo, hombre sudando que corre al banco con un arbol de sombra lejos: se lee en 1 s.",
+    "needs": "Banco = 3 cubes con patas; ojos = 2 uv_spheres que existen solo en el parpadeo del plano 2 (ocultas el resto); el trote hacia el arbol va en profundidad (eje Y, hacia el fondo), no lateral; el unico S.key lateral es el deslizamiento final del banco; sol = disco; sombra = disco oscuro bajo el arbol lejano visible en plano 1. Clips existentes: Running, Sitting Idle, Falling Back Death, Laughing.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Banco vivo y amable, no hostil; giro de generosidad; sin cometa ni rio (ledger 0,27 max).",
+    "vps": 65.8,
+    "batch": "20261120-3",
+    "story_id": "story-015",
+    "critic_improve": "Anadir en el plano 1 un detalle de sombra que el publico lea al instante (un charco de sombra con un pajaro o un perro tumbado ya dentro) para que el banco parezca tener un motivo claro antes de levantarse y la originalidad suba un punto."
+  }
+]

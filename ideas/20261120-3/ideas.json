@@ -1,0 +1,249 @@
+[
+ {
+  "id": "b20261120-3-m01",
+  "format": "mini_story",
+  "kind": "anim",
+  "env": "parque",
+  "title_en": "The Bench That Walked Away",
+  "caption_en": null,
+  "onscreen_en": "Free seat?",
+  "logline_es": "Un hombre sudando bajo un sol a plomo corre a un banco; el banco parpadea una vez y trota hacia el unico arbol con sombra (lejos, visible desde el plano 1); el hombre baja y corre tras el, pero el banco se sienta antes y lo deja de culo al sol; luego se desliza a un lado y le hace sitio.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1): sol a plomo, el hombre ya corriendo sudando (Running) hacia el banco; al fondo, lejos, el unico arbol con sombra. Se derrumba en el banco (Sitting Idle)."
+   },
+   {
+    "t": "4-8",
+    "beat": "El banco parpadea UNA sola vez (unica vez que tiene ojos) y se levanta sobre sus patas; el hombre queda sentado en el aire con cara de sorpresa."
+   },
+   {
+    "t": "8-13",
+    "beat": "Un solo plano: el hombre se baja y ya corre (Running) hacia la sombra mientras el banco llega antes y se sienta de golpe bajo el arbol; el hombre frena fuera de la sombra y cae de culo al sol (Falling Back Death)."
+   },
+   {
+    "t": "13-19",
+    "beat": "Remate cariñoso: el banco se desliza un palmo a un lado dejando hueco a la sombra; el hombre se sienta (Sitting Idle) y se rie (Laughing)."
+   }
+  ],
+  "clips": [
+   [
+    1,
+    [
+     "Running",
+     "Sitting Idle"
+    ]
+   ],
+   [
+    2,
+    [
+     "Sitting Idle"
+    ]
+   ],
+   [
+    3,
+    [
+     "Running",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    4,
+    [
+     "Sitting Idle",
+     "Laughing"
+    ]
+   ]
+  ],
+  "payoff": "El banco solo buscaba sombra, lo tira al sol y luego le hace sitio.",
+  "sin_palabras": "Sol a plomo, hombre sudando que corre al banco con un arbol de sombra lejos: se lee en 1 s.",
+  "needs": "Banco = 3 cubes con patas; ojos = 2 uv_spheres que existen solo en el parpadeo del plano 2 (ocultas el resto); el trote hacia el arbol va en profundidad (eje Y, hacia el fondo), no lateral; el unico S.key lateral es el deslizamiento final del banco; sol = disco; sombra = disco oscuro bajo el arbol lejano visible en plano 1. Clips existentes: Running, Sitting Idle, Falling Back Death, Laughing.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Banco vivo y amable, no hostil; giro de generosidad; sin cometa ni rio (ledger 0,27 max)."
+ },
+ {
+  "id": "b20261120-3-m02",
+  "format": "mini_story",
+  "kind": "anim",
+  "env": "parque",
+  "title_en": "The Hat That Found a Boulder",
+  "caption_en": null,
+  "onscreen_en": "Hat on the run",
+  "logline_es": "El viento se lleva el sombrero de un hombre; lo persigue hasta una roca, trepa para cogerlo y la roca con ojos se pone a rodar con el encima hasta el banco.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1): el sombrero (cylinder) rueda por la hierba; el hombre corre tras el (Running)."
+   },
+   {
+    "t": "4-9",
+    "beat": "El sombrero salta (Jumping) y aterriza en lo alto de una roca grande; el hombre se para en seco, mira arriba (Looking Around)."
+   },
+   {
+    "t": "9-14",
+    "beat": "Trepa por la roca (Climbing Up Wall); alcanza el sombrero; la roca abre los ojos."
+   },
+   {
+    "t": "14-19",
+    "beat": "Giro: la roca rueda con el agarrado al sombrero y lo deja parado delante del banco; se pone el sombrero, se sienta y saluda (Waving)."
+   }
+  ],
+  "clips": [
+   [
+    1,
+    [
+     "Running"
+    ]
+   ],
+   [
+    2,
+    [
+     "Jumping",
+     "Looking Around"
+    ]
+   ],
+   [
+    3,
+    [
+     "Climbing Up Wall"
+    ]
+   ],
+   [
+    4,
+    [
+     "Picking Up",
+     "Sitting Idle",
+     "Waving"
+    ]
+   ]
+  ],
+  "payoff": "La roca lo llevo hasta el banco.",
+  "sin_palabras": "Sombrero que rueda y hombre que corre: se lee en 1 s.",
+  "needs": "Sombrero = cylinder + torus; roca = uv_sphere achatada con ojos y S.key de rodar; viento = lineas S.key. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Persecucion que acaba en un objeto cotidiano que cobra vida y ayuda; sin cometa ni pelota en arbol."
+ },
+ {
+  "id": "b20261120-3-m03",
+  "format": "mini_story",
+  "kind": "anim",
+  "env": "parque",
+  "title_en": "Hammock Plan vs. Boulder",
+  "caption_en": null,
+  "onscreen_en": "Nap time",
+  "logline_es": "Un hombre ata una hamaca a un arbol y a una roca; la roca con ojos se aleja rodando, tensa la hamaca y lo catapulta hasta sentarlo en un banco.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1): ya trepando por la cuerda del arbol (Climbing A Rope) para atar la hamaca (cube fino)."
+   },
+   {
+    "t": "4-9",
+    "beat": "Ata el otro extremo a una roca (Picking Up la cuerda), se tumba en la hamaca (Sitting Idle) con cara de paz."
+   },
+   {
+    "t": "9-14",
+    "beat": "La roca abre los ojos y empieza a rodar; la cuerda se tensa y la hamaca se estira como un tirachinas; el hombre cambia de cara a sorpresa."
+   },
+   {
+    "t": "14-19",
+    "beat": "Giro: sale disparado (Jumping), cruza el parque y cae sentado en un banco (Sitting Idle); pestañea y levanta el pulgar (Victory)."
+   }
+  ],
+  "clips": [
+   [
+    1,
+    [
+     "Climbing A Rope"
+    ]
+   ],
+   [
+    2,
+    [
+     "Picking Up",
+     "Sitting Idle"
+    ]
+   ],
+   [
+    3,
+    [
+     "Falling Back Death"
+    ]
+   ],
+   [
+    4,
+    [
+     "Jumping",
+     "Sitting Idle",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "Siesta cancelada, pero el banco estaba a mano.",
+  "sin_palabras": "Hombre que ata una hamaca a un arbol y una roca: se lee en 1 s.",
+  "needs": "Hamaca = cube fino con S.key de estiramiento; cuerda = cylinder largo; roca con ojos y S.key de rodar. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Catapulta involuntaria con aterrizaje inesperado; sin tablon ni balancin."
+ },
+ {
+  "id": "b20261120-3-m04",
+  "format": "mini_story",
+  "kind": "anim",
+  "env": "parque",
+  "title_en": "Nap Under the Wrong Tree",
+  "caption_en": null,
+  "onscreen_en": "Do not shake",
+  "logline_es": "Un hombre duerme bajo un arbol; le caen bellotas en la cabeza; sacude el arbol y cae una lluvia que lo entierra, y una bellota con ojos saluda.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1): dormido (Sitting Idle) contra el arbol; una bellota le cae en la cabeza, toc."
+   },
+   {
+    "t": "4-9",
+    "beat": "Se enfada (Angry), mira arriba (Looking Around) y empuja el tronco (Pushing) para que dejen de caer."
+   },
+   {
+    "t": "9-14",
+    "beat": "Cae una lluvia de bellotas que lo entierra hasta el cuello; solo asoma la cabeza, parpadea."
+   },
+   {
+    "t": "14-19",
+    "beat": "Giro: una bellota con ojos en la rama se tapa la boca y saluda con una hojita (Waving), la unica culpable; el hombre ríe resignado (Laughing)."
+   }
+  ],
+  "clips": [
+   [
+    1,
+    [
+     "Sitting Idle"
+    ]
+   ],
+   [
+    2,
+    [
+     "Angry",
+     "Looking Around",
+     "Pushing"
+    ]
+   ],
+   [
+    3,
+    [
+     "Falling Back Death"
+    ]
+   ],
+   [
+    4,
+    [
+     "Laughing"
+    ]
+   ]
+  ],
+  "payoff": "Una bellota cabezona era la culpable de todo.",
+  "sin_palabras": "Hombre dormido al que le caen bellotas en la cabeza: se lee en 1 s.",
+  "needs": "Arbol = cylinder + esferas; bellotas = uv_spheres pequenas con S.key de caida; una con ojos; monton = esferas apiladas. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Culpable diminuto con cara; sin rio, cometa ni cuerda; no hay animal."
+ }
+]
