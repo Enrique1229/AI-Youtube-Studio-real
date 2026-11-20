@@ -298,6 +298,17 @@ def ik_to(S, t, f, p, interp="BEZIER"):
     S.key(t, f, loc=tuple(p), interp=interp)
 
 
+def lift_feet(S, a, f0, f1, floor=-0.01):
+    """Pies nunca bajo el suelo: sube la raíz lo que haga falta en cada fotograma (se mide con las claves actuales)."""
+    fix = {}
+    for f in range(f0, f1 + 1):
+        S.sc.frame_set(f); bpy.context.view_layer.update()
+        z = min((a.arm.matrix_world @ a.arm.pose.bones[a.pfx + b].head).z for b in ("LeftFoot", "RightFoot", "LeftToeBase", "RightToeBase"))
+        if z < floor: fix[f] = (a.root.location.copy(), a.root.rotation_euler.z, floor - z)
+    for f, (loc, yaw, d) in fix.items():
+        S.key(a.root, f, loc=(loc.x, loc.y, loc.z + d), rot=(0, 0, yaw), interp="LINEAR")
+
+
 def fit_push(S, a, y0, frames, gap=0.02):
     """Raíz x para que las manos (punta, tramo 1,3 del hueso) no entren nunca en el lateral derecho: la más cercana queda a `gap`."""
     place(S, a, 1, -6.25, y0, 0, 270)
@@ -334,6 +345,7 @@ def l1(S):
     place(S, a, 1, x0, y0, 0, 270); place(S, a, f_fall - 1, x0, y0, 0, 270)
     x1 = x0 + 0.10
     place(S, a, f_fall + 14, x1, y0, 0, 270); place(S, a, f_fall + 26, x1 + 0.05, y0, 0, 270)
+    lift_feet(S, a, f_fall - 2, f_fall + 30)
     S.f = 128
     a.verify(S.f)
     faces(S, a, [(1, "enfado", 1.0), (f_fall + 1, "sorpresa", 1.0), (f_fall + 34, "enfado", 0.5)], first_blink=22)
@@ -365,6 +377,7 @@ def l2(S):
     S.key(w.hinge, f_rel + 6, rot=(R(-6), 0, 0), interp="BOUNCE"); S.key(w.hinge, f_rel + 14, rot=(0, 0, 0))
     S.cue("hit", 33, vol=-15); S.cue("hit", 47, vol=-16); S.cue("hmm", 56, vol=-8)
     S.cue("oof", f_rel + 18, vol=-6)
+    lift_feet(S, a, f_rel - 2, f_rel + 40)
     S.f = 134
     a.verify(S.f)
     faces(S, a, [(1, "neutra", 1.0), (30, "enfado", 0.7), (72, "enfado", 1.0), (f_rel + 2, "sorpresa", 1.0), (f_rel + 28, "enfado", 1.0)], first_blink=20)
@@ -413,13 +426,14 @@ def l4(S):
     seg(S, a, "Jumping", f_jump, 74, start=j0, speed=sp, blend=4)
     f_land = int(f_jump + (43 - j0) / sp)
     seg(S, a, "Angry", 70, None, start=0, blend=8)
-    place(S, a, 1, x_a, y0, 0, 270); place(S, a, f_jump, x_a, y0, 0, 270); place(S, a, f_land + 3, x_a, y0, 0, 270)
+    place(S, a, 1, x_a, y0, 0, 270, interp="LINEAR"); place(S, a, f_jump, x_a, y0, 0, 270, interp="LINEAR"); place(S, a, f_land + 3, x_a, y0, 0, 270)
     base = foot_lift(S, a, f_land + 3)
     lifts = {f: foot_lift(S, a, f) - base for f in range(f_jump, f_land + 1)}
+    place(S, a, f_jump - 1, x_a, y0, 0, 270, interp="LINEAR")
     for f in range(f_jump, f_land + 1):
         t = (f - f_jump) / float(f_land - f_jump)
-        want = z_roof * t + 0.85 * math.sin(math.pi * t)
-        xk = x_a + (x_b - x_a) * sstep((t - 0.42) / 0.58)
+        want = z_roof * t + 1.0 * math.sin(math.pi * t)
+        xk = x_a + (x_b - x_a) * sstep((t - 0.52) / 0.48)
         place(S, a, f, xk, y0, want - lifts[f], 270, interp="LINEAR")
     place(S, a, f_land + 2, x_b, y0, z_roof, 270, interp="LINEAR"); place(S, a, f_land + 3, x_b, y0, z_roof, 270, interp="LINEAR"); place(S, a, f_land + 70, x_b, y0, z_roof, 270)
     # impacto: el techo retumba y la bolsa baja un escalón (se queda colgada, más ladeada)
