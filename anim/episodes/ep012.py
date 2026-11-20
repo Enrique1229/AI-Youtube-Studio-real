@@ -21,7 +21,7 @@ BX, BY0 = -7.5, 2.2                 # banco de partida
 BY1 = 10.6                          # banco bajo el árbol
 TREE = (-7.0, 12.0)
 SH_C, SH_R = (-7.0, 11.4), (2.6, 2.2)    # disco de sombra (centro, semiejes): su borde cercano está en y = 9.2
-LANE_X = -8.4                       # carril del hombre al perseguir
+LANE_X = -9.1                       # carril del hombre al perseguir
 Y_STOP = 8.6                        # donde frena (aún al sol)
 SIT_DY = 0.0                        # desfase y de la raíz del hombre sentado respecto al banco (se ajusta mirando fotogramas)
 SIT_DZ = 0.0
@@ -33,8 +33,8 @@ F_SIT = 27                          # el hombre se derrumba en el banco
 F_EYES = 58                         # ojos del banco (parpadeo único)
 F_RISE = 79                         # el banco se levanta
 F_HOP = 100                         # el hombre salta del banco
-F_B0, F_B1 = 108, 146               # el banco corre hacia el árbol
-F_M0, F_M1 = 105, 152               # el hombre corre
+F_B0, F_B1 = 111, 149               # el banco corre hacia el árbol
+F_M0, F_M1 = 108, 152               # el hombre corre
 F_FALL = 153                        # empieza Falling Back Death
 K_IMPACT = 22                       # fotogramas desde F_FALL hasta el golpe
 F_IMP = F_FALL + K_IMPACT
@@ -258,7 +258,7 @@ def yb(f):   # y del banco en la carrera
 
 
 def ym(f):   # y del hombre en la carrera (lineal con arranque suave y frenada)
-    return 2.0 + (Y_STOP - 2.0) * sstep((f - F_M0) / float(F_M1 - F_M0)) ** 0.8
+    return 1.3 + (Y_STOP - 1.3) * sstep((f - F_M0) / float(F_M1 - F_M0)) ** 0.8
 
 
 # ------------------------------------------------------------------ la historia
@@ -272,8 +272,9 @@ def l1(S):
     seg(S, a, "Running", 1, F_SIT - 3, start=0, repeat=4, blend=3)
     seg(S, a, "Sitting Idle", F_SIT - 4, F_HOP + 2, start=0, blend=5)
     seg(S, a, "Running", F_HOP, F_M1 + 3, start=0, repeat=6, blend=4)
-    seg(S, a, "Falling Back Death", F_FALL, F_HOP2 + 1, start=0, blend=3)
-    seg(S, a, "Sitting Idle", F_HOP2 - 2, None, start=0, blend=4)
+    seg(S, a, "Falling Back Death", F_FALL, F_HOP2 - 1, start=0, blend=3)
+    seg(S, a, "Running", F_HOP2 - 3, F_HOP2 + 9, start=4, blend=3)               # el salto de vuelta al banco es un salto en pose de carrera
+    seg(S, a, "Sitting Idle", F_HOP2 + 7, None, start=0, blend=3)                 # solo se sienta cuando ya está sobre el asiento
 
     # A) carrera lateral hacia el banco (en el carril y = 1.45), gira y se derrumba de espaldas en el asiento
     sy = BY0 + SIT_DY
@@ -287,18 +288,19 @@ def l1(S):
     place(S, a, F_RISE + 14, BX, sy, SIT_DZ + LIFT, 0)
     place(S, a, F_HOP - 1, BX, sy, SIT_DZ + LIFT, 0)
     # salta al suelo (carril de carrera), gira hacia el árbol y arranca
-    place(S, a, F_HOP + 3, BX - 0.5, 2.0, 0.12, 90)
-    place(S, a, F_M0 + 1, LANE_X, 2.0, 0.0, 180)
-    for f in range(F_M0 + 2, F_M1 + 1):
+    # salta hacia delante-izquierda por encima del extremo del banco (1,7 m de largo) y cae en el carril, fuera de su giro
+    place(S, a, F_HOP + 3, (BX + LANE_X) / 2, 1.15, 0.55, 60)
+    place(S, a, F_M0, LANE_X, ym(F_M0), 0.0, 180)
+    for f in range(F_M0 + 1, F_M1 + 1):
         place(S, a, f, LANE_X, ym(f), 0, 180, interp="LINEAR")
     place(S, a, F_FALL, LANE_X, Y_STOP + 0.15, 0, 180)
     place(S, a, F_IMP + 4, LANE_X, Y_STOP + 0.15, 0, 180)
     # salta a la hueco que deja el banco (a la sombra, de cara a cámara)
     xh = BX - 0.0
-    place(S, a, F_HOP2 - 1, LANE_X, Y_STOP - 0.9, 0, 180)
-    place(S, a, F_HOP2 + 5, (LANE_X + xh) / 2, (Y_STOP + BY1) / 2, 0.55, 90)
-    place(S, a, F_HOP2 + 11, xh, BY1 + SIT_DY, SIT_DZ, 0)
-    for f in range(F_HOP2 + 14, F_END + 1, 3):                       # risa: sacudidas de los hombros (el clip Laughing es de pie)
+    place(S, a, F_HOP2 - 3, LANE_X, Y_STOP + 0.15, 0, 180)
+    place(S, a, F_HOP2 + 2, (LANE_X + xh) / 2, (Y_STOP + BY1) / 2, 0.8, 139)
+    place(S, a, F_HOP2 + 9, xh, BY1 + SIT_DY, SIT_DZ, 0)
+    for f in range(F_HOP2 + 12, F_END + 1, 3):                       # risa: sacudidas de los hombros (el clip Laughing es de pie)
         place(S, a, f, xh, BY1 + SIT_DY, SIT_DZ + (0.025 if ((f - F_HOP2) // 3) % 2 else 0.0), 0, interp="LINEAR")
 
     # pies en el suelo durante la carrera (compensa la altura del clip)
@@ -315,7 +317,7 @@ def l1(S):
     bench_key(S, w, F_RISE + 14, BX, BY0, LIFT, 0, "BEZIER"); legs_pose(S, w, F_RISE + 14, 0, st)
     bench_key(S, w, F_HOP - 1, BX, BY0, LIFT, 0); legs_pose(S, w, F_HOP - 1, 0, st)
     # el hombre salta: el banco se estremece y da media vuelta (de cara al árbol)
-    bench_key(S, w, F_HOP + 2, BX, BY0, LIFT, 0, "BEZIER")
+    bench_key(S, w, F_HOP + 6, BX, BY0, LIFT, 0, "BEZIER")
     bench_key(S, w, F_B0 - 1, BX, BY0, LIFT, 180, "BEZIER")
     # trote
     for f in range(F_B0, F_B1 + 1):
@@ -342,7 +344,7 @@ def l1(S):
     S.cue("hit", F_IMP, vol=-3); S.cue("slide_down", F_IMP + 4, vol=-8)
     S.cue("creak", F_SLIDE - 2, vol=-9); S.cue("whoosh", F_SLIDE + 1, vol=-12); S.cue("step", F_SLIDE + 5, vol=-9)
     S.cue("clunk", F_SLIDE + 10, vol=-10)
-    S.cue("boing", F_HOP2 + 2, vol=-6); S.cue("pop", F_HOP2 + 11, vol=-9)
+    S.cue("boing", F_HOP2 + 1, vol=-6); S.cue("pop", F_HOP2 + 9, vol=-9)
     S.cue("tada", F_HOP2 + 14, vol=-7)
 
     # ---- cara del protagonista: parpadeo cada 2-3 s y expresiones en los momentos clave ----
@@ -386,6 +388,7 @@ def l1(S):
     shot(F_HOP2 + 13, F_END + 10, lambda f: ((BX + 0.1, BY1 - 3.6, 1.2), (BX - 0.1, BY1, 1.0), 34))
     for f, loc, tg, lens in cam: cam_set(S, f, loc, tg, lens)
     S.set_interp(S.cam, "CONSTANT", ("location",)); S.set_interp(S.cam.data, "CONSTANT"); S.set_interp(S.tgt, "CONSTANT")
+    S._bench = w
     S.f = F_END
     a.verify(S.f)
     return a
