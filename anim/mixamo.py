@@ -103,7 +103,9 @@ class MixamoActor:
         if start: st.action_frame_start = a.frame_range[0] + start
         st.scale = 1.0 / speed; st.repeat = repeat
         if frames: st.frame_end = f0 + frames
-        st.blend_in = st.blend_out = blend if self.strips else 0
+        st.blend_in = blend if self.strips else 0; st.blend_out = 0
+        if self.strips:                                           # el clip anterior se funde y ya no sostiene su última pose (taparía a los siguientes)
+            self.strips[-1].blend_out = blend; self.strips[-1].extrapolation = "NOTHING"
         st.use_auto_blend = False; st.extrapolation = "HOLD_FORWARD"
         try: st.action_slot = a.slots[0]
         except Exception: pass

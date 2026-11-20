@@ -229,6 +229,11 @@ def sfx(kind, seed):
     if kind == "clunk":      # palanca
         t = np.arange(int(SR * 0.25)) / SR
         return norm(np.sin(2 * np.pi * 140 * t) * np.exp(-t * 22) + 0.5 * lowpass(rng.standard_normal(len(t)), 3000) * np.exp(-t * 45) * 4, 0.9)
+    if kind == "bell":       # campana: parciales inarmónicos que se apagan + golpe seco (el volumen da débil/fuerte)
+        t = np.arange(int(SR * 1.8)) / SR
+        x = sum(am * np.sin(2 * np.pi * fr * t) * np.exp(-t * d) for fr, am, d in ((660, 1.0, 2.2), (1320, 0.6, 3.0), (1780, 0.45, 3.8), (2330, 0.3, 5.0), (3100, 0.15, 7.0)))
+        x = x + 0.6 * np.exp(-t * 60) * lowpass(rng.standard_normal(len(t)), 4000)
+        return norm(fade(x, 0.001, 0.4), 0.8)
     if kind == "drain":      # el agua se va por el desagüe
         t = np.arange(int(SR * 1.5)) / SR
         f = 900 * np.exp(-t * 1.6) + 120
