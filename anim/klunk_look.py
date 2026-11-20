@@ -4,11 +4,12 @@
     from klunk_look import apply
     a = MixamoActor(S, ...); apply(a)
 
-Protagonista: hombre afroamericano con pelo afro (pelo de verdad: hebras rizadas con partículas, no una bola),
+Protagonista: hombre afroamericano con pelo afro (volumen + cientos de rizos pequeños con relieve),
 cara y ojos naturales del modelo, y ropa reconocible a primera vista en el móvil: camiseta de rayas horizontales
 naranja y crema, pantalón azul marino y zapatillas rojas.
 El pelo va pegado al hueso de la cabeza: sigue a cualquier animación de Mixamo sin tocar los clips.
 """
+import random
 import bmesh, bpy
 from mathutils import Vector
 
@@ -91,44 +92,39 @@ def _stripes(obj, name, a, b_, bands=7.0):
     _multiply(nt, b, out, color_socket=ramp.outputs["Color"])
 
 
-def _hair_mats():
-    shell = bpy.data.materials.get("klunk_afro_base") or bpy.data.materials.new("klunk_afro_base")
-    shell.use_nodes = True; sb = shell.node_tree.nodes["Principled BSDF"]
-    sb.inputs["Base Color"].default_value = (0.012, 0.009, 0.007, 1); sb.inputs["Roughness"].default_value = 0.9
-    hair = bpy.data.materials.get("klunk_afro_pelo") or bpy.data.materials.new("klunk_afro_pelo")
-    hair.use_nodes = True; nt = hair.node_tree
-    for n in list(nt.nodes):
-        if n.type != "OUTPUT_MATERIAL": nt.nodes.remove(n)
-    h = nt.nodes.new("ShaderNodeBsdfHairPrincipled")
-    try: h.parametrization = "MELANIN"
-    except Exception: pass
-    for k, v in (("Melanin", 0.95), ("Melanin Redness", 0.25), ("Roughness", 0.55), ("Radial Roughness", 0.8), ("Random Roughness", 0.3)):
-        if k in h.inputs: h.inputs[k].default_value = v
-    nt.links.new(h.outputs[0], nt.nodes["Material Output"].inputs["Surface"])
-    return shell, hair
+def _afro_mat():
+    m = bpy.data.materials.get("klunk_afro") or bpy.data.materials.new("klunk_afro"); m.use_nodes = True
+    nt = m.node_tree; b = nt.nodes["Principled BSDF"]
+    b.inputs["Base Color"].default_value = (0.022, 0.016, 0.012, 1); b.inputs["Roughness"].default_value = 0.8
+    vor = nt.nodes.new("ShaderNodeTexVoronoi"); vor.inputs["Scale"].default_value = 400
+    nz = nt.nodes.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 160
+    add = nt.nodes.new("ShaderNodeMath"); add.operation = "ADD"
+    nt.links.new(vor.outputs["Distance"], add.inputs[0]); nt.links.new(nz.outputs["Fac"], add.inputs[1])
+    bump = nt.nodes.new("ShaderNodeBump"); bump.inputs["Strength"].default_value = 0.9; bump.inputs["Distance"].default_value = 0.002
+    nt.links.new(add.outputs[0], bump.inputs["Height"]); nt.links.new(bump.outputs["Normal"], b.inputs["Normal"])
+    return m
 
 
 def _afro(C, R, seed):
-    """Casquete con forma de afro (sin tapar frente ni cara) del que salen hebras cortas y muy rizadas."""
-    bm = bmesh.new(); bmesh.ops.create_uvsphere(bm, u_segments=48, v_segments=32, radius=1.0)
-    for v in bm.verts:
-        v.co = Vector((v.co.x * R.x, v.co.y * R.y * (0.78 if v.co.y < 0 else 1.0), v.co.z * R.z))   # delante pegado a la frente
-    kill = [v for v in bm.verts if (v.co.y < -0.05 and v.co.z < 0.012) or v.co.z < -0.085 or (v.co.y < 0.0 and v.co.z < -0.035)]
+    """Afro: volumen oscuro + cientos de rizos pequeños solapados en la superficie (contorno y textura de pelo rizado),
+    con relieve fino en el material. Deja libres la frente y la cara."""
+    rnd = random.Random(seed); bm = bmesh.new()
+    core = bmesh.ops.create_uvsphere(bm, u_segments=32, v_segments=16, radius=1.0)
+    for v in core["verts"]: v.co = Vector((v.co.x * R.x * 0.9, v.co.y * R.y * 0.9, v.co.z * R.z * 0.9))
+    kill = [v for v in core["verts"] if (v.co.y < -0.045 and v.co.z < 0.012) or v.co.z < -0.06]
     bmesh.ops.delete(bm, geom=kill, context="VERTS")
+    n = 0
+    while n < 1500:
+        u = Vector((rnd.gauss(0, 1), rnd.gauss(0, 1), rnd.gauss(0, 1))).normalized()
+        p = Vector((u.x * R.x, u.y * R.y, u.z * R.z)) * rnd.uniform(0.9, 1.02)
+        if p.y < -0.06 and p.z < -0.002: continue                         # frente y cara libres
+        if p.z < -0.085 or (p.y < 0 and p.z < -0.03): continue            # sin tapar orejas ni sienes
+        r = rnd.uniform(0.009, 0.016); g = bmesh.ops.create_uvsphere(bm, u_segments=8, v_segments=6, radius=r)
+        bmesh.ops.translate(bm, vec=p, verts=g["verts"]); n += 1
     me = bpy.data.meshes.new("klunk_afro"); bm.to_mesh(me); bm.free()
-    for p in me.polygons: p.use_smooth = True
+    for p_ in me.polygons: p_.use_smooth = True
     o = bpy.data.objects.new("klunk_afro", me); bpy.context.scene.collection.objects.link(o); o.location = C
-    shell, hair = _hair_mats(); me.materials.append(shell); me.materials.append(hair)
-    sub = o.modifiers.new("suave", "SUBSURF"); sub.levels = sub.render_levels = 1
-    ps = o.modifiers.new("pelo", "PARTICLE_SYSTEM").particle_system; s = ps.settings; s.name = "klunk_afro"
-    ps.seed = seed
-    s.type = "HAIR"; s.count = 9000; s.hair_length = 0.045; s.use_advanced_hair = True
-    s.normal_factor = 1.0; s.factor_random = 0.25; s.material_slot = "klunk_afro_pelo"
-    s.child_type = "INTERPOLATED"; s.child_percent = 6; s.rendered_child_count = 14; s.child_length = 0.9; s.child_length_threshold = 0.3
-    s.kink = "CURL"; s.kink_amplitude = 0.008; s.kink_frequency = 18; s.kink_shape = 0.2
-    s.roughness_1 = 0.004; s.roughness_endpoint = 0.01; s.clump_factor = 0.25
-    s.display_step = 3; s.render_step = 5
-    s.root_radius = 1.0; s.tip_radius = 0.6; s.radius_scale = 0.0012
+    me.materials.append(_afro_mat())
     return o
 
 
@@ -141,15 +137,12 @@ def apply(actor, seed=3):
     head = next(b.name for b in arm.data.bones if b.name.split(":")[-1] == "Head")
     # se construye en coordenadas del personaje en reposo (mirando a -Y, ~1,8 m) y luego se cuelga del hueso
     old_pp = arm.data.pose_position; arm.data.pose_position = "REST"; bpy.context.view_layer.update()
-    new = [_afro(Vector((0, 0.022, 1.700)), Vector((0.128, 0.13, 0.112)), seed)]
+    new = [_afro(Vector((0, 0.02, 1.705)), Vector((0.13, 0.135, 0.115)), seed)]
     bpy.context.view_layer.update()
     for o in new:                                                        # colgar del hueso de la cabeza sin moverlos
         mw = arm.parent.matrix_world @ o.matrix_world if arm.parent else o.matrix_world.copy()
         o.parent = arm; o.parent_type = "BONE"; o.parent_bone = head
         bpy.context.view_layer.update(); o.matrix_world = mw
-        k = o.scale[0]                                                    # el hueso hereda la escala 0,01 del esqueleto:
-        for psys in o.particle_systems:                                   # el pelo se mide en unidades locales
-            st = psys.settings; st.hair_length /= k; st.radius_scale /= k
     arm.data.pose_position = old_pp; bpy.context.view_layer.update()
     actor.look_parts = new
     return new
