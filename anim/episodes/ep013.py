@@ -368,8 +368,8 @@ def l2(S):
     place(S, a, 1, xr, yr, 0, 90); place(S, a, 30, xr, yr, 0, 90)
     tug = ((44, 0.0), (48, -0.07), (52, 0.0), (62, 0.0), (66, -0.09), (70, 0.0))
     for f, d in tug: place(S, a, f, xr + d, yr, 0, 90, interp="LINEAR")
-    place(S, a, 84, xr, yr, 0, 90); place(S, a, f_rel - 1, xr - 0.10, yr - 0.05, 0, 90, interp="LINEAR")
-    place(S, a, f_rel + 14, xr - 0.12, yr - 0.80, 0, 90)
+    place(S, a, 84, xr, yr, 0, 90); place(S, a, f_rel - 1, xr - 0.04, yr - 0.05, 0, 90, interp="LINEAR")
+    place(S, a, f_rel + 14, xr + 0.08, yr - 0.80, 0, 90)
     ik_infl(ikc, 1, 1.0); ik_infl(ikc, f_rel - 4, 1.0); ik_infl(ikc, f_rel - 1, 0.0)
     wx = FLAP_X + 0.07
     ik_to(S, ikt, 1, (wx, FRONT_Y - 0.30, 0.50)); ik_to(S, ikt, 12, (wx, FRONT_Y - 0.12, 0.45))
