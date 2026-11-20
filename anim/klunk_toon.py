@@ -84,7 +84,8 @@ def _hide_real_head(body, arm):
     for v in body.data.vertices:
         p = body.matrix_world @ v.co
         if inv: p = inv @ p
-        if p.z < 1.585 or (p.z < 1.60 and p.y > 0.0): keep.append(v.index)
+        neck = (p.x ** 2 + (p.y - 0.012) ** 2) ** 0.5 < 0.058              # solo el cilindro del cuello
+        if p.z < 1.50 or (p.z < 1.585 and neck): keep.append(v.index)
     vg.add(keep, 1.0, "REPLACE")
     m = body.modifiers.new("toon_sin_cabeza", "MASK"); m.vertex_group = "toon_cuerpo"
     # la máscara antes del esqueleto no importa: Mask trabaja sobre los vértices de origen
