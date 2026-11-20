@@ -45,8 +45,10 @@ def episode_settings(path):
                 cfg["iqs"] = [ast.literal_eval(el.elts[0]) for el in node.value.elts]
             elif name in ("CAPTION", "CTA", "SPEED", "TITLE", "ONSCREEN", "ASSETS", "LABEL_STYLE"):
                 try: cfg[name] = ast.literal_eval(node.value)
-                except ValueError: pass
+                except ValueError:
+                    if isinstance(node.value, ast.Name) and node.value.id in cfg: cfg[name] = cfg[node.value.id]   # p. ej. CAPTION = ONSCREEN
     if "iqs" not in cfg: sys.exit(f"ERROR: {path} no define LEVELS")
+    if not any(cfg["iqs"]) and not cfg.get("CAPTION") and cfg.get("ONSCREEN"): cfg["CAPTION"] = cfg["ONSCREEN"]   # sin IQ: el texto va arriba
     return cfg
 
 

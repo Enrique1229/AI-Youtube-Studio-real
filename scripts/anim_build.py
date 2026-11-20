@@ -68,7 +68,7 @@ def main():
             import textwrap
             cap = "\n".join(textwrap.wrap(caption, 24)).replace("'", "\u2019").replace(":", "\\:")
             vf = (f"scale=1080:1920:flags=lanczos,drawtext=fontfile='{font}':text='{cap}':fontcolor=black:fontsize=58:"
-                  f"line_spacing=8:text_align=C:box=1:boxcolor=white@0.97:boxborderw=22:x=(w-text_w)/2:y=60,format=yuv420p")
+                  f"line_spacing=8:text_align=C:box=1:boxcolor=white@0.97:boxborderw=22:x=(w-text_w)/2:y=150,format=yuv420p")
         else:
           pre = ""
           if topline:                                                                   # reto en una línea ARRIBA del rótulo (no lo mueve)
