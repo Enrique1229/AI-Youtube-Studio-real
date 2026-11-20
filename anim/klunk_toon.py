@@ -199,7 +199,7 @@ def expression(actor, name, f, value=1.0, ramp=3):
     brows, lids, mouth = t["cejas"], t["parpados"], t["boca"]
     for o in brows + lids + [mouth]:
         for p in ("delta_location", "delta_rotation_euler", "delta_scale"): _key(o, p, f)
-    up = {"sorpresa": 0.012, "enfado": -0.006, "feliz": 0.004, "neutra": 0.0}[name] * value
+    up = {"sorpresa": 0.0055, "enfado": -0.006, "feliz": 0.004, "neutra": 0.0}[name] * value
     tilt = {"sorpresa": 0.0, "enfado": 0.35, "feliz": -0.1, "neutra": 0.0}[name] * value
     lid = {"sorpresa": -0.35, "enfado": 0.25, "feliz": 0.3, "neutra": 0.0}[name] * value
     for i, o in enumerate(brows):
