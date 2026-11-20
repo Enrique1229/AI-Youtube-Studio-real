@@ -1,0 +1,38 @@
+{
+  "story_id": "story-016",
+  "channel": "Klunk Studio",
+  "title": "Every IQ Level Gets a Snack From the Vending Machine",
+  "titles": [
+    "Every IQ Level Gets a Snack From the Vending Machine",
+    "Every IQ Level Fights the Vending Machine",
+    "The 5469 IQ Answer: Just Buy Another Bag",
+    "Five IQ Levels and One Very Stubborn Snack",
+    "Why Not Just Buy Two? Five IQ Levels"
+  ],
+  "recommended_title": 0,
+  "description": "A silent 3D comedy: a snack bag hangs stuck on a vending machine, and a man wants it. Five IQ levels try, from -450 to 5469, and the smartest answer is not to fight the machine at all.\nFiction made with AI-assisted tools. Original 3D animation; nothing here is real footage or a real event.\nCharacter animations: Mixamo.\nWhich IQ level would you be? Tell us in the comments and subscribe for the next one.\n#shorts #animation #comedy #iqlevels #funny",
+  "hashtags": [
+    "#shorts",
+    "#animation",
+    "#comedy",
+    "#iqlevels",
+    "#funny"
+  ],
+  "cta": "Which IQ level would you be? Tell us in the comments and subscribe for the next one.",
+  "tags": "every iq level, iq levels, rating levels, vending machine, silent comedy, 3D animation, physical comedy, funny shorts",
+  "playlist": "Rating Levels",
+  "ai_disclosure": "Fiction made with AI-assisted tools. Original 3D animation; nothing here is real footage or a real event.",
+  "ai_use_disclosure": false,
+  "category": "Comedy",
+  "language": "en",
+  "onscreen_en": "Every IQ level gets a snack",
+  "upload_checklist": [
+    "AI use: No (3D animation, clearly non-realistic style; idea.json kind 'anim')",
+    "Fiction notice in description: yes",
+    "Credit in description: NOT included. Verify the source of the existing character clips before upload; if Mixamo, add 'Character animations: Mixamo' to the description (as in story-014)",
+    "Music license/attribution: none; final/provenance.json does not exist for story-016",
+    "Content check: the -80 gag must be filmed as 'arm through the coin flap, gets stuck' (no shoe). idea.json beats still describe the shoe throw; update the beat list before production or the video will not match the metadata",
+    "Audience: not made for kids",
+    "Playlist: Rating Levels; category Comedy; language en"
+  ]
+}
