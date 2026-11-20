@@ -12,7 +12,7 @@ import numpy as np
 from mathutils import Vector
 
 FPS = 24
-PALETTE = {"blue": (0.10, 0.38, 0.95), "purple": (0.55, 0.20, 0.85), "orange": (1.0, 0.45, 0.08), "white": (1, 1, 1),
+PALETTE = {"iris_brown": (0.30, 0.17, 0.08), "iris_blue": (0.18, 0.40, 0.65), "iris_green": (0.22, 0.42, 0.22), "iris_hazel": (0.45, 0.33, 0.15), "catchlight": (1, 1, 1), "blue": (0.10, 0.38, 0.95), "purple": (0.55, 0.20, 0.85), "orange": (1.0, 0.45, 0.08), "white": (1, 1, 1),
            "black": (0.02, 0.02, 0.02), "yellow": (1.0, 0.78, 0.05), "grass": (0.25, 0.62, 0.18), "wood": (0.45, 0.27, 0.12),
            "water": (0.05, 0.45, 0.75), "red": (0.85, 0.12, 0.10), "foam": (0.9, 0.97, 1.0), "leaf": (0.12, 0.45, 0.16),
            "rock": (0.5, 0.5, 0.52), "pink": (1.0, 0.45, 0.6), "mud": (0.36, 0.25, 0.16), "metal": (0.6, 0.62, 0.66), "gold": (1.0, 0.72, 0.1),
@@ -45,7 +45,7 @@ def look_for(seed, kind="humano"):
         shirt = r.choice(SHIRTS)
         return {"kind": "humano", "skin": r.choice(SKINS), "hair": r.choice(HAIRS), "hair_color": r.choice(HAIR_COLORS), "shirt": shirt,
                 "pants": r.choice(PANTS), "build": r.choice(list(BUILDS)), "top": r.choice(["sudadera", "sudadera", "camiseta", "camiseta", "tirantes"]), "bottom": r.choice(["largo", "largo", "corto"]), "hat": r.choice(["ninguno", "ninguno", "ninguno", "gorra", "bombin", "casco"]),
-                "hat_color": r.choice([c for c in HAT_COLORS if c != shirt]), "eye": r.choice([0.9, 1.0, 1.15]), "glasses": r.random() < 0.2, "color": shirt}
+                "hat_color": r.choice([c for c in HAT_COLORS if c != shirt]), "eye": r.choice([0.9, 1.0, 1.15]), "glasses": r.random() < 0.2, "color": shirt, "iris": r.choice(["iris_brown", "iris_brown", "iris_blue", "iris_green", "iris_hazel"])}
     color = r.choice(BODY_COLORS); hc = r.choice([c for c in HAT_COLORS if c != color])
     return {"shape": r.choice(list(SHAPES)), "color": color, "hat": r.choice(HATS), "hat_color": hc,
             "eye": r.choice([0.85, 1.0, 1.2]), "eye_gap": r.choice([0.17, 0.20, 0.24]), "cheeks": r.random() < 0.4, "tail": r.random() < 0.3}
@@ -109,6 +109,11 @@ class Stage:
             b = m.node_tree.nodes["Principled BSDF"]; b.inputs["Base Color"].default_value = (*PALETTE[name], 1)
             b.inputs["Roughness"].default_value = 0.08 if name == "water" else (0.95 if name.startswith(("hair", "skin")) else rough)
             if "Specular IOR Level" in b.inputs and name.startswith(("hair", "skin", "shoe")): b.inputs["Specular IOR Level"].default_value = 0.15
+            if name.startswith("skin") and "Subsurface Weight" in b.inputs:            # piel con algo de luz que la atraviesa
+                b.inputs["Subsurface Weight"].default_value = 0.12; b.inputs["Subsurface Radius"].default_value = (0.9, 0.35, 0.2)
+            if name == "catchlight" and "Emission Strength" in b.inputs:
+                b.inputs["Emission Color"].default_value = (1, 1, 1, 1); b.inputs["Emission Strength"].default_value = 3.0
+            if name.startswith("iris") : b.inputs["Roughness"].default_value = 0.15
             self.mats[name] = m
         return self.mats[name]
 
@@ -560,16 +565,35 @@ class Actor:
         s.obj("uv_sphere", "craneo", skin, (0, 0, 0), (0.175, 0.185, 0.21), parent=H)
         s.obj("uv_sphere", "mandibula", skin, (0, -0.03, -0.10), (0.135, 0.14, 0.12), parent=H)
         for sx in (-1, 1): s.obj("uv_sphere", "oreja", skin, (0.175 * sx, 0.02, -0.01), (0.03, 0.045, 0.06), parent=H)
+        real = os.environ.get("STUDIO_FACE", "real") == "real"           # rasgos algo más realistas (episodios 9+)
+        if real:
+            s.obj("uv_sphere", "barbilla", skin, (0, -0.115, -0.175), (0.06, 0.05, 0.045), parent=H)
         # ojos grandes que sobresalen; párpado superior a media altura (mirada de aburrido) que también sirve para parpadear
         ex, ey, ez, er = 0.082, -0.15, 0.04, 0.085 * e
+        if real: ey, er = -0.14, 0.072 * e                             # ojos algo más pequeños y menos saltones
         self._pup = (ex + 0.002, ey - er * 0.78, ez - er * 0.32); self._lid = (er * 1.08, er * 1.0, er * 1.08); self._lid_rest = er * 0.42   # pupila centrada bajo el párpado: mirada al frente, no "ojos en blanco"
         for sx in (-1, 1):
             s.obj("uv_sphere", "ojo", "white", (ex * sx, ey, ez), (er, er * 0.75, er * 1.1), parent=H)
-            self.pupils.append(s.obj("uv_sphere", "pupila", "black", (self._pup[0] * sx, self._pup[1], self._pup[2]), (er * 0.55, er * 0.2, er * 0.6), parent=H))
+            if real:                                                  # iris de color + pupila + brillo (se mueven juntos con look)
+                iris = s.obj("uv_sphere", "iris", lk.get("iris", "iris_brown"), (self._pup[0] * sx, self._pup[1], self._pup[2]), (er * 0.5, er * 0.18, er * 0.52), parent=H, segments=24, ring_count=12)
+                s.obj("uv_sphere", "pupila_n", "black", (0, -0.55, 0), (0.48, 0.6, 0.48), parent=iris, segments=16, ring_count=10)
+                s.obj("uv_sphere", "brillo", "catchlight", (0.32, -0.95, 0.35), (0.16, 0.2, 0.16), parent=iris, segments=10, ring_count=6)
+                self.pupils.append(iris)
+            else:
+                self.pupils.append(s.obj("uv_sphere", "pupila", "black", (self._pup[0] * sx, self._pup[1], self._pup[2]), (er * 0.55, er * 0.2, er * 0.6), parent=H))
             lid = s.obj("uv_sphere", "parpado", skin, (ex * sx, ey - 0.004, ez + er * 0.45), (self._lid[0], self._lid[1], self._lid_rest), parent=H); self.lids.append(lid)
-            s.obj("uv_sphere", "ceja", hc, (ex * sx, ey - 0.02, ez + er * 1.25), (er * 1.05, 0.02, 0.022), rot=(0, math.radians(-10 * sx), 0), parent=H)
-        s.obj("uv_sphere", "nariz", skin, (0, -0.205, -0.045), (0.032, 0.045, 0.05), parent=H)
-        s.obj("uv_sphere", "labios", "lips", (0, -0.175, -0.125), (0.065, 0.03, 0.026), parent=H)
+            if real: s.obj("uv_sphere", "ceja", hc, (ex * sx, ey - 0.03, ez + er * 1.3), (er * 1.05, 0.016, 0.015), rot=(0, math.radians(-8 * sx), 0), parent=H)
+            else: s.obj("uv_sphere", "ceja", hc, (ex * sx, ey - 0.02, ez + er * 1.25), (er * 1.05, 0.02, 0.022), rot=(0, math.radians(-10 * sx), 0), parent=H)
+        if real:                                                      # nariz con puente, punta y aletas; labios superior/inferior
+            s.obj("uv_sphere", "puente", skin, (0, -0.178, -0.005), (0.02, 0.03, 0.055), parent=H)
+            s.obj("uv_sphere", "nariz", skin, (0, -0.2, -0.05), (0.028, 0.032, 0.03), parent=H)
+            for sx in (-1, 1): s.obj("uv_sphere", "aleta", skin, (0.022 * sx, -0.188, -0.062), (0.016, 0.02, 0.016), parent=H)
+            s.obj("uv_sphere", "labio_sup", "lips", (0, -0.168, -0.112), (0.048, 0.02, 0.013), parent=H)
+            s.obj("uv_sphere", "labio_inf", "lips", (0, -0.165, -0.134), (0.043, 0.022, 0.016), parent=H)
+            s.obj("uv_sphere", "comisura", "mouth", (0, -0.176, -0.123), (0.047, 0.006, 0.0035), parent=H)
+        else:
+            s.obj("uv_sphere", "nariz", skin, (0, -0.205, -0.045), (0.032, 0.045, 0.05), parent=H)
+            s.obj("uv_sphere", "labios", "lips", (0, -0.175, -0.125), (0.065, 0.03, 0.026), parent=H)
         if lk.get("glasses"):
             for sx in (-1, 1): s.obj("torus", "gafa", "black", (ex * sx, ey - er * 0.8, ez), (1, 1, 1), rot=(math.radians(90), 0, 0), parent=H, major_radius=er * 1.15, minor_radius=0.008)
         # pelo: rizos = muchas bolitas sobre el cráneo; otros estilos, volúmenes lisos

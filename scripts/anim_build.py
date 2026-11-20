@@ -13,6 +13,31 @@ import audio_gen as A
 FONT_CANDIDATES = ["models/fonts/InterDisplay-Bold.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "C:/Windows/Fonts/arialbd.ttf"]
 
 
+AUDIO_LIB = pathlib.Path(__file__).resolve().parent.parent / "assets" / "audio"
+
+
+def lib_files(kind, name=None):
+    """assets/audio/music/*.mp3|wav|ogg  ·  assets/audio/sfx/<tipo>*.wav|mp3|ogg (p. ej. splash1.wav, splash2.mp3)."""
+    d = AUDIO_LIB / kind
+    if not d.exists(): return []
+    fs = [f for f in sorted(d.iterdir()) if f.suffix.lower() in (".wav", ".mp3", ".ogg", ".flac", ".m4a")]
+    if name: fs = [f for f in fs if f.stem.lower().rstrip("0123456789_- ") == name.lower()]
+    return fs
+
+
+def decode(path, seconds=None, loop=False):
+    """Archivo de audio -> numpy mono a A.SR (con FFmpeg). Bucle y fundidos si se pide una duración."""
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-ac", "1", "-ar", str(A.SR), "-f", "f32le", "-"],
+                         capture_output=True, check=True).stdout
+    x = np.frombuffer(raw, np.float32).astype(np.float64)
+    if seconds:
+        n = int(seconds * A.SR)
+        if loop and len(x) < n: x = np.tile(x, n // max(1, len(x)) + 1)
+        x = x[:n]; x = A.fade(x, 0.05, min(1.0, seconds / 8))
+    peak = np.abs(x).max() or 1.0
+    return (x / peak * 0.7).astype(np.float32)
+
+
 def main():
     args = sys.argv[1:]
     src, out = pathlib.Path(args[0]), pathlib.Path(args[1])
@@ -74,12 +99,18 @@ def main():
     n = int(t0 * A.SR) + A.SR; mix = np.zeros(n, np.float32)
     mdb = float(args[args.index("--music-db") + 1]) if "--music-db" in args else -12.0
     style = args[args.index("--music") + 1] if "--music" in args else "sneaky"
-    bed = (A.sneaky_music if style == "sneaky" else A.comedy_music)(t0 + 0.5, A.seed_of(out.stem))
+    lib_music = lib_files("music")
+    if lib_music:                                                                       # música real (Biblioteca de audio de YouTube, etc.)
+        pick = lib_music[A.seed_of(out.stem) % len(lib_music)]; bed = decode(pick, t0 + 0.5, loop=True)
+        print(f"música: {pick.name}")
+    else: bed = (A.sneaky_music if style == "sneaky" else A.comedy_music)(t0 + 0.5, A.seed_of(out.stem))
     mix[:len(bed)] += bed[:n].astype(np.float32) * 10 ** (mdb / 20)
     amb = A.ambience(t0 + 0.5, A.seed_of(out.stem) + 1); mix[:len(amb)] += amb[:n].astype(np.float32) * 10 ** (-24 / 20)
     cache = {}
     for c in cues:
-        w = cache.setdefault(c["type"], A.sfx(c["type"], A.seed_of(c["type"])))
+        if c["type"] not in cache:                                                       # efecto real si existe; si no, sintético
+            real = lib_files("sfx", c["type"]); cache[c["type"]] = [decode(f) for f in real] or [A.sfx(c["type"], A.seed_of(c["type"]))]
+        opts = cache[c["type"]]; w = opts[int(c["t"] * 1000) % len(opts)]                 # varía entre tomas si hay varias
         k = int(c["t"] * A.SR); g = 10 ** ((c.get("vol", 0) - 1) / 20); mix[k:k + len(w)] += w[:max(0, n - k)] * g
     mix = np.tanh(mix * 1.3) * 0.85
     sf.write(tmp / "audio.wav", mix, A.SR)
