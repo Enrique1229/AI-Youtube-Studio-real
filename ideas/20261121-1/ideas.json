@@ -211,23 +211,23 @@
   "title_en": "The Slide That Never Ends",
   "caption_en": null,
   "onscreen_en": "Again?",
-  "logline_es": "Un hombre trepa la escalera de un tobogan con la curva trasera asomando tras el cartel; baja, el bucle lo devuelve a la escalera cada vez mas rapido y mas absurdo (giros, salto, vuelo); el ultimo fotograma es igual al primero.",
+  "logline_es": "Un hombre trepa la escalera de un tobogan con la curva trasera asomando tras el cartel; baja, el bucle lo devuelve a la escalera y cada vuelta es mas rapida, con un giro sobre si mismo en la segunda; la ultima termina en la pose de trepar del fotograma 1.",
   "beats": [
    {
     "t": "0-4",
-    "beat": "Gancho (accion en el fotograma 1): a medio trepar la escalera (Climbing Up Wall); la curva del tobogan asoma tras el cartel desde el principio; se sienta arriba (Sitting Idle)."
+    "beat": "Gancho (accion en el fotograma 1): a medio trepar la escalera (Climbing Up Wall), sin sombrero; la curva del tobogan asoma tras el cartel desde el principio; se sienta arriba (Sitting Idle)."
    },
    {
     "t": "4-9",
-    "beat": "Vuelta 1: se desliza con una leve inclinacion del cuerpo sincronizada con slide_down; el final sigue en curva tras el cartel y reaparece abajo de la escalera; parpadea (Looking Around)."
+    "beat": "Vuelta 1: se desliza con leve inclinacion del cuerpo sincronizada con slide_down; el final sigue en curva tras el cartel y reaparece al pie de la escalera; parpadea (Looking Around)."
    },
    {
     "t": "9-14",
-    "beat": "Vueltas 2 y 3 cada vez mas rapidas y absurdas: gira sobre si, sale volando un instante y sombrero al aire; slide_down cada vez mas agudo y corto; sonrie (Laughing)."
+    "beat": "Vuelta 2, mas rapida: un unico gag de giro, da una vuelta completa sobre si mismo al deslizarse; slide_down mas agudo y corto; se rie (Laughing)."
    },
    {
     "t": "14-19",
-    "beat": "Vuelta 4 a velocidad maxima: pasa como un borron y vuelve a quedar a medio trepar, mismo encuadre y pose que el fotograma 1 (bucle invisible); levanta los brazos un instante (Victory)."
+    "beat": "Vuelta 3 a velocidad maxima, como un borron; vuelve a quedar a medio trepar (Climbing Up Wall) en la misma pose y encuadre que el fotograma 1, sin Victory (bucle invisible)."
    }
   ],
   "clips": [
@@ -248,20 +248,21 @@
    [
     3,
     [
+     "Sitting Idle",
      "Laughing"
     ]
    ],
    [
     4,
     [
-     "Victory",
+     "Sitting Idle",
      "Climbing Up Wall"
     ]
    ]
   ],
   "payoff": "El tobogan es un bucle cada vez mas rapido: acaba exactamente donde empieza.",
   "sin_palabras": "Hombre que sube la escalera de un tobogan: se lee en 1 s.",
-  "needs": "Tobogan = cubes inclinados + cylinder curvo asomando tras el cartel desde el frame 1; escalera = cubes; deslizamiento = Sitting Idle con S.key de posicion e inclinacion leve del cuerpo (a.tilt) sincronizada con slide_down; cada vuelta con S.key mas corto. Ultimo fotograma = primero (misma pose y encuadre). Sonidos: slide_down (cada vez mas agudo), whoosh, tada. Clips existentes solamente.",
+  "needs": "Tobogan = cubes inclinados + cylinder curvo asomando tras el cartel desde el frame 1; escalera = cubes; sin sombrero en ningun fotograma; deslizamiento = Sitting Idle con S.key de posicion e inclinacion leve (a.tilt) sincronizada con slide_down; unico gag de giro (S.key de rotacion) en la vuelta 2. Ultimo fotograma = primero (misma pose Climbing Up Wall y encuadre). Sonidos: slide_down (cada vez mas agudo), whoosh. Clips existentes solamente.",
   "riesgo_copia": "bajo",
   "diferencia": "Bucle de tobogan para repetir; sin objetos con ojos ni animales; parque infantil."
  },

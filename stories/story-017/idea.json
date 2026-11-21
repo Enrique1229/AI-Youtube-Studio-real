@@ -1,0 +1,106 @@
+{
+  "id": "b20261121-1-l01",
+  "format": "levels",
+  "kind": "anim",
+  "env": "parada de autobus",
+  "title_en": "Every IQ Level Stops the Bus",
+  "caption_en": null,
+  "logline_es": "Un autobus pasa de largo sin parar en la parada; el hombre agita los brazos, corre detras y se planta delante; el mas listo se pone sobre el cuadro pintado de PARADA y el bus frena solo.",
+  "beats": [
+    {
+      "t": "0-4",
+      "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya agitando los brazos (Waving) en la acera junto al cuadro amarillo de PARADA (visible desde el frame 1); el bus cruza el cuadro sin frenar con un whoosh y una bocina lejana; el viento le despeina y se cae de culo. Sonido: bocina lejana."
+    },
+    {
+      "t": "4-9",
+      "beat": "IQ -80: Corre tras el bus (Running) y lanza un zapato (Throw) a su trasera: tonk flojo; el bus pasa otra vez sobre el cuadro sin frenar, con bocina algo mas cerca; se enfada."
+    },
+    {
+      "t": "9-13",
+      "beat": "IQ 120: Se planta en medio de la calzada con cara de susto (Looking Around); el bus frena con un hiss largo y bocina a un palmo de su nariz, pero sigue lejos del cuadro; el hombre se queda temblando."
+    },
+    {
+      "t": "13-18",
+      "beat": "IQ 900: Trepa al techo de la marquesina (Climbing Up Wall) y salta (Jumping) al techo del bus: clunk grande y bocina cercana; va sentado arriba y rie."
+    },
+    {
+      "t": "18-22",
+      "beat": "IQ 5469: Se queda pensando (Thinking), mira el cuadro amarillo que estuvo ahi todo el rato, camina (Walking Left Turn) y se planta sobre el; el bus frena solo con bocina clara y 'pssh' de puertas, ding; sube y levanta los brazos."
+    }
+  ],
+  "levels": [
+    {
+      "iq": -450,
+      "gag": "Ya agitando los brazos (Waving) en la acera junto al cuadro amarillo de PARADA (visible desde el frame 1); el bus cruza el cuadro sin frenar con un whoosh y una bocina lejana; el viento le despeina y se cae de culo. Sonido: bocina lejana.",
+      "por_que_es_gracioso": "Cree que saludar al bus es lo mismo que pedirle parada."
+    },
+    {
+      "iq": -80,
+      "gag": "Corre tras el bus (Running) y lanza un zapato (Throw) a su trasera: tonk flojo; el bus pasa otra vez sobre el cuadro sin frenar, con bocina algo mas cerca; se enfada.",
+      "por_que_es_gracioso": "Persigue a una maquina de cuatro ruedas a pie con rabia."
+    },
+    {
+      "iq": 120,
+      "gag": "Se planta en medio de la calzada con cara de susto (Looking Around); el bus frena con un hiss largo y bocina a un palmo de su nariz, pero sigue lejos del cuadro; el hombre se queda temblando.",
+      "por_que_es_gracioso": "Funciona a duras penas: el susto casi lo cuesta todo."
+    },
+    {
+      "iq": 900,
+      "gag": "Trepa al techo de la marquesina (Climbing Up Wall) y salta (Jumping) al techo del bus: clunk grande y bocina cercana; va sentado arriba y rie.",
+      "por_que_es_gracioso": "Funciona de verdad, pero viaja en el sitio equivocado."
+    },
+    {
+      "iq": 5469,
+      "gag": "Se queda pensando (Thinking), mira el cuadro amarillo que estuvo ahi todo el rato, camina (Walking Left Turn) y se planta sobre el; el bus frena solo con bocina clara y 'pssh' de puertas, ding; sube y levanta los brazos.",
+      "por_que_es_gracioso": "El bus solo paraba donde estaba pintado: bastaba con ponerse en el sitio."
+    }
+  ],
+  "clips": [
+    [
+      -450,
+      [
+        "Waving",
+        "Falling Back Death"
+      ]
+    ],
+    [
+      -80,
+      [
+        "Running",
+        "Throw",
+        "Angry"
+      ]
+    ],
+    [
+      120,
+      [
+        "Looking Around"
+      ]
+    ],
+    [
+      900,
+      [
+        "Climbing Up Wall",
+        "Jumping",
+        "Laughing"
+      ]
+    ],
+    [
+      5469,
+      [
+        "Thinking",
+        "Walking Left Turn",
+        "Victory"
+      ]
+    ]
+  ],
+  "payoff": "El bus siempre paro donde estaba pintado: lo cruzo sin frenar hasta que se puso encima.",
+  "sin_palabras": "Bus que pasa de largo y hombre en la acera con la mano alzada: se lee en 1 s.",
+  "needs": "Bus = cube largo + 2 cylinders ruedas con S.key de avance en profundidad; marquesina = cubes; cuadro de parada = cube plano amarillo visible desde el frame 1 en todos los niveles; zapato = cube pequeno. Sonidos: whoosh, hit, hiss (drain), clunk, tada. Clips existentes solamente. Sonido: bocina (hit) cada nivel mas cerca + pssh de puertas (drain) en el IQ 5469.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Parada de autobus con cuadro pintado; sin postes de campana, maquinas, farolas ni columpios; remate de 'colocarse donde toca' distinto a segunda moneda o escondido.",
+  "vps": 67.4,
+  "batch": "20261121-1",
+  "story_id": "story-017",
+  "critic_improve": "Dejar el cuadro amarillo visible desde el fotograma 1 y que el bus lo cruce sin frenar en el -450 (aplicado en ronda 1); cambiar el Waving del 120 por Looking Around (aplicado)."
+}
