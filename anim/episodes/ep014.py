@@ -508,10 +508,10 @@ def l4(S):
     lifts = {f: foot_lift(S, a, f) - base for f in range(f_up, f_land + 1)}
     place(S, a, f_c1 + 2, x_r, y_r, 0.2, 270, interp="BEZIER")
     for f in range(f_up, f_land + 1):
-        if f <= f_j: t = 0.0; zz = SH_ROOF_Z + 0.04; xk = roof_x; yk = roof_y
+        if f <= f_j: t = 0.0; zz = SH_ROOF_Z + (0.04 if f < f_j - 3 else 0.08); xk = roof_x; yk = roof_y
         else:
             t = (f - f_j) / float(f_land - f_j)
-            zz = SH_ROOF_Z + 0.04 + (z_land - SH_ROOF_Z - 0.04) * t + 1.05 * math.sin(math.pi * t)
+            zz = SH_ROOF_Z + 0.08 + (z_land - SH_ROOF_Z - 0.08) * t + 1.05 * math.sin(math.pi * t)
             xk = roof_x + (x_land - roof_x) * sstep(t)
             yk = roof_y + (y_land - roof_y) * sstep(t * 1.05)
         place(S, a, f, xk, yk, zz - lifts[f], 180, interp="LINEAR")
