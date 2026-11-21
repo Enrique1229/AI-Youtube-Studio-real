@@ -56,3 +56,6 @@ Para no caer en "contenido repetitivo" (política de monetización de YouTube), 
 formato (niveles / mini-historia / POV), escenario (parque, casa, calle, playa, oficina…), objeto central y tipo de remate.
 Alternar formatos; cambiar de escenario al menos cada 2 episodios; nunca reutilizar un gag o remate ya publicado
 (`studio.py similar` < 0,5 y revisar los títulos de stories/ publicadas). Lo único fijo es el protagonista (marca del canal).
+
+## Ritmo de subida (datos 2026-11-21)
+Mínimo 24 h entre Shorts. Vending, subido 3 h después de Bench, no recibió ni una vista del feed en 17 h mientras Bench sacaba 9.100 (98 % del feed).
