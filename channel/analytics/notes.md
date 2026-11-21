@@ -40,3 +40,4 @@ primer segundo, mejor audio y caras más realistas (petición del usuario).
 - Piscina (ep015, mini-historia): 480 vistas interesadas en ~8 h; 42,2 % se quedan (Bell 68-72 %). Curva: subida 1-3 h y luego casi plana. Gancho más débil que Bell/Bench.
 - Bench sigue empujado: 185 vistas/60 min. Piscina 29, Picnic 28, Bell 15.
 - Decisión: bus (ep014) NO se sube aún; se respeta la regla de 24 h tras la piscina (hipótesis Vending: subir encima de otro corta el empuje).
+- Corrección (usuario): el 20-nov se subieron 4 vídeos (Bell, Picnic, Bench, Vending); Vending fue el 4.º del día, no el 2.º. Bench fue el 3.º y aun así despegó. Hipótesis revisada: el problema es amontonar muchas subidas el mismo día (3-4), no dos separadas varias horas. Regla nueva: máximo 1-2 Shorts al día, al menos ~6-8 h entre ellos. Bus se sube ~9 h después de la piscina.
