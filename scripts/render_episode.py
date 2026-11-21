@@ -66,6 +66,8 @@ def main():
         print(f"modelos OK: {cfg['ASSETS']}")
     env = dict(os.environ, STUDIO_DEVICE="CPU" if "--cpu" in a else "GPU", STUDIO_ENGINE="BLENDER_EEVEE" if "--eevee" in a else "CYCLES",
                STUDIO_RES="540x960" if "--draft" in a else "1080x1920", STUDIO_SAMPLES="16" if "--draft" in a else "32")
+    if "--samples" in a: env["STUDIO_SAMPLES"] = a[a.index("--samples") + 1]           # p. ej. render en la nube (CPU): menos muestras
+    if "--res" in a: env["STUDIO_RES"] = a[a.index("--res") + 1]
     out.mkdir(parents=True, exist_ok=True)
     only = int(a[a.index("--only") + 1]) if "--only" in a else None
     for i in ([] if "--rebuild" in a else [only] if only else range(1, len(iqs) + 1)):   # --rebuild: solo vuelve a montar

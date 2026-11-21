@@ -6,7 +6,7 @@ Lo llama assemble.py; también se puede probar suelto:
     python3 scripts/audio_gen.py <mood> <segundos> <salida.wav>
 
 Música (edl.music.mood): tension | mystery | melancholy | wonder
-Efectos: whoosh | hit | riser | swell | boing | splash | pop | slide_down | tada | creak | paddle | clunk | drain
+Efectos: whoosh | hit | riser | swell | boing | splash | pop | slide_down | tada | creak | paddle | clunk | drain | horn | door
 """
 import sys, zlib
 import numpy as np, soundfile as sf
@@ -235,6 +235,17 @@ def sfx(kind, seed):
             for k in range(1, 30): x += np.exp(-((k * f - fc) / 500) ** 2) * np.sin(2 * np.pi * k * ph) / k ** 0.6
             out.append(x * np.minimum(1, t / 0.02) * (np.exp(-t * 1.2) if i == 3 else 1))
         return norm(fade(np.concatenate(out), 0.005, 0.2), 0.7)
+    if kind == "horn":       # bocina de autobús: dos tonos cuadrados (sol y si) filtrados, ~0,6 s
+        dur = 0.6; t = np.arange(int(SR * dur)) / SR
+        sq = lambda f: np.sign(np.sin(2 * np.pi * f * t))
+        x = lowpass(sq(311.0) + 0.9 * sq(392.0) + 0.05 * rng.standard_normal(len(t)), 1700)
+        env = np.minimum(1, t / 0.012) * np.minimum(1, (dur - t) / 0.07)
+        return norm(fade(x * env, 0.004, 0.05), 0.85)
+    if kind == "door":       # "pssh" de puertas neumáticas: ruido de aire que cae, ~0,5 s
+        dur = 0.5; t = np.arange(int(SR * dur)) / SR; n_ = rng.standard_normal(len(t))
+        hiss = (lowpass(n_, 6500) - lowpass(n_, 1200)) * np.exp(-t * 6.5) * np.minimum(1, t / 0.006)
+        tick = np.sin(2 * np.pi * 120 * t) * np.exp(-t * 60) * 0.35
+        return norm(fade(hiss * 3 + tick, 0.002, 0.08), 0.8)
     if kind == "whoosh":     # zas: ruido de aire que pasa (banda que sube y baja)
         dur = 0.45; t = np.arange(int(SR * dur)) / SR; n_ = rng.standard_normal(len(t))
         lo = lowpass(n_, 3200) - lowpass(n_, 500); env = np.sin(np.pi * t / dur) ** 2.2
