@@ -1,0 +1,20 @@
+{
+  "id": "story-018",
+  "format": "short",
+  "title": "The Pool With a Secret",
+  "stage": "selected",
+  "gates": {
+    "critic": "PASS",
+    "market": "PASS",
+    "continuity": "PENDING",
+    "policy": "PENDING",
+    "qc": "PENDING"
+  },
+  "vps": 66.9,
+  "quality_score": null,
+  "fix_rounds": 0,
+  "final_file": null,
+  "updated": "2026-11-21",
+  "idea_id": "b20261121-2-m02",
+  "market_verdict": "VALIDATED"
+}

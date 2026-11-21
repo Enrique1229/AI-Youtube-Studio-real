@@ -1,0 +1,78 @@
+[
+  {
+    "id": "b20261121-2-m02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 8,
+      "retention": 8,
+      "originality": 7,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 9,
+      "series": 5,
+      "differentiation": 7,
+      "production_difficulty": 6,
+      "repetition_risk": 4
+    },
+    "why": "Piscina vacia y salto de fe se leen sin palabras, el fondo que rebota con boings cada vez mas agudos es la mejor recompensa sonora del lote y el cierre en la pose del plano 1 hace el bucle limpio; el riesgo es que el squash del fondo y la trayectoria de los botes se vean rigidos.",
+    "improve": "Recortar el 3-6 a un solo Looking Around (sin Thinking) para saltar antes; mantener una pausa de un beat con el fondo hundido antes del primer boing y limitar a tres botes con pitch ascendente, el ultimo aterrizando exacto en la pose del fotograma 1.",
+    "vps": 66.9
+  },
+  {
+    "id": "b20261121-2-m03",
+    "scores": {
+      "hook": 7,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 7,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 7,
+      "repetition_risk": 5
+    },
+    "why": "Semaforo convertido en tragaperras tiene buena escalada sonora (pips, tic-tic, ding x3, monedas) y se lee sin palabras, pero la lluvia de monedas con muchos cylinders y las tres luces con timing exacto encarecen la produccion, y el remate cierra mas que invita a repetir.",
+    "improve": "Reducir la lluvia a unas 8 monedas en dos tandas y dar a cada ding un tono mas alto; quitar el empujon al poste y dejar solo pulsar y enfadarse para ganar segundos.",
+    "vps": 59.6
+  },
+  {
+    "id": "b20261121-2-m01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 7,
+      "series": 4,
+      "differentiation": 6,
+      "production_difficulty": 4,
+      "repetition_risk": 4
+    },
+    "why": "Timbre pulsado en el fotograma 1 se lee al instante y es la construccion mas barata del lote, pero el giro (llave en el buzon) es predecible, el 'se la envio a si mismo' no se lee sin palabras y la recompensa sonora se queda en una campanilla final.",
+    "improve": "Hacer que el ding-dong suba de tono en cada pulsacion y dejar el buzon visible con un destello desde el fotograma 1, para que la llave sea un remate justo; cerrar en el hombre ante el timbre como en el plano 1.",
+    "vps": 57.6
+  },
+  {
+    "id": "b20261121-2-m04",
+    "scores": {
+      "hook": 5,
+      "curiosity": 7,
+      "retention": 6,
+      "originality": 7,
+      "visual": 5,
+      "emotion": 7,
+      "ending": 6,
+      "series": 4,
+      "differentiation": 7,
+      "production_difficulty": 8,
+      "repetition_risk": 4
+    },
+    "why": "La planta timida es la premisa mas original, pero una semilla diminuta en el fotograma 1 engancha poco, la logica de 'solo crece si no la miras' no se lee sin palabras y exige giros de camara y un tallo gigante que sale de cuadro, lo mas pesado del lote.",
+    "improve": "Abrir con el brote ya asomando y el hombre mirandolo fijo, y reducir a un solo giro de cabeza con boing antes de irse, para que el gag se lea en un vistazo y baje la produccion.",
+    "vps": 52.9
+  }
+]
