@@ -6,7 +6,7 @@ Lo llama assemble.py; también se puede probar suelto:
     python3 scripts/audio_gen.py <mood> <segundos> <salida.wav>
 
 Música (edl.music.mood): tension | mystery | melancholy | wonder
-Efectos: whoosh | hit | riser | swell | boing | splash | pop | slide_down | tada | creak | paddle | clunk | drain | horn | door
+Efectos: whoosh | hit | riser | swell | boing | boing_hi | boing_top | splash | pop | slide_down | tada | creak | paddle | clunk | drain | horn | door
 """
 import sys, zlib
 import numpy as np, soundfile as sf
@@ -192,9 +192,10 @@ def sfx(kind, seed):
     if kind == "step":       # paso: golpe corto y seco
         t = np.arange(int(SR * 0.09)) / SR
         return norm(np.sin(2 * np.pi * (160 - 600 * t) * t) * np.exp(-t * 55) + 0.4 * lowpass(rng.standard_normal(len(t)), 2500) * np.exp(-t * 80) * 3, 0.5)
-    if kind == "boing":      # muelle de dibujos ("doiiing"): tono nasal con vibrato que se apaga y formante que barre
+    if kind in ("boing", "boing_hi", "boing_top"):      # muelle de dibujos ("doiiing"): tono nasal con vibrato que se apaga y formante que barre
+        pitch = {"boing": 1.0, "boing_hi": 1.5, "boing_top": 2.1}[kind]       # boing_hi / boing_top: mismo muelle, cada vez más agudo
         dur = 0.75; t = np.arange(int(SR * dur)) / SR
-        f0 = 118 * (1 + 0.10 * np.exp(-t * 5) * np.sin(2 * np.pi * 13 * t)) * (1 + 0.25 * np.exp(-t * 18))
+        f0 = 118 * pitch * (1 + 0.10 * np.exp(-t * 5) * np.sin(2 * np.pi * 13 * t)) * (1 + 0.25 * np.exp(-t * 18))
         ph = np.cumsum(f0) / SR; fc = 380 + 1500 * np.exp(-t * 4.0) * (0.55 + 0.45 * np.sin(2 * np.pi * 13 * t + 0.6))
         x = np.zeros_like(t)
         for k in range(1, 26):
