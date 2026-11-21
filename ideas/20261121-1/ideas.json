@@ -10,49 +10,49 @@
   "beats": [
    {
     "t": "0-4",
-    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya agitando los brazos (Waving) en la acera (frame 1); el bus pasa de largo con un whoosh; el viento le despeina y se cae de culo. Sonido: silencio."
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya agitando los brazos (Waving) en la acera junto al cuadro amarillo de PARADA (visible desde el frame 1); el bus cruza el cuadro sin frenar con un whoosh y una bocina lejana; el viento le despeina y se cae de culo. Sonido: bocina lejana."
    },
    {
     "t": "4-9",
-    "beat": "IQ -80: Corre tras el bus (Running) y lanza un zapato (Throw) a su trasera: tonk flojo; el bus ni se entera; se enfada."
+    "beat": "IQ -80: Corre tras el bus (Running) y lanza un zapato (Throw) a su trasera: tonk flojo; el bus pasa otra vez sobre el cuadro sin frenar, con bocina algo mas cerca; se enfada."
    },
    {
     "t": "9-13",
-    "beat": "IQ 120: Se planta en medio de la calzada con los brazos abiertos; el bus frena con un hiss largo a un palmo de su nariz; el hombre sigue de pie, temblando."
+    "beat": "IQ 120: Se planta en medio de la calzada con cara de susto (Looking Around); el bus frena con un hiss largo y bocina a un palmo de su nariz, pero sigue lejos del cuadro; el hombre se queda temblando."
    },
    {
     "t": "13-18",
-    "beat": "IQ 900: Trepa al techo de la marquesina (Climbing Up Wall) y salta (Jumping) al techo del bus que pasa: clunk grande; va sentado arriba y rie."
+    "beat": "IQ 900: Trepa al techo de la marquesina (Climbing Up Wall) y salta (Jumping) al techo del bus: clunk grande y bocina cercana; va sentado arriba y rie."
    },
    {
     "t": "18-22",
-    "beat": "IQ 5469: Se queda pensando (Thinking), mira el suelo, camina (Walking Left Turn) y se planta sobre el cuadro amarillo de PARADA; el bus frena solo con hiss y abre la puerta con ding; sube y levanta los brazos."
+    "beat": "IQ 5469: Se queda pensando (Thinking), mira el cuadro amarillo que estuvo ahi todo el rato, camina (Walking Left Turn) y se planta sobre el; el bus frena solo con bocina clara y 'pssh' de puertas, ding; sube y levanta los brazos."
    }
   ],
   "levels": [
    {
     "iq": -450,
-    "gag": "Ya agitando los brazos (Waving) en la acera (frame 1); el bus pasa de largo con un whoosh; el viento le despeina y se cae de culo. Sonido: silencio.",
+    "gag": "Ya agitando los brazos (Waving) en la acera junto al cuadro amarillo de PARADA (visible desde el frame 1); el bus cruza el cuadro sin frenar con un whoosh y una bocina lejana; el viento le despeina y se cae de culo. Sonido: bocina lejana.",
     "por_que_es_gracioso": "Cree que saludar al bus es lo mismo que pedirle parada."
    },
    {
     "iq": -80,
-    "gag": "Corre tras el bus (Running) y lanza un zapato (Throw) a su trasera: tonk flojo; el bus ni se entera; se enfada.",
+    "gag": "Corre tras el bus (Running) y lanza un zapato (Throw) a su trasera: tonk flojo; el bus pasa otra vez sobre el cuadro sin frenar, con bocina algo mas cerca; se enfada.",
     "por_que_es_gracioso": "Persigue a una maquina de cuatro ruedas a pie con rabia."
    },
    {
     "iq": 120,
-    "gag": "Se planta en medio de la calzada con los brazos abiertos; el bus frena con un hiss largo a un palmo de su nariz; el hombre sigue de pie, temblando.",
+    "gag": "Se planta en medio de la calzada con cara de susto (Looking Around); el bus frena con un hiss largo y bocina a un palmo de su nariz, pero sigue lejos del cuadro; el hombre se queda temblando.",
     "por_que_es_gracioso": "Funciona a duras penas: el susto casi lo cuesta todo."
    },
    {
     "iq": 900,
-    "gag": "Trepa al techo de la marquesina (Climbing Up Wall) y salta (Jumping) al techo del bus que pasa: clunk grande; va sentado arriba y rie.",
+    "gag": "Trepa al techo de la marquesina (Climbing Up Wall) y salta (Jumping) al techo del bus: clunk grande y bocina cercana; va sentado arriba y rie.",
     "por_que_es_gracioso": "Funciona de verdad, pero viaja en el sitio equivocado."
    },
    {
     "iq": 5469,
-    "gag": "Se queda pensando (Thinking), mira el suelo, camina (Walking Left Turn) y se planta sobre el cuadro amarillo de PARADA; el bus frena solo con hiss y abre la puerta con ding; sube y levanta los brazos.",
+    "gag": "Se queda pensando (Thinking), mira el cuadro amarillo que estuvo ahi todo el rato, camina (Walking Left Turn) y se planta sobre el; el bus frena solo con bocina clara y 'pssh' de puertas, ding; sube y levanta los brazos.",
     "por_que_es_gracioso": "El bus solo paraba donde estaba pintado: bastaba con ponerse en el sitio."
    }
   ],
@@ -75,7 +75,6 @@
    [
     120,
     [
-     "Waving",
      "Looking Around"
     ]
    ],
@@ -96,9 +95,9 @@
     ]
    ]
   ],
-  "payoff": "El bus paraba donde estaba pintado, no donde se le gritaba.",
+  "payoff": "El bus siempre paro donde estaba pintado: lo cruzo sin frenar hasta que se puso encima.",
   "sin_palabras": "Bus que pasa de largo y hombre en la acera con la mano alzada: se lee en 1 s.",
-  "needs": "Bus = cube largo + 2 cylinders ruedas con S.key de avance en profundidad; marquesina = cubes; cuadro de parada = cube plano amarillo en el suelo visible desde el plano 1; zapato = cube pequeno. Sonidos: whoosh, hit, hiss (drain), clunk, tada. Clips existentes solamente.",
+  "needs": "Bus = cube largo + 2 cylinders ruedas con S.key de avance en profundidad; marquesina = cubes; cuadro de parada = cube plano amarillo visible desde el frame 1 en todos los niveles; zapato = cube pequeno. Sonidos: whoosh, hit, hiss (drain), clunk, tada. Clips existentes solamente. Sonido: bocina (hit) cada nivel mas cerca + pssh de puertas (drain) en el IQ 5469.",
   "riesgo_copia": "bajo",
   "diferencia": "Parada de autobus con cuadro pintado; sin postes de campana, maquinas, farolas ni columpios; remate de 'colocarse donde toca' distinto a segunda moneda o escondido."
  },
@@ -212,23 +211,23 @@
   "title_en": "The Slide That Never Ends",
   "caption_en": null,
   "onscreen_en": "Again?",
-  "logline_es": "Un hombre sube la escalera de un tobogan y se desliza; al final la rampa sigue en curva por detras del parque y lo devuelve a lo alto de la escalera; se rie y sube otra vez.",
+  "logline_es": "Un hombre trepa la escalera de un tobogan con la curva trasera asomando tras el cartel; baja, el bucle lo devuelve a la escalera cada vez mas rapido y mas absurdo (giros, salto, vuelo); el ultimo fotograma es igual al primero.",
   "beats": [
    {
     "t": "0-4",
-    "beat": "Gancho (accion en el fotograma 1): ya trepando la escalera del tobogan (Climbing Up Wall), con cara de ilusion; se sienta arriba (Sitting Idle)."
+    "beat": "Gancho (accion en el fotograma 1): a medio trepar la escalera (Climbing Up Wall); la curva del tobogan asoma tras el cartel desde el principio; se sienta arriba (Sitting Idle)."
    },
    {
     "t": "4-9",
-    "beat": "Se desliza con un weee largo (slide_down); la rampa baja y el hombre llega al final, pero el final no es suelo: sigue en curva."
+    "beat": "Vuelta 1: se desliza con una leve inclinacion del cuerpo sincronizada con slide_down; el final sigue en curva tras el cartel y reaparece abajo de la escalera; parpadea (Looking Around)."
    },
    {
     "t": "9-14",
-    "beat": "La curva lo lleva por detras de un cartel hasta lo alto otra vez: aparece sentado arriba, parpadea con sorpresa (Looking Around)."
+    "beat": "Vueltas 2 y 3 cada vez mas rapidas y absurdas: gira sobre si, sale volando un instante y sombrero al aire; slide_down cada vez mas agudo y corto; sonrie (Laughing)."
    },
    {
     "t": "14-19",
-    "beat": "Giro: se encoge de hombros, se rie (Laughing) y baja de nuevo con los brazos arriba; corte al mismo plano que el principio (invita a repetir)."
+    "beat": "Vuelta 4 a velocidad maxima: pasa como un borron y vuelve a quedar a medio trepar, mismo encuadre y pose que el fotograma 1 (bucle invisible); levanta los brazos un instante (Victory)."
    }
   ],
   "clips": [
@@ -242,26 +241,27 @@
    [
     2,
     [
-     "Sitting Idle"
+     "Sitting Idle",
+     "Looking Around"
     ]
    ],
    [
     3,
     [
-     "Looking Around"
+     "Laughing"
     ]
    ],
    [
     4,
     [
-     "Laughing",
-     "Victory"
+     "Victory",
+     "Climbing Up Wall"
     ]
    ]
   ],
-  "payoff": "El tobogan era un bucle: se acaba donde empieza.",
+  "payoff": "El tobogan es un bucle cada vez mas rapido: acaba exactamente donde empieza.",
   "sin_palabras": "Hombre que sube la escalera de un tobogan: se lee en 1 s.",
-  "needs": "Tobogan = cubes inclinados + cylinder curvo; escalera = cubes; el hombre se mueve con S.key por la rampa (sin clip de deslizamiento: Sitting Idle con S.key de posicion); cartel = cube. Sonidos: slide_down, whoosh, tada. Clips existentes solamente.",
+  "needs": "Tobogan = cubes inclinados + cylinder curvo asomando tras el cartel desde el frame 1; escalera = cubes; deslizamiento = Sitting Idle con S.key de posicion e inclinacion leve del cuerpo (a.tilt) sincronizada con slide_down; cada vuelta con S.key mas corto. Ultimo fotograma = primero (misma pose y encuadre). Sonidos: slide_down (cada vez mas agudo), whoosh, tada. Clips existentes solamente.",
   "riesgo_copia": "bajo",
   "diferencia": "Bucle de tobogan para repetir; sin objetos con ojos ni animales; parque infantil."
  },
