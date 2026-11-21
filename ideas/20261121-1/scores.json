@@ -1,0 +1,78 @@
+[
+  {
+    "id": "b20261121-1-l01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 8,
+      "series": 8,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "Hombre agitando los brazos mientras el bus pasa de largo se entiende en 1 s, el hiss y el ding dan recompensa sonora creciente y el remate de ponerse sobre el cuadro pintado es el mismo 'estaba ahi todo el rato' que hizo funcionar a la campana, aunque repite Waving en dos niveles y el bus con S.key de profundidad es lo mas delicado de construir.",
+    "improve": "Dejar el cuadro amarillo de PARADA visible bajo la acera desde el fotograma 1 y hacer que el bus lo cruce sin frenar en el nivel -450, para que el remate sea justo y se vea al repetir; cambiar el Waving del 120 por Looking Around de pie en la calzada para que no repita clip.",
+    "vps": 63.8
+  },
+  {
+    "id": "b20261121-1-m02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 7,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 6,
+      "series": 4,
+      "differentiation": 7,
+      "production_difficulty": 7,
+      "repetition_risk": 4
+    },
+    "why": "Barbacoa que despega y salchichas que caen con plop una a una es visual y sonoramente satisfactorio, pero el remate cierra en vez de invitar a repetir, la logica de que la cena caiga del cohete es floja y la ultima salchicha rebotando en la cabeza exige un contacto preciso.",
+    "improve": "Dejar caer las salchichas con un plop cada vez mas agudo y terminar con el hombre mirando arriba esperando otra, para que el remate invite a repetir; quitar el rebote en la cabeza y usar solo el plato.",
+    "vps": 59.7
+  },
+  {
+    "id": "b20261121-1-m01",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 7,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 8,
+      "series": 4,
+      "differentiation": 7,
+      "production_difficulty": 7,
+      "repetition_risk": 4
+    },
+    "why": "Subir la escalera de un tobogan se entiende en 1 s, el weee de slide_down es una buena recompensa sonora y el corte final al plano inicial invita a repetir mas que ninguna otra idea del lote, pero es un solo gag sin escalada y deslizarse con Sitting Idle y S.key puede verse rigido.",
+    "improve": "Hacer que el ultimo fotograma sea identico al primero (hombre a medio trepar, mismo encuadre) para que el bucle sea invisible, dejar la curva del tobogan asomando tras el cartel desde el principio, y sincronizar el slide_down con una inclinacion leve del cuerpo en vez de deslizarlo recto.",
+    "vps": 57.9
+  },
+  {
+    "id": "b20261121-1-l02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 7,
+      "series": 7,
+      "differentiation": 5,
+      "production_difficulty": 8,
+      "repetition_risk": 5
+    },
+    "why": "Carro cuesta abajo con el hombre corriendo detras se lee rapido, pero el remate de esperar abajo da menos sorpresa visual que el de la parada, el sonido es solo clunks parecidos y la rampa con ruedas, coche y corral es la construccion mas pesada del lote.",
+    "improve": "Plantar el corral de carros visible al pie de la cuesta en el fotograma 1 y variar los sonidos (clank, bocina del coche, clunk final mas grave) para que haya escalada sonora.",
+    "vps": 55.0
+  }
+]

@@ -1,0 +1,328 @@
+[
+ {
+  "id": "b20261121-1-l01",
+  "format": "levels",
+  "kind": "anim",
+  "env": "parada de autobus",
+  "title_en": "Every IQ Level Stops the Bus",
+  "caption_en": null,
+  "logline_es": "Un autobus pasa de largo sin parar en la parada; el hombre agita los brazos, corre detras y se planta delante; el mas listo se pone sobre el cuadro pintado de PARADA y el bus frena solo.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya agitando los brazos (Waving) en la acera (frame 1); el bus pasa de largo con un whoosh; el viento le despeina y se cae de culo. Sonido: silencio."
+   },
+   {
+    "t": "4-9",
+    "beat": "IQ -80: Corre tras el bus (Running) y lanza un zapato (Throw) a su trasera: tonk flojo; el bus ni se entera; se enfada."
+   },
+   {
+    "t": "9-13",
+    "beat": "IQ 120: Se planta en medio de la calzada con los brazos abiertos; el bus frena con un hiss largo a un palmo de su nariz; el hombre sigue de pie, temblando."
+   },
+   {
+    "t": "13-18",
+    "beat": "IQ 900: Trepa al techo de la marquesina (Climbing Up Wall) y salta (Jumping) al techo del bus que pasa: clunk grande; va sentado arriba y rie."
+   },
+   {
+    "t": "18-22",
+    "beat": "IQ 5469: Se queda pensando (Thinking), mira el suelo, camina (Walking Left Turn) y se planta sobre el cuadro amarillo de PARADA; el bus frena solo con hiss y abre la puerta con ding; sube y levanta los brazos."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya agitando los brazos (Waving) en la acera (frame 1); el bus pasa de largo con un whoosh; el viento le despeina y se cae de culo. Sonido: silencio.",
+    "por_que_es_gracioso": "Cree que saludar al bus es lo mismo que pedirle parada."
+   },
+   {
+    "iq": -80,
+    "gag": "Corre tras el bus (Running) y lanza un zapato (Throw) a su trasera: tonk flojo; el bus ni se entera; se enfada.",
+    "por_que_es_gracioso": "Persigue a una maquina de cuatro ruedas a pie con rabia."
+   },
+   {
+    "iq": 120,
+    "gag": "Se planta en medio de la calzada con los brazos abiertos; el bus frena con un hiss largo a un palmo de su nariz; el hombre sigue de pie, temblando.",
+    "por_que_es_gracioso": "Funciona a duras penas: el susto casi lo cuesta todo."
+   },
+   {
+    "iq": 900,
+    "gag": "Trepa al techo de la marquesina (Climbing Up Wall) y salta (Jumping) al techo del bus que pasa: clunk grande; va sentado arriba y rie.",
+    "por_que_es_gracioso": "Funciona de verdad, pero viaja en el sitio equivocado."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se queda pensando (Thinking), mira el suelo, camina (Walking Left Turn) y se planta sobre el cuadro amarillo de PARADA; el bus frena solo con hiss y abre la puerta con ding; sube y levanta los brazos.",
+    "por_que_es_gracioso": "El bus solo paraba donde estaba pintado: bastaba con ponerse en el sitio."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Waving",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Running",
+     "Throw",
+     "Angry"
+    ]
+   ],
+   [
+    120,
+    [
+     "Waving",
+     "Looking Around"
+    ]
+   ],
+   [
+    900,
+    [
+     "Climbing Up Wall",
+     "Jumping",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Thinking",
+     "Walking Left Turn",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "El bus paraba donde estaba pintado, no donde se le gritaba.",
+  "sin_palabras": "Bus que pasa de largo y hombre en la acera con la mano alzada: se lee en 1 s.",
+  "needs": "Bus = cube largo + 2 cylinders ruedas con S.key de avance en profundidad; marquesina = cubes; cuadro de parada = cube plano amarillo en el suelo visible desde el plano 1; zapato = cube pequeno. Sonidos: whoosh, hit, hiss (drain), clunk, tada. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Parada de autobus con cuadro pintado; sin postes de campana, maquinas, farolas ni columpios; remate de 'colocarse donde toca' distinto a segunda moneda o escondido."
+ },
+ {
+  "id": "b20261121-1-l02",
+  "format": "levels",
+  "kind": "anim",
+  "env": "aparcamiento",
+  "title_en": "Every IQ Level Catches a Runaway Cart",
+  "caption_en": null,
+  "logline_es": "Un carro de supermercado baja rodando por la cuesta del aparcamiento; el hombre corre tras el, lo placa y lanza un cono; el mas listo espera al pie de la cuesta, junto al corral de carros, y el carro entra solo.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya corriendo (Running) tras el carro que baja rodando (frame 1); el carro acelera, el no llega y cae de culo. Sonido: silencio."
+   },
+   {
+    "t": "4-9",
+    "beat": "IQ -80: Se tira encima del carro (Jumping) y el carro lo arrastra con cara de panico; choca con un cono: clank; se enfada."
+   },
+   {
+    "t": "9-13",
+    "beat": "IQ 120: Lanza un cono (Throw) delante de las ruedas; el carro se frena en seco con un clunk pequeno; se tambalea y el hombre respira."
+   },
+   {
+    "t": "13-18",
+    "beat": "IQ 900: Corre por delante (Running) y empuja el carro de lado (Pushing) hacia el corral: clunk grande al entrar; rie sin aliento."
+   },
+   {
+    "t": "18-22",
+    "beat": "IQ 5469: Se queda pensando (Thinking), baja caminando al corral al pie de la cuesta y se sienta (Sitting Idle); el carro llega solo con un gran clunk dentro; levanta los brazos."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya corriendo (Running) tras el carro que baja rodando (frame 1); el carro acelera, el no llega y cae de culo. Sonido: silencio.",
+    "por_que_es_gracioso": "Cree que a un carro cuesta abajo se le gana a pie."
+   },
+   {
+    "iq": -80,
+    "gag": "Se tira encima del carro (Jumping) y el carro lo arrastra con cara de panico; choca con un cono: clank; se enfada.",
+    "por_que_es_gracioso": "Su plan es montarse en el problema."
+   },
+   {
+    "iq": 120,
+    "gag": "Lanza un cono (Throw) delante de las ruedas; el carro se frena en seco con un clunk pequeno; se tambalea y el hombre respira.",
+    "por_que_es_gracioso": "Funciona a duras penas: el carro se queda a un dedo del coche."
+   },
+   {
+    "iq": 900,
+    "gag": "Corre por delante (Running) y empuja el carro de lado (Pushing) hacia el corral: clunk grande al entrar; rie sin aliento.",
+    "por_que_es_gracioso": "Funciona de verdad, pero con un esprint de vergüenza."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se queda pensando (Thinking), baja caminando al corral al pie de la cuesta y se sienta (Sitting Idle); el carro llega solo con un gran clunk dentro; levanta los brazos.",
+    "por_que_es_gracioso": "La cuesta ya llevaba el carro al corral: solo habia que esperar abajo."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Running",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Jumping",
+     "Angry"
+    ]
+   ],
+   [
+    120,
+    [
+     "Throw",
+     "Looking Around"
+    ]
+   ],
+   [
+    900,
+    [
+     "Running",
+     "Pushing",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Thinking",
+     "Sitting Idle",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "La pendiente trabajaba para el: esperar abajo era la solucion.",
+  "sin_palabras": "Carro que rueda cuesta abajo con hombre que corre tras el: se lee en 1 s.",
+  "needs": "Carro = cube + cylinders ruedas con S.key de avance por una rampa inclinada (cube rotado); corral = 3 cubes finos; coche = cube; cono = cone. Sonidos: clunk, hit, whoosh, tada. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Aparcamiento con cuesta y carro; sin manivelas, sensores ni cubos colgando; remate de gravedad/esperar abajo."
+ },
+ {
+  "id": "b20261121-1-m01",
+  "format": "mini_story",
+  "kind": "anim",
+  "env": "parque infantil",
+  "title_en": "The Slide That Never Ends",
+  "caption_en": null,
+  "onscreen_en": "Again?",
+  "logline_es": "Un hombre sube la escalera de un tobogan y se desliza; al final la rampa sigue en curva por detras del parque y lo devuelve a lo alto de la escalera; se rie y sube otra vez.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1): ya trepando la escalera del tobogan (Climbing Up Wall), con cara de ilusion; se sienta arriba (Sitting Idle)."
+   },
+   {
+    "t": "4-9",
+    "beat": "Se desliza con un weee largo (slide_down); la rampa baja y el hombre llega al final, pero el final no es suelo: sigue en curva."
+   },
+   {
+    "t": "9-14",
+    "beat": "La curva lo lleva por detras de un cartel hasta lo alto otra vez: aparece sentado arriba, parpadea con sorpresa (Looking Around)."
+   },
+   {
+    "t": "14-19",
+    "beat": "Giro: se encoge de hombros, se rie (Laughing) y baja de nuevo con los brazos arriba; corte al mismo plano que el principio (invita a repetir)."
+   }
+  ],
+  "clips": [
+   [
+    1,
+    [
+     "Climbing Up Wall",
+     "Sitting Idle"
+    ]
+   ],
+   [
+    2,
+    [
+     "Sitting Idle"
+    ]
+   ],
+   [
+    3,
+    [
+     "Looking Around"
+    ]
+   ],
+   [
+    4,
+    [
+     "Laughing",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "El tobogan era un bucle: se acaba donde empieza.",
+  "sin_palabras": "Hombre que sube la escalera de un tobogan: se lee en 1 s.",
+  "needs": "Tobogan = cubes inclinados + cylinder curvo; escalera = cubes; el hombre se mueve con S.key por la rampa (sin clip de deslizamiento: Sitting Idle con S.key de posicion); cartel = cube. Sonidos: slide_down, whoosh, tada. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Bucle de tobogan para repetir; sin objetos con ojos ni animales; parque infantil."
+ },
+ {
+  "id": "b20261121-1-m02",
+  "format": "mini_story",
+  "kind": "anim",
+  "env": "zona de picnic con barbacoa",
+  "title_en": "The Grill That Went to Space",
+  "caption_en": null,
+  "onscreen_en": "Hot dogs!",
+  "logline_es": "Un hombre abanica una barbacoa con un cartón y las llamas crecen tanto que la parrilla sale disparada como cohete; lluvian salchichas que caen una a una sobre su plato.",
+  "beats": [
+   {
+    "t": "0-4",
+    "beat": "Gancho (accion en el fotograma 1): ya abanicando (Waving) la barbacoa con un carton; brasas y humo; salchichas en la parrilla."
+   },
+   {
+    "t": "4-9",
+    "beat": "Las llamas crecen (esferas naranjas con S.key); el hombre se aparta con cara de sorpresa (Falling Back Death) y la parrilla empieza a vibrar."
+   },
+   {
+    "t": "9-14",
+    "beat": "La parrilla sale disparada hacia arriba con un whoosh dejando una estela; el hombre la sigue con la mirada (Looking Around) y se sienta a la mesa (Sitting Idle), plato en mano."
+   },
+   {
+    "t": "14-19",
+    "beat": "Giro: las salchichas caen una a una en su plato con un plop satisfactorio cada vez (la ultima rebota en su cabeza); levanta los brazos (Victory)."
+   }
+  ],
+  "clips": [
+   [
+    1,
+    [
+     "Waving"
+    ]
+   ],
+   [
+    2,
+    [
+     "Falling Back Death"
+    ]
+   ],
+   [
+    3,
+    [
+     "Looking Around",
+     "Sitting Idle"
+    ]
+   ],
+   [
+    4,
+    [
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "El cohete-barbacoa le sirvio la cena desde el cielo.",
+  "sin_palabras": "Hombre abanicando una barbacoa con salchichas: se lee en 1 s.",
+  "needs": "Barbacoa = cube + cylinders patas con S.key de despegue; llamas = uv_spheres naranjas; salchichas = cylinders con S.key de caida; mesa y plato = cube + cylinder. Sonidos: whoosh, pop (plop), tada. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Barbacoa que despega y comida que llueve; sin objetos con ojos, sin rocas, sin hamacas; zona de picnic."
+ }
+]
