@@ -2,7 +2,7 @@
   "id": "story-015",
   "format": "short",
   "title": "The Bench That Walked Away",
-  "stage": "selected",
+  "stage": "published",
   "gates": {
     "critic": "PASS",
     "market": "PASS",
@@ -14,7 +14,7 @@
   "quality_score": null,
   "fix_rounds": 0,
   "final_file": null,
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "idea_id": "b20261120-3-m01",
   "market_verdict": "VALIDATED"
 }

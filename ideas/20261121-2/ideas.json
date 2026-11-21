@@ -1,0 +1,245 @@
+[
+ {
+  "id": "b20261121-2-m01",
+  "format": "mini_story",
+  "kind": "anim",
+  "env": "portal",
+  "title_en": "The Doorbell Had a Better Plan",
+  "caption_en": null,
+  "onscreen_en": "POV: nobody is home",
+  "logline_es": "Un hombre llama al timbre de un portal y nadie abre; se sienta derrotado y el buzon suelta un sobre con una llave que abre la puerta con un campanilleo.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1): ya pulsando el timbre (Pushing); ding-dong. Puerta cerrada, buzon al lado."
+   },
+   {
+    "t": "3-7",
+    "beat": "Pulsa mas rapido y enfadado (Angry), ding-dong-ding-dong; la puerta no se mueve."
+   },
+   {
+    "t": "7-10",
+    "beat": "Se rinde y se sienta en el escalon (Sitting Idle, voz sigh); el buzon abre su tapa con un pop y desliza un sobre abultado (fwip) hasta sus pies."
+   },
+   {
+    "t": "10-14",
+    "beat": "Giro: coge el sobre (Picking Up), cae una llave (ting); abre la puerta con campanilla ascendente y levanta los brazos (Victory, voz yay); queda ante el timbre otra vez."
+   }
+  ],
+  "clips": [
+   [
+    1,
+    [
+     "Pushing",
+     "Angry"
+    ]
+   ],
+   [
+    2,
+    [
+     "Angry"
+    ]
+   ],
+   [
+    3,
+    [
+     "Sitting Idle",
+     "Picking Up"
+    ]
+   ],
+   [
+    4,
+    [
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "La llave que se envio a si mismo estaba en el buzon.",
+  "sin_palabras": "Hombre pulsando un timbre ante una puerta cerrada: se lee en 1 s.",
+  "needs": "Protagonista: dibujo con afro y camiseta de rayas naranjas, con expresiones (sorpresa, enfado, feliz) y voces (huh, oof, hmm, sigh, laugh, yay, wahwah). Puerta = cube; timbre = cylinder pequeno; buzon = cube con tapa S.key; sobre = cube fino; llave = torus+cylinder. Sonido: ding-dong, pop, fwip, ting, campanilla ascendente. Clips existentes: Pushing, Angry, Sitting Idle, Picking Up, Victory.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Portal con buzon y timbre; remate de llave en el correo; sin parque ni maquina."
+ },
+ {
+  "id": "b20261121-2-m02",
+  "format": "mini_story",
+  "kind": "anim",
+  "env": "piscina vacia",
+  "title_en": "The Pool With a Secret",
+  "caption_en": null,
+  "onscreen_en": "POV: the pool is empty",
+  "logline_es": "Un hombre mira una piscina vacia desde el trampolin, duda y salta igualmente; el fondo es una cama elastica y rebota con boings cada vez mas agudos hasta volver al trampolin.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1): sube andando al trampolin (Walking Left Turn); piscina sin agua, azulejos."
+   },
+   {
+    "t": "3-6",
+    "beat": "Mira abajo (Looking Around, voz huh), piensa (Thinking, voz hmm) y se encoge de hombros."
+   },
+   {
+    "t": "6-10",
+    "beat": "Salta con los ojos cerrados (Jumping); el fondo se hunde y rebota: boing grave, el hombre sube, cara de sorpresa."
+   },
+   {
+    "t": "10-14",
+    "beat": "Giro: dos botes mas, boing mas agudo cada vez, y aterriza de pie en el trampolin (Victory, voz yay); queda en la pose del plano 1."
+   }
+  ],
+  "clips": [
+   [
+    1,
+    [
+     "Walking Left Turn"
+    ]
+   ],
+   [
+    2,
+    [
+     "Looking Around",
+     "Thinking"
+    ]
+   ],
+   [
+    3,
+    [
+     "Jumping"
+    ]
+   ],
+   [
+    4,
+    [
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "El fondo de la piscina era una cama elastica.",
+  "sin_palabras": "Hombre ante una piscina sin agua: se lee en 1 s.",
+  "needs": "Protagonista: dibujo con afro y camiseta de rayas naranjas, con expresiones (sorpresa, enfado, feliz) y voces (huh, oof, hmm, sigh, laugh, yay, wahwah). Piscina = cubes + disco azul claro; trampolin = cube fino; fondo con S.key de escala (squash) y boing con pitch ascendente; sin agua ni otros objetos. Clips existentes: Walking Left Turn, Looking Around, Thinking, Jumping, Victory.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Piscina vacia con rebote musical; sin cancha, huerto ni semaforo."
+ },
+ {
+  "id": "b20261121-2-m03",
+  "format": "mini_story",
+  "kind": "anim",
+  "env": "semaforo",
+  "title_en": "The Crosswalk Hit the Jackpot",
+  "caption_en": null,
+  "onscreen_en": "POV: the light never turns",
+  "logline_es": "Un hombre espera un semaforo en rojo y pulsa el boton sin parar; lo empuja enfadado y las luces giran como una tragaperras hasta alinear tres verdes con lluvia de monedas.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1): ante el semaforo en rojo, pulsando el boton (Pushing) con pip-pip rapidos."
+   },
+   {
+    "t": "3-7",
+    "beat": "Mas pips, mas rapido; se enfada (Angry, voz oof) y empuja el poste (Pushing)."
+   },
+   {
+    "t": "7-11",
+    "beat": "Las tres luces giran rojo-amarillo-verde con tic-tic-tic y se frenan una a una: ding, ding, ding en verde."
+   },
+   {
+    "t": "11-15",
+    "beat": "Giro: lluvia de monedas (cylinders amarillos, clink clink) sobre el; se rie (Laughing, voz laugh) y vuelve a pulsar el boton."
+   }
+  ],
+  "clips": [
+   [
+    1,
+    [
+     "Pushing"
+    ]
+   ],
+   [
+    2,
+    [
+     "Angry",
+     "Pushing"
+    ]
+   ],
+   [
+    3,
+    [
+     "Looking Around"
+    ]
+   ],
+   [
+    4,
+    [
+     "Laughing",
+     "Pushing"
+    ]
+   ]
+  ],
+  "payoff": "El semaforo era una tragaperras y toco el premio gordo.",
+  "sin_palabras": "Hombre pulsando el boton de un semaforo en rojo: se lee en 1 s.",
+  "needs": "Protagonista: dibujo con afro y camiseta de rayas naranjas, con expresiones (sorpresa, enfado, feliz) y voces (huh, oof, hmm, sigh, laugh, yay, wahwah). Poste = cylinder; 3 discos de luz con S.key de color encendido/apagado (no es parpadeo); monedas = cylinders planos con S.key de caida. Sonido: pip, tic-tic, ding x3, clink. Clips existentes: Pushing, Angry, Looking Around, Laughing.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Semaforo convertido en premio; sin parada de bus ni coches."
+ },
+ {
+  "id": "b20261121-2-m04",
+  "format": "mini_story",
+  "kind": "anim",
+  "env": "huerto",
+  "title_en": "The Sprout Only Grows When Unwatched",
+  "caption_en": null,
+  "onscreen_en": "POV: it never grows",
+  "logline_es": "Un hombre planta una semilla y la vigila; no crece si la mira, solo cuando se da la vuelta; cuando se va enfadado el brote se dispara y cae en un tallo gigante con flor que le hace una reverencia con campanilla.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1): planta una semilla en la tierra (Picking Up) y se sienta a vigilarla (Sitting Idle)."
+   },
+   {
+    "t": "3-7",
+    "beat": "Mira fijo y no pasa nada; se gira (Looking Around) y el brote hace boing detras; vuelve la cara y esta quieto otra vez (voz hmm)."
+   },
+   {
+    "t": "7-10",
+    "beat": "Se enfada (Angry), se va andando (Walking Left Turn); detras el tallo se dispara con boing-wooosh hasta salir del cuadro."
+   },
+   {
+    "t": "10-14",
+    "beat": "Giro: se da la vuelta (sorpresa, voz huh); una flor enorme se inclina con campanilla ascendente; el la saluda (Waving, voz yay)."
+   }
+  ],
+  "clips": [
+   [
+    1,
+    [
+     "Picking Up",
+     "Sitting Idle"
+    ]
+   ],
+   [
+    2,
+    [
+     "Looking Around"
+    ]
+   ],
+   [
+    3,
+    [
+     "Angry",
+     "Walking Left Turn"
+    ]
+   ],
+   [
+    4,
+    [
+     "Waving"
+    ]
+   ]
+  ],
+  "payoff": "La planta es timida y solo crece cuando nadie mira.",
+  "sin_palabras": "Hombre vigilando una semilla recien plantada: se lee en 1 s.",
+  "needs": "Protagonista: dibujo con afro y camiseta de rayas naranjas, con expresiones (sorpresa, enfado, feliz) y voces (huh, oof, hmm, sigh, laugh, yay, wahwah). Tierra = cube plano; brote/tallo = cylinder con S.key de escala; flor = uv_sphere + esferas pequenas con S.key de inclinacion; sonido: boing, wooosh, campanilla. Clips existentes: Picking Up, Sitting Idle, Looking Around, Angry, Walking Left Turn, Waving.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Huerto con planta timida; giro de reverencia; sin arbol ni campo abierto."
+ }
+]
