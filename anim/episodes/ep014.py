@@ -237,7 +237,7 @@ def build_street(S):
 def build_bus(S):
     """Autobús: caja redondeada de 10 x 2,5 x ~3 m, azul vivo, ventanas oscuras, ruedas con radios, faros y puertas dobles en el lado -y."""
     b = W(); b.root = S.empty("bus", (-30, BUS_Y, 0)); b.shell = S.empty("bus_carroceria", (0, 0, 0), b.root)
-    blue = mmat(S, "bus_azul", (0.02, 0.36, 0.88), rough=0.28, spec=0.7)
+    blue = mmat(S, "bus_azul", (0.62, 0.025, 0.02), rough=0.28, spec=0.7)
     white = mmat(S, "bus_blanco", (0.93, 0.94, 0.95), rough=0.35)
     dark = mmat(S, "bus_negro", (0.015, 0.015, 0.02), rough=0.55)
     glass = mmat(S, "bus_cristal", (0.012, 0.022, 0.04), rough=0.06, spec=1.0)
@@ -274,7 +274,7 @@ def build_bus(S):
     hub = mmat(S, "bus_llanta", (0.62, 0.64, 0.68), rough=0.3, metal=0.9)
     spoke = mmat(S, "bus_radio", (0.06, 0.06, 0.07), rough=0.5)
     b.wheels = []
-    for xw in (3.3, -3.0):
+    for xw in (2.2, -3.0):
         for sy in (-1, 1):
             w = S.empty(f"bus_rueda{xw}{sy}", (xw, sy * 1.14, 0.5), b.root)
             O(S, "cylinder", "n", tire, (0, 0, 0), (0.5, 0.5, 0.15), (R(90), 0, 0), w, vertices=28)
@@ -328,7 +328,7 @@ def doors(S, b, f0, f1, open_=True):
 
 def shoe_obj(S):
     red = mmat(S, "zapato", (0.70, 0.03, 0.03), rough=0.5); sole = mmat(S, "suela", (0.92, 0.92, 0.9), rough=0.6)
-    s = S.empty("zapato", (0, 0, -20))
+    s = S.empty("zapato", (0, 0, -20)); s.scale = (1.7, 1.7, 1.7)
     box(S, "zap_suela", sole, (0.28, 0.10, 0.04), (0, 0, -0.04), s)
     box(S, "zap_cuerpo", red, (0.26, 0.095, 0.10), (-0.01, 0, 0.03), s)
     box(S, "zap_puntera", red, (0.10, 0.092, 0.07), (0.12, 0, 0.005), s)
@@ -402,10 +402,10 @@ def l1(S):
     lift_feet(S, a, f_fall - 2, f_fall + 52)
     drive(S, b, 1, 52, lambda f: -9.4 + 0.5 * f, rock=False)
     S.cue("horn", 3, vol=-20); S.cue("whoosh", 14, vol=0); S.cue("huh", f_fall - 2, vol=-8)
-    S.cue("hit", f_fall + 27, vol=-6); S.cue("oof", f_fall + 25, vol=-6); S.cue("wahwah", f_fall + 52, vol=-8)
-    S.f = 112
+    S.cue("hit", f_fall + 27, vol=-6); S.cue("oof", f_fall + 25, vol=-6); S.cue("wahwah", f_fall + 46, vol=-8)
+    S.f = 98
     a.verify(S.f)
-    faces(S, a, [(1, "feliz", 0.9), (f_fall - 3, "sorpresa", 1.0), (f_fall + 32, "enfado", 0.6), (f_fall + 52, "neutra", 1.0)], first_blink=14)
+    faces(S, a, [(1, "feliz", 0.9), (f_fall - 3, "sorpresa", 1.0), (f_fall + 32, "enfado", 0.6), (f_fall + 44, "neutra", 1.0)], first_blink=14)
     audit(S, a, "nivel -450", 1, 100, bus=b); audit_feet(S, a, "nivel -450", 1, 60)
     return a
 
@@ -415,18 +415,18 @@ def l2(S):
     """-80: corre tras el bus (que acelera por delante del cuadro), le lanza un zapato a la trasera (tonk flojo) y se enfada."""
     b = build_set(S)
     yr = 0.55
-    f_thr, f_rel, f_hit = 9, 27, 36
+    f_thr, f_rel, f_hit = 4, 23, 30
     def run(f):                                           # 0,20 m/f al correr; derrapa mientras lanza
-        if f <= f_thr + 1: return -1.3 + 0.20 * (f - 1)
+        if f <= f_thr + 1: return 1.0 + 0.20 * (f - 1)
         t = (f - f_thr - 1) / 14.0
-        return -1.3 + 0.20 * f_thr + 0.20 * 14.0 * 0.5 * (1 - (1 - min(t, 1.0)) ** 2) * 1.0 + (0.0 if t < 1 else 0.0)
-    a = MixamoActor(S, x=-1.3, yaw=90, use=["Running", "Throw", "Angry"]); klunk(a)
+        return 1.0 + 0.20 * f_thr + 0.20 * 14.0 * 0.5 * (1 - (1 - min(t, 1.0)) ** 2) * 1.0 + (0.0 if t < 1 else 0.0)
+    a = MixamoActor(S, x=1.0, yaw=90, use=["Running", "Throw", "Angry"]); klunk(a)
     S.f = 1; a.play("Running", frames=f_thr + 6, speed=1.15, repeat=4, blend=0)
-    S.f = f_thr; a.play("Throw", frames=48, speed=1.0, blend=4, start=0)
-    S.f = 62; a.play("Angry", frames=None, speed=1.0, blend=8, start=0)
-    for f in range(1, 62): place(S, a, f, run(f), yr, 0, 90, interp="LINEAR")
-    place(S, a, 68, run(61), yr, 0, 40); place(S, a, 82, run(61), yr, 0, 20)
-    xb = lambda f: 4.5 + 0.22 * (f - 1) + 0.0016 * (f - 1) ** 2
+    S.f = f_thr; a.play("Throw", frames=40, speed=1.0, blend=4, start=0)
+    S.f = 42; a.play("Angry", frames=None, speed=1.0, blend=8, start=0)
+    for f in range(1, 42): place(S, a, f, run(f), yr, 0, 90, interp="LINEAR")
+    place(S, a, 50, run(41), yr, 0, 40); place(S, a, 62, run(41), yr, 0, 15)
+    xb = lambda f: 8.0 + 0.10 * (f - 1)
     drive(S, b, 1, 90, xb, rock=False)
     # zapato: aparece en la mano al armar el brazo, vuela a la trasera y desaparece en el golpe
     sh = shoe_obj(S)
@@ -440,20 +440,18 @@ def l2(S):
         xh = xb(f_hit) - BUS_HL - 0.02
         S.key(sh, f, loc=(p0.x + (xh - p0.x) * t, p0.y + (y_hit - p0.y) * t, p0.z + (1.55 - p0.z) * t + 0.9 * math.sin(math.pi * t)),
               rot=(0, R(560 * t), R(25 * t)), interp="LINEAR")
-    for f, hid in ((f_thr + 8, False), (f_hit + 1, True)):
-        sh.hide_render = hid; sh.keyframe_insert("hide_render", frame=f)
-    sh.hide_render = True; sh.keyframe_insert("hide_render", frame=1)
-    sh.hide_render = False; sh.keyframe_insert("hide_render", frame=f_thr + 8)
+    S.key(sh, 1, scale=(0.0, 0.0, 0.0), interp="CONSTANT"); S.key(sh, f_thr + 7, scale=(0.0, 0.0, 0.0), interp="CONSTANT")
+    S.key(sh, f_thr + 8, scale=(1.7, 1.7, 1.7), interp="CONSTANT"); S.key(sh, f_hit + 1, scale=(0.0, 0.0, 0.0), interp="CONSTANT")
     # cámara: sigue al corredor con un travelling a la derecha, luego se acerca al enfado
-    for f, cx in ((1, 1.9), (24, 4.0), (40, 4.7), (62, 4.7), (100, 4.7)):
-        z_t = 1.35
-        cam_to(S, f, (cx - 2.0, -3.4, 1.5), (cx + 0.2, 1.4, z_t), 31 if f < 40 else 34, interp="BEZIER")
+    for f, cx, ln in ((1, 1.9, 28), (20, 3.9, 27), (45, 4.0, 29), (100, 4.0, 29)):
+        cam_to(S, f, (cx - 0.3, -3.4, 1.5), (cx + 0.2, 1.4, 1.35), ln, interp="BEZIER")
     S.cue("horn", 5, vol=-14); S.cue("whoosh", 2, vol=-5); S.cue("pop", f_thr + 8, vol=-10)
-    S.cue("clunk", f_hit, vol=-12); S.cue("hmm", f_hit + 22, vol=-6)
-    S.f = 100
+    S.cue("clunk", f_hit, vol=-12); S.cue("hmm", f_hit + 16, vol=-6)
+    S.f = 72
+    lift_feet(S, a, 1, 70)
     a.verify(S.f)
     faces(S, a, [(1, "enfado", 0.7), (f_rel - 3, "enfado", 1.0), (f_hit + 3, "sorpresa", 0.8), (f_hit + 14, "enfado", 1.0)], first_blink=12)
-    audit(S, a, "nivel -80", 1, 95, bus=b); audit_feet(S, a, "nivel -80", 1, 95)
+    audit(S, a, "nivel -80", 1, 70, bus=b); audit_feet(S, a, "nivel -80", 1, 70)
     return a
 
 
@@ -464,21 +462,22 @@ def l3(S):
     b = build_set(S)
     xh, yh = -1.35, BUS_Y
     x_front = xh - 0.40                                   # morro del bus a 40 cm del pecho
-    a = MixamoActor(S, x=xh, yaw=300, use=["Looking Around"]); klunk(a)
+    a = MixamoActor(S, x=xh, yaw=320, use=["Looking Around"]); klunk(a)
     S.f = 1; a.play("Looking Around", frames=118, speed=0.9, blend=0, start=0)
-    place(S, a, 1, xh, yh, 0, 300)
+    place(S, a, 1, xh, yh, 0, 320)
     f_b = 15; T = 20; v0 = 0.30
     xs = stop_path(x_front - BUS_HL, v0, T, f_b)
     drive(S, b, 1, 70, xs)
     for k in range(0, 34):                                # temblor tras la frenada (cuerpo entero, pequeñas oscilaciones)
         f = f_b + T + 3 + k
-        place(S, a, f, xh + 0.012 * math.sin(k * 2.4), yh, 0, 300 + 2.2 * math.sin(k * 2.4 + 1.0), interp="LINEAR")
-    place(S, a, f_b + T + 40, xh, yh, 0, 300); place(S, a, 118, xh, yh, 0, 300)
+        place(S, a, f, xh + 0.012 * math.sin(k * 2.4), yh, 0, 320 + 2.2 * math.sin(k * 2.4 + 1.0), interp="LINEAR")
+    place(S, a, f_b + T + 40, xh, yh, 0, 320); place(S, a, 118, xh, yh, 0, 320)
     cam_to(S, 1, (1.2, -0.1, 1.40), (-1.05, 4.75, 1.45), 34)
     cam_to(S, 40, (1.2, -0.1, 1.40), (-1.05, 4.75, 1.50), 34)
     S.cue("horn", f_b - 1, vol=-8); S.cue("huh", f_b + 2, vol=-8); S.cue("door", f_b + T - 2, vol=-6)
     S.cue("hmm", f_b + T + 14, vol=-10); S.cue("wahwah", 92, vol=-8)
     S.f = 112
+    lift_feet(S, a, 1, 110)
     a.verify(S.f)
     faces(S, a, [(1, "neutra", 1.0), (f_b - 2, "sorpresa", 1.0), (f_b + T + 16, "sorpresa", 0.7), (90, "enfado", 0.6)], first_blink=40, every=70)
     audit(S, a, "nivel 120", 1, 110, bus=b); audit_feet(S, a, "nivel 120", 1, 110)
@@ -495,25 +494,27 @@ def l4(S):
     f_c1 = 32                                              # fin de la trepada (el clip llega a su fotograma 37 con las manos en el techo)
     S.f = 1; a.play("Climbing Up Wall", frames=f_c1 + 5, speed=1.2, blend=0, start=0)
     f_v = f_c1 - 2; f_up = f_v + 9                         # trepa al techo (se incorpora) y se prepara
-    f_j, sp, j0 = f_up + 6, 1.15, 8                         # despegue
+    sp, j0 = 0.9, 6                                          # el clip empieza de pie en un saliente (fotograma 6), cae hacia el suelo (25-43)
+    f_j = f_v + int((25 - j0) / sp)                          # despegue
     S.f = f_v; a.play("Jumping", frames=None, speed=sp, blend=5, start=j0)
-    f_land = int(f_j + (43 - j0) / sp)
+    f_land = int(f_j + (43 - 25) / sp)
     S.f = f_land + 6; a.play("Laughing", frames=None, speed=1.0, blend=6, start=0)
     # raíz: sube trepando, se encarama al techo (x hacia dentro), salta en +y al techo del bus
     place(S, a, 1, x_r, y_r, 0, 270); place(S, a, f_c1, x_r, y_r, 0, 270)
     roof_x, roof_y = -0.65, 1.0
-    place(S, a, f_up, roof_x, roof_y, SH_ROOF_Z, 180)
-    place(S, a, f_j, roof_x, roof_y + 0.25, SH_ROOF_Z, 180)
     xc_land = -0.45                                        # centro del bus en el aterrizaje
     x_land, y_land, z_land = xc_land + 1.4, BUS_Y, BUS_ZTOP
     base = foot_lift(S, a, f_land + 3)
-    lifts = {f: foot_lift(S, a, f) - base for f in range(f_j, f_land + 1)}
-    for f in range(f_j, f_land + 1):
-        t = (f - f_j) / float(f_land - f_j)
-        zz = SH_ROOF_Z + (z_land - SH_ROOF_Z) * t + 1.05 * math.sin(math.pi * t)
-        xk = (roof_x) + (x_land - roof_x) * sstep(t)
-        yk = (roof_y + 0.25) + (y_land - roof_y - 0.25) * sstep(t * 1.05)
-        place(S, a, f, xk, yk, zz - lifts[f], 180 + 0 * t, interp="LINEAR")
+    lifts = {f: foot_lift(S, a, f) - base for f in range(f_up, f_land + 1)}
+    place(S, a, f_c1 + 2, x_r, y_r, 0.2, 270, interp="BEZIER")
+    for f in range(f_up, f_land + 1):
+        if f <= f_j: t = 0.0; zz = SH_ROOF_Z; xk = roof_x; yk = roof_y
+        else:
+            t = (f - f_j) / float(f_land - f_j)
+            zz = SH_ROOF_Z + (z_land - SH_ROOF_Z) * t + 1.05 * math.sin(math.pi * t)
+            xk = roof_x + (x_land - roof_x) * sstep(t)
+            yk = roof_y + (y_land - roof_y) * sstep(t * 1.05)
+        place(S, a, f, xk, yk, zz - lifts[f], 180, interp="LINEAR")
     # tras aterrizar: gira hacia la cámara y va de pie encima del bus (pegado a su techo, sigue su avance)
     v = 0.40
     xcb = lambda f: xc_land + v * (f - f_land)
@@ -523,10 +524,11 @@ def l4(S):
     drive(S, b, 1, f_land + 70, lambda f: xc_land + v * (f - f_land), rock=False)
     # cámara: encuadre de la trepada; luego sigue al bus con el que va encima
     cam_to(S, 1, (1.4, -3.0, 1.6), (0.2, 1.0, 2.0), 30)
-    cam_to(S, f_up + 4, (1.3, -3.0, 1.7), (0.0, 1.5, 2.6), 30)
-    cam_to(S, f_land - 6, (xcb(f_land - 6) + 0.5, -3.0, 1.7), (xcb(f_land - 6) + 1.0, 4.0, 3.0), 36)
+    cam_to(S, f_up - 8, (1.3, -3.0, 1.7), (0.0, 1.5, 2.9), 27)
+    cam_to(S, f_j + 6, (1.3, -3.2, 1.9), (0.5, 2.5, 3.7), 24)
+    cam_to(S, f_land - 6, (xcb(f_land - 6) + 0.5, -3.2, 1.9), (xcb(f_land - 6) + 1.0, 4.0, 3.7), 30)
     for f in range(f_land + 6, f_land + 70, 6):
-        cam_to(S, f, (xcb(f) - 0.2, -3.0, 1.6), (xcb(f) + 1.4, BUS_Y, 3.7), 50, interp="LINEAR")
+        cam_to(S, f, (xcb(f) - 0.2, -3.0, 1.6), (xcb(f) + 1.4, BUS_Y, 3.9), 72, interp="LINEAR")
     S.cue("horn", f_j - 2, vol=-3); S.cue("whoosh", f_land - 8, vol=-6)
     S.cue("hit", f_land, vol=-5); S.cue("clunk", f_land + 1, vol=0); S.cue("laugh", f_land + 14, vol=-5)
     S.f = f_land + 66
@@ -543,7 +545,7 @@ def l5(S):
     bocina clara, "pssh" de las puertas, "tada" y "yay"; se gira a cámara y levanta los brazos."""
     b = build_set(S)
     f_idea, f_walk, f_plant = 34, 38, 66
-    x0, y0, x1, y1 = -0.50, 0.95, 1.55, 2.50
+    x0, y0, x1, y1 = 0.10, 0.95, 1.55, 2.50
     a = MixamoActor(S, x=x0, yaw=15, use=["Thinking", "Walking Left Turn", "Victory"]); klunk(a)
     S.f = 1; a.play("Thinking", frames=f_walk - 1 + 4, speed=1.0, blend=0, start=12)
     S.f = f_walk; a.play("Walking Left Turn", frames=30, speed=1.0, blend=4, start=0)
@@ -566,11 +568,13 @@ def l5(S):
     xs = stop_path(BUS_STOP_CENTER, v0, T, f_b)
     drive(S, b, 1, f_stop + 20, xs)
     doors(S, b, f_stop + 3, f_stop + 12, True)
-    cam_to(S, 1, (1.1, -3.0, 1.45), (1.1, 1.5, 1.30), 30)
-    cam_to(S, f_stop, (1.4, -3.0, 1.50), (1.4, 1.5, 1.40), 30)
+    cam_to(S, 1, (0.8, -3.3, 1.45), (0.8, 1.5, 1.30), 30)
+    cam_to(S, f_plant, (0.8, -3.3, 1.45), (0.8, 1.5, 1.30), 30)
+    cam_to(S, f_stop + 4, (1.5, -2.6, 1.60), (1.5, 2.5, 1.75), 36)
     S.cue("pop", f_idea, vol=-9); S.cue("whoosh", f_b - 6, vol=-8); S.cue("horn", f_b - 2, vol=0)
     S.cue("door", f_stop + 3, vol=-1); S.cue("tada", f_stop + 11, vol=-5); S.cue("yay", f_stop + 13, vol=-4)
     S.f = f_win + 52
+    lift_feet(S, a, 1, f_win + 50)
     a.verify(S.f)
     faces(S, a, [(1, "neutra", 1.0), (f_idea - 2, "sorpresa", 1.0), (f_idea + 14, "neutra", 1.0), (f_stop + 8, "feliz", 1.0)], first_blink=10, every=60)
     audit(S, a, "nivel 5469", 1, f_win + 50, bus=b); audit_feet(S, a, "nivel 5469", 1, f_win + 50)
