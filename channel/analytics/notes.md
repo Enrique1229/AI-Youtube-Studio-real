@@ -35,3 +35,8 @@ primer segundo, mejor audio y caras más realistas (petición del usuario).
 - 2026-11-21 20:48: Vending (ep013) a 17 h: 12 vistas, 0 % desde el feed de Shorts (66,7 % canal, 33,3 % búsqueda). YouTube no lo ha probado en el feed. Pendiente comparar con el banco (ep012) subido el día anterior.
 - 2026-11-21 20:50: Bench (ep012, mini-historia, sin texto POV por un fallo ya corregido) a 20 h: 9.100 vistas, 98,4 % desde el feed de Shorts; despegó hacia la hora 12. Vending se subió ~3 h después del banco y no recibió feed: hipótesis principal = subidas demasiado juntas (YouTube prueba uno y deja el otro). REGLA: mínimo 24 h entre subidas. El formato mini-historia también funciona.
 - 2026-11-21 ~12:00 (hora del usuario ~20:55): subido ep015 piscina (story-018), render en la nube 540x960 reescalado.
+
+## 2026-11-21 (captura 5:54, usuario)
+- Piscina (ep015, mini-historia): 480 vistas interesadas en ~8 h; 42,2 % se quedan (Bell 68-72 %). Curva: subida 1-3 h y luego casi plana. Gancho más débil que Bell/Bench.
+- Bench sigue empujado: 185 vistas/60 min. Piscina 29, Picnic 28, Bell 15.
+- Decisión: bus (ep014) NO se sube aún; se respeta la regla de 24 h tras la piscina (hipótesis Vending: subir encima de otro corta el empuje).
