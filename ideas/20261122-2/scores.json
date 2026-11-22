@@ -2,21 +2,21 @@
   {
     "id": "b20261122-2-i01",
     "scores": {
-      "hook": 7,
+      "hook": 8,
       "curiosity": 6,
       "retention": 7,
-      "originality": 5,
+      "originality": 6,
       "visual": 8,
-      "emotion": 5,
-      "ending": 7,
+      "emotion": 6,
+      "ending": 8,
       "series": 6,
-      "differentiation": 5,
-      "production_difficulty": 6,
+      "differentiation": 6,
+      "production_difficulty": 7,
       "repetition_risk": 4
     },
-    "why": "Es la que mejor encaja en 9:16 (tubo vertical, pelota roja, agua que sube: los cinco gags se entienden sin palabras y el flotar es una recompensa visual y sonora clara), pero el truco de la pelota flotante es un acertijo muy conocido, el nivel -450 (aspirar) es abstracto y la botella solo aparece en el ultimo nivel, asi que el remate no es 'estaba ahi todo el rato'.",
-    "improve": "Dejar la botella de agua visible junto al hombre desde el frame 1 (como el pasador o la caja en otras ideas) para que el remate se pague como el de Bell, y cuidar que la pelota roja y el agua azul contrasten dentro del tubo semitransparente.",
-    "vps": 57.4
+    "why": "Ronda 1: el brazo metido hasta el hombro con la pelota a un palmo es un frame 1 concreto y la botella azul a sus pies (apartada con el pie en el 900, casi tumbada en el -80) convierte el remate en 'estaba ahi todo el rato' al estilo Bell, y el surtidor con bucle sube el final un punto; baja el margen porque el truco de la flotacion sigue siendo conocido, el surtidor es un giro arbitrario que debilita la fisica real, el ultimo beat de 6 s es largo para un Short de 20 s, y el brazo dentro del tubo semitransparente (clipping con el cristal) encarece la produccion.",
+    "improve": "Recortar el ultimo beat a 4 s (agua sube, whoosh, pelota baila 1 s, plop) quitando el aplauso, y probar en un render previo el brazo dentro del tubo con alpha (o mostrar solo el brazo opaco y el cristal con borde marcado) antes de gastar los clips de los niveles 120 y 900.",
+    "vps": 62.4
   },
   {
     "id": "b20261122-2-i04",
