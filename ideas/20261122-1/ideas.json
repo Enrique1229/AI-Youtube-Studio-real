@@ -10,7 +10,7 @@
   "beats": [
    {
     "t": "0-3",
-    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya dando manotazos al chorro (frame 1) como si fuera una avispa; el frasco de champu asoma ya del bolsillo; el agua rebota y lo empapa; tiembla chorreando y vuelve a pegarle."
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya dando manotazos al chorro (frame 1) como si fuera una avispa; el frasco de champu asoma ya del bolsillo; el agua rebota y lo empapa; tiembla chorreando y vuelve a pegarle. Lleva un sombrero en la cabeza y el champu en el bolsillo, ambos visibles desde el frame 1."
    },
    {
     "t": "3-6.5",
@@ -25,18 +25,18 @@
     "beat": "IQ 900: Con una llave inglesa gira la valvula (Pushing); el chorro se desploma de golpe con un hiss de tono descendente y un whoosh final; un ultimo gluglu y silencio total: se oye el alivio."
    },
    {
-    "t": "13.5-17.5",
-    "beat": "IQ 5469: Se queda mirando (Looking Around), sonrie y vuelve a abrir la valvula con la llave; saca el champu del bolsillo (visible desde el frame 1) y se lava el pelo bajo el chorro con un arcoiris de fondo (tada), riendo (Laughing)."
+    "t": "13.5-17",
+    "beat": "IQ 5469: Se queda mirando (Looking Around) el chorro, que sigue abierto; sonrie, saca el champu del bolsillo y se lava el pelo bajo el chorro con arcoiris (tada), riendo (Laughing)."
    },
    {
-    "t": "17.5-18",
-    "beat": "Bucle: el sombrero sale volando, cae justo sobre el hidrante con un clunk y el chorro revienta de nuevo con un whoosh, igual que en el fotograma 1."
+    "t": "17-18",
+    "beat": "Bucle: el chorro le arranca el sombrero (el de su cabeza desde el frame 1), cae y encaja sobre el hidrante con clunk: silencio de 0,5 s; el sombrero sale disparado con whoosh y el chorro revienta. Corte al fotograma 1."
    }
   ],
   "levels": [
    {
     "iq": -450,
-    "gag": "Ya dando manotazos al chorro (frame 1) como si fuera una avispa; el frasco de champu asoma ya del bolsillo; el agua rebota y lo empapa; tiembla chorreando y vuelve a pegarle.",
+    "gag": "Ya dando manotazos al chorro (frame 1) como si fuera una avispa; el frasco de champu asoma ya del bolsillo; el agua rebota y lo empapa; tiembla chorreando y vuelve a pegarle. Lleva un sombrero en la cabeza y el champu en el bolsillo, ambos visibles desde el frame 1.",
     "por_que_es_gracioso": "Cree que el agua se puede vencer a golpes."
    },
    {
@@ -56,8 +56,8 @@
    },
    {
     "iq": 5469,
-    "gag": "Se queda mirando (Looking Around), sonrie, vuelve a abrir la valvula con la llave y saca el champu del bolsillo: se lava el pelo bajo el chorro con arcoiris, tada y risas; su sombrero sale volando, cae justo en el hidrante, tapa clunk y el chorro revienta de nuevo con un whoosh: vuelta al fotograma 1.",
-    "por_que_es_gracioso": "El problema era una ducha gratis; el sombrero reinicia el bucle y el espectador quiere verlo otra vez."
+    "gag": "Se queda mirando (Looking Around) el chorro, que sigue abierto (no toca la valvula), sonrie, saca el champu del bolsillo y se lava el pelo bajo el chorro con arcoiris de fondo y tada, riendo (Laughing). Al terminar, el chorro le arranca el sombrero de la cabeza; el sombrero sube, baja y encaja sobre el hidrante con un clunk: el chorro se corta y hay un silencio de 0,5 s. El hombre parpadea; el sombrero sale disparado con un whoosh y el chorro revienta: corte al fotograma 1 (manotazos).",
+    "por_que_es_gracioso": "El problema era una ducha gratis; el sombrero, presente desde el inicio, tapa el chorro por casualidad y lo reinicia: el bucle es logico y se oye."
    }
   ],
   "clips": [
@@ -93,9 +93,9 @@
     ]
    ]
   ],
-  "payoff": "El chorro nunca fue un problema: era la ducha que necesitaba; el sombrero lo reinicia todo.",
-  "sin_palabras": "Chorro vertical de hidrante: se lee en 1 s. Champu visible en el bolsillo desde el frame 1; remate con arcoiris + tada y el sombrero que reabre el chorro (bucle dentro de los beats).",
-  "needs": "Hidrante = cylinder rojo + cone + chorro cylinder semitransparente/particulas (S.splash); llave = cube+cylinder; champu = cylinder en bolsillo; arcoiris = torus aplastado de colores (nuevo, sencillo); sombrero = cylinder+disco con S.key de vuelo. Sonido: hiss de pitch descendente en nivel 900, splash, clunk, whoosh, tada existentes. Clips de Mixamo existentes.",
+  "payoff": "El chorro nunca fue un problema: era la ducha que necesitaba; el sombrero lo tapa por azar y lo reinicia.",
+  "sin_palabras": "Chorro vertical de hidrante, hombre con sombrero y champu en el bolsillo desde el frame 1: se lee en 1 s. Remate: ducha con arcoiris y tada; el sombrero tapa el chorro (silencio) y sale disparado: bucle al frame 1.",
+  "needs": "Hidrante = cylinder rojo + cone + chorro cylinder semitransparente/particulas (S.splash); llave = cube+cylinder; champu = cylinder en bolsillo; sombrero = cylinder+disco en la cabeza con S.key de vuelo y encaje; arcoiris = torus aplastado de colores (nuevo, sencillo). Sonido: hiss descendente nivel 900, splash, clunk, silencio, whoosh, tada. Clips de Mixamo existentes.",
   "riesgo_copia": "bajo",
   "diferencia": "Agua que no se puede parar; sin manguera ni nube ni vehiculo; remate de ducha en lugar de solucion; hidrante nuevo."
  },
