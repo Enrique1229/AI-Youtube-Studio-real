@@ -12,3 +12,8 @@ Gags 1-4: se intuyen, pero a este tamaño cuesta leerlos sin pausar.
 - Cámara corregida: el personaje ocupa 30-45 % del alto, hay planos variados y los gags 1-4 se leen sin palabras. La costura del fondo desapareció.
 - **Queda un fallo bloqueante:** el último plano del nivel 5 (f182) deja la cara en el 8-10 % inferior del cuadro, justo donde YouTube pone el título y el canal. Media pantalla se va en el banderín y la pelota. El remate tiene que ser su cara tranquila en el tercio central (40-65 % del alto) con el banderín ondeando detrás o encima.
 - Menor: en el nivel 3 se ven rascacielos en el horizonte (HDRI). Se acepta.
+
+## Ronda 2 (cierre): PASA
+- Final del nivel 5: la cara queda al 58-62 % del alto, fuera de la interfaz de Shorts, con el banderín ondeando detrás.
+- Tiovivo: con las barandillas curvas y los asientos de colores ya se reconoce como tiovivo de parque (lo pidió el usuario). Los asientos son cubos simples; se acepta.
+- Los gags 1-5 se entienden sin palabras. No se ve nada que atraviese el suelo.

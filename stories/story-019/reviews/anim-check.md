@@ -28,3 +28,8 @@ Mejora del crítico aplicada: la aceleración tiene causa visible. El taburete d
 - Césped ampliado a 4000 m: la costura recta del fondo desaparece; la picada mantiene el horizonte fuera de la franja del texto salvo en planos de cierre (se ve el fondo de árboles, sin línea de corte).
 - Animación sin cambios (salvo que en el nivel 5 las barras ya no vuelven a subir al frenar). Auditorías repetidas: los 5 niveles "limpia", pies +0.020, emparentado 0.000 m; framing_check (mismo criterio que run_level, fotogramas con paso 2) sin AVISO ENCUADRE en los 5 niveles.
 - Fotogramas regenerados (inicio, clímax, final) en frames/. Notas: los fotogramas iniciales siguen mostrando el personaje algo más pequeño (entra corriendo); L1 f100 y L5 f186 son planos cerrados.
+
+## Ronda 3
+- Plano final del nivel 5 reencuadrado (solo cámara del tramo f_peak+22 en adelante): cara tranquila hacia el 45 % del alto, banderín ondeando y pelota encima. framing_check sin aviso.
+- Tiovivo clásico: de la cima de cada poste sale una barandilla curva de tubo (12 tramos, arqueada) hasta un cubo blanco en el eje; 4 banquetas bajas de colores (amarillo, cian, magenta, verde; 0,30 m) en el borde entre barras; todo gira con el disco. Sin techo cónico (tapaba al personaje desde la cámara alta). En L3 se omite la banqueta del sector del aterrizaje, en L4 la que solapa su banco y en L5 no hay banquetas (cruza el borde entre barras); las barandillas están en todos.
+- Auditoría de cuerpo contra barras, asas, barandillas, banquetas, banco, taburete, pescante y pelota repetida en los 5 niveles: "limpia" (solo roces permitidos ya anotados). Sin cambiar animaciones. 15 fotogramas regenerados.

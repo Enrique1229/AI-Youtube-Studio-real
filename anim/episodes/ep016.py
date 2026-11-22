@@ -36,6 +36,7 @@ LABEL_STYLE = "big"
 R_DISC, R_IN = 1.40, 0.88                  # corona del disco
 TOP = 0.005                                # cara superior del disco y de la placa (el suelo está en z=0)
 POST_R, POST_Z0, POST_Z1 = 1.42, 0.15, 2.05  # barras: radio, base articulada y punta
+SEAT_H = 0.30                              # altura de las banquetas bajas del borde
 SEAT_Z = 0.46                              # cara superior del taburete y del banco (la pose Sitting Idle pide cadera a 0,55)
 OM0 = 2.4 / 24.0                           # rad por fotograma (2,4 rad/s)
 GALLOWS_Z = 3.5
@@ -56,7 +57,12 @@ def eout(t): t = max(0.0, min(1.0, t)); return 1 - (1 - t) ** 2
 
 
 # ------------------------------------------------------------------ giro del disco (tabla por nivel)
-class CUR: al = [0.0, 0.0]; ph = 0.0
+class CUR: al = [0.0, 0.0]; ph = 0.0; seats = []     # seats: ángulos (grados, relativos a ph) de las banquetas del disco
+
+
+def rail_pt(t):
+    """Punto de la barandilla curva en el marco de la barra (x radial, z): del asa de la cima al eje, arqueada hacia arriba."""
+    return POST_R * (1.0 - t), POST_Z1 - 0.03 + 0.10 * t + 0.28 * math.sin(math.pi * t)
 
 
 def make_alpha(n, omega):
@@ -207,7 +213,7 @@ RAINBOW = [(0.95, 0.06, 0.07), (1.0, 0.42, 0.02), (1.0, 0.82, 0.0), (0.15, 0.75,
 class W: pass
 
 
-def build_set(S, ph, bench=None, n_frames=200):
+def build_set(S, ph, bench=None, n_frames=200, seats=True, skip_off=None):
     """Zona de juegos + tiovivo. ph = ángulo (grados, en el disco) de la barra 0. bench = ángulo local del banco (o None)."""
     w = W(); clear_env(S)
     mat = mmat(S, "goma", (0.40, 0.22, 0.15), rough=0.95)
@@ -247,7 +253,22 @@ def build_set(S, ph, bench=None, n_frames=200):
         O(S, "cylinder", f"agarre{k}", wh, (0, 0, L * 0.55), (0.052, 0.052, 0.09), parent=hg, vertices=16)
         box(S, f"base_barra{k}", mmat(S, "base_barra", (0.25, 0.25, 0.28), rough=0.4, metal=0.6), (0.14, 0.14, 0.12), (POST_R, 0, 0.07), pv)
         w.hinges.append(hg)
+        for i in range(12):                                                # barandilla curva de tubo: de la cima del poste al eje
+            x0, z0 = rail_pt(i / 12.0); x1, z1 = rail_pt((i + 1) / 12.0)
+            p0 = Vector((x0 - POST_R, 0, z0 - POST_Z0)); p1 = Vector((x1 - POST_R, 0, z1 - POST_Z0)); d = p1 - p0
+            O(S, "cylinder", f"riel{k}_{i}", rodm, (p0 + p1) * 0.5, (0.028, 0.028, d.length / 2 + 0.01), tuple(d.to_track_quat("Z", "Y").to_euler()), hg, vertices=10)
     w.ph = ph
+    O(S, "uv_sphere", "cubo_central", wh, (0, 0, rail_pt(1.0)[1]), (0.12, 0.12, 0.12), parent=w.disc, segments=14, ring_count=10)
+    # banquetas bajas de colores entre las barandillas, en el borde del disco (giran con él)
+    CUR.seats = []
+    seat_cols = [(1.0, 0.8, 0.0), (0.0, 0.75, 0.9), (0.9, 0.15, 0.7), (0.2, 0.8, 0.2)]
+    for k in range(4 if seats else 0):
+        off = 45.0 + 90.0 * k
+        if bench is not None and abs(((ph + off - bench) + 180.0) % 360.0 - 180.0) < 40.0: continue     # el banco del nivel ocupa ese hueco
+        if skip_off is not None and abs(off - skip_off) < 1.0: continue
+        CUR.seats.append(off)
+        sp = S.empty(f"banqueta_pivote{k}", (0, 0, 0), w.disc); sp.rotation_euler = (0, 0, R(ph + off))
+        box(S, f"banqueta{k}", mmat(S, f"banqueta{k}", seat_cols[k], rough=0.4), (0.30, 0.42, SEAT_H), (1.2, 0, TOP + SEAT_H / 2), sp)
     # banco (solo si el nivel lo pide)
     if bench is not None:
         bp = S.empty("banco_pivote", (0, 0, 0), w.disc); bp.rotation_euler = (0, 0, R(bench)); w.bench = bp
@@ -348,7 +369,14 @@ def solids_hit(p, r, f, tilted=False, bench=None, ball=True):
         for k in range(4):
             u = Rz(-(CUR.ph + 90.0 * k)) @ q
             if POST_R - 0.045 - r < u.x < POST_R + 0.045 + r and abs(u.y) < 0.045 + r and POST_Z0 - r < u.z < POST_Z1 + 0.1 + r: out.append(f"barra{k}")
+        if u.z > 1.8 - r and -0.1 < u.x < POST_R + 0.05:
+            for i in range(13):
+                rx, rz = rail_pt(i / 12.0)
+                if (u.x - rx) ** 2 + u.y ** 2 + (u.z - rz) ** 2 < (0.03 + r) ** 2: out.append(f"riel{k}"); break
         if POST_R - 0.02 < u.x < POST_R + ARM_L + 0.06 + r and abs(u.y) < 0.045 + r and POST_Z1 - 0.03 - 0.05 - r < u.z < POST_Z1 - 0.03 + 0.05 + r: out.append(f"asa{k}")
+    for off in CUR.seats:
+        u = Rz(-(CUR.ph + off)) @ q
+        if 1.2 - 0.15 - r < u.x < 1.2 + 0.15 + r and abs(u.y) < 0.21 + r and TOP - r < u.z < SEAT_H + r: out.append(f"banqueta{int(off)}")
     if bench is not None:
         u = Rz(-bench) @ q
         if 1.05 - 0.21 - r < u.x < 1.05 + 0.21 + r and abs(u.y) < 0.28 + r and TOP - r < u.z < SEAT_Z + r: out.append("banco")
@@ -431,8 +459,8 @@ def tune_phase(w, pts, cands, margin=0.05):
     best = None
     for ph in cands:
         CUR.ph = ph
-        bad = sum(1 for f, L in pts.items() for (n, r, p) in L if any(x.startswith(("barra", "asa")) for x in solids_hit(p, r, f)))
-        bad2 = sum(1 for f, L in pts.items() for (n, r, p) in L if any(x.startswith(("barra", "asa")) for x in solids_hit(p, r + margin, f)))
+        bad = sum(1 for f, L in pts.items() for (n, r, p) in L if any(x.startswith(("barra", "asa", "riel", "banqueta")) for x in solids_hit(p, r, f)))
+        bad2 = sum(1 for f, L in pts.items() for (n, r, p) in L if any(x.startswith(("barra", "asa", "riel", "banqueta")) for x in solids_hit(p, r + margin, f)))
         key = (bad, bad2)
         if best is None or key < best[0]: best = (key, ph)
     CUR.ph = best[1]
@@ -589,7 +617,7 @@ def l3(S):
         if best is None or md > best[0] + 1.0 or (abs(md - best[0]) <= 1.0 and abs(aL + 160) < abs(best[1] + 160)): best = (md, aL)
     ang_L = float(best[1]); print(f"L3 aterrizaje elegido: barra 0 en {ang_L:.0f} grados al caer; separación mínima de las demás barras durante el salto {best[0]:.0f} grados")
     CUR.ph = ang_L - D(A(f_L))
-    w = build_set(S, CUR.ph, None, N + 12); cam_fixed(S); flutter(S, w, N + 12, amp=2.5)
+    w = build_set(S, CUR.ph, None, N + 12, skip_off=45.0); cam_fixed(S); flutter(S, w, N + 12, amp=2.5)
     a = new_actor(S, w, ["Looking Around", "Jumping", "Climbing Up Wall"])
     seg(S, a, "Looking Around", 1, f_c + 2, speed=1.0, blend=0)
     seg(S, a, "Jumping", f_c, f_L + 8, start=19, speed=sp, blend=5)
@@ -720,7 +748,7 @@ def l5(S):
     make_alpha(N + 24, om)
     f_x = f_walk + int((r0 - POST_R) / spd)
     CUR.ph = ph0
-    w = build_set(S, CUR.ph, None, N + 12); cam_fixed(S)
+    w = build_set(S, CUR.ph, None, N + 12, seats=False); cam_fixed(S)
     flutter(S, w, N + 12, f_gust=f_go, amp=2.5, gust=30.0)
     tilt_posts(S, w, f_go + 10, f_peak + 6, 62.0)
     for f_, v_ in ((1, 0.4), (f_go, 0.4), (f_peak, 0.6), (f_brake, 0.6), (f_brake + 14, 0.4)):           # el giro se funde en un arcoíris
@@ -768,7 +796,7 @@ def l5(S):
     audit_feet(S, a, "nivel 4800 (placa)", f_arr + 9, N, lambda f: -sink * sstep((f - f_press) / 3.0) + TOP if f < f_brake + 6 else TOP)
     audit_parent(S, a, "nivel 4800", 1, N, lambda f: Vector((path(f)[0].x, path(f)[0].y, path(f)[0].z)))
     cam_follow(S, a, N + 10, [(1, Vector((0, -7.2, 3.8))), (f_peak, Vector((0, -7.2, 3.8))), (f_peak + 22, Vector((0, -3.6, 2.0)))],
-               [(1, 50.0), (f_peak, 55.0), (f_peak + 22, 30.0)], fixed_tgt=[(f_peak, None), (f_peak + 22, Vector((0, 0, 1.0)))])
+               [(1, 50.0), (f_peak, 55.0), (f_peak + 22, 26.0)], fixed_tgt=[(f_peak, None), (f_peak + 22, Vector((0, 0, 1.55)))])
     return a
 
 
