@@ -8,15 +8,15 @@
       "originality": 6,
       "visual": 8,
       "emotion": 6,
-      "ending": 8,
+      "ending": 9,
       "series": 6,
       "differentiation": 6,
       "production_difficulty": 7,
       "repetition_risk": 4
     },
-    "why": "Ronda 1: el brazo metido hasta el hombro con la pelota a un palmo es un frame 1 concreto y la botella azul a sus pies (apartada con el pie en el 900, casi tumbada en el -80) convierte el remate en 'estaba ahi todo el rato' al estilo Bell, y el surtidor con bucle sube el final un punto; baja el margen porque el truco de la flotacion sigue siendo conocido, el surtidor es un giro arbitrario que debilita la fisica real, el ultimo beat de 6 s es largo para un Short de 20 s, y el brazo dentro del tubo semitransparente (clipping con el cristal) encarece la produccion.",
-    "improve": "Recortar el ultimo beat a 4 s (agua sube, whoosh, pelota baila 1 s, plop) quitando el aplauso, y probar en un render previo el brazo dentro del tubo con alpha (o mostrar solo el brazo opaco y el cristal con borde marcado) antes de gastar los clips de los niveles 120 y 900.",
-    "vps": 62.4
+    "why": "Ronda 2: la boquilla seca visible desde el frame 1 ya justifica el surtidor (deja de ser un giro arbitrario y pasa a ser una pista pagada, como la campana de Bell), el ultimo beat de 4 s cabe y el brazo opaco evita el clipping, asi que el remate sube un punto; no sube mas porque el truco de la flotacion sigue siendo conocido, el frame 1 queda cargado (brazo, tubo, boquilla, botella) con la boquilla pequena en vertical, los cuatro microbeats de 1 s del nivel final van justos y 'una botella llena una fuente entera' es fisica de dibujos.",
+    "improve": "Corregir el campo env, que aun dice 'plaza con pavimento (calle)' y no 'parque con fuente seca', y hacer la boquilla grande y metalica con una gota seca o un charco vacio bajo ella para que se lea sin pausar el video.",
+    "vps": 63.4
   },
   {
     "id": "b20261122-2-i04",
