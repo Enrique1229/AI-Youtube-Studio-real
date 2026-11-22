@@ -57,7 +57,7 @@ def eout(t): t = max(0.0, min(1.0, t)); return 1 - (1 - t) ** 2
 
 
 # ------------------------------------------------------------------ giro del disco (tabla por nivel)
-class CUR: al = [0.0, 0.0]; ph = 0.0; seats = []     # seats: ángulos (grados, relativos a ph) de las banquetas del disco
+class CUR: al = [0.0, 0.0]; ph = 0.0; seats = []; horses = [0, 1, 2, 3]     # seats: ángulos (grados, relativos a ph) de las banquetas del disco
 
 
 def rail_pt(t):
@@ -213,7 +213,7 @@ RAINBOW = [(0.95, 0.06, 0.07), (1.0, 0.42, 0.02), (1.0, 0.82, 0.0), (0.15, 0.75,
 class W: pass
 
 
-def build_set(S, ph, bench=None, n_frames=200, seats=True, skip_off=None):
+def build_set(S, ph, bench=None, n_frames=200, seats=False, skip_off=None, horses=(0, 1, 2, 3)):
     """Zona de juegos + tiovivo. ph = ángulo (grados, en el disco) de la barra 0. bench = ángulo local del banco (o None)."""
     w = W(); clear_env(S)
     mat = mmat(S, "goma", (0.40, 0.22, 0.15), rough=0.95)
@@ -269,6 +269,35 @@ def build_set(S, ph, bench=None, n_frames=200, seats=True, skip_off=None):
         CUR.seats.append(off)
         sp = S.empty(f"banqueta_pivote{k}", (0, 0, 0), w.disc); sp.rotation_euler = (0, 0, R(ph + off))
         box(S, f"banqueta{k}", mmat(S, f"banqueta{k}", seat_cols[k], rough=0.4), (0.30, 0.42, SEAT_H), (1.2, 0, TOP + SEAT_H / 2), sp)
+    # caballitos de carrusel: uno por barra (la barra pasa por el cuerpo), suben y bajan desfasados y giran con el disco
+    CUR.horses = list(horses)
+    def tube(p0, p1, rad, mt, par):
+        p0, p1 = Vector(p0), Vector(p1); d = p1 - p0
+        return O(S, "cylinder", "pata", mt, (p0 + p1) * 0.5, (rad, rad, d.length / 2 + 0.01), tuple(d.to_track_quat("Z", "Y").to_euler()), par, vertices=10)
+    hcols = [((0.97, 0.97, 0.95), (0.9, 0.1, 0.5)), ((1.0, 0.45, 0.65), (0.95, 0.95, 0.9)), ((0.15, 0.4, 0.95), (1.0, 0.8, 0.1)), ((1.0, 0.75, 0.1), (0.8, 0.1, 0.9))]
+    w.horses = []
+    gold = mmat(S, "silla_dorada", (1.0, 0.72, 0.05), rough=0.25, metal=0.5); dark = mmat(S, "ojo_negro", (0.02, 0.02, 0.03), rough=0.3)
+    for k in horses:
+        bc, mc = hcols[k]; bm = mmat(S, f"caballo_cuerpo{k}", bc, rough=0.35, spec=0.5); mm = mmat(S, f"caballo_crin{k}", mc, rough=0.5)
+        he = S.empty(f"caballito{k}", (0, 0, 0.8), w.hinges[k]); w.horses.append(he)
+        O(S, "uv_sphere", "cuerpo", bm, (0, 0, 0), (0.15, 0.36, 0.17), parent=he, segments=18, ring_count=12)
+        O(S, "uv_sphere", "grupa", bm, (0, -0.22, 0.02), (0.16, 0.2, 0.18), parent=he, segments=14, ring_count=10)
+        tube((0, 0.26, 0.08), (0, 0.46, 0.40), 0.085, bm, he)                                  # cuello
+        O(S, "uv_sphere", "cabeza", bm, (0, 0.56, 0.46), (0.09, 0.19, 0.10), (R(-35), 0, 0), he, segments=14, ring_count=10)
+        O(S, "uv_sphere", "hocico", mm, (0, 0.69, 0.40), (0.07, 0.09, 0.07), parent=he, segments=10, ring_count=8)
+        for sx in (-1, 1):
+            O(S, "cone", "oreja", bm, (sx * 0.06, 0.50, 0.58), (0.03, 0.03, 0.07), parent=he, vertices=8)
+            O(S, "uv_sphere", "ojo", dark, (sx * 0.095, 0.58, 0.50), (0.022, 0.022, 0.022), parent=he, segments=8, ring_count=6)
+        for i in range(5):                                                                      # crin
+            O(S, "uv_sphere", "crin", mm, (0, 0.27 + 0.045 * i, 0.20 + 0.05 * i + 0.04), (0.04, 0.05, 0.05), parent=he, segments=8, ring_count=6)
+        box(S, "silla", gold, (0.30, 0.26, 0.05), (0, 0.0, 0.17), he)
+        box(S, "manta", mm, (0.33, 0.20, 0.025), (0, 0.0, 0.145), he)
+        O(S, "cone", "cola", mm, (0, -0.42, -0.02), (0.05, 0.05, 0.2), (R(125), 0, 0), he, vertices=8)
+        for sx in (-0.09, 0.09):                                                                # patas dobladas (galope)
+            tube((sx, 0.24, -0.10), (sx, 0.36, -0.28), 0.04, bm, he); tube((sx, 0.36, -0.28), (sx, 0.26, -0.44), 0.035, bm, he)
+            tube((sx, -0.26, -0.10), (sx, -0.34, -0.26), 0.04, bm, he); tube((sx, -0.34, -0.26), (sx, -0.46, -0.40), 0.035, bm, he)
+        for f in range(1, n_frames + 1, 2):
+            S.key(he, f, loc=(0, 0, 0.8 + 0.12 * math.sin(2 * math.pi * f / 52.0 + k * math.pi / 2)), interp="LINEAR")
     # banco (solo si el nivel lo pide)
     if bench is not None:
         bp = S.empty("banco_pivote", (0, 0, 0), w.disc); bp.rotation_euler = (0, 0, R(bench)); w.bench = bp
@@ -374,6 +403,10 @@ def solids_hit(p, r, f, tilted=False, bench=None, ball=True):
                 rx, rz = rail_pt(i / 12.0)
                 if (u.x - rx) ** 2 + u.y ** 2 + (u.z - rz) ** 2 < (0.03 + r) ** 2: out.append(f"riel{k}"); break
         if POST_R - 0.02 < u.x < POST_R + ARM_L + 0.06 + r and abs(u.y) < 0.045 + r and POST_Z1 - 0.03 - 0.05 - r < u.z < POST_Z1 - 0.03 + 0.05 + r: out.append(f"asa{k}")
+    if not tilted:
+        for k in CUR.horses:
+            u = Rz(-(CUR.ph + 90.0 * k)) @ q
+            if POST_R - 0.17 - r < u.x < POST_R + 0.17 + r and -0.55 - r < u.y < 0.78 + r and 0.38 - r < u.z < 1.62 + r: out.append(f"caballo{k}")
     for off in CUR.seats:
         u = Rz(-(CUR.ph + off)) @ q
         if 1.2 - 0.15 - r < u.x < 1.2 + 0.15 + r and abs(u.y) < 0.21 + r and TOP - r < u.z < SEAT_H + r: out.append(f"banqueta{int(off)}")
@@ -459,8 +492,8 @@ def tune_phase(w, pts, cands, margin=0.05):
     best = None
     for ph in cands:
         CUR.ph = ph
-        bad = sum(1 for f, L in pts.items() for (n, r, p) in L if any(x.startswith(("barra", "asa", "riel", "banqueta")) for x in solids_hit(p, r, f)))
-        bad2 = sum(1 for f, L in pts.items() for (n, r, p) in L if any(x.startswith(("barra", "asa", "riel", "banqueta")) for x in solids_hit(p, r + margin, f)))
+        bad = sum(1 for f, L in pts.items() for (n, r, p) in L if any(x.startswith(("barra", "asa", "riel", "banqueta", "caballo")) for x in solids_hit(p, r, f)))
+        bad2 = sum(1 for f, L in pts.items() for (n, r, p) in L if any(x.startswith(("barra", "asa", "riel", "banqueta", "caballo")) for x in solids_hit(p, r + margin, f)))
         key = (bad, bad2)
         if best is None or key < best[0]: best = (key, ph)
     CUR.ph = best[1]
@@ -488,7 +521,7 @@ def l1(S):
     N = 112; f_h = 26; th_h = -100.0; wr = 1.9 / 24.0
     th0 = th_h - D(wr * (f_h - 1)); make_alpha(N + 24, lambda f: OM0)
     CUR.ph = th_h - D(A(f_h))
-    w = build_set(S, CUR.ph, None, N + 12); cam_fixed(S); flutter(S, w, N + 12)
+    w = build_set(S, CUR.ph, None, N + 12, horses=(1, 2, 3)); cam_fixed(S); flutter(S, w, N + 12)
     a = new_actor(S, w, ["Running", "Angry"])
     r_h = 1.60
     pos_h = polar(r_h, th_h); t_hat = Vector((-math.sin(R(th_h)), math.cos(R(th_h)), 0)); n_hat = Vector((math.cos(R(th_h)), math.sin(R(th_h)), 0))
@@ -528,7 +561,7 @@ def l2(S):
     make_alpha(N + 24, lambda f: OM0)
     th0 = ang_g - D(A(f_g))                                                # agarra la asa a la derecha y la suelta atrás, a la izquierda
     CUR.ph = th0                                                           # la barra 0 está siempre a su lado
-    w = build_set(S, CUR.ph, None, N + 12); cam_fixed(S); flutter(S, w, N + 12)
+    w = build_set(S, CUR.ph, None, N + 12, horses=(1, 2, 3)); cam_fixed(S); flutter(S, w, N + 12)
     a = new_actor(S, w, ["Running", "Climbing A Rope", "Falling Back Death"])
     grip_z = POST_Z1 - 0.03
     seg(S, a, "Running", 1, f_g + 2, speed=1.15, blend=0)
@@ -617,7 +650,7 @@ def l3(S):
         if best is None or md > best[0] + 1.0 or (abs(md - best[0]) <= 1.0 and abs(aL + 160) < abs(best[1] + 160)): best = (md, aL)
     ang_L = float(best[1]); print(f"L3 aterrizaje elegido: barra 0 en {ang_L:.0f} grados al caer; separación mínima de las demás barras durante el salto {best[0]:.0f} grados")
     CUR.ph = ang_L - D(A(f_L))
-    w = build_set(S, CUR.ph, None, N + 12, skip_off=45.0); cam_fixed(S); flutter(S, w, N + 12, amp=2.5)
+    w = build_set(S, CUR.ph, None, N + 12, horses=(1, 2, 3)); cam_fixed(S); flutter(S, w, N + 12, amp=2.5)
     a = new_actor(S, w, ["Looking Around", "Jumping", "Climbing Up Wall"])
     seg(S, a, "Looking Around", 1, f_c + 2, speed=1.0, blend=0)
     seg(S, a, "Jumping", f_c, f_L + 8, start=19, speed=sp, blend=5)
@@ -672,7 +705,7 @@ def l4(S):
     bb = -55.0 + 0.0                                                        # banco: ángulo local al final del salto (se ajusta con la fase)
     CUR.ph = -125.0 - D(A(f_L))
     bench_ang = CUR.ph + 22.0
-    w = build_set(S, CUR.ph, bench_ang, N + 12); cam_fixed(S); flutter(S, w, N + 12, amp=7.0)
+    w = build_set(S, CUR.ph, bench_ang, N + 12, horses=(1, 2, 3)); cam_fixed(S); flutter(S, w, N + 12, amp=7.0)
     a = new_actor(S, w, ["Running", "Jumping", "Sitting Idle"])
     d_loc = Vector((-math.sin(R(bench_ang)), math.cos(R(bench_ang)), 0.0))        # tangente antihoraria: hacia donde mira sentado
     B = polar(1.05, bench_ang); F = B + d_loc * 0.68
@@ -748,7 +781,7 @@ def l5(S):
     make_alpha(N + 24, om)
     f_x = f_walk + int((r0 - POST_R) / spd)
     CUR.ph = ph0
-    w = build_set(S, CUR.ph, None, N + 12, seats=False); cam_fixed(S)
+    w = build_set(S, CUR.ph, None, N + 12); cam_fixed(S)
     flutter(S, w, N + 12, f_gust=f_go, amp=2.5, gust=30.0)
     tilt_posts(S, w, f_go + 10, f_peak + 6, 62.0)
     for f_, v_ in ((1, 0.4), (f_go, 0.4), (f_peak, 0.6), (f_brake, 0.6), (f_brake + 14, 0.4)):           # el giro se funde en un arcoíris
