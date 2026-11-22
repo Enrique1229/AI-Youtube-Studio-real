@@ -1,0 +1,121 @@
+{
+  "id": "b20261122-3-i03",
+  "format": "short",
+  "kind": "anim",
+  "env": "parque (zona de juegos, tiovivo de disco nuevo)",
+  "title_en": "Every IQ Level Gets On the Spinning Roundabout",
+  "caption_en": null,
+  "logline": "Un tiovivo de parque gira a toda velocidad; el hombre intenta subir corriendo y saltando; el más listo se sienta en el centro, donde el disco no se mueve.",
+  "logline_es": "Un tiovivo de parque gira a toda velocidad; el hombre intenta subir corriendo y saltando; el más listo se sienta en el centro, donde el disco no se mueve.",
+  "hook": "Un disco de rayos de colores girando a toda velocidad con un banderín casi quieto en el centro y un hombre corriendo a su lado.",
+  "twist": "El centro no se mueve y el disco se vuelve un arcoíris con él sentado y sonriente.",
+  "why_retains": "El giro continuo es hipnotico y cada fallo es un gag de fisica distinto; el final tranquilo contrasta.",
+  "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+  "tags": [
+    "comedia-fisica",
+    "niveles",
+    "parque",
+    "fisica"
+  ],
+  "audience": null,
+  "beats": [
+    {
+      "t": "0-3",
+      "beat": "Gancho (accion en el fotograma 1). IQ -380: Ya corriendo (Running) al borde del disco de rayos de colores que gira muy rápido (frame 1); en el centro un banderín y una pelota amarilla giran despacio, y la pregunta es cómo subirse; choca con la primera barra y sale girando como una peonza (whoosh); acaba sentado (Angry)."
+    },
+    {
+      "t": "3-7",
+      "beat": "IQ -70: Se agarra a una barra roja y sale volando horizontal como una bandera (Climbing A Rope); se suelta y cae rodando sobre el césped (Falling Back Death)."
+    },
+    {
+      "t": "7-11",
+      "beat": "IQ 200: Salta al disco (Jumping), resbala hasta el borde y se queda pegado y plano a una barra (Climbing Up Wall), temblando; el banderín del centro sigue casi quieto."
+    },
+    {
+      "t": "11-15",
+      "beat": "IQ 950: Corre a su misma velocidad (Running) y salta (Jumping) con aterrizaje perfecto; se sienta (Sitting Idle) en el borde con el pelo volando, ding y risa corta (Laughing)."
+    },
+    {
+      "t": "15-19",
+      "beat": "IQ 4800: Se detiene (Looking Around) mirando el centro: el banderín y la pelota giran despacio mientras los rayos de color del borde son un borrón; camina (Walking Left Turn) hasta el centro y se sienta (Sitting Idle) con las piernas cruzadas. Pico: el disco acelera con un crescendo de whoosh, los rayos se funden en un círculo arcoíris y las barras salen disparadas como hélice mientras él queda inmóvil y sonriente con el banderín ondeando sobre su cabeza (cámara fija); tada fuerte y aplauso (Victory). Bucle: el disco frena con un clunk, él baja al punto del frame 1 y los rayos vuelven a girar."
+    }
+  ],
+  "levels": [
+    {
+      "iq": -380,
+      "gag": "Ya corriendo (Running) al borde del disco de rayos de colores que gira muy rápido (frame 1); en el centro un banderín y una pelota amarilla giran despacio, y la pregunta es cómo subirse; choca con la primera barra y sale girando como una peonza (whoosh); acaba sentado (Angry).",
+      "por_que_es_gracioso": "Cree que basta con correr más rápido que el disco."
+    },
+    {
+      "iq": -70,
+      "gag": "Se agarra a una barra roja y sale volando horizontal como una bandera (Climbing A Rope); se suelta y cae rodando sobre el césped (Falling Back Death).",
+      "por_que_es_gracioso": "Su plan tiene agarre, pero no la fuerza del giro."
+    },
+    {
+      "iq": 200,
+      "gag": "Salta al disco (Jumping), resbala hasta el borde y se queda pegado y plano a una barra (Climbing Up Wall), temblando; el banderín del centro sigue casi quieto.",
+      "por_que_es_gracioso": "Funciona a duras penas: está encima pero no puede moverse."
+    },
+    {
+      "iq": 950,
+      "gag": "Corre a su misma velocidad (Running) y salta (Jumping) con aterrizaje perfecto; se sienta (Sitting Idle) en el borde con el pelo volando, ding y risa corta (Laughing).",
+      "por_que_es_gracioso": "Funciona bien, pero acabará mareado."
+    },
+    {
+      "iq": 4800,
+      "gag": "Se detiene (Looking Around) mirando el centro: el banderín y la pelota giran despacio mientras los rayos de color del borde son un borrón; camina (Walking Left Turn) hasta el centro y se sienta (Sitting Idle) con las piernas cruzadas. Pico: el disco acelera con un crescendo de whoosh, los rayos se funden en un círculo arcoíris y las barras salen disparadas como hélice mientras él queda inmóvil y sonriente con el banderín ondeando sobre su cabeza (cámara fija); tada fuerte y aplauso (Victory). Bucle: el disco frena con un clunk, él baja al punto del frame 1 y los rayos vuelven a girar.",
+      "por_que_es_gracioso": "El borde era el problema; en el centro hay giro pero no velocidad, y el mismo disco que lo derribó ahora hace de espectáculo."
+    }
+  ],
+  "clips": [
+    [
+      -380,
+      [
+        "Running",
+        "Angry"
+      ]
+    ],
+    [
+      -70,
+      [
+        "Climbing A Rope",
+        "Falling Back Death"
+      ]
+    ],
+    [
+      200,
+      [
+        "Jumping",
+        "Climbing Up Wall"
+      ]
+    ],
+    [
+      950,
+      [
+        "Running",
+        "Jumping",
+        "Sitting Idle",
+        "Laughing"
+      ]
+    ],
+    [
+      4800,
+      [
+        "Looking Around",
+        "Walking Left Turn",
+        "Sitting Idle",
+        "Victory"
+      ]
+    ]
+  ],
+  "payoff": "En el centro del tiovivo no hay velocidad: él se sienta tranquilo mientras todo el disco se convierte en un arcoíris y el sonido sube al máximo.",
+  "sin_palabras": "Disco de colores que gira muy rápido, un banderín quieto en el centro y un hombre corriendo a su lado: la pregunta (cómo subir) se ve en 1 s.",
+  "needs": "Disco = cylinder plano con 8 cuñas de color (cubes/cones) para que el giro se lea, 4 barras = cylinders rojos; centro = cylinder amarillo con banderin (cube fino) y pelota (uv_sphere) que giran muy despacio; S.key de rotacion LINEAR con aceleracion en el beat final; camara fija en el final. Probar la rotacion con el humano parentado al disco antes del guion. Sonidos: whoosh con crescendo, boing, hit, clunk, tada. Clips existentes.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Tiovivo de parque y regla fisica del centro inmovil; sin columpio, tobogan ni banco; accion de seguir una velocidad que no se ve en otros episodios.",
+  "serie": "Encaja en 'Every IQ Level': mismo klunk_toon, objetivo cotidiano de parque (subirse al tiovivo), objeto grande visible desde el frame 1 (disco con banderín central), IQ rotulado -380..4800, remate en bucle y fisica en vez de 'mirar al suelo'. Plantilla repetible: 'Every IQ Level Gets On the ___ ' con un juego de parque.",
+  "vps": 65.9,
+  "batch": "20261122-3",
+  "story_id": "story-019",
+  "critic_improve": "Dar una causa visible a la aceleracion (el hombre pisa un pedal o tira de una palanca del centro, o una rafaga de viento mueve el banderin) para que el pico no sea arbitrario, hacer el banderin y la pelota grandes y de color contrastado, y probar la rotacion con el humano parentado y la camara fija antes del guion."
+}

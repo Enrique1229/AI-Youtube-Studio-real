@@ -4,28 +4,28 @@
     "scores": {
       "hook": 8,
       "curiosity": 6,
-      "retention": 7,
-      "originality": 6,
+      "retention": 8,
+      "originality": 7,
       "visual": 8,
-      "emotion": 6,
-      "ending": 7,
+      "emotion": 7,
+      "ending": 8,
       "series": 6,
       "differentiation": 6,
-      "production_difficulty": 6,
+      "production_difficulty": 7,
       "repetition_risk": 4
     },
-    "why": "Es el lote mas legible sin palabras (disco rojo girando y un hombre corriendo es un frame 1 con movimiento continuo, y peonza, bandera y pegado a la barra se entienden solos), y es el unico remate con regla fisica nueva en vez de 'mira lo que habia en el suelo', pero que el centro del tiovivo no se mueve lo sabe casi todo el mundo, el final tranquilo es mas suave que el nivel 950 con pelo al viento y un circulo amarillo plano no demuestra que el centro este quieto.",
-    "improve": "Pintar el disco con rayos o franjas de color para que el giro se lea y poner en el centro un banderin o una pelota que gira sobre si misma muy despacio, de modo que el contraste de velocidad se vea; subir el contraste del final con una camara fija sobre el, y probar la rotacion con el humano parentado antes del guion.",
-    "vps": 62.0
+    "why": "Ronda 2: los rayos de colores y el banderin casi quieto en el centro hacen que el contraste de velocidad se vea desde el frame 1, y el pico final (el disco se funde en arcoiris, las barras salen como helice y el humano queda inmovil con camara fija, tada y aplauso) arregla el final flojo anterior y es el remate mas espectacular y repetible del lote; no sube mas porque que el centro no gira lo sabe casi todo el mundo, la aceleracion del disco 'por si sola' en el nivel 4800 es un salto de logica sin causa visible, el banderin es pequeno en 9:16 y la produccion sube (rotacion con aceleracion, barras volando, humano fijo en el centro).",
+    "improve": "Dar una causa visible a la aceleracion (el hombre pisa un pedal o tira de una palanca del centro, o una rafaga de viento mueve el banderin) para que el pico no sea arbitrario, hacer el banderin y la pelota grandes y de color contrastado, y probar la rotacion con el humano parentado y la camara fija antes del guion.",
+    "vps": 65.9
   },
   {
     "id": "b20261122-3-i01",
     "scores": {
       "hook": 7,
-      "curiosity": 6,
+      "curiosity": 5,
       "retention": 7,
       "originality": 6,
-      "visual": 7,
+      "visual": 8,
       "emotion": 6,
       "ending": 8,
       "series": 6,
@@ -33,9 +33,9 @@
       "production_difficulty": 6,
       "repetition_risk": 5
     },
-    "why": "Estaca que rebota con boing, burrito de tienda y disco que se abre con FWOOMP son gags que se entienden sin palabras, y la flecha dibujada en la bolsa visible desde el frame 1 convierte el remate en pista pagada (patron Bell), pero la tienda que se abre al lanzarla es un producto real conocido, la flecha curva blanca sobre un disco naranja es pequena en 9:16, el parque repite escenario de Bell y Picnic, y 'Pushing' no es golpear una estaca con la palma.",
-    "improve": "Hacer el disco enorme y la flecha gruesa con un segundo cartel de lanzar (manita o rayo) que se vea sin pausar, sustituir Pushing por un clip de golpear o agacharse, y probar el envoltorio de burrito con el humano Mixamo antes de escribir el guion por el clipping de la tela.",
-    "vps": 59.1
+    "why": "Ronda 2: el disco enorme con flecha gruesa y cartel de manita lanzando ya se lee sin pausar, el solar de tierra rompe la repeticion de escenario con Bell y Picnic, Pushing desaparece y la tela solo tapa cabeza y hombros (menos clipping), asi que visual sube un punto; no sube mas porque la tienda que se abre al lanzarla es un producto real conocido, el frame 1 ya regala la solucion (curiosidad baja un punto), el nivel 1400 sigue siendo 'lo hace bien en diez segundos' sin gracia propia, Climbing Up Wall contra una pared de tela es un clip forzado y el remate 'estaba en el frame 1' sigue siendo el de toda la tanda.",
+    "improve": "Cambiar Climbing Up Wall del nivel 150 por un clip de empujar o sujetar un poste (o hacer que la tienda se desinfle encima de el), hacer que el nivel 1400 tenga un fallo pequeno visible (una estaca de menos) para que el salto al nivel 7000 se note, y probar la tela sobre cabeza y hombros con el humano Mixamo antes del guion.",
+    "vps": 58.4
   },
   {
     "id": "b20261122-3-i07",

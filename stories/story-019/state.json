@@ -1,0 +1,20 @@
+{
+  "id": "story-019",
+  "format": "short",
+  "title": "Every IQ Level Rides the Merry-Go-Round",
+  "stage": "selected",
+  "gates": {
+    "critic": "PASS",
+    "market": "PASS",
+    "continuity": "PENDING",
+    "policy": "PENDING",
+    "qc": "PENDING"
+  },
+  "vps": 65.9,
+  "quality_score": null,
+  "fix_rounds": 0,
+  "final_file": null,
+  "updated": "2026-11-22",
+  "idea_id": "b20261122-3-i03",
+  "market_verdict": "VALIDATED"
+}
