@@ -8,15 +8,15 @@
       "originality": 6,
       "visual": 8,
       "emotion": 6,
-      "ending": 7,
+      "ending": 8,
       "series": 6,
       "differentiation": 6,
-      "production_difficulty": 6,
+      "production_difficulty": 7,
       "repetition_risk": 4
     },
-    "why": "Ronda 1: el champu en el bolsillo desde el frame 1, el hiss descendente del nivel 900 y el bucle del sombrero ya dentro de los beats arreglan lo pedido y suben la recompensa sonora, pero el bucle es logicamente incoherente (en el nivel 5 el abre la valvula, asi que el chorro ya esta activo y el sombrero no puede 'reventarlo de nuevo') y el sombrero no se establece antes, asi que sale de la nada; el nivel 900 sigue siendo la solucion obvia, por eso la nota casi no se mueve.",
-    "improve": "Poner el sombrero en la cabeza del hombre desde el frame 1 y, en el nivel 5, dejar el chorro cerrado tras abrir solo un hilo: el sombrero lo tapa y el chorro revienta de verdad con el whoosh; o quitar el 'reabre la valvula' para que la ducha salga del chorro que el sombrero reinicia.",
-    "vps": 62.0
+    "why": "Ronda 2: el sombrero ya esta en la cabeza desde el frame 1 y el chorro (que sigue abierto) se lo arranca y se lo encaja en el hidrante, con silencio y whoosh: el bucle es ahora logico y se oye, asi que el remate sube un punto; el coste es produccion (sombrero que debe seguir puesto empapado en los niveles 2-4, vuelo, encaje y disparo) y que el nivel 900 sigue siendo la solucion mas obvia y el hidrante cerrado en el 4 y 'abierto' en el 5 solo cuadra si cada nivel es un intento independiente.",
+    "improve": "El ultimo beat de 1 s no cabe (arrancar, caer, encajar, 0,5 s de silencio y disparo): ampliar a 2 s quitando 1 s al nivel 5, y que el sombrero se quede visiblemente en la cabeza (pegado por el agua) en los niveles 2 a 4 para que el espectador lo recuerde.",
+    "vps": 62.4
   },
   {
     "id": "b20261122-1-i02",
