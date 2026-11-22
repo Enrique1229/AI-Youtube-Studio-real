@@ -6,7 +6,7 @@
   "gates": {
     "critic": "PASS",
     "market": "PASS",
-    "continuity": "PENDING",
+    "continuity": "PASS",
     "policy": "PENDING",
     "qc": "PENDING"
   },

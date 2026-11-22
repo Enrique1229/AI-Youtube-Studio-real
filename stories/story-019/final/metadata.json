@@ -1,0 +1,38 @@
+{
+  "story_id": "story-019",
+  "channel": "Klunk Studio",
+  "title": "Every IQ Level Rides the Merry-Go-Round",
+  "titles": [
+    "Every IQ Level Rides the Merry-Go-Round",
+    "Every IQ Level Tries to Board the Merry-Go-Round",
+    "Five IQ Levels, One Spinning Merry-Go-Round",
+    "The Smartest Seat on the Merry-Go-Round Is the Middle",
+    "Why Run at the Merry-Go-Round When You Can Sit?"
+  ],
+  "recommended_title": 0,
+  "description": "A silent 3D comedy: a man runs alongside a spinning merry-go-round and tries every way to hop on. Five IQ levels, from -380 to 4800, and the smartest spot is the still center of the ride.\nFiction made with AI-assisted tools. Original animation; nothing here is real footage or a real event.\nCharacter animations: Mixamo.\nWhich IQ level would you be? Tell us in the comments and subscribe for the next one.\n#shorts #animation #comedy #iqlevels #funny",
+  "hashtags": [
+    "#shorts",
+    "#animation",
+    "#comedy",
+    "#iqlevels",
+    "#funny"
+  ],
+  "cta": "Which IQ level would you be? Tell us in the comments and subscribe for the next one.",
+  "tags": "every iq level, iq levels, rating levels, merry-go-round, carousel, silent comedy, 3D animation, physical comedy, funny shorts",
+  "playlist": "Rating Levels",
+  "ai_disclosure": "Fiction made with AI-assisted tools. Original 3D animation; nothing here is real footage or a real event.",
+  "ai_use_disclosure": false,
+  "category": "Comedy",
+  "language": "en",
+  "onscreen_en": "Every IQ level rides the merry-go-round",
+  "upload_checklist": [
+    "AI use: No (3D toon animation with a stylized protagonist; idea.json kind 'anim'). To confirm: ep016.py docstring describes the park as 'realista' (photographic PBR grass and HDRI sky)",
+    "Fiction notice in description: yes",
+    "Credit in description: included ('Character animations: Mixamo.', as in story-017 format)",
+    "Music license/attribution: none specified in idea.json; verify final/provenance.json before upload (add CC attribution if any CC track is used)",
+    "Gates before upload: continuity, policy and qc are still PENDING in stories/story-019/state.json; deliver will block until they pass",
+    "Audience: not made for kids",
+    "Playlist: Rating Levels; category Comedy; language en"
+  ]
+}
