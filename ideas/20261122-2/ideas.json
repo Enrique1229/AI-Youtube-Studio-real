@@ -6,11 +6,11 @@
   "env": "plaza con pavimento (calle, tubo de cristal clavado en el suelo)",
   "title_en": "Every IQ Level Gets the Ball Out of the Glass Tube",
   "caption_en": null,
-  "logline_es": "Una pelota roja yace en el fondo de un tubo de cristal con una botella de agua azul al lado del hombre; intenta meter el brazo, un palo grueso, chicle y una percha; el más listo vierte el agua, la pelota sube y el tubo resulta ser un surtidor que la lanza y se la vuelve a tragar.",
+  "logline_es": "Una pelota roja yace en el fondo de una fuente de parque seca (tubo de cristal con boquilla arriba) con una botella azul a los pies del hombre; intenta brazo, palo, chicle y percha; el mas listo vierte el agua, la pelota sube y la fuente se reactiva y se la lleva de vuelta.",
   "beats": [
    {
     "t": "0-3",
-    "beat": "Gancho: Ya con todo el brazo metido en el tubo hasta el hombro y la mejilla aplastada contra el cristal (frame 1), mueve los dedos a un palmo de la pelota roja; cada vez que casi la toca, la pelota rueda un poco (boing); tira del brazo y sale con un pop como un corcho; cae sentado. La botella de agua azul sigue de pie a sus pies."
+    "beat": "Gancho: Ya con el brazo opaco metido en el tubo hasta el hombro y la mejilla aplastada contra el cristal de borde marcado (frame 1), mueve los dedos a un palmo de la pelota roja; cada vez que casi la toca, la pelota rueda un poco (boing); tira y sale con un pop como un corcho; cae sentado. En el suelo: la botella azul a sus pies y, sobre la boca del tubo, una boquilla de fuente metalica sin agua."
    },
    {
     "t": "3-7",
@@ -21,18 +21,18 @@
     "beat": "IQ 120: Baja un palo con chicle: engancha la pelota, la sube hasta el borde y se despega; rebota (boing) en su cabeza y cae al fondo; a la segunda la sube temblando y por fin la agarra."
    },
    {
-    "t": "11-14",
+    "t": "11-15",
     "beat": "IQ 900: Baja con cuidado una percha doblada en gancho, lengua fuera; engancha y saca la pelota limpia (pop); aparta la botella con el pie para no estorbar."
    },
    {
-    "t": "14-20",
-    "beat": "IQ 5469: Se queda mirando la botella de agua azul junto a sus pies (visible desde el frame 1), la coge y vierte un chorrito: el agua azul sube por el tubo y la pelota roja flota y sube con ella; al llegar a la boca el tubo se revela como surtidor: un chorro la lanza al aire (whoosh) y la pelota baila sobre la columna de agua (tada) mientras él aplaude. El chorro se apaga, la pelota cae de nuevo al tubo (plop) y el agua baja: frame 1."
+    "t": "15-19",
+    "beat": "IQ 5469 (4 s, sin aplauso): mirada a la boquilla y la botella (1 s), vierte y sube el agua (1 s), whoosh y pelota bailando (1 s), corte y plop (1 s)."
    }
   ],
   "levels": [
    {
     "iq": -450,
-    "gag": "Ya con todo el brazo metido en el tubo hasta el hombro y la mejilla aplastada contra el cristal (frame 1), mueve los dedos a un palmo de la pelota roja; cada vez que casi la toca, la pelota rueda un poco (boing); tira del brazo y sale con un pop como un corcho; cae sentado. La botella de agua azul sigue de pie a sus pies.",
+    "gag": "Ya con el brazo opaco metido en el tubo hasta el hombro y la mejilla aplastada contra el cristal de borde marcado (frame 1), mueve los dedos a un palmo de la pelota roja; cada vez que casi la toca, la pelota rueda un poco (boing); tira y sale con un pop como un corcho; cae sentado. En el suelo: la botella azul a sus pies y, sobre la boca del tubo, una boquilla de fuente metalica sin agua.",
     "por_que_es_gracioso": "Es una imagen absurda y concreta: la cara aplastada en el cristal y la pelota que se escurre siempre un palmo."
    },
    {
@@ -52,8 +52,8 @@
    },
    {
     "iq": 5469,
-    "gag": "Se queda mirando la botella de agua azul junto a sus pies (visible desde el frame 1), la coge y vierte un chorrito: el agua azul sube por el tubo y la pelota roja flota y sube con ella; al llegar a la boca el tubo se revela como surtidor: un chorro la lanza al aire (whoosh) y la pelota baila sobre la columna de agua (tada) mientras él aplaude. El chorro se apaga, la pelota cae de nuevo al tubo (plop) y el agua baja: frame 1.",
-    "por_que_es_gracioso": "La solución estaba junto a él todo el rato, y el giro es que el tubo era un surtidor que se queda con la pelota: bucle."
+    "gag": "Mira la boquilla seca sobre el tubo (visible desde el frame 1: es una fuente de parque sin agua) y luego la botella azul a sus pies; vierte un chorrito: el agua sube, la pelota flota y la fuente se reactiva (whoosh); el chorro lanza la pelota y baila 1 s sobre la columna; el agua se corta y la pelota cae al tubo (plop). Frame 1.",
+    "por_que_es_gracioso": "La botella y la boquilla estaban ahi desde el principio: era una fuente sin agua, no un tubo; el agua la reactiva y se queda la pelota."
    }
   ],
   "clips": [
@@ -94,11 +94,11 @@
     ]
    ]
   ],
-  "payoff": "La botella estaba a sus pies desde el primer segundo; el tubo es un surtidor y la pelota vuelve a caer: bucle.",
-  "sin_palabras": "Tubo transparente con pelota roja al fondo, botella azul en el suelo y un hombre con el brazo dentro: se lee en 1 s; remate sonoro: whoosh del chorro, tada y plop.",
-  "needs": "Tubo = cylinder semitransparente ancho (cabe un brazo) con pmat alpha, pelota = uv_sphere roja (alto contraste con agua azul saturada y suelo gris claro), botella = cylinder azul con tapon, visible a los pies desde el frame 1; agua = cylinder azul con scale z animada dentro del tubo; chorro = cylinder azul fino que sube sobre la boca con la pelota encima (accion nueva sencilla, S.key); palo, percha, chicle = cylinders/uv_sphere. Cues: pop, boing, clunk, whoosh, tada, splash (plop). Clips Mixamo existentes.",
-  "hook": "Brazo metido hasta el hombro en un tubo de cristal con pelota roja y botella azul a sus pies, frame 1.",
-  "twist": "El agua sube la pelota y el tubo es un surtidor que la lanza y se la traga otra vez.",
+  "payoff": "La boquilla y la botella estaban ahi desde el frame 1; la fuente seca se reactiva y la pelota vuelve: bucle.",
+  "sin_palabras": "Fuente de cristal seca con boquilla y pelota roja al fondo, botella azul en el suelo: se lee en 1 s; remate sonoro: whoosh, plop.",
+  "needs": "Tubo = cylinder semitransparente ancho con borde marcado (anillo opaco arriba y abajo), brazo siempre opaco (sin alpha), boquilla = cone metalico sobre la boca, pelota = uv_sphere roja, botella azul visible a los pies desde frame 1, agua = cylinder azul con scale z animada, chorro = cylinder azul fino con la pelota encima (S.key). Cues: pop, boing, clunk, whoosh, plop. Clips existentes.",
+  "hook": "Brazo opaco en una fuente de cristal seca con pelota roja, botella azul a los pies y boquilla arriba, frame 1.",
+  "twist": "La fuente seca se reactiva con el agua de la botella y se queda con la pelota.",
   "why_retains": "Remate 'estaba ahí todo el rato' (botella) y bucle visual de surtidor con pelota; recompensa sonora clara.",
   "series_potential": "alto: serie 'Every IQ Level...' con física cotidiana.",
   "tags": [
