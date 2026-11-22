@@ -41,3 +41,7 @@ primer segundo, mejor audio y caras más realistas (petición del usuario).
 - Bench sigue empujado: 185 vistas/60 min. Piscina 29, Picnic 28, Bell 15.
 - Decisión: bus (ep014) NO se sube aún; se respeta la regla de 24 h tras la piscina (hipótesis Vending: subir encima de otro corta el empuje).
 - Corrección (usuario): el 20-nov se subieron 4 vídeos (Bell, Picnic, Bench, Vending); Vending fue el 4.º del día, no el 2.º. Bench fue el 3.º y aun así despegó. Hipótesis revisada: el problema es amontonar muchas subidas el mismo día (3-4), no dos separadas varias horas. Regla nueva: máximo 1-2 Shorts al día, al menos ~6-8 h entre ellos. Bus se sube ~9 h después de la piscina.
+
+## 2026-11-22 11:07 (usuario)
+- Bus (ep014, niveles IQ, subido ~9 h después de la piscina): 24.090 vistas a 17 h, 71,2 % se quedan, +3 subs. Curva en escalones, aplanándose al final. Confirma: subir 2.º vídeo del día con ~9 h de margen NO frenó nada. Formato niveles IQ = Bell (72 %) y Bus (71 %) > mini-historias (piscina 42 %).
+- Picnic (ep011) revive: 122 vistas/60 min.
