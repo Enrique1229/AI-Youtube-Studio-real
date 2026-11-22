@@ -1,0 +1,78 @@
+[
+  {
+    "id": "b20261122-2-i01",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 5,
+      "visual": 8,
+      "emotion": 5,
+      "ending": 7,
+      "series": 6,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 4
+    },
+    "why": "Es la que mejor encaja en 9:16 (tubo vertical, pelota roja, agua que sube: los cinco gags se entienden sin palabras y el flotar es una recompensa visual y sonora clara), pero el truco de la pelota flotante es un acertijo muy conocido, el nivel -450 (aspirar) es abstracto y la botella solo aparece en el ultimo nivel, asi que el remate no es 'estaba ahi todo el rato'.",
+    "improve": "Dejar la botella de agua visible junto al hombre desde el frame 1 (como el pasador o la caja en otras ideas) para que el remate se pague como el de Bell, y cuidar que la pelota roja y el agua azul contrasten dentro del tubo semitransparente.",
+    "vps": 57.4
+  },
+  {
+    "id": "b20261122-2-i04",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 4,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 8,
+      "series": 5,
+      "differentiation": 3,
+      "production_difficulty": 6,
+      "repetition_risk": 7
+    },
+    "why": "El remate del poste abatible con creak lento es el mas satisfactorio del lote y replica el patron ganador de Bell (objetivo arriba, escalada, 'estaba ahi todo el rato'), pero es casi el mismo episodio (poste alto en un parque con un premio arriba, caja apilada, trepar) y la regla de variedad lo penaliza; ademas el pasador rojo es diminuto en vertical y Climbing Up Wall no es trepar un poste.",
+    "improve": "Pasar studio.py similar contra ep010 (Bell) antes de producir; si sigue, cambiar el entorno a una feria con carteles y hacer el pasador y la bisagra grandes y rojos, con un cartel de flecha o un pie que lo toca en el frame 1, y sustituir el clip de trepar por uno de abrazar el poste.",
+    "vps": 51.3
+  },
+  {
+    "id": "b20261122-2-i02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 5,
+      "retention": 6,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 7,
+      "repetition_risk": 5
+    },
+    "why": "Abrazar una nuez gigante es un frame 1 absurdo y fuerte, pero la logica del remate flojea (si soltarla desde el arbol ya la rompe en el nivel 900, el coche solo es mas de lo mismo), la grieta fina del nivel 120 no se lee en pantalla pequena, 'interior intacto' tras un coche es inverosimil y el bucle con otra nuez que cae del coche es arbitrario; produccion cara (coche con timing, paso de peatones, arbol, nuez partida) y calle parecida al bus de ep014.",
+    "improve": "Hacer que el nivel 900 falle (la nuez rebota del suelo sin romperse) para que el coche sea la unica solucion, mostrar el coche aparcado o la calle con trafico desde el frame 1, y cerrar el bucle volviendo a abrazar la nuez, no con otra que cae.",
+    "vps": 50.3
+  },
+  {
+    "id": "b20261122-2-i03",
+    "scores": {
+      "hook": 6,
+      "curiosity": 5,
+      "retention": 7,
+      "originality": 4,
+      "visual": 7,
+      "emotion": 7,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 4,
+      "production_difficulty": 6,
+      "repetition_risk": 6
+    },
+    "why": "El gato y la caja de cartón se entienden al instante y el salto es compartible, pero 'a los gatos les gustan las cajas' es un meme que casi todo el mundo preve, el gato es un objeto pequeno y lejano en 9:16 y esta hecho de primitivas (riesgo de verse feo junto al humano Mixamo), y el gag del paraguas con una hoja es floja; parque y arbol cercanos a Bell.",
+    "improve": "Poner el gato grande y en primer plano en la rama del frame 1 con una cola que se mueve y la caja claramente visible, eliminar el gag de la hoja (nivel -80) por uno visual mas fuerte y comprobar el gato con una prueba de render antes de escribir el guion.",
+    "vps": 50.1
+  }
+]

@@ -1,0 +1,449 @@
+[
+ {
+  "id": "b20261122-2-i01",
+  "format": "short",
+  "kind": "anim",
+  "env": "plaza con pavimento (calle, tubo de cristal clavado en el suelo)",
+  "title_en": "Every IQ Level Gets the Ball Out of the Glass Tube",
+  "caption_en": null,
+  "logline_es": "Un tubo de cristal clavado en el suelo de una plaza tiene una pelota roja en el fondo; el hombre intenta aspirarla, pescarla con un palo grueso y con chicle; el más listo vierte agua de su botella y la pelota flota hasta la boca.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho: Ya agachado sobre la boca del tubo (frame 1), aspira con todas sus fuerzas para chupar la pelota; mejillas hundidas, la pelota ni se mueve; suelta el aire con un pop y se marea."
+   },
+   {
+    "t": "3-7",
+    "beat": "IQ -80: Mete un palo demasiado grueso que se atasca a medio tubo; tira, el palo sale de golpe (clunk) y le da en la barbilla; la pelota sigue abajo."
+   },
+   {
+    "t": "7-11",
+    "beat": "IQ 120: Baja un palo con chicle: engancha la pelota, la sube hasta el borde y se despega; la pelota rebota (boing) en su cabeza y cae al fondo; a la segunda la agarra tembloroso."
+   },
+   {
+    "t": "11-15",
+    "beat": "IQ 900: Baja con cuidado una percha doblada en gancho, lengua fuera; engancha y sube la pelota en silencio; la saca limpia (pop) y sonríe sudando."
+   },
+   {
+    "t": "15-19",
+    "beat": "IQ 5469: Mira su botella de agua, vierte un chorrito en el tubo; el agua sube y la pelota flota hacia arriba y sale por la boca con un pop y un boing que rebota en su cabeza y cae de nuevo al tubo (bucle)."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya agachado sobre la boca del tubo (frame 1), aspira con todas sus fuerzas para chupar la pelota; mejillas hundidas, la pelota ni se mueve; suelta el aire con un pop y se marea.",
+    "por_que_es_gracioso": "Cree que la pelota sube si tiene ganas suficientes."
+   },
+   {
+    "iq": -80,
+    "gag": "Mete un palo demasiado grueso que se atasca a medio tubo; tira, el palo sale de golpe (clunk) y le da en la barbilla; la pelota sigue abajo.",
+    "por_que_es_gracioso": "Su herramienta tiene lógica de fontanero y encaje de gigante."
+   },
+   {
+    "iq": 120,
+    "gag": "Baja un palo con chicle: engancha la pelota, la sube hasta el borde y se despega; la pelota rebota (boing) en su cabeza y cae al fondo; a la segunda la agarra tembloroso.",
+    "por_que_es_gracioso": "Funciona a duras penas: la pelota casi se escapa dos veces."
+   },
+   {
+    "iq": 900,
+    "gag": "Baja con cuidado una percha doblada en gancho, lengua fuera; engancha y sube la pelota en silencio; la saca limpia (pop) y sonríe sudando.",
+    "por_que_es_gracioso": "Funciona bien, pero con una concentración de cirujano."
+   },
+   {
+    "iq": 5469,
+    "gag": "Mira su botella de agua, vierte un chorrito en el tubo; el agua sube y la pelota flota hacia arriba y sale por la boca con un pop y un boing que rebota en su cabeza y cae de nuevo al tubo (bucle).",
+    "por_que_es_gracioso": "Nadie pensó en subir la pelota subiendo el suelo."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Picking Up",
+     "Angry"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Picking Up",
+     "Angry"
+    ]
+   ],
+   [
+    120,
+    [
+     "Picking Up",
+     "Thinking"
+    ]
+   ],
+   [
+    900,
+    [
+     "Picking Up",
+     "Victory"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Looking Around",
+     "Picking Up",
+     "Laughing"
+    ]
+   ]
+  ],
+  "payoff": "El tubo se llena de agua y la pelota sube sola; vuelve a caer dentro: bucle.",
+  "sin_palabras": "Tubo transparente con pelota roja al fondo y un hombre agachado: se lee en 1 s; la pelota que sube flotando es la recompensa visual y sonora (pop, boing).",
+  "needs": "Tubo = cylinder semitransparente (pmat con alpha) clavado en el suelo; pelota = uv_sphere roja que sube con S.key; agua = cylinder azul con scale z animada dentro del tubo (accion nueva sencilla); palo, percha = cylinders finos; botella = cylinder. Cues: pop, clunk, boing, whoosh. Clips Mixamo existentes.",
+  "hook": "Pelota roja atrapada en un tubo de cristal y un hombre agachado ya aspirando, frame 1.",
+  "twist": "El agua sube la pelota: solución lateral con física real (flotación).",
+  "why_retains": "Bucle: la pelota vuelve a caer al tubo; escalada de ingenio con recompensa sonora (pop/boing).",
+  "series_potential": "alto: serie 'Every IQ Level...' con física cotidiana.",
+  "tags": [
+   "comedia fisica",
+   "niveles IQ",
+   "sin dialogo"
+  ],
+  "audience": null,
+  "riesgo_copia": "bajo: truco de la pelota flotante es conocimiento común, no de un canal concreto.",
+  "diferencia": "Objeto bajo el suelo (no alto), solución por flotación, sin apertura de válvula ni cuerda."
+ },
+ {
+  "id": "b20261122-2-i02",
+  "format": "short",
+  "kind": "anim",
+  "env": "calle con paso de peatones y una farola, árbol al lado",
+  "title_en": "Every IQ Level Cracks the Giant Walnut",
+  "caption_en": null,
+  "logline_es": "Un hombre abraza una nuez gigante e intenta abrirla apretando, estrellándola contra una farola, con una piedra y desde lo alto de un árbol; el más listo la deja en el paso de peatones y deja que un coche la parta al pasar.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho: Ya abrazando la nuez gigante (frame 1), la aprieta con una cara roja que hace crujir (creak); se agota y la nuez sigue intacta; se queda colgando de ella como un oso."
+   },
+   {
+    "t": "3-7",
+    "beat": "IQ -80: Lanza la nuez (Throw) contra una farola para romperla; rebota (boing) y le da en la frente (hit); queda sentado, mareado, abrazando una nuez sin un rasguño."
+   },
+   {
+    "t": "7-11",
+    "beat": "IQ 120: Coge una piedra (Picking Up) y golpea la nuez muchas veces; aparece una grieta diminuta; la sigue golpeando hasta que se hace del grosor de un pelo; se frota el dedo golpeado."
+   },
+   {
+    "t": "11-15",
+    "beat": "IQ 900: Sube a un árbol (Climbing Up Wall) con la nuez a cuestas y la suelta desde una rama sobre el pavimento: crack enorme y mitades que saltan; baja agotado."
+   },
+   {
+    "t": "15-19",
+    "beat": "IQ 5469: Deja la nuez en el paso de peatones y retrocede un paso; pasa un coche (whoosh) y el crack suena a lo grande; recoge el interior intacto y levanta los brazos (Victory). Bucle: del coche cae otra nuez gigante en sus brazos y sigue calle abajo."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya abrazando la nuez gigante (frame 1), la aprieta con una cara roja que hace crujir (creak); se agota y la nuez sigue intacta; se queda colgando de ella como un oso.",
+    "por_que_es_gracioso": "Cree que es cuestión de apretar más fuerte."
+   },
+   {
+    "iq": -80,
+    "gag": "Lanza la nuez (Throw) contra una farola para romperla; rebota (boing) y le da en la frente (hit); queda sentado, mareado, abrazando una nuez sin un rasguño.",
+    "por_que_es_gracioso": "Su método de romperla se la devuelve a la cara."
+   },
+   {
+    "iq": 120,
+    "gag": "Coge una piedra (Picking Up) y golpea la nuez muchas veces; aparece una grieta diminuta; la sigue golpeando hasta que se hace del grosor de un pelo; se frota el dedo golpeado.",
+    "por_que_es_gracioso": "Funciona a duras penas: una grieta del tamaño de una pestaña."
+   },
+   {
+    "iq": 900,
+    "gag": "Sube a un árbol (Climbing Up Wall) con la nuez a cuestas y la suelta desde una rama sobre el pavimento: crack enorme y mitades que saltan; baja agotado.",
+    "por_que_es_gracioso": "Funciona de maravilla pero con una expedición de montañista."
+   },
+   {
+    "iq": 5469,
+    "gag": "Deja la nuez en el paso de peatones y retrocede un paso; pasa un coche (whoosh) y el crack suena a lo grande; recoge el interior intacto y levanta los brazos (Victory).",
+    "por_que_es_gracioso": "Resuelve el problema sin hacer fuerza: el mundo ya rompe cosas."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Angry",
+     "Sitting Idle"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Throw",
+     "Sitting Idle"
+    ]
+   ],
+   [
+    120,
+    [
+     "Picking Up",
+     "Angry"
+    ]
+   ],
+   [
+    900,
+    [
+     "Climbing Up Wall",
+     "Jumping",
+     "Laughing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Looking Around",
+     "Picking Up",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "El coche abre la nuez que ninguna fuerza había abierto.",
+  "sin_palabras": "Nuez enorme abrazada por un hombre que aprieta: se lee en 1 s; el crack final es la recompensa sonora.",
+  "needs": "Nuez = uv_sphere marrón grande que se parte en dos medias esferas con S.key; coche = cube + 2 cylinders ruedas (como el bus de ep014) que pasa por el paso de peatones (cube plano blanco); piedra = ico_sphere; farola y árbol ya existen en el parque. Cues: creak, hit, boing, whoosh, clunk, tada. Clips existentes.",
+  "hook": "Hombre abrazando una nuez gigante con cara de esfuerzo en el frame 1.",
+  "twist": "El coche, no él, rompe la nuez.",
+  "why_retains": "Escalada de métodos con crujidos y remate sonoro; bucle con otra nuez.",
+  "series_potential": "alto: otros objetos imposibles de abrir.",
+  "tags": [
+   "comedia fisica",
+   "niveles IQ",
+   "sin dialogo"
+  ],
+  "audience": null,
+  "riesgo_copia": "bajo: nuez gigante y paso de peatones no aparecen en canales conocidos del formato.",
+  "diferencia": "Rompe algo (no abre válvula ni alcanza altura); solución usa tráfico sin que el protagonista se plante delante."
+ },
+ {
+  "id": "b20261122-2-i03",
+  "format": "short",
+  "kind": "anim",
+  "env": "parque con un árbol de rama baja y una caja de cartón junto al tronco",
+  "title_en": "Every IQ Level Gets the Cat Out of the Tree",
+  "caption_en": null,
+  "logline_es": "Un gato está en lo alto de un árbol; el hombre le maúlla, le pone un paraguas de red, trepa y usa una escalera; el más listo se sienta en una caja de cartón y el gato salta dentro.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho: Ya bajo el árbol con las manos en la boca (frame 1), maulla bien fuerte hacia el gato; el gato le da la espalda y se lame la pata; se enfada y maúlla más fuerte."
+   },
+   {
+    "t": "3-7",
+    "beat": "IQ -80: Abre un paraguas del revés bajo el gato como red de seguridad y le hace gestos; el gato mira, bosteza; cae una hoja (boing) dentro del paraguas."
+   },
+   {
+    "t": "7-11",
+    "beat": "IQ 120: Trepa al árbol (Climbing Up Wall); el gato le salta por encima de la cabeza (whoosh), baja y se va andando; él se queda abrazado a la rama, temblando."
+   },
+   {
+    "t": "11-15",
+    "beat": "IQ 900: Trae una escalera de cubos, sube con calma y baja al gato en brazos entre arañazos amistosos (tada); el gato se acurruca."
+   },
+   {
+    "t": "15-19",
+    "beat": "IQ 5469: Se mete en la caja de cartón que estaba junto al tronco desde el frame 1 y se sienta; el gato salta en un segundo desde lo alto directo a la caja (pop), se ovilla; él levanta los brazos. Bucle: el gato sale de la caja y vuelve a subir al árbol."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya bajo el árbol con las manos en la boca (frame 1), maulla bien fuerte hacia el gato; el gato le da la espalda y se lame la pata; se enfada y maúlla más fuerte.",
+    "por_que_es_gracioso": "Cree que el gato entiende su idioma."
+   },
+   {
+    "iq": -80,
+    "gag": "Abre un paraguas del revés bajo el gato como red de seguridad y le hace gestos; el gato mira, bosteza; cae una hoja (boing) dentro del paraguas.",
+    "por_que_es_gracioso": "Preparó la red pero no el motivo para saltar."
+   },
+   {
+    "iq": 120,
+    "gag": "Trepa al árbol (Climbing Up Wall); el gato le salta por encima de la cabeza (whoosh), baja y se va andando; él se queda abrazado a la rama, temblando.",
+    "por_que_es_gracioso": "Resuelve el problema del gato y crea otro peor."
+   },
+   {
+    "iq": 900,
+    "gag": "Trae una escalera de cubos, sube con calma y baja al gato en brazos entre arañazos amistosos (tada); el gato se acurruca.",
+    "por_que_es_gracioso": "Funciona bien: la escalera de siempre."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se mete en la caja de cartón que estaba junto al tronco desde el frame 1 y se sienta; el gato salta en un segundo desde lo alto directo a la caja (pop), se ovilla; él levanta los brazos. Bucle: el gato sale de la caja y vuelve a subir al árbol.",
+    "por_que_es_gracioso": "Aprovecha que a un gato no se le baja: se le ofrece una caja."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Waving",
+     "Angry"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Waving",
+     "Thinking"
+    ]
+   ],
+   [
+    120,
+    [
+     "Climbing Up Wall",
+     "Looking Around"
+    ]
+   ],
+   [
+    900,
+    [
+     "Picking Up",
+     "Climbing Up Wall",
+     "Victory"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Sitting Idle",
+     "Laughing",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "La caja de cartón estaba a su lado todo el rato.",
+  "sin_palabras": "Gato pequeño en lo alto de un árbol con un hombre mirando arriba: se lee en 1 s; el salto del gato a la caja es el remate.",
+  "needs": "Gato = uv_sphere + cones orejas + cylinder cola con S.key; paraguas = cone + cylinder; escalera = cylinders + cubes; caja = cube abierto. Acción nueva sencilla: salto del gato (S.key BEZIER). Cues: pop, whoosh, boing, tada. Clips existentes.",
+  "hook": "Gato en la rama alta y hombre maullando, frame 1; caja de cartón visible junto al tronco.",
+  "twist": "A un gato no se le baja: se le ofrece una caja.",
+  "why_retains": "Bucle: el gato vuelve a subir; escalada con remate muy compartible.",
+  "series_potential": "medio: más problemas con animales cotidianos.",
+  "tags": [
+   "comedia fisica",
+   "niveles IQ",
+   "sin dialogo"
+  ],
+  "audience": null,
+  "riesgo_copia": "medio: gato en el árbol es cliché genérico, no un gag de un canal concreto.",
+  "diferencia": "Remate por la caja de cartón, no por la comida; el nivel 3 empeora al protagonista."
+ },
+ {
+  "id": "b20261122-2-i04",
+  "format": "short",
+  "kind": "anim",
+  "env": "parque / feria con césped, árbol cercano",
+  "title_en": "Every IQ Level Climbs the Greasy Pole",
+  "caption_en": null,
+  "logline_es": "Un trofeo dorado cuelga en lo alto de un poste engrasado; el hombre se resbala, se ata con una cuerda, se frota con arena y apila cajas; el más listo saca el pasador de la base y el poste se abate como un puente levadizo.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho: Ya agarrado al poste engrasado (frame 1), sube un metro y resbala (slide_down); repite sin parar, cada vez menos arriba, con cara de determinación creciente."
+   },
+   {
+    "t": "3-7",
+    "beat": "IQ -80: Se ata una cuerda a la cintura y a un árbol para ayudarse; sube dos pasos, la cuerda se tensa y lo catapulta hacia el árbol; queda abrazado al tronco (hit)."
+   },
+   {
+    "t": "7-11",
+    "beat": "IQ 120: Se frota las manos con arena de un cubo (Picking Up) y trepa mucho más; llega a la mitad, resbala despacio con un chirrido y se detiene medio colgando; cuelga ahí jadeando."
+   },
+   {
+    "t": "11-15",
+    "beat": "IQ 900: Apila tres cajas junto al poste (clunk x3), trepa y agarra el trofeo de un salto (Jumping); cae con él en brazos (tada)."
+   },
+   {
+    "t": "15-20",
+    "beat": "IQ 5469: Ve el pasador rojo de la base (visible desde el frame 1), lo saca y el poste se abate lento como un puente levadizo (creak largo) hasta dejar el trofeo a la altura de su mano; lo coge con un dedo (clunk, tada). Bucle: levanta el poste con un empujón y vuelve a clavar el pasador."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya agarrado al poste engrasado (frame 1), sube un metro y resbala (slide_down); repite sin parar, cada vez menos arriba, con cara de determinación creciente.",
+    "por_que_es_gracioso": "No aprende: cada intento acaba más abajo."
+   },
+   {
+    "iq": -80,
+    "gag": "Se ata una cuerda a la cintura y a un árbol para ayudarse; sube dos pasos, la cuerda se tensa y lo catapulta hacia el árbol; queda abrazado al tronco (hit).",
+    "por_que_es_gracioso": "Su plan de seguridad es la causa del choque."
+   },
+   {
+    "iq": 120,
+    "gag": "Se frota las manos con arena de un cubo (Picking Up) y trepa mucho más; llega a la mitad, resbala despacio con un chirrido y se detiene medio colgando; cuelga ahí jadeando.",
+    "por_que_es_gracioso": "Funciona a duras penas: sube a medias."
+   },
+   {
+    "iq": 900,
+    "gag": "Apila tres cajas junto al poste (clunk x3), trepa y agarra el trofeo de un salto (Jumping); cae con él en brazos (tada).",
+    "por_que_es_gracioso": "Funciona bien: ingeniería de cajas."
+   },
+   {
+    "iq": 5469,
+    "gag": "Ve el pasador rojo de la base (visible desde el frame 1), lo saca y el poste se abate lento como un puente levadizo (creak largo) hasta dejar el trofeo a la altura de su mano; lo coge con un dedo (clunk, tada). Bucle: levanta el poste con un empujón y vuelve a clavar el pasador.",
+    "por_que_es_gracioso": "El poste nunca fue un problema: estaba articulado en la base."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Climbing Up Wall",
+     "Angry"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Climbing Up Wall",
+     "Angry"
+    ]
+   ],
+   [
+    120,
+    [
+     "Picking Up",
+     "Climbing Up Wall"
+    ]
+   ],
+   [
+    900,
+    [
+     "Pushing",
+     "Jumping",
+     "Victory"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Looking Around",
+     "Picking Up",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "El poste se abatía por una bisagra y un pasador visibles desde el principio.",
+  "sin_palabras": "Trofeo dorado en lo alto de un poste muy alto y un hombre que intenta trepar: se lee en 1 s; el chirrido del poste al caer y el tada son la recompensa.",
+  "needs": "Poste = cylinder largo con pivote (S.empty en la base) que rota con S.key; pasador = cylinder rojo pequeño; trofeo = cone + uv_sphere dorados; cuerda, cubo y cajas = cylinder/cube. Accion nueva sencilla: abatir poste (rotacion en la base, BEZIER lento + cue creak). Clips existentes.",
+  "hook": "Trofeo dorado arriba y hombre abrazado al poste resbalando, frame 1; pasador rojo visible en la base.",
+  "twist": "El poste es abatible.",
+  "why_retains": "Bucle: levanta el poste y vuelve a poner el pasador; creak final claro.",
+  "series_potential": "medio: pruebas de feria absurdas.",
+  "tags": [
+   "comedia fisica",
+   "niveles IQ",
+   "sin dialogo"
+  ],
+  "audience": null,
+  "riesgo_copia": "bajo: poste engrasado es juego tradicional; el abatible es propio.",
+  "diferencia": "Solución mecánica de bisagra (no cuerda ni válvula); recompensa de creak lento y tada."
+ }
+]
