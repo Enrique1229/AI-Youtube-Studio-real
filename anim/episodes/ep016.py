@@ -502,6 +502,19 @@ def tune_phase(w, pts, cands, margin=0.05):
     return best[1]
 
 
+def prune_horses(S, w, a, n, tilted=lambda f: False):
+    """Quita (escala 0) el caballito que choque con alguna trayectoria del personaje en este nivel; el resto se queda."""
+    pts = collect_pts(S, a, 1, n); drop = set()
+    for f, L in pts.items():
+        for (nm, r, p) in L:
+            for x in solids_hit(p, r, f, tilted(f)):
+                if x.startswith("caballo"): drop.add(int(x[7:]))
+    for k in drop:
+        w.horses[CUR.horses.index(k)].scale = (0.0, 0.0, 0.0)
+    CUR.horses = [k for k in CUR.horses if k not in drop]
+    print(f"CABALLITOS en este nivel: {CUR.horses} (quitados por chocar con su trayectoria: {sorted(drop)})")
+
+
 def audit_parent(S, a, tag, f0, f1, check, f_from=0):
     """La raíz emparentada al disco debe acabar donde el nivel la quiere en el MUNDO: check(f) -> Vector mundo; imprime el error máximo."""
     if os.environ.get("EP016_NOAUDIT"): return
@@ -542,6 +555,7 @@ def l1(S):
     for f in (1, 25, 49, 73): S.cue("whoosh", f, vol=-17)
     S.cue("huh", f_h - 8, vol=-7); S.cue("hit", f_h, vol=-3); S.cue("whoosh", f_h + 2, vol=-4); S.cue("oof", f_h + 3, vol=-6)
     S.cue("hmm", f_h + 36, vol=-5); S.cue("wahwah", f_h + 46, vol=-8)
+    prune_horses(S, w, a, N + 10)
     S.f = N
     a.verify(S.f)
     faces(a, [(1, "enfado", 0.5), (f_h - 8, "sorpresa", 1.0), (f_h + 12, "sorpresa", 0.6), (f_h + 26, "enfado", 1.0)], N, first_blink=12, every=40)
@@ -615,6 +629,7 @@ def l2(S):
     S.cue("whoosh", 1, vol=-10); S.cue("huh", f_g - 4, vol=-7); S.cue("creak", f_g + 1, vol=-8); S.cue("whoosh", f_g + 6, vol=-5)
     S.cue("pop", f_r, vol=-8); S.cue("hit", f_L, vol=-2); S.cue("oof", f_L + 1, vol=-5); S.cue("whoosh", f_L + 3, vol=-12)
     S.cue("wahwah", f_L + 36, vol=-8)
+    prune_horses(S, w, a, N + 10)
     S.f = N
     a.verify(S.f)
     faces(a, [(1, "enfado", 0.4), (f_g - 6, "sorpresa", 0.7), (f_r - 6, "sorpresa", 1.0), (f_L + 2, "enfado", 0.7), (f_L + 30, "neutra", 1.0)], N, first_blink=10, every=34)
@@ -681,6 +696,7 @@ def l3(S):
     S.cue("whoosh", 1, vol=-14); S.cue("huh", f_c - 2, vol=-8); S.cue("boing", f_t, vol=-9); S.cue("hit", f_L, vol=-6); S.cue("whoosh", f_L + 2, vol=-9)
     S.cue("clunk", f_w, vol=-6); S.cue("creak", f_w + 8, vol=-7); S.cue("huh", f_w + 20, vol=-9); S.cue("hmm", f_w + 44, vol=-7)
     S.cue("wahwah", f_w + 62, vol=-9)
+    prune_horses(S, w, a, N + 10)
     S.f = N
     a.verify(S.f)
     faces(a, [(1, "neutra", 1.0), (f_c - 2, "enfado", 0.6), (f_t, "sorpresa", 0.6), (f_L + 2, "sorpresa", 1.0), (f_w + 6, "sorpresa", 0.8), (f_w + 50, "enfado", 0.5)],
@@ -736,6 +752,7 @@ def l4(S):
     pin_feet(S, a, 1, f_end, lambda f: arc(f) + (TOP if f >= f_L - 2 else 0.0))
     S.cue("whoosh", 1, vol=-12); S.cue("boing", f_t, vol=-10); S.cue("pop", f_L, vol=-6); S.cue("bell", f_L + 2, vol=-8)
     S.cue("laugh", f_L + 22, vol=-6); S.cue("sigh", f_L + 60, vol=-12)
+    prune_horses(S, w, a, N + 10)
     S.f = N
     a.verify(S.f)
     faces(a, [(1, "enfado", 0.4), (f_t, "sorpresa", 0.5), (f_L + 2, "feliz", 1.0), (f_L + 40, "feliz", 1.0), (f_L + 70, "neutra", 0.5)], N, first_blink=14, every=44)
@@ -820,6 +837,7 @@ def l5(S):
     S.cue("riser", f_go - 6, vol=-4); S.cue("whoosh", f_go + 6, vol=-5); S.cue("tada", f_peak, vol=-3); S.cue("yay", f_peak + 4, vol=-4)
     S.cue("pop", f_peak + 14, vol=-8); S.cue("pop", f_peak + 18, vol=-8); S.cue("pop", f_peak + 21, vol=-8)
     S.cue("clunk", f_brake + 12, vol=-3); S.cue("hmm", f_brake + 22, vol=-8)
+    prune_horses(S, w, a, N + 10, tilted=lambda f: f >= f_go + 14)
     S.f = N
     a.verify(S.f)
     faces(a, [(1, "neutra", 1.0), (f_look - 3, "sorpresa", 0.6), (f_look + 6, "feliz", 0.5), (f_x + 8, "neutra", 1.0), (f_sit, "neutra", 1.0), (f_press, "sorpresa", 0.6),

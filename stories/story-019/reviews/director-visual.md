@@ -17,3 +17,6 @@ Gags 1-4: se intuyen, pero a este tamaño cuesta leerlos sin pausar.
 - Final del nivel 5: la cara queda al 58-62 % del alto, fuera de la interfaz de Shorts, con el banderín ondeando detrás.
 - Tiovivo: con las barandillas curvas y los asientos de colores ya se reconoce como tiovivo de parque (lo pidió el usuario). Los asientos son cubos simples; se acepta.
 - Los gags 1-5 se entienden sin palabras. No se ve nada que atraviese el suelo.
+
+## Caballitos (lo pidió el usuario): PASA
+Los caballitos de colores giran con el disco y suben y bajan, así que el tiovivo ya se lee como carrusel. Los cuellos largos hacen que parezcan algo jirafa, pero se acepta. En los fotogramas no se ve ninguna intersección con el personaje.
