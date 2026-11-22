@@ -1,0 +1,909 @@
+[
+ {
+  "id": "b20261122-3-i01",
+  "format": "short",
+  "kind": "anim",
+  "env": "parque (césped, escenario de env_real)",
+  "title_en": "Every IQ Level Sets Up the Tent",
+  "caption_en": null,
+  "logline": "Un hombre intenta montar una tienda de campaña con estacas y varillas; el más listo lanza al aire la bolsa redonda, como indica la flecha dibujada en ella, y la tienda se abre sola.",
+  "logline_es": "Un hombre intenta montar una tienda de campaña con estacas y varillas; el más listo lanza al aire la bolsa redonda, como indica la flecha dibujada en ella, y la tienda se abre sola.",
+  "hook": "Un disco naranja con una flecha curva dibujada y un hombre golpeando una estaca con la palma.",
+  "twist": "La tienda se monta al lanzarla, como decía la flecha.",
+  "why_retains": "Cada nivel monta la tienda de forma distinta y el último es un solo gesto con un FWOOMP; el bucle del pliegue invita a repetir.",
+  "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+  "tags": [
+   "comedia-fisica",
+   "niveles",
+   "parque"
+  ],
+  "audience": null,
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1). IQ -300: Ya de rodillas (frame 1) clavando una estaca con la palma; la estaca rebota con boing cada vez; la mira con rabia (Angry) y se sienta encima."
+   },
+   {
+    "t": "3-7",
+    "beat": "IQ -60: Suelta la correa del disco naranja y lo aprieta con los brazos; una mitad se abre y le envuelve como un burrito; anda a ciegas (Walking Left Turn) y choca con su propio montón de varillas: clonc."
+   },
+   {
+    "t": "7-11",
+    "beat": "IQ 150: Ensambla varillas (Picking Up); la tienda se levanta torcida y se desinfla; la sujeta con un brazo (Pushing) y crece un crujido (creak); queda en pie un instante."
+   },
+   {
+    "t": "11-15",
+    "beat": "IQ 1400: Monta la tienda con tres movimientos limpios (varillas, estacas, toldo), pop-pop-pop; entra y se ríe (Laughing)."
+   },
+   {
+    "t": "15-19",
+    "beat": "IQ 7000: Se queda mirando (Looking Around) el disco naranja que estuvo en el suelo desde el frame 1, con una flecha curva blanca dibujada que sube al cielo; lo recoge (Picking Up), lo lanza (Throw) y en el aire se abre con un FWOOMP; aterriza montada; entra con paso tranquilo y celebra (Victory). Final: la tienda se pliega sola con un pffft a disco y rueda hasta sus pies (bucle)."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -300,
+    "gag": "Ya de rodillas (frame 1) clavando una estaca con la palma; la estaca rebota con boing cada vez; la mira con rabia (Angry) y se sienta encima.",
+    "por_que_es_gracioso": "Cree que el problema es la tierra, no que use la mano."
+   },
+   {
+    "iq": -60,
+    "gag": "Suelta la correa del disco naranja y lo aprieta con los brazos; una mitad se abre y le envuelve como un burrito; anda a ciegas (Walking Left Turn) y choca con su propio montón de varillas: clonc.",
+    "por_que_es_gracioso": "Su plan de plegar y desplegar acaba con él dentro de la tienda."
+   },
+   {
+    "iq": 150,
+    "gag": "Ensambla varillas (Picking Up); la tienda se levanta torcida y se desinfla; la sujeta con un brazo (Pushing) y crece un crujido (creak); queda en pie un instante.",
+    "por_que_es_gracioso": "Funciona a duras penas: él es el poste que falta."
+   },
+   {
+    "iq": 1400,
+    "gag": "Monta la tienda con tres movimientos limpios (varillas, estacas, toldo), pop-pop-pop; entra y se ríe (Laughing).",
+    "por_que_es_gracioso": "Funciona de verdad, pero con diez segundos de trabajo."
+   },
+   {
+    "iq": 7000,
+    "gag": "Se queda mirando (Looking Around) el disco naranja que estuvo en el suelo desde el frame 1, con una flecha curva blanca dibujada que sube al cielo; lo recoge (Picking Up), lo lanza (Throw) y en el aire se abre con un FWOOMP; aterriza montada; entra con paso tranquilo y celebra (Victory). Final: la tienda se pliega sola con un pffft a disco y rueda hasta sus pies (bucle).",
+    "por_que_es_gracioso": "La instrucción estaba dibujada en la bolsa: nadie la leyó."
+   }
+  ],
+  "clips": [
+   [
+    -300,
+    [
+     "Pushing",
+     "Angry"
+    ]
+   ],
+   [
+    -60,
+    [
+     "Picking Up",
+     "Walking Left Turn"
+    ]
+   ],
+   [
+    150,
+    [
+     "Picking Up",
+     "Pushing"
+    ]
+   ],
+   [
+    1400,
+    [
+     "Picking Up",
+     "Laughing"
+    ]
+   ],
+   [
+    7000,
+    [
+     "Looking Around",
+     "Picking Up",
+     "Throw",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "La flecha de 'lanzar' estaba en la bolsa desde el primer fotograma: la tienda se monta sola al volar.",
+  "sin_palabras": "Disco naranja grande con flecha curva blanca junto a un hombre arrodillado entre estacas: se lee en 1 s.",
+  "needs": "Disco = cylinder muy plano naranja con flecha = cubes blancos en curva (visible en todos los niveles, grande); tienda = cone ancho + cube bajo con S.key scale en BOUNCE para el 'pop'; varillas = cylinders finos; estacas = cone pequeño. Sonidos: boing, pop, whoosh, creak, tada. Clips Mixamo existentes. Sin lanzar zapato (se lanza el disco).",
+  "riesgo_copia": "bajo",
+  "diferencia": "Camping con bolsa autoplegable: sin picnic, sin manta, sin campana, sin cuerda escondida; remate de 'leer la instrucción impresa' y bucle del disco que se pliega."
+ },
+ {
+  "id": "b20261122-3-i02",
+  "format": "short",
+  "kind": "anim",
+  "env": "calle (entrada de parque con setos altos; barrera nueva)",
+  "title_en": "Every IQ Level Opens the Park Gate",
+  "caption_en": null,
+  "logline": "Una barrera de brazo rojo y blanco con una cortina de barrotes cierra la entrada de un parque; el hombre empuja, embiste y trepa; el más listo cuelga de la bola de contrapeso del otro extremo y el brazo sube solo.",
+  "logline_es": "Una barrera de brazo rojo y blanco con una cortina de barrotes cierra la entrada de un parque; el hombre empuja, embiste y trepa; el más listo cuelga de la bola de contrapeso del otro extremo y el brazo sube solo.",
+  "hook": "Barrera con barrotes y un hombre empujando el brazo, con una bola negra grande detras de él.",
+  "twist": "Tirar de la bola corta levanta la barrera larga.",
+  "why_retains": "El gesto final es limpio y se oye (creak + clunk); la barrera que cae tras él invita a ver otra vez.",
+  "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+  "tags": [
+   "comedia-fisica",
+   "niveles",
+   "calle",
+   "palanca"
+  ],
+  "audience": null,
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya empujando (Pushing) con las dos manos el extremo del brazo (frame 1); el brazo ni se mueve y solo cruje; se enfada (Angry) y patalea sin tocarlo."
+   },
+   {
+    "t": "3-7",
+    "beat": "IQ -90: Toma carrerilla (Running) y embiste la cortina de barrotes; el brazo hace boing y lo devuelve; cae sentado (Falling Back Death) mareado."
+   },
+   {
+    "t": "7-11",
+    "beat": "IQ 130: Trepa por el poste del pivote (Climbing Up Wall) y gatea sobre el brazo; este se comba con un creak largo y lo deja caer al otro lado."
+   },
+   {
+    "t": "11-15",
+    "beat": "IQ 1100: Apila dos cajas (Picking Up) y salta (Jumping) limpio por encima de los barrotes; ding en el aterrizaje."
+   },
+   {
+    "t": "15-19",
+    "beat": "IQ 6000: Se detiene (Thinking), mira el otro extremo del brazo: una bola negra de contrapeso colgando a su altura, visible desde el frame 1 tras él; se cuelga de ella (Climbing A Rope), la bola baja, el brazo sube con creak y el pestillo hace clunk; pasa andando (Walking Left Turn) y levanta los brazos (Victory). Al cruzar, el brazo cae tras él con clunk y vuelve al punto de partida (bucle)."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya empujando (Pushing) con las dos manos el extremo del brazo (frame 1); el brazo ni se mueve y solo cruje; se enfada (Angry) y patalea sin tocarlo.",
+    "por_que_es_gracioso": "Empuja la parte larga del brazo, la más dura de mover."
+   },
+   {
+    "iq": -90,
+    "gag": "Toma carrerilla (Running) y embiste la cortina de barrotes; el brazo hace boing y lo devuelve; cae sentado (Falling Back Death) mareado.",
+    "por_que_es_gracioso": "Su plan tiene fuerza de toro y la lógica de un rebote."
+   },
+   {
+    "iq": 130,
+    "gag": "Trepa por el poste del pivote (Climbing Up Wall) y gatea sobre el brazo; este se comba con un creak largo y lo deja caer al otro lado.",
+    "por_que_es_gracioso": "Cruza a duras penas, pero el brazo sigue cerrado."
+   },
+   {
+    "iq": 1100,
+    "gag": "Apila dos cajas (Picking Up) y salta (Jumping) limpio por encima de los barrotes; ding en el aterrizaje.",
+    "por_que_es_gracioso": "Funciona bien, pero pasa por encima en lugar de abrir."
+   },
+   {
+    "iq": 6000,
+    "gag": "Se detiene (Thinking), mira el otro extremo del brazo: una bola negra de contrapeso colgando a su altura, visible desde el frame 1 tras él; se cuelga de ella (Climbing A Rope), la bola baja, el brazo sube con creak y el pestillo hace clunk; pasa andando (Walking Left Turn) y levanta los brazos (Victory). Al cruzar, el brazo cae tras él con clunk y vuelve al punto de partida (bucle).",
+    "por_que_es_gracioso": "Era una palanca: tirar de la parte corta levanta la larga; nadie miró detrás."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Pushing",
+     "Angry"
+    ]
+   ],
+   [
+    -90,
+    [
+     "Running",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    130,
+    [
+     "Climbing Up Wall"
+    ]
+   ],
+   [
+    1100,
+    [
+     "Picking Up",
+     "Jumping"
+    ]
+   ],
+   [
+    6000,
+    [
+     "Thinking",
+     "Climbing A Rope",
+     "Walking Left Turn",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "El contrapeso estaba a la altura de su mano: bastaba tirar de la punta corta para subir la larga.",
+  "sin_palabras": "Barrera cerrada y hombre empujando el brazo: se lee en 1 s.",
+  "needs": "Poste = cylinder; brazo = cube largo con 4 cubes rojos/blancos; barrotes = cylinders finos colgando; bola de contrapeso = uv_sphere negra grande, a la izquierda del poste y siempre a la vista (en el frame 1 aparece grande, con un destello); S.key de rotacion del brazo (BEZIER) y bajada de la bola. Sonidos: creak, clunk, hit, boing, tada. Clips existentes solamente.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Palanca con contrapeso en una barrera; sin banco, bus, campana ni poste con premio; remate fisico visible en el frame 1 y distinto de mirar al suelo."
+ },
+ {
+  "id": "b20261122-3-i03",
+  "format": "short",
+  "kind": "anim",
+  "env": "parque (zona de juegos, tiovivo de disco nuevo)",
+  "title_en": "Every IQ Level Gets On the Spinning Roundabout",
+  "caption_en": null,
+  "logline": "Un tiovivo de parque gira a toda velocidad; el hombre intenta subir corriendo y saltando; el más listo se sienta en el centro, donde el disco no se mueve.",
+  "logline_es": "Un tiovivo de parque gira a toda velocidad; el hombre intenta subir corriendo y saltando; el más listo se sienta en el centro, donde el disco no se mueve.",
+  "hook": "Un disco rojo que gira a toda velocidad y un hombre que corre a su lado.",
+  "twist": "El centro del disco no se mueve.",
+  "why_retains": "El giro continuo es hipnotico y cada fallo es un gag de fisica distinto; el final tranquilo contrasta.",
+  "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+  "tags": [
+   "comedia-fisica",
+   "niveles",
+   "parque",
+   "fisica"
+  ],
+  "audience": null,
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1). IQ -380: Ya corriendo (Running) al borde del disco que gira (frame 1); choca con la primera barra roja y sale girando como una peonza, whoosh; acaba sentado y mirándolo (Angry)."
+   },
+   {
+    "t": "3-7",
+    "beat": "IQ -70: Se agarra a una barra roja y sale volando horizontal como una bandera (Climbing A Rope); se suelta y cae rodando sobre el césped (Falling Back Death)."
+   },
+   {
+    "t": "7-11",
+    "beat": "IQ 200: Salta al disco (Jumping), resbala hasta el borde y se queda pegado y plano a una barra (Climbing Up Wall), temblando; el disco lo mantiene a duras penas."
+   },
+   {
+    "t": "11-15",
+    "beat": "IQ 950: Corre a su misma velocidad (Running) y salta (Jumping) con aterrizaje perfecto; se sienta (Sitting Idle) en el borde con el pelo volando y se ríe (Laughing)."
+   },
+   {
+    "t": "15-19",
+    "beat": "IQ 4800: Mira (Looking Around) el círculo amarillo pintado en el centro del disco, visible desde el frame 1; camina (Walking Left Turn) hasta él, sube sin esfuerzo y se sienta con las piernas cruzadas (Sitting Idle), girando suavemente como una estatua, whoosh suave y tada. Se levanta y sale a su punto de partida (bucle)."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -380,
+    "gag": "Ya corriendo (Running) al borde del disco que gira (frame 1); choca con la primera barra roja y sale girando como una peonza, whoosh; acaba sentado y mirándolo (Angry).",
+    "por_que_es_gracioso": "Cree que basta con correr más rápido que el disco."
+   },
+   {
+    "iq": -70,
+    "gag": "Se agarra a una barra roja y sale volando horizontal como una bandera (Climbing A Rope); se suelta y cae rodando sobre el césped (Falling Back Death).",
+    "por_que_es_gracioso": "Su plan tiene agarre, pero la fuerza del giro no."
+   },
+   {
+    "iq": 200,
+    "gag": "Salta al disco (Jumping), resbala hasta el borde y se queda pegado y plano a una barra (Climbing Up Wall), temblando; el disco lo mantiene a duras penas.",
+    "por_que_es_gracioso": "Funciona a duras penas: está encima pero no puede moverse."
+   },
+   {
+    "iq": 950,
+    "gag": "Corre a su misma velocidad (Running) y salta (Jumping) con aterrizaje perfecto; se sienta (Sitting Idle) en el borde con el pelo volando y se ríe (Laughing).",
+    "por_que_es_gracioso": "Funciona bien, pero acabará mareado."
+   },
+   {
+    "iq": 4800,
+    "gag": "Mira (Looking Around) el círculo amarillo pintado en el centro del disco, visible desde el frame 1; camina (Walking Left Turn) hasta él, sube sin esfuerzo y se sienta con las piernas cruzadas (Sitting Idle), girando suavemente como una estatua, whoosh suave y tada. Se levanta y sale a su punto de partida (bucle).",
+    "por_que_es_gracioso": "En el centro no hay velocidad: lo difícil estaba en el borde."
+   }
+  ],
+  "clips": [
+   [
+    -380,
+    [
+     "Running",
+     "Angry"
+    ]
+   ],
+   [
+    -70,
+    [
+     "Climbing A Rope",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    200,
+    [
+     "Jumping",
+     "Climbing Up Wall"
+    ]
+   ],
+   [
+    950,
+    [
+     "Running",
+     "Jumping",
+     "Sitting Idle",
+     "Laughing"
+    ]
+   ],
+   [
+    4800,
+    [
+     "Looking Around",
+     "Walking Left Turn",
+     "Sitting Idle",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "El centro del tiovivo no gira a velocidad: se sube y se sienta sin esfuerzo.",
+  "sin_palabras": "Tiovivo que gira muy rápido y hombre corriendo a su lado: se lee en 1 s.",
+  "needs": "Disco = cylinder plano; 4 barras = cylinders rojos; poste central y circulo amarillo = cylinder pequeno amarillo siempre visible; S.key de rotacion LINEAR continua. Sonidos: whoosh, boing, hit, tada. Clips existentes. Sin saltar a vehiculo: es un juego de parque.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Tiovivo de parque y regla fisica del centro inmovil; sin columpio, tobogan ni banco; accion de seguir una velocidad que no se ve en otros episodios."
+ },
+ {
+  "id": "b20261122-3-i04",
+  "format": "short",
+  "kind": "anim",
+  "env": "calle (coche aparcado nuevo con luces)",
+  "title_en": "Every IQ Level Silences the Car Alarm",
+  "caption_en": null,
+  "logline": "Una alarma de coche suena sin parar; el hombre la calma con gestos, la sacude y se sienta encima; el más listo recoge su llavero gigante del suelo y pulsa el botón.",
+  "logline_es": "Una alarma de coche suena sin parar; el hombre la calma con gestos, la sacude y se sienta encima; el más listo recoge su llavero gigante del suelo y pulsa el botón.",
+  "hook": "Un coche cuyas luces parpadean a la vez que suena la alarma, con un llavero rojo parpadeando en el suelo.",
+  "twist": "Un botón y se hace el silencio.",
+  "why_retains": "El contraste sonoro del silencio final es la recompensa; la alarma pegadiza engancha desde el frame 1.",
+  "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+  "tags": [
+   "comedia-fisica",
+   "niveles",
+   "calle",
+   "sonido"
+  ],
+  "audience": null,
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1). IQ -420: Ya haciendo gestos de calma (Waving) al coche, con las luces naranjas parpadeando (frame 1); la alarma sube de volumen y el pelo se le mueve con cada bocinazo."
+   },
+   {
+    "t": "3-7",
+    "beat": "IQ -75: Empuja el coche (Pushing) para sacudirlo; las luces parpadean más rápido y las bocinas se aceleran; se tapa las orejas y se enfada (Angry)."
+   },
+   {
+    "t": "7-11",
+    "beat": "IQ 160: Trepa al capó (Climbing Up Wall) y se sienta encima (Sitting Idle) con las manos en las orejas; el sonido baja un poco y vuelve en cuanto se resbala; aguanta a duras penas."
+   },
+   {
+    "t": "11-15",
+    "beat": "IQ 1200: Abre el capó (Picking Up) y arranca un cable rojo gordo: la alarma muere de golpe y chispa un poco; se limpia las manos (Victory)."
+   },
+   {
+    "t": "15-19",
+    "beat": "IQ 6200: Mira (Looking Around) el llavero gigante con un botón rojo que parpadea al ritmo de la alarma, tirado a sus pies desde el frame 1; lo recoge (Picking Up), pulsa el botón: bip-bip, silencio total y pájaros; sonríe (Laughing). Los pájaros se van y el llavero parpadea otra vez (bucle)."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -420,
+    "gag": "Ya haciendo gestos de calma (Waving) al coche, con las luces naranjas parpadeando (frame 1); la alarma sube de volumen y el pelo se le mueve con cada bocinazo.",
+    "por_que_es_gracioso": "Cree que la alarma es una mascota nerviosa."
+   },
+   {
+    "iq": -75,
+    "gag": "Empuja el coche (Pushing) para sacudirlo; las luces parpadean más rápido y las bocinas se aceleran; se tapa las orejas y se enfada (Angry).",
+    "por_que_es_gracioso": "Agitar una alarma solo la hace más fuerte."
+   },
+   {
+    "iq": 160,
+    "gag": "Trepa al capó (Climbing Up Wall) y se sienta encima (Sitting Idle) con las manos en las orejas; el sonido baja un poco y vuelve en cuanto se resbala; aguanta a duras penas.",
+    "por_que_es_gracioso": "Funciona a duras penas: tapa un poco el ruido y se queda sin orejas."
+   },
+   {
+    "iq": 1200,
+    "gag": "Abre el capó (Picking Up) y arranca un cable rojo gordo: la alarma muere de golpe y chispa un poco; se limpia las manos (Victory).",
+    "por_que_es_gracioso": "Funciona bien, pero ha roto el coche."
+   },
+   {
+    "iq": 6200,
+    "gag": "Mira (Looking Around) el llavero gigante con un botón rojo que parpadea al ritmo de la alarma, tirado a sus pies desde el frame 1; lo recoge (Picking Up), pulsa el botón: bip-bip, silencio total y pájaros; sonríe (Laughing). Los pájaros se van y el llavero parpadea otra vez (bucle).",
+    "por_que_es_gracioso": "La solución estaba en el suelo y sonando: era el mando del coche."
+   }
+  ],
+  "clips": [
+   [
+    -420,
+    [
+     "Waving"
+    ]
+   ],
+   [
+    -75,
+    [
+     "Pushing",
+     "Angry"
+    ]
+   ],
+   [
+    160,
+    [
+     "Climbing Up Wall",
+     "Sitting Idle"
+    ]
+   ],
+   [
+    1200,
+    [
+     "Picking Up",
+     "Victory"
+    ]
+   ],
+   [
+    6200,
+    [
+     "Looking Around",
+     "Picking Up",
+     "Laughing"
+    ]
+   ]
+  ],
+  "payoff": "El mando parpadeaba a sus pies al ritmo de la alarma: un botón y el silencio.",
+  "sin_palabras": "Coche con luces parpadeando y un hombre tapándose las orejas: se ve y se oye en 1 s.",
+  "needs": "Coche = cube + 4 cylinders ruedas con luces (emission keys parpadeando); llavero = cube pequeno + cylinder (rojo parpadeante), grande y a la vista en el frame 1; cable = cylinder rojo. Sonido: cue nuevo simple 'alarm' (dos tonos cuadrados alternos en audio_gen) o, si no, bocinazos con 'hit' en bucle, y 'pop' para el bip. Clips existentes.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Alarma de coche y mando; sin vehiculo que pare ni plantarse delante; el remate es el silencio brusco, distinto de los cuatro episodios con premio sonoro."
+ },
+ {
+  "id": "b20261122-3-i05",
+  "format": "short",
+  "kind": "anim",
+  "env": "parque (césped abierto)",
+  "title_en": "Every IQ Level Catches the Runaway Balloon",
+  "caption_en": null,
+  "logline": "Un globo rojo arrastra su cuerda por el suelo y se aleja por el parque; el hombre lo persigue, trepa a un árbol y salta; el más listo pisa la cuerda.",
+  "logline_es": "Un globo rojo arrastra su cuerda por el suelo y se aleja por el parque; el hombre lo persigue, trepa a un árbol y salta; el más listo pisa la cuerda.",
+  "hook": "Un globo rojo que se aleja con la cuerda arrastrando junto a un hombre corriendo.",
+  "twist": "Pisó la cuerda y se paró.",
+  "why_retains": "El objetivo universal de un niño, una cuerda que se ve todo el rato y un remate que el público grita antes que él.",
+  "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+  "tags": [
+   "comedia-fisica",
+   "niveles",
+   "parque",
+   "globo"
+  ],
+  "audience": null,
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1). IQ -350: Ya corriendo (Running) tras el globo a ras de suelo (frame 1); el globo se aleja y lo ve cada vez más pequeño; se para jadeando y mira (Angry)."
+   },
+   {
+    "t": "3-7",
+    "beat": "IQ -80: Coge una piedra (Picking Up) y la lanza (Throw) al globo; no llega; la piedra cae lejos y el globo gira indiferente."
+   },
+   {
+    "t": "7-11",
+    "beat": "IQ 140: Trepa a un árbol (Climbing Up Wall) y salta (Jumping) al globo; lo roza con un dedo, el globo hace boing y rueda; se queda colgado de una rama."
+   },
+   {
+    "t": "11-15",
+    "beat": "IQ 1000: Se adelanta corriendo (Running), espera con los brazos abiertos y atrapa el globo; lo abraza; ding."
+   },
+   {
+    "t": "15-19",
+    "beat": "IQ 5500: Se queda quieto y mira (Looking Around) la cuerda del globo arrastrando junto a su pie desde el frame 1; la pisa: el globo se tensa y se detiene en el aire con un boing; lo coge tranquilamente (Picking Up) y lo suelta como si nada (bucle: el globo vuelve a alejarse)."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -350,
+    "gag": "Ya corriendo (Running) tras el globo a ras de suelo (frame 1); el globo se aleja y lo ve cada vez más pequeño; se para jadeando y mira (Angry).",
+    "por_que_es_gracioso": "Corre tras algo que el viento lleva más rápido que él."
+   },
+   {
+    "iq": -80,
+    "gag": "Coge una piedra (Picking Up) y la lanza (Throw) al globo; no llega; la piedra cae lejos y el globo gira indiferente.",
+    "por_que_es_gracioso": "Quiere pincharlo para cogerlo."
+   },
+   {
+    "iq": 140,
+    "gag": "Trepa a un árbol (Climbing Up Wall) y salta (Jumping) al globo; lo roza con un dedo, el globo hace boing y rueda; se queda colgado de una rama.",
+    "por_que_es_gracioso": "Funciona a duras penas: lo toca, pero no lo coge."
+   },
+   {
+    "iq": 1000,
+    "gag": "Se adelanta corriendo (Running), espera con los brazos abiertos y atrapa el globo; lo abraza; ding.",
+    "por_que_es_gracioso": "Funciona bien, pero se agota."
+   },
+   {
+    "iq": 5500,
+    "gag": "Se queda quieto y mira (Looking Around) la cuerda del globo arrastrando junto a su pie desde el frame 1; la pisa: el globo se tensa y se detiene en el aire con un boing; lo coge tranquilamente (Picking Up) y lo suelta como si nada (bucle: el globo vuelve a alejarse).",
+    "por_que_es_gracioso": "La cuerda estaba pasando a su lado todo el rato."
+   }
+  ],
+  "clips": [
+   [
+    -350,
+    [
+     "Running",
+     "Angry"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Picking Up",
+     "Throw"
+    ]
+   ],
+   [
+    140,
+    [
+     "Climbing Up Wall",
+     "Jumping"
+    ]
+   ],
+   [
+    1000,
+    [
+     "Running",
+     "Picking Up",
+     "Laughing"
+    ]
+   ],
+   [
+    5500,
+    [
+     "Looking Around",
+     "Picking Up",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "La cuerda pasó junto a su pie desde el primer fotograma: bastaba pisarla.",
+  "sin_palabras": "Globo que se escapa con su cuerda arrastrando: se lee en 1 s.",
+  "needs": "Globo = uv_sphere roja con cylinder fino de cuerda; piedra = uv_sphere pequena; S.key de avance con BEZIER y boing al tensarse. Sonidos: boing, whoosh, pop, tada. Clips existentes. No se lanza zapato, solo piedra.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Globo suelto con cuerda, sin cometa, helio de vendedor ni objeto en alto; la solucion esta a ras de suelo, pero el objetivo es perseguir algo que se mueve."
+ },
+ {
+  "id": "b20261122-3-i06",
+  "format": "short",
+  "kind": "anim",
+  "env": "calle (calle inundada por un charco, sumidero nuevo)",
+  "title_en": "Every IQ Level Crosses the Flooded Street",
+  "caption_en": null,
+  "logline": "Un charco enorme tapa la calle; el hombre salta, achica con las manos y apila ladrillos; el más listo aparta las hojas atascadas en el sumidero y el charco se va en remolino.",
+  "logline_es": "Un charco enorme tapa la calle; el hombre salta, achica con las manos y apila ladrillos; el más listo aparta las hojas atascadas en el sumidero y el charco se va en remolino.",
+  "hook": "Una calle cubierta por un charco con un montón de hojas junto a la rejilla.",
+  "twist": "Sacó las hojas y el agua se fue.",
+  "why_retains": "El remolino con el glug es el remate más satisfactorio y el viento que trae las hojas cierra el bucle.",
+  "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+  "tags": [
+   "comedia-fisica",
+   "niveles",
+   "calle",
+   "agua"
+  ],
+  "audience": null,
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1). IQ -400: Ya saltando (Jumping) para cruzar el charco (frame 1); aterriza en medio y se hunde hasta las rodillas con un splash; mira mal al charco (Angry)."
+   },
+   {
+    "t": "3-7",
+    "beat": "IQ -70: Se agacha y achica el agua con las manos (Picking Up) lanzándola por encima del hombro; el agua vuelve a su sitio con splash; lo repite sin parar."
+   },
+   {
+    "t": "7-11",
+    "beat": "IQ 170: Camina de puntillas por el borde del bordillo (Walking Left Turn), con los brazos abiertos; se tambalea y cruza a duras penas."
+   },
+   {
+    "t": "11-15",
+    "beat": "IQ 1300: Apila ladrillos como piedras de pasarela (Picking Up) y cruza saltando de una a otra (Jumping), con un clunk en cada piedra; aterriza con los brazos arriba."
+   },
+   {
+    "t": "15-19",
+    "beat": "IQ 6800: Mira (Looking Around) el montón de hojas secas atascando la rejilla del sumidero, visible a un lado desde el frame 1; las aparta con las manos (Picking Up) y el charco se vacía en un remolino con un glug largo (drain); camina por el asfalto seco (Walking Left Turn) y levanta los brazos (Victory). Un viento trae las hojas de vuelta a la rejilla y el charco vuelve (bucle)."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -400,
+    "gag": "Ya saltando (Jumping) para cruzar el charco (frame 1); aterriza en medio y se hunde hasta las rodillas con un splash; mira mal al charco (Angry).",
+    "por_que_es_gracioso": "Cree que el charco es solo un salto."
+   },
+   {
+    "iq": -70,
+    "gag": "Se agacha y achica el agua con las manos (Picking Up) lanzándola por encima del hombro; el agua vuelve a su sitio con splash; lo repite sin parar.",
+    "por_que_es_gracioso": "Vacía un charco a manotadas."
+   },
+   {
+    "iq": 170,
+    "gag": "Camina de puntillas por el borde del bordillo (Walking Left Turn), con los brazos abiertos; se tambalea y cruza a duras penas.",
+    "por_que_es_gracioso": "Funciona a duras penas: el borde era estrecho."
+   },
+   {
+    "iq": 1300,
+    "gag": "Apila ladrillos como piedras de pasarela (Picking Up) y cruza saltando de una a otra (Jumping), con un clunk en cada piedra; aterriza con los brazos arriba.",
+    "por_que_es_gracioso": "Funciona bien, pero tarda más que nadar."
+   },
+   {
+    "iq": 6800,
+    "gag": "Mira (Looking Around) el montón de hojas secas atascando la rejilla del sumidero, visible a un lado desde el frame 1; las aparta con las manos (Picking Up) y el charco se vacía en un remolino con un glug largo (drain); camina por el asfalto seco (Walking Left Turn) y levanta los brazos (Victory). Un viento trae las hojas de vuelta a la rejilla y el charco vuelve (bucle).",
+    "por_que_es_gracioso": "Estaba atascado: nadie miró la rejilla."
+   }
+  ],
+  "clips": [
+   [
+    -400,
+    [
+     "Jumping",
+     "Angry"
+    ]
+   ],
+   [
+    -70,
+    [
+     "Picking Up"
+    ]
+   ],
+   [
+    170,
+    [
+     "Walking Left Turn"
+    ]
+   ],
+   [
+    1300,
+    [
+     "Picking Up",
+     "Jumping",
+     "Victory"
+    ]
+   ],
+   [
+    6800,
+    [
+     "Looking Around",
+     "Picking Up",
+     "Walking Left Turn",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "Las hojas atascaban el sumidero desde el principio: al apartarlas, el charco se fue.",
+  "sin_palabras": "Charco enorme que cubre la calle y un hombre al borde: se lee en 1 s.",
+  "needs": "Charco = cylinder plano azul oscuro con S.key de escala hacia 0 en remolino (BEZIER); sumidero = cylinder plano gris con un montón de hojas (uv_sphere aplastadas, marrones) visible desde el frame 1; ladrillos = cubes. Sonidos: splash, drain, clunk, tada. Clips existentes.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Charco que se vacia por el sumidero; distinto de manta sobre barro y de arroyo; remate sonoro con glug y remolino visible."
+ },
+ {
+  "id": "b20261122-3-i07",
+  "format": "short",
+  "kind": "anim",
+  "env": "calle (callejón entre edificios, pelota hinchable nueva)",
+  "title_en": "Every IQ Level Clears the Giant Ball",
+  "caption_en": null,
+  "logline": "Una pelota hinchable gigante atasca un callejón; el hombre empuja, golpea y trepa; el más listo saca el tapón de la válvula y se desinfla.",
+  "logline_es": "Una pelota hinchable gigante atasca un callejón; el hombre empuja, golpea y trepa; el más listo saca el tapón de la válvula y se desinfla.",
+  "hook": "Una pelota roja enorme atasca un callejón con un hombre empujándola.",
+  "twist": "Se desinfla al sacar el tapón.",
+  "why_retains": "El pssssh largo y el arrugarse de la pelota enorme es un remate cómico; el bucle del soplo cierra.",
+  "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+  "tags": [
+   "comedia-fisica",
+   "niveles",
+   "calle",
+   "fisica"
+  ],
+  "audience": null,
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1). IQ -460: Ya empujando (Pushing) la pelota con el hombro (frame 1); la pelota le devuelve con un boing y lo manda dos pasos atrás; vuelve a empujar con cara de rabia."
+   },
+   {
+    "t": "3-7",
+    "beat": "IQ -90: Le da un puñetazo (Angry) y rebota con un boing enorme: lo lanza girando por el aire hasta el suelo (Falling Back Death)."
+   },
+   {
+    "t": "7-11",
+    "beat": "IQ 120: Trepa por un lado (Climbing Up Wall) y se desliza por la curva; cruza resbalando por encima de la pelota con un squeak largo hasta el otro lado."
+   },
+   {
+    "t": "11-15",
+    "beat": "IQ 850: Pincha la pelota con un palo afilado que encuentra y estalla con un POP enorme; salen mil confetis; pasa limpio."
+   },
+   {
+    "t": "15-19",
+    "beat": "IQ 5200: Mira (Looking Around) la válvula amarilla con tapón rojo que asoma a un lado desde el frame 1, brillante; saca el tapón (Picking Up): la pelota se desinfla con un pssssh largo y se arruga; camina (Walking Left Turn) por el hueco y levanta los brazos (Victory). La pelota se infla otra vez sola con la brisa (bucle)."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -460,
+    "gag": "Ya empujando (Pushing) la pelota con el hombro (frame 1); la pelota le devuelve con un boing y lo manda dos pasos atrás; vuelve a empujar con cara de rabia.",
+    "por_que_es_gracioso": "Cree que la pelota tiene ganas de moverse."
+   },
+   {
+    "iq": -90,
+    "gag": "Le da un puñetazo (Angry) y rebota con un boing enorme: lo lanza girando por el aire hasta el suelo (Falling Back Death).",
+    "por_que_es_gracioso": "Golpea algo que devuelve el golpe."
+   },
+   {
+    "iq": 120,
+    "gag": "Trepa por un lado (Climbing Up Wall) y se desliza por la curva; cruza resbalando por encima de la pelota con un squeak largo hasta el otro lado.",
+    "por_que_es_gracioso": "Funciona a duras penas: pasa, pero la pelota sigue."
+   },
+   {
+    "iq": 850,
+    "gag": "Pincha la pelota con un palo afilado que encuentra y estalla con un POP enorme; salen mil confetis; pasa limpio.",
+    "por_que_es_gracioso": "Funciona bien, pero ha reventado la pelota."
+   },
+   {
+    "iq": 5200,
+    "gag": "Mira (Looking Around) la válvula amarilla con tapón rojo que asoma a un lado desde el frame 1, brillante; saca el tapón (Picking Up): la pelota se desinfla con un pssssh largo y se arruga; camina (Walking Left Turn) por el hueco y levanta los brazos (Victory). La pelota se infla otra vez sola con la brisa (bucle).",
+    "por_que_es_gracioso": "Bastaba abrir la válvula: se desinfla sola y sin romper."
+   }
+  ],
+  "clips": [
+   [
+    -460,
+    [
+     "Pushing",
+     "Angry"
+    ]
+   ],
+   [
+    -90,
+    [
+     "Angry",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    120,
+    [
+     "Climbing Up Wall"
+    ]
+   ],
+   [
+    850,
+    [
+     "Picking Up",
+     "Victory"
+    ]
+   ],
+   [
+    5200,
+    [
+     "Looking Around",
+     "Picking Up",
+     "Walking Left Turn",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "La válvula estaba a su altura: al sacar el tapón, la pelota gigante se desinfló sin romperse.",
+  "sin_palabras": "Pelota gigante que atasca el callejón y un hombre empujándola: se lee en 1 s.",
+  "needs": "Pelota = uv_sphere muy grande de color vivo (rojo/blanco) con S.key de escala (hinchar/desinflar, BEZIER); valvula = cylinder amarillo con tapon cylinder rojo, grande y a la vista; confeti = cubes pequenos con S.key. Sonidos: boing, hit, pop, drain (pssh), tada. Clips existentes. El palo afilado = cylinder fino con cone; sin violencia.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Pelota hinchable gigante en un callejon y valvula; sin tubo, nuez, hidrante ni caja; el remate es sonoro (pssh) y la pelota se vuelve a inflar sola."
+ },
+ {
+  "id": "b20261122-3-i08",
+  "format": "short",
+  "kind": "anim",
+  "env": "calle (plaza con dos terrazas y un foso entre ellas, cañón nuevo)",
+  "title_en": "Every IQ Level Crosses the Gap",
+  "caption_en": null,
+  "logline": "Un foso separa dos terrazas de una plaza; el hombre salta, se columpia y tiende una escalera; el más listo se mete en un cañón de feria y sale disparado a una red.",
+  "logline_es": "Un foso separa dos terrazas de una plaza; el hombre salta, se columpia y tiende una escalera; el más listo se mete en un cañón de feria y sale disparado a una red.",
+  "hook": "Un foso entre dos terrazas con un cañón de feria y una red visibles.",
+  "twist": "Sale disparado en arco.",
+  "why_retains": "El BOOM, el arco en el aire y el aterrizaje en la red son un remate espectacular y se oye.",
+  "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+  "tags": [
+   "comedia-fisica",
+   "niveles",
+   "calle",
+   "cañon"
+  ],
+  "audience": null,
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1). IQ -330: Ya corriendo (Running) hacia el foso (frame 1) y saltando (Jumping): llega a la mitad y cae; se agarra al borde con las manos, cuelga y mira abajo."
+   },
+   {
+    "t": "3-7",
+    "beat": "IQ -65: Sube a un farol (Climbing A Rope) con una cuerda que ata, se columpia y se suelta demasiado pronto: whoosh y splat en la pared de enfrente (Falling Back Death)."
+   },
+   {
+    "t": "7-11",
+    "beat": "IQ 160: Tiende una escalera larga (Picking Up) y gatea por encima; la escalera se comba con un creak; llega a duras penas."
+   },
+   {
+    "t": "11-15",
+    "beat": "IQ 1000: Encuentra un tablón largo (Picking Up) y cruza (Walking Left Turn) con los brazos abiertos; clunk al llegar."
+   },
+   {
+    "t": "15-19",
+    "beat": "IQ 6500: Se queda mirando (Looking Around) el cañón de feria pintado a rayas con una red al otro lado, visibles desde el frame 1; trepa (Climbing Up Wall) al interior, sale disparado con un BOOM y un whoosh, cruza el foso en arco y cae en la red con un boing; saluda (Victory). El cañón gira solo hacia el primer lado (bucle)."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -330,
+    "gag": "Ya corriendo (Running) hacia el foso (frame 1) y saltando (Jumping): llega a la mitad y cae; se agarra al borde con las manos, cuelga y mira abajo.",
+    "por_que_es_gracioso": "Cree que cruzar un foso es cuestión de impulso."
+   },
+   {
+    "iq": -65,
+    "gag": "Sube a un farol (Climbing A Rope) con una cuerda que ata, se columpia y se suelta demasiado pronto: whoosh y splat en la pared de enfrente (Falling Back Death).",
+    "por_que_es_gracioso": "Se columpia como un gran péndulo, mal calculado."
+   },
+   {
+    "iq": 160,
+    "gag": "Tiende una escalera larga (Picking Up) y gatea por encima; la escalera se comba con un creak; llega a duras penas.",
+    "por_que_es_gracioso": "Funciona a duras penas: la escalera tiembla."
+   },
+   {
+    "iq": 1000,
+    "gag": "Encuentra un tablón largo (Picking Up) y cruza (Walking Left Turn) con los brazos abiertos; clunk al llegar.",
+    "por_que_es_gracioso": "Funciona bien, pero la lógica del tablón da miedo."
+   },
+   {
+    "iq": 6500,
+    "gag": "Se queda mirando (Looking Around) el cañón de feria pintado a rayas con una red al otro lado, visibles desde el frame 1; trepa (Climbing Up Wall) al interior, sale disparado con un BOOM y un whoosh, cruza el foso en arco y cae en la red con un boing; saluda (Victory). El cañón gira solo hacia el primer lado (bucle).",
+    "por_que_es_gracioso": "El cañón y la red estaban ahí todo el rato: era un cruce de feria."
+   }
+  ],
+  "clips": [
+   [
+    -330,
+    [
+     "Running",
+     "Jumping"
+    ]
+   ],
+   [
+    -65,
+    [
+     "Climbing A Rope",
+     "Falling Back Death"
+    ]
+   ],
+   [
+    160,
+    [
+     "Picking Up",
+     "Climbing Up Wall"
+    ]
+   ],
+   [
+    1000,
+    [
+     "Picking Up",
+     "Walking Left Turn"
+    ]
+   ],
+   [
+    6500,
+    [
+     "Looking Around",
+     "Climbing Up Wall",
+     "Victory"
+    ]
+   ]
+  ],
+  "payoff": "El cañón de feria y la red estaban en el encuadre desde el primer fotograma: un viaje en arco.",
+  "sin_palabras": "Un foso entre dos terrazas con un hombre que corre hacia él: se lee en 1 s.",
+  "needs": "Terrazas = 2 cubes altos separados por un cube oscuro bajo (foso); cañon = cylinder rotado a rayas + 2 cylinders ruedas, grande y en primer plano; red = cube plano; S.key de arco para el vuelo (BEZIER), humo = uv_sphere con scale. Sonidos: hit (BOOM), whoosh, boing, creak, clunk. Clips existentes. No se salta de techo a vehiculo.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Cañon de feria y red al otro lado de un foso; sin arroyo, tronco ni columpio; el remate es un vuelo y un BOOM."
+ }
+]

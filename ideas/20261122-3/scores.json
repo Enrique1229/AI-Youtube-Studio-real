@@ -1,0 +1,154 @@
+[
+  {
+    "id": "b20261122-3-i03",
+    "scores": {
+      "hook": 8,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 6,
+      "visual": 8,
+      "emotion": 6,
+      "ending": 7,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 4
+    },
+    "why": "Es el lote mas legible sin palabras (disco rojo girando y un hombre corriendo es un frame 1 con movimiento continuo, y peonza, bandera y pegado a la barra se entienden solos), y es el unico remate con regla fisica nueva en vez de 'mira lo que habia en el suelo', pero que el centro del tiovivo no se mueve lo sabe casi todo el mundo, el final tranquilo es mas suave que el nivel 950 con pelo al viento y un circulo amarillo plano no demuestra que el centro este quieto.",
+    "improve": "Pintar el disco con rayos o franjas de color para que el giro se lea y poner en el centro un banderin o una pelota que gira sobre si misma muy despacio, de modo que el contraste de velocidad se vea; subir el contraste del final con una camara fija sobre el, y probar la rotacion con el humano parentado antes del guion.",
+    "vps": 62.0
+  },
+  {
+    "id": "b20261122-3-i01",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "Estaca que rebota con boing, burrito de tienda y disco que se abre con FWOOMP son gags que se entienden sin palabras, y la flecha dibujada en la bolsa visible desde el frame 1 convierte el remate en pista pagada (patron Bell), pero la tienda que se abre al lanzarla es un producto real conocido, la flecha curva blanca sobre un disco naranja es pequena en 9:16, el parque repite escenario de Bell y Picnic, y 'Pushing' no es golpear una estaca con la palma.",
+    "improve": "Hacer el disco enorme y la flecha gruesa con un segundo cartel de lanzar (manita o rayo) que se vea sin pausar, sustituir Pushing por un clip de golpear o agacharse, y probar el envoltorio de burrito con el humano Mixamo antes de escribir el guion por el clipping de la tela.",
+    "vps": 59.1
+  },
+  {
+    "id": "b20261122-3-i07",
+    "scores": {
+      "hook": 8,
+      "curiosity": 5,
+      "retention": 7,
+      "originality": 5,
+      "visual": 8,
+      "emotion": 6,
+      "ending": 7,
+      "series": 6,
+      "differentiation": 5,
+      "production_difficulty": 5,
+      "repetition_risk": 5
+    },
+    "why": "Una pelota roja gigante que atasca un callejon es un frame 1 absurdo y legible, el rebote del puno con boing y el resbalon con squeak se entienden sin palabras y el pssssh con la pelota arrugandose es satisfactorio, pero el nivel 850 (POP enorme y mil confetis) roba el protagonismo al remate, la valvula es lo primero que busca cualquiera ante una pelota hinchable, el palo afilado aparece de la nada y la brisa que la reinfla es arbitraria.",
+    "improve": "Dejar que el nivel 850 falle (el palo rebota de la pelota, que se infla de nuevo) o sin confeti, pasar el confeti o las serpentinas al nivel final y mostrar el palo en el frame 1 apoyado en la pared; hacer la valvula amarilla grande y con un destello para que se vea sin pausar.",
+    "vps": 58.1
+  },
+  {
+    "id": "b20261122-3-i06",
+    "scores": {
+      "hook": 6,
+      "curiosity": 5,
+      "retention": 7,
+      "originality": 5,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "El remolino con glug largo que vacia el charco es un remate sonoro y visual satisfactorio al nivel del campanazo de Bell, el splash del nivel -400 y achicar con las manos son gags que se entienden sin palabras, pero el frame 1 es estatico (charco y un hombre al borde), las hojas pequenas junto a la rejilla se pierden en vertical, el nivel 170 sobre el bordillo es flojo y no escala, y quitar la hoja del sumidero es una solucion que casi todo el mundo conoce.",
+    "improve": "Hacer el montón de hojas grande y marron pegado a una rejilla enorme con burbujas que intentan colarse (para que se lea que el agua quiere irse), sustituir el nivel 170 del bordillo por un gag con mas accion (por ejemplo un monopatin o una puerta que flota) y que el hombre ya este saltando en el frame 1.",
+    "vps": 53.8
+  },
+  {
+    "id": "b20261122-3-i02",
+    "scores": {
+      "hook": 6,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 5,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "El brazo que sube al tirar de la bola corta y el pestillo con creak + clunk dan un remate fisico limpio y sonoro, pero la logica falla en pantalla (empujar horizontalmente la parte larga de un brazo con pivote no tiene sentido, y colgarse de una bola sin asidero no dice 'tira'), la palanca es abstracta de leer en 1 s, Climbing Up Wall no es trepar un poste y 'la solucion estaba detras' es el mismo remate de campana, mesa y suelo ya usado.",
+    "improve": "Dar a la bola un anillo o cuerda con asidero grande para que invite a tirar, hacer que el nivel -450 intente levantar la punta larga con las manos (esfuerzo visible) y marcar el pivote con un triangulo rojo grande; sustituir Climbing Up Wall por un clip de abrazar o escalar el poste.",
+    "vps": 52.2
+  },
+  {
+    "id": "b20261122-3-i08",
+    "scores": {
+      "hook": 7,
+      "curiosity": 4,
+      "retention": 6,
+      "originality": 4,
+      "visual": 8,
+      "emotion": 6,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 8,
+      "repetition_risk": 5
+    },
+    "why": "El BOOM, el arco sobre el foso y la red es el remate mas espectacular del lote y todos los gags previos (colgar del borde, splat en la pared, escalera que se comba) se leen sin palabras, pero el canon y la red ya revelan la solucion en el frame 1, el canon humano es un tropo conocido, que haya un canon de feria en una plaza es un deus ex machina (no es ingenio, es usar la herramienta que te dan) y el nivel 1000 del tablon ya resuelve el problema, asi que el final no es mas listo sino mas exagerado.",
+    "improve": "Hacer que el tablon del nivel 1000 sea demasiado corto o se parta para que el canon sea necesario, justificar el canon con un cartel de circo en la pared, y comprobar antes del guion que hay un clip existente para el vuelo (si no hay, hacerlo con keys de Jumping congelado) porque la produccion del arco con el humano es lo mas caro del lote.",
+    "vps": 49.7
+  },
+  {
+    "id": "b20261122-3-i04",
+    "scores": {
+      "hook": 6,
+      "curiosity": 4,
+      "retention": 6,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "El silencio brusco con pajaros es una recompensa sonora fuerte y el cable arrancado con chispas del nivel 1200 es el mejor gag del lote en su categoria, pero el remate lo adivina cualquiera en 1 s (pulsar el mando), no hay logica de por que un llavero gigante esta en el suelo, el gag depende del audio y una alarma sintetica grating en los primeros segundos puede expulsar al espectador en vez de engancharlo, y las luces parpadeantes no se leen en miniatura.",
+    "improve": "Poner el mando parpadeando en el cinturon o el bolsillo trasero del propio hombre desde el frame 1 (remate: no miro sus bolsillos) en lugar de en el suelo, probar un render de 3 s con el cue de alarma a bajo volumen y ritmo claro antes de escribir el guion, y anadir un indicador visual de ruido (ondas, hojas que tiemblan) para que se entienda en mudo.",
+    "vps": 48.4
+  },
+  {
+    "id": "b20261122-3-i05",
+    "scores": {
+      "hook": 7,
+      "curiosity": 4,
+      "retention": 6,
+      "originality": 4,
+      "visual": 6,
+      "emotion": 7,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 5,
+      "repetition_risk": 7
+    },
+    "why": "El globo que se escapa tiene un deseo universal y emocion inmediata (el mejor arrastre emocional del lote), pero pisar la cuerda es el remate mas previsible de los ocho (el publico lo grita desde el frame 1 y los niveles -80 y 1000 apenas escalan), la cuerda fina es casi invisible en 9:16, la persecucion horizontal encaja mal en vertical, el remate 'estaba junto a su pie' repite el patron suelo de Bell y Picnic y hay una incoherencia espacial (el globo se aleja pero la cuerda sigue junto a su pie).",
+    "improve": "Hacer que el globo suba hacia arriba con la cuerda gruesa y brillante colgando hacia la camara (persecucion vertical), sustituir el nivel -80 de la piedra (pincharia lo que quiere) por uno que lo aleje mas, y hacer que el nivel 1000 falle (lo abraza y explota) para que pisar la cuerda sea la unica solucion limpia.",
+    "vps": 47.3
+  }
+]
