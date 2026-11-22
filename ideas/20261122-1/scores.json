@@ -1,0 +1,78 @@
+[
+  {
+    "id": "b20261122-1-i01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 6,
+      "visual": 8,
+      "emotion": 6,
+      "ending": 7,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 4
+    },
+    "why": "Un chorro vertical de hidrante se lee en 1 s, los cinco gags (manotazo, sentarse, papelera, llave, ducha) se entienden sin palabras y el remate de ducha con arcoiris reencuadra el problema; flojea en que el nivel 900 (cerrar la valvula) es lo obvio y no sorprende, y en que el bucle del sombrero solo existe en 'sin_palabras', no en los beats.",
+    "improve": "Meter el sombrero cayendo en el hidrante como ultimo medio segundo de los beats (si no, no hay bucle) y hacer que el chorro baje de golpe con un whoosh/hiss de pitch descendente en el nivel 900 para que el sonido premie, con el champu ya asomando en el bolsillo desde el fotograma 1 para que el remate sea justo.",
+    "vps": 62.0
+  },
+  {
+    "id": "b20261122-1-i02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 5,
+      "production_difficulty": 7,
+      "repetition_risk": 6
+    },
+    "why": "Es la que mas se parece al patron ganador de Bell (objetivo claro, escalada, remate 'estaba ahi todo el rato' con el vado de tobillo y el tronco que llega tarde), pero el vado es un detalle pequeno en vertical y los rizos claros no se leen en 1 s, Climbing A Rope no es un columpio y el rio ya fue el primer Short del canal, asi que el riesgo de repeticion es alto.",
+    "improve": "Pasar studio.py similar contra el episodio del rio y el del banco antes de gastar produccion; hacer visible el vado desde el fotograma 1 con piedras planas claras y un pato caminando con el agua a los tobillos, y sustituir Climbing A Rope por un clip de balanceo real o recortar a un salto agarrado a la cuerda.",
+    "vps": 56.3
+  },
+  {
+    "id": "b20261122-1-i04",
+    "scores": {
+      "hook": 6,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 5,
+      "visual": 5,
+      "emotion": 5,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 4
+    },
+    "why": "El tripode vacio que sigue disparando es un buen cierre en bucle y el temporizador parpadeando da urgencia, pero lo gracioso de los niveles 1, 2 y 3 es el resultado de la foto (espalda, borrosa, ojos cerrados) y eso no se ve sin un plano insertado; con la camara diminuta y el hombre lejos el fotograma 1 engancha poco.",
+    "improve": "Mostrar cada resultado como un recuadro de foto congelado de 0,5 s con flash y click tras cada intento, y abrir con la camara grande en primer plano y el hombre ya corriendo hacia la marca de tiza, no caminando despacio.",
+    "vps": 50.9
+  },
+  {
+    "id": "b20261122-1-i03",
+    "scores": {
+      "hook": 6,
+      "curiosity": 5,
+      "retention": 6,
+      "originality": 4,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 4,
+      "production_difficulty": 5,
+      "repetition_risk": 5
+    },
+    "why": "Un helado goteando se entiende al instante, pero el remate 'comerselo' es la solucion que cualquiera pensaria primero, el helado es un objeto diminuto en un 9:16 y varios gags (la hoja con las manos ocupadas, la sombra que se desliza, el cartel) dependen de matices que no se leen sin palabras; es la mas debil y generica del lote.",
+    "improve": "Cambiar el remate por un giro que el espectador no prevea (por ejemplo el helado ya esta en la nevera de un puesto cercano o el cono sobrevive y se derrite el propio hombre) y encuadrar el helado enorme en el fotograma 1 con gotas grandes; quitar el gag del cartel y dejar solo sombra que huye y hoja.",
+    "vps": 48.4
+  }
+]

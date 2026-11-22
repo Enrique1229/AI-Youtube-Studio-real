@@ -1,0 +1,390 @@
+[
+ {
+  "id": "b20261122-1-i01",
+  "format": "levels",
+  "kind": "anim",
+  "env": "calle (hidrante junto a la acera)",
+  "title_en": "Every IQ Level Stops a Fire Hydrant Geyser",
+  "caption_en": null,
+  "logline_es": "Un hidrante abierto lanza un chorro vertical; el hombre intenta pararlo a manotazos, sentandose encima, tapandolo y con llave; el mas listo trae champu y lo convierte en ducha con arcoiris.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1). IQ -450: Ya dando manotazos al chorro (frame 1) como si fuera una avispa; el frasco de champu asoma ya del bolsillo; el agua rebota y lo empapa; tiembla chorreando y vuelve a pegarle."
+   },
+   {
+    "t": "3-6.5",
+    "beat": "IQ -80: Se sienta encima del chorro para taparlo; la columna de agua lo sube dos metros en equilibrio, sentado muy serio, hasta que se desinfla y cae con splash."
+   },
+   {
+    "t": "6.5-10",
+    "beat": "IQ 120: Coge una papelera (Picking Up) y la planta boca abajo sobre el hidrante; la tapa sale a bocajarro (clunk), sujeta la papelera temblando mientras gotea por todos lados: funciona a duras penas."
+   },
+   {
+    "t": "10-13.5",
+    "beat": "IQ 900: Con una llave inglesa gira la valvula (Pushing); el chorro se desploma de golpe con un hiss de tono descendente y un whoosh final; un ultimo gluglu y silencio total: se oye el alivio."
+   },
+   {
+    "t": "13.5-17.5",
+    "beat": "IQ 5469: Se queda mirando (Looking Around), sonrie y vuelve a abrir la valvula con la llave; saca el champu del bolsillo (visible desde el frame 1) y se lava el pelo bajo el chorro con un arcoiris de fondo (tada), riendo (Laughing)."
+   },
+   {
+    "t": "17.5-18",
+    "beat": "Bucle: el sombrero sale volando, cae justo sobre el hidrante con un clunk y el chorro revienta de nuevo con un whoosh, igual que en el fotograma 1."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -450,
+    "gag": "Ya dando manotazos al chorro (frame 1) como si fuera una avispa; el frasco de champu asoma ya del bolsillo; el agua rebota y lo empapa; tiembla chorreando y vuelve a pegarle.",
+    "por_que_es_gracioso": "Cree que el agua se puede vencer a golpes."
+   },
+   {
+    "iq": -80,
+    "gag": "Se sienta encima del chorro para taparlo; la columna de agua lo sube dos metros en equilibrio, sentado muy serio, hasta que se desinfla y cae con splash.",
+    "por_que_es_gracioso": "Su logica de tapon es perfecta; la fisica no esta de acuerdo."
+   },
+   {
+    "iq": 120,
+    "gag": "Coge una papelera (Picking Up) y la planta boca abajo sobre el hidrante; la tapa sale a bocajarro (clunk), sujeta la papelera temblando mientras gotea por todos lados: funciona a duras penas.",
+    "por_que_es_gracioso": "Para el chorro, pero se convierte en un aspersor humano."
+   },
+   {
+    "iq": 900,
+    "gag": "Con una llave inglesa gira la valvula (Pushing); el chorro se desploma de golpe con un hiss de tono descendente y un whoosh final; un ultimo gluglu y silencio total: se oye el alivio.",
+    "por_que_es_gracioso": "Funciona bien, y el sonido descendente premia como un desinflado perfecto."
+   },
+   {
+    "iq": 5469,
+    "gag": "Se queda mirando (Looking Around), sonrie, vuelve a abrir la valvula con la llave y saca el champu del bolsillo: se lava el pelo bajo el chorro con arcoiris, tada y risas; su sombrero sale volando, cae justo en el hidrante, tapa clunk y el chorro revienta de nuevo con un whoosh: vuelta al fotograma 1.",
+    "por_que_es_gracioso": "El problema era una ducha gratis; el sombrero reinicia el bucle y el espectador quiere verlo otra vez."
+   }
+  ],
+  "clips": [
+   [
+    -450,
+    [
+     "Angry"
+    ]
+   ],
+   [
+    -80,
+    [
+     "Sitting Idle"
+    ]
+   ],
+   [
+    120,
+    [
+     "Picking Up"
+    ]
+   ],
+   [
+    900,
+    [
+     "Pushing"
+    ]
+   ],
+   [
+    5469,
+    [
+     "Looking Around",
+     "Laughing"
+    ]
+   ]
+  ],
+  "payoff": "El chorro nunca fue un problema: era la ducha que necesitaba; el sombrero lo reinicia todo.",
+  "sin_palabras": "Chorro vertical de hidrante: se lee en 1 s. Champu visible en el bolsillo desde el frame 1; remate con arcoiris + tada y el sombrero que reabre el chorro (bucle dentro de los beats).",
+  "needs": "Hidrante = cylinder rojo + cone + chorro cylinder semitransparente/particulas (S.splash); llave = cube+cylinder; champu = cylinder en bolsillo; arcoiris = torus aplastado de colores (nuevo, sencillo); sombrero = cylinder+disco con S.key de vuelo. Sonido: hiss de pitch descendente en nivel 900, splash, clunk, whoosh, tada existentes. Clips de Mixamo existentes.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Agua que no se puede parar; sin manguera ni nube ni vehiculo; remate de ducha en lugar de solucion; hidrante nuevo."
+ },
+ {
+  "id": "b20261122-1-i02",
+  "format": "levels",
+  "kind": "anim",
+  "env": "parque con arroyo (tronco y cuerda de columpio)",
+  "title_en": "Every IQ Level Crosses the Stream",
+  "caption_en": null,
+  "logline_es": "Su mochila esta en la otra orilla del arroyo; el hombre salta, empuja un tronco que cae al reves, camina en equilibrio y se columpia; el mas listo ve rizos de agua clarita: es un vado de tobillo.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1). IQ -320: Ya corriendo hacia la orilla (frame 1): salto de longitud (Jumping) con los brazos en cruz; cae en medio del agua con splash y se queda en cuclillas, mojado hasta el pecho."
+   },
+   {
+    "t": "3-6.5",
+    "beat": "IQ -45: Empuja un tronco alto de la orilla (Pushing) para hacer un puente: se cae al reves, hacia atras, con un thud; el hombre lo mira con la boca abierta."
+   },
+   {
+    "t": "6.5-10",
+    "beat": "IQ 150: Camina en equilibrio por un tronco fino (Walking Left Turn) con los brazos balanceandose; tambalea y llega a gatas, jadeando."
+   },
+   {
+    "t": "10-13.5",
+    "beat": "IQ 1500: Coge la cuerda de un columpio de un arbol (Climbing A Rope) y cruza balanceandose como Tarzan; aterriza con los brazos en alto y un tada."
+   },
+   {
+    "t": "13.5-18",
+    "beat": "IQ 8888: Mira hacia abajo (Looking Around): rizos y piedrecitas claras bajo el agua; cruza paseando con el agua a los tobillos, saluda (Waving). Detras, el tronco del nivel 2 acaba de caer sobre el arroyo con un thud tardio."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -320,
+    "gag": "Ya corriendo hacia la orilla (frame 1): salto de longitud (Jumping) con los brazos en cruz; cae en medio del agua con splash y se queda en cuclillas, mojado hasta el pecho.",
+    "por_que_es_gracioso": "Cree de verdad que saltara un rio entero."
+   },
+   {
+    "iq": -45,
+    "gag": "Empuja un tronco alto de la orilla (Pushing) para hacer un puente: se cae al reves, hacia atras, con un thud; el hombre lo mira con la boca abierta.",
+    "por_que_es_gracioso": "El puente existe, pero apunta al lado contrario."
+   },
+   {
+    "iq": 150,
+    "gag": "Camina en equilibrio por un tronco fino (Walking Left Turn) con los brazos balanceandose; tambalea y llega a gatas, jadeando.",
+    "por_que_es_gracioso": "Funciona, pero con cara de haber visto la muerte."
+   },
+   {
+    "iq": 1500,
+    "gag": "Coge la cuerda de un columpio de un arbol (Climbing A Rope) y cruza balanceandose como Tarzan; aterriza con los brazos en alto y un tada.",
+    "por_que_es_gracioso": "Funciona genial y mucho mas elegante de lo necesario."
+   },
+   {
+    "iq": 8888,
+    "gag": "Mira hacia abajo (Looking Around): rizos y piedrecitas claras bajo el agua; cruza paseando con el agua a los tobillos, saluda (Waving). Detras, el tronco del nivel 2 acaba de caer sobre el arroyo con un thud tardio.",
+    "por_que_es_gracioso": "Lo hizo todo mas facil que nadie, y el puente llega tarde."
+   }
+  ],
+  "clips": [
+   [
+    -320,
+    [
+     "Jumping"
+    ]
+   ],
+   [
+    -45,
+    [
+     "Pushing"
+    ]
+   ],
+   [
+    150,
+    [
+     "Walking Left Turn"
+    ]
+   ],
+   [
+    1500,
+    [
+     "Climbing A Rope",
+     "Victory"
+    ]
+   ],
+   [
+    8888,
+    [
+     "Looking Around",
+     "Waving"
+    ]
+   ]
+  ],
+  "payoff": "El vado estaba a un metro; el puente llega cuando ya no hace falta.",
+  "sin_palabras": "Mochila en la otra orilla de un arroyo: se lee en 1 s; el tronco que cae al final invita a repetir.",
+  "needs": "Mochila = cube; tronco = cylinder alto con S.key de caida (nuevo gesto simple, rotacion con BOUNCE); cuerda = cylinder; vado = S.obj uv_sphere piedras bajo el agua con S.water. Sonido: splash, thud=hit, creak, tada. Clips existentes.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Cruzar agua con cinco tecnicas; sin barco, campana, picnic ni banco; remate con puente retrasado."
+ },
+ {
+  "id": "b20261122-1-i03",
+  "format": "levels",
+  "kind": "anim",
+  "env": "parque (sol de verano, arbol y sombra)",
+  "title_en": "Every IQ Level Saves an Ice Cream From the Sun",
+  "caption_en": null,
+  "logline_es": "Un helado de dos bolas se derrite al sol; el hombre lo abanica, corre con el, busca sombra y usa una hoja; el mas listo se lo come de un bocado.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1). IQ -999: Ya agitando la mano para abanicar el helado (frame 1); la bola resbala del cono y plof al suelo; mira el cono vacio."
+   },
+   {
+    "t": "3-6.5",
+    "beat": "IQ -200: Corre buscando sombra (Running) con el helado en alto; el viento lo desprende y vuela: plaf contra un cartel sin leer."
+   },
+   {
+    "t": "6.5-10",
+    "beat": "IQ 95: Camina a la sombra del arbol (Walking Left Turn) pero la sombra se desliza y el la sigue de lado, goteando; consigue llegar a ratos."
+   },
+   {
+    "t": "10-13.5",
+    "beat": "IQ 700: Coge una hoja gigante (Picking Up) como sombrilla y la sostiene sobre el cono: el helado resiste intacto y suena un tada pequeno."
+   },
+   {
+    "t": "13.5-18",
+    "beat": "IQ 4200: Se lo come de un solo bocado (Victory) y se agarra la cabeza congelada (Thinking); aparece otro helado en el banco."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -999,
+    "gag": "Ya agitando la mano para abanicar el helado (frame 1); la bola resbala del cono y plof al suelo; mira el cono vacio.",
+    "por_que_es_gracioso": "Cree que el calor se aparta a base de aire."
+   },
+   {
+    "iq": -200,
+    "gag": "Corre buscando sombra (Running) con el helado en alto; el viento lo desprende y vuela: plaf contra un cartel sin leer.",
+    "por_que_es_gracioso": "Va tan rapido que el helado se queda en el camino."
+   },
+   {
+    "iq": 95,
+    "gag": "Camina a la sombra del arbol (Walking Left Turn) pero la sombra se desliza y el la sigue de lado, goteando; consigue llegar a ratos.",
+    "por_que_es_gracioso": "La sombra no coopera: el helado tampoco."
+   },
+   {
+    "iq": 700,
+    "gag": "Coge una hoja gigante (Picking Up) como sombrilla y la sostiene sobre el cono: el helado resiste intacto y suena un tada pequeno.",
+    "por_que_es_gracioso": "Funciona bien... pero con las dos manos ocupadas."
+   },
+   {
+    "iq": 4200,
+    "gag": "Se lo come de un solo bocado (Victory) y se agarra la cabeza congelada (Thinking); aparece otro helado en el banco.",
+    "por_que_es_gracioso": "El helado se salva dejando de ser un helado."
+   }
+  ],
+  "clips": [
+   [
+    -999,
+    [
+     "Waving"
+    ]
+   ],
+   [
+    -200,
+    [
+     "Running"
+    ]
+   ],
+   [
+    95,
+    [
+     "Walking Left Turn"
+    ]
+   ],
+   [
+    700,
+    [
+     "Picking Up"
+    ]
+   ],
+   [
+    4200,
+    [
+     "Victory",
+     "Thinking"
+    ]
+   ]
+  ],
+  "payoff": "La mejor forma de salvar un helado es comerselo; el siguiente ya esta ahi.",
+  "sin_palabras": "Cono con dos bolas bajo el sol, goteando: se lee en 1 s; remate con brain freeze.",
+  "needs": "Cono = cone + uv_sphere con gotas (S.key escala); sombra = cylinder plano oscuro que se desliza (S.key); hoja = cube plano verde; bocado = escala a cero (S.key); sonido: plop (pop), whoosh, tada, boing existentes. Clips existentes.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Cosa que se derrite; sin picnic, comida de maquina ni zapatos; remate de comerselo y repetir."
+ },
+ {
+  "id": "b20261122-1-i04",
+  "format": "levels",
+  "kind": "anim",
+  "env": "calle (aceras y farola con marca de tiza)",
+  "title_en": "Every IQ Level Takes a Photo With the Timer",
+  "caption_en": null,
+  "logline_es": "Una camara en tripode con temporizador parpadea; el hombre tiene diez segundos para entrar en el cuadro; llega tarde, corriendo, despeinado, con exito, hasta que el mas listo coge la camara.",
+  "beats": [
+   {
+    "t": "0-3",
+    "beat": "Gancho (accion en el fotograma 1). IQ -270: Camara grande en primer plano parpadeando; ya pulsando el boton (frame 1) y echa a correr (Running) en direccion contraria al cuadro. Plano insertado 0,5 s con flash y click: marco de foto con la marca de tiza vacia y su espalda diminuta al fondo."
+   },
+   {
+    "t": "3-6.5",
+    "beat": "IQ -60: Corre hacia la marca de tiza (Running) pero se pasa de frenada. Plano insertado 0,5 s con flash y click: foto con solo una mancha borrosa y un pie en el borde."
+   },
+   {
+    "t": "6.5-10",
+    "beat": "IQ 180: Llega justo a tiempo, saluda (Waving), ojos cerrados y pelo revuelto. Plano insertado 0,5 s con flash y click: foto con cara de susto, ojos cerrados y pelo de escoba."
+   },
+   {
+    "t": "10-13.5",
+    "beat": "IQ 2000: Programa mas tiempo, vuelve tranquilo y posa (Victory); un pajaro cruza el cuadro. Plano insertado 0,5 s con flash y click: foto con el pico del pajaro llenando el cuadro y solo un pie del hombre."
+   },
+   {
+    "t": "13.5-18",
+    "beat": "IQ 7777: Coge la camara del tripode (Picking Up) y se la acerca (selfie): clic instantaneo; plano insertado 0,5 s: foto perfecta, primer plano, sonriendo. El tripode vacio sigue parpadeando y suelta otro flash con click; plano insertado: foto del tripode vacio y el pajaro posando."
+   }
+  ],
+  "levels": [
+   {
+    "iq": -270,
+    "gag": "Camara grande en primer plano parpadeando; ya pulsando el boton (frame 1) y echa a correr (Running) en direccion contraria al cuadro. Plano insertado 0,5 s con flash y click: marco de foto con la marca de tiza vacia y su espalda diminuta al fondo.",
+    "por_que_es_gracioso": "Cree que correr lejos es posar."
+   },
+   {
+    "iq": -60,
+    "gag": "Corre hacia la marca de tiza (Running) pero se pasa de frenada. Plano insertado 0,5 s con flash y click: foto con solo una mancha borrosa y un pie en el borde.",
+    "por_que_es_gracioso": "Llega muy rapido... a otro sitio."
+   },
+   {
+    "iq": 180,
+    "gag": "Llega justo a tiempo, saluda (Waving), ojos cerrados y pelo revuelto. Plano insertado 0,5 s con flash y click: foto con cara de susto, ojos cerrados y pelo de escoba.",
+    "por_que_es_gracioso": "Funciona, pero la foto es un desastre."
+   },
+   {
+    "iq": 2000,
+    "gag": "Programa mas tiempo, vuelve tranquilo y posa (Victory); un pajaro cruza el cuadro. Plano insertado 0,5 s con flash y click: foto con el pico del pajaro llenando el cuadro y solo un pie del hombre.",
+    "por_que_es_gracioso": "Funciona bien... con intruso incluido."
+   },
+   {
+    "iq": 7777,
+    "gag": "Coge la camara del tripode (Picking Up) y se la acerca (selfie): clic instantaneo; plano insertado 0,5 s: foto perfecta, primer plano, sonriendo. El tripode vacio sigue parpadeando y suelta otro flash con click; plano insertado: foto del tripode vacio y el pajaro posando.",
+    "por_que_es_gracioso": "El tripode sobraba; el temporizador sigue su propio plan y dispara a la nada."
+   }
+  ],
+  "clips": [
+   [
+    -270,
+    [
+     "Walking Left Turn"
+    ]
+   ],
+   [
+    -60,
+    [
+     "Running"
+    ]
+   ],
+   [
+    180,
+    [
+     "Waving"
+    ]
+   ],
+   [
+    2000,
+    [
+     "Victory"
+    ]
+   ],
+   [
+    7777,
+    [
+     "Picking Up"
+    ]
+   ]
+  ],
+  "payoff": "El temporizador sigue disparando a un tripode vacio, y eso invita a repetir.",
+  "sin_palabras": "Camara grande parpadeando y hombre ya corriendo: se lee en 1 s. Cada resultado se ve en un recuadro de foto congelado de 0,5 s con flash y click, asi no hace falta texto. Bucle: el tripode vacio sigue disparando.",
+  "needs": "Camara = cube + cylinder con luz roja parpadeante (S.key escala), grande en primer plano; tripode = 3 cylinders; flash = pantalla blanca 2 fotogramas; plano insertado = marco de foto (cube plano) con mini-escena congelada (S.key); marca de tiza = cylinder plano; pajaro = cube pequeno. Sonido: click (hit), pop, tada, whoosh. Clips existentes.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Foto con temporizador; sin vehiculo, banco ni campana; resultados mostrados en fotos insertadas; remate de tripode vacio disparando."
+ }
+]
