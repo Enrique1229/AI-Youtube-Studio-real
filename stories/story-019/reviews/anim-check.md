@@ -22,3 +22,9 @@ Mejora del crítico aplicada: la aceleración tiene causa visible. El taburete d
 - Un solo frame de pose de Climbing Up Wall (L3), sin ayuda de pies en la pared; la pose se lee pero es pequeña en cuadro.
 - Duración (24 fps): 4.7 / 5.2 / 5.2 / 5.0 / 7.8 s = 27.8 s, 18.5 s tras el montaje 1.5x. Sin "Victory" ni "Laughing" de pie: sentado no hay clip equivalente; se usan voces (laugh, yay) y expresiones.
 - No se ha probado el montaje completo con música (anim_build), solo los niveles.
+
+## Ronda 2 (revisión visual del Director): cámara rehecha
+- Cámara de plano medio con seguimiento (`cam_follow`): posición y focal por claves, mirada que sigue a la cabeza suavizada. Personaje ~30-45 % del alto en los planos clave; empujes a cara en el remate de cada nivel (focal 75-85) y variedad de posición entre niveles (centro, izquierda, derecha, lateral). Nivel 5: medio en el pico (disco entero legible) y cierre en primer plano de su cara tranquila con banderín y pelota al viento (las barras quedan abatidas para no tapar).
+- Césped ampliado a 4000 m: la costura recta del fondo desaparece; la picada mantiene el horizonte fuera de la franja del texto salvo en planos de cierre (se ve el fondo de árboles, sin línea de corte).
+- Animación sin cambios (salvo que en el nivel 5 las barras ya no vuelven a subir al frenar). Auditorías repetidas: los 5 niveles "limpia", pies +0.020, emparentado 0.000 m; framing_check (mismo criterio que run_level, fotogramas con paso 2) sin AVISO ENCUADRE en los 5 niveles.
+- Fotogramas regenerados (inicio, clímax, final) en frames/. Notas: los fotogramas iniciales siguen mostrando el personaje algo más pequeño (entra corriendo); L1 f100 y L5 f186 son planos cerrados.

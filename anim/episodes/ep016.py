@@ -107,6 +107,33 @@ def cam_fixed(S):
     S.cam.data.dof.use_dof = False
 
 
+def cam_follow(S, a, n, pos_keys, lens_keys, fixed_tgt=None):
+    """Cámara de plano medio: posición y focal por claves (lineales); la mirada sigue a la cabeza (suavizada +-3 fotogramas).
+    fixed_tgt = [(f, Vector)] funde hacia un punto fijo (planos finales). Mantiene el horizonte fuera del cuadro (picada >= 0,6 x semicampo)."""
+    def lin(keys, f):
+        if f <= keys[0][0]: return keys[0][1]
+        for (f0, v0), (f1, v1) in zip(keys, keys[1:]):
+            if f <= f1: t = (f - f0) / float(f1 - f0); return v0 + (v1 - v0) * t
+        return keys[-1][1]
+    raw = {}
+    for f in range(1, n + 1):
+        S.sc.frame_set(f); bpy.context.view_layer.update(); raw[f] = a.head.matrix_world.translation.copy()
+    bpy.context.preferences.edit.keyframe_new_interpolation_type = "LINEAR"
+    for f in list(range(1, n + 1, 2)) + [n]:
+        ws = [raw[g] for g in range(max(1, f - 3), min(n, f + 3) + 1)]
+        h = sum(ws, Vector((0, 0, 0))) / len(ws); tg = Vector((h.x, h.y, h.z - 0.05))
+        if fixed_tgt:
+            wgt = 0.0
+            for (f0, v0), (f1, v1) in zip(fixed_tgt, fixed_tgt[1:] + [(10 ** 6, fixed_tgt[-1][1])]):
+                pass
+            k = lin([(ff, Vector((i, 0, 0))) for i, (ff, vv) in enumerate(fixed_tgt)], f)
+            wgt = 0.0 if f <= fixed_tgt[0][0] else min(1.0, (f - fixed_tgt[0][0]) / float(max(1, fixed_tgt[1][0] - fixed_tgt[0][0])))
+            tg = tg.lerp(fixed_tgt[1][1], sstep(wgt))
+        S.cam.location = lin(pos_keys, f); S.cam.data.lens = lin(lens_keys, f); S.tgt.location = tg
+        S.cam.keyframe_insert("location", frame=f); S.cam.data.keyframe_insert("lens", frame=f); S.tgt.keyframe_insert("location", frame=f)
+    S.cam.data.dof.use_dof = False
+
+
 def faces(a, ev, n_end, first_blink=16, every=56):
     f = first_blink
     while f < n_end - 6:
@@ -135,7 +162,7 @@ def clear_env(S):
     S.water = None
     import env_real
     g = env_real._pbr(S, "aerial_grass_rock", scale=60.0)
-    bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 40, 0)); fl = bpy.context.object; fl.name = "cesped"; fl.scale = (300, 340, 1)
+    bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 40, 0)); fl = bpy.context.object; fl.name = "cesped"; fl.scale = (4000, 4000, 1)
     fl.data.materials.append(g)
 
 
@@ -460,6 +487,7 @@ def l1(S):
     contact = {("*", "barra0"): (f_h - 7, f_h + 4)}
     audit(S, a, "nivel -380", 1, N, contact=contact); audit_feet(S, a, "nivel -380", 1, N, lambda f: 0.0)
     audit_parent(S, a, "nivel -380", 1, N, lambda f: path(f)[0])
+    cam_follow(S, a, N + 10, [(1, Vector((0, -6.4, 3.5)))], [(1, 50.0), (f_h + 18, 50.0), (f_h + 34, 85.0)])
     return a
 
 
@@ -536,6 +564,7 @@ def l2(S):
     audit_feet(S, a, "nivel -70 (carrera)", 1, f_g - 5, lambda f: 0.0)
     audit_min(S, a, "nivel -70 (caída y reposo)", f_L, N)
     audit_parent(S, a, "nivel -70", 1, N, lambda f: (Ms[f] if f <= f_r else Mw(Vector((fly(f)[0].x, fly(f)[0].y, fly(f)[1])), 0)).to_translation(), f_from=f_r + f_bl + 1)
+    cam_follow(S, a, N + 10, [(1, Vector((-2.5, -7.5, 4.2)))], [(1, 50.0), (f_L, 50.0), (f_L + 14, 75.0)])
     return a
 
 
@@ -601,6 +630,7 @@ def l3(S):
     audit_feet(S, a, "nivel 200 (suelo y disco, sin el aire)", 1, f_c, lambda f: 0.0)
     audit_feet(S, a, "nivel 200 (sobre el disco)", f_L + 2, N, lambda f: TOP)
     audit_parent(S, a, "nivel 200", f_L + 2, N, lambda f: Vector((path(f)[0].x + 0.0, path(f)[0].y, 0)))
+    cam_follow(S, a, N + 10, [(1, Vector((3.2, -6.0, 3.4)))], [(1, 50.0), (N - 40, 50.0), (N - 20, 80.0)])
     return a
 
 
@@ -652,6 +682,7 @@ def l4(S):
     audit_feet(S, a, "nivel 950 (carrera y disco)", 1, f_c, lambda f: 0.0)
     audit_feet(S, a, "nivel 950 (sobre el disco)", f_L + 2, N, lambda f: TOP)
     audit_parent(S, a, "nivel 950", f_L + 4, N, lambda f: path(f)[0])
+    cam_follow(S, a, N + 10, [(1, Vector((-3.2, -6.0, 3.2)))], [(1, 50.0), (f_L + 30, 50.0), (f_L + 46, 85.0)])
     return a
 
 
@@ -694,7 +725,6 @@ def l5(S):
     tilt_posts(S, w, f_go + 10, f_peak + 6, 62.0)
     for f_, v_ in ((1, 0.4), (f_go, 0.4), (f_peak, 0.6), (f_brake, 0.6), (f_brake + 14, 0.4)):           # el giro se funde en un arcoíris
         S.sc.render.motion_blur_shutter = v_; S.sc.render.keyframe_insert("motion_blur_shutter", frame=f_)
-    for hg in w.hinges: S.key(hg, f_brake, rot=(0, R(62.0), 0)); S.key(hg, f_brake + 18, rot=(0, 0, 0))
     a = new_actor(S, w, ["Looking Around", "Walking Left Turn", "Sitting Idle"])
     seg(S, a, "Looking Around", 1, f_walk + 2, speed=1.0, blend=0)
     seg(S, a, "Walking Left Turn", f_walk, f_arr + 2, speed=1.3, blend=5, repeat=4)
@@ -733,10 +763,12 @@ def l5(S):
     a.verify(S.f)
     faces(a, [(1, "neutra", 1.0), (f_look - 3, "sorpresa", 0.6), (f_look + 6, "feliz", 0.5), (f_x + 8, "neutra", 1.0), (f_sit, "neutra", 1.0), (f_press, "sorpresa", 0.6),
               (f_go - 4, "feliz", 1.0)], N, first_blink=24, every=48)
-    audit(S, a, "nivel 4800", 1, N, tilted=lambda f: f >= f_go + 14 and f < f_brake + 16, contact={("*", "taburete"): (f_sit - 6, N), ("Hips", "taburete"): (f_sit - 6, N)})
+    audit(S, a, "nivel 4800", 1, N, tilted=lambda f: f >= f_go + 14, contact={("*", "taburete"): (f_sit - 6, N), ("Hips", "taburete"): (f_sit - 6, N)})
     audit_feet(S, a, "nivel 4800 (hierba y disco)", 1, f_arr + 8, surf)
     audit_feet(S, a, "nivel 4800 (placa)", f_arr + 9, N, lambda f: -sink * sstep((f - f_press) / 3.0) + TOP if f < f_brake + 6 else TOP)
     audit_parent(S, a, "nivel 4800", 1, N, lambda f: Vector((path(f)[0].x, path(f)[0].y, path(f)[0].z)))
+    cam_follow(S, a, N + 10, [(1, Vector((0, -7.2, 3.8))), (f_peak, Vector((0, -7.2, 3.8))), (f_peak + 22, Vector((0, -3.6, 2.5)))],
+               [(1, 50.0), (f_peak, 55.0), (f_peak + 22, 36.0)], fixed_tgt=[(f_peak, None), (f_peak + 22, Vector((0, 0, 2.2)))])
     return a
 
 

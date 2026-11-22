@@ -7,3 +7,8 @@ Hoja: 3 fotogramas por nivel (stories/story-019/reviews/frames).
 3. Cámara cenital/picada constante: monótona. Variar algo entre niveles (como el bus).
 4. Remate (nivel 5): se entiende que se sienta en el centro y el disco acelera; reforzar con plano cercano de su cara tranquila + banderín al viento.
 Gags 1-4: se intuyen, pero a este tamaño cuesta leerlos sin pausar.
+
+## Ronda 2 (última) — casi PASA
+- Cámara corregida: el personaje ocupa 30-45 % del alto, hay planos variados y los gags 1-4 se leen sin palabras. La costura del fondo desapareció.
+- **Queda un fallo bloqueante:** el último plano del nivel 5 (f182) deja la cara en el 8-10 % inferior del cuadro, justo donde YouTube pone el título y el canal. Media pantalla se va en el banderín y la pelota. El remate tiene que ser su cara tranquila en el tercio central (40-65 % del alto) con el banderín ondeando detrás o encima.
+- Menor: en el nivel 3 se ven rascacielos en el horizonte (HDRI). Se acepta.
