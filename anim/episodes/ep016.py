@@ -767,8 +767,8 @@ def l5(S):
     audit_feet(S, a, "nivel 4800 (hierba y disco)", 1, f_arr + 8, surf)
     audit_feet(S, a, "nivel 4800 (placa)", f_arr + 9, N, lambda f: -sink * sstep((f - f_press) / 3.0) + TOP if f < f_brake + 6 else TOP)
     audit_parent(S, a, "nivel 4800", 1, N, lambda f: Vector((path(f)[0].x, path(f)[0].y, path(f)[0].z)))
-    cam_follow(S, a, N + 10, [(1, Vector((0, -7.2, 3.8))), (f_peak, Vector((0, -7.2, 3.8))), (f_peak + 22, Vector((0, -3.6, 2.5)))],
-               [(1, 50.0), (f_peak, 55.0), (f_peak + 22, 36.0)], fixed_tgt=[(f_peak, None), (f_peak + 22, Vector((0, 0, 2.2)))])
+    cam_follow(S, a, N + 10, [(1, Vector((0, -7.2, 3.8))), (f_peak, Vector((0, -7.2, 3.8))), (f_peak + 22, Vector((0, -3.6, 2.0)))],
+               [(1, 50.0), (f_peak, 55.0), (f_peak + 22, 30.0)], fixed_tgt=[(f_peak, None), (f_peak + 22, Vector((0, 0, 1.0)))])
     return a
 
 
