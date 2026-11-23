@@ -1,0 +1,39 @@
+{
+  "story_id": "story-022",
+  "channel": "Klunk Studio",
+  "title": "Every IQ Level Catches the Drone",
+  "titles": [
+    "Every IQ Level Catches the Drone",
+    "Every IQ Level Chases the Runaway Drone",
+    "The Smartest IQ Level Had the Remote All Along",
+    "Five IQ Levels, One Drone, One Remote Control",
+    "Why Chase the Drone When the Remote Is Around Your Neck?"
+  ],
+  "recommended_title": 0,
+  "description": "Five IQ levels try to catch a yellow drone hovering over a rooftop, from -450 to 5469. The smartest one had the remote hanging around his neck the whole time.\nFiction made with AI-assisted tools. Original 3D animation; nothing here is real footage or a real event.\nCharacter animations: Mixamo.\nWhich IQ level would you be? Tell us in the comments and subscribe for the next one.\n#shorts #animation #comedy #iqlevels #funny",
+  "hashtags": [
+    "#shorts",
+    "#animation",
+    "#comedy",
+    "#iqlevels",
+    "#funny"
+  ],
+  "cta": "Which IQ level would you be? Tell us in the comments and subscribe for the next one.",
+  "tags": "every iq level, iq levels, rating levels, drone, rooftop, silent comedy, 3D animation, physical comedy, funny shorts",
+  "playlist": "Rating Levels",
+  "ai_disclosure": "Fiction made with AI-assisted tools. Original 3D animation; nothing here is real footage or a real event.",
+  "ai_use_disclosure": false,
+  "category": "Comedy",
+  "language": "en",
+  "onscreen_en": "Every IQ level catches the drone",
+  "upload_checklist": [
+    "AI use: No (stylized 3D toon animation; idea.json kind 'anim'). Confirm with the Director that the imagery is not photorealistic before upload.",
+    "Fiction notice in description: yes",
+    "Credit in description: included ('Character animations: Mixamo.', as in story-019 format)",
+    "Music/SFX: final/provenance.json does not exist yet; no CC attribution added. Verify before upload that no CC-BY track is used; if one is, add its attribution to the description.",
+    "Gates: critic PASS, market PASS, continuity PASS; policy PENDING, qc PENDING. Do NOT upload until policy and qc are PASS.",
+    "Audience: not made for kids",
+    "Playlist: Rating Levels; category Comedy; language en",
+    "Espaciar 6-8 h de otro vídeo y no subirlo pegado a otro episodio IQ"
+  ]
+}
