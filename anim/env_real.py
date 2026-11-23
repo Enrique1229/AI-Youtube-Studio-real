@@ -141,10 +141,11 @@ def _place_fit(S, col, loc, height, rot_z=0.0):
 # (modelo, resolución, x, y, alto_m, giro_deg): reparto en primer plano, medio y fondo. La cámara del ep017 mira a +y desde y=-7.4 y la
 # acción (tapa, hombre) está en x∈[-1.3, 1.5], y∈[-0.5, 2]. Se deja libre la franja central detrás de la tapa y los bordes de la acción.
 PLAZA_PROPS = [
-    ("fire_hydrant", "1k", -1.30, -1.15, 0.80, 25),                 # primer plano izquierdo (desenfocado, encuadra)
+    ("fire_hydrant", "1k", -1.75, -1.35, 0.80, 25),                 # primer plano izquierdo (desenfocado, encuadra)
     ("planter_box_01", "2k", -1.95, 2.3, 0.75, 0),                  # medio
     ("potted_plant_01", "1k", 2.05, 2.1, 0.95, 40),
-    ("WetFloorSign_01", "1k", -1.55, 0.9, 0.62, 28),
+    ("WetFloorSign_01", "1k", -1.9, 2.0, 0.62, 28),
+    ("metal_trash_can", "2k", -4.6, 8.0, 1.0, 20),            # papeleras: lejos, al fondo (no compiten con la tapa)
     ("planter_box_02", "1k", 1.95, 3.6, 0.80, -8),
     ("utility_box_01", "1k", 2.6, 5.2, 1.35, -12),                  # fondo cercano
     ("modular_street_seating", "1k", -2.7, 5.0, 0.85, 12),
@@ -212,7 +213,6 @@ def build_plaza(S, rot_deg=0, sun_energy=3.0, dress=True):
         if (name, res) not in cols: cols[(name, res)] = _model(name, res)
         bpy.context.view_layer.update()
         _place_fit(S, cols[(name, res)], (x, y, 0.0), h, math.radians(rot))
-    cols_can = _model("metal_trash_can", "2k"); S.can_col = cols_can               # papelera: la coloca el episodio
     # bolardos de primitivas con banda amarilla (a ambos lados, sin cruzar el centro)
     steel = _mat_simple(S, "bolardo", (0.12, 0.13, 0.15), 0.4, 0.7); band = _mat_simple(S, "banda_amarilla", (0.95, 0.72, 0.05), 0.5)
     for x in (-3.6, -2.4, 2.6, 3.8, 5.0, -4.8):
@@ -245,4 +245,4 @@ def build_plaza(S, rot_deg=0, sun_energy=3.0, dress=True):
         _prim(S, "uv_sphere", "p_cola", grey, (0, -0.15, 0.115), (0.04, 0.09, 0.012), parent=e, segments=10, ring_count=6)
         wings = [_prim(S, "uv_sphere", "p_ala", grey, (sx * 0.06, 0.0, 0.14), (0.015, 0.10, 0.06), parent=e, segments=10, ring_count=6) for sx in (-1, 1)]
         e["wings"] = [w.name for w in wings]; birds.append(e)
-    return {"birds": birds}
+    return {"birds": birds, "cols": cols}

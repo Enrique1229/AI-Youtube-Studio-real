@@ -1,11 +1,11 @@
 """ep017 — Mini-historia: "The Manhole That Hiccuped" (story-020, idea b20261123-2-i01). Plaza urbana (env_real.build_plaza: HDRI dresden_square,
-adoquín PBR, 19 piezas de atrezo Poly Haven, bordillo, calzada, charcos, hojas, palomas). Cámara BAJA (z=0,5) que mira hacia arriba.
+adoquín PBR, 19 piezas de atrezo Poly Haven, bordillo, calzada, charcos, hojas, palomas). Cámara baja (z=1,2, horizontal) que deja ver la boca en el suelo y la tapa en lo alto.
 
 Tapa de alcantarilla gigante (disco de hierro de 1,3 m con nervios por ambas caras, marco claro con boca negra) que da hipo sobre un chorro de
 vapor (cilindro semitransparente con ruido que sube). Cada hipo: pop, la tapa sube inclinada y escupe un objeto de primitivas.
   1-28    gancho: la tapa en lo alto sobre el vapor (encuadre del fotograma 1), el hombre agachado a un lado; cae con CLONK.
   60-135  hipo 1: bota roja; el hombre da un salto atrás y la bota rueda lejos. Hipo 2: patito de goma; vuelve de un salto y lo caza (SQUEAK).
-  146-204 se esconde tras la papelera; sale con los brazos arriba; la tapa se queda CONGELADA en lo alto y cae plana con PLATILLO.
+  146-204 se esconde tras la jardinera; sale con los brazos arriba; la tapa se queda CONGELADA en lo alto y cae plana con PLATILLO.
   204-300 alivio (asiente, suspira), le da un HIC a él: salta unos centímetros, la tapa responde con un clonk burlón y sube otra vez
           sobre el vapor; él se agacha: mismo encuadre y pose del fotograma 1 (bucle).
 Convenio: yaw 0 mira a cámara (-y); yaw -50 mira a la tapa (izquierda) y a cámara. Fotograma 24 fps, ~12,5 s."""
@@ -29,8 +29,8 @@ P1 = Vector((0.9, 0.6, 0.0))      # sitio del hombre (inicio y final)
 P2 = Vector((1.1, 1.7, 0.0))      # tras el salto atrás
 YAW = -50.0
 LR = 0.66                         # radio de la tapa
-LID_Z0 = 0.075                    # centro de la tapa asentada
-APEX = 2.45
+LID_Z0 = 0.03                     # centro de la tapa asentada (plana en su aro)
+APEX = 2.2
 TILT = -40.0                      # grados en x: la cara inferior mira a la cámara baja
 
 # eventos de la tapa: (inicio, subida, fotograma hasta el que se mantiene arriba, caída). El primero ya empieza arriba (gancho).
@@ -121,29 +121,29 @@ def steam_mat(S, name, vertical=True, strength=1.0, scroll=True):
 
 # ------------------------------------------------------------------ objetos del gag
 def build_manhole(S):
-    frame_m = mmat(S, "marco", (0.42, 0.41, 0.38), 0.85, 0.2); hole_m = mmat(S, "boca", (0.005, 0.005, 0.006), 0.9)
+    """Boca de alcantarilla A RAS DEL SUELO: aro de fundición claro enrasado, anillo oscuro hundido y agujero negro. La tapa reposa plana dentro."""
+    frame_m = mmat(S, "marco", (0.36, 0.35, 0.33), 0.8, 0.3); hole_m = mmat(S, "boca", (0.003, 0.003, 0.004), 0.95)
     iron = mmat(S, "hierro", (0.11, 0.10, 0.095), 0.5, 0.85); steel = mmat(S, "acero", (0.55, 0.53, 0.50), 0.3, 0.95)
     paint = mmat(S, "pintura_tapa", (0.95, 0.72, 0.05), 0.5)
-    O(S, "cylinder", "marco", frame_m, (M.x, M.y, 0.02), (0.82, 0.82, 0.02), vertices=64)
-    O(S, "cylinder", "boca", hole_m, (M.x, M.y, 0.0415), (0.70, 0.70, 0.001), vertices=64)
-    O(S, "cylinder", "marco_int", steel, (M.x, M.y, 0.045), (0.72, 0.72, 0.003), vertices=64)
-    O(S, "cylinder", "boca2", hole_m, (M.x, M.y, 0.049), (0.69, 0.69, 0.001), vertices=64)
+    O(S, "cylinder", "marco", frame_m, (M.x, M.y, 0.004), (0.84, 0.84, 0.004), vertices=64)
+    O(S, "cylinder", "anillo", iron, (M.x, M.y, 0.0075), (0.74, 0.74, 0.003), vertices=64)
+    O(S, "cylinder", "boca", hole_m, (M.x, M.y, 0.0105), (0.71, 0.71, 0.001), vertices=64)
     lid = S.empty("tapa", (M.x, M.y, LID_Z0))
-    O(S, "cylinder", "disco", iron, (0, 0, 0), (LR, LR, 0.035), parent=lid, vertices=64)
-    O(S, "cylinder", "canto", steel, (0, 0, 0), (LR + 0.012, LR + 0.012, 0.022), parent=lid, vertices=64)
+    O(S, "cylinder", "disco", iron, (0, 0, 0), (LR, LR, 0.02), parent=lid, vertices=64)
+    O(S, "cylinder", "canto", steel, (0, 0, 0), (LR + 0.01, LR + 0.01, 0.014), parent=lid, vertices=64)
     for sg in (1, -1):                                    # el mismo dibujo en las dos caras (la cámara ve la inferior cuando está en el aire)
-        zf = sg * 0.04
+        zf = sg * 0.024
         for rr, mm in ((LR - 0.06, steel), (0.46, iron), (0.28, steel)):
-            O(S, "torus", "aro", mm, (0, 0, zf), (1, 1, 1), parent=lid, major_radius=rr, minor_radius=0.022, major_segments=48, minor_segments=8)
+            O(S, "torus", "aro", mm, (0, 0, zf), (1, 1, 1), parent=lid, major_radius=rr, minor_radius=0.018, major_segments=48, minor_segments=8)
         for i in range(12):
             a = R(i * 30.0 + 15.0)
-            O(S, "cube", "nervio", steel, (0.37 * math.cos(a), 0.37 * math.sin(a), zf), (0.17, 0.02, 0.014), (0, 0, a), parent=lid)
-        O(S, "cylinder", "cubo", paint, (0, 0, zf), (0.13, 0.13, 0.014), parent=lid, vertices=32)
+            O(S, "cube", "nervio", steel, (0.37 * math.cos(a), 0.37 * math.sin(a), zf), (0.17, 0.02, 0.011), (0, 0, a), parent=lid)
+        O(S, "cylinder", "cubo", paint, (0, 0, zf), (0.13, 0.13, 0.011), parent=lid, vertices=32)
     return lid
 
 
 def build_steam(S):
-    col = S.empty("vapor", (M.x, M.y, 0.04))
+    col = S.empty("vapor", (M.x, M.y, 0.012))
     cm = steam_mat(S, "col", True, 1.0)
     O(S, "cylinder", "col_vapor", cm, (0, 0, 0.5), (0.58, 0.58, 0.5), parent=col, vertices=32)
     O(S, "cylinder", "col_vapor2", cm, (0, 0, 0.5), (0.36, 0.36, 0.5), parent=col, vertices=24)
@@ -183,7 +183,7 @@ def parab(p0, p1, apex_h, u):
 
 
 # ------------------------------------------------------------------ cámara
-CAM_W = ((-0.3, -7.4, 0.5), (-0.3, 0.0, 1.5), 50, 7.9)       # encuadre del fotograma 1 (se repite al final)
+CAM_W = ((-0.3, -7.4, 1.2), (-0.3, 0.0, 1.2), 50, 7.9)       # encuadre del fotograma 1 (se repite al final)
 
 
 def cam_set(S, f, loc, tgt, lens, focus):
@@ -209,7 +209,7 @@ def hand_mid(S, a, f):
 # ------------------------------------------------------------------ la historia
 def l1(S):
     props = env_real.build_plaza(S, rot_deg=20)
-    can_inst, _, _ = env_real._place_fit(S, S.can_col, (P1.x - 0.62, P1.y - 0.15, 0.0), 1.0, R(30))
+    hide_inst, _, _ = env_real._place_fit(S, props['cols'][('planter_box_02', '1k')], (P1.x - 0.75, P1.y - 0.30, 0.0), 0.85, R(8))
     lid = build_manhole(S); steam, puffs = build_steam(S); boot = build_boot(S); duck = build_duck(S)
     a = MixamoActor(S, x=P1.x, yaw=YAW, use=["Looking Around", "Sneaking Forward", "Surprised", "Jumping", "Picking Up", "Victory", "Head Nod Yes"]); klunk(a)
 
@@ -221,7 +221,7 @@ def l1(S):
     seg(S, a, "Surprised", F_HOP1 + 24, F_HOP2, start=14, speed=1.8, blend=3)          # hic 2: otro respingo
     seg(S, a, "Jumping", F_HOP2, F_HOP2 + 22, start=14, blend=3)                       # vuelve de un salto
     seg(S, a, "Picking Up", F_CATCH - 8, F_CATCH + 10, start=118, speed=0.5, blend=4)    # brazos al frente: caza el patito
-    seg(S, a, "Picking Up", F_CATCH + 10, 166, start=20, speed=1.0, blend=6)            # se agacha tras la papelera (con el patito)
+    seg(S, a, "Picking Up", F_CATCH + 10, 166, start=20, speed=1.0, blend=6)            # se agacha tras la jardinera (con el patito)
     seg(S, a, "Victory", 166, 204, start=18, speed=1.0, blend=4)                       # susto: brazos arriba
     seg(S, a, "Head Nod Yes", 204, F_HIC_MAN - 4, start=0, speed=1.5, blend=5)         # alivio: asiente
     seg(S, a, "Surprised", F_HIC_MAN - 4, 258, start=14, speed=1.6, blend=3)           # hic propio
