@@ -45,3 +45,9 @@ primer segundo, mejor audio y caras más realistas (petición del usuario).
 ## 2026-11-22 11:07 (usuario)
 - Bus (ep014, niveles IQ, subido ~9 h después de la piscina): 24.090 vistas a 17 h, 71,2 % se quedan, +3 subs. Curva en escalones, aplanándose al final. Confirma: subir 2.º vídeo del día con ~9 h de margen NO frenó nada. Formato niveles IQ = Bell (72 %) y Bus (71 %) > mini-historias (piscina 42 %).
 - Picnic (ep011) revive: 122 vistas/60 min.
+
+## 2026-11-23 00:05 (usuario, Studio Advanced, últimos 28 días: 25 oct-21 nov)
+- Total canal: 103.467 vistas, 252 h, duración media 0:17.
+- Bell (niveles IQ) 30.261 (29,3 %), media 0:18 de 0:18. Bench (mini-historia, título actual "Why Did the Bench Leave Me in the Sun?") 28.013 (27,1 %), media 0:14 de 0:11 (≈127 %: se repite en bucle). Bus 17.614 (17 %), 0:17. River 8.072, 0:18. Picnic 4.921, 0:17. Egg 2.803, 0:15.
+- Lectura: la mini-historia Bench casi iguala a Bell en vistas y es la que más se repite. Hay dos formatos que funcionan (niveles IQ y mini-historia corta con bucle), no uno solo: respalda alternarlos. Clave del Bench: 11 s, remate que obliga a volver a verlo.
+- CTR de miniatura (2,7 %) e impresiones (~4 K) casi irrelevantes: el tráfico es del feed de Shorts.
