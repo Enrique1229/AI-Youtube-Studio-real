@@ -8,7 +8,7 @@
     "market": "PASS",
     "continuity": "PASS",
     "policy": "PASS",
-    "qc": "PENDING"
+    "qc": "FAIL"
   },
   "vps": 71.1,
   "quality_score": null,
