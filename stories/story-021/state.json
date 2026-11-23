@@ -2,13 +2,13 @@
   "id": "story-021",
   "format": "short",
   "title": "The Bollard That Went for Pie",
-  "stage": "selected",
+  "stage": "ready",
   "gates": {
     "critic": "PASS",
     "market": "PASS",
     "continuity": "PASS",
     "policy": "PASS",
-    "qc": "PENDING"
+    "qc": "PASS"
   },
   "vps": 65.0,
   "quality_score": null,
