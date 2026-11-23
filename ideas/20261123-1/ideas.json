@@ -3,55 +3,60 @@
     "id": "b20261123-1-i01",
     "format": "pov",
     "kind": "anim",
-    "env": "parque (cesped, sol alto a un lado)",
+    "env": "camino claro de arena al atardecer (cube beige)",
     "title_en": "POV: Your Shadow Won't Stop Waving",
     "caption_en": null,
     "onscreen_en": "POV: your shadow won't stop waving",
-    "logline_es": "Un hombre de pie y quieto con su sombra enorme tumbada en el suelo que sigue saludando sola; la sombra se estira al correr y al final se tumba mientras el queda en la pose inicial.",
+    "logline_es": "Un hombre quieto en un camino claro al atardecer con su sombra larga que sigue saludando; la sombra se despega del suelo, choca la mano con el y vuelve a tumbarse.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Gancho (fotograma 1): el hombre YA quieto (Looking Around) y su sombra negra, enorme, tumbada en el suelo (rot x=-90, coherente con el sol), saluda con el brazo grande."
+        "beat": "Gancho (fotograma 1): hombre de pie y quieto (Looking Around) y su sombra larga, ancha y negra sobre el camino claro, con brazos gruesos, saludando sola."
       },
       {
         "t": "3-7",
-        "beat": "Mira abajo y trata de aplastar la sombra con las manos (Pushing); la sombra sigue saludando."
+        "beat": "El se enfada y patalea de pie (Angry); la sombra patalea un segundo tarde."
       },
       {
         "t": "7-11",
-        "beat": "Echa a correr (Running); la sombra se estira como goma, se queda atras saludando y vuelve de golpe con un boing, adelantandolo."
+        "beat": "Le saluda (Waving) para calmarla; la sombra se cruza de brazos y le da la espalda."
       },
       {
         "t": "11-15",
-        "beat": "Remate: la sombra se tumba boca arriba con los brazos en cruz, rendida; el hombre se queda quieto un beat y la sombra vuelve a saludar: pose del plano 1 y bucle."
+        "beat": "Giro: la sombra se despega del suelo como una pegatina, le choca la mano en alto con un clap y se deja caer plana saludando: pose del plano 1 y bucle."
       }
     ],
     "clips": [
       [
         1,
         [
-          "Looking Around",
-          "Pushing"
+          "Looking Around"
         ]
       ],
       [
         2,
         [
-          "Running"
+          "Angry"
         ]
       ],
       [
         3,
         [
-          "Looking Around"
+          "Waving"
+        ]
+      ],
+      [
+        4,
+        [
+          "Victory"
         ]
       ]
     ],
-    "payoff": "La sombra se cansa antes que el y vuelve a saludar cuando el para.",
-    "sin_palabras": "Gancho (fotograma 1): el hombre YA quieto (Looking Around) y su sombra negra, enorme, tumbada en el suelo (rot x=-90, coherente con el sol), saluda con el brazo grande.",
-    "needs": "Sombra = copia aplastada tumbada en el suelo (negro, scale grande) con brazo animado por S.key (no Sitting Idle); estiramiento elastico con scale y; whoosh y boing; clips existentes.",
+    "payoff": "La sombra tiene mas personalidad que el y le da el cinco.",
+    "sin_palabras": "Gancho (fotograma 1): hombre de pie y quieto (Looking Around) y su sombra larga, ancha y negra sobre el camino claro, con brazos gruesos, saludando sola.",
+    "needs": "Solo animaciones de pie (sin Running ni caminar): sombra = copia aplastada y negra, larga por la direccion del sol, brazos escalados x1.6; despegue por S.key de rotacion en un borde; clap y pop; clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Sombra grande y legible desde el fotograma 1; sin bancos ni arboles.",
+    "diferencia": "Sombra larga de atardecer; sin bancos ni arboles.",
     "batch": "20261123-1"
   },
   {
@@ -113,40 +118,101 @@
     "id": "b20261123-1-i03",
     "format": "pov",
     "kind": "anim",
-    "env": "parque (camino de grava y cesped)",
+    "env": "parque (camino y cesped, farola cercana)",
     "title_en": "POV: Fetch With a Very Committed Dog",
     "caption_en": null,
     "onscreen_en": "POV: your dog fetches everything",
-    "logline_es": "Un hombre lanza un palo a su perro y el perro vuelve con cosas cada vez mas grandes: una rama, un tronco, una farola.",
+    "logline_es": "Su perro vuelve con un tronco enorme mientras el hombre sujeta un palito; luego trae una farola con chispas y al final al propio hombre colgando de la camiseta.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Gancho: lanza un palo (Throw) y el perro de cubes sale corriendo al fondo."
+        "beat": "Gancho (fotograma 1): el perro ya trotando de vuelta con un tronco enorme mas grande que el; el hombre, con un palito en la mano, lo mira con duda (Thinking)."
       },
       {
         "t": "3-7",
-        "beat": "Vuelve con una rama (pop), el hombre asiente (Thinking); lanza otra vez y vuelve con un tronco."
+        "beat": "Lanza el palito (Throw); el perro desaparece y vuelve con una farola entera, enorme y brillante, con el cable chispeando; el hombre se rie (Laughing)."
       },
       {
-        "t": "7-12",
-        "beat": "Vuelve arrastrando una farola entera con el cable; el hombre se rie (Laughing)."
+        "t": "7-11",
+        "beat": "El hombre intenta quitarsela (Pushing); el perro lo ignora, lo agarra de la camiseta y se lo lleva de un tiron por el parque."
       },
       {
-        "t": "12-15",
-        "beat": "Remate: el perro deja la farola, el hombre solo tiene otro palo pequeno y lo lanza (Throw) para el bucle."
+        "t": "11-15",
+        "beat": "Remate: el perro lo suelta en el suelo (Falling Back Death), se levanta y recupera la pose del plano 1 con el palito, y el perro llega con el tronco: bucle."
       }
     ],
     "clips": [
       [
         1,
         [
-          "Throw"
+          "Thinking"
         ]
       ],
       [
         2,
         [
-          "Thinking"
+          "Throw",
+          "Laughing"
+        ]
+      ],
+      [
+        3,
+        [
+          "Pushing"
+        ]
+      ],
+      [
+        4,
+        [
+          "Falling Back Death"
+        ]
+      ]
+    ],
+    "payoff": "El perro devuelve cada vez algo mayor, hasta al propio hombre.",
+    "sin_palabras": "Gancho (fotograma 1): el perro ya trotando de vuelta con un tronco enorme mas grande que el; el hombre, con un palito en la mano, lo mira con duda (Thinking).",
+    "needs": "Perro = cubes y uv_spheres con cola; tronco/farola = cylinders escalados con parentado a la boca; chispas = spheres; thud y pop; clips existentes. Probar parentado antes del guion.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Frame 1 ya anomalo; perro que acaba cargando al hombre.",
+    "batch": "20261123-1"
+  },
+  {
+    "id": "b20261123-1-i04",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "camino del parque (cajas y queso grandes, cubes y cone)",
+    "title_en": "The Cheese Trap",
+    "caption_en": null,
+    "onscreen_en": "Free cheese",
+    "logline_es": "Un trozo enorme de queso bajo una caja inclinada sobre un palo en un camino; el hombre lo coge, la caja cae y al levantarse esta dentro comiendo con un raton.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho (fotograma 1): una caja grande inclinada sobre un palo, queso gigante debajo en el centro; el hombre ya acercandose (Looking Around)."
+      },
+      {
+        "t": "3-7",
+        "beat": "Se agacha por el queso (Picking Up); crack del palo; la caja cae sobre el con un bonk."
+      },
+      {
+        "t": "7-11",
+        "beat": "Silencio y un beat; la caja se levanta: el hombre sentado dentro con un raton, los dos comiendo queso (Laughing)."
+      },
+      {
+        "t": "11-15",
+        "beat": "Remate: se pone la caja de sombrero, el raton sube encima y se alejan; la caja se vuelve a inclinar sobre el palo con queso nuevo: pose del plano 1 y bucle."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Looking Around"
+        ]
+      ],
+      [
+        2,
+        [
+          "Picking Up"
         ]
       ],
       [
@@ -158,70 +224,15 @@
       [
         4,
         [
-          "Throw"
-        ]
-      ]
-    ],
-    "payoff": "El perro nunca devuelve lo que se le lanzo, sino algo mayor.",
-    "sin_palabras": "Se lee en 1 s sin texto: Gancho: lanza un palo (Throw) y el perro de cubes sale corriendo al fondo",
-    "needs": "Perro = cubes y uv_spheres con cola; objetos = cylinders escalados; sonidos pop y thud; clips existentes.",
-    "riesgo_copia": "bajo",
-    "diferencia": "Fetch escalado a ridiculo; sin dueno bondadoso ni mascota enemiga.",
-    "batch": "20261123-1"
-  },
-  {
-    "id": "b20261123-1-i04",
-    "format": "mini_story",
-    "kind": "anim",
-    "env": "plaza con fuente grande (cylinders)",
-    "title_en": "The Fountain That Gives Change",
-    "caption_en": null,
-    "onscreen_en": "Make a wish",
-    "logline_es": "Un hombre lanza monedas a una fuente grande y cada una dispara un chorro mas alto con notas ascendentes; al final la fuente le devuelve la primera moneda.",
-    "beats": [
-      {
-        "t": "0-3",
-        "beat": "Gancho: el hombre lanza (Throw) una moneda y el chorro central de la fuente sube bien centrado con un ploc."
-      },
-      {
-        "t": "3-8",
-        "beat": "Segunda y tercera moneda: chorro cada vez mas alto con notas ascendentes; el hombre salta de alegria (Victory)."
-      },
-      {
-        "t": "8-12",
-        "beat": "Cuarta moneda: el chorro baja a cero, silencio, y la fuente escupe de vuelta la primera moneda a su mano; la mira (Looking Around)."
-      },
-      {
-        "t": "12-16",
-        "beat": "Remate: se encoge de hombros y vuelve a lanzar (Throw) la misma moneda: pose del plano 1 y bucle."
-      }
-    ],
-    "clips": [
-      [
-        1,
-        [
-          "Throw",
           "Victory"
         ]
-      ],
-      [
-        2,
-        [
-          "Looking Around"
-        ]
-      ],
-      [
-        3,
-        [
-          "Throw"
-        ]
       ]
     ],
-    "payoff": "La fuente da el cambio.",
-    "sin_palabras": "Gancho: el hombre lanza (Throw) una moneda y el chorro central de la fuente sube bien centrado con un ploc.",
-    "needs": "Fuente = cylinders concentricos + chorro con cylinder cuya escala y sube; monedas = cylinders dorados; notas ascendentes y pop de reembolso. Clips existentes.",
+    "payoff": "La trampa era un picnic de dos.",
+    "sin_palabras": "Gancho (fotograma 1): una caja grande inclinada sobre un palo, queso gigante debajo en el centro; el hombre ya acercandose (Looking Around).",
+    "needs": "Caja = cube hueco (5 cubes), palo = cylinder, queso = cone amarillo; raton = 2 uv_spheres; crack, bonk y mordisco; clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Fuente de deseos con reembolso; sin objetos vivos ni piano.",
+    "diferencia": "Trampa que se vuelve comida compartida; sin cebo ni animales hostiles.",
     "batch": "20261123-1"
   },
   {
@@ -288,55 +299,60 @@
     "id": "b20261123-1-i06",
     "format": "mini_story",
     "kind": "anim",
-    "env": "camino asfaltado del parque (cube gris con linea blanca)",
-    "title_en": "The Ball That Grew",
+    "env": "parque (roble con bellotas y ardilla)",
+    "title_en": "The Squirrel's Aim",
     "caption_en": null,
-    "onscreen_en": "Just one push",
-    "logline_es": "Un hombre empuja una pelota que se duplica con cada empujon en un camino asfaltado y acaba sentado contra ella mientras se desinfla a pelota pequena.",
+    "onscreen_en": "Nap time",
+    "logline_es": "Un hombre sentado bajo un roble recibe bellotas cada vez mas grandes desde una ardilla y al final ella le deja caer un casco y luego las bellotas suenan como musica.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Gancho: ya empujando (Pushing) una pelota rayada y enorme en el centro del camino; con cada empujon crece."
+        "beat": "Gancho (fotograma 1): hombre sentado bajo un roble (Sitting Idle); una bellota cae en su cabeza con bonk y arriba asoma la ardilla."
       },
       {
-        "t": "3-8",
-        "beat": "Segundo y tercer empujon: la pelota se duplica con un boing ascendente hasta tapar el cuadro; el hombre mira hacia arriba (Looking Around)."
+        "t": "3-7",
+        "beat": "Segunda bellota mayor, bonk mas grave; tercera como una calabaza; el hombre, furioso (Angry), mira arriba."
       },
       {
-        "t": "8-12",
-        "beat": "Se rinde y se sienta contra ella (Sitting Idle); la pelota se desinfla despacio con un pfff y el hombre baja con ella."
+        "t": "7-11",
+        "beat": "Le lanza una de vuelta (Throw); la ardilla la esquiva y le deja caer un casco amarillo que le cae justo en la cabeza."
       },
       {
-        "t": "12-16",
-        "beat": "Remate: queda una pelota diminuta junto a el; la mira y la empuja (Pushing): pose del plano 1 y bucle."
+        "t": "11-15",
+        "beat": "Remate: llueven bellotas sobre el casco con ping ascendente como un xilofono; el hombre sonrie dormido (Sitting Idle): pose del plano 1 y bucle."
       }
     ],
     "clips": [
       [
         1,
         [
-          "Pushing"
+          "Sitting Idle"
         ]
       ],
       [
         2,
         [
-          "Looking Around"
+          "Angry"
         ]
       ],
       [
         3,
         [
-          "Sitting Idle",
-          "Pushing"
+          "Throw"
+        ]
+      ],
+      [
+        4,
+        [
+          "Sitting Idle"
         ]
       ]
     ],
-    "payoff": "La pelota crece con cada empujon y al final se desinfla en su mano.",
-    "sin_palabras": "Gancho: ya empujando (Pushing) una pelota rayada y enorme en el centro del camino; con cada empujon crece.",
-    "needs": "Pelota = uv_sphere con franjas y S.key de scale (x2 por empujon); boing con pitch ascendente y pfff; clips existentes.",
+    "payoff": "La ardilla le da un casco y convierte los golpes en musica.",
+    "sin_palabras": "Gancho (fotograma 1): hombre sentado bajo un roble (Sitting Idle); una bellota cae en su cabeza con bonk y arriba asoma la ardilla.",
+    "needs": "Roble = cylinder + uv_spheres; ardilla = 3 uv_spheres con cola; bellotas = uv_spheres con S.key de caida; bonk y ping ascendente; clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Pelota que crece sobre asfalto; sin hinchables atascados.",
+    "diferencia": "Ardilla puntera con casco; sin gato ni gaviota.",
     "batch": "20261123-1"
   }
 ]
