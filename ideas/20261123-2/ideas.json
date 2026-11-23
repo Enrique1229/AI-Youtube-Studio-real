@@ -7,23 +7,23 @@
     "title_en": "The Manhole That Hiccuped",
     "caption_en": null,
     "onscreen_en": null,
-    "logline_es": "Una tapa de alcantarilla gigante en una plaza adoquinada da hipo y salta con un clonk; el hombre la tapa con un cajon y sale volando; al darle un vaso de agua la tapa bebe, eructa un aro de humo que le cae en la cabeza como aureola.",
+    "logline_es": "Camara baja en una plaza adoquinada: una tapa de alcantarilla gigante sale disparada con cada hipo sobre un chorro de vapor y escupe un objeto distinto; el hombre esquiva y atrapa, le da un susto para curarla y la tapa se asienta; entonces el hipo lo pilla a el.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Gancho (frame 1): el hombre de pie junto a la tapa enorme y centrada; la tapa salta con 'hic' y clonk."
+        "beat": "Gancho (frame 1, picado inverso desde abajo): la tapa enorme ya en el aire sobre una columna de vapor ocupando el tercio central, el hombre pequeno a un lado se agacha; clonk al caer."
       },
       {
-        "t": "3-6",
-        "beat": "Se rasca la cabeza (Thinking), la tapa vuelve a saltar mas alto; el hombre la tapa con un cajon encima."
+        "t": "3-7",
+        "beat": "Hic: la tapa vuelve a saltar y escupe una bota (el hombre la esquiva); otro hic escupe un patito de goma que el hombre atrapa (squeak); reaccion en cada hipo."
       },
       {
-        "t": "6-10",
-        "beat": "Hic mas fuerte: el cajon sale volando fuera de campo (thud lejano); el hombre se queda quieto (Looking Around)."
+        "t": "7-11",
+        "beat": "Intenta curarla: se esconde y da un susto con los brazos arriba; la tapa se queda congelada en lo alto y cae de plano con un golpe de platillo."
       },
       {
-        "t": "10-15",
-        "beat": "Giro: le acerca un vaso de agua; la tapa se inclina y bebe (glug), eructa un aro de humo que le cae en la cabeza; Victory y pose del plano 1."
+        "t": "11-15",
+        "beat": "Giro: la tapa quieta, el hombre aliviado se lleva la mano al pecho y le da un hic a el mismo: salta unos centimetros, la tapa responde con un clonk burlon; queda en la pose del plano 1."
       }
     ],
     "clips": [
@@ -36,13 +36,13 @@
       [
         2,
         [
-          "Thinking"
+          "Picking Up"
         ]
       ],
       [
         3,
         [
-          "Pushing"
+          "Waving"
         ]
       ],
       [
@@ -52,11 +52,11 @@
         ]
       ]
     ],
-    "payoff": "La tapa tenia sed, no hipo: un vaso de agua y queda feliz.",
-    "sin_palabras": "Tapa gigante que salta con hipo: se lee en 1 s.",
-    "needs": "Tapa = cilindro plano grande con S.key de posicion y rotacion; hic = sonido nuevo corto con pitch creciente; cajon = cube; vaso = cilindro; aro de humo = toro. Clips existentes.",
+    "payoff": "El susto cura a la tapa y el hipo se lo pasa al hombre.",
+    "sin_palabras": "Tapa gigante saltando sobre un chorro de vapor: se lee en 1 s.",
+    "needs": "Camara baja (picado inverso) con la tapa alta en el tercio central; tapa = cilindro plano con S.key de posicion Y; vapor = cilindro semitransparente que escala; bota y patito = primitivas; sonidos distintos por beat (clonk, squeak, platillo, hic), sin tono ascendente repetido. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Alcantarilla viva, sin banco, bus ni piscina; remate de sed."
+    "diferencia": "Tapa viva que da hipo y se cura con un susto; remate de contagio, sin sed ni escala sonora."
   },
   {
     "id": "b20261123-2-i02",
@@ -299,45 +299,45 @@
     "format": "pov",
     "kind": "anim",
     "env": "HDRI suburban_parking_area + suelo PBR hormigon",
-    "title_en": "POV: The Cone Is Stuck",
+    "title_en": "POV: What Is Under the Cone?",
     "caption_en": null,
-    "onscreen_en": "POV: the cone is stuck",
-    "logline_es": "Un hombre con un cono de trafico enorme en la cabeza lo tira hacia arriba: cada pop revela otro cono mas pequeno y el pop sube de tono; al final vuelve a ponerse el grande como casco, a ciegas, en la pose del plano 1.",
+    "onscreen_en": "POV: what is under the cone?",
+    "logline_es": "Un hombre ve un cono de trafico enorme en un aparcamiento; lo levanta con ambas manos y debajo hay otro cono pequeno que pita; levanta ese y debajo hay uno diminuto que pita aun mas; el diminuto senala la lluvia que llega y el hombre se pone el grande de casco.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Gancho (frame 1): cono enorme tapandole la cabeza, brazos extendidos a ciegas."
+        "beat": "Gancho (frame 1): cono naranja enorme y centrado en el suelo, el hombre de pie lo mira (Looking Around)."
       },
       {
         "t": "3-7",
-        "beat": "Tira (Pushing): pop, sale el cono y debajo hay otro mas pequeno; segundo pop mas agudo."
+        "beat": "Lo levanta con las dos manos (Picking Up) y lo sostiene en alto: debajo, otro cono mas pequeno suelta un pip; el hombre se asoma."
       },
       {
         "t": "7-11",
-        "beat": "Tercer pop, un cono diminuto; se mira confuso (Looking Around)."
+        "beat": "Levanta el pequeno: debajo un cono diminuto, pip mas fuerte, que se inclina hacia el cielo; una gota cae en la nariz del hombre (plop)."
       },
       {
-        "t": "11-14",
-        "beat": "Giro: se pone el cono grande como casco, alza los brazos feliz; mismo plano que el 1."
+        "t": "11-15",
+        "beat": "Giro: se pone el cono grande como casco sobre la cabeza sostenido en las manos sin parentar, cae la lluvia (golpecitos en el cono) y los conos pequenos se meten debajo; Victory como el plano 1."
       }
     ],
     "clips": [
       [
         1,
         [
-          "Pushing"
+          "Looking Around"
         ]
       ],
       [
         2,
         [
-          "Pushing"
+          "Picking Up"
         ]
       ],
       [
         3,
         [
-          "Looking Around"
+          "Thinking"
         ]
       ],
       [
@@ -347,10 +347,10 @@
         ]
       ]
     ],
-    "payoff": "Los conos eran una familia de conos y el grande le gusta de casco.",
+    "payoff": "El cono diminuto avisa de la lluvia y el cono grande es un paraguas para todos.",
     "sin_palabras": "Cono enorme sobre la cabeza: se lee en 1 s.",
-    "needs": "Conos = cilindros/conos anidados parentados a la cabeza con S.key; pop con pitch ascendente. Clips existentes.",
+    "needs": "Conos = conos naranjas independientes (el grande sostenido por keys de posicion sobre la cabeza, sin parentar ni tocar la malla); pip de cono con pitch fijo; gotas = esferas y plop; lluvia como golpecitos sobre el cono. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Cono en cabeza, no barrera ni carro; remate de casco."
+    "diferencia": "Cono con causa visible (aviso de lluvia) y casco como paraguas; sin parentar a la cabeza."
   }
 ]
