@@ -27,7 +27,8 @@ CUSTOM_CAMERA = True
 LABEL_STYLE = "big"
 
 TANK = (3.0, 1.8)                  # centro del depósito de agua (radio 1,0; cara -x en x = 1,94)
-HOVER = Vector((0.15, 0.2, 2.8))   # el dron zumba aquí (centro del cuerpo)
+HOVER = Vector((0.15, 0.2, 2.4))   # el dron zumba aquí (centro del cuerpo)
+DS = 1.45                          # escala del dron: ~1 m de envergadura
 CW, CD, CH = 0.36, 0.07, 0.22      # mando: ancho, fondo, alto (m): exagerado (pedido ~25 x 15) para leerse en plano medio en vertical
 CAM_Y, CAM_Z, TGT_Z = -7.0, 3.1, 1.75     # plano medio: personaje ~34 % del alto, pies al ~17 %, cabeza al ~50 %
 
@@ -139,7 +140,7 @@ def audit_floor(S, a, tag, f0, f1, step=2):
 
 
 # ------------------------------------------------------------------ escenario
-def stage(S, N, gust=None, rot_deg=0):
+def stage(S, N, gust=None, rot_deg=90):
     """Azotea + sábanas ondeando (gust(f) -> 0..1 las agita) + zumbido continuo del dron."""
     E = env_real.build_rooftop(S, rot_deg=rot_deg, tank=TANK, focus=7.1)
     for f in range(1, N + 14, 2):
@@ -155,7 +156,7 @@ def build_drone(S):
     """Dron de primitivas (~70 cm): cuerpo blanco con cúpula naranja, 4 brazos, 4 hélices con disco difuminado, cámara, patines y luces."""
     wh = mmat(S, "dron_blanco", (0.95, 0.95, 0.93), 0.35); org = mmat(S, "dron_naranja", (1.0, 0.38, 0.02), 0.35); drk = mmat(S, "dron_gris", (0.07, 0.07, 0.08), 0.4, 0.3)
     disc = mmat(S, "dron_disco", (0.55, 0.58, 0.62), 0.6, alpha=0.22)
-    D_ = S.empty("dron", tuple(HOVER))
+    D_ = S.empty("dron", tuple(HOVER)); D_.scale = (DS, DS, DS)
     O(S, "cylinder", "d_cuerpo", wh, (0, 0, 0), (0.17, 0.17, 0.045), parent=D_, vertices=32)
     O(S, "uv_sphere", "d_cupula", org, (0, 0, 0.035), (0.15, 0.15, 0.075), parent=D_, segments=24, ring_count=12)
     O(S, "cylinder", "d_cinta", org, (0, 0, -0.012), (0.176, 0.176, 0.014), parent=D_, vertices=32)
@@ -424,7 +425,7 @@ def l3(S):
     S.f = N; a.verify(S.f)
     faces(a, [(1, "neutra", 1.0), (20, "enfado", 0.6), (f_h - 4, "enfado", 1.0), (f_h + 2, "sorpresa", 1.0)], N, first_blink=12, every=30)
     D_, props, leds = build_drone(S)
-    d0 = Vector((xf - 1.0, y0 - 0.3, 3.7))
+    d0 = Vector((xf - 1.0, y0 - 0.3, 3.3))
     def dpos(f):
         p = d0.copy(); p.x += 0.25 * math.sin(0.03 * f)
         t = (f - (f_h + 2)) / 20.0                                      # pica hasta casi rozarle la cabeza (apenas a un lado) y sube
@@ -468,13 +469,13 @@ def l4(S):
         """Punto de agarre en el mundo (centro del patín)."""
         k = sstep((f - f_dr) / float(f_r - f_dr)); k = min(1.0, max(0.0, k))
         x = lerp(x0, x_end, k) + (0.0); y = lerp(y0, y_end, k)
-        zlow = hl.z + 0.045
-        z = HOVER.z - 0.14 if f <= f_g - 3 else lerp(HOVER.z - 0.14, zlow, sstep((f - (f_g - 3)) / float(f_dr - f_g + 3)))
+        zlow = hl.z + 0.42
+        z = HOVER.z - 0.22 if f <= f_g - 3 else lerp(HOVER.z - 0.22, zlow, sstep((f - (f_g - 3)) / float(f_dr - f_g + 3)))
         if f > f_dr: z += 0.025 * math.sin(0.9 * (f - f_dr)) * (1 - sstep((f - f_r + 8) / 8.0))
         return Vector((x, y, z))
     def hang_M(f):
         env = sstep((f - f_dr) / 12.0) * (1 - sstep((f - f_r + 10) / 10.0))
-        th = -12.0 * env * (0.6 + 0.4 * math.sin(0.35 * (f - f_dr)))
+        th = -24.0 * env * (0.6 + 0.4 * math.sin(0.35 * (f - f_dr)))
         yaw = -10.0 + 12.0 * math.sin(0.22 * (f - f_dr)) * env
         return Tm(Gp(f)) @ Ry(th) @ Rz(yaw) @ Tm(-hl)
     def arc_h(f): return 0.62 * math.sin(0.5 * math.pi * max(0.0, min(1.0, (f + 6) / float(f_g + 6))))        # ya en el aire en el fotograma 1
@@ -488,9 +489,9 @@ def l4(S):
             key_M(S, a, f, Tm(A_.to_translation().lerp(B_.to_translation(), t)) @ q.to_matrix().to_4x4())
         elif f <= f_r: key_M(S, a, f, hang_M(f))
         else:
-            Mh = hang_M(f_r); pos = Mh.to_translation(); pos.z = 0.0
+            Mh = hang_M(f_r); pos = Mh.to_translation(); pos.z = max(0.0, pos.z * (1 - ((f - f_r) / 6.0) ** 2))
             key_M(S, a, f, Tm(pos) @ Rz(D(Mh.to_euler("XYZ").z)))
-    pin_feet(S, a, f_dr, N + 11, lambda f: 0.0)                         # arrastra los pies por el suelo (el clip sube la cadera) y luego de pie
+    pin_feet(S, a, f_r + 8, N + 11, lambda f: 0.0)                      # colgado con los pies en el aire (0,4 m); al soltar cae y se ríe
     sm = sample(S, a, N + 10)
     S.cue("huh", f_t - 4, vol=-8); S.cue("boing", f_t, vol=-8); S.cue("pop", f_g, vol=-6); S.cue("whoosh", f_g + 2, vol=-6); S.cue("slide_down", f_dr, vol=-9)
     for f in (f_dr + 10, f_dr + 24, f_dr + 38): S.cue("creak", f, vol=-12)
@@ -500,7 +501,7 @@ def l4(S):
     faces(a, [(1, "enfado", 0.6), (f_t, "feliz", 0.8), (f_g, "sorpresa", 0.7), (f_dr + 8, "sorpresa", 1.0), (f_r - 6, "neutra", 0.6), (f_r + 4, "feliz", 1.0)], N, first_blink=14, every=40)
     D_, props, leds = build_drone(S)
     def dpos(f):
-        g = Gp(f); p = g + Vector((-0.12, 0, 0.14))
+        g = Gp(f); p = g + Vector((-0.17, 0, 0.22))
         if f > f_r: p.z += 0.9 * sstep((f - f_r) / 22.0) + 0.0; p.x += -0.5 * sstep((f - f_r) / 22.0)
         return p
     def dtilt(f):
@@ -558,7 +559,7 @@ def l5(S):
           first_blink=18, every=48)
     D_, props, leds = build_drone(S)
     hov = HOVER.copy(); hov.x = 0.1
-    def hands(f): return (sm[f]["rh"] + sm[f]["lh"]) * 0.5 + Vector((0, 0, 0.17))
+    def hands(f): return (sm[f]["rh"] + sm[f]["lh"]) * 0.5 + Vector((0, 0, 0.25))
     def dpos(f):
         p = hov.copy(); p.x += 0.3 * math.sin(0.025 * f)
         if f_press <= f < f_up:

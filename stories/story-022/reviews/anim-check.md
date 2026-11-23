@@ -37,3 +37,9 @@ Mando: caja roja 36x22 cm (algo mayor que los 25x15 pedidos, para leerse en vert
 ## Pendiente
 - ISSUES: no hay un sonido de zumbido de dron con tono por nivel en audio_gen.py (se usa un cue "whoosh" repetido cada 9 fotogramas a -20 dB). Responsable: sound-designer / audio_gen.
 - No se probó el render completo ni el montaje (render_episode.py), solo fotogramas sueltos.
+
+## Ronda 2 (revisión del Director: azotea, dron, arrastre) — 21 fotogramas re-renderizados y vistos
+- Fondo: la pared de lamas era el HDRI (aparcamiento nublado). HDRI girado a 90 grados (solo luz y reflejos) y, para la cámara, cúpula de cielo azul de día con nubes (solo rayos de cámara), skyline de 40 edificios lejanos de primitivas (copas 3-9 m, el cielo queda libre), calle lejana bajo el parapeto, sol 3,0. En todos los planos se ve ahora barandilla, ciudad al fondo y cielo azul.
+- Dron: escala 1,45 (~1 m de envergadura) y vuelo a 2,4 m (antes 2,8): se ve con las 4 hélices, la cámara y las luces en todos los niveles; en el nivel 5 queda sobre las manos y la cabeza al ~60 %.
+- Nivel 4: ahora cuelga del patín con los pies a ~0,4 m del suelo y balanceo de -24 grados mientras el dron lo arrastra; al soltar cae y se ríe (n4_b2, n4_b3).
+- Límite: el skyline es una silueta gris de bloques (sin ventanas); el cielo cubre solo ~15 % superior en plano medio.

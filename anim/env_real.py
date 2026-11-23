@@ -270,7 +270,7 @@ ROOFTOP_PROPS = [
 ]
 
 
-def build_rooftop(S, rot_deg=0, sun_energy=2.2, tank=(3.0, 1.8), focus=7.2):
+def build_rooftop(S, rot_deg=90, sun_energy=3.0, tank=(3.0, 1.8), focus=7.2):
     """Azotea urbana muy producida: HDRI rooftop_day, suelo de hormigón desgastado PBR (losa finita con parapeto y barandilla), 15 piezas de
     atrezo de Poly Haven (CC0) en primer plano, medio y fondo, depósito de agua de madera de primitivas (con escalera de peldaños en su cara
     -x, para trepar), caseta de acceso, antenas, tendedero con sábanas, charcos, hojas, sumidero y parches de brea; profundidad por DOF.
@@ -280,12 +280,35 @@ def build_rooftop(S, rot_deg=0, sun_energy=2.2, tank=(3.0, 1.8), focus=7.2):
         if o.name.startswith("sun") or o is S.cam or o is S.tgt: continue
         bpy.data.objects.remove(o, do_unlink=True)
     _hdri(S, name="rooftop_day", strength=1.0, rot_deg=rot_deg)
+    # el HDRI es un aparcamiento nublado: la luz y los reflejos son suyos, pero a la cámara se le muestra un cielo azul de día (cúpula que solo
+    # existe para los rayos de cámara), un skyline de edificios lejanos (primitivas) y el vacío de la calle bajo el parapeto
+    sk = bpy.data.materials.new("az_cielo"); sk.use_nodes = True; nt = sk.node_tree; N_, L_ = nt.nodes, nt.links
+    for n_ in list(N_): N_.remove(n_)
+    out = N_.new("ShaderNodeOutputMaterial"); mix = N_.new("ShaderNodeMixShader"); tr = N_.new("ShaderNodeBsdfTransparent"); em = N_.new("ShaderNodeEmission")
+    tc = N_.new("ShaderNodeTexCoord"); sp = N_.new("ShaderNodeSeparateXYZ"); L_.new(tc.outputs["Object"], sp.inputs[0])
+    gz = N_.new("ShaderNodeMapRange"); gz.inputs[1].default_value = 0.0; gz.inputs[2].default_value = 0.30; L_.new(sp.outputs["Z"], gz.inputs[0])
+    rp = N_.new("ShaderNodeValToRGB"); rp.color_ramp.elements[0].color = (0.62, 0.80, 1.0, 1); rp.color_ramp.elements[1].color = (0.10, 0.38, 0.95, 1); L_.new(gz.outputs[0], rp.inputs[0])
+    nz = N_.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 3.5; nz.inputs["Detail"].default_value = 5.0; L_.new(tc.outputs["Object"], nz.inputs["Vector"])
+    cr = N_.new("ShaderNodeValToRGB"); cr.color_ramp.elements[0].position = 0.52; cr.color_ramp.elements[1].position = 0.68; L_.new(nz.outputs["Fac"], cr.inputs[0])
+    cm = N_.new("ShaderNodeMix"); cm.data_type = "RGBA"; cm.inputs[7].default_value = (1, 1, 1, 1); L_.new(cr.outputs["Color"], cm.inputs[0]); L_.new(rp.outputs["Color"], cm.inputs[6])
+    L_.new(cm.outputs[2], em.inputs["Color"]); em.inputs["Strength"].default_value = 0.9
+    mk = N_.new("ShaderNodeMapRange"); mk.inputs[1].default_value = -0.01; mk.inputs[2].default_value = 0.0; L_.new(sp.outputs["Z"], mk.inputs[0])
+    lp = N_.new("ShaderNodeLightPath"); ml = N_.new("ShaderNodeMath"); ml.operation = "MULTIPLY"; L_.new(mk.outputs[0], ml.inputs[0]); L_.new(lp.outputs["Is Camera Ray"], ml.inputs[1])
+    L_.new(ml.outputs[0], mix.inputs[0]); L_.new(tr.outputs[0], mix.inputs[1]); L_.new(em.outputs[0], mix.inputs[2]); L_.new(mix.outputs[0], out.inputs[0])
+    dome = _prim(S, "uv_sphere", "cielo", sk, (0, 0, 0), (1500, 1500, 1500), segments=48, ring_count=24, smooth=True)
+    rnd0 = _r.Random(5)
+    for k in range(40):                                                       # skyline lejano (copas entre 4 y 11 m sobre la azotea: el cielo queda libre)
+        x = -330 + k * 16.0 + rnd0.uniform(-5, 5); y = rnd0.uniform(130, 230); w = rnd0.uniform(14, 30); dpt = rnd0.uniform(14, 28); top = rnd0.uniform(3.0, 9.0)
+        c = rnd0.uniform(0.20, 0.30); hz = _mat_simple(S, f"edif{k % 5}", (c * 0.92, c * 0.97, min(1.0, c * 1.10)), 0.9)
+        _prim(S, "cube", "edificio", hz, (x, y, (top - 15.0) / 2), (w / 2, dpt / 2, (top + 15.0) / 2), smooth=False)
+        if rnd0.random() < 0.5: _prim(S, "cylinder", "edificio_antena", hz, (x + w * 0.2, y, top + 1.5), (0.15, 0.15, 1.5), vertices=6)
+    _prim(S, "cube", "calle_lejos", _mat_simple(S, "calle_lejos", (0.30, 0.32, 0.34), 0.9), (0, 600, -15.2), (1500, 1200, 0.2), smooth=False)
     sun = bpy.data.objects["sun"]; sun.data.energy = sun_energy; sun.data.color = (1.0, 0.95, 0.86); sun.data.angle = math.radians(2.0)
     sun.rotation_euler = (math.radians(48), 0, math.radians(-30))
     S.sc.view_settings.view_transform = "AgX"
     try: S.sc.view_settings.look = "AgX - Base Contrast"; S.sc.view_settings.exposure = 0.0
     except Exception: pass
-    S.cam.data.dof.use_dof = True; S.cam.data.dof.aperture_fstop = 2.2; S.cam.data.dof.focus_distance = focus; S.water = None
+    S.cam.data.dof.use_dof = True; S.cam.data.dof.aperture_fstop = 2.2; S.cam.data.dof.focus_distance = focus; S.water = None; S.cam.data.clip_end = 4000
     # ---- suelo: losa de 18 x 19 m con UV en metros (la textura se repite cada 2 m)
     conc = _pbr(S, "concrete_floor_worn_001", res="1k", scale=1.0)
     bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 0.25, 0)); g = bpy.context.object; g.name = "azotea_suelo"
