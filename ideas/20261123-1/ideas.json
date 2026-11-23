@@ -3,96 +3,90 @@
     "id": "b20261123-1-i01",
     "format": "pov",
     "kind": "anim",
-    "env": "parque (cesped con sol alto, sombra bien visible)",
-    "title_en": "POV: Your Shadow Has Lag",
+    "env": "parque (cesped, sol alto a un lado)",
+    "title_en": "POV: Your Shadow Won't Stop Waving",
     "caption_en": null,
-    "onscreen_en": "POV: your shadow has lag",
-    "logline_es": "Su sombra tiene retraso: cuando el hombre saluda, la sombra saluda un segundo despues y sigue saludando cuando el para; al final la sombra se sienta y el queda de pie.",
+    "onscreen_en": "POV: your shadow won't stop waving",
+    "logline_es": "Un hombre de pie y quieto con su sombra enorme tumbada en el suelo que sigue saludando sola; la sombra se estira al correr y al final se tumba mientras el queda en la pose inicial.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Gancho (fotograma 1): hombre saludando (Waving) con la sombra oscura en el suelo ya un paso por detras del gesto."
+        "beat": "Gancho (fotograma 1): el hombre YA quieto (Looking Around) y su sombra negra, enorme, tumbada en el suelo (rot x=-90, coherente con el sol), saluda con el brazo grande."
       },
       {
         "t": "3-7",
-        "beat": "Para en seco; la sombra sigue saludando sola un segundo. Mira abajo (Looking Around), cara de duda."
+        "beat": "Mira abajo y trata de aplastar la sombra con las manos (Pushing); la sombra sigue saludando."
       },
       {
         "t": "7-11",
-        "beat": "Echa a correr (Running); la sombra tarda, se estira como goma y llega jadeando a su lado."
+        "beat": "Echa a correr (Running); la sombra se estira como goma, se queda atras saludando y vuelve de golpe con un boing, adelantandolo."
       },
       {
         "t": "11-15",
-        "beat": "Remate: la sombra se sienta (Sitting Idle) y se queda ahi; el hombre, de pie, se cruza de brazos (Angry) y vuelve a la pose del plano 1 saludando para el bucle."
+        "beat": "Remate: la sombra se tumba boca arriba con los brazos en cruz, rendida; el hombre se queda quieto un beat y la sombra vuelve a saludar: pose del plano 1 y bucle."
       }
     ],
     "clips": [
       [
         1,
         [
-          "Waving"
+          "Looking Around",
+          "Pushing"
         ]
       ],
       [
         2,
         [
-          "Looking Around"
+          "Running"
         ]
       ],
       [
         3,
         [
-          "Running"
-        ]
-      ],
-      [
-        4,
-        [
-          "Sitting Idle",
-          "Angry"
+          "Looking Around"
         ]
       ]
     ],
-    "payoff": "Su sombra tiene vida y se cansa antes que el.",
-    "sin_palabras": "Se lee en 1 s sin texto: Gancho (fotograma 1): hombre saludando (Waving) con la sombra oscura en el suelo ya un paso por detras del gesto",
-    "needs": "Sombra = copia aplastada del humano (scale y=0.05, negro) con las mismas animaciones y offset de tiempo de 1 s via S.key; pop y whoosh elastico; clips existentes.",
+    "payoff": "La sombra se cansa antes que el y vuelve a saludar cuando el para.",
+    "sin_palabras": "Gancho (fotograma 1): el hombre YA quieto (Looking Around) y su sombra negra, enorme, tumbada en el suelo (rot x=-90, coherente con el sol), saluda con el brazo grande.",
+    "needs": "Sombra = copia aplastada tumbada en el suelo (negro, scale grande) con brazo animado por S.key (no Sitting Idle); estiramiento elastico con scale y; whoosh y boing; clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Sombra con retraso; sin bancos, sombras de arbol ni banco que anda.",
+    "diferencia": "Sombra grande y legible desde el fotograma 1; sin bancos ni arboles.",
     "batch": "20261123-1"
   },
   {
     "id": "b20261123-1-i02",
     "format": "mini_story",
     "kind": "anim",
-    "env": "parque (hilera de arboles delgados en circulo)",
-    "title_en": "The Domino Trees",
+    "env": "escalera de piedra ancha en un parque (cubes)",
+    "title_en": "The Staircase That Sings",
     "caption_en": null,
-    "onscreen_en": "Gentle push",
-    "logline_es": "Un hombre empuja un arbol delgado que cae sobre el siguiente en fichas de domino por todo el parque y el circulo de arboles vuelve a tirarlo a el.",
+    "onscreen_en": "Climb the notes",
+    "logline_es": "Una escalera de piedra cuyos escalones son teclas gigantes que suenan en escala ascendente cuando un hombre la sube corriendo; arriba todos se vuelcan en tobogan y lo devuelven al punto inicial.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Gancho: ya empujando (Pushing) un arbol delgado; al fondo, en circulo, otros arboles en fila; el primero empieza a inclinarse."
+        "beat": "Gancho: el hombre ya subiendo corriendo (Running) una escalera enorme y centrada de escalones de colores; cada pisada ilumina el escalon con una nota."
       },
       {
         "t": "3-8",
-        "beat": "Los arboles caen uno tras otro con tonk de pitch ascendente, camara fija; el hombre mira orgulloso (Victory)."
+        "beat": "Escala ascendente do-re-mi-fa-sol...; salta dos escalones (Jumping) y la nota sube de golpe; sonrie."
       },
       {
         "t": "8-12",
-        "beat": "El ultimo arbol cae sobre la espalda del hombre y lo aplasta (Falling Back Death)."
+        "beat": "Pisa el ultimo escalon: nota grave y los escalones se inclinan en un tobogan; baja resbalando (Falling Back Death) con la escala descendente."
       },
       {
         "t": "12-16",
-        "beat": "Remate: los arboles se levantan por orden, de nuevo en pie; el hombre se sienta (Sitting Idle) y vuelve a empujar el primero (Pushing) para el bucle."
+        "beat": "Remate: aterriza de pie en la pose del plano 1 (Running) y empieza a subir otra vez."
       }
     ],
     "clips": [
       [
         1,
         [
-          "Pushing",
-          "Victory"
+          "Running",
+          "Jumping"
         ]
       ],
       [
@@ -104,16 +98,15 @@
       [
         3,
         [
-          "Sitting Idle",
-          "Pushing"
+          "Running"
         ]
       ]
     ],
-    "payoff": "Empujo el primer domino y el circulo se cierra sobre el.",
-    "sin_palabras": "Se lee en 1 s sin texto: Gancho: ya empujando (Pushing) un arbol delgado; al fondo, en circulo, otros arboles en fila; el primero empieza a inclinarse",
-    "needs": "Arboles = cylinder + uv_sphere con S.key de rotacion en la base; sonido tonk con pitch ascendente y thud; camara fija. Clips existentes.",
+    "payoff": "Subir suena a musica y el ultimo escalon es el tobogan.",
+    "sin_palabras": "Gancho: el hombre ya subiendo corriendo (Running) una escalera enorme y centrada de escalones de colores; cada pisada ilumina el escalon con una nota.",
+    "needs": "Escalones = 8 cubes de colores con S.key de color (brillo) al pisar y de rotacion al final; nota por escalon con pitch ascendente; boing grave. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Domino de arboles circular; sin objetos vivos ni giro de bondad.",
+    "diferencia": "Escaleras musicales con giro tobogan; sin piano de fondo ni campana.",
     "batch": "20261123-1"
   },
   {
@@ -180,60 +173,55 @@
     "id": "b20261123-1-i04",
     "format": "mini_story",
     "kind": "anim",
-    "env": "parque (cielo azul, una nube baja)",
-    "title_en": "The Rope From the Sky",
+    "env": "plaza con fuente grande (cylinders)",
+    "title_en": "The Fountain That Gives Change",
     "caption_en": null,
-    "onscreen_en": "POV: free rope",
-    "logline_es": "Una cuerda cuelga de una nube sobre el parque; el hombre sube, se sienta en la nube, la nube llora y cae al punto inicial con la cuerda otra vez delante.",
+    "onscreen_en": "Make a wish",
+    "logline_es": "Un hombre lanza monedas a una fuente grande y cada una dispara un chorro mas alto con notas ascendentes; al final la fuente le devuelve la primera moneda.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Gancho: ya trepando (Climbing A Rope) una cuerda que cuelga de una nube baja."
+        "beat": "Gancho: el hombre lanza (Throw) una moneda y el chorro central de la fuente sube bien centrado con un ploc."
       },
       {
         "t": "3-8",
-        "beat": "Llega arriba y se sienta (Sitting Idle) en la nube; cara feliz, jingle suave."
+        "beat": "Segunda y tercera moneda: chorro cada vez mas alto con notas ascendentes; el hombre salta de alegria (Victory)."
       },
       {
         "t": "8-12",
-        "beat": "La nube se pone gris, llueve; la cuerda se suelta y cae (Falling Back Death) al punto inicial."
+        "beat": "Cuarta moneda: el chorro baja a cero, silencio, y la fuente escupe de vuelta la primera moneda a su mano; la mira (Looking Around)."
       },
       {
         "t": "12-16",
-        "beat": "Remate: la nube vuelve a ponerse blanca y deja caer otra cuerda; el hombre la agarra (Climbing A Rope) para el bucle."
+        "beat": "Remate: se encoge de hombros y vuelve a lanzar (Throw) la misma moneda: pose del plano 1 y bucle."
       }
     ],
     "clips": [
       [
         1,
         [
-          "Climbing A Rope"
+          "Throw",
+          "Victory"
         ]
       ],
       [
         2,
         [
-          "Sitting Idle"
+          "Looking Around"
         ]
       ],
       [
         3,
         [
-          "Falling Back Death"
-        ]
-      ],
-      [
-        4,
-        [
-          "Climbing A Rope"
+          "Throw"
         ]
       ]
     ],
-    "payoff": "La cuerda es de una nube y la nube se cansa.",
-    "sin_palabras": "Se lee en 1 s sin texto: Gancho: ya trepando (Climbing A Rope) una cuerda que cuelga de una nube baja",
-    "needs": "Nube = 4 uv_spheres blancas con S.key de color a gris; cuerda = cylinder fino; gotas = spheres pequenas; clips existentes.",
+    "payoff": "La fuente da el cambio.",
+    "sin_palabras": "Gancho: el hombre lanza (Throw) una moneda y el chorro central de la fuente sube bien centrado con un ploc.",
+    "needs": "Fuente = cylinders concentricos + chorro con cylinder cuya escala y sube; monedas = cylinders dorados; notas ascendentes y pop de reembolso. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Cuerda del cielo; sin nube que persigue ni viento.",
+    "diferencia": "Fuente de deseos con reembolso; sin objetos vivos ni piano.",
     "batch": "20261123-1"
   },
   {
@@ -300,55 +288,55 @@
     "id": "b20261123-1-i06",
     "format": "mini_story",
     "kind": "anim",
-    "env": "parque (cesped con aspersores y una flor marchita)",
-    "title_en": "The Lawn Orchestra",
+    "env": "camino asfaltado del parque (cube gris con linea blanca)",
+    "title_en": "The Ball That Grew",
     "caption_en": null,
-    "onscreen_en": "Wave to water",
-    "logline_es": "Aspersores de un cesped se mueven al compas de las manos de un hombre como una orquesta, con notas que suben, hasta regar una flor marchita que crece.",
+    "onscreen_en": "Just one push",
+    "logline_es": "Un hombre empuja una pelota que se duplica con cada empujon en un camino asfaltado y acaba sentado contra ella mientras se desinfla a pelota pequena.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Gancho: saluda (Waving) con la mano alta y los aspersores del cesped se inclinan hacia su mano; flor marchita al fondo."
+        "beat": "Gancho: ya empujando (Pushing) una pelota rayada y enorme en el centro del camino; con cada empujon crece."
       },
       {
         "t": "3-8",
-        "beat": "Agita los brazos (Waving, Throw) y cada aspersor lanza chorros con una nota distinta, arcos de agua en sincronia."
+        "beat": "Segundo y tercer empujon: la pelota se duplica con un boing ascendente hasta tapar el cuadro; el hombre mira hacia arriba (Looking Around)."
       },
       {
         "t": "8-12",
-        "beat": "Con un gran gesto dirige todos los chorros a la flor marchita; crece enorme y le moja a el tambien."
+        "beat": "Se rinde y se sienta contra ella (Sitting Idle); la pelota se desinfla despacio con un pfff y el hombre baja con ella."
       },
       {
         "t": "12-16",
-        "beat": "Remate: empapado, se rie (Laughing); la flor se marchita de nuevo con un pof y vuelve a la pose del plano 1 (Waving) para el bucle."
+        "beat": "Remate: queda una pelota diminuta junto a el; la mira y la empuja (Pushing): pose del plano 1 y bucle."
       }
     ],
     "clips": [
       [
         1,
         [
-          "Waving"
+          "Pushing"
         ]
       ],
       [
         2,
         [
-          "Waving",
-          "Throw"
+          "Looking Around"
         ]
       ],
       [
         3,
         [
-          "Laughing"
+          "Sitting Idle",
+          "Pushing"
         ]
       ]
     ],
-    "payoff": "El hombre dirige sin saberlo una orquesta de aspersores.",
-    "sin_palabras": "Se lee en 1 s sin texto: Gancho: saluda (Waving) con la mano alta y los aspersores del cesped se inclinan hacia su mano; flor marchita al fondo",
-    "needs": "Aspersores = cylinders; chorros = spheres pequenas con S.key en arcos; notas con pitch segun inclinacion; flor = cylinder + uv_spheres con scale key. Clips existentes.",
+    "payoff": "La pelota crece con cada empujon y al final se desinfla en su mano.",
+    "sin_palabras": "Gancho: ya empujando (Pushing) una pelota rayada y enorme en el centro del camino; con cada empujon crece.",
+    "needs": "Pelota = uv_sphere con franjas y S.key de scale (x2 por empujon); boing con pitch ascendente y pfff; clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Aspersores musicales; sin charco ni manguera de episodios previos.",
+    "diferencia": "Pelota que crece sobre asfalto; sin hinchables atascados.",
     "batch": "20261123-1"
   }
 ]
