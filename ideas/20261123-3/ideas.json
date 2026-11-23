@@ -1,0 +1,393 @@
+[
+  {
+    "id": "b20261123-3-i01",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
+    "title_en": "The Bin That Caught Everything",
+    "caption_en": null,
+    "onscreen_en": "Nothing but net",
+    "logline_es": "Un hombre lanza una bola de papel a una papelera grande y lejana; la papelera patina sobre ruedas por la plaza para cazar cada tiro y al final se planta a sus pies, abierta, esperando.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Plano 1: el hombre con una bola de papel, la papelera grande en el centro al fondo; lanza (Throw)."
+      },
+      {
+        "t": "3-8",
+        "beat": "Tira fallando a un lado y otro: la papelera desliza a cazar cada bola con un clonc."
+      },
+      {
+        "t": "8-11",
+        "beat": "Tiro lejisimo: la papelera salta y caza; el hombre aplaude (Clapping)."
+      },
+      {
+        "t": "11-14",
+        "beat": "La papelera desliza hasta sus pies con la tapa abierta; el hombre se queda con otra bola en la mano, pose del plano 1."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Throw"
+        ]
+      ],
+      [
+        2,
+        [
+          "Throw"
+        ]
+      ],
+      [
+        3,
+        [
+          "Clapping"
+        ]
+      ],
+      [
+        4,
+        [
+          "Standing Up"
+        ]
+      ]
+    ],
+    "payoff": "La papelera juega al baloncesto con el: se mueve ella para cazar.",
+    "sin_palabras": "Hombre con bola de papel mira una papelera grande y lejana.",
+    "tres_fotogramas": [
+      "Hombre con bola de papel mira una papelera grande y lejana.",
+      "Bola en el aire hacia la izquierda y la papelera patinando a esa posicion.",
+      "Papelera pegada al hombre, tapa abierta, el con otra bola en la mano."
+    ],
+    "needs": "Papelera = cilindro con tapa y 2 ruedas; bolas = esferas pequeñas con trayectoria S.key; deslizamiento lateral y salto. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Objeto que caza, no que huye (ledger 0,27 max).",
+    "batch": "20261123-3"
+  },
+  {
+    "id": "b20261123-3-i02",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
+    "title_en": "The Hydrant on a Leash",
+    "caption_en": null,
+    "onscreen_en": "Walkies",
+    "logline_es": "Un hombre pasea con correa a un hidrante que tira de el por la plaza, se para a oler una farola y se sienta obediente cuando el hombre vuelve al punto de partida.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Plano 1: el hombre sujeta una correa roja atada al hidrante grande del centro; el hidrante da saltitos (Standing Up)."
+      },
+      {
+        "t": "3-8",
+        "beat": "El hidrante sale disparado a un lado y arrastra al hombre (Running)."
+      },
+      {
+        "t": "8-11",
+        "beat": "Se detiene en seco ante la farola; el hombre cae hacia delante (Surprised)."
+      },
+      {
+        "t": "11-14",
+        "beat": "Vuelven al centro; el hidrante se sienta y mueve la tapa como cola; el hombre en la pose del plano 1."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Standing Up"
+        ]
+      ],
+      [
+        2,
+        [
+          "Running"
+        ]
+      ],
+      [
+        3,
+        [
+          "Surprised"
+        ]
+      ],
+      [
+        4,
+        [
+          "Waving"
+        ]
+      ]
+    ],
+    "payoff": "El hidrante es la mascota del hombre.",
+    "sin_palabras": "Hombre con correa roja ligada a un hidrante grande y quieto en el centro.",
+    "tres_fotogramas": [
+      "Hombre con correa roja ligada a un hidrante grande y quieto en el centro.",
+      "Hidrante dando un salto hacia la izquierda con la correa tensa y el hombre inclinado detras.",
+      "Hidrante sentado en el centro, tapa meneandose, el hombre con la correa floja."
+    ],
+    "needs": "Hidrante = cilindro + cupula con 2 tapas laterales; correa = cubo fino; saltos con S.key; tapa como cola con rotacion. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Mascota objeto, no el chorro de agua de ideas rechazadas.",
+    "batch": "20261123-3"
+  },
+  {
+    "id": "b20261123-3-i03",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
+    "title_en": "The Lamp Post That Eavesdropped",
+    "caption_en": null,
+    "onscreen_en": "Nosy",
+    "logline_es": "Un hombre habla por telefono junto a una farola; esta se dobla hasta poner la lampara junto al auricular, el se aparta, ella se endereza silbando y vuelve a doblarse.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Plano 1: el hombre habla por telefono (Talking On Phone), farola recta y enorme a su lado."
+      },
+      {
+        "t": "3-7",
+        "beat": "La farola se dobla despacio y pone la lampara al lado del movil."
+      },
+      {
+        "t": "7-11",
+        "beat": "Mira a la farola (Surprised) y se aparta; ella se endereza de golpe y simula silbar."
+      },
+      {
+        "t": "11-14",
+        "beat": "El vuelve a hablar; la farola recta; pose del plano 1."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Talking On Phone"
+        ]
+      ],
+      [
+        2,
+        [
+          "Surprised"
+        ]
+      ],
+      [
+        3,
+        [
+          "Shaking Head No"
+        ]
+      ],
+      [
+        4,
+        [
+          "Talking On Phone"
+        ]
+      ]
+    ],
+    "payoff": "La farola cotillea la llamada.",
+    "sin_palabras": "Hombre al telefono junto a una farola recta.",
+    "tres_fotogramas": [
+      "Hombre al telefono junto a una farola recta.",
+      "Farola doblada en arco con la lampara pegada al movil.",
+      "Farola recta de nuevo, hombre al telefono, igual que el primero."
+    ],
+    "needs": "Farola = cilindros con bisagra en el cuello (rotacion); lampara como esfera. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Objeto que escucha; sin noche ni bombilla (ledger farola rechazada).",
+    "batch": "20261123-3"
+  },
+  {
+    "id": "b20261123-3-i04",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
+    "title_en": "The Van That Copied Him",
+    "caption_en": null,
+    "onscreen_en": "Mirror mode",
+    "logline_es": "Un hombre asiente, niega, se encoge de hombros y aplaude ante una furgoneta, y la furgoneta lo imita: cabecea con la suspension, se balancea, sube y baja el chasis y cierra las puertas traseras de golpe.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Plano 1: el hombre asiente (Head Nod Yes) ante la furgoneta; ella cabecea."
+      },
+      {
+        "t": "3-7",
+        "beat": "Niega (Shaking Head No): la furgoneta se balancea de lado a lado."
+      },
+      {
+        "t": "7-11",
+        "beat": "Se encoge de hombros (Shrugging): ella sube el chasis; aplaude (Clapping): puertas traseras que se abren y cierran."
+      },
+      {
+        "t": "11-14",
+        "beat": "El se queda quieto; la furgoneta se queda quieta en la pose del plano 1."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Head Nod Yes"
+        ]
+      ],
+      [
+        2,
+        [
+          "Shaking Head No"
+        ]
+      ],
+      [
+        3,
+        [
+          "Shrugging",
+          "Clapping"
+        ]
+      ],
+      [
+        4,
+        [
+          "Head Nod Yes"
+        ]
+      ]
+    ],
+    "payoff": "La furgoneta es su espejo.",
+    "sin_palabras": "Hombre asintiendo frente a la furgoneta con el morro hacia abajo.",
+    "tres_fotogramas": [
+      "Hombre asintiendo frente a la furgoneta con el morro hacia abajo.",
+      "Hombre negando y la furgoneta inclinada a un lado.",
+      "Hombre y furgoneta quietos igual que en el primero."
+    ],
+    "needs": "Furgoneta de build_plaza con S.key de cabeceo, vaiven y puertas; sin objeto nuevo. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Objeto espejo de gestos; sin conducir, no es un bus (ledger).",
+    "batch": "20261123-3"
+  },
+  {
+    "id": "b20261123-3-i05",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
+    "title_en": "The Bollard That Sank",
+    "caption_en": null,
+    "onscreen_en": "Down? Up!",
+    "logline_es": "Un hombre se sienta en un bolardo grande; el bolardo se hunde en el suelo hasta dejarlo en el adoquin, sube de nuevo y lo devuelve a lo alto en la misma pose.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Plano 1: el hombre sentado en lo alto del bolardo grande (Sitting Idle), piernas colgando."
+      },
+      {
+        "t": "3-7",
+        "beat": "El bolardo baja como piston hasta dejarlo en el suelo; sorpresa (Surprised)."
+      },
+      {
+        "t": "7-11",
+        "beat": "Intenta levantarse (Standing Up) y el bolardo sube de golpe, el hombre sentado de nuevo arriba."
+      },
+      {
+        "t": "11-14",
+        "beat": "Mira abajo y saluda (Waving); pose del plano 1."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Sitting Idle"
+        ]
+      ],
+      [
+        2,
+        [
+          "Surprised"
+        ]
+      ],
+      [
+        3,
+        [
+          "Standing Up"
+        ]
+      ],
+      [
+        4,
+        [
+          "Waving"
+        ]
+      ]
+    ],
+    "payoff": "El bolardo es un ascensor-piston.",
+    "sin_palabras": "Hombre sentado en lo alto del bolardo alto.",
+    "tres_fotogramas": [
+      "Hombre sentado en lo alto del bolardo alto.",
+      "Bolardo hundido, el hombre sentado a ras de adoquin.",
+      "Bolardo alto de nuevo con el hombre sentado y saludando."
+    ],
+    "needs": "Bolardo grande 1.6 m = cilindro con banda amarilla, movimiento vertical S.key. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Elevador vertical, no un objeto que se va andando.",
+    "batch": "20261123-3"
+  },
+  {
+    "id": "b20261123-3-i06",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
+    "title_en": "The Crosswalk That Carried Him",
+    "caption_en": null,
+    "onscreen_en": "Press to cross",
+    "logline_es": "Un hombre pulsa el boton de un poste alto; las rayas del paso de cebra se convierten en cinta transportadora y lo llevan al otro lado, donde pulsa otro boton y vuelve.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Plano 1: el hombre pulsa el boton del poste (Button Pushing), paso de cebra ante el."
+      },
+      {
+        "t": "3-7",
+        "beat": "Las rayas se animan y se deslizan; el sube y se deja llevar (Sneaking Forward)."
+      },
+      {
+        "t": "7-11",
+        "beat": "Al otro lado pulsa el boton gemelo (Button Pushing)."
+      },
+      {
+        "t": "11-14",
+        "beat": "La cinta lo trae de vuelta; llega al poste, pose del plano 1."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Button Pushing"
+        ]
+      ],
+      [
+        2,
+        [
+          "Sneaking Forward"
+        ]
+      ],
+      [
+        3,
+        [
+          "Button Pushing"
+        ]
+      ],
+      [
+        4,
+        [
+          "Head Nod Yes"
+        ]
+      ]
+    ],
+    "payoff": "El paso de cebra es una cinta transportadora.",
+    "sin_palabras": "Hombre pulsando el boton de un poste alto ante un paso de cebra.",
+    "tres_fotogramas": [
+      "Hombre pulsando el boton de un poste alto ante un paso de cebra.",
+      "Hombre de pie sobre las rayas desplazandose al otro lado.",
+      "Hombre de vuelta en el poste pulsando igual que al inicio."
+    ],
+    "needs": "Poste = cilindro con boton; rayas existentes (cubos) con S.key de desplazamiento; paso de cebra delante del poste, no en la calzada. Clip nuevo no necesario.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Cinta, no semaforo en rojo (ledger rechazada).",
+    "batch": "20261123-3"
+  }
+]
