@@ -1,0 +1,7 @@
+{"generated": "2026-11-23", "animation": "Blender (Cycles) por código: anim/kit.py + anim/env_real.py (build_plaza) + anim/episodes/ep018.py — propio",
+ "characters_sets": "protagonista propio (anim/klunk_toon.py); bolardo (verde botella, banda roja con franjas blancas, dos ojos), fachada con ventana, tarta y vapor de primitivas propios; plaza con HDRI dresden_square, adoquín cobblestone_floor_01, pared beige_wall_001 y 14 modelos CC0 de Poly Haven (assets/polyhaven/LICENSES.json)",
+ "motion_capture": {"source": "Mixamo (Adobe)", "clips": ["Sitting Idle", "Picking Up", "Shrugging", "Head Nod Yes"], "license": "uso libre en proyectos propios, comerciales incluidos; crédito en descripción"},
+ "music": {"source": "sintetizada por scripts/audio_gen.py (assets/audio/music vacío)", "license": "propia, sin terceros"},
+ "sfx": {"source": "Kenney (kenney.nl: clunk, creak, pop, tada, hit; assets/audio/LICENSES.txt) + síntesis propia en scripts/audio_gen.py (boing, whoosh, huh, sigh, squeak, slide_down)", "license": "CC0 1.0 / propia"},
+ "editing": "FFmpeg (scripts/render_episode.py, scripts/qc_local.py)", "ai_use_disclosure": false,
+ "ai_use_note": "Protagonista de dibujo y bolardo que se estira y se come una tarta: situación imposible, no puede confundirse con un hecho real (entorno con texturas realistas, personajes claramente de dibujo). La descripción informa de herramientas con IA."}
