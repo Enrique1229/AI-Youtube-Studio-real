@@ -52,3 +52,4 @@ primer segundo, mejor audio y caras más realistas (petición del usuario).
 - Lectura: la mini-historia Bench casi iguala a Bell en vistas y es la que más se repite. Hay dos formatos que funcionan (niveles IQ y mini-historia corta con bucle), no uno solo: respalda alternarlos. Clave del Bench: 11 s, remate que obliga a volver a verlo.
 - CTR de miniatura (2,7 %) e impresiones (~4 K) casi irrelevantes: el tráfico es del feed de Shorts.
 - 2026-11-23: story-020 (tapa con hipo) BLOCKED tras 2 rondas de QC: el usuario no la entendió. Lección para gag-writer y critic: nada que dependa de un estado invisible (hipo, sed, frío, sueño); el gag debe VERSE en 3 fotogramas sin sonido.
+- 2026-11-23: subido ep018 'Why Did the Bollard Steal the Man's Pie?' (story-021, mini-historia, plaza/fachada, render local GPU).
