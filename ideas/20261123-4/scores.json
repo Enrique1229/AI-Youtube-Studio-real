@@ -1,0 +1,116 @@
+[
+  {
+    "id": "b20261123-4-i01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 8,
+      "originality": 7,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "Pasa los 3 fotogramas (hombre estirando el brazo bajo un dron amarillo, hombre colgado del depósito, dron aterrizando en sus manos con el mando en el pecho) y es el mejor Bell-like del lote: objetivo legible en 1 s, un objeto que esquiva con intencion, escalada de gags distintos y el remate 'estaba ahi desde el frame 1'; no sube mas porque el mando es un cubo amarillo pequeno sobre el pecho que puede perderse en 9:16, el remate de 'lo llevaba puesto' repite el mecanismo de Bell y el dron con 4 helices y vuelo con esquives es un rig nuevo.",
+    "improve": "Hacer el mando grande y de color contrastado con el torso, con una antena y un rebote exagerado en el frame 1, y probar antes del guion el dron con flotacion y giro de helices a escala vertical.",
+    "vps": 65.3
+  },
+  {
+    "id": "b20261123-4-i05",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 7,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 7,
+      "repetition_risk": 4
+    },
+    "why": "Pasa los 3 fotogramas (hombre cargado de bolsas ante el maletero cerrado, naranjas rodando por el suelo, maletero abierto con el pie bajo el parachoques) y es el mas empatico del lote por la frustracion cotidiana, con recompensa sonora en el pop de las naranjas y remate de 'estaba ahi' con el circulo de luz; no sube mas porque el circulo en el suelo es pequeno y exige conocer el sensor de pie, los clips Surprised/Angry del nivel -450 no muestran el gesto de la barbilla y las bolsas con naranjas y rebotes suben la produccion.",
+    "improve": "Hacer el circulo de luz grande y pulsante bajo el parachoques desde el frame 1, dar a cada nivel un gesto visible con las bolsas (barbilla, cadera, codo) y limitar a 4 naranjas con rebote en lugar de decenas.",
+    "vps": 60.4
+  },
+  {
+    "id": "b20261123-4-i03",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 7,
+      "repetition_risk": 5
+    },
+    "why": "Pasa los 3 fotogramas (hombre empujando una barca en lo alto de una rampa con el mar detras, barca rodando sola, hombre sentado a bordo en el agua) y el remate de patear la cuna roja y bajar con crescendo y chapuzon es la mejor recompensa visual del lote; no sube mas porque la cuna es un cubo pequeno bajo la rueda que no se ve en vertical, cuatro de los cinco niveles son el mismo clip Pushing, y la frase 'la cuna que el mismo pisaba' contradice el beat.",
+    "improve": "Hacer la cuna roja grande y a la altura de la rueda desde el frame 1, variar los clips (patada, salto, tirar de la barca) en los niveles -80 a 900 y probar antes del guion la barca rodando por una rampa inclinada con el chapuzon.",
+    "vps": 57.0
+  },
+  {
+    "id": "b20261123-4-i04",
+    "scores": {
+      "hook": 6,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 7,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 7,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 7,
+      "repetition_risk": 4
+    },
+    "why": "La cascada de cinco farolas con una escala ascendente de dings es la mejor recompensa sonora del lote y el truco del sensor es el remate mas original; no sube mas porque pasa los 3 fotogramas solo a duras penas (el ojito rojo y el sombrero son pequenos y lejanos en un encuadre vertical y la causa casi no se ve sin sonido), el frame 1 de aplaudir a un poste es el gancho mas flojo y el abrazo a la farola del nivel 120 no se entiende.",
+    "improve": "Poner una sola farola grande en primer plano con el ojito rojo del tamano de una pelota y el hombre mirandola desde el frame 1, con las otras cuatro al fondo, y sustituir el abrazo por un gesto que encienda la luz a medias de forma visible.",
+    "vps": 57.0
+  },
+  {
+    "id": "b20261123-4-i06",
+    "scores": {
+      "hook": 7,
+      "curiosity": 5,
+      "retention": 6,
+      "originality": 4,
+      "visual": 8,
+      "emotion": 5,
+      "ending": 7,
+      "series": 6,
+      "differentiation": 5,
+      "production_difficulty": 3,
+      "repetition_risk": 6
+    },
+    "why": "Pasa los 3 fotogramas con claridad (hombre pateando una puerta con manilla roja, puerta tirada en el suelo bajo un palé, hombre entrando con la puerta abierta) y es la mas barata de producir; no sube mas porque 'la puerta no estaba cerrada' es un chiste muy conocido y la manilla roja a la altura de la mano revela la solucion en el frame 1 sin dejar curiosidad, el nivel 900 rompe la puerta y supera al 5469 en espectaculo, y comparte la azotea con i01.",
+    "improve": "Ocultar la solucion hasta el final (manilla discreta o puerta que se abre hacia dentro con un tirador que aparece en el último plano) y dar al nivel 5469 un gag mas sorprendente que bajar la manilla, como dejar la puerta abierta con un ladrillo desde el principio.",
+    "vps": 52.6
+  },
+  {
+    "id": "b20261123-4-i02",
+    "scores": {
+      "hook": 6,
+      "curiosity": 5,
+      "retention": 6,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 5,
+      "ending": 5,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "Pasa los 3 fotogramas (hombre tirando de una fila de carros, carros rodando, hombre empujando el ultimo) pero el remate de coger el otro extremo no tiene causa visible ni 'estaba ahi' del frame 1, el nivel 900 libera cuarenta carros y es mas espectacular que el 5469, la fila de cubos plateados es poco vistosa en 9:16 y el ding final premia lo que es solo una logica de aparcamiento.",
+    "improve": "Dar causa visible al remate (un carro del final de la fila con una cinta amarilla o un cartel 'tira de aqui' pintado en el suelo desde el frame 1) y cambiar el nivel 900 por un fallo gracioso para que el 5469 sea el unico que de verdad funciona.",
+    "vps": 47.1
+  }
+]

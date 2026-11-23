@@ -1,0 +1,119 @@
+[
+  {
+    "id": "b20261123-4-i01",
+    "format": "short",
+    "kind": "anim",
+    "env": "azotea urbana: HDRI rooftop_day; suelo de gravilla/brea con losetas, depósito de agua de madera, antenas, tendedero con sábanas, unidades de aire acondicionado, macetas, silla plegable, barandilla de ladrillo",
+    "title_en": "Every IQ Level Catches the Drone",
+    "caption_en": null,
+    "logline": "Un dron amarillo flota y zumba muy arriba sobre una azotea; el hombre salta, lanza un zapato y trepa; el más listo mira su pecho: el mando del dron le colgaba del cuello.",
+    "logline_es": "Un dron amarillo flota y zumba muy arriba sobre una azotea; el hombre salta, lanza un zapato y trepa; el más listo mira su pecho: el mando del dron le colgaba del cuello.",
+    "hook": "Dron amarillo parpadeando en lo alto del cuadro y un hombre estirando el brazo debajo, con un mando grande amarillo colgado del cuello que rebota (visible desde el frame 1).",
+    "twist": "El mando amarillo que rebotaba en su pecho todo el rato; baja el dron suave a sus manos.",
+    "why_retains": "Vertical, objetivo legible en 1 s, el zumbido del dron cambia de tono en cada nivel y el remate estaba a la vista.",
+    "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+    "tags": [
+      "comedia-fisica",
+      "niveles",
+      "azotea",
+      "dron"
+    ],
+    "audience": null,
+    "beats": [
+      {
+        "t": "0-4",
+        "beat": "IQ -450: Ya saltando (Jumping) con el brazo estirado bajo el dron que zumba a 3 m; el mando le rebota en el pecho; salta más fuerte y cae de culo (Falling Back Death); el dron sube un poco con zumbido más agudo."
+      },
+      {
+        "t": "4-8",
+        "beat": "IQ -80: Lanza un zapato (Throw): rebota en el depósito de agua (hit hueco) y le da en la cabeza; el dron esquiva con un giro y sube; se enfada (Angry)."
+      },
+      {
+        "t": "8-12",
+        "beat": "IQ 120: Trepa por el depósito de agua (Climbing Up Wall) y estira el dedo; el mando golpea un peldaño: el dron baja de golpe (zumbido grave), casi lo roza y vuelve a subir; se queda agarrado temblando (Surprised)."
+      },
+      {
+        "t": "12-17",
+        "beat": "IQ 900: Salta (Jumping) desde la barandilla y agarra una pata del dron: baja con él hasta el suelo, el dron arrastra al hombre por la azotea haciendo sonar la sábana, tira de la barandilla; lo suelta y se ríe (Laughing) con el pelo revuelto."
+      },
+      {
+        "t": "17-22",
+        "beat": "IQ 5469: Se queda quieto (Looking Around), baja la vista (Thinking) y levanta el mando que llevaba al cuello; empuja la palanca con un dedo: el dron desciende suave y aterriza en sus manos con ding y tada; levanta los brazos (Victory). Bucle: el dron suelta el vuelo y vuelve a subir al frame 1."
+      }
+    ],
+    "levels": [
+      {
+        "iq": -450,
+        "gag": "Ya saltando (Jumping) con el brazo estirado bajo el dron que zumba a 3 m; el mando le rebota en el pecho; salta más fuerte y cae de culo (Falling Back Death); el dron sube un poco con zumbido más agudo.",
+        "por_que_es_gracioso": "Cree que el dron bajará si se esfuerza más."
+      },
+      {
+        "iq": -80,
+        "gag": "Lanza un zapato (Throw): rebota en el depósito de agua (hit hueco) y le da en la cabeza; el dron esquiva con un giro y sube; se enfada (Angry).",
+        "por_que_es_gracioso": "Lanzador con lógica y puntería de ciego."
+      },
+      {
+        "iq": 120,
+        "gag": "Trepa por el depósito de agua (Climbing Up Wall) y estira el dedo; el mando golpea un peldaño: el dron baja de golpe (zumbido grave), casi lo roza y vuelve a subir; se queda agarrado temblando (Surprised).",
+        "por_que_es_gracioso": "Funciona a duras penas y por casualidad."
+      },
+      {
+        "iq": 900,
+        "gag": "Salta (Jumping) desde la barandilla y agarra una pata del dron: baja con él hasta el suelo, el dron arrastra al hombre por la azotea haciendo sonar la sábana, tira de la barandilla; lo suelta y se ríe (Laughing) con el pelo revuelto.",
+        "por_que_es_gracioso": "Funciona de verdad, pero es el dron quien lo pasea a él."
+      },
+      {
+        "iq": 5469,
+        "gag": "Se queda quieto (Looking Around), baja la vista (Thinking) y levanta el mando que llevaba al cuello; empuja la palanca con un dedo: el dron desciende suave y aterriza en sus manos con ding y tada; levanta los brazos (Victory). Bucle: el dron suelta el vuelo y vuelve a subir al frame 1.",
+        "por_que_es_gracioso": "El mando estaba colgado de su cuello desde el primer fotograma."
+      }
+    ],
+    "clips": [
+      [
+        -450,
+        [
+          "Jumping",
+          "Falling Back Death"
+        ]
+      ],
+      [
+        -80,
+        [
+          "Throw",
+          "Angry"
+        ]
+      ],
+      [
+        120,
+        [
+          "Climbing Up Wall",
+          "Surprised"
+        ]
+      ],
+      [
+        900,
+        [
+          "Jumping",
+          "Laughing"
+        ]
+      ],
+      [
+        5469,
+        [
+          "Looking Around",
+          "Thinking",
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "El mando llevaba todo el rato colgado de su cuello.",
+    "sin_palabras": "Dron en lo alto y un hombre estirando el brazo: se lee en 1 s; el mando amarillo grande es visible en su pecho.",
+    "needs": "Dron = cubo aplanado + 4 cilindros hélice con S.key de giro LINEAR y flotación; mando = cubo amarillo pegado al pecho (parent a a.body) con rebote; depósito = cylinder + patas; zapato = cube pequeño. Sonidos: zumbido con tono por nivel (whoosh en bucle), hit, clunk, ding, tada. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Objeto volador y remate de 'lo llevaba puesto'; sin campana, cuerda, poste, máquina ni río; azotea con depósito y antenas.",
+    "batch": "20261123-4",
+    "vps": 65.3,
+    "story_id": "story-022",
+    "critic_improve": "Hacer el mando grande y de color contrastado con el torso, con una antena y un rebote exagerado en el frame 1, y probar antes del guion el dron con flotacion y giro de helices a escala vertical."
+  }
+]

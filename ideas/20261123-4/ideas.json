@@ -1,0 +1,688 @@
+[
+  {
+    "id": "b20261123-4-i01",
+    "format": "short",
+    "kind": "anim",
+    "env": "azotea urbana: HDRI rooftop_day; suelo de gravilla/brea con losetas, depósito de agua de madera, antenas, tendedero con sábanas, unidades de aire acondicionado, macetas, silla plegable, barandilla de ladrillo",
+    "title_en": "Every IQ Level Catches the Drone",
+    "caption_en": null,
+    "logline": "Un dron amarillo flota y zumba muy arriba sobre una azotea; el hombre salta, lanza un zapato y trepa; el más listo mira su pecho: el mando del dron le colgaba del cuello.",
+    "logline_es": "Un dron amarillo flota y zumba muy arriba sobre una azotea; el hombre salta, lanza un zapato y trepa; el más listo mira su pecho: el mando del dron le colgaba del cuello.",
+    "hook": "Dron amarillo parpadeando en lo alto del cuadro y un hombre estirando el brazo debajo, con un mando grande amarillo colgado del cuello que rebota (visible desde el frame 1).",
+    "twist": "El mando amarillo que rebotaba en su pecho todo el rato; baja el dron suave a sus manos.",
+    "why_retains": "Vertical, objetivo legible en 1 s, el zumbido del dron cambia de tono en cada nivel y el remate estaba a la vista.",
+    "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+    "tags": [
+      "comedia-fisica",
+      "niveles",
+      "azotea",
+      "dron"
+    ],
+    "audience": null,
+    "beats": [
+      {
+        "t": "0-4",
+        "beat": "IQ -450: Ya saltando (Jumping) con el brazo estirado bajo el dron que zumba a 3 m; el mando le rebota en el pecho; salta más fuerte y cae de culo (Falling Back Death); el dron sube un poco con zumbido más agudo."
+      },
+      {
+        "t": "4-8",
+        "beat": "IQ -80: Lanza un zapato (Throw): rebota en el depósito de agua (hit hueco) y le da en la cabeza; el dron esquiva con un giro y sube; se enfada (Angry)."
+      },
+      {
+        "t": "8-12",
+        "beat": "IQ 120: Trepa por el depósito de agua (Climbing Up Wall) y estira el dedo; el mando golpea un peldaño: el dron baja de golpe (zumbido grave), casi lo roza y vuelve a subir; se queda agarrado temblando (Surprised)."
+      },
+      {
+        "t": "12-17",
+        "beat": "IQ 900: Salta (Jumping) desde la barandilla y agarra una pata del dron: baja con él hasta el suelo, el dron arrastra al hombre por la azotea haciendo sonar la sábana, tira de la barandilla; lo suelta y se ríe (Laughing) con el pelo revuelto."
+      },
+      {
+        "t": "17-22",
+        "beat": "IQ 5469: Se queda quieto (Looking Around), baja la vista (Thinking) y levanta el mando que llevaba al cuello; empuja la palanca con un dedo: el dron desciende suave y aterriza en sus manos con ding y tada; levanta los brazos (Victory). Bucle: el dron suelta el vuelo y vuelve a subir al frame 1."
+      }
+    ],
+    "levels": [
+      {
+        "iq": -450,
+        "gag": "Ya saltando (Jumping) con el brazo estirado bajo el dron que zumba a 3 m; el mando le rebota en el pecho; salta más fuerte y cae de culo (Falling Back Death); el dron sube un poco con zumbido más agudo.",
+        "por_que_es_gracioso": "Cree que el dron bajará si se esfuerza más."
+      },
+      {
+        "iq": -80,
+        "gag": "Lanza un zapato (Throw): rebota en el depósito de agua (hit hueco) y le da en la cabeza; el dron esquiva con un giro y sube; se enfada (Angry).",
+        "por_que_es_gracioso": "Lanzador con lógica y puntería de ciego."
+      },
+      {
+        "iq": 120,
+        "gag": "Trepa por el depósito de agua (Climbing Up Wall) y estira el dedo; el mando golpea un peldaño: el dron baja de golpe (zumbido grave), casi lo roza y vuelve a subir; se queda agarrado temblando (Surprised).",
+        "por_que_es_gracioso": "Funciona a duras penas y por casualidad."
+      },
+      {
+        "iq": 900,
+        "gag": "Salta (Jumping) desde la barandilla y agarra una pata del dron: baja con él hasta el suelo, el dron arrastra al hombre por la azotea haciendo sonar la sábana, tira de la barandilla; lo suelta y se ríe (Laughing) con el pelo revuelto.",
+        "por_que_es_gracioso": "Funciona de verdad, pero es el dron quien lo pasea a él."
+      },
+      {
+        "iq": 5469,
+        "gag": "Se queda quieto (Looking Around), baja la vista (Thinking) y levanta el mando que llevaba al cuello; empuja la palanca con un dedo: el dron desciende suave y aterriza en sus manos con ding y tada; levanta los brazos (Victory). Bucle: el dron suelta el vuelo y vuelve a subir al frame 1.",
+        "por_que_es_gracioso": "El mando estaba colgado de su cuello desde el primer fotograma."
+      }
+    ],
+    "clips": [
+      [
+        -450,
+        [
+          "Jumping",
+          "Falling Back Death"
+        ]
+      ],
+      [
+        -80,
+        [
+          "Throw",
+          "Angry"
+        ]
+      ],
+      [
+        120,
+        [
+          "Climbing Up Wall",
+          "Surprised"
+        ]
+      ],
+      [
+        900,
+        [
+          "Jumping",
+          "Laughing"
+        ]
+      ],
+      [
+        5469,
+        [
+          "Looking Around",
+          "Thinking",
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "El mando llevaba todo el rato colgado de su cuello.",
+    "sin_palabras": "Dron en lo alto y un hombre estirando el brazo: se lee en 1 s; el mando amarillo grande es visible en su pecho.",
+    "needs": "Dron = cubo aplanado + 4 cilindros hélice con S.key de giro LINEAR y flotación; mando = cubo amarillo pegado al pecho (parent a a.body) con rebote; depósito = cylinder + patas; zapato = cube pequeño. Sonidos: zumbido con tono por nivel (whoosh en bucle), hit, clunk, ding, tada. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Objeto volador y remate de 'lo llevaba puesto'; sin campana, cuerda, poste, máquina ni río; azotea con depósito y antenas.",
+    "batch": "20261123-4"
+  },
+  {
+    "id": "b20261123-4-i02",
+    "format": "short",
+    "kind": "anim",
+    "env": "aparcamiento de centro comercial: HDRI mall_parking_lot; suelo de asfalto con líneas pintadas, marcas de plaza, coches aparcados, farolas, cesta-corral metálico para carros, papelera, señal de vado",
+    "title_en": "Every IQ Level Pulls a Shopping Cart",
+    "caption_en": null,
+    "logline": "Una fila de carros de compra encajados atasca el corral; el hombre tira del primero, lo patea y los cuenta; el más listo coge el último de la fila, que sale solo.",
+    "logline_es": "Una fila de carros de compra encajados atasca el corral; el hombre tira del primero, lo patea y los cuenta; el más listo coge el último de la fila, que sale solo.",
+    "hook": "Fila larga de carros plateados encajados hacia la cámara, el hombre ya agarrando el primero con las dos manos y tirando (frame 1).",
+    "twist": "El carro de atrás de la fila salía suelto con un clac.",
+    "why_retains": "Cada tirón hace sonar toda la fila (clac-clac) más fuerte; el remate estaba al otro extremo, visible en plano abierto.",
+    "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+    "tags": [
+      "comedia-fisica",
+      "niveles",
+      "aparcamiento",
+      "carros"
+    ],
+    "audience": null,
+    "beats": [
+      {
+        "t": "0-4",
+        "beat": "IQ -450: Ya tirando del primer carro con las dos manos (frame 1); la fila entera suena clac y no cede; tira más fuerte y sale despedido de culo (Falling Back Death)."
+      },
+      {
+        "t": "4-8",
+        "beat": "IQ -80: Patea el carro (Kicking): su pie se queda atascado en la cesta y salta a la pata coja arrastrando toda la fila con un clac enorme; se cae."
+      },
+      {
+        "t": "8-12",
+        "beat": "IQ 120: Empuja la fila desde el lado (Pushing) con el hombro; el carro delantero se mueve un dedo con un clic pequeño y vuelve a su sitio; se queda mirando."
+      },
+      {
+        "t": "12-17",
+        "beat": "IQ 900: Coge carrerilla (Charge) contra la fila y todos los carros salen rodando a la vez con un clac gigantesco; coge el primero (Picking Up) y se ríe; cuarenta carros rodando se alejan."
+      },
+      {
+        "t": "17-22",
+        "beat": "IQ 5469: Se detiene (Thinking), mira la fila hacia el fondo y camina (Walking Left Turn) hasta el último carro, que sale suelto con un clac suave y ding; lo empuja sonriendo (Victory)."
+      }
+    ],
+    "levels": [
+      {
+        "iq": -450,
+        "gag": "Ya tirando del primer carro con las dos manos (frame 1); la fila entera suena clac y no cede; tira más fuerte y sale despedido de culo (Falling Back Death).",
+        "por_que_es_gracioso": "Cree que es cuestión de fuerza de brazos."
+      },
+      {
+        "iq": -80,
+        "gag": "Patea el carro (Kicking): su pie se queda atascado en la cesta y salta a la pata coja arrastrando toda la fila con un clac enorme; se cae.",
+        "por_que_es_gracioso": "Su plan tiene patada pero le falla el pie."
+      },
+      {
+        "iq": 120,
+        "gag": "Empuja la fila desde el lado (Pushing) con el hombro; el carro delantero se mueve un dedo con un clic pequeño y vuelve a su sitio; se queda mirando.",
+        "por_que_es_gracioso": "Funciona a duras penas: medio centímetro."
+      },
+      {
+        "iq": 900,
+        "gag": "Coge carrerilla (Charge) contra la fila y todos los carros salen rodando a la vez con un clac gigantesco; coge el primero (Picking Up) y se ríe; cuarenta carros rodando se alejan.",
+        "por_que_es_gracioso": "Funciona bien, pero ha soltado todo el aparcamiento."
+      },
+      {
+        "iq": 5469,
+        "gag": "Se detiene (Thinking), mira la fila hacia el fondo y camina (Walking Left Turn) hasta el último carro, que sale suelto con un clac suave y ding; lo empuja sonriendo (Victory).",
+        "por_que_es_gracioso": "Había otro extremo: el carro de atrás salía sin esfuerzo."
+      }
+    ],
+    "clips": [
+      [
+        -450,
+        [
+          "Pushing",
+          "Falling Back Death"
+        ]
+      ],
+      [
+        -80,
+        [
+          "Kicking",
+          "Angry"
+        ]
+      ],
+      [
+        120,
+        [
+          "Pushing",
+          "Surprised"
+        ]
+      ],
+      [
+        900,
+        [
+          "Charge",
+          "Picking Up",
+          "Laughing"
+        ]
+      ],
+      [
+        5469,
+        [
+          "Thinking",
+          "Walking Left Turn",
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "Todos los carros salían igual de bien por el otro extremo de la fila.",
+    "sin_palabras": "Fila de carros encajados y un hombre tirando de ellos: se lee en 1 s.",
+    "needs": "Carros = cubos aplanados + cylinders ruedas, 8 en fila encajada con S.key de desplazamiento escalonado; coches y farolas del aparcamiento como atrezo. Sonidos: clunk (clac) escalado, hit, whoosh, ding. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Objeto atascado en fila y remate de coger el otro extremo; sin máquina, bus, campana ni cuerda.",
+    "batch": "20261123-4"
+  },
+  {
+    "id": "b20261123-4-i03",
+    "format": "short",
+    "kind": "anim",
+    "env": "playa: HDRI spiaggia_di_mondello; suelo de arena con rampa de hormigón al mar, barca de remos azul sobre carrito con ruedas, sombrillas, hamacas, cubos y palas, boya, cuerda con banderines",
+    "title_en": "Every IQ Level Launches the Boat",
+    "caption_en": null,
+    "logline": "Una barca sobre ruedas está en lo alto de una rampa de playa y no baja al mar; el hombre empuja, tira con una cuerda y hace palanca; el más listo patea la cuña roja de la rueda.",
+    "logline_es": "Una barca sobre ruedas está en lo alto de una rampa de playa y no baja al mar; el hombre empuja, tira con una cuerda y hace palanca; el más listo patea la cuña roja de la rueda.",
+    "hook": "Barca azul sobre ruedas en lo alto de la rampa con el mar detrás y el hombre empujando por popa; una cuña roja bajo la rueda (frame 1).",
+    "twist": "La cuña roja bajo la rueda: la barca baja sola y él salta a bordo.",
+    "why_retains": "El mar al fondo explica el objetivo en 1 s; el chirrido sube cada nivel hasta el chapuzón final.",
+    "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+    "tags": [
+      "comedia-fisica",
+      "niveles",
+      "playa",
+      "barca"
+    ],
+    "audience": null,
+    "beats": [
+      {
+        "t": "0-4",
+        "beat": "IQ -450: Ya empujando la barca por la popa (Pushing, frame 1); la barca ni se mueve y sus pies se hunden en la arena; empuja más y cae de bruces."
+      },
+      {
+        "t": "4-8",
+        "beat": "IQ -80: Ata una cuerda a la barca y tira de espaldas (Pushing invertido); la cuerda suena como un arco, él sale despedido hacia atrás (Falling Back Death) y la barca ni se mueve."
+      },
+      {
+        "t": "8-12",
+        "beat": "IQ 120: Empuja con el hombro (Pushing): la barca avanza un dedo con un chirrido pequeño y vuelve a su sitio por la cuña; se queda sin aliento (Surprised)."
+      },
+      {
+        "t": "12-17",
+        "beat": "IQ 900: Mete una tabla bajo la barca como palanca (Pushing) y la lleva rampa abajo con un rechinar largo de rueda; llega al agua exhausto y se sienta en la barca (Sitting Idle)."
+      },
+      {
+        "t": "17-22",
+        "beat": "IQ 5469: Se detiene (Looking Around), ve la cuña roja bajo la rueda; patea la cuña (Kicking): la barca rueda sola rampa abajo con un crescendo de ruedas; salta a bordo (Jumping) y cae sentado con un gran chapuzón, ding y toque de bocina (tada); levanta los brazos (Victory)."
+      }
+    ],
+    "levels": [
+      {
+        "iq": -450,
+        "gag": "Ya empujando la barca por la popa (Pushing, frame 1); la barca ni se mueve y sus pies se hunden en la arena; empuja más y cae de bruces.",
+        "por_que_es_gracioso": "Cree que es solo peso."
+      },
+      {
+        "iq": -80,
+        "gag": "Ata una cuerda a la barca y tira de espaldas (Pushing invertido); la cuerda suena como un arco, él sale despedido hacia atrás (Falling Back Death) y la barca ni se mueve.",
+        "por_que_es_gracioso": "Su plan tiene tirón, pero la barca no coopera."
+      },
+      {
+        "iq": 120,
+        "gag": "Empuja con el hombro (Pushing): la barca avanza un dedo con un chirrido pequeño y vuelve a su sitio por la cuña; se queda sin aliento (Surprised).",
+        "por_que_es_gracioso": "Funciona a duras penas."
+      },
+      {
+        "iq": 900,
+        "gag": "Mete una tabla bajo la barca como palanca (Pushing) y la lleva rampa abajo con un rechinar largo de rueda; llega al agua exhausto y se sienta en la barca (Sitting Idle).",
+        "por_que_es_gracioso": "Funciona de verdad, pero el esfuerzo es enorme."
+      },
+      {
+        "iq": 5469,
+        "gag": "Se detiene (Looking Around), ve la cuña roja bajo la rueda; patea la cuña (Kicking): la barca rueda sola rampa abajo con un crescendo de ruedas; salta a bordo (Jumping) y cae sentado con un gran chapuzón, ding y toque de bocina (tada); levanta los brazos (Victory).",
+        "por_que_es_gracioso": "La barca estaba frenada por una cuña que él mismo pisaba."
+      }
+    ],
+    "clips": [
+      [
+        -450,
+        [
+          "Pushing",
+          "Falling Back Death"
+        ]
+      ],
+      [
+        -80,
+        [
+          "Pushing",
+          "Falling Back Death"
+        ]
+      ],
+      [
+        120,
+        [
+          "Pushing",
+          "Surprised"
+        ]
+      ],
+      [
+        900,
+        [
+          "Pushing",
+          "Sitting Idle"
+        ]
+      ],
+      [
+        5469,
+        [
+          "Looking Around",
+          "Kicking",
+          "Jumping",
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "Una cuña roja frenaba la rueda desde el primer fotograma.",
+    "sin_palabras": "Barca en lo alto de una rampa al mar y un hombre empujando: se lee en 1 s.",
+    "needs": "Barca = cube/cone casco + cube asiento sobre carrito (2 cylinders ruedas) con S.key LINEAR en rampa; cuña = cube rojo; cuerda = cylinder fino; rampa = cube inclinado (rot); salpicadura S.splash. Sonidos: chirrido de ruedas (creak) escalado, splash, tada. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Barca en rampa de playa con cuña oculta; sin tiovivo, río de cruce ni banco; remate de 'quitar el freno'.",
+    "batch": "20261123-4"
+  },
+  {
+    "id": "b20261123-4-i04",
+    "format": "short",
+    "kind": "anim",
+    "env": "calle ancha: HDRI wide_street_01; asfalto con pasos de cebra y líneas, aceras con bordillo, fila de 5 farolas apagadas hacia el fondo, contenedores, vallas de obra, árboles pequeños, semáforo apagado",
+    "title_en": "Every IQ Level Turns On the Street Lights",
+    "caption_en": null,
+    "logline": "Una calle ancha con farolas apagadas en fila; el hombre grita, lanza un zapato y sacude los postes; el más listo tapa con su sombrero el ojito rojo de la farola y toda la calle se enciende.",
+    "logline_es": "Una calle ancha con farolas apagadas en fila; el hombre grita, lanza un zapato y sacude los postes; el más listo tapa con su sombrero el ojito rojo de la farola y toda la calle se enciende.",
+    "hook": "Fila de farolas apagadas hacia el fondo de la calle, cada una con un ojito rojo en lo alto, y el hombre aplaudiendo a la primera (frame 1).",
+    "twist": "Su sombrero sobre el ojito: las cinco farolas se encienden en cascada con un ding creciente.",
+    "why_retains": "Perspectiva de calle: la cascada de luces y la escala sonora ascendente es la recompensa; el remate estaba a la vista en cada poste.",
+    "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+    "tags": [
+      "comedia-fisica",
+      "niveles",
+      "calle",
+      "farolas"
+    ],
+    "audience": null,
+    "beats": [
+      {
+        "t": "0-4",
+        "beat": "IQ -450: Ya dando una palmada (Clapping) bajo la primera farola (frame 1); no pasa nada; grita al poste con los brazos abiertos (Angry); silencio."
+      },
+      {
+        "t": "4-8",
+        "beat": "IQ -80: Lanza un zapato (Throw) a la bombilla: rebota en el poste y le da en la cabeza; la farola solo parpadea un tic flojo (ding grave)."
+      },
+      {
+        "t": "8-12",
+        "beat": "IQ 120: Trepa por el poste (Climbing Up Wall) y abraza la farola: se enciende una luz pálida con un ding pequeño; se queda abrazado y temblando."
+      },
+      {
+        "t": "12-17",
+        "beat": "IQ 900: Corre a cada poste y lo patea (Kicking): se encienden la 1ª, 2ª y 3ª con dings cada vez más agudos; en la 4ª se cae de agotamiento (Falling Back Death) y las farolas se quedan a medias."
+      },
+      {
+        "t": "17-22",
+        "beat": "IQ 5469: Se queda quieto (Thinking), mira el ojito rojo en lo alto del poste y cuelga ahí su sombrero (Picking Up / Throw); las cinco farolas se encienden en cascada hacia el fondo con una escala ascendente de dings y un tada; levanta los brazos (Victory)."
+      }
+    ],
+    "levels": [
+      {
+        "iq": -450,
+        "gag": "Ya dando una palmada (Clapping) bajo la primera farola (frame 1); no pasa nada; grita al poste con los brazos abiertos (Angry); silencio.",
+        "por_que_es_gracioso": "Cree que las farolas se encienden con aplausos."
+      },
+      {
+        "iq": -80,
+        "gag": "Lanza un zapato (Throw) a la bombilla: rebota en el poste y le da en la cabeza; la farola solo parpadea un tic flojo (ding grave).",
+        "por_que_es_gracioso": "Lanzador con lógica y puntería de ciego."
+      },
+      {
+        "iq": 120,
+        "gag": "Trepa por el poste (Climbing Up Wall) y abraza la farola: se enciende una luz pálida con un ding pequeño; se queda abrazado y temblando.",
+        "por_que_es_gracioso": "Funciona a duras penas: una sola farola, a medias."
+      },
+      {
+        "iq": 900,
+        "gag": "Corre a cada poste y lo patea (Kicking): se encienden la 1ª, 2ª y 3ª con dings cada vez más agudos; en la 4ª se cae de agotamiento (Falling Back Death) y las farolas se quedan a medias.",
+        "por_que_es_gracioso": "Funciona, pero cuesta una patada por farola."
+      },
+      {
+        "iq": 5469,
+        "gag": "Se queda quieto (Thinking), mira el ojito rojo en lo alto del poste y cuelga ahí su sombrero (Picking Up / Throw); las cinco farolas se encienden en cascada hacia el fondo con una escala ascendente de dings y un tada; levanta los brazos (Victory).",
+        "por_que_es_gracioso": "La farola creía que era de noche: bastaba taparle el ojito."
+      }
+    ],
+    "clips": [
+      [
+        -450,
+        [
+          "Clapping",
+          "Angry"
+        ]
+      ],
+      [
+        -80,
+        [
+          "Throw",
+          "Angry"
+        ]
+      ],
+      [
+        120,
+        [
+          "Climbing Up Wall",
+          "Surprised"
+        ]
+      ],
+      [
+        900,
+        [
+          "Kicking",
+          "Falling Back Death"
+        ]
+      ],
+      [
+        5469,
+        [
+          "Thinking",
+          "Throw",
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "El ojito rojo de la farola lo vigilaba desde el primer fotograma.",
+    "sin_palabras": "Calle de día con farolas apagadas en fila y un hombre mirando hacia arriba: la pregunta (encenderlas) se ve en 1 s.",
+    "needs": "Farolas = cylinders + uv_sphere con emisión (luz con S.key de intensidad); ojito = uv_sphere rojo pequeño; sombrero = a.hat parentado a la mano y lanzado con S.key. Sonidos: ding con escala ascendente (5 notas), tada. Clips existentes. Acción nueva sencilla: lanzar el sombrero (Throw + S.key).",
+    "riesgo_copia": "bajo",
+    "diferencia": "Calle ancha con luces en perspectiva y truco del sensor; sin cuadro pintado de parada, campana ni máquina.",
+    "batch": "20261123-4"
+  },
+  {
+    "id": "b20261123-4-i05",
+    "format": "short",
+    "kind": "anim",
+    "env": "aparcamiento de barrio: HDRI suburban_parking_area; asfalto con líneas, bordillo con césped seco, carro de la compra, coches aparcados, papelera, bolsas de supermercado, cartel de plaza reservada, un pequeño proyector de luz en el suelo bajo el parachoques (símbolo de pie)",
+    "title_en": "Every IQ Level Opens the Trunk",
+    "caption_en": null,
+    "logline": "Con las manos llenas de bolsas, un hombre no puede abrir el maletero de un coche; lo intenta con la barbilla, el codo y la cadera; el más listo mueve el pie bajo el parachoques y el maletero se abre solo.",
+    "logline_es": "Con las manos llenas de bolsas, un hombre no puede abrir el maletero de un coche; lo intenta con la barbilla, el codo y la cadera; el más listo mueve el pie bajo el parachoques y el maletero se abre solo.",
+    "hook": "Hombre cargado de bolsas hasta los ojos de cara al maletero cerrado, con un círculo de luz en el suelo bajo el parachoques (frame 1).",
+    "twist": "Un barrido de pie sobre el círculo de luz abre el maletero con zumbido y ding, sin soltar las bolsas.",
+    "why_retains": "Problema de 1 s con humor de relatividad cotidiana; las naranjas que ruedan suben el sonido cada nivel; el círculo de luz estaba a la vista.",
+    "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+    "tags": [
+      "comedia-fisica",
+      "niveles",
+      "aparcamiento",
+      "coche"
+    ],
+    "audience": null,
+    "beats": [
+      {
+        "t": "0-4",
+        "beat": "IQ -450: Ya con las bolsas hasta la barbilla ante el maletero cerrado (frame 1); intenta tirar de la maneta con la barbilla: se le caen dos naranjas que rebotan (pop pop)."
+      },
+      {
+        "t": "4-8",
+        "beat": "IQ -80: Se apoya con la cadera en la maneta (Pushing) y el coche pita; las bolsas se inclinan y vuelcan; naranjas por todo el suelo, rebotando (pop pop pop); se agacha (Surprised)."
+      },
+      {
+        "t": "8-12",
+        "beat": "IQ 120: Pone una bolsa en el techo de otro coche y abre con una mano; la bolsa resbala, golpea el suelo (clunk) y se abre; recoge a medias (Picking Up)."
+      },
+      {
+        "t": "12-17",
+        "beat": "IQ 900: Apila las bolsas sobre el capó del coche de al lado en pirámide (Picking Up), abre el maletero y las vuelve a cargar de una en una; se ríe (Laughing) y el maletero cierra solo con clunk."
+      },
+      {
+        "t": "17-22",
+        "beat": "IQ 5469: Se detiene (Looking Around), mira el círculo de luz bajo el parachoques; con las manos llenas pasa el pie por debajo (Kicking suave): el maletero sube con zumbido y ding, tada; levanta los codos con las bolsas (Victory). Bucle: el maletero baja y las naranjas vuelven a estar en la bolsa."
+      }
+    ],
+    "levels": [
+      {
+        "iq": -450,
+        "gag": "Ya con las bolsas hasta la barbilla ante el maletero cerrado (frame 1); intenta tirar de la maneta con la barbilla: se le caen dos naranjas que rebotan (pop pop).",
+        "por_que_es_gracioso": "Cree que la barbilla es una mano."
+      },
+      {
+        "iq": -80,
+        "gag": "Se apoya con la cadera en la maneta (Pushing) y el coche pita; las bolsas se inclinan y vuelcan; naranjas por todo el suelo, rebotando (pop pop pop); se agacha (Surprised).",
+        "por_que_es_gracioso": "Pelea con una cerradura usando la cadera."
+      },
+      {
+        "iq": 120,
+        "gag": "Pone una bolsa en el techo de otro coche y abre con una mano; la bolsa resbala, golpea el suelo (clunk) y se abre; recoge a medias (Picking Up).",
+        "por_que_es_gracioso": "Funciona a duras penas: una mano libre y una bolsa menos."
+      },
+      {
+        "iq": 900,
+        "gag": "Apila las bolsas sobre el capó del coche de al lado en pirámide (Picking Up), abre el maletero y las vuelve a cargar de una en una; se ríe (Laughing) y el maletero cierra solo con clunk.",
+        "por_que_es_gracioso": "Funciona bien, pero tarda diez bolsas."
+      },
+      {
+        "iq": 5469,
+        "gag": "Se detiene (Looking Around), mira el círculo de luz bajo el parachoques; con las manos llenas pasa el pie por debajo (Kicking suave): el maletero sube con zumbido y ding, tada; levanta los codos con las bolsas (Victory). Bucle: el maletero baja y las naranjas vuelven a estar en la bolsa.",
+        "por_que_es_gracioso": "El maletero se abría con un pie desde el primer fotograma."
+      }
+    ],
+    "clips": [
+      [
+        -450,
+        [
+          "Surprised",
+          "Angry"
+        ]
+      ],
+      [
+        -80,
+        [
+          "Pushing",
+          "Surprised"
+        ]
+      ],
+      [
+        120,
+        [
+          "Picking Up",
+          "Surprised"
+        ]
+      ],
+      [
+        900,
+        [
+          "Picking Up",
+          "Laughing"
+        ]
+      ],
+      [
+        5469,
+        [
+          "Looking Around",
+          "Kicking",
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "Un círculo de luz bajo el parachoques abría el maletero con un pie.",
+    "sin_palabras": "Hombre cargado de bolsas ante un maletero cerrado: se lee en 1 s; el círculo de luz es el detalle del remate.",
+    "needs": "Coche = cubos + cylinders ruedas; maletero = cube con S.key de rotación y BOUNCE; bolsas = cubes con naranjas = uv_spheres amarillas que rebotan; círculo de luz = cylinder plano emisivo. Sonidos: pop, clunk, whoosh (zumbido), ding, tada. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Maletero con manos llenas y sensor de pie; sin barrera, mando, bollardo ni máquina; remate de lógica de coche moderno.",
+    "batch": "20261123-4"
+  },
+  {
+    "id": "b20261123-4-i06",
+    "format": "short",
+    "kind": "anim",
+    "env": "azotea urbana: HDRI rooftop_day; garita de escalera con puerta de acero gris y manilla roja, cajas de ventilación, tuberías con válvulas, bidones, tendedero, bicicleta vieja, palés, macetas",
+    "title_en": "Every IQ Level Opens the Rooftop Door",
+    "caption_en": null,
+    "logline": "La puerta de acero de una azotea no se abre: el hombre da patadas, embiste y usa un palé como ariete; el más listo baja la manilla y empuja con un dedo.",
+    "logline_es": "La puerta de acero de una azotea no se abre: el hombre da patadas, embiste y usa un palé como ariete; el más listo baja la manilla y empuja con un dedo.",
+    "hook": "Puerta de acero con manilla roja grande a la altura de su mano; el hombre le da una patada (frame 1).",
+    "twist": "La manilla roja baja con un clic y la puerta se abre suave con un crujido; ni estaba cerrada.",
+    "why_retains": "Cada intento suena más fuerte (tok, bum, crash); el final es un clic casi mudo: 'estaba ahí todo el rato'.",
+    "series_potential": "alto: serie fija 'Every IQ Level...' con klunk_toon",
+    "tags": [
+      "comedia-fisica",
+      "niveles",
+      "azotea",
+      "puerta"
+    ],
+    "audience": null,
+    "beats": [
+      {
+        "t": "0-4",
+        "beat": "IQ -450: Ya dando una patada (Kicking, frame 1) a la puerta; tok seco; se agarra el pie y salta a la pata coja."
+      },
+      {
+        "t": "4-8",
+        "beat": "IQ -80: Se lanza de hombro (Charge): bum, rebota y cae de espaldas (Falling Back Death); la puerta ni vibra."
+      },
+      {
+        "t": "8-12",
+        "beat": "IQ 120: Empuja con las dos manos (Pushing) con las piernas en diagonal; la puerta cede un milímetro con un crujido y vuelve; se queda quieto jadeando."
+      },
+      {
+        "t": "12-17",
+        "beat": "IQ 900: Coge un palé (Picking Up) y embiste la puerta con él: crash enorme, puerta fuera de los goznes plana en el suelo; entra pisando la puerta y se ríe (Laughing)."
+      },
+      {
+        "t": "17-22",
+        "beat": "IQ 5469: Se detiene (Thinking), mira la manilla roja y la baja con un dedo: clic, la puerta se abre sola con un crujido suave y ding; entra y levanta los brazos (Victory). Bucle: la puerta se cierra y la manilla vuelve a subir."
+      }
+    ],
+    "levels": [
+      {
+        "iq": -450,
+        "gag": "Ya dando una patada (Kicking, frame 1) a la puerta; tok seco; se agarra el pie y salta a la pata coja.",
+        "por_que_es_gracioso": "Cree que la puerta cede a patadas."
+      },
+      {
+        "iq": -80,
+        "gag": "Se lanza de hombro (Charge): bum, rebota y cae de espaldas (Falling Back Death); la puerta ni vibra.",
+        "por_que_es_gracioso": "Embiste con alma y sin mirar."
+      },
+      {
+        "iq": 120,
+        "gag": "Empuja con las dos manos (Pushing) con las piernas en diagonal; la puerta cede un milímetro con un crujido y vuelve; se queda quieto jadeando.",
+        "por_que_es_gracioso": "Funciona a duras penas."
+      },
+      {
+        "iq": 900,
+        "gag": "Coge un palé (Picking Up) y embiste la puerta con él: crash enorme, puerta fuera de los goznes plana en el suelo; entra pisando la puerta y se ríe (Laughing).",
+        "por_que_es_gracioso": "Funciona de verdad, pero a lo bruto."
+      },
+      {
+        "iq": 5469,
+        "gag": "Se detiene (Thinking), mira la manilla roja y la baja con un dedo: clic, la puerta se abre sola con un crujido suave y ding; entra y levanta los brazos (Victory). Bucle: la puerta se cierra y la manilla vuelve a subir.",
+        "por_que_es_gracioso": "La puerta no estaba cerrada con llave; solo había que bajar la manilla."
+      }
+    ],
+    "clips": [
+      [
+        -450,
+        [
+          "Kicking",
+          "Angry"
+        ]
+      ],
+      [
+        -80,
+        [
+          "Charge",
+          "Falling Back Death"
+        ]
+      ],
+      [
+        120,
+        [
+          "Pushing",
+          "Surprised"
+        ]
+      ],
+      [
+        900,
+        [
+          "Picking Up",
+          "Laughing"
+        ]
+      ],
+      [
+        5469,
+        [
+          "Thinking",
+          "Pushing",
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "La puerta nunca estuvo cerrada: bastaba bajar la manilla roja.",
+    "sin_palabras": "Puerta de acero con manilla roja y un hombre dándole una patada: se lee en 1 s.",
+    "needs": "Puerta = cube grande + manilla = cylinder rojo con S.key de rotación; palé = cube plano; garita = cubes. Sonidos: hit escalado (tok, bum, crash), creak, ding, tada. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Puerta que parece trabada; sin dron, campana ni poste; remate de 'la manilla estaba ahí'.",
+    "batch": "20261123-4"
+  }
+]
