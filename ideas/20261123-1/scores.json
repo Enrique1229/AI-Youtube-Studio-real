@@ -2,21 +2,21 @@
   {
     "id": "b20261123-1-i01",
     "scores": {
-      "hook": 7,
+      "hook": 8,
       "curiosity": 7,
       "retention": 7,
       "originality": 7,
-      "visual": 6,
+      "visual": 7,
       "emotion": 5,
       "ending": 7,
       "series": 6,
       "differentiation": 6,
-      "production_difficulty": 4,
+      "production_difficulty": 5,
       "repetition_risk": 4
     },
-    "why": "El concepto es el mas original del lote y barato de construir (copia aplastada con offset de 1 s, clips existentes), y la sombra que se sienta mientras el sigue de pie es un remate claro y compartible, pero 'retraso' no se ve en 1 s (hay que ver al hombre parar para notarlo, el frame 1 solo muestra un saludo con sombra), la sombra aplastada hay que tumbarla sobre el suelo segun el sol o parecera una lamina vertical, y Sitting Idle de una sombra plana se lee mal.",
-    "improve": "Hacer el retraso legible desde el frame 1 con el hombre ya quieto y la sombra grande y negra todavia agitando el brazo (el hook es el desajuste, no el saludo), tumbar el duplicado en el plano del suelo con rotacion x=-90 y direccion coherente con el sol, y hacer que la sombra se siente con una silueta de perfil muy exagerada o se tumbe en vez de usar Sitting Idle.",
-    "vps": 61.4
+    "why": "Ronda 2: con el hombre ya quieto y la sombra enorme saludando sola, el desajuste se lee en el frame 1 y el estiramiento elastico al correr seguido de la sombra rendida es un remate claro y barato (clips existentes); no sube mas porque una sombra tumbada vista desde la camara es una silueta plana donde el brazo apenas se distingue, hay que mantener la sombra pegada al suelo y coherente con el sol durante Running (riesgo de clipping y pies deslizando), y el final 'rendida pero vuelve a saludar' diluye el chiste de que se cansa antes que el.",
+    "improve": "Probar un render de 2 s de la sombra tumbada con el brazo animado por S.key en el encuadre vertical antes del guion, hacerla ancha y de borde nitido sobre cesped claro, y simplificar el final: la sombra se tumba rendida y el hombre se queda inmovil sin que vuelva a saludar hasta el corte del bucle.",
+    "vps": 63.6
   },
   {
     "id": "b20261123-1-i03",
@@ -57,60 +57,60 @@
     "vps": 56.3
   },
   {
-    "id": "b20261123-1-i04",
+    "id": "b20261123-1-i02",
     "scores": {
       "hook": 7,
-      "curiosity": 6,
-      "retention": 6,
+      "curiosity": 5,
+      "retention": 7,
       "originality": 5,
       "visual": 8,
       "emotion": 6,
       "ending": 6,
       "series": 5,
       "differentiation": 5,
-      "production_difficulty": 6,
+      "production_difficulty": 7,
       "repetition_risk": 5
     },
-    "why": "Trepar una cuerda hacia una nube es vertical, legible en 1 s y encaja en 9:16 (el mejor visual junto al perro), pero la nube que 'llora' sin cara no se lee como cansancio, la caida de Falling Back Death desde la altura es un remate flojo (castigo sin causa) y trepar con Mixamo sobre un cylinder fino arriesga manos que atraviesan la cuerda y el gag de lluvia con spheres es pobre.",
-    "improve": "Dar a la nube una cara sencilla (dos spheres negras y una boca) y un gesto claro (bostezo o estornudo) que cause el desprendimiento de la cuerda, sentar al hombre en la nube con las piernas colgando para mostrar altura, y probar el agarre de la cuerda con el humano antes del guion (cuerda gruesa de color vivo).",
-    "vps": 54.0
+    "why": "Ronda 2: escalera vertical y centrada con escalones de colores que suenan en escala ascendente es el mejor visual del lote y la recompensa sonora recuerda a la campana de Bell, pero la escalera piano es un tropo real muy conocido, la tobogan final es un castigo sin causa visible (Falling Back Death resbalando es un clip forzado), Running sobre escalones con mocap de suelo llano va a deslizar los pies y atravesar los cubes, y el salto de dos escalones apenas aporta.",
+    "improve": "Dar causa al tobogan (el ultimo escalon es de otro color o lleva una nota grave que se oye antes), cambiar Falling Back Death por un clip de sentarse y deslizarse, y probar Running sobre los cubes con el humano Mixamo antes del guion usando escalones bajos y anchos o animar la subida con keys de posicion en vez de mocap en el sitio.",
+    "vps": 53.4
   },
   {
-    "id": "b20261123-1-i02",
+    "id": "b20261123-1-i04",
     "scores": {
-      "hook": 7,
-      "curiosity": 5,
+      "hook": 6,
+      "curiosity": 6,
       "retention": 6,
       "originality": 5,
-      "visual": 7,
-      "emotion": 6,
-      "ending": 7,
+      "visual": 6,
+      "emotion": 5,
+      "ending": 6,
       "series": 5,
       "differentiation": 5,
-      "production_difficulty": 6,
-      "repetition_risk": 5
+      "production_difficulty": 5,
+      "repetition_risk": 6
     },
-    "why": "Domino de arboles con tonk ascendente y el circulo que vuelve contra el es un remate fisico que se entiende sin palabras, pero un circulo de arboles delgados no se lee en vertical (la camara fija pierde la mitad del anillo), el giro 'te cae encima' lo adivina cualquiera, el domino ya es un tropo conocido y aplastar al humano con un arbol exige un Falling Back Death sin clipping contra un cylinder rotando.",
-    "improve": "Poner los arboles en una fila vertical hacia el fondo (profundidad hacia la camara) con el ultimo cayendo sobre el hombre desde arriba del encuadre, hacerlos grandes, de colores contrastados y con la copa pesada para que el vuelco se vea, y dar una causa visible al regreso (el primer arbol, que el empujo, se levanta y le da un empujoncito).",
-    "vps": 52.7
+    "why": "Ronda 2: la fuente con chorros cada vez mas altos y notas ascendentes es barata de construir (cylinders con escala y) y el reembolso de la primera moneda es un giro claro, pero la monedita lanzada se pierde en 9:16, el chiste 'da el cambio' depende de entender un juego de palabras en ingles, el frame 1 es un lanzamiento tranquilo sin tension, y repite la moneda como objeto central de i05 en el mismo lote, por lo que habria que descartar una de las dos.",
+    "improve": "Hacer la moneda grande y brillante con estela, dar al chorro un color o una luz que suba con cada nota, y cambiar el remate para que la fuente devuelva un objeto absurdo (todas las monedas a la vez, o una moneda mas grande que el), evitando coincidir con i05; elegir una de las dos ideas de moneda.",
+    "vps": 49.0
   },
   {
     "id": "b20261123-1-i06",
     "scores": {
-      "hook": 5,
+      "hook": 7,
       "curiosity": 5,
-      "retention": 5,
-      "originality": 6,
-      "visual": 4,
+      "retention": 6,
+      "originality": 4,
+      "visual": 7,
       "emotion": 5,
       "ending": 5,
       "series": 5,
-      "differentiation": 5,
-      "production_difficulty": 8,
-      "repetition_risk": 5
+      "differentiation": 4,
+      "production_difficulty": 4,
+      "repetition_risk": 7
     },
-    "why": "La idea de dirigir aspersores como orquesta es simpatica pero el frame 1 es poco claro (aspersores diminutos inclinandose hacia una mano), el agua hecha con spheres sueltas queda pobre y es lo mas caro de sincronizar con las notas y con el crecimiento de la flor, la flor marchita pequena se pierde en 9:16 y el final (se moja y la flor se marchita) no tiene giro ni se comparte.",
-    "improve": "Reducir a un solo gag legible: un aspersor enorme y llamativo que sigue su mano y lo moja a el, sin flor ni orquesta, o cambiar el agua por discos azules planos en arco (primitivas simples) y dar el giro al final con un aspersor que se queda apuntandole cuando el ya esta quieto.",
-    "vps": 42.1
+    "why": "Ronda 2: la pelota enorme que crece con cada empujon es barata de hacer (scale por S.key) y legible, pero es casi el mismo objeto y remate que la pelota gigante que se desinfla con pssssh del lote anterior (i07 del 22-3), el frame 1 estatico no muestra el crecimiento (el hook llega en el segundo 3), el final de desinflarse hasta quedar una pelota diminuta es previsible y sin giro, y Pushing contra una esfera que escala invita a clipping con las manos.",
+    "improve": "Cambiar el objeto y el remate para alejarlo de la pelota hinchable (por ejemplo, que la pelota crezca hasta empujarlo a el, o que el empuje la haga pequena y la grande sea el), mostrar el crecimiento ya en el frame 1 con la pelota a medio crecer y un boing visible, y animar el contacto con keys de posicion de las manos.",
+    "vps": 47.0
   }
 ]
