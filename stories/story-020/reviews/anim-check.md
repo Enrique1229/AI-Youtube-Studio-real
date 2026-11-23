@@ -30,3 +30,9 @@ Escenario (plaza, alcantarilla a ras del suelo, atrezo) y cámara general se man
 - El puff de la boca se ve como un disco gris suave (sobre cielo blanco) y el "mano a la boca" del clip Surprised se queda en brazos al frente, no llega a la boca. La premisa se lee por el puff + el salto + el hic.
 - No se probó el montaje de audio ni el render completo (render_episode.py). El comprobador de run_level puede avisar de cabeza fuera de cuadro por usar la cámara anterior (falso positivo conocido).
 - El hombre en el primer plano está de perfil mirando a la tapa (no a cámara).
+
+## Ronda 4 (revisión del Director: remate y bota)
+- Remate de frente: yaw del hombre a 37 grados (hacia la cámara del primer plano) de f176 a f232; cara visible al ~50 % del alto (cámara a z=1,5 mirando a z=1,8, personaje ~45-50 %). La tapa queda detrás, a la izquierda: el aro se ve en el suelo y en f226 la tapa asoma saltando (0,85 m) con clonk. Alivio de frente (Head Nod Yes, f178-215).
+- Hic enorme: salto de 42 cm (f212-220) y nube BLANCA opaca (3 esferas de 0,28-0,42 m de radio, 2-3 veces la cabeza) junto a su boca, delante de la fachada, que se disipa en 10 fotogramas (0,4 s). Justo después, Surprised de frente (f215+).
+- Bota (f30): ahora sale por el lado izquierdo de la tapa y cae a la izquierda, lejos del hombre; ya no se solapa con él.
+- Fotogramas regenerados: 02, 10, 11, 12, 13, 14 (270x480, 8 muestras). Límite: la parte alta de la nube cae sobre el cielo claro.

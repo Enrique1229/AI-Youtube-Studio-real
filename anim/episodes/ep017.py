@@ -29,7 +29,8 @@ P1 = Vector((0.40, -0.45, 0.0))   # casa del hombre: delante a la derecha de la 
 P2 = Vector((0.95, 0.65, 0.0))    # tras el salto atrás
 HID = Vector((1.0, 1.3, 0.0))   # donde se aleja agachado antes del susto
 YAW = -50.0
-YAW_BOO = -75.0                   # cara a la tapa (de perfil a cámara)
+YAW_BOO = -75.0                   # cara a la tapa (de perfil a cámara) durante el susto
+YAW_REM = 37.0                    # remate: de frente a la cámara del primer plano (la tapa queda detrás, a un lado)
 LR = 0.66                         # radio de la tapa
 LID_Z0 = 0.03                     # centro de la tapa asentada (plana en su aro)
 HOP = 0.85                        # altura del salto de un hipo
@@ -39,7 +40,7 @@ TILT = 25.0                       # grados en x: la cara superior mira a la cám
 HICS = [(-5, 7, 2, 6, HOP),                 # gancho: ya en el aire en el fotograma 1
         (22, 7, 29, 6, HOP), (48, 7, 55, 6, HOP), (74, 7, 81, 6, HOP), (100, 7, 107, 6, HOP),
         (150, 7, 171, 6, HOP),              # susto: sube, se CONGELA temblando (157-171) y cae plana en silencio
-        (222, 6, 228, 5, 0.55),             # remate: saltito de risa tras el hic de él
+        (222, 6, 228, 5, 0.85),             # remate: saltito de risa tras el hic de él
         (286, 7, 10 ** 5, 1, HOP)]          # final: sube y queda (fotograma 1)
 LAND = [8, 35, 61, 87, 113, 233]            # aterrizajes con clonk (el del susto, 177, es silencioso)
 F_FREEZE0, F_FREEZE1 = 157, 171
@@ -105,7 +106,7 @@ def steam_mat(S, name, vertical=True, strength=1.0, scroll=True):
     m = bpy.data.materials.new(k); m.use_nodes = True; nt = m.node_tree; N, L = nt.nodes, nt.links
     for n in list(N): N.remove(n)
     out = N.new("ShaderNodeOutputMaterial"); mix = N.new("ShaderNodeMixShader"); tr = N.new("ShaderNodeBsdfTransparent"); em = N.new("ShaderNodeEmission")
-    em.inputs["Color"].default_value = (0.93, 0.96, 1.0, 1); em.inputs["Strength"].default_value = 1.7 if name == "boca" else 1.4
+    em.inputs["Color"].default_value = (0.93, 0.96, 1.0, 1); em.inputs["Strength"].default_value = 1.25 if name == "boca" else 1.4
     tc = N.new("ShaderNodeTexCoord"); mp = N.new("ShaderNodeMapping"); mp.inputs["Scale"].default_value = (3.2, 3.2, 2.0)
     nz = N.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 1.6; nz.inputs["Detail"].default_value = 6.0; nz.inputs["Roughness"].default_value = 0.6
     rp = N.new("ShaderNodeValToRGB"); rp.color_ramp.elements[0].position = 0.30; rp.color_ramp.elements[1].position = 0.72
@@ -123,6 +124,9 @@ def steam_mat(S, name, vertical=True, strength=1.0, scroll=True):
     else:
         L.new(m1.outputs[0], m3.inputs[0])
     L.new(m3.outputs[0], mix.inputs["Fac"]); L.new(tr.outputs[0], mix.inputs[1]); L.new(em.outputs[0], mix.inputs[2]); L.new(mix.outputs[0], out.inputs["Surface"])
+    if name == "boca":                                    # nube opaca y blanca (el hic del hombre)
+        for l in list(mix.inputs["Fac"].links): L.remove(l)
+        mix.inputs["Fac"].default_value = 1.0; em.inputs["Strength"].default_value = 3.0
     S.mats[k] = m; S._steam_map = getattr(S, "_steam_map", []) + [mp]
     return m
 
@@ -230,8 +234,8 @@ def l1(S):
     seg(S, a, "Sneaking Forward", F_SNEAK0, F_CHARGE0, start=0, speed=0.9, blend=6)    # se aleja agachado
     seg(S, a, "Charge", F_CHARGE0, F_BOO, start=0, speed=1.5, blend=4)                 # vuelve cargando
     seg(S, a, "Victory", F_BOO, 178, start=18, speed=1.0, blend=3)                     # susto: brazos arriba
-    seg(S, a, "Head Nod Yes", 178, F_HIC_MAN - 3, start=0, speed=1.2, blend=4)         # alivio: asiente
-    seg(S, a, "Surprised", F_HIC_MAN - 3, 232, start=14, speed=1.3, blend=3)           # hic propio: mano a la boca
+    seg(S, a, "Head Nod Yes", 178, F_HIC_MAN + 3, start=0, speed=1.2, blend=4)         # alivio: asiente
+    seg(S, a, "Surprised", F_HIC_MAN + 3, 232, start=14, speed=1.3, blend=3)           # hic propio: mano a la boca
     seg(S, a, "Sneaking Forward", 232, F_END, start=SNEAK - 4, speed=0.35, blend=8)    # vuelve a agacharse: pose del plano 1
 
     # ---- hombre: posición y orientación ----
@@ -251,10 +255,12 @@ def l1(S):
         if f < F_CHARGE0: return lerp(125.0, -37.0, (f - F_CHARGE0 + 4) / 4.0)
         if f < F_BOO: return -37.0
         if f < F_BOO + 6: return lerp(-37.0, YAW_BOO, (f - F_BOO) / 6.0)
-        if f < 232: return YAW_BOO
-        if f < 240: return lerp(YAW_BOO, YAW, (f - 232) / 8.0)
+        if f < 176: return YAW_BOO
+        if f < 182: return lerp(YAW_BOO, YAW_REM, (f - 176) / 6.0)
+        if f < 232: return YAW_REM
+        if f < 240: return lerp(YAW_REM, YAW, (f - 232) / 8.0)
         return YAW
-    hic_bump = lambda f: 0.16 * math.sin(math.pi * (f - F_HIC_MAN) / 5.0) if F_HIC_MAN <= f <= F_HIC_MAN + 5 else 0.0
+    hic_bump = lambda f: 0.42 * math.sin(math.pi * (f - F_HIC_MAN) / 8.0) if F_HIC_MAN <= f <= F_HIC_MAN + 8 else 0.0
     bpy.context.preferences.edit.keyframe_new_interpolation_type = "LINEAR"
     for f in range(1, F_END + 1):
         p = pos(f); S.key(a.root, f, loc=(p.x, p.y, hic_bump(f)), rot=(0, 0, R(yaw(f))), interp="LINEAR")
@@ -282,21 +288,24 @@ def l1(S):
             d = Vector((c.x - M.x, c.y - M.y, 0)); d = d.normalized() if d.length > 0.01 else Vector((0, 0, 0))
             o.location = (c.x + d.x * 0.1 * (f - f0 + 1) / dur * 3, c.y + d.y * 0.1 * (f - f0 + 1) / dur * 3, c.z + dz); o.scale = (sc, sc, sc * 0.85)
             o.keyframe_insert("location", frame=max(1, int(f))); o.keyframe_insert("scale", frame=max(1, int(f)))
-    # puff de vapor por la boca del hombre (hic propio): 3 esferas densas del final del banco
-    mm_ = steam_mat(S, "boca", False, 5.0); mps = puffs[-3:]
+    # NUBE blanca opaca y grande (2-3 veces la cabeza) junto a la boca del hombre, delante de la fachada; se disipa en ~0,4 s
+    mm_ = steam_mat(S, "boca", False, 8.0); mps = puffs[-3:]
     for q in mps: q.data.materials[0] = mm_
-    fwd = Vector((math.sin(R(YAW_BOO)), -math.cos(R(YAW_BOO)), 0))
-    for f in range(F_HIC_MAN - 2, F_HIC_MAN + 18):
+    left = Vector((-0.76, -0.65, 0.0))                    # a la izquierda de la cámara del primer plano
+    for f in range(F_HIC_MAN - 2, F_HIC_MAN + 16):
         S.sc.frame_set(f); bpy.context.view_layer.update()
         hp0 = a.head.matrix_world.translation.copy(); t = f - F_HIC_MAN
         for j, q in enumerate(mps):
-            tj = t - 2 * j
-            sc = 0.001 if tj < 0 else 0.15 * math.sin(math.pi * min(1.0, tj / 14.0)) + 0.001
-            q.location = hp0 + Vector((0, 0, 0.03 + 0.01 * j)) + fwd * (0.10 + 0.02 * max(0, tj) + 0.03 * j); q.scale = (sc, sc, sc)
-            q.keyframe_insert("location", frame=f); q.keyframe_insert("scale", frame=f)
+            tj = t - j
+            rr = (0.42, 0.32, 0.28)[j]; dz_, lf_ = ((-0.08, 0.42), (-0.20, 0.64), (-0.36, 0.30))[j]
+            if tj < 0: sc = 0.001
+            elif tj <= 3: sc = rr * tj / 3.0
+            else: sc = max(0.001, rr * (1.0 - (tj - 3) / 7.0))
+            q.location = hp0 + Vector((0, 0, dz_ + 0.01 * max(0, tj))) + left * lf_
+            q.scale = (sc, sc, sc); q.keyframe_insert("location", frame=f); q.keyframe_insert("scale", frame=f)
 
     # ---- bota: sale por el borde derecho de la boca en el hipo 1 y rueda lejos de él ----
-    B0 = Vector((M.x + 0.78, M.y - 0.1, 0.35)); B1 = Vector((P1.x + 0.35, P1.y + 0.05, 0.13)); BR = Vector((P1.x + 0.75, P1.y - 0.15, 0.13))
+    B0 = Vector((M.x - 0.78, M.y - 0.1, 0.35)); B1 = Vector((-1.35, -0.8, 0.13)); BR = Vector((-1.12, -0.95, 0.13))
     for f in range(F_BOOT - 6, 140):
         if f < F_BOOT or f >= 100: p, rot = Vector((0, 0, -5)), (0, 0, 0)
         elif f <= F_BOOT + T_BOOT:
@@ -359,7 +368,7 @@ def l1(S):
              (50, ((3.8, -4.1, 1.1), (0.7, -0.1, 1.3), 40, 5.3)),                     # medio: caza el patito y lo deja
              (100, CAM_W),                                                            # se aleja agachado
              (134, ((-0.2, -6.0, 1.2), (-0.25, -0.2, 1.45), 50, 5.8)),                # plano medio: carga, salta ante la tapa, la tapa se congela
-             (178, ((2.6, -3.4, 0.5), (-0.15, -0.2, 1.35), 35, 4.1)),                    # PRIMER PLANO del remate: él y la tapa detrás
+             (178, ((2.6, -3.4, 1.5), (-0.15, -0.2, 1.8), 35, 4.1)),                    # PRIMER PLANO del remate: él y la tapa detrás
              (F_CUT_WIDE, CAM_W)]                                                     # encuadre del fotograma 1: bucle
     for f, (loc, tg, lens, foc) in shots: cam_set(S, f, loc, tg, lens, foc)
     S.set_interp(S.cam, "CONSTANT", ("location",)); S.set_interp(S.cam.data, "CONSTANT"); S.set_interp(S.tgt, "CONSTANT")

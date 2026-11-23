@@ -19,3 +19,8 @@ Fotogramas: reviews/frames/ (16, 216x384). Hoja: ep017_sheet.jpg (scratchpad).
 - Escenario muy producido: fachada clásica, farolas, terraza, jardineras/cajas, furgoneta al fondo, desenfoque. Cumple la regla.
 - Bucle: b4_bucle_262 ≈ b1_inicio. Cara siempre entre el 35 % y el 60 % del alto.
 - Aviso menor (no bloquea): en los planos generales el hombre ocupa ~25-30 % del alto y el 40 % inferior es adoquín vacío (zona de interfaz de Shorts, aceptable).
+
+# Ronda QC-2 (tras "no lo entiendo" del usuario): PASA a render
+- Rótulo POV, hipos secos con puff y pausa, susto con tapa congelada: se leen sin sonido.
+- Remate: hombre de frente, cara al ~50 %, salto de 42 cm, nube blanca grande saliendo de la boca, tapa detrás saltando. Se lee.
+- Aviso menor: en 12-13 los pies quedan casi sobre la tapa y la nube tapa media cara 0,3 s. Aceptable.
