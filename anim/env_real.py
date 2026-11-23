@@ -138,10 +138,49 @@ def _place_fit(S, col, loc, height, rot_z=0.0):
     return inst, k, ((hi.x - lo.x) * k, (hi.y - lo.y) * k)
 
 
-def build_plaza(S, rot_deg=0, sun_energy=3.0):
-    """Plaza urbana realista: cielo HDRI dresden_square, suelo de adoquín PBR hasta el horizonte y atrezo (farola, papelera, jardinera).
-    Sin césped ni parque. Deja solo sol, cámara y objetivo del escenario base. Reutiliza _hdri/_pbr/_model.
-    Devuelve dict con las instancias del atrezo (para colocar o animar)."""
+# (modelo, resolución, x, y, alto_m, giro_deg): reparto en primer plano, medio y fondo. La cámara del ep017 mira a +y desde y=-7.4 y la
+# acción (tapa, hombre) está en x∈[-1.3, 1.5], y∈[-0.5, 2]. Se deja libre la franja central detrás de la tapa y los bordes de la acción.
+PLAZA_PROPS = [
+    ("fire_hydrant", "1k", -1.30, -1.15, 0.80, 25),                 # primer plano izquierdo (desenfocado, encuadra)
+    ("planter_box_01", "2k", -1.95, 2.3, 0.75, 0),                  # medio
+    ("potted_plant_01", "1k", 2.05, 2.1, 0.95, 40),
+    ("WetFloorSign_01", "1k", -1.55, 0.9, 0.62, 28),
+    ("planter_box_02", "1k", 1.95, 3.6, 0.80, -8),
+    ("utility_box_01", "1k", 2.6, 5.2, 1.35, -12),                  # fondo cercano
+    ("modular_street_seating", "1k", -2.7, 5.0, 0.85, 12),
+    ("painted_wooden_bench", "1k", 3.1, 7.6, 0.90, -20),
+    ("outdoor_table_chair_set_01", "1k", -3.1, 8.8, 1.0, 35),
+    ("wooden_barrels_01", "1k", 3.9, 10.5, 0.95, 0),
+    ("concrete_road_barrier", "1k", -4.4, 11.0, 0.95, 78),
+    ("planter_pot_clay", "1k", -1.9, 6.4, 0.70, 0),
+    ("plastic_crate_01", "1k", 1.9, 2.9, 0.34, 20),
+    ("wooden_crate_01", "1k", -2.3, 3.4, 0.55, -15),
+    ("trashbag", "1k", 2.8, 3.1, 0.50, 60),
+    ("cardboard_box_01", "1k", 2.3, 6.1, 0.45, 32),
+    ("street_lamp_01", "2k", -2.5, 3.8, 4.6, 0),
+    ("street_lamp_02", "1k", 3.4, 8.6, 4.8, 180),
+    ("street_lamp_02", "1k", -5.2, 14.5, 4.8, 0),
+]
+
+
+def _mat_simple(S, name, rgb, rough=0.6, metal=0.0):
+    k = "pz_" + name
+    if k in S.mats: return S.mats[k]
+    m = bpy.data.materials.new(k); m.use_nodes = True; b = m.node_tree.nodes["Principled BSDF"]
+    b.inputs["Base Color"].default_value = (*rgb, 1); b.inputs["Roughness"].default_value = rough; b.inputs["Metallic"].default_value = metal
+    S.mats[k] = m; return m
+
+
+def _prim(S, prim, name, mat, loc, scale=(1, 1, 1), rot=(0, 0, 0), parent=None, **kw):
+    o = S.obj(prim, name, "white", loc, scale, rot, parent, True, **kw); o.data.materials[0] = mat; return o
+
+
+def build_plaza(S, rot_deg=0, sun_energy=3.0, dress=True):
+    """Plaza urbana realista y muy producida: cielo HDRI dresden_square, suelo de adoquín PBR hasta el horizonte, 19 piezas de atrezo
+    de Poly Haven (CC0) repartidas en primer plano, medio y fondo, bordillo con calzada y paso de cebra, bolardos, charcos, hojas y palomas
+    de primitivas. Sin césped ni parque. Deja solo sol, cámara y objetivo del escenario base. Reutiliza _hdri/_pbr/_model.
+    Devuelve {"birds": [...]} (palomas, para animarlas)."""
+    import random as _r
     for o in list(S.sc.objects):
         if o.name.startswith("sun") or o is S.cam or o is S.tgt: continue
         bpy.data.objects.remove(o, do_unlink=True)
@@ -151,14 +190,58 @@ def build_plaza(S, rot_deg=0, sun_energy=3.0):
     S.sc.view_settings.view_transform = "AgX"
     try: S.sc.view_settings.look = "AgX - Base Contrast"; S.sc.view_settings.exposure = 0.0
     except Exception: pass
-    S.cam.data.dof.use_dof = False; S.water = None
-    # suelo: plano de 120 m con UV en metros (el adoquín se repite cada 1,5 m)
+    S.cam.data.dof.use_dof = True; S.cam.data.dof.aperture_fstop = 1.4; S.cam.data.dof.focus_distance = 7.4; S.water = None   # profundidad: fondo y primer plano blandos
+    # suelo: plano de 120 m con UV en metros (el adoquín se repite cada 1,5 m); calzada de asfalto más allá del bordillo (y > 16)
     cob = _pbr(S, "cobblestone_floor_01", scale=1.0)
-    bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 0, 0)); g = bpy.context.object; g.name = "plaza_suelo"
-    g.scale = (120, 120, 1); g.data.materials.append(cob)
+    bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 40, 0)); g = bpy.context.object; g.name = "plaza_suelo"
+    g.scale = (160, 160, 1); g.data.materials.append(cob)
     bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
     me = g.data; me.uv_layers.active.data.foreach_set("uv", [c for l in me.loops for c in (me.vertices[l.vertex_index].co.x / 1.5, me.vertices[l.vertex_index].co.y / 1.5)])
-    props = {}
-    lamp = _model("street_lamp_01", "2k"); can = _model("metal_trash_can", "2k"); plant = _model("planter_box_01", "2k")
-    props["lamp"] = lamp; props["can"] = can; props["planter"] = plant
-    return props
+    asf = S.pmat("asfalto", [(0.3, (0.045, 0.045, 0.05)), (0.7, (0.10, 0.10, 0.105))], scale=45, rough=0.85, bump=0.4)
+    curb_m = _mat_simple(S, "bordillo", (0.55, 0.54, 0.51), 0.8)
+    bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 66, 0.004)); r = bpy.context.object; r.name = "calzada"; r.scale = (160, 100, 1); r.data.materials.append(asf)
+    c = _prim(S, "cube", "bordillo", curb_m, (0, 16.0, 0.08), (80, 0.18, 0.08), smooth=False)
+    white = _mat_simple(S, "pintura", (0.80, 0.80, 0.78), 0.7)
+    for i in range(-9, 10):                                          # paso de cebra
+        _prim(S, "cube", "cebra", white, (i * 0.95, 21.0, 0.008), (0.3, 1.6, 0.003), smooth=False)
+    # atrezo
+    cols = {}
+    for (name, res, x, y, h, rot) in PLAZA_PROPS:
+        if not dress: break
+        if (name, res) not in cols: cols[(name, res)] = _model(name, res)
+        bpy.context.view_layer.update()
+        _place_fit(S, cols[(name, res)], (x, y, 0.0), h, math.radians(rot))
+    cols_can = _model("metal_trash_can", "2k"); S.can_col = cols_can               # papelera: la coloca el episodio
+    # bolardos de primitivas con banda amarilla (a ambos lados, sin cruzar el centro)
+    steel = _mat_simple(S, "bolardo", (0.12, 0.13, 0.15), 0.4, 0.7); band = _mat_simple(S, "banda_amarilla", (0.95, 0.72, 0.05), 0.5)
+    for x in (-3.6, -2.4, 2.6, 3.8, 5.0, -4.8):
+        _prim(S, "cylinder", "bolardo", steel, (x, 12.6, 0.45), (0.07, 0.07, 0.45), vertices=20)
+        _prim(S, "cylinder", "banda", band, (x, 12.6, 0.72), (0.0715, 0.0715, 0.045), vertices=20)
+        _prim(S, "uv_sphere", "tapa_bolardo", steel, (x, 12.6, 0.9), (0.07, 0.07, 0.04), segments=16, ring_count=8)
+    # charcos con reflejo del cielo
+    wet = bpy.data.materials.new("pz_charco"); wet.use_nodes = True; wb = wet.node_tree.nodes["Principled BSDF"]
+    wb.inputs["Base Color"].default_value = (0.03, 0.035, 0.04, 1); wb.inputs["Roughness"].default_value = 0.02
+    for (x, y, rx, ry) in ((-1.0, 1.4, 0.55, 0.28), (0.4, 3.1, 0.9, 0.4), (-2.0, 4.6, 0.8, 0.35), (1.6, 5.6, 0.7, 0.3), (-0.3, -0.9, 0.45, 0.2)):
+        o = _prim(S, "cylinder", "charco", wet, (x, y, 0.006), (rx, ry, 0.002), vertices=40)
+    # hojas sueltas
+    rnd = _r.Random(11)
+    leaf_m = [_mat_simple(S, f"hoja{i}", c, 0.8) for i, c in enumerate(((0.45, 0.22, 0.05), (0.60, 0.33, 0.06), (0.35, 0.28, 0.07), (0.55, 0.12, 0.04)))]
+    for i in range(80):
+        x, y = rnd.uniform(-3.2, 3.5), rnd.uniform(-1.0, 8.0)
+        if ((x + 0.55) ** 2 + y ** 2) < 1.1 ** 2: continue                 # la tapa y su marco quedan limpios
+        _prim(S, "uv_sphere", "hoja", rnd.choice(leaf_m), (x, y, 0.006), (rnd.uniform(0.05, 0.09), rnd.uniform(0.03, 0.05), 0.004),
+              (0, 0, rnd.uniform(0, 6.28)), segments=8, ring_count=4)
+    # palomas de primitivas
+    grey = _mat_simple(S, "paloma", (0.42, 0.44, 0.50), 0.8); neck = _mat_simple(S, "paloma_cuello", (0.28, 0.45, 0.42), 0.6)
+    beak = _mat_simple(S, "pico", (0.85, 0.55, 0.30), 0.6); dark = _mat_simple(S, "ojo", (0.02, 0.02, 0.02), 0.3)
+    birds = []
+    for (x, y, yaw) in ((-1.6, 2.7, 140), (-1.15, 3.3, 200), (-0.35, 4.0, 160)):
+        e = S.empty("paloma", (x, y, 0.0)); e.rotation_euler = (0, 0, math.radians(yaw))
+        _prim(S, "uv_sphere", "p_cuerpo", grey, (0, 0, 0.11), (0.07, 0.12, 0.075), parent=e, segments=16, ring_count=8)
+        _prim(S, "uv_sphere", "p_cuello", neck, (0, 0.10, 0.17), (0.05, 0.05, 0.05), parent=e, segments=12, ring_count=8)
+        _prim(S, "uv_sphere", "p_cabeza", grey, (0, 0.14, 0.205), (0.04, 0.045, 0.04), parent=e, segments=12, ring_count=8)
+        _prim(S, "cone", "p_pico", beak, (0, 0.19, 0.20), (0.012, 0.012, 0.02), (math.radians(-90), 0, 0), parent=e, vertices=8, radius1=1.0, radius2=0.0, depth=2.0)
+        _prim(S, "uv_sphere", "p_cola", grey, (0, -0.15, 0.115), (0.04, 0.09, 0.012), parent=e, segments=10, ring_count=6)
+        wings = [_prim(S, "uv_sphere", "p_ala", grey, (sx * 0.06, 0.0, 0.14), (0.015, 0.10, 0.06), parent=e, segments=10, ring_count=6) for sx in (-1, 1)]
+        e["wings"] = [w.name for w in wings]; birds.append(e)
+    return {"birds": birds}
