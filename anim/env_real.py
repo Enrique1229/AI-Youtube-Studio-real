@@ -172,7 +172,8 @@ def _mat_simple(S, name, rgb, rough=0.6, metal=0.0):
 
 
 def _prim(S, prim, name, mat, loc, scale=(1, 1, 1), rot=(0, 0, 0), parent=None, **kw):
-    o = S.obj(prim, name, "white", loc, scale, rot, parent, True, **kw); o.data.materials[0] = mat; return o
+    sm = kw.pop("smooth", True)
+    o = S.obj(prim, name, "white", loc, scale, rot, parent, sm, **kw); o.data.materials[0] = mat; return o
 
 
 def build_plaza(S, rot_deg=0, sun_energy=3.0, dress=True):

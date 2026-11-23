@@ -228,6 +228,22 @@ def sfx(kind, seed):
                 parts += [h, np.zeros(int(SR * 0.045))]
             x = np.concatenate(parts)
         return norm(fade(x, 0.005, 0.04), 0.75)
+    if kind == "hic":        # hipo: golpe de glotis corto con vocal que CAE de tono (sin subida)
+        dur = 0.2; t = np.arange(int(SR * dur)) / SR
+        f = 150 + 260 * np.exp(-t * 28); ph = np.cumsum(f) / SR; x = np.zeros_like(t)
+        for k in range(1, 30): x += (np.exp(-((k * f - 650) / 230.0) ** 2) + 0.5 * np.exp(-((k * f - 1700) / 300.0) ** 2)) * np.sin(2 * np.pi * k * ph) / (1 + 0.05 * k)
+        x = x * np.minimum(1, t / 0.003) * np.exp(-t * 17) + 0.6 * lowpass(rng.standard_normal(len(t)), 3500) * np.exp(-t * 160)
+        return norm(fade(x, 0.001, 0.03), 0.85)
+    if kind == "squeak":     # patito de goma: chillido agudo corto (sube y baja de un golpe, vibrato de lengüeta)
+        dur = 0.2; t = np.arange(int(SR * dur)) / SR
+        f = (1900 + 700 * np.sin(np.pi * np.minimum(t / dur, 1)) ** 0.8 - 500 * t / dur) * (1 + 0.03 * np.sin(2 * np.pi * 38 * t))
+        ph = np.cumsum(f) / SR; x = np.sin(2 * np.pi * ph) + 0.55 * np.sin(4 * np.pi * ph) + 0.3 * np.sign(np.sin(2 * np.pi * ph * 1.5))
+        return norm(fade(x * np.sin(np.pi * np.minimum(t / dur, 1)) ** 0.5, 0.004, 0.03), 0.7)
+    if kind == "cymbal":     # golpe de platillo: parciales metálicos inarmónicos + ruido agudo largo
+        dur = 1.8; t = np.arange(int(SR * dur)) / SR; n_ = rng.standard_normal(len(t))
+        x = (n_ - lowpass(n_, 4500)) * np.exp(-t * 2.6) * 1.2
+        for fr, am in ((340, 0.5), (500, 0.4), (671, 0.35), (1017, 0.3), (1480, 0.25), (2210, 0.2), (3160, 0.15)): x += am * np.sin(2 * np.pi * fr * t + rng.uniform(0, 6)) * np.exp(-t * (1.5 + fr / 900))
+        return norm(fade(x * np.minimum(1, t / 0.002), 0.001, 0.4), 0.85)
     if kind == "wahwah":     # trombón triste ("fracaso"): tres notas que bajan y la última tiembla
         out = []
         for i, (f0, d) in enumerate(((233, 0.28), (220, 0.28), (208, 0.28), (196, 0.9))):
