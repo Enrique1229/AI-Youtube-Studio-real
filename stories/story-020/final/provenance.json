@@ -1,0 +1,7 @@
+{"generated": "2026-11-23", "animation": "Blender (Cycles) por código: anim/kit.py + anim/env_real.py (build_plaza) + anim/episodes/ep017.py — propio",
+ "characters_sets": "protagonista propio (anim/klunk_toon.py); tapa, vapor, bota y patito de primitivas propios; plaza con HDRI dresden_square, adoquín y 29 modelos CC0 de Poly Haven (assets/polyhaven/LICENSES.json)",
+ "motion_capture": {"source": "Mixamo (Adobe)", "license": "uso libre en proyectos propios, comerciales incluidos; crédito en descripción"},
+ "music": {"source": "sintetizada por scripts/audio_gen.py (assets/audio/music vacío)", "license": "propia, sin terceros"},
+ "sfx": {"source": "Kenney (kenney.nl, clunk) + síntesis propia en scripts/audio_gen.py (hic, squeak, cymbal, whoosh, oof, huh, sigh por formantes)", "license": "CC0 1.0 / propia"},
+ "editing": "FFmpeg (scripts/render_episode.py, scripts/qc_local.py)", "ai_use_disclosure": false,
+ "ai_use_note": "Protagonista de dibujo y situación imposible: no puede confundirse con un hecho real. La descripción informa de herramientas con IA."}
