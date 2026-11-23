@@ -33,11 +33,11 @@ PIE_P = Vector((WX, 1.289, SILL + 0.21))   # tarta apoyada en una tabla inclinad
 PIE_RX = 50.0
 E1, E2 = 0.7, 1.65                      # extensión: 1.er estirón (corto) y 2.º (llega)
 LEAN_PIE = Vector((0.57, 0.82))         # dirección de la inclinación hacia la ventana
-LEAN_EAT = Vector((0.60, -0.80))        # inclinación hacia el hombre en el remate
+LEAN_EAT = Vector((0.30, -0.95))        # inclinación hacia el hombre en el remate
 MAN_D = Vector((BP.x + 0.88, BP.y - 0.55, 0.0))   # hombre de pie junto al bolardo (remate y final)
 YAW_D = -42.0
 F_GRAB, F_DESC0, F_DESC1, F_CUT_D, F_CUT_E = 150, 170, 192, 196, 270
-F_LID0, F_CHOMP, F_SHRUG = 212, 236, 246
+F_LID0, F_CHOMP, F_SHRUG = 212, 240, 250
 
 
 def R(d): return math.radians(d)
@@ -73,9 +73,9 @@ def lean_pie(f):
 def lean_eat(f):
     if f < F_LID0: return 0.0
     if f < F_LID0 + 16: return 0.42 * seg01(f, F_LID0, F_LID0 + 16)
-    if f < F_CHOMP - 2: return 0.42
-    if f < F_CHOMP + 3: return lerp(0.42, 0.62, seg01(f, F_CHOMP - 2, F_CHOMP + 3))
-    if f < F_CHOMP + 18: return lerp(0.62, 0.0, seg01(f, F_CHOMP + 3, F_CHOMP + 18))
+    if f < F_CHOMP - 8: return 0.42
+    if f < F_CHOMP + 4: return lerp(0.42, 0.60, seg01(f, F_CHOMP - 8, F_CHOMP + 4))
+    if f < F_CHOMP + 20: return lerp(0.60, 0.0, seg01(f, F_CHOMP + 4, F_CHOMP + 20))
     return 0.0
 
 
@@ -83,14 +83,14 @@ def lid_open(f):
     """Ángulo (grados) de la tapa-boca del bolardo."""
     if f < F_LID0: return 0.0
     if f < F_LID0 + 10: return 100.0 * seg01(f, F_LID0, F_LID0 + 10)
-    if f < F_CHOMP - 2: return 100.0 + 3 * math.sin((f - F_LID0) * 0.7)
-    if f < F_CHOMP + 2: return lerp(100.0, 0.0, seg01(f, F_CHOMP - 2, F_CHOMP + 2))
-    if f < F_CHOMP + 7: return 14.0 * math.sin(math.pi * (f - F_CHOMP - 2) / 5.0)     # rebota al cerrar
+    if f < F_CHOMP - 6: return 100.0 + 3 * math.sin((f - F_LID0) * 0.7)
+    if f < F_CHOMP + 4: return lerp(100.0, 0.0, seg01(f, F_CHOMP - 6, F_CHOMP + 4))
+    if f < F_CHOMP + 9: return 14.0 * math.sin(math.pi * (f - F_CHOMP - 4) / 5.0)     # rebota al cerrar
     return 0.0
 
 
 def bulge(f):
-    t = f - (F_CHOMP + 3)
+    t = f - (F_CHOMP + 5)
     return 0.16 * math.sin(math.pi * t / 10.0) if 0 <= t <= 10 else 0.0
 
 
@@ -99,11 +99,11 @@ def shake(f):
 
 
 # mirada del ojo: (fotograma, gx, gz, párpado superior 0-1, inferior 0-1, tamaño del ojo)
-GAZE = [(1, 0.55, 0.85, 0.0, 0.0, 1.10), (36, 0.55, 0.85, 0.0, 0.0, 1.25), (46, 0.55, 0.9, 0.0, 0.0, 1.25),
+GAZE = [(1, 0.35, 1.0, 0.0, 0.0, 1.20), (36, 0.35, 1.0, 0.0, 0.0, 1.40), (46, 0.55, 0.9, 0.0, 0.0, 1.25),
         (72, 0.55, 1.0, 0.0, 0.0, 1.2), (100, 0.6, 1.0, 0.1, 0.0, 1.2), (104, 0.6, 1.0, 0.45, 0.25, 1.15), (120, 0.6, 1.0, 0.5, 0.3, 1.15),
         (123, 0.6, 1.0, 0.0, 0.0, 1.25), (146, 0.5, 0.7, 0.0, 0.0, 1.3), (158, 0.1, -0.6, 0.0, 0.0, 1.15), (190, -0.1, -0.5, 0.4, 0.4, 1.1),
         (F_CUT_D, 0.2, -0.3, 0.0, 0.0, 1.2), (F_LID0 - 2, 0.2, -0.3, 0.0, 0.0, 1.3), (F_CHOMP - 1, 0.3, -0.2, 0.0, 0.0, 1.4),
-        (F_CHOMP + 2, 0.0, 0.0, 0.9, 0.9, 1.1), (F_SHRUG + 4, 0.0, 0.0, 0.9, 0.9, 1.1), (262, 0.0, 0.0, 1.0, 1.0, 1.1),
+        (F_CHOMP + 6, 0.0, 0.0, 0.9, 0.9, 1.1), (F_SHRUG + 4, 0.0, 0.0, 0.9, 0.9, 1.1), (262, 0.0, 0.0, 1.0, 1.0, 1.1),
         (267, 0.0, 0.0, 1.0, 1.0, 1.1), (272, 0.3, 0.9, 0.0, 0.0, 1.1), (284, 0.5, 0.9, 0.0, 0.0, 1.2), (300, 0.55, 0.85, 0.0, 0.0, 1.3),
         (312, 0.55, 0.85, 0.0, 0.0, 1.3)]
 
@@ -254,8 +254,8 @@ def build_facade(S):
 
 # ------------------------------------------------------------------ bolardo
 def build_bollard(S):
-    black = mmat(S, "bolardo_negro", (0.015, 0.015, 0.018), 0.35, 0.2); steel = mmat(S, "bolardo_acero", (0.55, 0.55, 0.57), 0.25, 0.95)
-    yel = mmat(S, "bolardo_banda", (0.98, 0.74, 0.03), 0.45); tooth = mmat(S, "diente", (0.95, 0.92, 0.82), 0.35)
+    black = mmat(S, "bolardo_verde", (0.025, 0.16, 0.10), 0.35, 0.35); steel = mmat(S, "bolardo_acero", (0.55, 0.55, 0.57), 0.25, 0.95)
+    yel = mmat(S, "bolardo_banda_roja", (0.78, 0.04, 0.05), 0.35, 0.1); refl = mmat(S, "bolardo_reflectante", (0.92, 0.92, 0.90), 0.25, 0.2); brow_m = mmat(S, "ceja", (0.01, 0.03, 0.02), 0.5); tooth = mmat(S, "diente", (0.95, 0.92, 0.82), 0.35)
     throat = mmat(S, "garganta", (0.35, 0.02, 0.04), 0.5); ring_m = mmat(S, "anillo_tel", (0.07, 0.07, 0.08), 0.3, 0.6)
     white = mmat(S, "ojo_blanco", (0.97, 0.97, 0.95), 0.25); pup = mmat(S, "pupila", (0.0, 0.0, 0.0), 0.15); glint = mmat(S, "brillo", (1, 1, 1), 0.1, 0.0, ((1, 1, 1), 3.0))
     bol = S.empty("bolardo", (BP.x, BP.y, 0))
@@ -270,7 +270,9 @@ def build_bollard(S):
     head = S.empty("cabeza_b", (0, 0, 0.2), bol)
     O(S, "cylinder", "cabeza", black, (0, 0, 0.40), (0.30, 0.30, 0.40), parent=head, vertices=48)
     O(S, "cylinder", "banda", yel, (0, 0, 0.60), (0.306, 0.306, 0.17), parent=head, vertices=48)
-    O(S, "cylinder", "garganta", throat, (0, 0, 0.792), (0.27, 0.27, 0.004), parent=head, vertices=40)
+    for zz in (0.60 - 0.135, 0.60 + 0.135, 0.60):       # franjas blancas reflectantes
+        O(S, "cylinder", "franja", refl, (0, 0, zz), (0.3085, 0.3085, 0.018), parent=head, vertices=48) if zz != 0.60 else None
+    O(S, "cylinder", "garganta", throat, (0, 0, 0.803), (0.27, 0.27, 0.004), parent=head, vertices=40)
     for i in range(16):
         a = R(i * 22.5 + 10); O(S, "cone", "diente_b", tooth, (0.27 * math.cos(a), 0.27 * math.sin(a), 0.83), (0.024, 0.024, 0.034), parent=head, vertices=8, radius1=1.0, radius2=0.0, depth=2.0)
     hinge = S.empty("bisagra_tapa", (0, 0.30, 0.81), head)
@@ -278,16 +280,19 @@ def build_bollard(S):
     O(S, "cylinder", "tapa_borde", steel, (0, -0.30, 0.03), (0.30, 0.30, 0.006), parent=hinge, vertices=48)
     for i in range(16):
         a = R(i * 22.5 + 25); O(S, "cone", "diente_t", tooth, (0.27 * math.cos(a), -0.30 + 0.27 * math.sin(a), -0.04), (0.024, 0.024, 0.034), (R(180), 0, 0), parent=hinge, vertices=8, radius1=1.0, radius2=0.0, depth=2.0)
-    # UN ojo grande en la banda
-    EZ, EY = 0.60, -0.292
-    eye = S.empty("ojo", (0, EY, EZ), head)
-    ball = O(S, "uv_sphere", "ojo_bola", white, (0, 0, 0), (0.115, 0.055, 0.115), parent=eye, segments=24, ring_count=12)
-    pupil = O(S, "uv_sphere", "pupila", pup, (0, -0.046, 0), (0.058, 0.03, 0.058), parent=eye, segments=20, ring_count=10)
-    gl = O(S, "uv_sphere", "brillo", glint, (0.02, -0.07, 0.02), (0.016, 0.01, 0.016), parent=eye, segments=10, ring_count=6)
-    lt = O(S, "uv_sphere", "parpado_s", yel, (0, -0.005, 0.25), (0.132, 0.066, 0.132), parent=eye, segments=24, ring_count=12)
-    lb = O(S, "uv_sphere", "parpado_i", yel, (0, -0.005, -0.25), (0.132, 0.066, 0.132), parent=eye, segments=24, ring_count=12)
-    line = O(S, "uv_sphere", "linea_feliz", pup, (0, -0.074, 0), (0.001, 0.008, 0.010), parent=eye, segments=12, ring_count=6)
-    return {"bol": bol, "rings": rings, "head": head, "hinge": hinge, "eye": eye, "ball": ball, "pupil": pupil, "glint": gl, "lt": lt, "lb": lb, "line": line}
+    # DOS ojos pequeños con párpados y cejas, en la banda roja
+    EZ = 0.60; eyes = []
+    for sx in (-1, 1):
+        ex = sx * 0.115; ey = -math.sqrt(0.30 ** 2 - ex ** 2) + 0.012
+        eye = S.empty("ojo", (ex, ey, EZ), head); eye.rotation_euler = (0, 0, R(sx * -22))
+        ball = O(S, "uv_sphere", "ojo_bola", white, (0, 0, 0), (0.075, 0.04, 0.075), parent=eye, segments=24, ring_count=12)
+        pupil = O(S, "uv_sphere", "pupila", pup, (0, -0.034, 0), (0.040, 0.022, 0.040), parent=eye, segments=16, ring_count=8)
+        gl = O(S, "uv_sphere", "brillo", glint, (0.01, -0.05, 0.012), (0.011, 0.007, 0.011), parent=eye, segments=8, ring_count=6)
+        lt = O(S, "uv_sphere", "parpado_s", black, (0, -0.004, 0.2), (0.088, 0.046, 0.05), parent=eye, segments=20, ring_count=10)
+        lb = O(S, "uv_sphere", "parpado_i", black, (0, -0.004, -0.2), (0.088, 0.046, 0.05), parent=eye, segments=20, ring_count=10)
+        brow = O(S, "cube", "ceja", brow_m, (0, -0.03, 0.115), (0.085, 0.012, 0.014), parent=eye)
+        eyes.append({"sx": sx, "eye": eye, "ball": ball, "pupil": pupil, "glint": gl, "lt": lt, "lb": lb, "brow": brow})
+    return {"bol": bol, "rings": rings, "head": head, "hinge": hinge, "eyes": eyes}
 
 
 # ------------------------------------------------------------------ tarta
@@ -397,19 +402,23 @@ def l1(S):
         h.keyframe_insert("location", frame=f); h.keyframe_insert("scale", frame=f)
         bl["hinge"].rotation_euler = (-R(lid_open(f)), 0, 0); bl["hinge"].keyframe_insert("rotation_euler", frame=f)
         gx, gz, st, sb, wd = gaze(f)
-        vib = 0.12 * shake(f)
-        bl["ball"].scale = (0.115 * wd, 0.055, 0.115 * wd); bl["ball"].keyframe_insert("scale", frame=f)
-        bl["pupil"].location = (0.052 * gx + vib * 0.1, -0.046 * wd, 0.052 * gz); bl["pupil"].scale = (0.058 * (1.0 + 0.2 * (wd - 1.1)), 0.03, 0.058 * (1.0 + 0.2 * (wd - 1.1)))
-        bl["glint"].location = (0.052 * gx + 0.02, -0.07 * wd, 0.052 * gz + 0.02)
-        for o in (bl["pupil"], bl["glint"]): o.keyframe_insert("location", frame=f)
-        bl["pupil"].keyframe_insert("scale", frame=f)
-        zs = 0.115 * wd
-        for o, cv, sg in ((bl["lt"], st, 1), (bl["lb"], sb, -1)):
-            rl = 0.132 * wd; rz = 0.072 * wd; k = (1.0 if cv >= 0.3 else 0.0) + 0.0005
-            o.location = (0, -0.005, sg * (zs * (1.0 - cv) + rz))
-            o.scale = (rl * k, 0.066 * k, rz * k); o.keyframe_insert("location", frame=f); o.keyframe_insert("scale", frame=f)
-        cl = 1.0 if (st > 0.85 and sb > 0.85) else 0.0
-        bl["line"].scale = (0.1 * cl + 0.001, 0.008, 0.008 + 0.004 * cl); bl["line"].keyframe_insert("scale", frame=f)
+        vib = 0.12 * shake(f); w = wd / 1.1
+        for E_ in bl["eyes"]:
+            sx = E_["sx"]
+            E_["ball"].scale = (0.075 * w, 0.04, 0.075 * w); E_["ball"].keyframe_insert("scale", frame=f)
+            E_["pupil"].location = (0.036 * gx + vib * 0.05, -0.034 * w, 0.036 * gz); E_["pupil"].scale = (0.040 * w, 0.022, 0.040 * w)
+            E_["glint"].location = (0.036 * gx + 0.012, -0.05 * w, 0.036 * gz + 0.014)
+            for o in (E_["pupil"], E_["glint"]): o.keyframe_insert("location", frame=f)
+            E_["pupil"].keyframe_insert("scale", frame=f)
+            zs = 0.075 * w
+            for o, cv, sg in ((E_["lt"], st, 1), (E_["lb"], sb, -1)):
+                rl = 0.088 * w; rz = 0.05 * w; k = (1.0 if cv >= 0.3 else 0.0) + 0.0005
+                o.location = (0, -0.004, sg * (zs * (1.0 - cv) + rz))
+                o.scale = (rl * k, 0.046 * k, rz * k); o.keyframe_insert("location", frame=f); o.keyframe_insert("scale", frame=f)
+            tilt = 0.55 * st - 0.9 * max(0.0, w - 1.0)          # esfuerzo = ceja hacia dentro/abajo; deseo = cejas arriba y caídas hacia fuera
+            E_["brow"].location = (0, -0.03, 0.115 * w + 0.03 * max(0.0, w - 1.0) * 3 - 0.05 * st)
+            E_["brow"].rotation_euler = (0, R(-sx * 25 * tilt * -1), 0); E_["brow"].scale = (0.085, 0.012, 0.014)
+            for pth in ("location", "rotation_euler"): E_["brow"].keyframe_insert(pth, frame=f)
     # sonrisa feliz: línea del ojo cerrado curvada (se queda recta, el parpadeo la lee como ojo cerrado contento)
 
     # ---- tarta: sobre el alféizar, a las manos, en brazos, a la boca; reaparece al final ----
@@ -424,15 +433,15 @@ def l1(S):
             u = seg01(f, F_GRAB, F_GRAB + 8)
             hp = hand_mid(S, a, F_GRAB + 8); fw = Vector((math.sin(R(yaw(F_GRAB + 8))), -math.cos(R(yaw(F_GRAB + 8))), 0)); tgt = hp + fw * 0.22 + Vector((0, 0, 0.05))
             p = parab(PIE_P, tgt, 0.25, u); rot = (R(PIE_RX * (1 - u)), 0, R(40 * u))
-        elif f < F_CHOMP - 4:
+        elif f < F_CHOMP - 9:
             hp = hand_mid(S, a, f); fw = Vector((math.sin(R(yaw(f))), -math.cos(R(yaw(f))), 0)); p = hp + fw * 0.22 + Vector((0, 0, 0.05))
             rot = (0, 0, R(40))
             if f >= F_CUT_D: p = hp + fw * 0.20 + Vector((0, 0, 0.07))
-        elif f < F_CHOMP + 3:
-            hp = hand_mid(S, a, F_CHOMP - 4); fw = Vector((math.sin(R(YAW_D)), -math.cos(R(YAW_D)), 0)); p0 = hp + fw * 0.20 + Vector((0, 0, 0.07))
-            L2 = lean_eat(F_CHOMP + 2); m = Euler((-L2 * LEAN_EAT.y, L2 * LEAN_EAT.x, 0)).to_matrix()
+        elif f < F_CHOMP + 4:
+            hp = hand_mid(S, a, F_CHOMP - 9); fw = Vector((math.sin(R(YAW_D)), -math.cos(R(YAW_D)), 0)); p0 = hp + fw * 0.20 + Vector((0, 0, 0.07))
+            L2 = lean_eat(F_CHOMP + 3); m = Euler((-L2 * LEAN_EAT.y, L2 * LEAN_EAT.x, 0)).to_matrix()
             mouth = Vector((BP.x, BP.y, 0)) + m @ Vector((0, 0, 1.12))
-            u = seg01(f, F_CHOMP - 4, F_CHOMP + 3); p = p0.lerp(mouth, u); sc = max(0.05, 1.0 - 0.95 * u ** 2); rot = (0, 0, R(40 + 120 * u))
+            u = seg01(f, F_CHOMP - 9, F_CHOMP + 3); p = p0.lerp(mouth, u); sc = max(0.05, 1.0 - 0.95 * u ** 3); rot = (0, 0, R(40 + 120 * u))
         elif f < 276: p = Vector((0, 0, -9)); sc = 0.001
         else:
             u = min(1.0, (f - 276) / 10.0); p = PIE_P.copy(); rot = (R(PIE_RX), 0, 0); sc = (1 + 0.15 * math.sin(math.pi * u)) * sstep(u * 1.3) + 0.001
