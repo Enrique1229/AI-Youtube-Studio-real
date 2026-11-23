@@ -1,0 +1,354 @@
+[
+  {
+    "id": "b20261123-1-i01",
+    "format": "pov",
+    "kind": "anim",
+    "env": "parque (cesped con sol alto, sombra bien visible)",
+    "title_en": "POV: Your Shadow Has Lag",
+    "caption_en": null,
+    "onscreen_en": "POV: your shadow has lag",
+    "logline_es": "Su sombra tiene retraso: cuando el hombre saluda, la sombra saluda un segundo despues y sigue saludando cuando el para; al final la sombra se sienta y el queda de pie.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho (fotograma 1): hombre saludando (Waving) con la sombra oscura en el suelo ya un paso por detras del gesto."
+      },
+      {
+        "t": "3-7",
+        "beat": "Para en seco; la sombra sigue saludando sola un segundo. Mira abajo (Looking Around), cara de duda."
+      },
+      {
+        "t": "7-11",
+        "beat": "Echa a correr (Running); la sombra tarda, se estira como goma y llega jadeando a su lado."
+      },
+      {
+        "t": "11-15",
+        "beat": "Remate: la sombra se sienta (Sitting Idle) y se queda ahi; el hombre, de pie, se cruza de brazos (Angry) y vuelve a la pose del plano 1 saludando para el bucle."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Waving"
+        ]
+      ],
+      [
+        2,
+        [
+          "Looking Around"
+        ]
+      ],
+      [
+        3,
+        [
+          "Running"
+        ]
+      ],
+      [
+        4,
+        [
+          "Sitting Idle",
+          "Angry"
+        ]
+      ]
+    ],
+    "payoff": "Su sombra tiene vida y se cansa antes que el.",
+    "sin_palabras": "Se lee en 1 s sin texto: Gancho (fotograma 1): hombre saludando (Waving) con la sombra oscura en el suelo ya un paso por detras del gesto",
+    "needs": "Sombra = copia aplastada del humano (scale y=0.05, negro) con las mismas animaciones y offset de tiempo de 1 s via S.key; pop y whoosh elastico; clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Sombra con retraso; sin bancos, sombras de arbol ni banco que anda.",
+    "batch": "20261123-1"
+  },
+  {
+    "id": "b20261123-1-i02",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "parque (hilera de arboles delgados en circulo)",
+    "title_en": "The Domino Trees",
+    "caption_en": null,
+    "onscreen_en": "Gentle push",
+    "logline_es": "Un hombre empuja un arbol delgado que cae sobre el siguiente en fichas de domino por todo el parque y el circulo de arboles vuelve a tirarlo a el.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho: ya empujando (Pushing) un arbol delgado; al fondo, en circulo, otros arboles en fila; el primero empieza a inclinarse."
+      },
+      {
+        "t": "3-8",
+        "beat": "Los arboles caen uno tras otro con tonk de pitch ascendente, camara fija; el hombre mira orgulloso (Victory)."
+      },
+      {
+        "t": "8-12",
+        "beat": "El ultimo arbol cae sobre la espalda del hombre y lo aplasta (Falling Back Death)."
+      },
+      {
+        "t": "12-16",
+        "beat": "Remate: los arboles se levantan por orden, de nuevo en pie; el hombre se sienta (Sitting Idle) y vuelve a empujar el primero (Pushing) para el bucle."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Pushing",
+          "Victory"
+        ]
+      ],
+      [
+        2,
+        [
+          "Falling Back Death"
+        ]
+      ],
+      [
+        3,
+        [
+          "Sitting Idle",
+          "Pushing"
+        ]
+      ]
+    ],
+    "payoff": "Empujo el primer domino y el circulo se cierra sobre el.",
+    "sin_palabras": "Se lee en 1 s sin texto: Gancho: ya empujando (Pushing) un arbol delgado; al fondo, en circulo, otros arboles en fila; el primero empieza a inclinarse",
+    "needs": "Arboles = cylinder + uv_sphere con S.key de rotacion en la base; sonido tonk con pitch ascendente y thud; camara fija. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Domino de arboles circular; sin objetos vivos ni giro de bondad.",
+    "batch": "20261123-1"
+  },
+  {
+    "id": "b20261123-1-i03",
+    "format": "pov",
+    "kind": "anim",
+    "env": "parque (camino de grava y cesped)",
+    "title_en": "POV: Fetch With a Very Committed Dog",
+    "caption_en": null,
+    "onscreen_en": "POV: your dog fetches everything",
+    "logline_es": "Un hombre lanza un palo a su perro y el perro vuelve con cosas cada vez mas grandes: una rama, un tronco, una farola.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho: lanza un palo (Throw) y el perro de cubes sale corriendo al fondo."
+      },
+      {
+        "t": "3-7",
+        "beat": "Vuelve con una rama (pop), el hombre asiente (Thinking); lanza otra vez y vuelve con un tronco."
+      },
+      {
+        "t": "7-12",
+        "beat": "Vuelve arrastrando una farola entera con el cable; el hombre se rie (Laughing)."
+      },
+      {
+        "t": "12-15",
+        "beat": "Remate: el perro deja la farola, el hombre solo tiene otro palo pequeno y lo lanza (Throw) para el bucle."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Throw"
+        ]
+      ],
+      [
+        2,
+        [
+          "Thinking"
+        ]
+      ],
+      [
+        3,
+        [
+          "Laughing"
+        ]
+      ],
+      [
+        4,
+        [
+          "Throw"
+        ]
+      ]
+    ],
+    "payoff": "El perro nunca devuelve lo que se le lanzo, sino algo mayor.",
+    "sin_palabras": "Se lee en 1 s sin texto: Gancho: lanza un palo (Throw) y el perro de cubes sale corriendo al fondo",
+    "needs": "Perro = cubes y uv_spheres con cola; objetos = cylinders escalados; sonidos pop y thud; clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Fetch escalado a ridiculo; sin dueno bondadoso ni mascota enemiga.",
+    "batch": "20261123-1"
+  },
+  {
+    "id": "b20261123-1-i04",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "parque (cielo azul, una nube baja)",
+    "title_en": "The Rope From the Sky",
+    "caption_en": null,
+    "onscreen_en": "POV: free rope",
+    "logline_es": "Una cuerda cuelga de una nube sobre el parque; el hombre sube, se sienta en la nube, la nube llora y cae al punto inicial con la cuerda otra vez delante.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho: ya trepando (Climbing A Rope) una cuerda que cuelga de una nube baja."
+      },
+      {
+        "t": "3-8",
+        "beat": "Llega arriba y se sienta (Sitting Idle) en la nube; cara feliz, jingle suave."
+      },
+      {
+        "t": "8-12",
+        "beat": "La nube se pone gris, llueve; la cuerda se suelta y cae (Falling Back Death) al punto inicial."
+      },
+      {
+        "t": "12-16",
+        "beat": "Remate: la nube vuelve a ponerse blanca y deja caer otra cuerda; el hombre la agarra (Climbing A Rope) para el bucle."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Climbing A Rope"
+        ]
+      ],
+      [
+        2,
+        [
+          "Sitting Idle"
+        ]
+      ],
+      [
+        3,
+        [
+          "Falling Back Death"
+        ]
+      ],
+      [
+        4,
+        [
+          "Climbing A Rope"
+        ]
+      ]
+    ],
+    "payoff": "La cuerda es de una nube y la nube se cansa.",
+    "sin_palabras": "Se lee en 1 s sin texto: Gancho: ya trepando (Climbing A Rope) una cuerda que cuelga de una nube baja",
+    "needs": "Nube = 4 uv_spheres blancas con S.key de color a gris; cuerda = cylinder fino; gotas = spheres pequenas; clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Cuerda del cielo; sin nube que persigue ni viento.",
+    "batch": "20261123-1"
+  },
+  {
+    "id": "b20261123-1-i05",
+    "format": "pov",
+    "kind": "anim",
+    "env": "parque (cesped llano)",
+    "title_en": "POV: There's a Coin on the Lawn",
+    "caption_en": null,
+    "onscreen_en": "POV: there's a coin on the ground",
+    "logline_es": "Una moneda en el cesped; al tirar de ella se levanta todo el cesped como una alfombra y debajo hay otro cesped con otra moneda.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho: se agacha a recoger (Picking Up) una moneda dorada en el cesped, plano abierto."
+      },
+      {
+        "t": "3-8",
+        "beat": "Tira y el cesped se levanta como alfombra verde; debajo, otro cesped identico con otra moneda; mira (Looking Around)."
+      },
+      {
+        "t": "8-12",
+        "beat": "Repite dos veces mas, cada vez mas rapido; cada cesped sube con un swoosh y la moneda hace ding de pitch ascendente."
+      },
+      {
+        "t": "12-15",
+        "beat": "Remate: la ultima capa deja el suelo del primer plano y la moneda; el hombre sonrie (Victory) y se agacha otra vez."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Picking Up"
+        ]
+      ],
+      [
+        2,
+        [
+          "Looking Around"
+        ]
+      ],
+      [
+        3,
+        [
+          "Picking Up"
+        ]
+      ],
+      [
+        4,
+        [
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "El suelo es una alfombra infinita de cespedes.",
+    "sin_palabras": "Se lee en 1 s sin texto: Gancho: se agacha a recoger (Picking Up) una moneda dorada en el cesped, plano abierto",
+    "needs": "Cesped = cubes planos verdes apilados con S.key de enrollado (rotacion/escala); moneda = cylinder dorado; ding con pitch ascendente; clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Suelo en capas; sin escondites ni puertas.",
+    "batch": "20261123-1"
+  },
+  {
+    "id": "b20261123-1-i06",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "parque (cesped con aspersores y una flor marchita)",
+    "title_en": "The Lawn Orchestra",
+    "caption_en": null,
+    "onscreen_en": "Wave to water",
+    "logline_es": "Aspersores de un cesped se mueven al compas de las manos de un hombre como una orquesta, con notas que suben, hasta regar una flor marchita que crece.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho: saluda (Waving) con la mano alta y los aspersores del cesped se inclinan hacia su mano; flor marchita al fondo."
+      },
+      {
+        "t": "3-8",
+        "beat": "Agita los brazos (Waving, Throw) y cada aspersor lanza chorros con una nota distinta, arcos de agua en sincronia."
+      },
+      {
+        "t": "8-12",
+        "beat": "Con un gran gesto dirige todos los chorros a la flor marchita; crece enorme y le moja a el tambien."
+      },
+      {
+        "t": "12-16",
+        "beat": "Remate: empapado, se rie (Laughing); la flor se marchita de nuevo con un pof y vuelve a la pose del plano 1 (Waving) para el bucle."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Waving"
+        ]
+      ],
+      [
+        2,
+        [
+          "Waving",
+          "Throw"
+        ]
+      ],
+      [
+        3,
+        [
+          "Laughing"
+        ]
+      ]
+    ],
+    "payoff": "El hombre dirige sin saberlo una orquesta de aspersores.",
+    "sin_palabras": "Se lee en 1 s sin texto: Gancho: saluda (Waving) con la mano alta y los aspersores del cesped se inclinan hacia su mano; flor marchita al fondo",
+    "needs": "Aspersores = cylinders; chorros = spheres pequenas con S.key en arcos; notas con pitch segun inclinacion; flor = cylinder + uv_spheres con scale key. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Aspersores musicales; sin charco ni manguera de episodios previos.",
+    "batch": "20261123-1"
+  }
+]

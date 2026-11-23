@@ -1,0 +1,116 @@
+[
+  {
+    "id": "b20261123-1-i01",
+    "scores": {
+      "hook": 7,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 7,
+      "visual": 6,
+      "emotion": 5,
+      "ending": 7,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 4,
+      "repetition_risk": 4
+    },
+    "why": "El concepto es el mas original del lote y barato de construir (copia aplastada con offset de 1 s, clips existentes), y la sombra que se sienta mientras el sigue de pie es un remate claro y compartible, pero 'retraso' no se ve en 1 s (hay que ver al hombre parar para notarlo, el frame 1 solo muestra un saludo con sombra), la sombra aplastada hay que tumbarla sobre el suelo segun el sol o parecera una lamina vertical, y Sitting Idle de una sombra plana se lee mal.",
+    "improve": "Hacer el retraso legible desde el frame 1 con el hombre ya quieto y la sombra grande y negra todavia agitando el brazo (el hook es el desajuste, no el saludo), tumbar el duplicado en el plano del suelo con rotacion x=-90 y direccion coherente con el sol, y hacer que la sombra se siente con una silueta de perfil muy exagerada o se tumbe en vez de usar Sitting Idle.",
+    "vps": 61.4
+  },
+  {
+    "id": "b20261123-1-i03",
+    "scores": {
+      "hook": 6,
+      "curiosity": 6,
+      "retention": 8,
+      "originality": 5,
+      "visual": 8,
+      "emotion": 7,
+      "ending": 7,
+      "series": 6,
+      "differentiation": 5,
+      "production_difficulty": 5,
+      "repetition_risk": 5
+    },
+    "why": "Es el que mas se parece a lo que ya funciona (escalada clara con tres retornos cada vez mas grandes, objeto universal, perro con carga emocional, pop/thud como recompensa sonora tipo Bell) y se entiende sin palabras, pero el frame 1 es un lanzamiento corriente (el gancho llega en el segundo 7), la escalada rama-tronco-farola es previsible, el perro de cubes puede quedar poco expresivo y arrastrar una farola con cable exige anclaje/parentado que puede dar clipping.",
+    "improve": "Abrir con el perro ya volviendo con algo absurdo (el tronco) en el frame 1 y el hombre mirando la rama con duda, hacer la farola enorme y brillante con el cable chispeando, y sustituir el remate 'otro palo pequeno' por un fallo visible (el perro vuelve con el hombre mismo o con el parque entero) para que el salto final supere a la farola.",
+    "vps": 57.9
+  },
+  {
+    "id": "b20261123-1-i05",
+    "scores": {
+      "hook": 6,
+      "curiosity": 8,
+      "retention": 7,
+      "originality": 7,
+      "visual": 5,
+      "emotion": 5,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 8,
+      "repetition_risk": 4
+    },
+    "why": "La curiosidad 'que hay debajo' y el ding ascendente repetido son una buena recompensa escalonada, pero una moneda en plano abierto de cesped es un objeto diminuto en 9:16 (no se lee en 1 s), el hombre esta de pie sobre el cesped que se enrolla (clipping o animar al humano subido a la alfombra), apilar y enrollar capas con primitivas es lo mas dificil de la tanda y el remate 'el ultimo cesped deja el suelo del primer plano' es confuso.",
+    "improve": "Hacer la moneda enorme y brillante con destello en primer plano, el cesped de una sola capa grande con un borde visible que se levanta en vertical (rotacion simple sobre un eje), con el hombre fuera de la zona enrollada, y cerrar mostrando por fin el mismo plano del frame 1 (moneda en cesped) para que el bucle sea literal.",
+    "vps": 56.3
+  },
+  {
+    "id": "b20261123-1-i04",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 5,
+      "visual": 8,
+      "emotion": 6,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "Trepar una cuerda hacia una nube es vertical, legible en 1 s y encaja en 9:16 (el mejor visual junto al perro), pero la nube que 'llora' sin cara no se lee como cansancio, la caida de Falling Back Death desde la altura es un remate flojo (castigo sin causa) y trepar con Mixamo sobre un cylinder fino arriesga manos que atraviesan la cuerda y el gag de lluvia con spheres es pobre.",
+    "improve": "Dar a la nube una cara sencilla (dos spheres negras y una boca) y un gesto claro (bostezo o estornudo) que cause el desprendimiento de la cuerda, sentar al hombre en la nube con las piernas colgando para mostrar altura, y probar el agarre de la cuerda con el humano antes del guion (cuerda gruesa de color vivo).",
+    "vps": 54.0
+  },
+  {
+    "id": "b20261123-1-i02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 5,
+      "retention": 6,
+      "originality": 5,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "Domino de arboles con tonk ascendente y el circulo que vuelve contra el es un remate fisico que se entiende sin palabras, pero un circulo de arboles delgados no se lee en vertical (la camara fija pierde la mitad del anillo), el giro 'te cae encima' lo adivina cualquiera, el domino ya es un tropo conocido y aplastar al humano con un arbol exige un Falling Back Death sin clipping contra un cylinder rotando.",
+    "improve": "Poner los arboles en una fila vertical hacia el fondo (profundidad hacia la camara) con el ultimo cayendo sobre el hombre desde arriba del encuadre, hacerlos grandes, de colores contrastados y con la copa pesada para que el vuelco se vea, y dar una causa visible al regreso (el primer arbol, que el empujo, se levanta y le da un empujoncito).",
+    "vps": 52.7
+  },
+  {
+    "id": "b20261123-1-i06",
+    "scores": {
+      "hook": 5,
+      "curiosity": 5,
+      "retention": 5,
+      "originality": 6,
+      "visual": 4,
+      "emotion": 5,
+      "ending": 5,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 8,
+      "repetition_risk": 5
+    },
+    "why": "La idea de dirigir aspersores como orquesta es simpatica pero el frame 1 es poco claro (aspersores diminutos inclinandose hacia una mano), el agua hecha con spheres sueltas queda pobre y es lo mas caro de sincronizar con las notas y con el crecimiento de la flor, la flor marchita pequena se pierde en 9:16 y el final (se moja y la flor se marchita) no tiene giro ni se comparte.",
+    "improve": "Reducir a un solo gag legible: un aspersor enorme y llamativo que sigue su mano y lo moja a el, sin flor ni orquesta, o cambiar el agua por discos azules planos en arco (primitivas simples) y dar el giro al final con un aspersor que se queda apuntandole cuando el ya esta quieto.",
+    "vps": 42.1
+  }
+]
