@@ -368,9 +368,8 @@ def l1(S):
 
     # ---- hombre: clips ----
     seg(S, a, "Sitting Idle", 1, F_CUT_D, start=0, speed=1.0, blend=0, repeat=3)
-    seg(S, a, "Picking Up", F_CUT_D, 212, start=190, speed=1.0, blend=0)
-    seg(S, a, "Head Nod Yes", 212, 232, start=0, speed=1.1, blend=4)
-    seg(S, a, "Shrugging", F_SHRUG, F_END, start=0, speed=0.9, blend=4)
+    seg(S, a, "Picking Up", F_CUT_D, F_SHRUG + 10, start=190, speed=0.35, blend=0)     # manos sujetando la tarta hasta que la tapa se cierra
+    seg(S, a, "Shrugging", F_SHRUG, F_END, start=0, speed=0.9, blend=10)               # luego funde a encogerse de hombros
 
     # ---- hombre: posición ----
     def yaw(f):
