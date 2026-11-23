@@ -2,7 +2,7 @@
   "id": "story-020",
   "format": "short",
   "title": "The Manhole That Hiccuped",
-  "stage": "selected",
+  "stage": "blocked",
   "gates": {
     "critic": "PASS",
     "market": "PASS",

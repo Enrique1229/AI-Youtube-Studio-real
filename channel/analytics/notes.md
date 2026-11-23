@@ -51,3 +51,4 @@ primer segundo, mejor audio y caras más realistas (petición del usuario).
 - Bell (niveles IQ) 30.261 (29,3 %), media 0:18 de 0:18. Bench (mini-historia, título actual "Why Did the Bench Leave Me in the Sun?") 28.013 (27,1 %), media 0:14 de 0:11 (≈127 %: se repite en bucle). Bus 17.614 (17 %), 0:17. River 8.072, 0:18. Picnic 4.921, 0:17. Egg 2.803, 0:15.
 - Lectura: la mini-historia Bench casi iguala a Bell en vistas y es la que más se repite. Hay dos formatos que funcionan (niveles IQ y mini-historia corta con bucle), no uno solo: respalda alternarlos. Clave del Bench: 11 s, remate que obliga a volver a verlo.
 - CTR de miniatura (2,7 %) e impresiones (~4 K) casi irrelevantes: el tráfico es del feed de Shorts.
+- 2026-11-23: story-020 (tapa con hipo) BLOCKED tras 2 rondas de QC: el usuario no la entendió. Lección para gag-writer y critic: nada que dependa de un estado invisible (hipo, sed, frío, sueño); el gag debe VERSE en 3 fotogramas sin sonido.

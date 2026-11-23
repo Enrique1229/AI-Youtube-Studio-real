@@ -5,3 +5,7 @@ Revisión humana (usuario): "no lo entiendo". Revisión del Director con hoja a 
 2. El susto (7-10 s) no se lee: el hombre levanta el patito sobre la cabeza; parece que lo va a lanzar.
 3. El remate (11-13 s) no se ve: la tapa sigue saltando con vapor y el hombre agachado; no se nota que el hipo pasa al hombre.
 Responsable: animation-director (ep017.py).
+
+# Ronda 2: REJECT (usuario: "no se entiende") → BLOCKED
+Lección: una premisa basada en un estado invisible (hipo) no se lee sin palabras ni sonido, aunque se ponga rótulo.
+Las que funcionan (Bench, Bell) son físicas y obvias: un objeto hace algo imposible que se VE en 1 s.
