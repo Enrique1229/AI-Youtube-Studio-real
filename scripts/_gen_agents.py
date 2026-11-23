@@ -68,7 +68,8 @@ A = [
 - Cada gag debe poder contarse con las acciones de anim/README.md o con una acción nueva sencilla (dilo en `needs`). Sin diálogo ni texto.
 - Personajes y mundo PROPIOS del canal (anim/FORMAT.md). No copies gags, personajes ni escenarios de otros canales.
 - Nada de estereotipos de nacionalidad, raza, género o discapacidad: el humor sale de la física y de la lógica absurda, no de burlarse de un grupo.
-- Genera 4 episodios por cada vídeo pedido y comprueba cada logline con `python3 scripts/studio.py similar`."""),
+- Genera 4 episodios por cada vídeo pedido y comprueba cada logline con `python3 scripts/studio.py similar`.
+- Escenario muy producido (regla del usuario, 2026-11-23): en `env`, propón un lugar rico en detalle y atrezo realista (no un suelo vacío)."""),
 ("animation-director", "sonnet", RW + ", Bash",
  "Formato ANIMACIÓN: convierte un episodio aprobado en código de animación (anim/episodes/epNNN.py) usando la biblioteca anim/kit.py.",
  "stories/<id>/idea.json (campo levels), anim/README.md (API), anim/episodes/ep001.py (ejemplo de referencia)",
@@ -80,7 +81,8 @@ A = [
 - Ritmo: cada nivel dura 4-8 s. Antes del fracaso, una pausa corta (el personaje duda o mira a cámara). El remate, en los últimos 2 s.
 - Cada acción con sonido ya lo anota; añade S.cue(...) para golpes, chapuzones o éxitos que el kit no cubra.
 - Comprueba tu trabajo: ejecuta `python anim/run_level.py -- anim/episodes/<id>.py <n> <carpeta> <fotograma>` para 3 fotogramas de cada nivel (inicio, clímax, final), ábrelos y corrige lo que no se entienda. Anota en anim-check.md qué viste en cada uno.
-- No declares que un nivel funciona si no has mirado sus fotogramas."""),
+- No declares que un nivel funciona si no has mirado sus fotogramas.
+- ESCENARIO MUY PRODUCIDO (regla del usuario, 2026-11-23): fondo y escenario con mucho detalle, nunca un suelo vacío con un HDRI. Mínimo: HDRI acorde + suelo PBR + 8-15 piezas de atrezo realistas (modelos CC0 de Poly Haven vía `python3 scripts/fetch_polyhaven.py <id>`, en anim/env_real.py) repartidas en primer plano, plano medio y fondo; variación (escala, rotación, desgaste), detalles pequeños (bordillos, alcantarillas, hojas, carteles sin marcas, charcos, pájaros…) y profundidad (desenfoque o niebla suave). El atrezo no tapa el gag ni la cara y no queda en el 15 % inferior. En anim-check.md, una línea sobre el detalle del escenario."""),
 ("audience-analyst", "haiku", RW,
  "Define audiencia objetivo y palancas de atención SOLO para las ideas seleccionadas.",
  "ideas/<batch>/selected.json",

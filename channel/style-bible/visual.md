@@ -7,3 +7,8 @@
 - Prohibido: caras de personas reales, marcas, gore, bocadillos o texto dentro de la imagen.
 - Divulgación: al no ser realista, `ai_use_disclosure` puede ser false; si un vídeo concreto sale con aspecto fotográfico, true.
 - Pendiente: validar el sufijo con el modelo que se instale en la GPU (el piloto story-001 se generó antes de esta decisión, con el estilo realista anterior).
+
+## Escenario muy producido (usuario, 2026-11-23) — OBLIGATORIO en animación
+Desde ahora todo episodio lleva un escenario y fondo muy producidos y con mucho detalle: HDRI acorde + suelo PBR + 8-15 piezas de atrezo
+realistas CC0 (Poly Haven) en primer plano, medio y fondo, con variación y detalles pequeños, y profundidad. Nunca un suelo vacío con un HDRI.
+El atrezo no tapa el gag ni la cara y no ocupa el 15 % inferior (interfaz de Shorts). Lo comprueba el Director en director-visual.md.
