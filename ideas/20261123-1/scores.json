@@ -3,39 +3,39 @@
     "id": "b20261123-1-i01",
     "scores": {
       "hook": 8,
-      "curiosity": 7,
+      "curiosity": 6,
       "retention": 7,
       "originality": 7,
       "visual": 7,
-      "emotion": 5,
+      "emotion": 6,
       "ending": 7,
       "series": 6,
       "differentiation": 6,
       "production_difficulty": 5,
       "repetition_risk": 4
     },
-    "why": "Ronda 2: con el hombre ya quieto y la sombra enorme saludando sola, el desajuste se lee en el frame 1 y el estiramiento elastico al correr seguido de la sombra rendida es un remate claro y barato (clips existentes); no sube mas porque una sombra tumbada vista desde la camara es una silueta plana donde el brazo apenas se distingue, hay que mantener la sombra pegada al suelo y coherente con el sol durante Running (riesgo de clipping y pies deslizando), y el final 'rendida pero vuelve a saludar' diluye el chiste de que se cansa antes que el.",
-    "improve": "Probar un render de 2 s de la sombra tumbada con el brazo animado por S.key en el encuadre vertical antes del guion, hacerla ancha y de borde nitido sobre cesped claro, y simplificar el final: la sombra se tumba rendida y el hombre se queda inmovil sin que vuelva a saludar hasta el corte del bucle.",
-    "vps": 63.6
+    "why": "Ronda 3: la sombra negra y larga sobre arena clara es un contraste legible en el frame 1, usar solo clips de pie elimina el problema de Running/clipping, y que la sombra tenga mas personalidad que el hombre y le choque la mano da un remate calido y claro; no sube mas porque una silueta plana negra no transmite 'cruza los brazos y da la espalda' (el gesto solo se lee en el frame 1, no a los 7-11 s), el despegue de pegatina con contacto de manos exige sincronia fina entre un clip de mocap (Victory) y una copia aplastada por keys, y la sombra con vida propia es un tropo conocido (Peter Pan).",
+    "improve": "Sustituir el beat de la espalda por un gesto de silueta inconfundible (la sombra se sienta con las piernas colgando del borde de la sombra del hombre, o se pone de puntillas) y probar antes del guion un render de 3 s del despegue y el choque de manos con la camara fija; mantener los brazos x1.6 y el borde nitido.",
+    "vps": 62.9
   },
   {
     "id": "b20261123-1-i03",
     "scores": {
-      "hook": 6,
+      "hook": 8,
       "curiosity": 6,
       "retention": 8,
-      "originality": 5,
+      "originality": 6,
       "visual": 8,
       "emotion": 7,
       "ending": 7,
       "series": 6,
       "differentiation": 5,
-      "production_difficulty": 5,
+      "production_difficulty": 7,
       "repetition_risk": 5
     },
-    "why": "Es el que mas se parece a lo que ya funciona (escalada clara con tres retornos cada vez mas grandes, objeto universal, perro con carga emocional, pop/thud como recompensa sonora tipo Bell) y se entiende sin palabras, pero el frame 1 es un lanzamiento corriente (el gancho llega en el segundo 7), la escalada rama-tronco-farola es previsible, el perro de cubes puede quedar poco expresivo y arrastrar una farola con cable exige anclaje/parentado que puede dar clipping.",
-    "improve": "Abrir con el perro ya volviendo con algo absurdo (el tronco) en el frame 1 y el hombre mirando la rama con duda, hacer la farola enorme y brillante con el cable chispeando, y sustituir el remate 'otro palo pequeno' por un fallo visible (el perro vuelve con el hombre mismo o con el parque entero) para que el salto final supere a la farola.",
-    "vps": 57.9
+    "why": "Ronda 3: el frame 1 con un perro de cubes trayendo un tronco mayor que el y un hombre con un palito ya es absurdo y se entiende sin palabras, la escalada tronco-farola-hombre es el mejor remate del lote (el perro lo carga a el, y el bucle con el tronco encaja) y la recompensa sonora thud/pop recuerda a Bell; no sube mas porque agarrar al humano Mixamo de la camiseta y arrastrarlo exige parentar un humano articulado a un perro de cubes (clipping casi seguro), el perro de primitivas puede ser poco expresivo y el giro 'al propio dueno' se adivina tras la farola.",
+    "improve": "Probar antes del guion el parentado perro-tronco y perro-hombre (humano congelado en pose de colgar con keys de posicion, sin mocap), hacer el perro grande y de color vivo para que la boca/cola lean en vertical, y evitar clipping con un corte a plano cerrado de la camiseta tirando en lugar de arrastre largo.",
+    "vps": 62.0
   },
   {
     "id": "b20261123-1-i05",
@@ -76,41 +76,41 @@
     "vps": 53.4
   },
   {
+    "id": "b20261123-1-i06",
+    "scores": {
+      "hook": 7,
+      "curiosity": 5,
+      "retention": 7,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 4,
+      "production_difficulty": 5,
+      "repetition_risk": 6
+    },
+    "why": "Ronda 3: la bellota que cae en la cabeza con bonk en el frame 1 engancha y la escalada de bellotas hasta una del tamano de una calabaza se entiende sin palabras, pero la ardilla de tres esferas y las bellotas pequenas se pierden en 9:16 (el follaje y la copa quedan fuera de encuadre), el casco que convierte los golpes en xilofono es un giro confuso (por que el casco suena?) y repite la gimmick de notas ascendentes de i02 en el mismo lote, y el hombre dormido bajo un arbol recibiendo golpes es un tropo de dibujos clasicos.",
+    "improve": "Hacer la bellota enorme y naranja, encuadrar el roble con la ardilla visible en el tercio superior y dar al casco una causa clara (la ardilla lo senala con cara de 'perdon' o el hombre se lo pone y las bellotas rebotan con ping), o cambiar el remate por una bellota gigante que lo aplasta y la ardilla se sienta encima, eliminando las notas para no copiar i02.",
+    "vps": 51.2
+  },
+  {
     "id": "b20261123-1-i04",
     "scores": {
       "hook": 6,
       "curiosity": 6,
       "retention": 6,
-      "originality": 5,
-      "visual": 6,
-      "emotion": 5,
-      "ending": 6,
-      "series": 5,
-      "differentiation": 5,
-      "production_difficulty": 5,
-      "repetition_risk": 6
-    },
-    "why": "Ronda 2: la fuente con chorros cada vez mas altos y notas ascendentes es barata de construir (cylinders con escala y) y el reembolso de la primera moneda es un giro claro, pero la monedita lanzada se pierde en 9:16, el chiste 'da el cambio' depende de entender un juego de palabras en ingles, el frame 1 es un lanzamiento tranquilo sin tension, y repite la moneda como objeto central de i05 en el mismo lote, por lo que habria que descartar una de las dos.",
-    "improve": "Hacer la moneda grande y brillante con estela, dar al chorro un color o una luz que suba con cada nota, y cambiar el remate para que la fuente devuelva un objeto absurdo (todas las monedas a la vez, o una moneda mas grande que el), evitando coincidir con i05; elegir una de las dos ideas de moneda.",
-    "vps": 49.0
-  },
-  {
-    "id": "b20261123-1-i06",
-    "scores": {
-      "hook": 7,
-      "curiosity": 5,
-      "retention": 6,
       "originality": 4,
       "visual": 7,
-      "emotion": 5,
-      "ending": 5,
+      "emotion": 6,
+      "ending": 7,
       "series": 5,
       "differentiation": 4,
-      "production_difficulty": 4,
-      "repetition_risk": 7
+      "production_difficulty": 5,
+      "repetition_risk": 5
     },
-    "why": "Ronda 2: la pelota enorme que crece con cada empujon es barata de hacer (scale por S.key) y legible, pero es casi el mismo objeto y remate que la pelota gigante que se desinfla con pssssh del lote anterior (i07 del 22-3), el frame 1 estatico no muestra el crecimiento (el hook llega en el segundo 3), el final de desinflarse hasta quedar una pelota diminuta es previsible y sin giro, y Pushing contra una esfera que escala invita a clipping con las manos.",
-    "improve": "Cambiar el objeto y el remate para alejarlo de la pelota hinchable (por ejemplo, que la pelota crezca hasta empujarlo a el, o que el empuje la haga pequena y la grande sea el), mostrar el crecimiento ya en el frame 1 con la pelota a medio crecer y un boing visible, y animar el contacto con keys de posicion de las manos.",
-    "vps": 47.0
+    "why": "Ronda 3: la caja inclinada sobre un palo con queso gigante debajo se lee en 1 s y compartir el queso con un raton es un giro calido (la trampa era un picnic), pero la trampa de caja con palo es el tropo mas viejo del cartoon (originalidad baja y el publico adivina la caida), el frame 1 ya regala toda la secuencia, el queso de cone y el raton de dos esferas son pequenos y poco expresivos en 9:16, y el hombre escondido dentro de la caja tras el bonk pierde la accion visible durante 4 s.",
+    "improve": "Esconder la causa (que el raton sea quien tire del palo, visible solo al final) o hacer que la caja caiga sobre el raton y el hombre la levante para sacarlo, encuadrar el queso enorme y amarillo con agujeros en primer plano, y evitar el beat de caja cerrada con un corte a medio levantar.",
+    "vps": 50.9
   }
 ]
