@@ -1,0 +1,356 @@
+[
+  {
+    "id": "b20261123-2-i01",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "HDRI dresden_square + suelo PBR adoquin gris",
+    "title_en": "The Manhole That Hiccuped",
+    "caption_en": null,
+    "onscreen_en": null,
+    "logline_es": "Una tapa de alcantarilla gigante en una plaza adoquinada da hipo y salta con un clonk; el hombre la tapa con un cajon y sale volando; al darle un vaso de agua la tapa bebe, eructa un aro de humo que le cae en la cabeza como aureola.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho (frame 1): el hombre de pie junto a la tapa enorme y centrada; la tapa salta con 'hic' y clonk."
+      },
+      {
+        "t": "3-6",
+        "beat": "Se rasca la cabeza (Thinking), la tapa vuelve a saltar mas alto; el hombre la tapa con un cajon encima."
+      },
+      {
+        "t": "6-10",
+        "beat": "Hic mas fuerte: el cajon sale volando fuera de campo (thud lejano); el hombre se queda quieto (Looking Around)."
+      },
+      {
+        "t": "10-15",
+        "beat": "Giro: le acerca un vaso de agua; la tapa se inclina y bebe (glug), eructa un aro de humo que le cae en la cabeza; Victory y pose del plano 1."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Looking Around"
+        ]
+      ],
+      [
+        2,
+        [
+          "Thinking"
+        ]
+      ],
+      [
+        3,
+        [
+          "Pushing"
+        ]
+      ],
+      [
+        4,
+        [
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "La tapa tenia sed, no hipo: un vaso de agua y queda feliz.",
+    "sin_palabras": "Tapa gigante que salta con hipo: se lee en 1 s.",
+    "needs": "Tapa = cilindro plano grande con S.key de posicion y rotacion; hic = sonido nuevo corto con pitch creciente; cajon = cube; vaso = cilindro; aro de humo = toro. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Alcantarilla viva, sin banco, bus ni piscina; remate de sed."
+  },
+  {
+    "id": "b20261123-2-i02",
+    "format": "pov",
+    "kind": "anim",
+    "env": "HDRI mall_parking_lot + suelo PBR asfalto con lineas",
+    "title_en": "POV: Your Car Won't Answer",
+    "caption_en": null,
+    "onscreen_en": "POV: you can't find your car",
+    "logline_es": "Un hombre en un aparcamiento pulsa el mando del coche; pita una papelera, una farola y un cono, cada bip mas agudo; el ultimo bip sale del cochecito de juguete que lleva en la mano.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho (frame 1): mando enorme en primer plano en su mano, pulsa; bip y parpadeo lejos."
+      },
+      {
+        "t": "3-7",
+        "beat": "Va girando: pulsa y parpadea una papelera (bip), pulsa y una farola (bip mas agudo)."
+      },
+      {
+        "t": "7-10",
+        "beat": "Mira alrededor (Looking Around), pulsa de nuevo con fuerza: bip mas agudo, un cono."
+      },
+      {
+        "t": "10-14",
+        "beat": "Giro: el cochecito de juguete de su otra mano parpadea y pita; se da cuenta (Victory) y vuelve a alzar el mando como en el plano 1."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Throw"
+        ]
+      ],
+      [
+        2,
+        [
+          "Looking Around"
+        ]
+      ],
+      [
+        3,
+        [
+          "Thinking"
+        ]
+      ],
+      [
+        4,
+        [
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "El coche estaba en su mano todo el rato (un cochecito de juguete).",
+    "sin_palabras": "Hombre que pulsa un mando y todo pita menos su coche.",
+    "needs": "Mando = cube + esferas grandes; luces = emissive que parpadean; bip de pitch ascendente; cochecito = cubes. Sin clips nuevos (Throw se reutiliza como gesto de pulsar).",
+    "riesgo_copia": "bajo",
+    "diferencia": "Pitido ascendente en aparcamiento; sin carro, barrera ni alarma."
+  },
+  {
+    "id": "b20261123-2-i03",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "HDRI wide_street_01 + suelo PBR asfalto y acera de hormigon",
+    "title_en": "The Parking Meter Who Gave It Back",
+    "caption_en": null,
+    "onscreen_en": null,
+    "logline_es": "Un parquimetro alto y centrado se come monedas; cada moneda suena un ding mas agudo y la cabeza se hincha; tras tragar un monton, escupe la primera moneda de vuelta y se duerme.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho (frame 1): el hombre sostiene una moneda enorme ante la ranura del parquimetro; la mete: ding."
+      },
+      {
+        "t": "3-7",
+        "beat": "Recoge del suelo mas monedas (Picking Up) y las echa: ding mas agudo cada vez, la cabeza se hincha (squash)."
+      },
+      {
+        "t": "7-11",
+        "beat": "La luz roja parpadea, tiembla; el hombre se tapa la cara."
+      },
+      {
+        "t": "11-15",
+        "beat": "Giro: pop, escupe SOLO la primera moneda, que cae en su mano; el parquimetro cierra los ojos; Victory y pose del plano 1 con la moneda."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Waving"
+        ]
+      ],
+      [
+        2,
+        [
+          "Picking Up"
+        ]
+      ],
+      [
+        3,
+        [
+          "Looking Around"
+        ]
+      ],
+      [
+        4,
+        [
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "El parquimetro devuelve exactamente la primera moneda.",
+    "sin_palabras": "Moneda gigante y ranura: se lee en 1 s.",
+    "needs": "Parquimetro = cilindro + cube con S.key de escala; ding con pitch ascendente; monedas = discos; ojos = esferas. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Parquimetro vivo, no maquina expendedora; remate de devolucion."
+  },
+  {
+    "id": "b20261123-2-i04",
+    "format": "pov",
+    "kind": "anim",
+    "env": "HDRI rooftop_day + suelo PBR hormigon",
+    "title_en": "POV: A Chalk Sun on the Roof",
+    "caption_en": null,
+    "onscreen_en": "POV: you draw the sun",
+    "logline_es": "En una azotea, el hombre dibuja con tiza un sol en el suelo; cada rayo trazado se enciende con un ding y la luz sube; el sol completo abre los ojos, bosteza y se apaga como lampara de noche, dejando al hombre con la tiza como al inicio.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho (frame 1): circulo de tiza enorme y centrado en el suelo; el hombre de pie con la tiza."
+      },
+      {
+        "t": "3-8",
+        "beat": "Traza rayos (Throw como gesto): scritch y ding por rayo, el brillo sube."
+      },
+      {
+        "t": "8-11",
+        "beat": "Ultimo rayo: el sol abre los ojos, sonrie."
+      },
+      {
+        "t": "11-14",
+        "beat": "Giro: bosteza (voz sigh), baja el brillo, cierra los ojos y se duerme; el hombre sostiene la tiza igual que al inicio."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Thinking"
+        ]
+      ],
+      [
+        2,
+        [
+          "Throw"
+        ]
+      ],
+      [
+        3,
+        [
+          "Looking Around"
+        ]
+      ],
+      [
+        4,
+        [
+          "Laughing"
+        ]
+      ]
+    ],
+    "payoff": "El sol dibujado tambien tenia sueno.",
+    "sin_palabras": "Circulo de tiza con rayos que se encienden: se lee en 1 s.",
+    "needs": "Sol = disco grande emissive sobre el suelo + rayos cubes finos; luz puntual con intensidad por S.key; scritch + ding creciente; ojos = esferas. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Dibujo de tiza que se enciende; sin gag de objeto cotidiano ya usado."
+  },
+  {
+    "id": "b20261123-2-i05",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "HDRI palermo_square + suelo PBR adoquin claro",
+    "title_en": "The Statue Who Tipped Back",
+    "caption_en": null,
+    "onscreen_en": null,
+    "logline_es": "Una estatua plateada de primitivas sobre un pedestal en una plaza mueve un miembro por cada moneda que le echan, con sonidos mecanicos; tras la ultima, baja del pedestal y le devuelve una moneda al hombre.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho (frame 1): estatua inmovil con sombrero en el pedestal; el hombre le echa una moneda: clic y levanta un brazo."
+      },
+      {
+        "t": "3-7",
+        "beat": "Mas monedas (Throw): segundo brazo, cabeza, pierna, cada una con tic mas agudo."
+      },
+      {
+        "t": "7-10",
+        "beat": "El hombre aplaude (Laughing); la estatua se pone en pose heroica."
+      },
+      {
+        "t": "10-14",
+        "beat": "Giro: baja del pedestal, le da una moneda al hombre, vuelve a subir y a su pose del plano 1; el hombre se queda con la moneda (Victory)."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Waving"
+        ]
+      ],
+      [
+        2,
+        [
+          "Throw"
+        ]
+      ],
+      [
+        3,
+        [
+          "Laughing"
+        ]
+      ],
+      [
+        4,
+        [
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "La estatua devuelve la propina.",
+    "sin_palabras": "Estatua plateada con un cuenco de monedas: se lee en 1 s.",
+    "needs": "Estatua = esferas, cilindros y cubes plateados con S.key de rotacion por miembro; tic mecanico ascendente; monedas = discos. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Estatua viva en plaza; remate de propina devuelta."
+  },
+  {
+    "id": "b20261123-2-i06",
+    "format": "pov",
+    "kind": "anim",
+    "env": "HDRI suburban_parking_area + suelo PBR hormigon",
+    "title_en": "POV: The Cone Is Stuck",
+    "caption_en": null,
+    "onscreen_en": "POV: the cone is stuck",
+    "logline_es": "Un hombre con un cono de trafico enorme en la cabeza lo tira hacia arriba: cada pop revela otro cono mas pequeno y el pop sube de tono; al final vuelve a ponerse el grande como casco, a ciegas, en la pose del plano 1.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho (frame 1): cono enorme tapandole la cabeza, brazos extendidos a ciegas."
+      },
+      {
+        "t": "3-7",
+        "beat": "Tira (Pushing): pop, sale el cono y debajo hay otro mas pequeno; segundo pop mas agudo."
+      },
+      {
+        "t": "7-11",
+        "beat": "Tercer pop, un cono diminuto; se mira confuso (Looking Around)."
+      },
+      {
+        "t": "11-14",
+        "beat": "Giro: se pone el cono grande como casco, alza los brazos feliz; mismo plano que el 1."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Pushing"
+        ]
+      ],
+      [
+        2,
+        [
+          "Pushing"
+        ]
+      ],
+      [
+        3,
+        [
+          "Looking Around"
+        ]
+      ],
+      [
+        4,
+        [
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "Los conos eran una familia de conos y el grande le gusta de casco.",
+    "sin_palabras": "Cono enorme sobre la cabeza: se lee en 1 s.",
+    "needs": "Conos = cilindros/conos anidados parentados a la cabeza con S.key; pop con pitch ascendente. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Cono en cabeza, no barrera ni carro; remate de casco."
+  }
+]
