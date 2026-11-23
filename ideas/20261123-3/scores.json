@@ -1,44 +1,116 @@
 [
   {
-    "id": "b20261123-3-i01",
-    "scores": {"hook": 7, "curiosity": 6, "retention": 8, "originality": 6, "visual": 7, "emotion": 6, "ending": 7, "series": 6, "differentiation": 6, "production_difficulty": 4, "repetition_risk": 4},
-    "why": "Pasa los 3 fotogramas sin sonido (hombre con bola y papelera lejana, bola en el aire con la papelera patinando hacia ella, papelera a sus pies) y el gag es una causa-efecto visible con motivo claro (cazar), con escalada de distancia, remate que cierra en bucle con la pose del plano 1 y estructura cercana a Bench; no sube mas porque el desplazamiento es lateral en un 9:16, la bola pequena se pierde y 'papelera con ruedas' pide cara o gesto para que parezca viva.",
-    "improve": "Dar a la papelera una bola de papel grande y blanca bien visible, encuadre vertical con la papelera en profundidad creciendo hacia camara y un clonc mas agudo en cada captura; en el remate, la papelera arroja la bola de vuelta para que el bucle sea literal.",
-    "vps": 61.8
+    "id": "b20261123-3-i05",
+    "scores": {
+      "hook": 7,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 7,
+      "visual": 8,
+      "emotion": 7,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 5,
+      "repetition_risk": 4
+    },
+    "why": "Ronda 1: pasa los 3 fotogramas con el mejor motivo del lote (hombre en el bolardo y tarta humeante en la ventana, bolardo estirado hasta el alfeizar, hombre comiendo y bolardo guinando), la causa se ve sin sonido, es vertical para 9:16 y el remate de complicidad cierra en bucle con la pose del plano 1 como Bench; no sube mas porque la tarta y su vapor son pequenos y estan lejos en el encuadre, hay un solo gag sin escalada y el ojo unico y los anillos que se estiran piden cuidado de rig.",
+    "improve": "Hacer la tarta grande y brillante en la ventana desde el frame 1 con el bolardo mirandola, anadir una escalada (primer intento corto que se queda a medio camino, segundo llega) y limitar el bolardo a un solo ojo y 3 anillos de escala Z.",
+    "vps": 65.0
   },
   {
-    "id": "b20261123-3-i05",
-    "scores": {"hook": 7, "curiosity": 6, "retention": 7, "originality": 6, "visual": 8, "emotion": 5, "ending": 7, "series": 5, "differentiation": 6, "production_difficulty": 5, "repetition_risk": 3},
-    "why": "Pasa los 3 fotogramas (hombre sentado arriba del bolardo, bolardo hundido con el hombre a ras de suelo, bolardo alto de nuevo con el hombre saludando) y es el unico gag totalmente vertical, que llena el 9:16 y se entiende sin sonido; no sube mas porque no hay motivo ni personalidad en el bolardo (es un ascensor sin intencion), el ritmo es de un solo vaiven y hundirlo en el adoquin exige un agujero o corte del suelo.",
-    "improve": "Dar intencion al bolardo con una escalada (baja lento, sube de golpe, el hombre sale disparado un palmo) y que el remate lo explique: el bolardo se hunde porque otro bolardo vecino sube con otro hombre; resolver el agujero con un disco oscuro del adoquin.",
-    "vps": 60.3
+    "id": "b20261123-3-i01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 8,
+      "originality": 6,
+      "visual": 8,
+      "emotion": 6,
+      "ending": 8,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "Ronda 1: pasa los 3 fotogramas (hombre lanzando y papelera-boca saltando a camara, papelera periscopio tragando un globo rojo, bola de papel en la frente del hombre) con accion desde el frame 1, escalada clara de objetos y un remate de devolucion que cierra en bucle; no sube mas porque 'objeto que se come todo' es un tropo conocido, hay demasiados beats (tres tiros y un eructo) para 12 s, el eructo es un gag de sonido y boca, ojos y estirado suman rig.",
+    "improve": "Recortar a dos tiros (periodico y globo rojo), dejar la caja fuera, hacer el eructo visible con la tapa que salta y una bola que sale disparada, y poner los ojos de la papelera siempre fijos en el hombre.",
+    "vps": 64.9
   },
   {
     "id": "b20261123-3-i03",
-    "scores": {"hook": 5, "curiosity": 6, "retention": 6, "originality": 5, "visual": 6, "emotion": 5, "ending": 6, "series": 5, "differentiation": 5, "production_difficulty": 3, "repetition_risk": 5},
-    "why": "Pasa los 3 fotogramas (hombre al telefono, farola doblada con la lampara pegada al movil, farola recta igual que el primero) y la farola alta aprovecha la vertical; no sube mas porque el frame 1 es un hombre hablando por telefono sin accion, 'silbar' es un chiste de sonido que no se ve, la farola no tiene cara ni intencion legible mas alla de doblarse y el objeto que espia es un tropo conocido.",
-    "improve": "Abrir con la farola ya doblada sobre el hombre en el frame 1 (el publico la ve, el no) y que en el remate el hombre se aparte y la farola se quede mirando el movil en el suelo; cambiar el silbido por un gesto visible (se pone la lampara de lado, cruza el brazo).",
-    "vps": 49.2
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 7,
+      "visual": 8,
+      "emotion": 4,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 7,
+      "production_difficulty": 8,
+      "repetition_risk": 4
+    },
+    "why": "Ronda 1: pasa los 3 fotogramas (hombre corriendo a camara con un rollo gigante de adoquin detras, hombre sobre el rollo, mismo plano del inicio) y es el frame 1 mas absurdo y llamativo del lote, con la perspectiva a camara que llena el 9:16; no sube mas porque la persecucion de una bola gigante es un tropo conocido, el suelo no tiene intencion ni emocion, el desenrollado de vuelta es un remate de mecanica y no un giro, y el rollo con textura de adoquin sobre un disco oscuro es la tarea mas pesada del lote.",
+    "improve": "Dar causa al rollo (un hombre que se salta una grieta y el suelo lo castiga) o un remate visible (el rollo lo deja en el mismo punto y se desenrolla guinando una baldosa), y probar antes del guion el cilindro con textura rodando hacia camara.",
+    "vps": 61.0
   },
   {
     "id": "b20261123-3-i02",
-    "scores": {"hook": 5, "curiosity": 5, "retention": 6, "originality": 5, "visual": 6, "emotion": 7, "ending": 6, "series": 5, "differentiation": 4, "production_difficulty": 5, "repetition_risk": 5},
-    "why": "Pasa los 3 fotogramas (hombre con correa roja y hidrante quieto, hidrante saltando con la correa tensa, hidrante sentado meneando la tapa) y la mascota objeto es calida; no sube mas porque el frame 1 es un hidrante quieto sin gancho, 'objeto como perro' es un chiste previsible, el hidrante pierde su rol de objeto vivo con motivo propio y el clip final Waving no enlaza con la pose del plano 1 como dice el beat.",
-    "improve": "Empezar con el hidrante ya tirando de la correa y el hombre derrapando (accion en el frame 1) y sustituir Waving por Standing Up para que el bucle sea literal; que el hidrante traiga algo al final (la bola o el sombrero del hombre) para dar remate propio.",
-    "vps": 47.6
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 5,
+      "originality": 7,
+      "visual": 8,
+      "emotion": 5,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 5,
+      "repetition_risk": 4
+    },
+    "why": "Ronda 1: pasa los 3 fotogramas (furgoneta flotando bajo un globo con el hombre tirando de la cuerda, furgoneta posada y atada al bolardo, flotando de nuevo) y la furgoneta flotante bajo un globo rojo es una imagen fuerte y vertical; no sube mas porque casi no hay accion (pasear, enrollar, sentarse), el hombre es quien lo hace todo y la furgoneta no tiene intencion, no hay escalada ni sorpresa y el frame 3 repite el 1.",
+    "improve": "Anadir una escalada de problema (una rafaga la lleva al tejado, la sube tras ella, otro globo cae encima) y un remate con giro: al sentarse en la cabina, el globo se lleva furgoneta y hombre hacia arriba mientras el saluda.",
+    "vps": 56.3
   },
   {
     "id": "b20261123-3-i04",
-    "scores": {"hook": 4, "curiosity": 4, "retention": 4, "originality": 5, "visual": 4, "emotion": 4, "ending": 4, "series": 4, "differentiation": 5, "production_difficulty": 3, "repetition_risk": 4},
-    "why": "Falla la prueba de los 3 fotogramas: el primero y el tercero son casi identicos (hombre y furgoneta quietos), el segundo solo muestra una furgoneta ligeramente inclinada y el 'espejo' depende de ver el movimiento en sincronia, no de una imagen que se lea; el cabeceo de suspension es sutil en 9:16, no hay escalada ni sorpresa y el remate es quedarse quietos.",
-    "improve": "Convertir el espejo en una escalada visible con tamano: el hombre hace un gesto pequeno y la furgoneta lo repite enorme (salta, abre ambas puertas, levanta una rueda), y cerrar con la furgoneta haciendo algo que el hombre no hizo.",
-    "vps": 37.4
+    "scores": {
+      "hook": 6,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 7,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 5
+    },
+    "why": "Ronda 1: pasa los 3 fotogramas (hombre trepando una cuerda hacia una nube sobre una jardinera marchita, sentado en la nube que llueve, flores abiertas) con causa y efecto legibles y una recompensa visual calida; no sube mas porque el comienzo es una trepada lenta sin sorpresa, la lluvia y las flores son pequenas en 9:16, 'nube que llueve' es un tropo cercano al chaparron del ledger y el remate de repetir la trepada es plano.",
+    "improve": "Empezar con la nube ya apretada por el hombre y la primera flor abriendose en el frame 1, y cerrar con un giro visible (la nube lo empapa a el y se hincha de gusto) en vez de trepar otra cuerda.",
+    "vps": 53.2
   },
   {
     "id": "b20261123-3-i06",
-    "scores": {"hook": 4, "curiosity": 5, "retention": 4, "originality": 5, "visual": 3, "emotion": 4, "ending": 5, "series": 4, "differentiation": 5, "production_difficulty": 6, "repetition_risk": 4},
-    "why": "Falla la prueba de los 3 fotogramas: el fotograma 2 (hombre de pie sobre las rayas) es identico a alguien cruzando normal, porque la cinta transportadora es movimiento y en una imagen fija no se ve; el hook es pulsar un boton diminuto, el desplazamiento es lateral, Sneaking Forward no se lee como ser arrastrado y el boton gemelo necesita un segundo poste.",
-    "improve": "Hacer visible la cinta en un fotograma fijo: rayas que se doblan en ondas, el hombre de pie con los brazos en cruz y el suelo con flechas luminosas; o cambiar la mecanica por algo estatico y legible, como el paso de cebra que se levanta como puente levadizo con el hombre encima.",
-    "vps": 37.4
+    "scores": {
+      "hook": 6,
+      "curiosity": 4,
+      "retention": 5,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 4,
+      "ending": 4,
+      "series": 4,
+      "differentiation": 5,
+      "production_difficulty": 4,
+      "repetition_risk": 4
+    },
+    "why": "Ronda 1: pasa los 3 fotogramas a duras penas (fachada inclinada con el hombre empujando, fachada vuelta hacia el con el hombre echado atras, igual que el primero) pero la diferencia entre fotogramas es solo la direccion de una inclinacion sutil de una pared que ocupa el fondo, no hay motivo ni escalada ni giro, el remate es seguir empujando y el balanceo de una fachada con ventanas rompe la escena sin dar recompensa.",
+    "improve": "Dar causa y giro: el edificio se balancea hasta lanzar al hombre por una ventana abierta o a la terraza, y usar una inclinacion exagerada de 30 grados desde el frame 1 para que el absurdo se lea al instante.",
+    "vps": 43.9
   }
 ]
