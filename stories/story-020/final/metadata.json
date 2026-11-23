@@ -1,0 +1,42 @@
+{
+  "story_id": "story-020",
+  "channel": "Klunk Studio",
+  "title": "Can You Scare the Hiccups Out of a Manhole?",
+  "titles": [
+    "Can You Scare the Hiccups Out of a Manhole?",
+    "Why Is This Manhole Spitting Out My Stuff?",
+    "Why Did the Manhole Hiccup a Rubber Duck?",
+    "The Manhole Hiccuped, and Then I Got It Too",
+    "Can a Scare Cure a Hiccuping Manhole?"
+  ],
+  "recommended_title": 0,
+  "description": "A silent 3D mini-story: a man in a cobbled square faces a giant manhole cover that hiccups. Each hiccup spits out something new, a boot, then a rubber duck. He tries to scare the hiccups away, and the answer is not what he expects.\nFiction made with AI-assisted tools. Original 3D animation; nothing here is real footage or a real event.\nCharacter animations: Mixamo.\nDid the scare work? Tell us in the comments and subscribe for the next story.\n#shorts #animation #comedy #silentcomedy #funny",
+  "hashtags": [
+    "#shorts",
+    "#animation",
+    "#comedy",
+    "#silentcomedy",
+    "#funny"
+  ],
+  "cta": "Did the scare work? Tell us in the comments and subscribe for the next story.",
+  "tags": "mini stories with a twist, silent comedy, 3D animation, physical comedy, manhole, hiccups, funny shorts, animated comedy",
+  "playlist": "Mini Stories With a Twist",
+  "ai_disclosure": "Fiction made with AI-assisted tools. Original 3D animation; nothing here is real footage or a real event.",
+  "ai_use_disclosure": false,
+  "category": "Comedy",
+  "language": "en",
+  "onscreen_en": null,
+  "upload_checklist": [
+    "AI use: Sí (por cautela). El fondo es un HDRI fotográfico real (dresden_square) y suelo PBR de adoquín, no un estilo claramente no realista; la regla exige false solo con estilo claramente no realista. Confirmar visualmente antes de subir; si el render es claramente estilizado, cambiar a false y actualizar este checklist.",
+    "Fiction notice in description: yes",
+    "Credit in description: included ('Character animations: Mixamo.', como story-019 y story-015)",
+    "Music/SFX: síntesis propia + Kenney CC0 (CC0 no requiere atribución); no hay final/provenance.json que revisar en esta entrega. Confirmar que no se usa música CC-BY antes de subir",
+    "Gates: critic, market y continuity en PASS; policy y qc PENDING (deliver bloqueará hasta que pasen)",
+    "Audience: not made for kids",
+    "Playlist: Mini Stories With a Twist (misma playlist que story-015, mini-historias); category Comedy; language en",
+    "On-screen text: ninguno (idea.json onscreen_en null; el gancho es visual sin rótulo)",
+    "Chapters: not applicable (mini-historia de 12,5 s, no RELATO)",
+    "Espaciar ≥6-8 h de otro Short y máximo 1-2 Shorts al día (regla de subida de analytics 2026-11-21/22)"
+  ],
+  "ai_use_note": "Director: false, como story-016..019 (fondo realista pero protagonista de dibujo y situación imposible: no puede confundirse con un hecho real)."
+}
