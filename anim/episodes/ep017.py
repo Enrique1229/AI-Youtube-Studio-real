@@ -5,7 +5,7 @@ Tapa de alcantarilla gigante (disco de hierro de 1,3 m con nervios por ambas car
 vapor (cilindro semitransparente con ruido que sube). Cada hipo: pop, la tapa sube inclinada y escupe un objeto de primitivas.
   1-28    gancho: la tapa en lo alto sobre el vapor (encuadre del fotograma 1), el hombre agachado a un lado; cae con CLONK.
   60-135  hipo 1: bota roja; el hombre da un salto atrás y la bota rueda lejos. Hipo 2: patito de goma; vuelve de un salto y lo caza (SQUEAK).
-  146-204 se esconde tras la jardinera; sale con los brazos arriba; la tapa se queda CONGELADA en lo alto y cae plana con PLATILLO.
+  146-204 se agacha a cubierto (sobre el adoquín, sin objetos delante); sale con los brazos arriba; la tapa se queda CONGELADA en lo alto y cae plana con PLATILLO.
   204-300 alivio (asiente, suspira), le da un HIC a él: salta unos centímetros, la tapa responde con un clonk burlón y sube otra vez
           sobre el vapor; él se agacha: mismo encuadre y pose del fotograma 1 (bucle).
 Convenio: yaw 0 mira a cámara (-y); yaw -50 mira a la tapa (izquierda) y a cámara. Fotograma 24 fps, ~12,5 s."""
@@ -209,7 +209,6 @@ def hand_mid(S, a, f):
 # ------------------------------------------------------------------ la historia
 def l1(S):
     props = env_real.build_plaza(S, rot_deg=20)
-    hide_inst, _, _ = env_real._place_fit(S, props['cols'][('planter_box_02', '1k')], (P1.x - 0.75, P1.y - 0.30, 0.0), 0.85, R(8))
     lid = build_manhole(S); steam, puffs = build_steam(S); boot = build_boot(S); duck = build_duck(S)
     a = MixamoActor(S, x=P1.x, yaw=YAW, use=["Looking Around", "Sneaking Forward", "Surprised", "Jumping", "Picking Up", "Victory", "Head Nod Yes"]); klunk(a)
 
@@ -221,7 +220,7 @@ def l1(S):
     seg(S, a, "Surprised", F_HOP1 + 24, F_HOP2, start=14, speed=1.8, blend=3)          # hic 2: otro respingo
     seg(S, a, "Jumping", F_HOP2, F_HOP2 + 22, start=14, blend=3)                       # vuelve de un salto
     seg(S, a, "Picking Up", F_CATCH - 8, F_CATCH + 10, start=118, speed=0.5, blend=4)    # brazos al frente: caza el patito
-    seg(S, a, "Picking Up", F_CATCH + 10, 166, start=20, speed=1.0, blend=6)            # se agacha tras la jardinera (con el patito)
+    seg(S, a, "Picking Up", F_CATCH + 10, 166, start=20, speed=1.0, blend=6)            # se agacha (con el patito)
     seg(S, a, "Victory", 166, 204, start=18, speed=1.0, blend=4)                       # susto: brazos arriba
     seg(S, a, "Head Nod Yes", 204, F_HIC_MAN - 4, start=0, speed=1.5, blend=5)         # alivio: asiente
     seg(S, a, "Surprised", F_HIC_MAN - 4, 258, start=14, speed=1.6, blend=3)           # hic propio

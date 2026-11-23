@@ -144,7 +144,7 @@ PLAZA_PROPS = [
     ("fire_hydrant", "1k", -1.75, -1.35, 0.80, 25),                 # primer plano izquierdo (desenfocado, encuadra)
     ("planter_box_01", "2k", -1.95, 2.3, 0.75, 0),                  # medio
     ("potted_plant_01", "1k", 2.05, 2.1, 0.95, 40),
-    ("WetFloorSign_01", "1k", -1.9, 2.0, 0.62, 28),
+    ("WetFloorSign_01", "1k", -2.4, 3.6, 0.62, 28),
     ("metal_trash_can", "2k", -4.6, 8.0, 1.0, 20),            # papeleras: lejos, al fondo (no compiten con la tapa)
     ("planter_box_02", "1k", 1.95, 3.6, 0.80, -8),
     ("utility_box_01", "1k", 2.6, 5.2, 1.35, -12),                  # fondo cercano

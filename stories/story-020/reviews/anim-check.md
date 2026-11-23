@@ -1,7 +1,7 @@
 # anim-check — story-020 "The Manhole That Hiccuped" (anim/episodes/ep017.py)
 
-Render de prueba: 216x384, 5 muestras Cycles, fakeblender.sh. Fotogramas en `reviews/frames/` (24 fps, 300 fotogramas = 12,5 s + 10 de cola, SPEED 1.0, un solo nivel).
-Cámara baja fija por plano (z=0,5, picado inverso, lente 50, DoF f/1.4) con cortes; el plano final repite el del fotograma 1 (bucle).
+Render de prueba (ronda 2): 270x480, 8 muestras Cycles, fakeblender.sh. Fotogramas en `reviews/frames/` (24 fps, 300 fotogramas = 12,5 s + 10 de cola, SPEED 1.0, un solo nivel).
+Cámara baja fija por plano (plano general z=1,2 y horizontal, lente 50, DoF f/1.4) con cortes; el plano final repite el del fotograma 1 (bucle).
 
 ## Escenario (regla de producción alta)
 - `env_real.build_plaza` (nuevo): HDRI dresden_square + adoquín PBR cobblestone_floor_01 + 19 piezas de atrezo Poly Haven CC0 (farolas 01/02, jardineras 01/02,
@@ -37,3 +37,11 @@ Sneaking Forward (agachado inicial y final), Surprised (cada hipo y el propio), 
 - Hic del hombre: se ve por el salto de ~16 cm y la expresión; en el fotograma 243 el gesto de cara es pequeño (plano medio).
 - La papelera importada trae un cubo marrón adicional pegado (parte del asset); no estorba a la cara ni a la tapa.
 - No se probó el render completo (render_episode.py) ni el montaje de audio.
+
+## Ronda 2 (correcciones del Director, director-visual.md)
+1. Alcantarilla A RAS DEL SUELO: aro claro enrasado (z 4 mm), anillo oscuro hundido y agujero negro; sin cilindro elevado. Tapa de 4 cm de grosor, plana dentro del aro al reposar (b1_final, b2a_final). El vapor nace del agujero y se afinó (borde suave).
+2. Papeleras metálicas fuera del plano medio: solo quedan al fondo a la izquierda (x=-4,6, y=8). La tapa es el único objeto redondo metálico del centro.
+3. El hombre siempre pisa adoquín: se quitó el objeto de escondite; se agacha en campo abierto (Picking Up) y sale con los brazos arriba. Se probó una jardinera y una caja de madera de escondite: eran enormes y tapaban boca y hombre, se descartaron.
+4. Hidrante a x=-1,75 (más a la izquierda y delante) y cartel amarillo a x=-2,4, y=3,6: la boca se lee sola.
+5. Cámara del gancho a z=1,2 y horizontal: en el fotograma 1 se ve el agujero oscuro en el suelo y la tapa alta sobre el vapor (APEX 2,2 para que entre en el 78 % superior). Cara del remate a ~60 %, pies >15 % del borde inferior.
+Los 16 fotogramas se volvieron a renderizar y mirar; f1 y f300 coinciden (tapa en lo alto, hombre agachado a la derecha, sin patito).
