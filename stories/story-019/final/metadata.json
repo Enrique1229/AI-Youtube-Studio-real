@@ -30,9 +30,10 @@
     "AI use: No (3D toon animation with a stylized protagonist; idea.json kind 'anim'). To confirm: ep016.py docstring describes the park as 'realista' (photographic PBR grass and HDRI sky)",
     "Fiction notice in description: yes",
     "Credit in description: included ('Character animations: Mixamo.', as in story-017 format)",
-    "Music license/attribution: none specified in idea.json; verify final/provenance.json before upload (add CC attribution if any CC track is used)",
-    "Gates before upload: continuity, policy and qc are still PENDING in stories/story-019/state.json; deliver will block until they pass",
+    "Music/SFX: Kenney CC0 + síntesis propia (final/provenance.json); no requiere atribución",
+    "Gates: critic, market, continuity, policy y qc en PASS",
     "Audience: not made for kids",
-    "Playlist: Rating Levels; category Comedy; language en"
+    "Playlist: Rating Levels; category Comedy; language en",
+    "Espaciar 6-8 h de otro vídeo y no subirlo pegado a otro episodio IQ"
   ]
 }

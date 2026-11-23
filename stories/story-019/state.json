@@ -8,13 +8,14 @@
     "market": "PASS",
     "continuity": "PASS",
     "policy": "PASS",
-    "qc": "PENDING"
+    "qc": "PASS"
   },
   "vps": 65.9,
   "quality_score": null,
   "fix_rounds": 0,
-  "final_file": null,
-  "updated": "2026-11-22",
+  "final_file": "scratchpad:Tiovivo_ep016_SUBIR.mp4 (fuera del repo, 23 MB)",
+  "updated": "2026-11-23",
   "idea_id": "b20261122-3-i03",
-  "market_verdict": "VALIDATED"
+  "market_verdict": "VALIDATED",
+  "status": "ready"
 }
