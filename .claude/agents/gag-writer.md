@@ -20,6 +20,7 @@ ideas/<batch>/ideas.json (formato templates/idea.json con `format: "short"`, `ki
 - Nada de estereotipos de nacionalidad, raza, género o discapacidad: el humor sale de la física y de la lógica absurda, no de burlarse de un grupo.
 - Genera 4 episodios por cada vídeo pedido y comprueba cada logline con `python3 scripts/studio.py similar`.
 - Escenario muy producido (regla del usuario, 2026-11-23): en `env`, propón un lugar rico en detalle y atrezo realista (no un suelo vacío).
+- Prueba de los 3 fotogramas (lección story-020, 2026-11-23): la historia entera debe entenderse con 3 imágenes fijas sin sonido ni texto (planteamiento, escalada, remate). Nada que dependa de estados invisibles (hipo, sed, frío, sueño, olores, pensamientos). Lo que funciona en el canal: un objeto grande hace algo físico e imposible que se VE (Bench: el banco se va a la sombra).
 
 ## Protocolo (obligatorio)
 - Lee SOLO los archivos de "Entrada" que te indique el Director (rutas). No explores otras historias ni carpetas.

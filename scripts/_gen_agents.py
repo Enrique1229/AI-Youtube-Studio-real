@@ -46,7 +46,8 @@ A = [
 - 1 frase de justificación y 1 mejora concreta por idea. Nada más.
 - NO calcules el score final: lo calcula `scripts/studio.py vps` de forma determinista.
 - El VIRALITY POTENTIAL SCORE es una estimación de potencial basada en criterios, nunca una predicción. Prohibido escribir "será viral".
-- Usa todo el rango: una idea media es un 5, no un 7."""),
+- Usa todo el rango: una idea media es un 5, no un 7.
+- Prueba de los 3 fotogramas (lección story-020): si la idea no se entiende con 3 imágenes fijas sin sonido ni texto, o depende de un estado invisible (hipo, sed, frío, sueño), `visual` ≤ 4."""),
 ("market-validator", "sonnet", RW + ", Bash, WebSearch, WebFetch",
  "Puerta de mercado: antes de producir, comprueba si existen canales reales con vídeos de características similares y con tracción. Sin evidencia, la idea no se produce.",
  "ideas/<batch>/ideas.json y ideas/<batch>/scores.json (SOLO las ideas que indique el Director: las que superan el umbral de VPS), channel/strategy/market.md (comparables ya conocidos; reutilízalos si tienen menos de 30 días)",
@@ -69,7 +70,8 @@ A = [
 - Personajes y mundo PROPIOS del canal (anim/FORMAT.md). No copies gags, personajes ni escenarios de otros canales.
 - Nada de estereotipos de nacionalidad, raza, género o discapacidad: el humor sale de la física y de la lógica absurda, no de burlarse de un grupo.
 - Genera 4 episodios por cada vídeo pedido y comprueba cada logline con `python3 scripts/studio.py similar`.
-- Escenario muy producido (regla del usuario, 2026-11-23): en `env`, propón un lugar rico en detalle y atrezo realista (no un suelo vacío)."""),
+- Escenario muy producido (regla del usuario, 2026-11-23): en `env`, propón un lugar rico en detalle y atrezo realista (no un suelo vacío).
+- Prueba de los 3 fotogramas (lección story-020, 2026-11-23): la historia entera debe entenderse con 3 imágenes fijas sin sonido ni texto (planteamiento, escalada, remate). Nada que dependa de estados invisibles (hipo, sed, frío, sueño, olores, pensamientos). Lo que funciona en el canal: un objeto grande hace algo físico e imposible que se VE (Bench: el banco se va a la sombra)."""),
 ("animation-director", "sonnet", RW + ", Bash",
  "Formato ANIMACIÓN: convierte un episodio aprobado en código de animación (anim/episodes/epNNN.py) usando la biblioteca anim/kit.py.",
  "stories/<id>/idea.json (campo levels), anim/README.md (API), anim/episodes/ep001.py (ejemplo de referencia)",

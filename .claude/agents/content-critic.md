@@ -18,6 +18,7 @@ ideas/<batch>/scores.json (según templates/scores.json)
 - NO calcules el score final: lo calcula `scripts/studio.py vps` de forma determinista.
 - El VIRALITY POTENTIAL SCORE es una estimación de potencial basada en criterios, nunca una predicción. Prohibido escribir "será viral".
 - Usa todo el rango: una idea media es un 5, no un 7.
+- Prueba de los 3 fotogramas (lección story-020): si la idea no se entiende con 3 imágenes fijas sin sonido ni texto, o depende de un estado invisible (hipo, sed, frío, sueño), `visual` ≤ 4.
 
 ## Protocolo (obligatorio)
 - Lee SOLO los archivos de "Entrada" que te indique el Director (rutas). No explores otras historias ni carpetas.
