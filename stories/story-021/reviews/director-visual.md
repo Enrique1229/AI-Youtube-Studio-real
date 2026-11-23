@@ -12,3 +12,4 @@ Hoja: scratchpad/ep018_sheet.jpg (15 fotogramas).
 - Bolardo rediseñado (verde botella, banda roja con franjas blancas, dos ojos con párpados y cejas): sin parecido con personajes con marca. PASA.
 - Pupilas hacia la tarta, bocado ~10 fotogramas con interior rojo y dientes: se lee.
 - Pendiente: brazo horizontal rígido en 12-14 (pose T) → corrección pedida.
+- Brazo corregido (12-15): manos sujetan la tarta hasta el cierre y funden a Shrugging. PASA a render.
