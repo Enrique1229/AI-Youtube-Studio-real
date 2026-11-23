@@ -1,0 +1,20 @@
+{
+  "id": "story-021",
+  "format": "short",
+  "title": "The Bollard That Went for Pie",
+  "stage": "selected",
+  "gates": {
+    "critic": "PASS",
+    "market": "PASS",
+    "continuity": "PASS",
+    "policy": "PENDING",
+    "qc": "PENDING"
+  },
+  "vps": 65.0,
+  "quality_score": null,
+  "fix_rounds": 0,
+  "final_file": null,
+  "updated": "2026-11-23",
+  "idea_id": "b20261123-3-i05",
+  "market_verdict": "VALIDATED"
+}

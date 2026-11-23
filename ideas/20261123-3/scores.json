@@ -30,12 +30,12 @@
       "ending": 8,
       "series": 6,
       "differentiation": 6,
-      "production_difficulty": 6,
+      "production_difficulty": 7,
       "repetition_risk": 5
     },
-    "why": "Ronda 1: pasa los 3 fotogramas (hombre lanzando y papelera-boca saltando a camara, papelera periscopio tragando un globo rojo, bola de papel en la frente del hombre) con accion desde el frame 1, escalada clara de objetos y un remate de devolucion que cierra en bucle; no sube mas porque 'objeto que se come todo' es un tropo conocido, hay demasiados beats (tres tiros y un eructo) para 12 s, el eructo es un gag de sonido y boca, ojos y estirado suman rig.",
-    "improve": "Recortar a dos tiros (periodico y globo rojo), dejar la caja fuera, hacer el eructo visible con la tapa que salta y una bola que sale disparada, y poner los ojos de la papelera siempre fijos en el hombre.",
-    "vps": 64.9
+    "why": "Ronda 2: pasa los 3 fotogramas (hombre lanzando y papelera-boca saltando a camara, papelera con la boca desencajada tragando la furgoneta ante el hombre boquiabierto, hombre de pie con otro periodico igual que al inicio) y la escalada de tamano periodico, caja, furgoneta mas el giro de tragarse al hombre y devolverlo en la pose del plano 1 son legibles sin sonido y cierran el bucle; no sube mas porque 'objeto que se lo come todo' es un tropo conocido, el hombre lanzando una furgoneta con Throw se lee flojo, la boca x3, el periscopio y el hombre entrando y saliendo por la tapa suben el rig, y el trago final del hombre no tiene motivo visible.",
+    "improve": "Hacer visible la causa del trago final (el hombre se queda con la ultima bola y la papelera lo mira como si fuera la siguiente comida), probar antes del guion el escalado de la boca con la furgoneta encogiendose dentro y dejar la caja como un solo salto corto.",
+    "vps": 64.3
   },
   {
     "id": "b20261123-3-i03",

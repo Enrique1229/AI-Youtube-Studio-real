@@ -1,0 +1,68 @@
+{
+  "id": "b20261123-3-i05",
+  "format": "mini_story",
+  "kind": "anim",
+  "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
+  "title_en": "The Bollard That Went for Pie",
+  "caption_en": null,
+  "onscreen_en": "Up we go",
+  "logline_es": "Un hombre se sienta en un bolardo; en la ventana de un primer piso se ve una tarta humeante; el bolardo se estira como periscopio hasta la ventana, el hombre coge la tarta y el bolardo lo baja; el hombre se queda sentado comiendola.",
+  "beats": [
+    {
+      "t": "0-3",
+      "beat": "Plano 1: hombre sentado en el bolardo (Sitting Idle) y una tarta humeante en la ventana alta; el bolardo mira hacia ella (tiene un solo ojo en la banda amarilla)."
+    },
+    {
+      "t": "3-7",
+      "beat": "El bolardo se estira por anillos hasta el alfeizar, el hombre se aferra (Surprised)."
+    },
+    {
+      "t": "7-10",
+      "beat": "Coge la tarta (Picking Up)."
+    },
+    {
+      "t": "10-14",
+      "beat": "El bolardo se encoge; el hombre sentado come tarta (Sitting Idle), pose del plano 1; el bolardo guina el ojo."
+    }
+  ],
+  "clips": [
+    [
+      1,
+      [
+        "Sitting Idle"
+      ]
+    ],
+    [
+      2,
+      [
+        "Surprised"
+      ]
+    ],
+    [
+      3,
+      [
+        "Picking Up"
+      ]
+    ],
+    [
+      4,
+      [
+        "Sitting Idle"
+      ]
+    ]
+  ],
+  "payoff": "El bolardo tenia hambre de tarta y usa al hombre de manos.",
+  "sin_palabras": "Hombre sentado en un bolardo bajo con una tarta humeante en una ventana alta.",
+  "tres_fotogramas": [
+    "Hombre sentado en un bolardo bajo con una tarta humeante en una ventana alta.",
+    "Bolardo estirado en anillos hasta el alfeizar y el hombre cogiendo la tarta.",
+    "Bolardo bajo, el hombre sentado comiendo y el bolardo guinando el ojo."
+  ],
+  "needs": "Bolardo grande con anillos que se estiran por escala Z; ojo = esfera; ventana de la fachada con tarta = cilindro + disco de vapor. Clips existentes.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Objeto con apetito y giro de complicidad; no hunde el suelo.",
+  "batch": "20261123-3",
+  "vps": 65.0,
+  "story_id": "story-021",
+  "critic_improve": "Hacer la tarta grande y brillante en la ventana desde el frame 1 con el bolardo mirandola, anadir una escalada (primer intento corto que se queda a medio camino, segundo llega) y limitar el bolardo a un solo ojo y 3 anillos de escala Z."
+}
