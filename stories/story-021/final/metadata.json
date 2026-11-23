@@ -1,0 +1,42 @@
+{
+  "story_id": "story-021",
+  "channel": "Klunk Studio",
+  "title": "Why Did the Bollard Steal the Man's Pie?",
+  "titles": [
+    "Why Did the Bollard Steal the Man's Pie?",
+    "Can a Bollard Get Hungry Enough for Pie?",
+    "Why Is This Bollard Stretching Up to a Window?",
+    "The Bollard Wanted Pie, and I Was the Fork",
+    "Who Gets the Pie When the Bollard Is Hungry?"
+  ],
+  "recommended_title": 0,
+  "description": "A silent 3D mini-story: a man sits on a bollard in a cobbled square while a steaming pie waits in a window just out of reach. The bollard has plans of its own, and it stretches up to the sill.\nFiction made with AI-assisted tools. Original 3D animation; nothing here is real footage or a real event.\nCharacter animations: Mixamo.\nDid the bollard deserve that pie? Tell us in the comments and subscribe for the next story.\n#shorts #animation #comedy #silentcomedy #funny",
+  "hashtags": [
+    "#shorts",
+    "#animation",
+    "#comedy",
+    "#silentcomedy",
+    "#funny"
+  ],
+  "cta": "Did the bollard deserve that pie? Tell us in the comments and subscribe for the next story.",
+  "tags": "mini stories with a twist, silent comedy, 3D animation, physical comedy, bollard, pie, funny shorts, animated comedy",
+  "playlist": "Mini Stories With a Twist",
+  "ai_disclosure": "Fiction made with AI-assisted tools. Original 3D animation; nothing here is real footage or a real event.",
+  "ai_use_disclosure": false,
+  "category": "Comedy",
+  "language": "en",
+  "onscreen_en": "POV: the bollard wants pie",
+  "upload_checklist": [
+    "AI use: No (false, según Director, como story-020). Confirmar visualmente antes de subir: el fondo de plaza urbana es fotográfico; si el render es claramente realista, cambiar a true y actualizar este checklist.",
+    "Fiction notice in description: yes",
+    "Credit in description: included ('Character animations: Mixamo.', como story-020)",
+    "Music/SFX: revisar final/provenance.json antes de subir; si hay música CC-BY, añadir atribución a la descripción",
+    "Gates: critic, market y continuity en PASS; policy y qc PENDING (deliver bloqueará hasta que pasen)",
+    "Audience: not made for kids",
+    "Playlist: Mini Stories With a Twist; category Comedy; language en",
+    "On-screen text: 'POV: the bollard wants pie' (rótulo indicado por Director; idea.json onscreen_en dice 'Up we go', conflicto a resolver por el Director)",
+    "Chapters: not applicable (mini-historia de ~13 s, no RELATO)",
+    "Espaciar ≥6-8 h de otro Short y máximo 1-2 Shorts al día (regla de subida de analytics)"
+  ],
+  "ai_use_note": "Director: false, como story-016..020 (fondo realista pero protagonista de dibujo y situación imposible: no puede confundirse con un hecho real)."
+}
