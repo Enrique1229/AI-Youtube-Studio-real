@@ -496,5 +496,22 @@
       "assets/polyhaven/cardboard_box_01/textures/cardboard_box_01_diff_1k.jpg",
       "assets/polyhaven/cardboard_box_01/textures/cardboard_box_01_nor_gl_1k.jpg"
     ]
+  },
+  "beige_wall_001": {
+    "name": "Beige Wall 001",
+    "type": "texture",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/beige_wall_001",
+    "authors": [
+      "Dimitrios Savva",
+      "Rico Cilliers"
+    ],
+    "files": [
+      "assets/polyhaven/beige_wall_001/beige_wall_001_diff_2k.jpg",
+      "assets/polyhaven/beige_wall_001/beige_wall_001_nor_gl_2k.jpg",
+      "assets/polyhaven/beige_wall_001/beige_wall_001_rough_2k.jpg",
+      "assets/polyhaven/beige_wall_001/beige_wall_001_disp_2k.jpg",
+      "assets/polyhaven/beige_wall_001/beige_wall_001_ao_2k.jpg"
+    ]
   }
 }

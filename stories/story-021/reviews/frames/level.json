@@ -1,0 +1,116 @@
+{
+ "frames": 322,
+ "fps": 24,
+ "cues": [
+  {
+   "t": 1.792,
+   "type": "creak",
+   "vol": -6
+  },
+  {
+   "t": 2.042,
+   "type": "boing",
+   "vol": -4
+  },
+  {
+   "t": 2.125,
+   "type": "whoosh",
+   "vol": -10
+  },
+  {
+   "t": 2.958,
+   "type": "clunk",
+   "vol": -8
+  },
+  {
+   "t": 3.125,
+   "type": "huh",
+   "vol": -6
+  },
+  {
+   "t": 4.292,
+   "type": "creak",
+   "vol": -4
+  },
+  {
+   "t": 4.542,
+   "type": "creak",
+   "vol": -5
+  },
+  {
+   "t": 4.792,
+   "type": "creak",
+   "vol": -5
+  },
+  {
+   "t": 4.958,
+   "type": "boing",
+   "vol": -3
+  },
+  {
+   "t": 5.125,
+   "type": "whoosh",
+   "vol": -10
+  },
+  {
+   "t": 5.917,
+   "type": "clunk",
+   "vol": -6
+  },
+  {
+   "t": 6.375,
+   "type": "pop",
+   "vol": -5
+  },
+  {
+   "t": 6.625,
+   "type": "tada",
+   "vol": -10
+  },
+  {
+   "t": 7.042,
+   "type": "slide_down",
+   "vol": -5
+  },
+  {
+   "t": 7.958,
+   "type": "clunk",
+   "vol": -5
+  },
+  {
+   "t": 8.792,
+   "type": "creak",
+   "vol": -5
+  },
+  {
+   "t": 9.792,
+   "type": "hit",
+   "vol": -1
+  },
+  {
+   "t": 9.875,
+   "type": "clunk",
+   "vol": -3
+  },
+  {
+   "t": 10.042,
+   "type": "squeak",
+   "vol": -9
+  },
+  {
+   "t": 10.458,
+   "type": "sigh",
+   "vol": -6
+  },
+  {
+   "t": 11.542,
+   "type": "pop",
+   "vol": -4
+  },
+  {
+   "t": 11.708,
+   "type": "tada",
+   "vol": -10
+  }
+ ]
+}
