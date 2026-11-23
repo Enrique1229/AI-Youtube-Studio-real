@@ -4,26 +4,26 @@
     "format": "mini_story",
     "kind": "anim",
     "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
-    "title_en": "The Bin That Caught Everything",
+    "title_en": "The Bin That Ate Everything",
     "caption_en": null,
-    "onscreen_en": "Nothing but net",
-    "logline_es": "Un hombre lanza una bola de papel a una papelera grande y lejana; la papelera patina sobre ruedas por la plaza para cazar cada tiro y al final se planta a sus pies, abierta, esperando.",
+    "onscreen_en": "Catch!",
+    "logline_es": "Un hombre en primer plano lanza un periodico abierto a una papelera grande del centro; la papelera abre la tapa como boca, salta hacia camara y se relame; luego una caja enorme (la papelera se estira como periscopio) y un globo rojo gigante (la papelera sube sobre el tejado); remate sorpresa: eructa y le devuelve la bola de papel en la frente.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Plano 1: el hombre con una bola de papel, la papelera grande en el centro al fondo; lanza (Throw)."
+        "beat": "Plano 1: hombre de espaldas abajo del encuadre lanza (Throw) un periodico grande abierto; la papelera del centro, con tapa-boca abierta y ojos, ya salta hacia camara."
       },
       {
-        "t": "3-8",
-        "beat": "Tira fallando a un lado y otro: la papelera desliza a cazar cada bola con un clonc."
+        "t": "3-6",
+        "beat": "Caza el periodico con un clonc agudo y se relame."
       },
       {
-        "t": "8-11",
-        "beat": "Tiro lejisimo: la papelera salta y caza; el hombre aplaude (Clapping)."
+        "t": "6-9",
+        "beat": "Segundo tiro, una caja enorme: la papelera se estira vertical como periscopio y se la traga; tercero, un globo rojo gigante muy alto: se dispara hacia arriba, lo engulle y baja con la tapa hinchada."
       },
       {
-        "t": "11-14",
-        "beat": "La papelera desliza hasta sus pies con la tapa abierta; el hombre se queda con otra bola en la mano, pose del plano 1."
+        "t": "9-12",
+        "beat": "Giro: eructa y escupe una bola de papel perfecta a la frente del hombre; este, atonito (Surprised), la coge y vuelve a la pose de lanzar del plano 1."
       }
     ],
     "clips": [
@@ -42,26 +42,26 @@
       [
         3,
         [
-          "Clapping"
+          "Surprised"
         ]
       ],
       [
         4,
         [
-          "Standing Up"
+          "Throw"
         ]
       ]
     ],
-    "payoff": "La papelera juega al baloncesto con el: se mueve ella para cazar.",
-    "sin_palabras": "Hombre con bola de papel mira una papelera grande y lejana.",
+    "payoff": "La papelera juega a cazar, escala sus acrobacias y al final devuelve el tiro.",
+    "sin_palabras": "Hombre abajo en primer plano lanzando un periodico abierto; papelera central con boca abierta saltando hacia camara.",
     "tres_fotogramas": [
-      "Hombre con bola de papel mira una papelera grande y lejana.",
-      "Bola en el aire hacia la izquierda y la papelera patinando a esa posicion.",
-      "Papelera pegada al hombre, tapa abierta, el con otra bola en la mano."
+      "Hombre abajo en primer plano lanzando un periodico abierto; papelera central con boca abierta saltando hacia camara.",
+      "Papelera estirada vertical como periscopio con un globo rojo gigante entrando en la tapa-boca.",
+      "Papelera eructando y una bola de papel dando en la frente del hombre, que vuelve a lanzar."
     ],
-    "needs": "Papelera = cilindro con tapa y 2 ruedas; bolas = esferas pequeñas con trayectoria S.key; deslizamiento lateral y salto. Clips existentes.",
+    "needs": "Papelera = cilindro con tapa que gira (boca) y 2 esferas de ojos; estirado S.key en Z; movimiento hacia camara y vertical (eje Y/Z), no lateral; periodico, caja y globo = cubos finos/esferas grandes. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Objeto que caza, no que huye (ledger 0,27 max).",
+    "diferencia": "Objeto que caza con personalidad; sin ruedas laterales.",
     "batch": "20261123-3"
   },
   {
@@ -69,64 +69,64 @@
     "format": "mini_story",
     "kind": "anim",
     "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
-    "title_en": "The Hydrant on a Leash",
+    "title_en": "The Van on a Balloon",
     "caption_en": null,
-    "onscreen_en": "Walkies",
-    "logline_es": "Un hombre pasea con correa a un hidrante que tira de el por la plaza, se para a oler una farola y se sienta obediente cuando el hombre vuelve al punto de partida.",
+    "onscreen_en": "Parking: sky",
+    "logline_es": "Una furgoneta flota dos metros sobre el adoquin atada a un globo rojo enorme y el hombre la pasea con una cuerda; la ata a un bolardo, la furgoneta baja suave y aparca, el sube; al soltar la cuerda vuelve a flotar.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Plano 1: el hombre sujeta una correa roja atada al hidrante grande del centro; el hidrante da saltitos (Standing Up)."
+        "beat": "Plano 1: furgoneta flotando bajo un globo rojo gigante; el hombre abajo la pasea tirando de la cuerda (Walking Left Turn)."
       },
       {
-        "t": "3-8",
-        "beat": "El hidrante sale disparado a un lado y arrastra al hombre (Running)."
+        "t": "3-7",
+        "beat": "Enrolla la cuerda en un bolardo (Picking Up) y la furgoneta baja despacio."
       },
       {
-        "t": "8-11",
-        "beat": "Se detiene en seco ante la farola; el hombre cae hacia delante (Surprised)."
+        "t": "7-11",
+        "beat": "Aparca, el hombre se sienta en la cabina (Sitting Idle) y se relaja."
       },
       {
         "t": "11-14",
-        "beat": "Vuelven al centro; el hidrante se sienta y mueve la tapa como cola; el hombre en la pose del plano 1."
+        "beat": "Se baja y suelta la cuerda; la furgoneta se eleva de nuevo; pose del plano 1."
       }
     ],
     "clips": [
       [
         1,
         [
-          "Standing Up"
+          "Walking Left Turn"
         ]
       ],
       [
         2,
         [
-          "Running"
+          "Picking Up"
         ]
       ],
       [
         3,
         [
-          "Surprised"
+          "Sitting Idle"
         ]
       ],
       [
         4,
         [
-          "Waving"
+          "Walking Left Turn"
         ]
       ]
     ],
-    "payoff": "El hidrante es la mascota del hombre.",
-    "sin_palabras": "Hombre con correa roja ligada a un hidrante grande y quieto en el centro.",
+    "payoff": "La furgoneta flota gracias al globo y se aparca con cuerda.",
+    "sin_palabras": "Furgoneta flotando bajo un globo rojo gigante y el hombre tirando de la cuerda.",
     "tres_fotogramas": [
-      "Hombre con correa roja ligada a un hidrante grande y quieto en el centro.",
-      "Hidrante dando un salto hacia la izquierda con la correa tensa y el hombre inclinado detras.",
-      "Hidrante sentado en el centro, tapa meneandose, el hombre con la correa floja."
+      "Furgoneta flotando bajo un globo rojo gigante y el hombre tirando de la cuerda.",
+      "Furgoneta posada en el suelo con la cuerda atada al bolardo.",
+      "Furgoneta flotando de nuevo y el hombre caminando con la cuerda."
     ],
-    "needs": "Hidrante = cilindro + cupula con 2 tapas laterales; correa = cubo fino; saltos con S.key; tapa como cola con rotacion. Clips existentes.",
+    "needs": "Furgoneta de build_plaza elevada por S.key Z; globo = uv_sphere roja grande + cuerda = cubo fino. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Mascota objeto, no el chorro de agua de ideas rechazadas.",
+    "diferencia": "Objeto que flota, no vuela por si mismo ni es un cometa.",
     "batch": "20261123-3"
   },
   {
@@ -134,33 +134,98 @@
     "format": "mini_story",
     "kind": "anim",
     "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
-    "title_en": "The Lamp Post That Eavesdropped",
+    "title_en": "The Plaza That Rolled Up",
     "caption_en": null,
-    "onscreen_en": "Nosy",
-    "logline_es": "Un hombre habla por telefono junto a una farola; esta se dobla hasta poner la lampara junto al auricular, el se aparta, ella se endereza silbando y vuelve a doblarse.",
+    "onscreen_en": "Run!",
+    "logline_es": "Un hombre corre hacia camara mientras detras el adoquin se enrolla como una alfombra enorme; la rueda lo alcanza y lo sube a su cima; al terminar de enrollarse se desenrolla de nuevo y lo devuelve al inicio corriendo.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Plano 1: el hombre habla por telefono (Talking On Phone), farola recta y enorme a su lado."
+        "beat": "Plano 1: el hombre corre hacia camara (Running) y detras un rollo gigante de adoquin avanza tragando el suelo, que queda oscuro."
       },
       {
         "t": "3-7",
-        "beat": "La farola se dobla despacio y pone la lampara al lado del movil."
+        "beat": "El rollo lo alcanza; cae (Falling Back Death) sobre el."
       },
       {
         "t": "7-11",
-        "beat": "Mira a la farola (Surprised) y se aparta; ella se endereza de golpe y simula silbar."
+        "beat": "Sube a la cima del rollo, que ya llega al borde del encuadre; sorpresa (Surprised)."
       },
       {
         "t": "11-14",
-        "beat": "El vuelve a hablar; la farola recta; pose del plano 1."
+        "beat": "El rollo se desenrolla hacia atras y lo lleva de vuelta; vuelve a correr en la pose del plano 1."
       }
     ],
     "clips": [
       [
         1,
         [
-          "Talking On Phone"
+          "Running"
+        ]
+      ],
+      [
+        2,
+        [
+          "Falling Back Death"
+        ]
+      ],
+      [
+        3,
+        [
+          "Surprised"
+        ]
+      ],
+      [
+        4,
+        [
+          "Running"
+        ]
+      ]
+    ],
+    "payoff": "El suelo es una alfombra enrollable.",
+    "sin_palabras": "Hombre corriendo hacia camara con un rollo gigante de adoquin detras.",
+    "tres_fotogramas": [
+      "Hombre corriendo hacia camara con un rollo gigante de adoquin detras.",
+      "Hombre encima del rollo cerca de la camara.",
+      "Hombre corriendo hacia camara con el rollo detras."
+    ],
+    "needs": "Rollo = cilindro grande con material adoquin sobre un disco oscuro; rotacion + traslacion en Y hacia camara. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Suelo como alfombra, no cinta transportadora en 2D.",
+    "batch": "20261123-3"
+  },
+  {
+    "id": "b20261123-3-i04",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
+    "title_en": "The Cloud on a Rope",
+    "caption_en": null,
+    "onscreen_en": "Water the plants",
+    "logline_es": "Una nubecita atada a una cuerda cuelga sobre una jardinera marchita; el hombre trepa por la cuerda, se sienta sobre la nube y la exprime; llueve y las flores se abren; baja y vuelve a trepar a por la siguiente.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Plano 1: hombre trepando la cuerda (Climbing A Rope) que cuelga de una nubecita sobre una jardinera marchita."
+      },
+      {
+        "t": "3-7",
+        "beat": "Se sube a la nube y la aprieta (Surprised)."
+      },
+      {
+        "t": "7-11",
+        "beat": "Llueve: las flores marchitas se levantan abiertas; aplaude (Clapping)."
+      },
+      {
+        "t": "11-14",
+        "beat": "Baja y vuelve a trepar la cuerda hacia otra nube sobre la siguiente jardinera; pose del plano 1."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Climbing A Rope"
         ]
       ],
       [
@@ -172,92 +237,26 @@
       [
         3,
         [
-          "Shaking Head No"
-        ]
-      ],
-      [
-        4,
-        [
-          "Talking On Phone"
-        ]
-      ]
-    ],
-    "payoff": "La farola cotillea la llamada.",
-    "sin_palabras": "Hombre al telefono junto a una farola recta.",
-    "tres_fotogramas": [
-      "Hombre al telefono junto a una farola recta.",
-      "Farola doblada en arco con la lampara pegada al movil.",
-      "Farola recta de nuevo, hombre al telefono, igual que el primero."
-    ],
-    "needs": "Farola = cilindros con bisagra en el cuello (rotacion); lampara como esfera. Clips existentes.",
-    "riesgo_copia": "bajo",
-    "diferencia": "Objeto que escucha; sin noche ni bombilla (ledger farola rechazada).",
-    "batch": "20261123-3"
-  },
-  {
-    "id": "b20261123-3-i04",
-    "format": "mini_story",
-    "kind": "anim",
-    "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
-    "title_en": "The Van That Copied Him",
-    "caption_en": null,
-    "onscreen_en": "Mirror mode",
-    "logline_es": "Un hombre asiente, niega, se encoge de hombros y aplaude ante una furgoneta, y la furgoneta lo imita: cabecea con la suspension, se balancea, sube y baja el chasis y cierra las puertas traseras de golpe.",
-    "beats": [
-      {
-        "t": "0-3",
-        "beat": "Plano 1: el hombre asiente (Head Nod Yes) ante la furgoneta; ella cabecea."
-      },
-      {
-        "t": "3-7",
-        "beat": "Niega (Shaking Head No): la furgoneta se balancea de lado a lado."
-      },
-      {
-        "t": "7-11",
-        "beat": "Se encoge de hombros (Shrugging): ella sube el chasis; aplaude (Clapping): puertas traseras que se abren y cierran."
-      },
-      {
-        "t": "11-14",
-        "beat": "El se queda quieto; la furgoneta se queda quieta en la pose del plano 1."
-      }
-    ],
-    "clips": [
-      [
-        1,
-        [
-          "Head Nod Yes"
-        ]
-      ],
-      [
-        2,
-        [
-          "Shaking Head No"
-        ]
-      ],
-      [
-        3,
-        [
-          "Shrugging",
           "Clapping"
         ]
       ],
       [
         4,
         [
-          "Head Nod Yes"
+          "Climbing A Rope"
         ]
       ]
     ],
-    "payoff": "La furgoneta es su espejo.",
-    "sin_palabras": "Hombre asintiendo frente a la furgoneta con el morro hacia abajo.",
+    "payoff": "La nube es una regadera.",
+    "sin_palabras": "Hombre trepando una cuerda que cuelga de una nube sobre una jardinera con flores marchitas.",
     "tres_fotogramas": [
-      "Hombre asintiendo frente a la furgoneta con el morro hacia abajo.",
-      "Hombre negando y la furgoneta inclinada a un lado.",
-      "Hombre y furgoneta quietos igual que en el primero."
+      "Hombre trepando una cuerda que cuelga de una nube sobre una jardinera con flores marchitas.",
+      "Hombre sentado en la nube que llueve sobre la jardinera.",
+      "Hombre trepando otra cuerda con la jardinera de flores abiertas."
     ],
-    "needs": "Furgoneta de build_plaza con S.key de cabeceo, vaiven y puertas; sin objeto nuevo. Clips existentes.",
+    "needs": "Nube = 3 uv_spheres blancas; lluvia = cubos finos azules; flores = cilindros con S.key de abrirse; jardinera de build_plaza. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Objeto espejo de gestos; sin conducir, no es un bus (ledger).",
+    "diferencia": "Nube-regadera, no el chaparron personal del ledger.",
     "batch": "20261123-3"
   },
   {
@@ -265,26 +264,26 @@
     "format": "mini_story",
     "kind": "anim",
     "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
-    "title_en": "The Bollard That Sank",
+    "title_en": "The Bollard That Went for Pie",
     "caption_en": null,
-    "onscreen_en": "Down? Up!",
-    "logline_es": "Un hombre se sienta en un bolardo grande; el bolardo se hunde en el suelo hasta dejarlo en el adoquin, sube de nuevo y lo devuelve a lo alto en la misma pose.",
+    "onscreen_en": "Up we go",
+    "logline_es": "Un hombre se sienta en un bolardo; en la ventana de un primer piso se ve una tarta humeante; el bolardo se estira como periscopio hasta la ventana, el hombre coge la tarta y el bolardo lo baja; el hombre se queda sentado comiendola.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Plano 1: el hombre sentado en lo alto del bolardo grande (Sitting Idle), piernas colgando."
+        "beat": "Plano 1: hombre sentado en el bolardo (Sitting Idle) y una tarta humeante en la ventana alta; el bolardo mira hacia ella (tiene un solo ojo en la banda amarilla)."
       },
       {
         "t": "3-7",
-        "beat": "El bolardo baja como piston hasta dejarlo en el suelo; sorpresa (Surprised)."
+        "beat": "El bolardo se estira por anillos hasta el alfeizar, el hombre se aferra (Surprised)."
       },
       {
-        "t": "7-11",
-        "beat": "Intenta levantarse (Standing Up) y el bolardo sube de golpe, el hombre sentado de nuevo arriba."
+        "t": "7-10",
+        "beat": "Coge la tarta (Picking Up)."
       },
       {
-        "t": "11-14",
-        "beat": "Mira abajo y saluda (Waving); pose del plano 1."
+        "t": "10-14",
+        "beat": "El bolardo se encoge; el hombre sentado come tarta (Sitting Idle), pose del plano 1; el bolardo guina el ojo."
       }
     ],
     "clips": [
@@ -303,26 +302,26 @@
       [
         3,
         [
-          "Standing Up"
+          "Picking Up"
         ]
       ],
       [
         4,
         [
-          "Waving"
+          "Sitting Idle"
         ]
       ]
     ],
-    "payoff": "El bolardo es un ascensor-piston.",
-    "sin_palabras": "Hombre sentado en lo alto del bolardo alto.",
+    "payoff": "El bolardo tenia hambre de tarta y usa al hombre de manos.",
+    "sin_palabras": "Hombre sentado en un bolardo bajo con una tarta humeante en una ventana alta.",
     "tres_fotogramas": [
-      "Hombre sentado en lo alto del bolardo alto.",
-      "Bolardo hundido, el hombre sentado a ras de adoquin.",
-      "Bolardo alto de nuevo con el hombre sentado y saludando."
+      "Hombre sentado en un bolardo bajo con una tarta humeante en una ventana alta.",
+      "Bolardo estirado en anillos hasta el alfeizar y el hombre cogiendo la tarta.",
+      "Bolardo bajo, el hombre sentado comiendo y el bolardo guinando el ojo."
     ],
-    "needs": "Bolardo grande 1.6 m = cilindro con banda amarilla, movimiento vertical S.key. Clips existentes.",
+    "needs": "Bolardo grande con anillos que se estiran por escala Z; ojo = esfera; ventana de la fachada con tarta = cilindro + disco de vapor. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Elevador vertical, no un objeto que se va andando.",
+    "diferencia": "Objeto con apetito y giro de complicidad; no hunde el suelo.",
     "batch": "20261123-3"
   },
   {
@@ -330,64 +329,64 @@
     "format": "mini_story",
     "kind": "anim",
     "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, terraza, jardineras, bolardos, furgoneta",
-    "title_en": "The Crosswalk That Carried Him",
+    "title_en": "The Building That Rocked",
     "caption_en": null,
-    "onscreen_en": "Press to cross",
-    "logline_es": "Un hombre pulsa el boton de un poste alto; las rayas del paso de cebra se convierten en cinta transportadora y lo llevan al otro lado, donde pulsa otro boton y vuelve.",
+    "onscreen_en": "Push",
+    "logline_es": "Un hombre empuja la fachada del edificio entera hasta inclinarla; esta se balancea de vuelta como una mecedora y lo desliza hacia atras, y otra vez; sigue empujando.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Plano 1: el hombre pulsa el boton del poste (Button Pushing), paso de cebra ante el."
+        "beat": "Plano 1: la fachada inclinada hacia atras con el hombre empujandola (Pushing)."
       },
       {
         "t": "3-7",
-        "beat": "Las rayas se animan y se deslizan; el sube y se deja llevar (Sneaking Forward)."
+        "beat": "El edificio vuelve hacia el: lo empuja y lo desliza (Surprised)."
       },
       {
         "t": "7-11",
-        "beat": "Al otro lado pulsa el boton gemelo (Button Pushing)."
+        "beat": "Vuelve a inclinar la fachada; desliza al otro lado."
       },
       {
         "t": "11-14",
-        "beat": "La cinta lo trae de vuelta; llega al poste, pose del plano 1."
+        "beat": "Fachada inclinada y el hombre empujando, pose del plano 1."
       }
     ],
     "clips": [
       [
         1,
         [
-          "Button Pushing"
+          "Pushing"
         ]
       ],
       [
         2,
         [
-          "Sneaking Forward"
+          "Surprised"
         ]
       ],
       [
         3,
         [
-          "Button Pushing"
+          "Pushing"
         ]
       ],
       [
         4,
         [
-          "Head Nod Yes"
+          "Pushing"
         ]
       ]
     ],
-    "payoff": "El paso de cebra es una cinta transportadora.",
-    "sin_palabras": "Hombre pulsando el boton de un poste alto ante un paso de cebra.",
+    "payoff": "El edificio es una mecedora.",
+    "sin_palabras": "Fachada inclinada hacia atras y el hombre empujando.",
     "tres_fotogramas": [
-      "Hombre pulsando el boton de un poste alto ante un paso de cebra.",
-      "Hombre de pie sobre las rayas desplazandose al otro lado.",
-      "Hombre de vuelta en el poste pulsando igual que al inicio."
+      "Fachada inclinada hacia atras y el hombre empujando.",
+      "Fachada inclinada hacia el hombre, que se inclina hacia atras con los brazos arriba.",
+      "Fachada inclinada hacia atras y el hombre empujando igual que al inicio."
     ],
-    "needs": "Poste = cilindro con boton; rayas existentes (cubos) con S.key de desplazamiento; paso de cebra delante del poste, no en la calzada. Clip nuevo no necesario.",
+    "needs": "Fachada de build_plaza con rotacion S.key en el eje X (balanceo); sin objeto nuevo. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Cinta, no semaforo en rojo (ledger rechazada).",
+    "diferencia": "Edificio que se balancea; gran objeto central, sin gesto de sonido.",
     "batch": "20261123-3"
   }
 ]
