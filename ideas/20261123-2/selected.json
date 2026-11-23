@@ -1,0 +1,65 @@
+[
+  {
+    "id": "b20261123-2-i01",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "HDRI dresden_square + suelo PBR adoquin gris",
+    "title_en": "The Manhole That Hiccuped",
+    "caption_en": null,
+    "onscreen_en": null,
+    "logline_es": "Camara baja en una plaza adoquinada: una tapa de alcantarilla gigante sale disparada con cada hipo sobre un chorro de vapor y escupe un objeto distinto; el hombre esquiva y atrapa, le da un susto para curarla y la tapa se asienta; entonces el hipo lo pilla a el.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Gancho (frame 1, picado inverso desde abajo): la tapa enorme ya en el aire sobre una columna de vapor ocupando el tercio central, el hombre pequeno a un lado se agacha; clonk al caer."
+      },
+      {
+        "t": "3-7",
+        "beat": "Hic: la tapa vuelve a saltar y escupe una bota (el hombre la esquiva); otro hic escupe un patito de goma que el hombre atrapa (squeak); reaccion en cada hipo."
+      },
+      {
+        "t": "7-11",
+        "beat": "Intenta curarla: se esconde y da un susto con los brazos arriba; la tapa se queda congelada en lo alto y cae de plano con un golpe de platillo."
+      },
+      {
+        "t": "11-15",
+        "beat": "Giro: la tapa quieta, el hombre aliviado se lleva la mano al pecho y le da un hic a el mismo: salta unos centimetros, la tapa responde con un clonk burlon; queda en la pose del plano 1."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Looking Around"
+        ]
+      ],
+      [
+        2,
+        [
+          "Picking Up"
+        ]
+      ],
+      [
+        3,
+        [
+          "Waving"
+        ]
+      ],
+      [
+        4,
+        [
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "El susto cura a la tapa y el hipo se lo pasa al hombre.",
+    "sin_palabras": "Tapa gigante saltando sobre un chorro de vapor: se lee en 1 s.",
+    "needs": "Camara baja (picado inverso) con la tapa alta en el tercio central; tapa = cilindro plano con S.key de posicion Y; vapor = cilindro semitransparente que escala; bota y patito = primitivas; sonidos distintos por beat (clonk, squeak, platillo, hic), sin tono ascendente repetido. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Tapa viva que da hipo y se cura con un susto; remate de contagio, sin sed ni escala sonora.",
+    "vps": 71.1,
+    "batch": "20261123-2",
+    "story_id": "story-020",
+    "critic_improve": "Dar al objeto escupido una escalada propia (bota, patito, y por ultimo algo enorme que el hombre apenas esquiva) y probar antes del guion el cilindro de vapor semitransparente con la camara baja; cerrar con el hic del hombre en el mismo encuadre del plano 1 para que el bucle sea literal."
+  }
+]

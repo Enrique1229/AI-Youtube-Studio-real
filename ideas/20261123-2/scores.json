@@ -2,40 +2,40 @@
   {
     "id": "b20261123-2-i01",
     "scores": {
-      "hook": 8,
+      "hook": 9,
       "curiosity": 7,
-      "retention": 7,
+      "retention": 8,
       "originality": 7,
+      "visual": 8,
+      "emotion": 7,
+      "ending": 8,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 5,
+      "repetition_risk": 3
+    },
+    "why": "Ronda 1: el picado inverso con la tapa ya en el aire sobre una columna de vapor llena la vertical en el frame 1, cada hipo escupe un objeto distinto (bota, patito) con sonido propio, lo que mantiene la accion en todo el video, y el remate de contagio (el hipo pasa al hombre y la tapa se burla) es calido, sorprendente y encaja en bucle; no sube mas porque el susto para curar el hipo es un tropo conocido, bota y patito son objetos genericos sin conexion con la alcantarilla, el vapor translucido y la camara baja suben la dificultad y la serie depende de un gag de objeto unico.",
+    "improve": "Dar al objeto escupido una escalada propia (bota, patito, y por ultimo algo enorme que el hombre apenas esquiva) y probar antes del guion el cilindro de vapor semitransparente con la camara baja; cerrar con el hic del hombre en el mismo encuadre del plano 1 para que el bucle sea literal.",
+    "vps": 71.1
+  },
+  {
+    "id": "b20261123-2-i06",
+    "scores": {
+      "hook": 6,
+      "curiosity": 8,
+      "retention": 7,
+      "originality": 6,
       "visual": 6,
       "emotion": 6,
       "ending": 7,
       "series": 5,
       "differentiation": 6,
       "production_difficulty": 4,
-      "repetition_risk": 3
-    },
-    "why": "Una tapa de alcantarilla gigante que da hipo con clonk es un frame 1 absurdo que se entiende sin palabras, el hipo creciente (cajon, vuelo, thud lejano) escala bien y el remate 'tenia sed' es calido y encaja en bucle con el plano 1; no sube mas porque una tapa plana sobre adoquin ocupa poca altura en 9:16, el cajon que sale fuera de campo regala 4 s con el hombre quieto y el remate de sed se adivina tras el vaso.",
-    "improve": "Encuadrar la tapa enorme y levantada en el tercio central con el hombre pequeno al lado, hacer que el cajon vuelva a caer (thud en cuadro) para no perder accion en 6-10 s y que el aro de humo caiga con ping sincronizado con la pose final del plano 1.",
-    "vps": 64.7
-  },
-  {
-    "id": "b20261123-2-i06",
-    "scores": {
-      "hook": 8,
-      "curiosity": 7,
-      "retention": 6,
-      "originality": 6,
-      "visual": 7,
-      "emotion": 6,
-      "ending": 6,
-      "series": 5,
-      "differentiation": 6,
-      "production_difficulty": 6,
       "repetition_risk": 4
     },
-    "why": "Un cono enorme tapando la cabeza con los brazos a ciegas es un frame 1 visual y comico, y los pops de tono creciente prometen 'que hay debajo' como la recompensa sonora de Bell; no sube mas porque el cono anidado es una matrioska conocida, el remate 'familia de conos y le gusta de casco' es arbitrario (no hay causa visible), el POV 'the cone is stuck' no coincide con el final y anidar conos parentados a la cabeza de un humano Mixamo puede atravesar la malla.",
-    "improve": "Dar causa al final (el cono diminuto le pita o le susurra y por eso se pone el grande de casco) y probar antes del guion el parentado de tres conos sobre la cabeza con un clip de pie, usando color vivo naranja y el pop con pitch creciente como unica gimmick.",
-    "vps": 59.6
+    "why": "Ronda 1: el POV 'what is under the cone?' ahora promete algo concreto, el pip de cada cono es una recompensa escalonada y el aviso de lluvia da causa al remate (el cono grande es paraguas para todos), eliminando el parentado problematico; baja el gancho porque un cono quieto en el suelo con el hombre mirando es un frame 1 menos absurdo que el cono tapando la cabeza, el cono anidado sigue siendo una matrioska conocida, la gota en la nariz y la lluvia con golpecitos son pequenas en 9:16 y el aviso del cono diminuto se adivina por el cielo.",
+    "improve": "Hacer el cono enorme y naranja ocupando dos tercios del encuadre con un cono diminuto brillante, que el pip suba de verdad de tono en cada nivel y mostrar el cielo gris desde el frame 1 sin gota, de modo que la lluvia sea una sorpresa sonora y no un aviso previo.",
+    "vps": 59.9
   },
   {
     "id": "b20261123-2-i03",
