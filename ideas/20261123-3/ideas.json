@@ -7,23 +7,23 @@
     "title_en": "The Bin That Ate Everything",
     "caption_en": null,
     "onscreen_en": "Catch!",
-    "logline_es": "Un hombre en primer plano lanza un periodico abierto a una papelera grande del centro; la papelera abre la tapa como boca, salta hacia camara y se relame; luego una caja enorme (la papelera se estira como periscopio) y un globo rojo gigante (la papelera sube sobre el tejado); remate sorpresa: eructa y le devuelve la bola de papel en la frente.",
+    "logline_es": "Un hombre lanza un periodico a una papelera grande del centro y esta salta hacia camara a cazarlo con la tapa-boca; luego una caja (la papelera se estira como periscopio) y por ultimo la furgoneta de la plaza (la papelera se abre enorme y se la traga); el hombre, aliviado, tira su ultima bola y la papelera lo mira, se lo traga a el tambien y lo escupe de pie en la pose inicial, con otro periodico en la mano.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Plano 1: hombre de espaldas abajo del encuadre lanza (Throw) un periodico grande abierto; la papelera del centro, con tapa-boca abierta y ojos, ya salta hacia camara."
+        "beat": "Gancho (accion en el fotograma 1): hombre abajo en primer plano lanza (Throw) un periodico abierto; la papelera central, con tapa-boca abierta y ojos, salta hacia camara y lo caza."
       },
       {
         "t": "3-6",
-        "beat": "Caza el periodico con un clonc agudo y se relame."
+        "beat": "Lanza una caja grande: la papelera se estira vertical como periscopio y la engulle."
       },
       {
         "t": "6-9",
-        "beat": "Segundo tiro, una caja enorme: la papelera se estira vertical como periscopio y se la traga; tercero, un globo rojo gigante muy alto: se dispara hacia arriba, lo engulle y baja con la tapa hinchada."
+        "beat": "Lanza (Throw) la furgoneta, que alza con esfuerzo: la tapa-boca se abre enorme, se desencaja como serpiente y se la traga entera; el hombre se queda boquiabierto (Surprised)."
       },
       {
         "t": "9-12",
-        "beat": "Giro: eructa y escupe una bola de papel perfecta a la frente del hombre; este, atonito (Surprised), la coge y vuelve a la pose de lanzar del plano 1."
+        "beat": "Giro: la papelera lo mira, abre la boca hacia el y se lo traga; la tapa se cierra, tiembla un instante y lo escupe de pie con otro periodico en la mano: pose del plano 1."
       }
     ],
     "clips": [
@@ -42,24 +42,25 @@
       [
         3,
         [
+          "Throw",
           "Surprised"
         ]
       ],
       [
         4,
         [
-          "Throw"
+          "Standing Up"
         ]
       ]
     ],
-    "payoff": "La papelera juega a cazar, escala sus acrobacias y al final devuelve el tiro.",
-    "sin_palabras": "Hombre abajo en primer plano lanzando un periodico abierto; papelera central con boca abierta saltando hacia camara.",
+    "payoff": "La papelera se come cualquier cosa, incluido el hombre, y lo devuelve listo para lanzar otra vez.",
+    "sin_palabras": "Hombre abajo con un periodico en el aire y la papelera del centro saltando hacia camara con la boca abierta.",
     "tres_fotogramas": [
-      "Hombre abajo en primer plano lanzando un periodico abierto; papelera central con boca abierta saltando hacia camara.",
-      "Papelera estirada vertical como periscopio con un globo rojo gigante entrando en la tapa-boca.",
-      "Papelera eructando y una bola de papel dando en la frente del hombre, que vuelve a lanzar."
+      "Hombre abajo con un periodico en el aire y la papelera del centro saltando hacia camara con la boca abierta.",
+      "Papelera con la boca desencajada, enorme, tragandose la furgoneta; el hombre mirando boquiabierto.",
+      "Hombre de pie otra vez, con un periodico en la mano, lanzando; la papelera en el centro con la boca abierta."
     ],
-    "needs": "Papelera = cilindro con tapa que gira (boca) y 2 esferas de ojos; estirado S.key en Z; movimiento hacia camara y vertical (eje Y/Z), no lateral; periodico, caja y globo = cubos finos/esferas grandes. Clips existentes.",
+    "needs": "Papelera = cilindro con tapa que gira (boca) y 2 esferas de ojos; escala Z en periscopio, boca escalada x3 para la furgoneta (la furgoneta se encoge dentro), todo hacia camara y vertical; el hombre entra (escala a 0) y sale por la tapa. Clips existentes.",
     "riesgo_copia": "bajo",
     "diferencia": "Objeto que caza con personalidad; sin ruedas laterales.",
     "batch": "20261123-3"
