@@ -113,3 +113,52 @@ def build(S):
     S.sc.view_settings.view_transform = "AgX"
     try: S.sc.view_settings.look = "AgX - Base Contrast"; S.sc.view_settings.exposure = 0.0
     except Exception: pass
+
+
+# ------------------------------------------------------------------ plaza urbana (episodio 17+)
+def _col_bounds(col):
+    """(min, max) en coordenadas locales de los objetos de malla de una colección importada."""
+    from mathutils import Vector
+    pts = [o.matrix_world @ Vector(c) for o in col.objects if o.type == "MESH" for c in o.bound_box]
+    return (Vector((min(p.x for p in pts), min(p.y for p in pts), min(p.z for p in pts))),
+            Vector((max(p.x for p in pts), max(p.y for p in pts), max(p.z for p in pts))))
+
+
+def _place_fit(S, col, loc, height, rot_z=0.0):
+    """Instancia `col` con la base apoyada en z=loc[2] y escalada para que mida `height` m de alto (Poly Haven no siempre viene en metros).
+    Devuelve (instancia, escala, (ancho_x, ancho_y))."""
+    lo, hi = _col_bounds(col)
+    k = height / max(1e-6, hi.z - lo.z)
+    cx, cy = (lo.x + hi.x) / 2, (lo.y + hi.y) / 2
+    import math as _m
+    c, s_ = _m.cos(rot_z), _m.sin(rot_z)
+    # el origen del modelo no tiene por qué estar en su centro: se compensa para que (loc.x, loc.y) sea el centro de la base
+    off = (-(cx * c - cy * s_) * k, -(cx * s_ + cy * c) * k, -lo.z * k)
+    inst = _place(S, col, (loc[0] + off[0], loc[1] + off[1], loc[2] + off[2]), rot_z, k)
+    return inst, k, ((hi.x - lo.x) * k, (hi.y - lo.y) * k)
+
+
+def build_plaza(S, rot_deg=0, sun_energy=3.0):
+    """Plaza urbana realista: cielo HDRI dresden_square, suelo de adoquín PBR hasta el horizonte y atrezo (farola, papelera, jardinera).
+    Sin césped ni parque. Deja solo sol, cámara y objetivo del escenario base. Reutiliza _hdri/_pbr/_model.
+    Devuelve dict con las instancias del atrezo (para colocar o animar)."""
+    for o in list(S.sc.objects):
+        if o.name.startswith("sun") or o is S.cam or o is S.tgt: continue
+        bpy.data.objects.remove(o, do_unlink=True)
+    _hdri(S, name="dresden_square", strength=1.0, rot_deg=rot_deg)
+    sun = bpy.data.objects["sun"]; sun.data.energy = sun_energy; sun.data.color = (1.0, 0.94, 0.84); sun.data.angle = math.radians(1.5)
+    sun.rotation_euler = (math.radians(52), 0, math.radians(-28))
+    S.sc.view_settings.view_transform = "AgX"
+    try: S.sc.view_settings.look = "AgX - Base Contrast"; S.sc.view_settings.exposure = 0.0
+    except Exception: pass
+    S.cam.data.dof.use_dof = False; S.water = None
+    # suelo: plano de 120 m con UV en metros (el adoquín se repite cada 1,5 m)
+    cob = _pbr(S, "cobblestone_floor_01", scale=1.0)
+    bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 0, 0)); g = bpy.context.object; g.name = "plaza_suelo"
+    g.scale = (120, 120, 1); g.data.materials.append(cob)
+    bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
+    me = g.data; me.uv_layers.active.data.foreach_set("uv", [c for l in me.loops for c in (me.vertices[l.vertex_index].co.x / 1.5, me.vertices[l.vertex_index].co.y / 1.5)])
+    props = {}
+    lamp = _model("street_lamp_01", "2k"); can = _model("metal_trash_can", "2k"); plant = _model("planter_box_01", "2k")
+    props["lamp"] = lamp; props["can"] = can; props["planter"] = plant
+    return props

@@ -216,5 +216,285 @@
       "assets/polyhaven/planter_box_01/textures/planter_box_01_arm_2k.jpg",
       "assets/polyhaven/planter_box_01/textures/planter_box_01_nor_gl_2k.jpg"
     ]
+  },
+  "street_lamp_02": {
+    "name": "Street Lamp 02",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/street_lamp_02",
+    "authors": [
+      "Josh Dean"
+    ],
+    "files": [
+      "assets/polyhaven/street_lamp_02/street_lamp_02_1k.gltf",
+      "assets/polyhaven/street_lamp_02/textures/street_lamp_02_diff_1k.jpg",
+      "assets/polyhaven/street_lamp_02/textures/street_lamp_02_arm_1k.jpg",
+      "assets/polyhaven/street_lamp_02/street_lamp_02.bin",
+      "assets/polyhaven/street_lamp_02/textures/street_lamp_02_nor_gl_1k.jpg"
+    ]
+  },
+  "fire_hydrant": {
+    "name": "Fire Hydrant",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/fire_hydrant",
+    "authors": [
+      "Gonçalo Felício"
+    ],
+    "files": [
+      "assets/polyhaven/fire_hydrant/fire_hydrant_1k.gltf",
+      "assets/polyhaven/fire_hydrant/fire_hydrant.bin",
+      "assets/polyhaven/fire_hydrant/textures/fire_hydrant_nor_gl_1k.jpg",
+      "assets/polyhaven/fire_hydrant/textures/fire_hydrant_aged_diff_1k.jpg",
+      "assets/polyhaven/fire_hydrant/textures/fire_hydrant_aged_arm_1k.jpg",
+      "assets/polyhaven/fire_hydrant/textures/fire_hydrant_aged_nor_gl_1k.jpg",
+      "assets/polyhaven/fire_hydrant/textures/fire_hydrant_diff_1k.jpg",
+      "assets/polyhaven/fire_hydrant/textures/fire_hydrant_arm_1k.jpg"
+    ]
+  },
+  "modular_street_seating": {
+    "name": "Modular Street Seating",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/modular_street_seating",
+    "authors": [
+      "Stuart Attenborrow"
+    ],
+    "files": [
+      "assets/polyhaven/modular_street_seating/modular_street_seating_1k.gltf",
+      "assets/polyhaven/modular_street_seating/textures/modular_street_seating_supports_diff_1k.jpg",
+      "assets/polyhaven/modular_street_seating/textures/modular_street_seating_armrests_nor_gl_1k.jpg",
+      "assets/polyhaven/modular_street_seating/textures/modular_street_seating_timber_arm_1k.jpg",
+      "assets/polyhaven/modular_street_seating/textures/modular_street_seating_supports_nor_gl_1k.jpg",
+      "assets/polyhaven/modular_street_seating/textures/modular_street_seating_timber_diff_1k.jpg",
+      "assets/polyhaven/modular_street_seating/textures/modular_street_seating_connectors_nor_gl_1k.jpg",
+      "assets/polyhaven/modular_street_seating/textures/modular_street_seating_armrests_diff_1k.jpg",
+      "assets/polyhaven/modular_street_seating/textures/modular_street_seating_supports_arm_1k.jpg",
+      "assets/polyhaven/modular_street_seating/textures/modular_street_seating_connectors_diff_1k.jpg",
+      "assets/polyhaven/modular_street_seating/textures/modular_street_seating_armrests_arm_1k.jpg",
+      "assets/polyhaven/modular_street_seating/textures/modular_street_seating_timber_nor_gl_1k.jpg",
+      "assets/polyhaven/modular_street_seating/textures/modular_street_seating_connectors_arm_1k.jpg",
+      "assets/polyhaven/modular_street_seating/modular_street_seating.bin"
+    ]
+  },
+  "painted_wooden_bench": {
+    "name": "Painted Wooden Bench",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/painted_wooden_bench",
+    "authors": [
+      "Kirill Sannikov"
+    ],
+    "files": [
+      "assets/polyhaven/painted_wooden_bench/painted_wooden_bench_1k.gltf",
+      "assets/polyhaven/painted_wooden_bench/textures/painted_wooden_bench_diff_1k.jpg",
+      "assets/polyhaven/painted_wooden_bench/textures/painted_wooden_bench_nor_gl_1k.jpg",
+      "assets/polyhaven/painted_wooden_bench/textures/painted_wooden_bench_arm_1k.jpg",
+      "assets/polyhaven/painted_wooden_bench/painted_wooden_bench.bin"
+    ]
+  },
+  "planter_box_02": {
+    "name": "Planter Box 02",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/planter_box_02",
+    "authors": [
+      "James Ray Cock"
+    ],
+    "files": [
+      "assets/polyhaven/planter_box_02/planter_box_02_1k.gltf",
+      "assets/polyhaven/planter_box_02/textures/planter_box_02_diff_1k.jpg",
+      "assets/polyhaven/planter_box_02/textures/planter_box_02_nor_gl_1k.jpg",
+      "assets/polyhaven/planter_box_02/textures/planter_box_02_arm_1k.jpg",
+      "assets/polyhaven/planter_box_02/planter_box_02.bin"
+    ]
+  },
+  "planter_pot_clay": {
+    "name": "Planter Pot Clay",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/planter_pot_clay",
+    "authors": [
+      "Amal Kumar"
+    ],
+    "files": [
+      "assets/polyhaven/planter_pot_clay/planter_pot_clay_1k.gltf",
+      "assets/polyhaven/planter_pot_clay/textures/planter_pot_clay_diff_1k.jpg",
+      "assets/polyhaven/planter_pot_clay/planter_pot_clay.bin",
+      "assets/polyhaven/planter_pot_clay/textures/planter_pot_clay_arm_1k.jpg",
+      "assets/polyhaven/planter_pot_clay/textures/planter_pot_clay_nor_gl_1k.jpg"
+    ]
+  },
+  "potted_plant_01": {
+    "name": "Potted Plant 01",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/potted_plant_01",
+    "authors": [
+      "Rico Cilliers"
+    ],
+    "files": [
+      "assets/polyhaven/potted_plant_01/potted_plant_01_1k.gltf",
+      "assets/polyhaven/potted_plant_01/textures/potted_plant_01_pot_rough_1k.jpg",
+      "assets/polyhaven/potted_plant_01/textures/potted_plant_01_leaves_nor_gl_1k.jpg",
+      "assets/polyhaven/potted_plant_01/textures/potted_plant_01_pot_diff_1k.jpg",
+      "assets/polyhaven/potted_plant_01/potted_plant_01.bin",
+      "assets/polyhaven/potted_plant_01/textures/potted_plant_01_leaves_rough_1k.jpg",
+      "assets/polyhaven/potted_plant_01/textures/potted_plant_01_pot_nor_gl_1k.jpg",
+      "assets/polyhaven/potted_plant_01/textures/potted_plant_01_leaves_diff_1k.jpg"
+    ]
+  },
+  "utility_box_01": {
+    "name": "Utility Box 01",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/utility_box_01",
+    "authors": [
+      "James Ray Cock"
+    ],
+    "files": [
+      "assets/polyhaven/utility_box_01/utility_box_01_1k.gltf",
+      "assets/polyhaven/utility_box_01/textures/utility_box_01_diff_1k.jpg",
+      "assets/polyhaven/utility_box_01/textures/utility_box_01_nor_gl_1k.jpg",
+      "assets/polyhaven/utility_box_01/textures/utility_box_01_arm_1k.jpg",
+      "assets/polyhaven/utility_box_01/utility_box_01.bin"
+    ]
+  },
+  "concrete_road_barrier": {
+    "name": "Concrete Road Barrier",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/concrete_road_barrier",
+    "authors": [
+      "Amal Kumar"
+    ],
+    "files": [
+      "assets/polyhaven/concrete_road_barrier/concrete_road_barrier_1k.gltf",
+      "assets/polyhaven/concrete_road_barrier/textures/concrete_road_barrier_nor_gl_1k.jpg",
+      "assets/polyhaven/concrete_road_barrier/textures/concrete_road_barrier_arm_1k.jpg",
+      "assets/polyhaven/concrete_road_barrier/textures/concrete_road_barrier_diff_1k.jpg",
+      "assets/polyhaven/concrete_road_barrier/concrete_road_barrier.bin"
+    ]
+  },
+  "wooden_crate_01": {
+    "name": "Wooden Crate 01",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/wooden_crate_01",
+    "authors": [
+      "James Ray Cock"
+    ],
+    "files": [
+      "assets/polyhaven/wooden_crate_01/wooden_crate_01_1k.gltf",
+      "assets/polyhaven/wooden_crate_01/textures/wooden_crate_01_diff_1k.jpg",
+      "assets/polyhaven/wooden_crate_01/textures/wooden_crate_01_nor_gl_1k.jpg",
+      "assets/polyhaven/wooden_crate_01/wooden_crate_01.bin",
+      "assets/polyhaven/wooden_crate_01/textures/wooden_crate_01_arm_1k.jpg"
+    ]
+  },
+  "WetFloorSign_01": {
+    "name": "Wet Floor Sign 01",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/WetFloorSign_01",
+    "authors": [
+      "Fran Calvente"
+    ],
+    "files": [
+      "assets/polyhaven/WetFloorSign_01/WetFloorSign_01_1k.gltf",
+      "assets/polyhaven/WetFloorSign_01/textures/WetFloorSign_01_arm_1k.jpg",
+      "assets/polyhaven/WetFloorSign_01/textures/WetFloorSign_01_nor_gl_1k.jpg",
+      "assets/polyhaven/WetFloorSign_01/textures/WetFloorSign_01_diff_1k.jpg",
+      "assets/polyhaven/WetFloorSign_01/WetFloorSign_01.bin"
+    ]
+  },
+  "outdoor_table_chair_set_01": {
+    "name": "Outdoor Table Chair Set 01",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/outdoor_table_chair_set_01",
+    "authors": [
+      "James Ray Cock"
+    ],
+    "files": [
+      "assets/polyhaven/outdoor_table_chair_set_01/outdoor_table_chair_set_01_1k.gltf",
+      "assets/polyhaven/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_table_nor_gl_1k.jpg",
+      "assets/polyhaven/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_chair_arm_1k.jpg",
+      "assets/polyhaven/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_table_arm_1k.jpg",
+      "assets/polyhaven/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_table_diff_1k.jpg",
+      "assets/polyhaven/outdoor_table_chair_set_01/outdoor_table_chair_set_01.bin",
+      "assets/polyhaven/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_chair_nor_gl_1k.jpg",
+      "assets/polyhaven/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_chair_diff_1k.jpg"
+    ]
+  },
+  "wooden_barrels_01": {
+    "name": "Wooden Barrels 01",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/wooden_barrels_01",
+    "authors": [
+      "James Ray Cock"
+    ],
+    "files": [
+      "assets/polyhaven/wooden_barrels_01/wooden_barrels_01_1k.gltf",
+      "assets/polyhaven/wooden_barrels_01/textures/wooden_barrels_01_barrel02_nor_gl_1k.jpg",
+      "assets/polyhaven/wooden_barrels_01/textures/wooden_barrels_01_barrel02_arm_1k.jpg",
+      "assets/polyhaven/wooden_barrels_01/textures/wooden_barrels_01_barrel01_arm_1k.jpg",
+      "assets/polyhaven/wooden_barrels_01/textures/wooden_barrels_01_pieces_nor_gl_1k.jpg",
+      "assets/polyhaven/wooden_barrels_01/wooden_barrels_01.bin",
+      "assets/polyhaven/wooden_barrels_01/textures/wooden_barrels_01_barrel01_nor_gl_1k.jpg",
+      "assets/polyhaven/wooden_barrels_01/textures/wooden_barrels_01_pieces_diff_1k.jpg",
+      "assets/polyhaven/wooden_barrels_01/textures/wooden_barrels_01_barrel01_diff_1k.jpg",
+      "assets/polyhaven/wooden_barrels_01/textures/wooden_barrels_01_barrel02_diff_1k.jpg",
+      "assets/polyhaven/wooden_barrels_01/textures/wooden_barrels_01_pieces_arm_1k.jpg"
+    ]
+  },
+  "plastic_crate_01": {
+    "name": "Plastic Crate 01",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/plastic_crate_01",
+    "authors": [
+      "PierreB3D"
+    ],
+    "files": [
+      "assets/polyhaven/plastic_crate_01/plastic_crate_01_1k.gltf",
+      "assets/polyhaven/plastic_crate_01/textures/plastic_crate_01_nor_gl_1k.jpg",
+      "assets/polyhaven/plastic_crate_01/textures/plastic_crate_01_diff_1k.jpg",
+      "assets/polyhaven/plastic_crate_01/textures/plastic_crate_01_arm_1k.jpg",
+      "assets/polyhaven/plastic_crate_01/plastic_crate_01.bin"
+    ]
+  },
+  "trashbag": {
+    "name": "Trashbag",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/trashbag",
+    "authors": [
+      "Benny Weimer"
+    ],
+    "files": [
+      "assets/polyhaven/trashbag/trashbag_1k.gltf",
+      "assets/polyhaven/trashbag/textures/trashbag_nor_gl_1k.jpg",
+      "assets/polyhaven/trashbag/textures/trashbag_diff_1k.jpg",
+      "assets/polyhaven/trashbag/textures/trashbag_arm_1k.jpg",
+      "assets/polyhaven/trashbag/trashbag.bin"
+    ]
+  },
+  "cardboard_box_01": {
+    "name": "Cardboard Box 01",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/cardboard_box_01",
+    "authors": [
+      "Rahul Chaudhary"
+    ],
+    "files": [
+      "assets/polyhaven/cardboard_box_01/cardboard_box_01_1k.gltf",
+      "assets/polyhaven/cardboard_box_01/textures/cardboard_box_01_arm_1k.jpg",
+      "assets/polyhaven/cardboard_box_01/cardboard_box_01.bin",
+      "assets/polyhaven/cardboard_box_01/textures/cardboard_box_01_diff_1k.jpg",
+      "assets/polyhaven/cardboard_box_01/textures/cardboard_box_01_nor_gl_1k.jpg"
+    ]
   }
 }
