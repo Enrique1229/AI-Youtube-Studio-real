@@ -73,24 +73,24 @@
     "title_en": "The Parking Space That Slid Away",
     "caption_en": null,
     "onscreen_en": "Hold on!",
-    "frame1": "El hombre esta de pie, brazos abiertos y en equilibrio, sobre una enorme P blanca pintada que se desliza veloz por el asfalto entre coches aparcados; la P es grande y esta en el centro del 9:16.",
-    "logline_es": "La P blanca del asfalto se despega y patina por el aparcamiento con el hombre encima; esquiva una farola y un cono, derrapa en una curva y se mete en el unico hueco entre dos coches; el hombre se baja victorioso y la P vuelve a salir con el encima.",
+    "frame1": "Una plaza de aparcamiento completa (contorno blanco y la P) se ha despegado como una losa gruesa: esquinas levantadas, sombra debajo y polvo, con el hueco de la misma forma en el asfalto detras; el hombre va de pie encima, brazos abiertos, y la losa se desliza veloz entre coches aparcados.",
+    "logline_es": "Una plaza de aparcamiento pintada, losa gruesa con su P, se despega con el hombre encima y patina entre coches; esquiva una farola, derrapa y se encaja en su hueco; el hombre salta victorioso, pero todas las demas plazas se despegan y salen tras el como una bandada, y la mas cercana lo recoge: de nuevo en el frame 1.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Gancho: hombre en equilibrio (Surprised) sobre la P deslizante, en movimiento."
+        "beat": "Gancho: losa-plaza con P y esquinas levantadas se desliza con el hombre en equilibrio (Surprised); hueco P vacio detras."
       },
       {
         "t": "3-6",
-        "beat": "Esquiva farola y cono; el hombre se inclina a un lado y a otro."
+        "beat": "Esquiva una farola y un cono; se inclina."
       },
       {
-        "t": "6-10",
-        "beat": "Derrapa y se encaja en el hueco entre dos coches; el hombre salta (Victory)."
+        "t": "6-9",
+        "beat": "Derrapa y se encaja en el hueco; el hombre salta (Victory)."
       },
       {
-        "t": "10-13",
-        "beat": "Pisa de nuevo la P sin darse cuenta y se va con el (Surprised): pose del f1."
+        "t": "9-13",
+        "beat": "Giro: las otras plazas se despegan y lo persiguen en bandada; la mas cercana lo recoge (Surprised): pose del f1."
       }
     ],
     "clips": [
@@ -119,44 +119,48 @@
         ]
       ]
     ],
-    "payoff": "La plaza de aparcamiento es la que se mueve y nunca lo deja aparcar.",
-    "sin_palabras": "Hombre sobre una P blanca deslizante entre coches.",
+    "payoff": "No es una plaza: son todas, y lo han adoptado.",
+    "sin_palabras": "Losa de plaza con la P despegada deslizando al hombre; el hueco P vacio detras.",
     "tres_fotogramas": [
-      "Hombre sobre una P blanca deslizante entre coches.",
-      "La P encajandose en un hueco y el hombre celebrando.",
-      "La P saliendo del hueco con el hombre encima otra vez."
+      "Losa de plaza con la P despegada deslizando al hombre; el hueco P vacio detras.",
+      "La losa encajada en su hueco y el hombre celebrando.",
+      "Bandada de plazas despegadas persiguiendo al hombre; una lo recoge."
     ],
-    "needs": "P = losa fina blanca con letra extruida, desliza por X/Y con inclinacion; 2 coches y farola del escenario; conos. Clips existentes.",
+    "needs": "Losa = caja fina blanca con contorno y P extruida, borde de sombra, esquina levantada con bisagra, particulas de polvo; hueco = plano oscuro con la misma forma; otras 4 losas animadas igual. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Marca pintada que se despega y patina; no objeto-que-come.",
+    "diferencia": "Losas que forman una bandada y lo recogen; no es un objeto que se va, es un grupo que lo adopta.",
     "batch": "20261124-1"
   },
   {
     "id": "b20261124-1-i03",
     "format": "mini_story",
     "kind": "anim",
-    "env": "calle ancha de ciudad (HDRI wide_street_01): asfalto con rayas y paso de cebra, aceras, farolas, hidrante, buzones, fachadas, coches aparcados, semaforo, contenedores",
+    "env": "calle ancha de ciudad (HDRI wide_street_01): asfalto PBR, aceras con bordillo, fachadas, hidrante, buzones, contenedores; sin coches ni farolas en la franja",
     "title_en": "The Road Rippled Under His Feet",
     "caption_en": null,
     "onscreen_en": "Run!",
-    "frame1": "Una ola de asfalto con rayas y paso de cebra sube como una ola de mar detras del hombre que corre hacia camara por la calle ancha; la cresta le pisa los talones y las farolas se inclinan.",
-    "logline_es": "El asfalto se levanta en una ola que persigue al hombre; lo lanza al aire sobre un coche, el aterriza y la segunda ola es mas grande; se queda quieto, la ola lo recoge de pie como una tabla y lo deja en la acera; detras nace otra ondulacion.",
+    "frame1": "Una franja de calle ancha con asfalto y paso de cebra se levanta como una ola gris con la cresta blanca de las rayas, grande en primer plano, justo detras del hombre que corre hacia camara; la cresta esta a punto de romper sobre el.",
+    "logline_es": "Una franja de calle con paso de cebra se alza como una ola y persigue al hombre: 1) la ola lo alcanza y lo catapulta al aire; 2) cae sobre la cresta de la segunda ola, mayor, y se ve obligado a mantenerse de pie surfeandola; 3) la ola se estira en un tunel y el hombre la atraviesa corriendo por dentro; giro: la ola rompe contra la acera, vuelve a ser calle plana, y el hombre sale despedido sentado en un buzon... pero la franja de asfalto de detras ya se alza otra vez y el corre hacia camara.",
     "beats": [
       {
         "t": "0-3",
-        "beat": "Gancho: ola de asfalto tras el hombre que corre (Running)."
+        "beat": "Gancho: ola de asfalto con cresta de rayas tras el hombre que corre (Running)."
       },
       {
         "t": "3-6",
-        "beat": "La ola lo lanza (Jumping) sobre un coche aparcado, aterriza."
+        "beat": "Paso 1: la ola lo alcanza y lo lanza al aire (Jumping)."
       },
       {
-        "t": "6-10",
-        "beat": "Segunda ola mayor; el se detiene y se deja llevar de pie (Surprised) hasta la acera."
+        "t": "6-9",
+        "beat": "Paso 2: cae sobre la segunda ola, mayor, y la surfea en equilibrio (Surprised)."
       },
       {
-        "t": "10-13",
-        "beat": "Otra ondulacion nace al fondo; el hombre vuelve a correr (Running): pose del f1."
+        "t": "9-11",
+        "beat": "Paso 3: la ola se curva en tunel y el corre por dentro (Running)."
+      },
+      {
+        "t": "11-13",
+        "beat": "Giro: rompe contra el bordillo, la calle queda plana y el hombre aliviado; el asfalto de detras vuelve a alzarse y el corre (Running): pose del f1."
       }
     ],
     "clips": [
@@ -186,15 +190,15 @@
       ]
     ],
     "payoff": "La calle tiene mar de fondo: la unica forma de salir es surfear la ola.",
-    "sin_palabras": "Ola de asfalto persiguiendo al hombre que corre.",
+    "sin_palabras": "Ola de asfalto con rayas de paso de cebra persiguiendo al hombre que corre.",
     "tres_fotogramas": [
-      "Ola de asfalto persiguiendo al hombre que corre.",
-      "Hombre en el aire sobre un coche con la segunda ola debajo.",
-      "Hombre corriendo otra vez con una nueva ola al fondo."
+      "Ola de asfalto con rayas de paso de cebra persiguiendo al hombre que corre.",
+      "Hombre surfeando de pie una ola mayor de asfalto.",
+      "La ola ha roto, calle plana, y otra ola nace tras el hombre que vuelve a correr."
     ],
-    "needs": "Ola = malla de suelo deformada por seno viajero (shape key / desplazamiento) con el asfalto y rayas pegados; coches y farolas se inclinan con la fase. Clips existentes.",
+    "needs": "Franja = plano subdividido (ej. 80x20) con modificador Displace/shape key de onda seno viajera, amplitud creciente, textura de asfalto con paso de cebra; sin coches ni farolas. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Suelo ondulante con escalada visible; remate de surfista involuntario.",
+    "diferencia": "Suelo ondulante en 3 pasos distintos (catapulta, surf, tunel) y giro de rotura y rebrote.",
     "batch": "20261124-1"
   },
   {
