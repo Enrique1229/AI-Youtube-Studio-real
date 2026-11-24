@@ -1,0 +1,116 @@
+[
+  {
+    "id": "b20261124-1-i03",
+    "scores": {
+      "hook": 8,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 7,
+      "visual": 8,
+      "emotion": 6,
+      "ending": 7,
+      "series": 6,
+      "differentiation": 7,
+      "production_difficulty": 8,
+      "repetition_risk": 2
+    },
+    "why": "Pasa los 3 fotogramas (ola de asfalto tras el hombre que corre, hombre en el aire sobre un coche, nueva ola al fondo) y es la unica con lo imposible ya ocurriendo en el fotograma 1 y sin parentesco con el Bench; no sube mas porque es la mas dificil de construir (malla de suelo deformada con rayas y paso de cebra pegados, coches y farolas inclinandose con la fase) y el nivel 2-3 es 'corre y salta' con clips genericos.",
+    "improve": "Probar antes del guion una sola ola seno sobre malla subdividida con las rayas como textura y solo 2 farolas y 1 coche que se inclinan, y dejar la cresta grande y blanca-gris en primer plano desde el frame 1.",
+    "vps": 64.9
+  },
+  {
+    "id": "b20261124-1-i02",
+    "scores": {
+      "hook": 7,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 7,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 7,
+      "series": 6,
+      "differentiation": 6,
+      "production_difficulty": 4,
+      "repetition_risk": 5
+    },
+    "why": "Pasa los 3 fotogramas (hombre sobre la P deslizante, P encajada en el hueco con el hombre celebrando, P saliendo otra vez) y es la mas barata con un remate de bucle limpio ('la plaza que no lo deja aparcar'); no sube mas porque en el fotograma 1 una P blanca plana sobre asfalto no se lee como 'marca despegada' y el mecanismo objeto-que-se-mueve-con-el-hombre-encima esta cerca de Bench.",
+    "improve": "Hacer la P gruesa (losa con borde de sombra y salpicadura de polvo) y que se despegue visiblemente del suelo con una esquina levantada en el frame 1, dejando el hueco vacio y de la misma forma de P en el asfalto.",
+    "vps": 61.1
+  },
+  {
+    "id": "b20261124-1-i01",
+    "scores": {
+      "hook": 8,
+      "curiosity": 6,
+      "retention": 7,
+      "originality": 4,
+      "visual": 8,
+      "emotion": 6,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 3,
+      "production_difficulty": 5,
+      "repetition_risk": 7
+    },
+    "why": "Pasa los 3 fotogramas y tiene el mejor fotograma 1 del lote (sombrilla enorme al trote con el hombre corriendo tras ella), pero es el Bench con patas: objeto de la misma playa que se va andando, hombre que lo persigue para quedarse en la sombra y remate de bucle identico (story-015), por lo que originalidad y diferenciacion son bajas.",
+    "improve": "Si se quiere salvar, cambiar el mecanismo para que no sea 'el objeto se va': por ejemplo que la sombrilla persiga al hombre para darle sombra mientras el huye del toldo, y quitar las patas flacas por un movimiento visible distinto (rodar, girar como helice).",
+    "vps": 54.4
+  },
+  {
+    "id": "b20261124-1-i05",
+    "scores": {
+      "hook": 6,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 6,
+      "visual": 6,
+      "emotion": 5,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 4
+    },
+    "why": "Se entiende con los 3 fotogramas pero las flechas blancas sobre asfalto gris se leen mal como 'flechas que empujan' (no hay contacto claro con la espalda del hombre) y el clip Pushing no encaja con ser empujado; el remate del STOP es la mejor idea pero llega tarde.",
+    "improve": "Hacer una sola flecha grande y gruesa que se doble hacia la espalda y lo golpee de forma visible en el frame 1, con el resto al fondo, y usar el STOP como segundo plano para que el hombre choque contra el.",
+    "vps": 51.9
+  },
+  {
+    "id": "b20261124-1-i04",
+    "scores": {
+      "hook": 7,
+      "curiosity": 5,
+      "retention": 6,
+      "originality": 5,
+      "visual": 7,
+      "emotion": 5,
+      "ending": 5,
+      "series": 5,
+      "differentiation": 4,
+      "production_difficulty": 7,
+      "repetition_risk": 4
+    },
+    "why": "El fotograma 1 (hombre colgado de una cometa roja sobre la playa) se lee de golpe, pero 'el viento manda' no es remate, la torre que se alza un palmo no es creible y Climbing A Rope no es una pose de colgar de una cuerda con los pies al aire, ademas de exigir cuerda con IK y fisica de cometa.",
+    "improve": "Cambiar el remate por un giro visible (la cometa lo suelta justo sobre la sombrilla que huia o lo deja en la tumbona) y probar antes del guion si el clip Climbing A Rope se ve como colgado a 9:16.",
+    "vps": 49.8
+  },
+  {
+    "id": "b20261124-1-i06",
+    "scores": {
+      "hook": 6,
+      "curiosity": 5,
+      "retention": 6,
+      "originality": 3,
+      "visual": 6,
+      "emotion": 5,
+      "ending": 6,
+      "series": 4,
+      "differentiation": 2,
+      "production_difficulty": 4,
+      "repetition_risk": 9
+    },
+    "why": "Es el Bench cambiando el banco por una tumbona (objeto huye cuando va a sentarse, mismo escenario, misma pose sentada y mismo bucle), asi que repite story-015 casi punto por punto; y el fotograma 1 de un hombre a media sentada con el pie en el aire es ambiguo.",
+    "improve": "Descartar o reformular: que la tumbona no huya sino que se pliegue y se cierre sobre el hombre cada vez que se tumba (gag distinto con accion visible), en otro escenario que no sea la playa del Bench.",
+    "vps": 39.9
+  }
+]
