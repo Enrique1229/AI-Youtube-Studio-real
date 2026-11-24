@@ -58,3 +58,4 @@ primer segundo, mejor audio y caras más realistas (petición del usuario).
 - Bollard (ep018, mini-historia, subido 14:39) a ~8,5 h: ~1,7 K vistas, 40,7 % se quedan a mirar (59,3 % deslizan), 0 subs, 11 likes, 153 vistas/60 min (98 % feed). Sigue subiendo poco a poco por encima de "rendimiento típico".
 - Piscina (ep015, mini-historia) a 62 h: ~3,1 K, 46,6 % se quedan, retención de ~140 % al inicio a ~60 % al final, 16 likes, 0 subs.
 - Lectura: "se quedan a mirar" (decisión del primer segundo) es la métrica que separa: Bell 72 %, Bus 71 % (niveles IQ) vs Bollard 41 %, piscina 47 % (mini-historias). El fotograma 1 del Bollard es un hombre sentado quieto con una ventana: no pasa nada imposible todavía. Regla: en el fotograma 1 ya debe estar ocurriendo la acción o lo imposible, con el objetivo claro (como Bell: salto hacia la campana desde el f1).
+- 2026-11-24: subido ep019 'Every IQ Level Catches the Drone' (story-022, niveles IQ, azotea, acelerado 1,2x a 18,3 s).
