@@ -1,0 +1,343 @@
+[
+  {
+    "id": "b20261124-3-i01",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "plaza urbana (build_plaza): adoquin, fachada, farolas, hidrante, bolardos, jardineras, furgoneta; sin construir nada nuevo",
+    "title_en": "Why Did the Hat Run Away From Me?",
+    "caption_en": null,
+    "onscreen_en": "Come back!",
+    "logline_es": "El sombrero de un hombre sale saltando por el adoquin sobre dos patitas; el hombre se lanza en plancha y falla, lo persigue entre hidrante y bolardo; al atraparlo, del sombrero asoma una paloma que lo habia estado ocupando, y el sombrero vuelve a la cabeza con ella dentro.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Plano 1: el sombrero (bombin grande) ya va saltando hacia camara sobre dos patitas y el hombre se lanza en plancha y se estampa en el adoquin con un hit."
+      },
+      {
+        "t": "3-7",
+        "beat": "El sombrero rebota sobre el hidrante y el bolardo; el hombre embiste, resbala y se abraza al hidrante."
+      },
+      {
+        "t": "7-10",
+        "beat": "Lo atrapa con ambas manos (Picking Up) y lo levanta: debajo hay una paloma gorda sentada como en un nido."
+      },
+      {
+        "t": "10-13",
+        "beat": "La paloma lo mira; el hombre se encoge de hombros y se pone el sombrero con la paloma dentro; la paloma asoma la cabeza (pose del plano 1)."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Charge"
+        ]
+      ],
+      [
+        2,
+        [
+          "Surprised"
+        ]
+      ],
+      [
+        3,
+        [
+          "Picking Up"
+        ]
+      ],
+      [
+        4,
+        [
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "El sombrero huia porque habia una paloma instalada dentro y el hombre acaba aceptandola.",
+    "sin_palabras": "Un sombrero con patitas escapa saltando y un hombre lo persigue.",
+    "frame1": "Bombin grande saltando hacia camara a un metro sobre el adoquin dorado, el hombre en pleno salto en plancha con los brazos estirados, a punto de estamparse.",
+    "tres_fotogramas": [
+      "Sombrero saltando sobre dos patitas y hombre lanzandose en plancha tras el.",
+      "Hombre abrazado al hidrante con el sombrero encima.",
+      "Hombre con el sombrero puesto y una paloma asomando la cabeza por encima."
+    ],
+    "needs": "Sombrero del kit (bombin, a.hat) con dos cilindros finos de patas animados con S.key; paloma = uv_sphere gris + cono (pico), oculta dentro del sombrero. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Objeto con patas que huye de su dueno; remate con sorpresa dentro del objeto; no repite bolardo, banco ni tarta.",
+    "batch": "20261124-3"
+  },
+  {
+    "id": "b20261124-3-i02",
+    "format": "mini_story",
+    "kind": "anim",
+    "env": "azotea (build_rooftop): deposito de agua de madera, tendedero con sabanas, caseta, antenas, parapeto, skyline; camara cerca del tendedero",
+    "title_en": "The Bedsheet That Wouldn't Let Me Go",
+    "caption_en": null,
+    "onscreen_en": "Not again",
+    "logline_es": "Una sabana blanca del tendedero salta sobre la cara de un hombre en la azotea; el la quita, la cuelga, vuelve a saltarle; cuando se rinde y se tumba, la sabana le cubre y le remete los bordes como a un nino.",
+    "beats": [
+      {
+        "t": "0-3",
+        "beat": "Plano 1: la sabana grande ya vuela de la cuerda y le envuelve la cabeza al hombre, que tropieza con las manos al aire."
+      },
+      {
+        "t": "3-6",
+        "beat": "Se la arranca y la cuelga con pinzas; la sabana se suelta de golpe y le vuelve a tapar."
+      },
+      {
+        "t": "6-9",
+        "beat": "Intenta atarla a la caseta con un nudo; la sabana tira del nudo y lo arrastra un par de pasos."
+      },
+      {
+        "t": "9-13",
+        "beat": "Agotado se tumba en el suelo (Sitting Idle); la sabana cae sobre el, se remete los bordes y se queda quieta; el cierra los ojos."
+      }
+    ],
+    "clips": [
+      [
+        1,
+        [
+          "Surprised"
+        ]
+      ],
+      [
+        2,
+        [
+          "Angry"
+        ]
+      ],
+      [
+        3,
+        [
+          "Pushing"
+        ]
+      ],
+      [
+        4,
+        [
+          "Sitting Idle"
+        ]
+      ]
+    ],
+    "payoff": "La sabana solo queria arropar al hombre cansado.",
+    "sin_palabras": "Una sabana atacando la cara de un hombre y luego arropandolo.",
+    "frame1": "Sabana blanca enorme volando a un metro de camara enrollada en la cabeza del hombre que da zancadas a ciegas con los brazos en alto, con tendedero de colores y deposito de madera detras.",
+    "tres_fotogramas": [
+      "Sabana envolviendo la cabeza del hombre.",
+      "Hombre arrastrado por la sabana atada a la caseta.",
+      "Hombre tumbado arropado por la sabana."
+    ],
+    "needs": "Sabana = plano subdividido con bisagra (empties de build_rooftop[\"sheets\"]), animada con S.key de escala y rotacion; nudo = cilindro fino. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Ropa tendida con vida propia; remate de ternura, sin drama ni agua; no repite dron ni sabanas ya vistas.",
+    "batch": "20261124-3"
+  },
+  {
+    "id": "b20261124-3-i03",
+    "format": "short",
+    "kind": "anim",
+    "env": "plaza urbana (build_plaza): gran lona publicitaria de colores (cubes + plano) tensada entre dos andamios delante de la fachada; sobre ella asoma un helado gigante rosa; jardineras, farolas, adoquin",
+    "title_en": "Every IQ Level Gets Over the Wall",
+    "caption_en": null,
+    "logline_es": "Un helado gigante asoma sobre un muro de lona a un metro de camara; el hombre rebota contra la lona, apila jardineras y se sube a un bolardo; el mas listo levanta el borde inferior de la lona y entra caminando.",
+    "beats": [
+      {
+        "t": "0-3.5",
+        "beat": "IQ -400: Plano 1: se estampa de cara contra la lona, que se hincha como un trampolin y lo lanza hacia atras contra el adoquin con un boing."
+      },
+      {
+        "t": "3.5-7",
+        "beat": "IQ -70: Apila tres jardineras para ver por encima; la torre se tambalea y cae sobre el con un clunk."
+      },
+      {
+        "t": "7-10.5",
+        "beat": "IQ 140: Se sube a un bolardo y se agarra al borde del andamio; asoma los ojos por encima y casi se cae."
+      },
+      {
+        "t": "10.5-14",
+        "beat": "IQ 1100: Trae la furgoneta de atras, trepa al techo y mira por encima; la lona se vence y la furgoneta se desliza lejos."
+      },
+      {
+        "t": "14-18",
+        "beat": "IQ 6200: Tranquilo, se agacha, levanta el borde inferior de la lona como una cortina, que estaba pegada al suelo, y entra caminando hacia el helado."
+      }
+    ],
+    "levels": [
+      {
+        "iq": -400,
+        "gag": "Se estampa de cara contra la lona (frame 1), que se hincha como un trampolin y lo lanza hacia atras con un boing.",
+        "por_que_es_gracioso": "La pared cede y le devuelve el golpe."
+      },
+      {
+        "iq": -70,
+        "gag": "Apila tres jardineras para ver por encima; la torre cae sobre el.",
+        "por_que_es_gracioso": "Cree que mas altura es la solucion; la torre lo castiga."
+      },
+      {
+        "iq": 140,
+        "gag": "Se sube a un bolardo, se agarra al andamio y asoma los ojos por encima; casi se cae.",
+        "por_que_es_gracioso": "Funciona a duras penas."
+      },
+      {
+        "iq": 1100,
+        "gag": "Sube a una furgoneta y mira por encima de la lona; la furgoneta se desliza.",
+        "por_que_es_gracioso": "Funciona, pero con medios excesivos."
+      },
+      {
+        "iq": 6200,
+        "gag": "Levanta el borde inferior de la lona como una cortina y entra caminando.",
+        "por_que_es_gracioso": "Era una cortina de tela y el muro estaba abierto por abajo desde el principio."
+      }
+    ],
+    "clips": [
+      [
+        -400,
+        [
+          "Surprised"
+        ]
+      ],
+      [
+        -70,
+        [
+          "Picking Up",
+          "Surprised"
+        ]
+      ],
+      [
+        140,
+        [
+          "Sneaking Forward"
+        ]
+      ],
+      [
+        1100,
+        [
+          "Charge"
+        ]
+      ],
+      [
+        6200,
+        [
+          "Thinking",
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "El muro era una cortina de lona suelta por abajo.",
+    "sin_palabras": "Un muro con un helado gigante detras y un hombre que quiere llegar a el.",
+    "frame1": "Lona gigante de rayas amarillas y turquesa a un metro de camara con un helado rosa enorme asomando por arriba; el hombre estampado de cara contra la lona, que se hincha como un trampolin.",
+    "tres_fotogramas": [
+      "1: hombre estampado contra la lona con el helado gigante arriba.",
+      "2: torre de jardineras cayendo o hombre encima de la furgoneta.",
+      "3: hombre levantando el borde de la lona y entrando."
+    ],
+    "needs": "Lona = plano/cube fino con S.key de escala Y y arco (hinchado); andamios = cylinders; helado = cone + uv_sphere rosa; la lona toca el suelo sin hueco visible hasta el nivel 5 (el borde se levanta con S.key). Sonidos: boing, clunk, hit, tada. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Muro-cortina y helado gigante; nivel 1 de rebote en trampolin (no salto ni caida de culo); sin dron, sofa, puerta ni arbusto-maceta.",
+    "batch": "20261124-3"
+  },
+  {
+    "id": "b20261124-3-i04",
+    "format": "short",
+    "kind": "anim",
+    "env": "azotea (build_rooftop): mesa baja con una tele de tubo grande y colorida (cubes), mastil de antena, cable gordo, deposito de madera, tendedero, parapeto; camara cerca de la tele",
+    "title_en": "Every IQ Level Fixes the TV Signal",
+    "caption_en": null,
+    "logline_es": "La tele de la azotea solo muestra nieve gris; el hombre sujeta la antena y aparece un partido, la suelta y vuelve la nieve; se pone papel de aluminio, ata la antena al deposito y se sube a el; el mas listo enchufa el cable que estaba suelto detras de la tele.",
+    "beats": [
+      {
+        "t": "0-3.5",
+        "beat": "IQ -350: Plano 1: la antena le da un latigazo en la cara y la tele muestra nieve gris; se agarra la antena con ambas manos y la pantalla se vuelve verde con balon; la suelta y la nieve vuelve; hace la cara a un dedo de camara."
+      },
+      {
+        "t": "3.5-7",
+        "beat": "IQ -80: Se pone un gorro de papel de aluminio y gira en circulos; la pantalla parpadea; la antena lo golpea."
+      },
+      {
+        "t": "7-10.5",
+        "beat": "IQ 130: Ata la antena a la escalera del deposito; la pantalla sale verde a trompicones; casi se cae."
+      },
+      {
+        "t": "10.5-14",
+        "beat": "IQ 1000: Sube al deposito con la tele en brazos; verde estable arriba, pero la tele es enorme y lo tambalea."
+      },
+      {
+        "t": "14-18",
+        "beat": "IQ 5800: Mira detras de la tele (un cable gordo suelto con enchufe en el suelo), lo enchufa y toda la pantalla se pone verde con un ding."
+      }
+    ],
+    "levels": [
+      {
+        "iq": -350,
+        "gag": "La antena le pega en la cara (frame 1); se agarra a ella con ambas manos para mantener el verde y la nieve vuelve si la suelta.",
+        "por_que_es_gracioso": "Se convierte en soporte de antena."
+      },
+      {
+        "iq": -80,
+        "gag": "Con gorro de aluminio gira en circulos; la pantalla parpadea; la antena lo golpea.",
+        "por_que_es_gracioso": "Cree que el gorro es una antena."
+      },
+      {
+        "iq": 130,
+        "gag": "Ata la antena al deposito; el verde sale a trompicones y casi se cae.",
+        "por_que_es_gracioso": "Funciona a duras penas."
+      },
+      {
+        "iq": 1000,
+        "gag": "Sube la tele a lo alto del deposito: imagen verde estable pero lo tambalea.",
+        "por_que_es_gracioso": "Funciona, pero es un esfuerzo enorme."
+      },
+      {
+        "iq": 5800,
+        "gag": "Mira detras y enchufa el cable que estaba en el suelo: pantalla verde con ding.",
+        "por_que_es_gracioso": "Estaba desenchufada; la antena nunca fue el problema."
+      }
+    ],
+    "clips": [
+      [
+        -350,
+        [
+          "Surprised",
+          "Pushing"
+        ]
+      ],
+      [
+        -80,
+        [
+          "Charge"
+        ]
+      ],
+      [
+        130,
+        [
+          "Sneaking Forward"
+        ]
+      ],
+      [
+        1000,
+        [
+          "Picking Up",
+          "Pushing"
+        ]
+      ],
+      [
+        5800,
+        [
+          "Thinking",
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "La tele estaba desenchufada: el cable colgaba detras todo el rato.",
+    "sin_palabras": "Una tele con nieve y un hombre luchando con la antena.",
+    "frame1": "Tele de tubo grande a un metro de camara con nieve gris; el hombre recibe un latigazo de la antena en la cara y se tambalea; deposito de madera y sabanas de colores al fondo.",
+    "tres_fotogramas": [
+      "1: tele con nieve y hombre golpeado por la antena.",
+      "2: hombre en lo alto del deposito con la tele.",
+      "3: cable enchufado y pantalla verde con balon."
+    ],
+    "needs": "Tele = cubes con pantalla emisiva (gris vs verde) cambiada con S.key de color/energia; antena = cylinders finos con S.key de latigazo; cable = cylinder oculto detras de la tele hasta el nivel 5. Sonidos: hit, clunk, tada. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Frustracion cotidiana de tele sin senal; remate de cable suelto; no repite azotea-dron ni puerta-sofa.",
+    "batch": "20261124-3"
+  }
+]

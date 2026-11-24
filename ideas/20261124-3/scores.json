@@ -1,0 +1,78 @@
+[
+  {
+    "id": "b20261124-3-i01",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 6,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 7,
+      "series": 4,
+      "differentiation": 6,
+      "production_difficulty": 4,
+      "repetition_risk": 4
+    },
+    "why": "Sombrero con patitas saltando hacia camara y plancha con hit en el segundo 1 (accion e imposible ya en el f1, como pide la receta) y remate con paloma que se lee en 3 fotogramas; no sube mas porque es mini-historia (formato de 41-47 % se quedan frente a 71-72 % de los IQ), el objetivo no es una frustracion universal y el sombrero con patas animado con S.key puede leerse rigido.",
+    "improve": "Hacer que la paloma se vea ya un instante en el plano 1 como bulto o plumas que asoman por el ala del bombin, sin delatar el nido, y que el hit de la plancha suene en el segundo 1 con el sombrero ocupando un tercio del encuadre.",
+    "vps": 57.6
+  },
+  {
+    "id": "b20261124-3-i03",
+    "scores": {
+      "hook": 7,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 5,
+      "visual": 7,
+      "emotion": 6,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 5,
+      "repetition_risk": 6
+    },
+    "why": "Formato IQ (el que retiene), impacto contra la lona con boing en el segundo 1, objetivo grande y cerca (helado rosa gigante), color y solucion oculta porque la lona toca el suelo; no sube mas porque es el 7.o IQ seguido, el 'estaba abierto todo el rato' repite el remate de Bus, sofa y puerta, y los niveles 2 y 4 (apilar y subirse a algo) son la plantilla de siempre.",
+    "improve": "Cambiar el nivel 4 por un gag que no sea subirse a un vehiculo (p. ej. catapulta de jardinera que lo lanza contra la lona de nuevo) y animar el borde inferior con un leve aleteo de viento solo en el nivel 5, nunca antes, para que la solucion sorprenda.",
+    "vps": 56.6
+  },
+  {
+    "id": "b20261124-3-i02",
+    "scores": {
+      "hook": 6,
+      "curiosity": 6,
+      "retention": 5,
+      "originality": 6,
+      "visual": 6,
+      "emotion": 7,
+      "ending": 6,
+      "series": 4,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 4
+    },
+    "why": "Remate tierno y legible (sabana que arropa) con ropa tendida con vida propia, pero la sabana tapa la cara del hombre en el f1 (personaje ilegible), el impacto es blando sin hit, el final tumbado roza el estado de cansancio/sueno invisible (lección story-020) y una tela subdividida con bisagra es lo mas dificil de animar del lote.",
+    "improve": "Abrir con un golpe claro (la sabana lo derriba de espaldas con un fump en el segundo 1, cara aun visible un instante) y sustituir el cierre de ojos por un plano donde la sabana lo remete con una almohada y una luna sobre la azotea.",
+    "vps": 51.4
+  },
+  {
+    "id": "b20261124-3-i04",
+    "scores": {
+      "hook": 7,
+      "curiosity": 6,
+      "retention": 6,
+      "originality": 5,
+      "visual": 6,
+      "emotion": 6,
+      "ending": 6,
+      "series": 5,
+      "differentiation": 5,
+      "production_difficulty": 6,
+      "repetition_risk": 6
+    },
+    "why": "Frustracion cotidiana universal (tele sin senal) con latigazo de antena en el segundo 1 y cable oculto tras la tele hasta el final; no sube mas porque es el 8.o IQ, su 'estaba desenchufada' es el mismo remate de 'estaba ahi todo el rato', el cambio gris/verde de pantalla es sutil en 9:16, el nivel 2 (gorro de aluminio) ya es un chiste conocido y la azotea repite escenario del dron fallido.",
+    "improve": "Hacer la pantalla muy legible: nieve gris con parpadeo blanco frente a verde saturado con balon enorme, y que el cable suelto asome solo como chispa o cola en el nivel 5; cambiar el nivel 2 por un gag propio de la azotea, no el gorro de aluminio.",
+    "vps": 51.3
+  }
+]

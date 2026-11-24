@@ -1,0 +1,19 @@
+{
+  "id": "b20261124-2-i08",
+  "scores": {
+    "hook": 8,
+    "curiosity": 7,
+    "retention": 7,
+    "originality": 7,
+    "visual": 7,
+    "emotion": 7,
+    "ending": 8,
+    "series": 5,
+    "differentiation": 6,
+    "production_difficulty": 6,
+    "repetition_risk": 4
+  },
+  "why": "Portazo con tarta en la cara en el segundo 1, puerta de bisagra corregida, ventana fuera de plano hasta el nivel 5 (la solucion ya no se delata) y final con tarta intacta que cierra bien; no sube mas porque la ventana aparece por una panoramica de camara que el motor puede no tener probada (cuesta mas y la revelacion depende de ella), la solucion es dificil de deducir sin verla y el nivel 3 de Kicking sigue siendo flojo.",
+  "improve": "Probar antes del guion la panoramica del nivel 5 y, si no existe, sustituirla por un corte limpio a la ventana abierta con cortinas ondeando, y hacer que el viento se vea en el frame 1 con una cinta o un farolillo que se mueva hacia la puerta.",
+  "vps": 65.1
+}

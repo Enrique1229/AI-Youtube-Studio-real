@@ -1,0 +1,109 @@
+{
+  "id": "b20261124-2-i08",
+  "format": "short",
+  "kind": "anim",
+  "env": "terraza de una casa con fiesta: puerta de madera con BISAGRA y manilla grande hacia el salon, barandilla, farolillos, mesa con vasos de colores, bandeja con tarta gigante; el cortinaje de una ventana abierta queda FUERA de plano hasta el nivel 5",
+  "title_en": "Every IQ Level Carries the Cake Through the Door",
+  "caption_en": null,
+  "logline_es": "Una puerta que se cierra de golpe cada vez que el hombre pasa con la tarta; el hombre la empuja con la cadera, la sujeta con el pie y la calza; el mas listo cierra la ventana del fondo y la corriente deja de dar portazos.",
+  "beats": [
+    {
+      "t": "0-3.5",
+      "beat": "IQ -400: Sale con la tarta gigante en una bandeja (frame 1); el viento da un portazo en su cara con un bang y la tarta se aplasta contra la hoja y le cae encima con un splat."
+    },
+    {
+      "t": "3.5-7",
+      "beat": "IQ -65: Aguanta la puerta con la cadera y la bandeja en alto; el viento la empuja y la cadera se hace un moretón de nata; la tarta se inclina."
+    },
+    {
+      "t": "7-10.5",
+      "beat": "IQ 135: Sujeta la puerta con el pie; pasa, pero la puerta le pilla el talon y suelta un ay con la tarta tambaleando."
+    },
+    {
+      "t": "10.5-14",
+      "beat": "IQ 1300: Apoya la tarta en el suelo, coge una silla y la usa de tope: pasa con la tarta, pero la silla se atasca y arrastra todo el mantel de la mesa."
+    },
+    {
+      "t": "14-18",
+      "beat": "IQ 9001: Se queda pensando; la camara gira y muestra una ventana abierta enorme con cortinas ondeando; cruza el salon y la cierra de un golpe: la puerta deja de dar portazos y pasa con la tarta intacta, con un ding."
+    }
+  ],
+  "levels": [
+    {
+      "iq": -400,
+      "gag": "Sale con la tarta gigante en una bandeja (frame 1); el viento da un portazo en su cara con un bang y la tarta se aplasta contra la hoja y le cae encima con un splat.",
+      "por_que_es_gracioso": "Un portazo con tarta es un portazo doble."
+    },
+    {
+      "iq": -65,
+      "gag": "Aguanta la puerta con la cadera y la bandeja en alto; el viento la empuja y la cadera se hace un moretón de nata; la tarta se inclina.",
+      "por_que_es_gracioso": "Cree que sujetarla con el cuerpo basta."
+    },
+    {
+      "iq": 135,
+      "gag": "Sujeta la puerta con el pie; pasa, pero la puerta le pilla el talon y suelta un ay con la tarta tambaleando.",
+      "por_que_es_gracioso": "Funciona a duras penas."
+    },
+    {
+      "iq": 1300,
+      "gag": "Apoya la tarta en el suelo, coge una silla y la usa de tope: pasa con la tarta, pero la silla se atasca y arrastra todo el mantel de la mesa.",
+      "por_que_es_gracioso": "Funciona, con desastre al lado."
+    },
+    {
+      "iq": 9001,
+      "gag": "Se queda pensando; la camara gira y muestra una ventana abierta enorme con cortinas ondeando; cruza el salon y la cierra de un golpe: la puerta deja de dar portazos y pasa con la tarta intacta, con un ding.",
+      "por_que_es_gracioso": "La corriente de la ventana abierta cerraba la puerta: era grande y estaba al fondo."
+    }
+  ],
+  "clips": [
+    [
+      -400,
+      [
+        "Surprised",
+        "Pushing"
+      ]
+    ],
+    [
+      -65,
+      [
+        "Pushing",
+        "Angry"
+      ]
+    ],
+    [
+      135,
+      [
+        "Kicking"
+      ]
+    ],
+    [
+      1300,
+      [
+        "Pushing"
+      ]
+    ],
+    [
+      9001,
+      [
+        "Looking Around",
+        "Walking Left Turn",
+        "Victory"
+      ]
+    ]
+  ],
+  "payoff": "La corriente de una ventana abierta cerraba la puerta.",
+  "sin_palabras": "1: tarta aplastada contra la puerta.",
+  "frame1": "Hombre llevando una tarta de nata enorme hacia una puerta abierta; en el segundo 1 el viento la cierra de un portazo en su cara.",
+  "tres_fotogramas": [
+    "1: tarta aplastada contra la puerta de bisagra.",
+    "2: hombre calzando la puerta con una silla y el mantel arrastrado.",
+    "3: ventana grande cerrada y hombre pasando con la tarta."
+  ],
+  "needs": "Puerta = cube con bisagra (pivote en un lado, S.key de giro rapido); tarta = cylinders + uv_sphere; ventana grande y cortinas = cubes finos que ondean con S.key, fuera de plano hasta el nivel 5 (la camara panea). Sonidos: hit, creak, splash, tada. Clips existentes.",
+  "riesgo_copia": "bajo",
+  "diferencia": "Puerta que da portazos con una tarta; sin puerta automatica ni armario; remate de cerrar la ventana.",
+  "batch": "20261124-2",
+  "vps": 65.1,
+  "story_id": "story-024",
+  "critic_improve": "Probar antes del guion la panoramica del nivel 5 y, si no existe, sustituirla por un corte limpio a la ventana abierta con cortinas ondeando, y hacer que el viento se vea en el frame 1 con una cinta o un farolillo que se mueva hacia la puerta."
+}
