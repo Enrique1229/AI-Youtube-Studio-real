@@ -139,28 +139,20 @@
     "title_en": "The Road Rippled Under His Feet",
     "caption_en": null,
     "onscreen_en": "Run!",
-    "frame1": "Una franja de calle ancha con asfalto y paso de cebra se levanta como una ola gris con la cresta blanca de las rayas, grande en primer plano, justo detras del hombre que corre hacia camara; la cresta esta a punto de romper sobre el.",
-    "logline_es": "Una franja de calle con paso de cebra se alza como una ola y persigue al hombre: 1) la ola lo alcanza y lo catapulta al aire; 2) cae sobre la cresta de la segunda ola, mayor, y se ve obligado a mantenerse de pie surfeandola; 3) la ola se estira en un tunel y el hombre la atraviesa corriendo por dentro; giro: la ola rompe contra la acera, vuelve a ser calle plana, y el hombre sale despedido sentado en un buzon... pero la franja de asfalto de detras ya se alza otra vez y el corre hacia camara.",
+    "frame1": "Una franja de calle ancha con asfalto y paso de cebra se levanta en una ola pequena (cresta blanca de rayas) que avanza justo detras del hombre que corre hacia camara; la cresta le pisa los talones.",
+    "logline_es": "Una ola pequena, una franja de calle con paso de cebra que se levanta y avanza, persigue al hombre que corre; la ola crece de golpe, lo catapulta al aire y el cae de pie sobre su cresta y la surfea; llega al bordillo, la ola se aplana y el, aliviado, da un pisotón victorioso en la calle: el pisotón lanza una ola pequena nueva que lo persigue y vuelve a correr, como en el frame 1.",
     "beats": [
       {
-        "t": "0-3",
-        "beat": "Gancho: ola de asfalto con cresta de rayas tras el hombre que corre (Running)."
+        "t": "0-4",
+        "beat": "Gancho: ola pequena de asfalto (franja que se levanta y avanza) tras el hombre que corre (Running)."
       },
       {
-        "t": "3-6",
-        "beat": "Paso 1: la ola lo alcanza y lo lanza al aire (Jumping)."
+        "t": "4-9",
+        "beat": "La ola crece de golpe, lo catapulta (Jumping) y el cae de pie sobre la cresta y la surfea con equilibrio (Surprised)."
       },
       {
-        "t": "6-9",
-        "beat": "Paso 2: cae sobre la segunda ola, mayor, y la surfea en equilibrio (Surprised)."
-      },
-      {
-        "t": "9-11",
-        "beat": "Paso 3: la ola se curva en tunel y el corre por dentro (Running)."
-      },
-      {
-        "t": "11-13",
-        "beat": "Giro: rompe contra el bordillo, la calle queda plana y el hombre aliviado; el asfalto de detras vuelve a alzarse y el corre (Running): pose del f1."
+        "t": "9-13",
+        "beat": "Giro: en el bordillo la ola se aplana; el hombre da un pisoton victorioso (Victory) y su pisoton lanza una ola pequena nueva que lo persigue; vuelve a correr (Running): pose del f1."
       }
     ],
     "clips": [
@@ -179,7 +171,7 @@
       [
         3,
         [
-          "Surprised"
+          "Victory"
         ]
       ],
       [
@@ -189,16 +181,16 @@
         ]
       ]
     ],
-    "payoff": "La calle tiene mar de fondo: la unica forma de salir es surfear la ola.",
-    "sin_palabras": "Ola de asfalto con rayas de paso de cebra persiguiendo al hombre que corre.",
+    "payoff": "La ola era suya: cada pisoton victorioso la vuelve a lanzar.",
+    "sin_palabras": "Ola pequena de asfalto con rayas persiguiendo al hombre que corre.",
     "tres_fotogramas": [
-      "Ola de asfalto con rayas de paso de cebra persiguiendo al hombre que corre.",
-      "Hombre surfeando de pie una ola mayor de asfalto.",
-      "La ola ha roto, calle plana, y otra ola nace tras el hombre que vuelve a correr."
+      "Ola pequena de asfalto con rayas persiguiendo al hombre que corre.",
+      "Hombre surfeando de pie una ola grande de asfalto.",
+      "Hombre pisando fuerte con la calle plana y una ola pequena naciendo de su pie."
     ],
-    "needs": "Franja = plano subdividido (ej. 80x20) con modificador Displace/shape key de onda seno viajera, amplitud creciente, textura de asfalto con paso de cebra; sin coches ni farolas. Clips existentes.",
+    "needs": "Una sola franja = plano subdividido con Displace/shape key de onda seno viajera (amplitud pequena -> grande -> 0 -> pequena nueva desde el punto del pisoton), textura de asfalto con paso de cebra. Sin coches, farolas ni tunel. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Suelo ondulante en 3 pasos distintos (catapulta, surf, tunel) y giro de rotura y rebrote.",
+    "diferencia": "Un unico mecanismo (onda en una franja) en 3 beats; giro: su propio pisoton relanza la ola.",
     "batch": "20261124-1"
   },
   {
