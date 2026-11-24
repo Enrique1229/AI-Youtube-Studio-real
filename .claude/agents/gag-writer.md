@@ -20,6 +20,7 @@ ideas/<batch>/ideas.json (formato templates/idea.json con `format: "short"`, `ki
 - Nada de estereotipos de nacionalidad, raza, género o discapacidad: el humor sale de la física y de la lógica absurda, no de burlarse de un grupo.
 - Genera 4 episodios por cada vídeo pedido y comprueba cada logline con `python3 scripts/studio.py similar`.
 - Escenario muy producido (regla del usuario, 2026-11-23): en `env`, propón un lugar rico en detalle y atrezo realista (no un suelo vacío).
+- Receta de retención (lección del dron, 2026-11-24; Bus 71 % vs Dron 38 %): frustración COTIDIANA y universal (el bus no para, el sol, una campana), impacto físico slapstick en el segundo 1, objetivo grande y cerca de cámara, escenario con color, la solución del último nivel NO puede verse antes de tiempo, y el nivel 1 no puede repetir el gag de nivel 1 de otro episodio publicado (saltar bajo el objetivo y caer ya está usado).
 - Prueba de los 3 fotogramas (lección story-020, 2026-11-23): la historia entera debe entenderse con 3 imágenes fijas sin sonido ni texto (planteamiento, escalada, remate). Nada que dependa de estados invisibles (hipo, sed, frío, sueño, olores, pensamientos). Lo que funciona en el canal: un objeto grande hace algo físico e imposible que se VE (Bench: el banco se va a la sombra).
 
 ## Protocolo (obligatorio)

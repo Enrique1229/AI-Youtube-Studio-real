@@ -59,3 +59,13 @@ primer segundo, mejor audio y caras más realistas (petición del usuario).
 - Piscina (ep015, mini-historia) a 62 h: ~3,1 K, 46,6 % se quedan, retención de ~140 % al inicio a ~60 % al final, 16 likes, 0 subs.
 - Lectura: "se quedan a mirar" (decisión del primer segundo) es la métrica que separa: Bell 72 %, Bus 71 % (niveles IQ) vs Bollard 41 %, piscina 47 % (mini-historias). El fotograma 1 del Bollard es un hombre sentado quieto con una ventana: no pasa nada imposible todavía. Regla: en el fotograma 1 ya debe estar ocurriendo la acción o lo imposible, con el objetivo claro (como Bell: salto hacia la campana desde el f1).
 - 2026-11-24: subido ep019 'Every IQ Level Catches the Drone' (story-022, niveles IQ, azotea, acelerado 1,2x a 18,3 s).
+
+## 2026-11-24 11:03 (usuario, app) — Dron (ep019) fracasa
+- ~10 h: 504 vistas interesadas, 37,7 % se quedan (62,3 % descartan), curva: prueba del feed a la 1-1,5 h y plano después (YouTube dejó de mostrarlo).
+- Diagnóstico del Director (comparando el primer segundo con Bus 71 % / scratchpad/cmp_frame1.jpg):
+  1. Nivel 1 casi idéntico al de Bell (saltar bajo el objetivo y caer de culo): déjà vu; 6.º IQ seguido de la misma plantilla.
+  2. La solución (mando en el pecho) se ve desde el fotograma 1: sin misterio, y el espectador no entiende por qué no lo usa.
+  3. Objetivo poco cotidiano ("atrapar un dron") frente a frustraciones universales (el bus no para, el sol en el banco, tocar la campana).
+  4. Imagen gris (saturación 37, la más baja), plano abierto: personaje y dron pequeños.
+  5. En el Bus hay un golpe/impacto físico en el segundo 1 (el bus pasa y lo tumba); en el dron no pasa nada en 2 s.
+- Receta para el siguiente: frustración cotidiana universal + impacto slapstick en el segundo 1 + objetivo grande y cerca + escenario con color + solución del nivel 5 OCULTA hasta el final + nivel 1 distinto de los ya publicados + ≤18 s.
