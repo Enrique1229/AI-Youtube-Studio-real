@@ -69,3 +69,4 @@ primer segundo, mejor audio y caras más realistas (petición del usuario).
   4. Imagen gris (saturación 37, la más baja), plano abierto: personaje y dron pequeños.
   5. En el Bus hay un golpe/impacto físico en el segundo 1 (el bus pasa y lo tumba); en el dron no pasa nada en 2 s.
 - Receta para el siguiente: frustración cotidiana universal + impacto slapstick en el segundo 1 + objetivo grande y cerca + escenario con color + solución del nivel 5 OCULTA hasta el final + nivel 1 distinto de los ya publicados + ≤18 s.
+- 2026-11-24: ep020 sofá subido SIN revisión final (usuario): bugs graves en transiciones entre niveles (hombre gigante cruzando cámara a 0,5 s, cara pegada a cámara 1-2,5 s, protagonista DUPLICADO a 8 s, sofá girando). Causa: el Director revisó solo 3 fotogramas por nivel. Regla: revisión del vídeo completo a 2 fps antes de subir, siempre; el animador debe comprobar los fotogramas de transición entre niveles.
