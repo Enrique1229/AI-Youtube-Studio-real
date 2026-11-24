@@ -1,0 +1,20 @@
+{
+  "id": "story-023",
+  "format": "short",
+  "title": "Every IQ Level Moves the Sofa Through the Door",
+  "stage": "selected",
+  "gates": {
+    "critic": "PASS",
+    "market": "PASS",
+    "continuity": "PASS",
+    "policy": "PENDING",
+    "qc": "PENDING"
+  },
+  "vps": 65.6,
+  "quality_score": null,
+  "fix_rounds": 0,
+  "final_file": null,
+  "updated": "2026-11-24",
+  "idea_id": "b20261124-2-i02",
+  "market_verdict": "VALIDATED"
+}

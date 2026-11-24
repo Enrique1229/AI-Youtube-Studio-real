@@ -1,0 +1,112 @@
+[
+  {
+    "id": "b20261124-2-i02",
+    "format": "short",
+    "kind": "anim",
+    "env": "portal de un edificio de pisos en dia de mudanza: gran puerta de madera azul con UNA hoja abierta y la otra hoja fija a su lado, tapada por una maceta enorme con un arbusto; camion con cajas, buzones, escalones de piedra",
+    "title_en": "Every IQ Level Moves the Sofa Through the Door",
+    "caption_en": null,
+    "logline_es": "Un sofa rojo enorme atascado en la puerta de un portal; el hombre empuja, lo gira y quita la puerta; el mas listo suelta el cerrojo oculto de la otra hoja y la puerta se abre doble.",
+    "beats": [
+      {
+        "t": "0-3.5",
+        "beat": "IQ -300: Ya empujando el sofa por la puerta estrecha (frame 1); queda encajado, rebota como un muelle y lo planta de espaldas contra la pared aplastado con un fump."
+      },
+      {
+        "t": "3.5-7",
+        "beat": "IQ -60: Empuja mas fuerte con el hombro; el marco cruje y asoma una astilla; el sofa avanza un dedo y se queda atascado de nuevo."
+      },
+      {
+        "t": "7-10.5",
+        "beat": "IQ 150: Lo inclina de lado; pasa rozando el marco con un chirrido; casi se le cae encima."
+      },
+      {
+        "t": "10.5-14",
+        "beat": "IQ 1200: Desmonta la hoja abierta de sus bisagras y la apoya en la pared: el sofa pasa, pero la puerta queda tirada y no se puede volver a cerrar; el se queda mirando el hueco."
+      },
+      {
+        "t": "14-18",
+        "beat": "IQ 7000: Se rasca la cabeza, empuja con el pie la maceta enorme y aparece una barra de metal grande y brillante que mantiene cerrada la otra hoja; tira de la barra hacia arriba: la puerta se abre doble, los dos batientes giran de par en par y el sofa pasa sin rozar con un ding; cierra la puerta entera."
+      }
+    ],
+    "levels": [
+      {
+        "iq": -300,
+        "gag": "Ya empujando el sofa por la puerta estrecha (frame 1); queda encajado, rebota como un muelle y lo planta de espaldas contra la pared aplastado con un fump.",
+        "por_que_es_gracioso": "El sofa rebota y lo aplasta."
+      },
+      {
+        "iq": -60,
+        "gag": "Empuja mas fuerte con el hombro; el marco cruje y asoma una astilla; el sofa avanza un dedo y se queda atascado de nuevo.",
+        "por_que_es_gracioso": "Cree que mas fuerza mete un sofa mas grande."
+      },
+      {
+        "iq": 150,
+        "gag": "Lo inclina de lado; pasa rozando el marco con un chirrido; casi se le cae encima.",
+        "por_que_es_gracioso": "Funciona a duras penas."
+      },
+      {
+        "iq": 1200,
+        "gag": "Desmonta la hoja abierta de sus bisagras y la apoya en la pared: el sofa pasa, pero la puerta queda tirada y no se puede volver a cerrar; el se queda mirando el hueco.",
+        "por_que_es_gracioso": "Funciona, pero rompe la puerta."
+      },
+      {
+        "iq": 7000,
+        "gag": "Se rasca la cabeza, empuja con el pie la maceta enorme y aparece una barra de metal grande y brillante que mantiene cerrada la otra hoja; tira de la barra hacia arriba: la puerta se abre doble, los dos batientes giran de par en par y el sofa pasa sin rozar con un ding; cierra la puerta entera.",
+        "por_que_es_gracioso": "Era una puerta doble: la hoja de al lado estaba trabada por una barra detras de la maceta."
+      }
+    ],
+    "clips": [
+      [
+        -300,
+        [
+          "Pushing",
+          "Surprised"
+        ]
+      ],
+      [
+        -60,
+        [
+          "Charge",
+          "Angry"
+        ]
+      ],
+      [
+        150,
+        [
+          "Sneaking Forward"
+        ]
+      ],
+      [
+        1200,
+        [
+          "Pushing",
+          "Laughing"
+        ]
+      ],
+      [
+        7000,
+        [
+          "Thinking",
+          "Kicking",
+          "Victory"
+        ]
+      ]
+    ],
+    "payoff": "Era una puerta doble y la otra hoja estaba cerrada con un cerrojo.",
+    "sin_palabras": "1: sofa atascado y hombre empujando.",
+    "frame1": "Sofa rojo gigante encajado en una puerta azul a un metro de camara; el hombre empuja con ambas manos y el sofa se mueve a trompicones.",
+    "tres_fotogramas": [
+      "1: sofa atascado y hombre aplastado.",
+      "2: hoja de la puerta caida y hueco abierto.",
+      "3: barra grande levantada, puerta doble abierta y sofa entrando."
+    ],
+    "needs": "Sofa = cubes rojos; puerta = dos cubes azules con S.key de giro; maceta = cylinder + uv_sphere verde delante de la barra; barra = cube metalico grande y brillante (visible solo tras mover la maceta). Sonidos: hit, creak, clunk, tada. Clips existentes.",
+    "riesgo_copia": "bajo",
+    "diferencia": "Mudanza y sofa; sin maleta, bus ni puerta automatica; remate de hoja secreta de puerta doble.",
+    "batch": "20261124-2",
+    "vps": 65.6,
+    "story_id": "story-023",
+    "critic_improve": "Dar al nivel 5 un gesto claro con un clip que ya exista (Pushing sobre la barra en vez de Kicking) y que la maceta ruede con un ruido grande para que la barra aparezca como sorpresa, sin dejar ver ni el borde de la barra en el frame 1."
+  }
+]

@@ -653,5 +653,85 @@
       "assets/polyhaven/metal_toolbox/textures/metal_toolbox_arm_1k.jpg",
       "assets/polyhaven/metal_toolbox/metal_toolbox.bin"
     ]
+  },
+  "german_town_street": {
+    "name": "German Town Street",
+    "type": "hdri",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/german_town_street",
+    "authors": [
+      "Alexander Scholten"
+    ],
+    "files": [
+      "assets/polyhaven/german_town_street/german_town_street_2k.hdr"
+    ]
+  },
+  "sofa_02": {
+    "name": "Sofa 02",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/sofa_02",
+    "authors": [
+      "Kirill Sannikov"
+    ],
+    "files": [
+      "assets/polyhaven/sofa_02/sofa_02_1k.gltf",
+      "assets/polyhaven/sofa_02/textures/sofa_02_diff_1k.jpg",
+      "assets/polyhaven/sofa_02/textures/sofa_02_arm_1k.jpg",
+      "assets/polyhaven/sofa_02/textures/sofa_02_nor_gl_1k.jpg",
+      "assets/polyhaven/sofa_02/sofa_02.bin"
+    ]
+  },
+  "potted_plant_02": {
+    "name": "Potted Plant 02",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/potted_plant_02",
+    "authors": [
+      "Rico Cilliers"
+    ],
+    "files": [
+      "assets/polyhaven/potted_plant_02/potted_plant_02_1k.gltf",
+      "assets/polyhaven/potted_plant_02/textures/potted_plant_02_leaves_diff_1k.jpg",
+      "assets/polyhaven/potted_plant_02/potted_plant_02.bin",
+      "assets/polyhaven/potted_plant_02/textures/potted_plant_02_pot_rough_1k.jpg",
+      "assets/polyhaven/potted_plant_02/textures/potted_plant_02_leaves_rough_1k.jpg",
+      "assets/polyhaven/potted_plant_02/textures/potted_plant_02_pot_diff_1k.jpg",
+      "assets/polyhaven/potted_plant_02/textures/potted_plant_02_leaves_nor_gl_1k.jpg",
+      "assets/polyhaven/potted_plant_02/textures/potted_plant_02_pot_nor_gl_1k.jpg"
+    ]
+  },
+  "potted_plant_04": {
+    "name": "Potted Plant 04",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/potted_plant_04",
+    "authors": [
+      "James Ray Cock"
+    ],
+    "files": [
+      "assets/polyhaven/potted_plant_04/potted_plant_04_1k.gltf",
+      "assets/polyhaven/potted_plant_04/potted_plant_04.bin",
+      "assets/polyhaven/potted_plant_04/textures/potted_plant_04_nor_gl_1k.jpg",
+      "assets/polyhaven/potted_plant_04/textures/potted_plant_04_arm_1k.jpg",
+      "assets/polyhaven/potted_plant_04/textures/potted_plant_04_diff_1k.jpg"
+    ]
+  },
+  "power_box_01": {
+    "name": "Power Box 01",
+    "type": "model",
+    "license": "CC0 1.0 (Poly Haven)",
+    "url": "https://polyhaven.com/a/power_box_01",
+    "authors": [
+      "Rico Cilliers",
+      "Yann Kervran"
+    ],
+    "files": [
+      "assets/polyhaven/power_box_01/power_box_01_1k.gltf",
+      "assets/polyhaven/power_box_01/textures/power_box_01_arm_1k.jpg",
+      "assets/polyhaven/power_box_01/textures/power_box_01_nor_gl_1k.jpg",
+      "assets/polyhaven/power_box_01/power_box_01.bin",
+      "assets/polyhaven/power_box_01/textures/power_box_01_diff_1k.jpg"
+    ]
   }
 }
