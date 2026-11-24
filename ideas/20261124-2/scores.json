@@ -1,22 +1,60 @@
 [
   {
+    "id": "b20261124-2-i08",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 7,
+      "visual": 7,
+      "emotion": 7,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 5,
+      "repetition_risk": 4
+    },
+    "why": "Frustracion cotidiana reconocible (las manos ocupadas y la puerta que se cierra), portazo con tarta en la cara en el segundo 1, objetivo cerca, escenario con color, y la solucion (la ventana abierta del fondo) esta oculta pero justificada por las cortinas, con un final de tarta intacta que cierra bien; no sube mas porque el entorno describe una puerta corredera de cristal que no da portazos (debe ser de bisagra), las cortinas ondeando ya delatan la solucion y los niveles 3 y 4 son flojos.",
+    "improve": "Cambiar la puerta por una hoja con bisagra y tapar la ventana del fondo con un cortinaje fuera de plano en el frame 1 (las cortinas solo se ven al nivel 5), y sustituir el nivel 3 de Kicking por un gag con la tarta visible en la bandeja.",
+    "vps": 64.6
+  },
+  {
+    "id": "b20261124-2-i02",
+    "scores": {
+      "hook": 8,
+      "curiosity": 7,
+      "retention": 7,
+      "originality": 6,
+      "visual": 8,
+      "emotion": 6,
+      "ending": 7,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 3,
+      "repetition_risk": 4
+    },
+    "why": "Sofa gigante atascado en el frame 1 con rebote y aplastamiento en el segundo 1, objetivo grande y pegado a la camara, solucion oculta (la otra hoja con cerrojo tras el felpudo) y construccion trivial con cubes; no sube mas porque el nivel 4 (quitar la hoja) ya resuelve el problema y resta escalada al 5, el cerrojo en el suelo es diminuto en 9:16 y la patada al cerrojo no lee como mecanismo.",
+    "improve": "Hacer el cerrojo una barra de metal brillante enorme tapada por una maceta que el hombre mueve con el pie y cambiar el nivel 4 para que el sofa pase pero la puerta quede inutilizable y el hombre no pueda cerrarla, de modo que el 5 sea el unico limpio.",
+    "vps": 64.6
+  },
+  {
     "id": "b20261124-2-i03",
     "scores": {
       "hook": 8,
       "curiosity": 6,
       "retention": 7,
-      "originality": 5,
-      "visual": 8,
+      "originality": 6,
+      "visual": 6,
       "emotion": 6,
-      "ending": 7,
+      "ending": 6,
       "series": 6,
       "differentiation": 5,
       "production_difficulty": 3,
       "repetition_risk": 4
     },
-    "why": "Frustracion universal, golpe de cara contra el cristal en el segundo 1, objetivo pegado al personaje, solucion oculta (el sensor no ve al que esta pegado) y construccion trivial con cubes; no sube mas porque 'da un paso atras' es un truco que mucha gente ya conoce, el nivel 1 repite la caida de espaldas de Bell/Dron y no hay clip de andar hacia atras (Walking Left Turn no lee como retroceder).",
-    "improve": "Colocar la camara detras del cristal para que el choque de cara sea el fotograma 1 y hacer visible el sensor solo con un parpadeo de luz roja, y rodar antes un retroceso con pasos cortos (clip existente invertido o Sneaking Forward en reverso) para que el nivel 5 se lea sin texto.",
-    "vps": 61.9
+    "why": "Choque de cara contra el cristal en el segundo 1 con objetivo pegado al personaje y construccion trivial, y la hoja que tapa el sensor oculta bien la solucion; no sube mas porque la hoja diminuta sobre un sensor arriba no se lee en 9:16 (falla la prueba del fotograma 3), la solucion no es una frustracion que el espectador reconozca y lanzar un zapato a algo tan pequeno exige punteria legible.",
+    "improve": "Hacer la hoja un cartel verde grande que cuelga tapando el sensor y que se vea en un primer plano de 1 s al mirar arriba, y que el zapato derribe el cartel con un golpe visible antes del ding.",
+    "vps": 60.5
   },
   {
     "id": "b20261124-2-i01",
@@ -31,11 +69,11 @@
       "series": 5,
       "differentiation": 6,
       "production_difficulty": 7,
-      "repetition_risk": 5
+      "repetition_risk": 4
     },
-    "why": "Frustracion cotidiana universal con impacto en el segundo 1 (paraguas dado la vuelta, fap, charco) y un remate de 'el problema es el motor' que encaja con la receta; pero la solucion se adivina al ver el paraguas del reves en el frame 1, el objetivo (portal a 6 m) es pequeno en 9:16, la lluvia y el viento con primitivas son lo mas costoso del lote y Throw/Falling Back Death no encajan con ser azotado por un paraguas.",
-    "improve": "Esconder la solucion haciendo que el nivel 5 empiece con el paraguas intacto y el viento girando a su favor (hojas hacia el portal) para que el volteo deliberado sea la sorpresa, con la lluvia reducida a 12 cylinders y el portal en el fondo del fotograma 1 con un felpudo de color vivo.",
-    "vps": 58.9
+    "why": "Frustracion universal, paraguas abierto en el frame 1 que se da la vuelta en el segundo 1 (la solucion ya no se delata) y remate de 'el problema es el motor'; no sube mas porque lluvia, viento e inversion del paraguas con primitivas son lo mas caro del lote, el objetivo (portal a 6 m) es pequeno y los clips Surprised/Charge no leen como ser azotado por un paraguas.",
+    "improve": "Reducir la lluvia a 12 cylinders y el viento a hojas que cruzan en diagonal, poner el portal con un felpudo de color vivo en el fondo del frame 1 y probar antes del guion la inversion del cone con escala z negativa.",
+    "vps": 60.0
   },
   {
     "id": "b20261124-2-i07",
@@ -52,47 +90,28 @@
       "production_difficulty": 5,
       "repetition_risk": 5
     },
-    "why": "Objetivo claro y cerca (lo alto de la escalera), frustracion reconocible y solucion oculta tras la jardinera, que calca el 'estaba ahi todo el rato' del Bus; no sube mas porque el impacto del segundo 1 es un tropiezo lento mas que un golpe, la maleta que rueda sola cuesta arriba rompe la logica del remate y la polea con Climbing A Rope no lee como tirar de una cuerda.",
-    "improve": "Abrir el fotograma 1 con la maleta ya cayendo escalon a escalon encima del hombre con un pum visible, y hacer que en el nivel 5 el hombre empuje la maleta por la rampa en vez de que suba sola, dejando la rampa tapada por la jardinera hasta el ultimo plano.",
+    "why": "Objetivo claro y cerca (lo alto de la escalera), frustracion reconocible y solucion oculta tras la jardinera, pero calca el 'estaba ahi todo el rato' del Bus; el impacto del segundo 1 es un arrastre lento, la maleta que sube sola por la rampa rompe la logica del remate y Climbing A Rope no lee como tirar de una polea.",
+    "improve": "Que en el nivel 5 el hombre empuje la maleta por la rampa en vez de que suba sola, dejar la rampa visible solo al asomarse tras la jardinera y abrir el frame 1 con la maleta ya cayendo sobre el con un pum audible.",
     "vps": 56.2
   },
   {
     "id": "b20261124-2-i06",
     "scores": {
-      "hook": 8,
-      "curiosity": 6,
+      "hook": 6,
+      "curiosity": 7,
       "retention": 6,
-      "originality": 5,
-      "visual": 5,
-      "emotion": 5,
-      "ending": 5,
-      "series": 5,
-      "differentiation": 5,
-      "production_difficulty": 4,
-      "repetition_risk": 4
-    },
-    "why": "Frustracion urbana universal y golpe en la barriga en el segundo 1 con objetivo pegado al personaje, pero la solucion es una banda negra diminuta en un billete que no se ve en 9:16 y falla la prueba de los 3 fotogramas (fotograma 3), los niveles 2 y 4 son colarse sin pagar (riesgo de tono para policy) y el billete ya esta dentro de la ranura en el frame 1, asi que no se puede girar.",
-    "improve": "Hacer el billete una tarjeta enorme naranja con una flecha negra gruesa que apunta al lado equivocado en el frame 1, y sustituir los niveles de colarse por esperar y golpear la maquina para evitar el tono de evasion.",
-    "vps": 54.0
-  },
-  {
-    "id": "b20261124-2-i08",
-    "scores": {
-      "hook": 7,
-      "curiosity": 6,
-      "retention": 6,
-      "originality": 4,
+      "originality": 7,
       "visual": 6,
       "emotion": 6,
-      "ending": 5,
-      "series": 4,
-      "differentiation": 4,
-      "production_difficulty": 5,
-      "repetition_risk": 5
+      "ending": 7,
+      "series": 5,
+      "differentiation": 6,
+      "production_difficulty": 6,
+      "repetition_risk": 6
     },
-    "why": "Frustracion de casa muy universal y avalancha de ropa en el segundo 1, pero el remate es una trampa de guion (el otro armario vacio no se ve vaciarse ni llenarse, no hay truco que descubrir), las dos puertas ya estan en el frame 1 y la solucion no es un descubrimiento sino un cambio de lugar que no cabe en 3 s sin mostrar el traslado.",
-    "improve": "Mostrar en el nivel 5 la ropa saliendo volando de un armario a otro en un solo plano rapido y esconder la puerta vacia como un armario empotrado con la puerta camuflada de pared, descubierta al apoyarse el hombre.",
-    "vps": 49.5
+    "why": "Solucion de agua muy oculta (manguera tras la casita) y sorprendente, con objetivo grande y cerca, pero el impacto del zapato llega pasado el segundo 1, 'sacar un objeto de las alturas' es el mismo objetivo del Dron fallido (zapato incluido, mismo Throw), la frustracion es menos universal que una puerta o un paraguas y el canalon hueco es dificil con primitivas.",
+    "improve": "Abrir con el zapato ya rebotando en el tejado y cayendo sobre su cabeza en el segundo 1, dejar de lanzar zapatos en el resto de niveles y construir el canalon como tres cubes en U con la pelota roja ya visible a la altura del hombre.",
+    "vps": 54.8
   },
   {
     "id": "b20261124-2-i04",
@@ -100,55 +119,36 @@
       "hook": 7,
       "curiosity": 5,
       "retention": 6,
-      "originality": 5,
-      "visual": 6,
+      "originality": 6,
+      "visual": 5,
       "emotion": 6,
-      "ending": 6,
+      "ending": 5,
       "series": 5,
-      "differentiation": 4,
-      "production_difficulty": 7,
-      "repetition_risk": 6
+      "differentiation": 6,
+      "production_difficulty": 8,
+      "repetition_risk": 4
     },
-    "why": "El frame 1 con ola enorme y castillo se lee y el SPLASH da impacto inmediato, pero el escenario vuelve a la playa del Bench/sombrilla, abrir una zanja ante la ola es algo que ya hace cualquier nino y no sorprende, el agua que rellena un foso con primitivas es lo mas dificil de animar y el nivel 4 (sentado en lo alto sin poder bajar) no tiene lectura clara.",
-    "improve": "Cambiar el escenario por una orilla de rio o piscina infantil con color vivo para salir de la playa repetida y hacer que la zanja ya este cavada en el frame 1 pero cerrada con un tapon de arena que el nivel 5 abre con el pie.",
-    "vps": 48.6
-  },
-  {
-    "id": "b20261124-2-i02",
-    "scores": {
-      "hook": 5,
-      "curiosity": 5,
-      "retention": 6,
-      "originality": 4,
-      "visual": 4,
-      "emotion": 6,
-      "ending": 6,
-      "series": 5,
-      "differentiation": 4,
-      "production_difficulty": 5,
-      "repetition_risk": 5
-    },
-    "why": "Frustracion universal pero el frame 1 es un primer plano de manos sin golpe ni nada imposible hasta los 3 s, la solucion (romper el vacio) depende de un estado invisible y falla la prueba de los 3 fotogramas, el truco de la cuchara es conocido, y vuelve a la cocina, que en el canal rinde 1,1-2,8 K con 39-44 % de retencion.",
-    "improve": "Sacar la escena de la cocina a una barbacoa o mesa de picnic al aire libre con el tarro, abrir con el tarro saliendo disparado en el segundo 1 y hacer visible el vacio con un cristal transparente que 'respira' un globo al abrir.",
-    "vps": 44.0
+    "why": "Hamaca gigante que voltea en el segundo 1 con frustracion reconocible, pero no existe clip de tumbarse en Mixamo existente (Sitting Idle no lee como acostado en diagonal), la hamaca de cube plano con balanceo es lo mas dificil de animar y el remate de dormirse es un final tranquilo sin sorpresa ni repeticion, con estabilidad invisible (estado oculto).",
+    "improve": "Cambiar el remate por algo que se vea (la hamaca queda estirada como una tabla con el hombre cruzado y una luna sobre el), y probar antes del guion si algun clip de tumbado existe; si no, descartar.",
+    "vps": 50.9
   },
   {
     "id": "b20261124-2-i05",
     "scores": {
-      "hook": 6,
-      "curiosity": 4,
+      "hook": 7,
+      "curiosity": 5,
       "retention": 6,
-      "originality": 4,
-      "visual": 7,
+      "originality": 5,
+      "visual": 6,
       "emotion": 6,
-      "ending": 4,
+      "ending": 5,
       "series": 4,
       "differentiation": 4,
-      "production_difficulty": 6,
+      "production_difficulty": 5,
       "repetition_risk": 5
     },
-    "why": "Pinata llamativa y colorida, pero la cuerda se ve desde el frame 1 (sin misterio, igual que el mando del dron), pegar a la cuerda es obvio, el nivel 4 ya la abre y consigue el mismo resultado que el 5 (sin escalada de ingenio), es un objetivo de cumpleanos y no una frustracion diaria y quitarse la venda es un 'truco' sin gracia.",
-    "improve": "Esconder la cuerda (la pinata parece apoyada en un palo hasta el final) o cambiar el remate para que sea la pinata la que rompe al hombre, y evitar quitar la venda: que el nivel 5 la derribe con una escalera de tijera empujada por error.",
-    "vps": 43.8
+    "why": "Splat de kétchup en la cara en el segundo 1, pero el remate de mojar las patatas dentro de la botella es poco higienico y no sorprende, el nivel 4 (cuchillo) ya es la misma idea, es un objeto de comida en un canal donde los objetos de cocina rinden 1,1-2,8 K con 39-44 % de retencion y el kétchup con particulas ensucia el plano.",
+    "improve": "Cambiar el remate por una solucion visible y mas sorprendente (que las patatas esten en un vaso con una pajita de kétchup bajo el tapon que el nivel 5 descubre) o descartar por el historico de objetos de cocina.",
+    "vps": 49.2
   }
 ]
