@@ -1,3 +1,16 @@
-story_id,format,title,published,tags,views,ctr,avd_s,pct_viewed,likes,comments,shares,subs_gained
-story-005,short,A Match Warms Up an Ice Cube (Together Forever),2026-11-16,objects;cerilla;hielo,877,,,,,,,
-story-004,short,Every IQ Level Tries to Cross a River,2026-11-16,levels;iq;rio,1600,,,,,,,
+story_id,format,title,published,tags,views,ctr,avd_s,pct_viewed,likes,comments,shares,subs_gained,duration_s,watch_h,video_id,period
+story-013,levels,Every IQ Level Rings the Bell on a Tall Post,2026-11-20,,30278,4.53,9.9,55.0,,,,12,18,83.49,jNFAOK0NI2I,2026-10-26..2026-11-23
+story-015,mini_story,Why Did the Bench Leave Me in the Sun?,2026-11-20,,28145,1.14,7.3,66.4,,,,6,11,57.17,3F1VMEKWWrU,2026-10-26..2026-11-23
+story-017,levels,Every IQ Level Stops the Bus,2026-11-21,,24171,3.97,9.3,54.7,,,,3,17,62.34,3_6VtBDcJMo,2026-10-26..2026-11-23
+story-004,levels,Every IQ Level Tries to Cross a River,2026-11-16,,8079,3.78,10.0,50.0,,,,2,20,22.41,iwAH54I6TRQ,2026-10-26..2026-11-23
+story-014,levels,Every IQ Level Reaches the Picnic Blanket,2026-11-20,,6411,0.92,9.0,45.0,,,,3,20,16.09,eUU31B-Rb0A,2026-10-26..2026-11-23
+story-019,levels,Every IQ Level Rides the Merry-Go-Round,2026-11-23,,4933,7.08,9.8,49.0,,,,5,20,13.4,RXnojuXs_V8,2026-10-26..2026-11-23
+story-018,mini_story,He Jumped Into an Empty Pool. Then It Bounced,2026-11-21,,2817,1.2,7.3,52.1,,,,0,14,5.69,-unkzdfUDOU,2026-10-26..2026-11-23
+story-006,objects,The Sleepwalking Egg Falls Off the Counter (Safely),2026-11-17,,2805,3.63,7.0,43.8,,,,2,16,5.47,KhXcUIiaK_g,2026-10-26..2026-11-23
+story-011,levels,Can You Move a Boulder at IQ 5200?,2026-11-18,,2221,2.88,10.6,44.2,,,,0,24,6.55,ihwR356mNcY,2026-10-26..2026-11-23
+story-005,objects,A Match Warms Up an Ice Cube (Together Forever),2026-11-16,,2073,5.47,7.4,41.1,,,,1,18,4.28,Oj-6SQY_aiE,2026-10-26..2026-11-23
+story-008,levels,Every IQ Level Feeds a Duck,2026-11-17,,1550,1.5,8.2,41.0,,,,0,20,3.52,oIFEaiDMwpQ,2026-10-26..2026-11-23
+story-007,objects,"One Bubble Pops, the Sponge Makes Another",2026-11-17,,1240,0.66,6.6,38.8,,,,1,17,2.28,8FqZk8KeOV4,2026-10-26..2026-11-23
+story-009,levels,Every IQ Level Protects a Sandwich From a Seagull,2026-11-17,,1188,0.93,7.0,36.8,,,,1,19,2.31,28i9yFp_HQQ,2026-10-26..2026-11-23
+story-010,objects,The Butter Who Learned to Skate,2026-11-17,,1154,1.75,7.4,41.1,,,,1,18,2.36,c0mE3BwE43s,2026-10-26..2026-11-23
+story-016,levels,Every IQ Level Gets a Snack From the Vending Machine,2026-11-20,,24,3.47,10.4,52.0,,,,0,20,0.07,zeaDisSOKrQ,2026-10-26..2026-11-23
