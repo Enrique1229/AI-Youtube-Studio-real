@@ -2,19 +2,19 @@
   "id": "story-022",
   "format": "short",
   "title": "Every IQ Level Catches the Drone",
-  "stage": "selected",
+  "stage": "ready",
   "gates": {
     "critic": "PASS",
     "market": "PASS",
     "continuity": "PASS",
     "policy": "PASS",
-    "qc": "PENDING"
+    "qc": "PASS"
   },
   "vps": 65.3,
   "quality_score": null,
   "fix_rounds": 0,
   "final_file": null,
-  "updated": "2026-11-23",
+  "updated": "2026-11-24",
   "idea_id": "b20261123-4-i01",
   "market_verdict": "VALIDATED"
 }
