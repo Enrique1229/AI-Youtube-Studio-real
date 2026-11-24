@@ -11,12 +11,12 @@
       "ending": 7,
       "series": 6,
       "differentiation": 7,
-      "production_difficulty": 8,
+      "production_difficulty": 9,
       "repetition_risk": 2
     },
-    "why": "Pasa los 3 fotogramas (ola de asfalto tras el hombre que corre, hombre en el aire sobre un coche, nueva ola al fondo) y es la unica con lo imposible ya ocurriendo en el fotograma 1 y sin parentesco con el Bench; no sube mas porque es la mas dificil de construir (malla de suelo deformada con rayas y paso de cebra pegados, coches y farolas inclinandose con la fase) y el nivel 2-3 es 'corre y salta' con clips genericos.",
-    "improve": "Probar antes del guion una sola ola seno sobre malla subdividida con las rayas como textura y solo 2 farolas y 1 coche que se inclinan, y dejar la cresta grande y blanca-gris en primer plano desde el frame 1.",
-    "vps": 64.9
+    "why": "Pasa los 3 fotogramas y la cresta blanca de rayas a punto de romper en primer plano es el mejor fotograma 1 del lote sin parentesco con el Bench; no sube mas porque el tunel del paso 3 no se puede hacer con una onda seno Displace (necesita una ola que se curva con voladizo), hay cinco beats en 13 s con el surf encima de una cresta en movimiento, y la logline (hombre sentado en un buzon) contradice los beats.",
+    "improve": "Quitar el tunel y dejar solo catapulta, surf y rotura contra el bordillo con una onda seno de amplitud creciente, y probar antes del guion el surf sobre la cresta con el personaje pegado a la fase de la onda.",
+    "vps": 64.3
   },
   {
     "id": "b20261124-1-i02",
@@ -27,15 +27,15 @@
       "originality": 7,
       "visual": 6,
       "emotion": 6,
-      "ending": 7,
+      "ending": 8,
       "series": 6,
-      "differentiation": 6,
-      "production_difficulty": 4,
-      "repetition_risk": 5
+      "differentiation": 7,
+      "production_difficulty": 6,
+      "repetition_risk": 4
     },
-    "why": "Pasa los 3 fotogramas (hombre sobre la P deslizante, P encajada en el hueco con el hombre celebrando, P saliendo otra vez) y es la mas barata con un remate de bucle limpio ('la plaza que no lo deja aparcar'); no sube mas porque en el fotograma 1 una P blanca plana sobre asfalto no se lee como 'marca despegada' y el mecanismo objeto-que-se-mueve-con-el-hombre-encima esta cerca de Bench.",
-    "improve": "Hacer la P gruesa (losa con borde de sombra y salpicadura de polvo) y que se despegue visiblemente del suelo con una esquina levantada en el frame 1, dejando el hueco vacio y de la misma forma de P en el asfalto.",
-    "vps": 61.1
+    "why": "Pasa los 3 fotogramas y la losa gruesa con esquinas levantadas, sombra y hueco vacio resuelve la lectura del fotograma 1, con un giro de bandada que se distancia del Bench; no sube mas porque el hook sigue siendo un hombre en equilibrio (menos urgente que una persecucion), el giro de las otras plazas depende de ver 4 losas pequenas a distancia en 9:16 y el clip Surprised no muestra que lo 'recogen'.",
+    "improve": "Hacer que las otras plazas salgan una a una en primer plano con su hueco oscuro visible y que la ultima pase por debajo del hombre con un tirón claro, y probar antes del guion una losa con esquina levantada deslizando sobre el asfalto.",
+    "vps": 63.5
   },
   {
     "id": "b20261124-1-i01",
