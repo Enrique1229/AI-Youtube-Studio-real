@@ -1,0 +1,39 @@
+{
+  "story_id": "story-023",
+  "channel": "Klunk Studio",
+  "title": "Every IQ Level Moves the Sofa Through the Door",
+  "titles": [
+    "Every IQ Level Moves the Sofa Through the Door",
+    "Every IQ Level Tries to Get the Sofa Through the Door",
+    "Can Any IQ Level Get the Sofa Through This Door?",
+    "Five IQ Levels, One Sofa, One Stubborn Doorway",
+    "Which IQ Level Gets the Sofa Through the Door First?"
+  ],
+  "recommended_title": 0,
+  "description": "Five IQ levels try to move a giant red sofa through a stubborn front door on moving day, from -300 to 7000. Only one of them stops to really look at the door.\nFiction made with AI-assisted tools. Original 3D animation; nothing here is real footage or a real event.\nCharacter animations: Mixamo.\nWhich IQ level would you be? Tell us in the comments and subscribe for the next one.\n#shorts #animation #comedy #iqlevels #funny",
+  "hashtags": [
+    "#shorts",
+    "#animation",
+    "#comedy",
+    "#iqlevels",
+    "#funny"
+  ],
+  "cta": "Which IQ level would you be? Tell us in the comments and subscribe for the next one.",
+  "tags": "every iq level, iq levels, rating levels, sofa, moving day, front door, silent comedy, 3D animation, physical comedy, funny shorts",
+  "playlist": "Rating Levels",
+  "ai_disclosure": "Fiction made with AI-assisted tools. Original 3D animation; nothing here is real footage or a real event.",
+  "ai_use_disclosure": false,
+  "category": "Comedy",
+  "language": "en",
+  "upload_checklist": [
+    "AI use: No (stylized 3D toon animation with primitive shapes; idea.json kind 'anim'). Confirm with the Director that the imagery is not photorealistic before upload.",
+    "Fiction notice in description: yes",
+    "Credit in description: included ('Character animations: Mixamo.')",
+    "Music/SFX: final/provenance.json not checked by this packager; no CC attribution added. Verify before upload that no CC-BY track is used; if one is, add its attribution to the description.",
+    "Spoiler check: title and description do not reveal the level 5 solution (keep the mystery).",
+    "Gates: critic PASS, market PASS, continuity PASS; policy PENDING, qc PENDING. Do NOT upload until policy and qc are PASS.",
+    "Audience: not made for kids",
+    "Playlist: Rating Levels; category Comedy; language en",
+    "Leave at least 8 h between this upload and any other Short (strategy cadence); do not publish next to another IQ episode"
+  ]
+}
