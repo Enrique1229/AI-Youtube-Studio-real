@@ -8,3 +8,9 @@ Hoja: scratchpad/ep020_sheet.jpg (16 fotogramas).
 3. Las macetas son enormes y tapan media puerta en todos los planos: redúcelas (~70 % del tamaño) para que se vea bien el marco y el atasco; siguen simétricas.
 4. Nivel 4: que se vea claramente la hoja DESMONTADA apoyada en la pared y el hueco sin puerta.
 5. Nivel 5: la barra de latón debe verse grande y brillante en primer plano cuando aparta la maceta; luego plano que muestre las DOS hojas abiertas de par en par (hoja izquierda dentro de cuadro) y el sofá pasando holgado.
+
+# Ronda 2: PASA
+- Protagonista fijo restaurado (rayas naranjas, vaqueros, zapatillas rojas).
+- Sofá largo rojo encajado en diagonal desde el f1: se lee el atasco. Macetas más pequeñas: se ve el marco.
+- Nivel 4: hueco sin hoja. Nivel 5: barra de latón en primer plano y luego las dos hojas abiertas con el sofá dentro.
+- Aviso menor: empuja de espaldas en 1-4 (la cara se ve en pausas y remates); aceptable.

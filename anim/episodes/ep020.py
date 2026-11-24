@@ -29,15 +29,16 @@ LABEL_STYLE = "big"
 
 N = 72
 WY = 2.0                                   # plano de la fachada (cara exterior)
-TH = -75.0                                 # giro del sofa (largo casi a lo largo de y; frente hacia -x/camara)
+TH = -66.0                                 # giro del sofa (largo casi a lo largo de y; frente hacia -x/camara)
 U = Vector((math.cos(math.radians(TH)), math.sin(math.radians(TH)), 0.0))     # de la punta (dentro) a la trasera (fuera)
-SX, SY, SZ = 1.0, 1.0, 1.3                 # escala del sofa: 1,8 x 0,82 x 0,92 m
+SX, SY, SZ = 1.22, 1.0, 1.15                # escala del sofa: 1,8 x 0,82 x 0,92 m
 HL, HD, HZ = 0.9 * SX, 0.41 * SY, 0.355 * SZ
-TIP = Vector((0.38, WY + 0.55, 0.0))       # punta del sofa encajado (s = 0)
+TIP = Vector((0.36, WY + 0.50, 0.0))
+SMAX = 2.0       # punta del sofa encajado (s = 0)
 LW = 0.78                                  # ancho de cada hoja (portal de -0,7 a 0,7)
 ANG_R = 120.0                              # hoja derecha abierta hacia fuera
-CAM = (0.50, -2.7, 1.65); TGT = (0.50, WY - 0.2, 1.04); LENS = 34.0
-POT_L, POT_R = Vector((-0.80, WY - 0.50)), Vector((1.62, WY - 0.50))
+CAM = (0.80, -2.8, 1.65); TGT = (0.80, WY - 0.2, 1.04); LENS = 31.0
+POT_L, POT_R = Vector((-0.95, WY - 0.50)), Vector((1.85, WY - 0.50))
 
 
 def R(d): return math.radians(d)
@@ -235,8 +236,8 @@ def build_props(S):
     def put(name, res, x, y, h, rot, z=0.0):
         if (name, res) not in cols: cols[(name, res)] = env_real._model(name, res)
         bpy.context.view_layer.update(); return env_real._place_fit(S, cols[(name, res)], (x, y, z), h, R(rot))[0]
-    pot_l = put("potted_plant_02", "1k", POT_L.x, POT_L.y, 1.55, 20)
-    pot_r = put("potted_plant_02", "1k", POT_R.x, POT_R.y, 1.55, 200)
+    pot_l = put("potted_plant_02", "1k", POT_L.x, POT_L.y, 1.0, 20)
+    pot_r = put("potted_plant_02", "1k", POT_R.x, POT_R.y, 1.0, 200)
     lf = [mmat(S, "arbusto%d" % i, c, 0.65) for i, c in enumerate(((0.06, 0.26, 0.05), (0.14, 0.40, 0.08), (0.04, 0.20, 0.06)))]
     grp = {}
     for nm, P_, inst in (("l", POT_L, pot_l), ("r", POT_R, pot_r)):                 # arbusto denso sobre la maceta (esconde lo que hay detras); el grupo se mueve junto
@@ -246,8 +247,8 @@ def build_props(S):
             while True:
                 u, v, w = rnd.uniform(-1, 1), rnd.uniform(-1, 1), rnd.uniform(-1, 1)
                 if u * u + v * v + w * w < 1: break
-            rr = rnd.uniform(0.15, 0.24)
-            O(S, "uv_sphere", "arbusto", lf[i % 3], (P_.x + (0.20 + 0.46 * u) * sx_, P_.y + 0.34 * v, 1.08 + 0.58 * w), (rr * 1.3, rr * 0.55, rr * 0.9),
+            rr = rnd.uniform(0.13, 0.20)
+            O(S, "uv_sphere", "arbusto", lf[i % 3], (P_.x + (0.30 + 0.32 * u) * sx_, P_.y + 0.26 * v, 0.85 + 0.55 * w), (rr * 0.95, rr * 0.45, rr * 0.8),
               (rnd.uniform(-0.6, 0.6), rnd.uniform(-0.6, 0.6), rnd.uniform(0, 6.28)), parent=g, segments=10, ring_count=6)
     put("power_box_01", "1k", -1.05, WY - 0.05, 0.5, 0, z=1.95)            # contador electrico sobre la maceta izquierda
     put("utility_box_01", "1k", 2.55, WY - 0.2, 1.3, 0)
@@ -287,16 +288,16 @@ def build_door(S, E):
     # barra de cerrojo (hoja izquierda fija): soportes fijos + barra deslizante de laton 1 m + empunadura grande
     hL = leaves["izq"]
     bar_root = S.empty("barra_raiz", (0.30, -0.075, 0.0), hL)
-    for zz in (0.60, 1.10, 1.60): O(S, "cylinder", "soporte_barra", brass, (0, 0, zz), (0.045, 0.045, 0.04), (R(90), 0, 0), bar_root)
+    for zz in (0.45, 0.85, 1.25): O(S, "cylinder", "soporte_barra", brass, (0, 0, zz), (0.045, 0.045, 0.04), (R(90), 0, 0), bar_root)
     box(S, "enchufe_suelo", iron, -0.04, 0.04, -0.035, 0.0, 0.0, 0.12, bar_root)
     slide = S.empty("barra_desliza", (0, 0, 0), bar_root)
-    O(S, "cylinder", "barra", shine, (0, 0, 1.1), (0.042, 0.042, 0.52), parent=slide, vertices=20)
-    O(S, "cylinder", "barra_punta", shine, (0, 0, 0.55), (0.030, 0.030, 0.06), parent=slide, vertices=12)
-    O(S, "cylinder", "agarre", shine, (0.0, -0.075, 0.78), (0.02, 0.02, 0.11), (0, R(90), 0), slide, vertices=12)
-    O(S, "uv_sphere", "agarre_bola_i", shine, (-0.11, -0.075, 0.78), (0.045,) * 3, parent=slide); O(S, "uv_sphere", "agarre_bola_d", shine, (0.11, -0.075, 0.78), (0.045,) * 3, parent=slide)
-    box(S, "agarre_pata", shine, -0.012, 0.012, -0.075, -0.02, 0.76, 0.80, slide)
+    O(S, "cylinder", "barra", shine, (0, 0, 0.85), (0.042, 0.042, 0.50), parent=slide, vertices=20)
+    O(S, "cylinder", "barra_punta", shine, (0, 0, 0.35), (0.030, 0.030, 0.06), parent=slide, vertices=12)
+    O(S, "cylinder", "agarre", shine, (0.0, -0.075, 0.60), (0.02, 0.02, 0.11), (0, R(90), 0), slide, vertices=12)
+    O(S, "uv_sphere", "agarre_bola_i", shine, (-0.11, -0.075, 0.60), (0.045,) * 3, parent=slide); O(S, "uv_sphere", "agarre_bola_d", shine, (0.11, -0.075, 0.60), (0.045,) * 3, parent=slide)
+    box(S, "agarre_pata", shine, -0.012, 0.012, -0.075, -0.02, 0.58, 0.62, slide)
     # destello de revelacion (dos barritas cruzadas, invisibles hasta la animacion)
-    gl = mmat(S, "destello", (1, 1, 0.9), 0.1, 0.0, ((1, 0.95, 0.7), 8.0)); glint = S.empty("destello", (0.0, -0.20, 1.45), hL); glint.scale = (0, 0, 0)
+    gl = mmat(S, "destello", (1, 1, 0.9), 0.1, 0.0, ((1, 0.95, 0.7), 8.0)); glint = S.empty("destello", (0.0, -0.20, 1.10), hL); glint.scale = (0, 0, 0)
     for r in (0, 45, 90, 135): O(S, "cube", "rayo", gl, (0, 0, 0), (0.18, 0.006, 0.006), (0, R(r), 0), glint)
     return dict(leaves=leaves, slide=slide, glint=glint, bar_root=bar_root)
 
@@ -340,11 +341,7 @@ def damp(t, k=0.20, w=0.9): return math.exp(-k * t) * math.cos(w * t) if t >= 0 
 
 # ------------------------------------------------------------------ hombre
 def new_man(S, uses, x, y, yaw):
-    a = MixamoActor(S, x=x, yaw=yaw, use=uses); klunk(a, seed=23)
-    for o in a.meshes:
-        n = o.name.split(".")[0]
-        if n == "Ch01_Shirt": klunk_toon._flat(o, klunk_toon._mat("toon_camisa", (0.04, 0.42, 0.22), 0.8, 0.2))
-        if n == "Ch01_Pants": klunk_toon._flat(o, klunk_toon._mat("toon_pantalon_k", (0.62, 0.50, 0.30), 0.8, 0.2))
+    a = MixamoActor(S, x=x, yaw=yaw, use=uses); klunk(a)
     S.key(a.root, 1, loc=(x, y, 0.0), rot=(0, 0, R(yaw)), interp="LINEAR")
     return a
 
@@ -366,11 +363,14 @@ def setup(S):
     _E[0] = stage(S); P = build_props(S); sofa = build_sofa(S); Dr = build_door(S, _E[0]); return P, sofa, Dr
 
 
-def cam_keys(S, shake=None, focus=None, n=N + 10):
+def cam_keys(S, shake=None, focus=None, n=N + 10, lens=None, cx=None, tx=None):
     bpy.context.preferences.edit.keyframe_new_interpolation_type = "LINEAR"
     for f in range(1, n + 1):
         sh = shake(f) if shake else (0.0, 0.0)
-        S.cam.location = (CAM[0] + sh[0], CAM[1], CAM[2] + sh[1]); S.cam.keyframe_insert("location", frame=f)
+        c = cx(f) if cx else CAM[0]; t = tx(f) if tx else TGT[0]
+        S.cam.location = (c + sh[0], CAM[1], CAM[2] + sh[1]); S.cam.keyframe_insert("location", frame=f)
+        S.tgt.location = (t, TGT[1], TGT[2]); S.tgt.keyframe_insert("location", frame=f)
+        S.cam.data.lens = lens(f) if lens else LENS; S.cam.data.keyframe_insert("lens", frame=f)
         S.cam.data.dof.focus_distance = focus(f) if focus else 3.1; S.cam.data.dof.keyframe_insert("focus_distance", frame=f)
 
 
@@ -500,7 +500,7 @@ def l3(S):
         if f >= f_wob: t = f - f_wob; r = 92.0 + 34.0 * math.sin(math.pi * min(1.0, t / 8.0)) * (1.0 if t < 8 else 0.0) + (-0 if t < 8 else 0.0)
         if f >= f_wob + 8: t = f - (f_wob + 8); r = 92.0 + 6.0 * damp(t, 0.22, 0.9)
         return r
-    def s_of(f): return 0.05 + 0.95 * seg01(f, f_in0, f_in1) if f < f_wob else 1.0
+    def s_of(f): return 0.05 + 1.35 * seg01(f, f_in0, f_in1) if f < f_wob else 1.4
     def dyaw(f):
         t = f - f_wob
         return 12.0 * math.sin(math.pi * min(1.0, t / 8.0)) if 0 <= t < 8 else (4.0 * damp(t - 8, 0.2, 0.8) if t >= 8 else 0.0)
@@ -539,7 +539,7 @@ def l4(S):
     hl = hand_offset(S, a, (4,))
     p0 = push_root(S, a, hl, 0.02); LEAF = Vector((0.95, WY - 1.35))                # junto al borde libre de la hoja abierta (a su lado)
     pushpos = lambda f: push_root(S, a, hl, s_of(f), lunge=0.0)
-    def s_of(f): return 0.02 if f < f_push else 0.02 + 1.33 * seg01(f, f_push + 2, f_push + 16)
+    def s_of(f): return 0.02 if f < f_push else 0.02 + SMAX * seg01(f, f_push + 2, f_push + 16)
     pts = [(1, p0.x, p0.y, PSI), (f_r0, p0.x, p0.y, PSI), (f_r0 + 1, p0.x, p0.y, 70.0), (f_r1, LEAF.x, LEAF.y, 150.0), (f_lean, LEAF.x, LEAF.y, 150.0)]
     pb = push_root(S, a, hl, 0.02)
     pts += [(f_lean + 1, LEAF.x, LEAF.y, 250.0), (f_b1, pb.x, pb.y, PSI), (f_push + 18, push_root(S, a, hl, s_of(f_push + 18)).x, push_root(S, a, hl, s_of(f_push + 18)).y, PSI),
@@ -557,7 +557,7 @@ def l4(S):
         if f < f_off - 2: ang, pos, tilt = ANG_R, (LW, WY - 0.03, 0.05), 0.0
         elif f < f_off + 2: u = seg01(f, f_off - 2, f_off + 2); ang, pos, tilt = ANG_R, (LW, WY - 0.03, 0.05 + 0.08 * u), 0.0
         else:
-            u = seg01(f, f_off + 2, f_lean); ang = lerp(ANG_R, 172.0, u); pos = (lerp(LW, 1.62, u), lerp(WY - 0.03, WY - 0.08, u), lerp(0.13, 0.05, u)); tilt = -5.0 * u
+            u = seg01(f, f_off + 2, f_lean); ang = lerp(ANG_R, 172.0, u); pos = (lerp(LW, 0.95, u), lerp(WY - 0.03, WY - 0.10, u), lerp(0.13, 0.05, u)); tilt = -7.0 * u
         S.key(hR, f, loc=pos, rot=(R(tilt), 0, R(ang)), interp="LINEAR")
     pin = mmat(S, "pasador", (1.0, 0.72, 0.2), 0.2, 1.0)
     for i, zz in enumerate((0.35, 1.05)):                                      # pasadores de las bisagras que saltan
@@ -606,7 +606,7 @@ def l5(S):
         u = seg01(f, f_open, f_open + 11); e = u + 0.04 * math.sin(math.pi * u)            # pequeño sobreimpulso
         leaf_keys(S, Dr, f, 160.0 * e, lerp(ANG_R, 160.0, e))
     # sofa: encajado hasta que se abren las hojas; entonces entra sin rozar
-    def s_of(f): return 0.02 + 0.013 * math.sin(f * 2.8) * (1 if f < f_th0 else 0) + 1.33 * seg01(f, f_pass, f_pass + 12)
+    def s_of(f): return 0.02 + 0.013 * math.sin(f * 2.8) * (1 if f < f_th0 else 0) + SMAX * seg01(f, f_pass, f_pass + 12)
     for f in range(1, N + 12): sofa_key(S, sofa, f, s=s_of(f), dyaw=-3.0 * seg01(f, f_pass - 2, f_pass + 6))
     S.cue("huh", f_th0 - 2, vol=-8); S.cue("hmm", f_th0 + 6, vol=-7); S.cue("huh", f_r0 - 4, vol=-6); S.cue("whoosh", f_r0 + 1, vol=-6)
     S.cue("clunk", f_kick, vol=-1); S.cue("hit", f_kick, vol=-4); S.cue("whoosh", f_kick + 2, vol=-6); S.cue("pop", f_kick + 6, vol=-5)
@@ -615,7 +615,10 @@ def l5(S):
     S.f = N; a.verify(S.f)
     faces(a, [(1, "enfado", 0.5), (f_th0 + 6, "neutra", 1.0), (f_r0 - 6, "sorpresa", 0.8), (f_r0 + 4, "neutra", 0.8), (f_kick, "enfado", 0.8), (f_kick + 7, "sorpresa", 1.0),
               (f_pull, "neutra", 1.0), (f_open, "sorpresa", 0.7), (f_pass + 6, "feliz", 1.0)], N, first_blink=14, every=36)
-    cam_keys(S)
+    w1, w2, w3, w4 = f_kick + 2, f_kick + 8, f_pull + 2, f_open + 6
+    def zoom(f): return seg01(f, w1, w2) * (1 - seg01(f, w3, w4))
+    cam_keys(S, lens=lambda f: lerp(LENS, 52.0, zoom(f)) - 4.0 * seg01(f, w4, w4 + 6), cx=lambda f: lerp(CAM[0], -0.25, zoom(f)) - 0.3 * seg01(f, w4, w4 + 6),
+             tx=lambda f: lerp(CAM[0], -0.55, zoom(f)) - 0.3 * seg01(f, w4, w4 + 6), focus=lambda f: lerp(3.1, 3.4, zoom(f)))
     return a
 
 

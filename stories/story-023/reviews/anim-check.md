@@ -22,3 +22,10 @@ Fachada de geometria (ocre/crema con textura PBR), portal de piedra con montante
 - Hoja izquierda abierta a 160 grados queda casi fuera de cuadro (borde izquierdo); camion al fondo apenas asoma por el borde derecho (la fachada lo tapa).
 - Arbustos de las macetas son primitivas (aspecto de hojas lisas), aceptable a esta distancia.
 - Efectos de sonido solo anotados con S.cue (huh, boing, hit, oof, creak, clunk, bell, tada, etc.). No se ha renderizado el montaje completo ni el audio.
+
+## Ronda 2 (correcciones del Director, 16+1 fotogramas re-renderizados y mirados)
+- Protagonista fijo restaurado (camiseta de rayas naranja/blanca, vaqueros, zapatillas rojas; klunk por defecto).
+- Sofa de 3 plazas (~2,2 m) encajado en diagonal desde el fotograma 1, claramente mas largo que el hueco (0,78 m).
+- Macetas ~70 % y mas estrechas: se ve el marco y el atasco; camara desplazada a la derecha.
+- N4: hoja desmontada apoyada en la pared a la derecha y hueco libre (n4_c).
+- N5: zoom a la barra de laton al apartar la maceta (n5_b1_barra); plano abierto con las dos hojas abiertas y sofa pasando (n5_b2, n5_c). La hoja izquierda queda en cuadro.
