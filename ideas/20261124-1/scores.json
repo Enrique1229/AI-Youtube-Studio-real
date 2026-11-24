@@ -2,21 +2,21 @@
   {
     "id": "b20261124-1-i03",
     "scores": {
-      "hook": 8,
+      "hook": 7,
       "curiosity": 6,
       "retention": 7,
       "originality": 7,
-      "visual": 8,
+      "visual": 7,
       "emotion": 6,
-      "ending": 7,
+      "ending": 8,
       "series": 6,
       "differentiation": 7,
-      "production_difficulty": 9,
+      "production_difficulty": 6,
       "repetition_risk": 2
     },
-    "why": "Pasa los 3 fotogramas y la cresta blanca de rayas a punto de romper en primer plano es el mejor fotograma 1 del lote sin parentesco con el Bench; no sube mas porque el tunel del paso 3 no se puede hacer con una onda seno Displace (necesita una ola que se curva con voladizo), hay cinco beats en 13 s con el surf encima de una cresta en movimiento, y la logline (hombre sentado en un buzon) contradice los beats.",
-    "improve": "Quitar el tunel y dejar solo catapulta, surf y rotura contra el bordillo con una onda seno de amplitud creciente, y probar antes del guion el surf sobre la cresta con el personaje pegado a la fase de la onda.",
-    "vps": 64.3
+    "why": "Pasa los 3 fotogramas, ahora es construible con una sola onda seno en una franja sin tunel ni coches, y el pisoton que relanza la ola da un remate de bucle con causa visible y sin parentesco con el Bench; no sube mas porque la ola pequena del fotograma 1 es menos espectacular que la anterior y 'persigue' menos, el surf con el clip Surprised no se lee como equilibrio sobre la cresta, y la ola que crece de golpe exige que la catapulta con Jumping case con la fase de la onda.",
+    "improve": "Hacer la cresta blanca de rayas ya alta como la rodilla en el frame 1 (no a ras de suelo) y probar antes del guion el personaje pegado a la fase de la onda en la catapulta y el surf, con el pisoton marcado por un anillo de polvo y la ola naciendo de ahi.",
+    "vps": 64.2
   },
   {
     "id": "b20261124-1-i02",
@@ -35,7 +35,7 @@
     },
     "why": "Pasa los 3 fotogramas y la losa gruesa con esquinas levantadas, sombra y hueco vacio resuelve la lectura del fotograma 1, con un giro de bandada que se distancia del Bench; no sube mas porque el hook sigue siendo un hombre en equilibrio (menos urgente que una persecucion), el giro de las otras plazas depende de ver 4 losas pequenas a distancia en 9:16 y el clip Surprised no muestra que lo 'recogen'.",
     "improve": "Hacer que las otras plazas salgan una a una en primer plano con su hueco oscuro visible y que la ultima pase por debajo del hombre con un tirón claro, y probar antes del guion una losa con esquina levantada deslizando sobre el asfalto.",
-    "vps": 63.5
+    "vps": 62.7
   },
   {
     "id": "b20261124-1-i01",
