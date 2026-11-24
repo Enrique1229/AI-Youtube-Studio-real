@@ -3,65 +3,65 @@
     "id": "b20261124-2-i01",
     "format": "short",
     "kind": "anim",
-    "env": "acera de una calle comercial con viento y charcos: fachadas de colores, toldos de tienda, buzon, bicicletas atadas, hojas volando, portal de edificio con escalon y felpudo",
+    "env": "acera de una calle comercial con ventolera: fachadas de colores, toldos de tienda, buzon, bicicletas atadas, hojas volando, charco grande junto al bordillo, portal con escalon y felpudo",
     "title_en": "Every IQ Level Stays Dry in the Storm",
     "caption_en": null,
-    "logline_es": "Ventolera y lluvia en la acera; el hombre intenta llegar al portal con su paraguas, que se da la vuelta; el mas listo lo gira a proposito y el viento lo lleva como una vela hasta la puerta.",
+    "logline_es": "Llueve con viento en la acera; el hombre camina al portal con el paraguas, que se da la vuelta; el mas listo lo gira a proposito y el viento lo lleva como una vela.",
     "beats": [
       {
         "t": "0-3.5",
-        "beat": "IQ -450: Ya andando hacia camara con el paraguas abierto (frame 1); una racha lo da la vuelta de golpe, el paraguas le azota la cara con un fap y el viento lo arrastra de un tiron a un charco: SPLASH grande. Sonido: ulular, fap, splash."
+        "beat": "IQ -450: Camina hacia camara con el paraguas bien abierto (frame 1); en el segundo 1 una racha lo da la vuelta con un fap en la cara y el viento lo arrastra de un tiron a un charco: SPLASH. Sonido: ulular, fap, splash."
       },
       {
         "t": "3.5-7",
-        "beat": "IQ -80: Lo sujeta con las dos manos y tira hacia abajo con cara de rabia; el viento lo levanta de puntillas y lo columpia dos pasos como una cometa hasta que lo suelta y cae sentado."
+        "beat": "IQ -80: Lo sujeta con las dos manos y tira hacia abajo; el viento lo levanta de puntillas y lo columpia dos pasos como una cometa hasta que lo suelta."
       },
       {
         "t": "7-10.5",
-        "beat": "IQ 120: Se pone una tapa de cubo de basura de escudo y avanza de lado pegado a la pared; llega, pero un coche pasa y le salpica entero con un splash: llega mojado de la cintura para abajo."
+        "beat": "IQ 120: Se pone una tapa de cubo de basura de escudo y avanza pegado a la pared; llega, pero un coche le salpica entero."
       },
       {
         "t": "10.5-14",
-        "beat": "IQ 900: Se mete en una caja de carton grande y camina como una tortuga; llega seco al portal con la caja intacta; la caja se deshace al apoyarla en el escalon."
+        "beat": "IQ 900: Se mete en una caja de carton grande y camina como una tortuga; llega seco, pero la caja se deshace al apoyarla en el escalon."
       },
       {
         "t": "14-18",
-        "beat": "IQ 5469: Se para, mira el viento (las hojas vuelan hacia el portal), da la vuelta al paraguas A PROPOSITO y lo abre contra la racha: el paraguas se hincha como una vela y lo arrastra deslizandose en linea recta hasta el felpudo; abre la puerta y se queda sujetandolo."
+        "beat": "IQ 5469: Mira las hojas volar hacia el portal, da la vuelta al paraguas A PROPOSITO y lo abre contra la racha: se hincha como una vela y lo arrastra deslizandose en linea recta hasta el felpudo; abre la puerta."
       }
     ],
     "levels": [
       {
         "iq": -450,
-        "gag": "Ya andando hacia camara con el paraguas abierto (frame 1); una racha lo da la vuelta de golpe, el paraguas le azota la cara con un fap y el viento lo arrastra de un tiron a un charco: SPLASH grande. Sonido: ulular, fap, splash.",
-        "por_que_es_gracioso": "Todos hemos visto un paraguas darse la vuelta, aqui con castigo inmediato."
+        "gag": "Camina hacia camara con el paraguas bien abierto (frame 1); en el segundo 1 una racha lo da la vuelta con un fap en la cara y el viento lo arrastra de un tiron a un charco: SPLASH. Sonido: ulular, fap, splash.",
+        "por_que_es_gracioso": "Todos hemos visto un paraguas darse la vuelta, con castigo inmediato."
       },
       {
         "iq": -80,
-        "gag": "Lo sujeta con las dos manos y tira hacia abajo con cara de rabia; el viento lo levanta de puntillas y lo columpia dos pasos como una cometa hasta que lo suelta y cae sentado.",
+        "gag": "Lo sujeta con las dos manos y tira hacia abajo; el viento lo levanta de puntillas y lo columpia dos pasos como una cometa hasta que lo suelta.",
         "por_que_es_gracioso": "Pelea a tirones con el viento y pierde."
       },
       {
         "iq": 120,
-        "gag": "Se pone una tapa de cubo de basura de escudo y avanza de lado pegado a la pared; llega, pero un coche pasa y le salpica entero con un splash: llega mojado de la cintura para abajo.",
+        "gag": "Se pone una tapa de cubo de basura de escudo y avanza pegado a la pared; llega, pero un coche le salpica entero.",
         "por_que_es_gracioso": "Funciona a duras penas."
       },
       {
         "iq": 900,
-        "gag": "Se mete en una caja de carton grande y camina como una tortuga; llega seco al portal con la caja intacta; la caja se deshace al apoyarla en el escalon.",
-        "por_que_es_gracioso": "Funciona bien pero a lo bestia, y es una caja."
+        "gag": "Se mete en una caja de carton grande y camina como una tortuga; llega seco, pero la caja se deshace al apoyarla en el escalon.",
+        "por_que_es_gracioso": "Funciona bien pero a lo bestia."
       },
       {
         "iq": 5469,
-        "gag": "Se para, mira el viento (las hojas vuelan hacia el portal), da la vuelta al paraguas A PROPOSITO y lo abre contra la racha: el paraguas se hincha como una vela y lo arrastra deslizandose en linea recta hasta el felpudo; abre la puerta y se queda sujetandolo.",
-        "por_que_es_gracioso": "Usa el problema (el viento) como motor: era un barco, no un paraguas."
+        "gag": "Mira las hojas volar hacia el portal, da la vuelta al paraguas A PROPOSITO y lo abre contra la racha: se hincha como una vela y lo arrastra deslizandose en linea recta hasta el felpudo; abre la puerta.",
+        "por_que_es_gracioso": "Usa el problema (el viento) como motor: era una vela, no un paraguas."
       }
     ],
     "clips": [
       [
         -450,
         [
-          "Throw",
-          "Falling Back Death"
+          "Surprised",
+          "Charge"
         ]
       ],
       [
@@ -93,93 +93,94 @@
       ]
     ],
     "payoff": "El viento que rompia el paraguas era el motor que lo llevaba a la puerta.",
-    "sin_palabras": "1: hombre con paraguas ante ventolera y portal lejano.",
-    "frame1": "Hombre en primer plano con paraguas grande de color vivo, hojas y lluvia en diagonal, portal a 6 m; el paraguas se esta dando la vuelta (frame 1).",
+    "sin_palabras": "1: hombre con paraguas abierto ante viento y portal lejano.",
+    "frame1": "Hombre en primer plano con un paraguas grande de color vivo ABIERTO y hojas volando, portal a 6 m; el paraguas se da la vuelta en el segundo 1.",
     "tres_fotogramas": [
-      "1: hombre con paraguas ante ventolera y portal lejano.",
-      "2: paraguas girado del reves tirandole de los brazos, con el hombre en el aire.",
+      "1: hombre con paraguas abierto ante viento y portal lejano.",
+      "2: paraguas del reves con el hombre en el aire.",
       "3: paraguas del reves abierto a favor del viento como vela, hombre deslizandose hacia el portal."
     ],
-    "needs": "Paraguas = cone + cylinder (mango) con S.key para darse la vuelta (escala z negativa); lluvia = cylinders finos cayendo; charco = cylinder plano + S.splash; caja = cube. Sonidos: whoosh, splash, slide_down, hit. Clips existentes.",
+    "needs": "Paraguas = cone + cylinder con S.key de inversion (escala z negativa); lluvia = unos cylinders finos que caen en bucle (particulas simples); charco = cylinder plano + S.splash; caja = cube. Sonidos: whoosh, splash, slide_down, hit. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Paraguas con viento, sin sombrilla de playa ni charco bloqueando calle; el remate usa el viento como vela.",
+    "diferencia": "Paraguas con viento, sin sombrilla de playa ni charco bloqueando la calle; el remate usa el viento como vela.",
     "batch": "20261124-2"
   },
   {
     "id": "b20261124-2-i02",
     "format": "short",
     "kind": "anim",
-    "env": "cocina luminosa muy detallada: encimera de madera, azulejos amarillos, fruteros, sartenes colgadas, nevera con imanes, tostadora, persianas con luz de tarde",
-    "title_en": "Every IQ Level Opens the Stuck Jar",
+    "env": "portal de un edificio de pisos en dia de mudanza: camion abierto con cajas, hoja de puerta de madera pintada de azul, buzones, bicicleta, macetas, escalones de piedra, cinta de obra",
+    "title_en": "Every IQ Level Moves the Sofa Through the Door",
     "caption_en": null,
-    "logline_es": "Un tarro grande de encurtidos con la tapa pegada; el hombre lo retuerce, lo golpea y lo calienta; el mas listo le da un toque a la tapa con una cuchara y suelta un pop.",
+    "logline_es": "Un sofa rojo enorme atascado en la puerta de un portal; el hombre empuja, lo gira y quita la puerta; el mas listo suelta el cerrojo oculto de la otra hoja y la puerta se abre doble.",
     "beats": [
       {
         "t": "0-3.5",
-        "beat": "IQ -300: Ya agarrando el tarro enorme con las dos manos (frame 1) y retorciendo con la cara roja; la mano resbala, el tarro sale volando y el vuelve a caer de espaldas contra la nevera: magnetos por todas partes, el tarro le cae en la cabeza con un bonk."
+        "beat": "IQ -300: Ya empujando el sofa por la puerta estrecha (frame 1); queda encajado, rebota como un muelle y lo planta de espaldas contra la pared aplastado con un fump."
       },
       {
         "t": "3.5-7",
-        "beat": "IQ -60: Lo golpea contra la encimera para aflojar la tapa; la encimera se hunde medio palmo y la tapa sigue igual; el tarro rueda y cae a su pie."
+        "beat": "IQ -60: Empuja mas fuerte con el hombro; el marco cruje y asoma una astilla; el sofa avanza un dedo y se queda atascado de nuevo."
       },
       {
         "t": "7-10.5",
-        "beat": "IQ 150: Lo calienta bajo el grifo de agua caliente: se llena de vapor, se escalda la mano y el tarro sale pero la tapa solo medio gira, tembloroso."
+        "beat": "IQ 150: Lo inclina de lado; pasa rozando el marco con un chirrido; casi se le cae encima."
       },
       {
         "t": "10.5-14",
-        "beat": "IQ 1200: Lo mete en un tornillo de banco de una caja de herramientas y gira con la llave inglesa: la tapa sale con un chirrido y salta al techo; el tarro queda aplastado."
+        "beat": "IQ 1200: Saca la hoja de la puerta de sus bisagras y la apoya en la pared: el sofa pasa, pero la hoja se cae encima."
       },
       {
         "t": "14-18",
-        "beat": "IQ 7000: Se detiene, mira la tapa (el boton central hundido), coge una cuchara y hace palanca bajo el borde: POP seco y la tapa se suelta sola; saca un pepinillo y lo muerde."
+        "beat": "IQ 7000: Se rasca la cabeza, mira la hoja fija de la puerta, ve el cerrojo en el suelo, lo da una patada: la otra hoja se abre y la puerta queda doble de ancha; el sofa entra solo."
       }
     ],
     "levels": [
       {
         "iq": -300,
-        "gag": "Ya agarrando el tarro enorme con las dos manos (frame 1) y retorciendo con la cara roja; la mano resbala, el tarro sale volando y el vuelve a caer de espaldas contra la nevera: magnetos por todas partes, el tarro le cae en la cabeza con un bonk.",
-        "por_que_es_gracioso": "Todos hemos luchado con un tarro: aqui el tarro gana de verdad."
+        "gag": "Ya empujando el sofa por la puerta estrecha (frame 1); queda encajado, rebota como un muelle y lo planta de espaldas contra la pared aplastado con un fump.",
+        "por_que_es_gracioso": "El sofa rebota y lo aplasta."
       },
       {
         "iq": -60,
-        "gag": "Lo golpea contra la encimera para aflojar la tapa; la encimera se hunde medio palmo y la tapa sigue igual; el tarro rueda y cae a su pie.",
-        "por_que_es_gracioso": "Cree que un golpe mas fuerte lo arregla."
+        "gag": "Empuja mas fuerte con el hombro; el marco cruje y asoma una astilla; el sofa avanza un dedo y se queda atascado de nuevo.",
+        "por_que_es_gracioso": "Cree que mas fuerza mete un sofa mas grande."
       },
       {
         "iq": 150,
-        "gag": "Lo calienta bajo el grifo de agua caliente: se llena de vapor, se escalda la mano y el tarro sale pero la tapa solo medio gira, tembloroso.",
+        "gag": "Lo inclina de lado; pasa rozando el marco con un chirrido; casi se le cae encima.",
         "por_que_es_gracioso": "Funciona a duras penas."
       },
       {
         "iq": 1200,
-        "gag": "Lo mete en un tornillo de banco de una caja de herramientas y gira con la llave inglesa: la tapa sale con un chirrido y salta al techo; el tarro queda aplastado.",
-        "por_que_es_gracioso": "Funciona, pero rompe el tarro."
+        "gag": "Saca la hoja de la puerta de sus bisagras y la apoya en la pared: el sofa pasa, pero la hoja se cae encima.",
+        "por_que_es_gracioso": "Funciona bien pero rompe la puerta."
       },
       {
         "iq": 7000,
-        "gag": "Se detiene, mira la tapa (el boton central hundido), coge una cuchara y hace palanca bajo el borde: POP seco y la tapa se suelta sola; saca un pepinillo y lo muerde.",
-        "por_que_es_gracioso": "Bastaba con soltar el vacio: un toque, no fuerza."
+        "gag": "Se rasca la cabeza, mira la hoja fija de la puerta, ve el cerrojo en el suelo, lo da una patada: la otra hoja se abre y la puerta queda doble de ancha; el sofa entra solo.",
+        "por_que_es_gracioso": "Era una puerta doble con la hoja cerrada: bastaba con el cerrojo."
       }
     ],
     "clips": [
       [
         -300,
         [
-          "Falling Back Death"
+          "Pushing",
+          "Surprised"
         ]
       ],
       [
         -60,
         [
-          "Angry",
-          "Kicking"
+          "Charge",
+          "Angry"
         ]
       ],
       [
         150,
         [
-          "Surprised"
+          "Sneaking Forward"
         ]
       ],
       [
@@ -193,86 +194,86 @@
         7000,
         [
           "Thinking",
-          "Picking Up",
+          "Kicking",
           "Victory"
         ]
       ]
     ],
-    "payoff": "El tarro no necesitaba fuerza, necesitaba que le rompieran el vacio.",
-    "sin_palabras": "1: hombre con el tarro en las manos, cara roja.",
-    "frame1": "Primer plano muy cercano del tarro de cristal verde y de las manos retorciendo la tapa; vemos que no cede (frame 1).",
+    "payoff": "Era una puerta doble y la otra hoja estaba cerrada con un cerrojo.",
+    "sin_palabras": "1: sofa atascado y hombre empujando.",
+    "frame1": "Sofa rojo gigante encajado en una puerta azul a un metro de camara; el hombre empuja con ambas manos y el sofa se mueve a trompicones.",
     "tres_fotogramas": [
-      "1: hombre con el tarro en las manos, cara roja.",
-      "2: tarro volando y hombre cayendo contra la nevera.",
-      "3: cuchara bajo la tapa y pepinillo en la mano."
+      "1: sofa atascado y hombre empujando.",
+      "2: hombre con la hoja de la puerta caida encima del sofa.",
+      "3: puerta de doble hoja abierta y sofa entrando."
     ],
-    "needs": "Tarro = cylinder cristal verde + cylinder tapa con S.key de giro; cuchara = cube fino; nevera/encimera = cubes; sonidos: hit, pop, clunk, boing. Accion nueva sencilla: la tapa salta (S.key de posicion). Clips existentes.",
+    "needs": "Sofa = cubes rojos; puerta = dos cubes azules con S.key de giro (la 2.a hoja fija y el cerrojo = cylinder pequeno en el suelo ocultos tras el felpudo/maceta); camion = cube. Sonidos: hit, creak, clunk, tada. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Cocina y tarro pegado; sin maquina expendedora ni sandwich; remate de pop del vacio.",
+    "diferencia": "Mudanza y sofa; sin maleta, bus ni puerta automatica; remate de hoja secreta de puerta doble.",
     "batch": "20261124-2"
   },
   {
     "id": "b20261124-2-i03",
     "format": "short",
     "kind": "anim",
-    "env": "entrada de supermercado de barrio al aire libre: puerta corredera de cristal con adhesivos de colores, cajas de fruta apiladas, carros, felpudo, carteles de ofertas, plantas en macetas",
+    "env": "entrada de supermercado de barrio al aire libre: puerta corredera de cristal con adhesivos de colores, cajas de fruta apiladas, carros, felpudo, carteles de ofertas, plantas en macetas, sensor en una caja arriba",
     "title_en": "Every IQ Level Enters the Automatic Door",
     "caption_en": null,
-    "logline_es": "Una puerta corredera de supermercado que no se abre al verle; el hombre choca, agita los brazos y fuerza el cristal; el mas listo da tres pasos atras y la puerta se abre sola.",
+    "logline_es": "Una puerta corredera de supermercado que no se abre al verle; el hombre choca, agita los brazos y fuerza el cristal; el mas listo tira un zapato al sensor y quita la hoja pegada que lo tapaba.",
     "beats": [
       {
         "t": "0-3.5",
-        "beat": "IQ -500: Ya caminando deprisa hacia camara (frame 1) y se estampa de cara contra el cristal con un bonk: se queda pegado un momento y resbala hacia abajo como un lagarto; la puerta sigue cerrada."
+        "beat": "IQ -500: Corre hacia camara (frame 1) y se estampa de cara contra el cristal con un bonk; se queda pegado un momento y resbala hacia abajo; la puerta sigue cerrada. Sonido: bonk, slide_down."
       },
       {
         "t": "3.5-7",
-        "beat": "IQ -90: Agita los brazos y salta delante del cristal; la puerta no se mueve; da un puntapie y el cristal vibra con un sonido de pandero."
+        "beat": "IQ -90: Agita los brazos y salta delante del cristal; la puerta no se mueve; da un puntapie y el cristal vibra."
       },
       {
         "t": "7-10.5",
-        "beat": "IQ 110: Mete los dedos por la rendija y tira de las hojas con todas sus fuerzas hasta abrir un palmo; se cuela de lado, queda atrapado y entra."
+        "beat": "IQ 110: Mete los dedos por la rendija y tira de las hojas hasta abrir un palmo; se cuela de lado y queda atrapado."
       },
       {
         "t": "10.5-14",
-        "beat": "IQ 800: Empuja un carro de la compra a toda velocidad contra el cristal: la puerta cede con un crack, se abre y el carro entra solo; el sube y se cuelga del carro."
+        "beat": "IQ 800: Empuja un carro de la compra a toda velocidad contra el cristal: la puerta cede con un crack y el carro entra solo; el se cuelga del carro."
       },
       {
         "t": "14-18",
-        "beat": "IQ 6001: Se queda mirando el sensor encima de la puerta, retrocede tres pasos con cara de 'claro'; la puerta se abre sola con ding y whoosh; entra sin tocarla, tranquilamente."
+        "beat": "IQ 6001: Mira arriba (Looking Around): una hoja grande de roble pegada al sensor; se quita un zapato y lo lanza (Throw); la hoja cae, ding y la puerta se abre sola; entra con un solo zapato."
       }
     ],
     "levels": [
       {
         "iq": -500,
-        "gag": "Ya caminando deprisa hacia camara (frame 1) y se estampa de cara contra el cristal con un bonk: se queda pegado un momento y resbala hacia abajo como un lagarto; la puerta sigue cerrada.",
+        "gag": "Corre hacia camara (frame 1) y se estampa de cara contra el cristal con un bonk; se queda pegado un momento y resbala hacia abajo; la puerta sigue cerrada. Sonido: bonk, slide_down.",
         "por_que_es_gracioso": "Todos hemos chocado con una puerta automatica."
       },
       {
         "iq": -90,
-        "gag": "Agita los brazos y salta delante del cristal; la puerta no se mueve; da un puntapie y el cristal vibra con un sonido de pandero.",
+        "gag": "Agita los brazos y salta delante del cristal; la puerta no se mueve; da un puntapie y el cristal vibra.",
         "por_que_es_gracioso": "Piensa que si no le ve es que hay que ser mas grande."
       },
       {
         "iq": 110,
-        "gag": "Mete los dedos por la rendija y tira de las hojas con todas sus fuerzas hasta abrir un palmo; se cuela de lado, queda atrapado y entra.",
+        "gag": "Mete los dedos por la rendija y tira de las hojas hasta abrir un palmo; se cuela de lado y queda atrapado.",
         "por_que_es_gracioso": "Funciona a duras penas."
       },
       {
         "iq": 800,
-        "gag": "Empuja un carro de la compra a toda velocidad contra el cristal: la puerta cede con un crack, se abre y el carro entra solo; el sube y se cuelga del carro.",
+        "gag": "Empuja un carro de la compra a toda velocidad contra el cristal: la puerta cede con un crack y el carro entra solo; el se cuelga del carro.",
         "por_que_es_gracioso": "Funciona bien, pero la puerta ha quedado hecha un desastre."
       },
       {
         "iq": 6001,
-        "gag": "Se queda mirando el sensor encima de la puerta, retrocede tres pasos con cara de 'claro'; la puerta se abre sola con ding y whoosh; entra sin tocarla, tranquilamente.",
-        "por_que_es_gracioso": "Estaba demasiado cerca: el sensor no veia al que esta pegado a la puerta."
+        "gag": "Mira arriba (Looking Around): una hoja grande de roble pegada al sensor; se quita un zapato y lo lanza (Throw); la hoja cae, ding y la puerta se abre sola; entra con un solo zapato.",
+        "por_que_es_gracioso": "Un sensor tapado por una hoja: no era el hombre, era la puerta."
       }
     ],
     "clips": [
       [
         -500,
         [
-          "Falling Back Death"
+          "Running"
         ]
       ],
       [
@@ -297,107 +298,106 @@
       [
         6001,
         [
-          "Thinking",
-          "Walking Left Turn",
+          "Looking Around",
+          "Throw",
           "Victory"
         ]
       ]
     ],
-    "payoff": "La puerta no le veia porque estaba demasiado cerca.",
+    "payoff": "Una hoja tapaba el sensor.",
     "sin_palabras": "1: hombre de cara contra el cristal.",
-    "frame1": "Hombre andando hacia camara en primer plano con bolsa de tela, cristal brillante de la puerta delante; el choque ocurre en el segundo 1.",
+    "frame1": "Hombre corriendo hacia camara con bolsa de tela y cristal brillante delante; el choque ocurre en el segundo 1.",
     "tres_fotogramas": [
       "1: hombre de cara contra el cristal.",
-      "2: hombre pegado al cristal agitando brazos, la puerta cerrada.",
-      "3: hombre andando hacia atras con la puerta abierta delante."
+      "2: hombre agitando brazos ante la puerta cerrada.",
+      "3: hombre sin un zapato entrando por la puerta abierta mientras la hoja cae."
     ],
-    "needs": "Puerta = dos cubes de cristal con S.key de desplazamiento en x; sensor = cube pequeno arriba; carro = cube + cylinders. Sonidos: hit, whoosh, tada (ding), clunk. Clips existentes.",
+    "needs": "Puerta = dos cubes de cristal con S.key en x; sensor = cube pequeno arriba; hoja = cube plano verde pegado al sensor que cae con S.key; carro = cube + cylinders. Sonidos: hit, slide_down, whoosh, tada. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Puerta automatica sin ascensor ni maquina; remate de retroceder.",
+    "diferencia": "Puerta automatica; remate de objeto lanzado al sensor, sin retroceder.",
     "batch": "20261124-2"
   },
   {
     "id": "b20261124-2-i04",
     "format": "short",
     "kind": "anim",
-    "env": "playa de tarde: arena dorada, sombrillas de colores, toallas, cubos y palas, hamaca, castillo con banderines de papel, olas con espuma y barca amarilla en la orilla",
-    "title_en": "Every IQ Level Saves the Sandcastle",
+    "env": "jardin tropical de un camping con tarde dorada: palmeras, tiendas de colores, tumbonas, nevera portatil, guirnaldas de luces, barbacoa, toallas tendidas, hamaca rayada muy cerca de camara",
+    "title_en": "Every IQ Level Gets Into the Hammock",
     "caption_en": null,
-    "logline_es": "Un castillo de arena con banderas en la orilla y las olas se acercan; el hombre lo defiende y lo mueve; el mas listo cava una zanja que llena de agua y deja la ola dando vueltas alrededor.",
+    "logline_es": "Una hamaca rayada colgada entre dos palmeras que lo voltea cada vez que se sube; el hombre se lanza, se sienta y trepa; el mas listo se tumba en diagonal y se queda dormido.",
     "beats": [
       {
         "t": "0-3.5",
-        "beat": "IQ -420: Ya de pie delante de su castillo enorme (frame 1) con los brazos abiertos; una ola grande rompe y le da de lleno: SPLASH y sale volando hacia atras; el castillo medio derretido."
+        "beat": "IQ -420: Ya sentandose en el centro (frame 1); la hamaca se da la vuelta como una tortilla y lo escupe de cara contra el cesped con un fump; la hamaca queda dando vueltas encima."
       },
       {
         "t": "3.5-7",
-        "beat": "IQ -70: Levanta un muro de arena con las manos a toda prisa; la siguiente ola lo borra y deja el castillo con una torre torcida y un cangrejo."
+        "beat": "IQ -70: Corre y se lanza de cabeza a ella; sale disparado por el otro lado y se queda colgando de la nevera portatil."
       },
       {
         "t": "7-10.5",
-        "beat": "IQ 130: Traslada el castillo palada a palada a un monton de arena mas alto; llega la ola, lo moja de abajo arriba pero la torre queda."
+        "beat": "IQ 130: Se mete arrastrandose despacio y agarrado a los bordes; se queda en cuclillas con las piernas temblando."
       },
       {
         "t": "10.5-14",
-        "beat": "IQ 1000: Lo hace tan alto como una torre, sobre una roca; la ola pasa debajo y el castillo queda seco, pero el hombre se queda sentado en lo alto sin poder bajar."
+        "beat": "IQ 1000: Ata la hamaca a un banco con cuerdas y se tumba: queda tieso como una tabla; no se mueve pero tampoco duerme."
       },
       {
         "t": "14-18",
-        "beat": "IQ 4815: Mira la ola, coge una pala y cava una zanja de la orilla al castillo: la siguiente ola entra por la zanja, rodea el castillo formando un foso y retrocede sin tocarlo; se sienta junto al foso con el castillo intacto."
+        "beat": "IQ 4815: Se queda pensando, se sube en diagonal (Sitting Idle) con la cabeza a un lado y los pies al otro; la hamaca se queda quieta; se duerme sonriendo."
       }
     ],
     "levels": [
       {
         "iq": -420,
-        "gag": "Ya de pie delante de su castillo enorme (frame 1) con los brazos abiertos; una ola grande rompe y le da de lleno: SPLASH y sale volando hacia atras; el castillo medio derretido.",
-        "por_que_es_gracioso": "Defiende un castillo de arena contra el mar con el cuerpo."
+        "gag": "Ya sentandose en el centro (frame 1); la hamaca se da la vuelta como una tortilla y lo escupe de cara contra el cesped con un fump; la hamaca queda dando vueltas encima.",
+        "por_que_es_gracioso": "Todos hemos sido volteados por una hamaca."
       },
       {
         "iq": -70,
-        "gag": "Levanta un muro de arena con las manos a toda prisa; la siguiente ola lo borra y deja el castillo con una torre torcida y un cangrejo.",
-        "por_que_es_gracioso": "Cree que la arena es mas fuerte que el agua."
+        "gag": "Corre y se lanza de cabeza a ella; sale disparado por el otro lado y se queda colgando de la nevera portatil.",
+        "por_que_es_gracioso": "Cree que cuanto mas rapido, mas dentro."
       },
       {
         "iq": 130,
-        "gag": "Traslada el castillo palada a palada a un monton de arena mas alto; llega la ola, lo moja de abajo arriba pero la torre queda.",
+        "gag": "Se mete arrastrandose despacio y agarrado a los bordes; se queda en cuclillas con las piernas temblando.",
         "por_que_es_gracioso": "Funciona a duras penas."
       },
       {
         "iq": 1000,
-        "gag": "Lo hace tan alto como una torre, sobre una roca; la ola pasa debajo y el castillo queda seco, pero el hombre se queda sentado en lo alto sin poder bajar.",
-        "por_que_es_gracioso": "Funciona bien y es muy aparatoso."
+        "gag": "Ata la hamaca a un banco con cuerdas y se tumba: queda tieso como una tabla; no se mueve pero tampoco duerme.",
+        "por_que_es_gracioso": "Funciona bien pero tieso."
       },
       {
         "iq": 4815,
-        "gag": "Mira la ola, coge una pala y cava una zanja de la orilla al castillo: la siguiente ola entra por la zanja, rodea el castillo formando un foso y retrocede sin tocarlo; se sienta junto al foso con el castillo intacto.",
-        "por_que_es_gracioso": "Convierte la ola en foso: un castillo con agua es un castillo de verdad."
+        "gag": "Se queda pensando, se sube en diagonal (Sitting Idle) con la cabeza a un lado y los pies al otro; la hamaca se queda quieta; se duerme sonriendo.",
+        "por_que_es_gracioso": "La diagonal es el truco: el cuerpo atravesado estabiliza la hamaca."
       }
     ],
     "clips": [
       [
         -420,
         [
-          "Falling Back Death"
+          "Surprised",
+          "Pushing"
         ]
       ],
       [
         -70,
         [
-          "Pushing",
+          "Jumping",
           "Angry"
         ]
       ],
       [
         130,
         [
-          "Picking Up",
           "Sneaking Forward"
         ]
       ],
       [
         1000,
         [
-          "Climbing Up Wall",
           "Sitting Idle"
         ]
       ],
@@ -405,291 +405,290 @@
         4815,
         [
           "Thinking",
-          "Picking Up",
-          "Victory"
+          "Sitting Idle",
+          "Laughing"
         ]
       ]
     ],
-    "payoff": "No hacia falta frenar la ola: bastaba con darle un camino alrededor.",
-    "sin_palabras": "1: hombre ante castillo y ola gigante.",
-    "frame1": "Hombre con los brazos abiertos delante del castillo gigante de banderines y una ola enorme rompiendo detras (frame 1).",
+    "payoff": "La postura en diagonal estabiliza la hamaca.",
+    "sin_palabras": "1: hombre sentandose en la hamaca que se voltea.",
+    "frame1": "Hamaca rayada y gigante a un metro de camara; el hombre se sienta y en el segundo 1 la hamaca se voltea.",
     "tres_fotogramas": [
-      "1: hombre ante castillo y ola gigante.",
-      "2: ola barriendo el castillo.",
-      "3: foso lleno de agua rodeando el castillo intacto."
+      "1: hombre sentandose en la hamaca que se voltea.",
+      "2: hombre atado rigido sobre un banco.",
+      "3: hombre tumbado en diagonal durmiendo."
     ],
-    "needs": "Castillo = cubes + cones de colores; ola = cube azul/blanco con S.key de avance + S.splash; foso = cube plano azul que sube. Sonidos: splash, whoosh, drain, tada. Escenario playa nuevo (sin rio).",
+    "needs": "Hamaca = cube plano rayado con S.key de giro; palmeras = cylinders + uv_spheres; nevera = cube; banco = cubes. Sonidos: boing, hit, creak, tada. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Castillo y mar; sin rio, nube ni pato; el remate vuelve el agua una defensa.",
+    "diferencia": "Hamaca de camping; sin picnic ni rio; remate de postura corporal.",
     "batch": "20261124-2"
   },
   {
     "id": "b20261124-2-i05",
     "format": "short",
     "kind": "anim",
-    "env": "jardin de cumpleanos: banderines de colores, globos, mesa con tarta y vasos, sillas pequenas, pinata de burro colgada de la rama de un roble, cesta de golosinas, valla de madera",
-    "title_en": "Every IQ Level Smashes the Pinata",
+    "env": "terraza de hamburgueseria de carretera con mantel de cuadros rojos y blancos, servilleteros, farolillos, bandejas de patatas fritas, cartel de neon, toldo a rayas, bicicletas apoyadas",
+    "title_en": "Every IQ Level Squeezes the Ketchup",
     "caption_en": null,
-    "logline_es": "Una pinata de burro colgada de una rama; el hombre con los ojos vendados la golpea y falla; el mas listo golpea la cuerda y la pinata se abre al caer.",
+    "logline_es": "Una botella de kétchup enorme que no suelta nada; el hombre aprieta, golpea el fondo y la agita; el mas listo desenrosca el tapon y moja las patatas dentro de la botella.",
     "beats": [
       {
         "t": "0-3.5",
-        "beat": "IQ -380: Ya balanceando el palo con los ojos vendados (frame 1) frente a la pinata enorme; falla, gira dos vueltas por el impulso y la pinata, al volver como un pendulo, le da en la cabeza con un bonk que le hunde el sombrero."
+        "beat": "IQ -380: Ya apretando la botella con las dos manos (frame 1); el kétchup sale de golpe y le salpica toda la cara con un splat mientras las patatas siguen blancas."
       },
       {
         "t": "3.5-7",
-        "beat": "IQ -100: Salta con el palo; la pinata se aparta mecida por la cuerda cada vez; en el tercer salto se cuelga del burro y se columpia con el."
+        "beat": "IQ -100: Da golpes fuertes al fondo; sale un chorro que pasa por encima de las patatas y pega en el cartel de neon."
       },
       {
         "t": "7-10.5",
-        "beat": "IQ 140: Pega por fin un golpe que sale mal: la pinata se agrieta y suelta una sola golosina que le rebota en la frente."
+        "beat": "IQ 140: Agita la botella como una maraca; las patatas quedan con un lunar rojo; el resto le cae en la camiseta."
       },
       {
         "t": "10.5-14",
-        "beat": "IQ 950: Trepa al roble, la sujeta con una mano y la golpea con el palo contra la rama: se abre y cae la lluvia de golosinas de colores en cascada sobre el, enterrado."
+        "beat": "IQ 950: Mete un cuchillo en la botella; las patatas quedan bien cubiertas, pero con un trozo del tamano de una pelota."
       },
       {
         "t": "14-18",
-        "beat": "IQ 8200: Se quita la venda, mira la cuerda, la golpea de un palazo: la rama la suelta, la pinata cae sobre una mesa/cubo y se abre sola con golosinas por todas partes; se sienta a comer."
+        "beat": "IQ 8200: Se queda pensando, desenrosca el tapon entero y mete las patatas dentro de la botella: las saca rojas y perfectas; sonrie y come."
       }
     ],
     "levels": [
       {
         "iq": -380,
-        "gag": "Ya balanceando el palo con los ojos vendados (frame 1) frente a la pinata enorme; falla, gira dos vueltas por el impulso y la pinata, al volver como un pendulo, le da en la cabeza con un bonk que le hunde el sombrero.",
-        "por_que_es_gracioso": "La pinata gana y le da un golpe a el."
+        "gag": "Ya apretando la botella con las dos manos (frame 1); el kétchup sale de golpe y le salpica toda la cara con un splat mientras las patatas siguen blancas.",
+        "por_que_es_gracioso": "El kétchup sale por donde no debe."
       },
       {
         "iq": -100,
-        "gag": "Salta con el palo; la pinata se aparta mecida por la cuerda cada vez; en el tercer salto se cuelga del burro y se columpia con el.",
-        "por_que_es_gracioso": "Lucha con un pendulo a saltos."
+        "gag": "Da golpes fuertes al fondo; sale un chorro que pasa por encima de las patatas y pega en el cartel de neon.",
+        "por_que_es_gracioso": "Cree que mas fuerza mejora la punteria."
       },
       {
         "iq": 140,
-        "gag": "Pega por fin un golpe que sale mal: la pinata se agrieta y suelta una sola golosina que le rebota en la frente.",
+        "gag": "Agita la botella como una maraca; las patatas quedan con un lunar rojo; el resto le cae en la camiseta.",
         "por_que_es_gracioso": "Funciona a duras penas."
       },
       {
         "iq": 950,
-        "gag": "Trepa al roble, la sujeta con una mano y la golpea con el palo contra la rama: se abre y cae la lluvia de golosinas de colores en cascada sobre el, enterrado.",
-        "por_que_es_gracioso": "Funciona de maravilla pero con riesgos."
+        "gag": "Mete un cuchillo en la botella; las patatas quedan bien cubiertas, pero con un trozo del tamano de una pelota.",
+        "por_que_es_gracioso": "Funciona de sobra."
       },
       {
         "iq": 8200,
-        "gag": "Se quita la venda, mira la cuerda, la golpea de un palazo: la rama la suelta, la pinata cae sobre una mesa/cubo y se abre sola con golosinas por todas partes; se sienta a comer.",
-        "por_que_es_gracioso": "No hacia falta pegar a la pinata, sino a lo que la sujetaba."
+        "gag": "Se queda pensando, desenrosca el tapon entero y mete las patatas dentro de la botella: las saca rojas y perfectas; sonrie y come.",
+        "por_que_es_gracioso": "Mojar las patatas en la botella: era el recipiente, no el dispensador."
       }
     ],
     "clips": [
       [
         -380,
         [
-          "Falling Back Death",
-          "Angry"
+          "Surprised",
+          "Pushing"
         ]
       ],
       [
         -100,
         [
-          "Jumping",
-          "Angry"
+          "Angry",
+          "Kicking"
         ]
       ],
       [
         140,
         [
-          "Surprised"
+          "Shaking Head No"
         ]
       ],
       [
         950,
         [
-          "Climbing Up Wall",
-          "Laughing"
+          "Pushing"
         ]
       ],
       [
         8200,
         [
           "Thinking",
-          "Throw",
+          "Picking Up",
           "Victory"
         ]
       ]
     ],
-    "payoff": "La pinata solo se rompe si se suelta: bastaba con atacar la cuerda.",
-    "sin_palabras": "1: hombre venda y palo ante pinata.",
-    "frame1": "Pinata de burro de colores enorme a un metro de camara balanceandose, hombre con venda levantando el palo (frame 1).",
+    "payoff": "Las patatas se mojan dentro de la botella.",
+    "sin_palabras": "1: hombre con la cara cubierta de kétchup.",
+    "frame1": "Botella roja de kétchup enorme en primer plano, hombre apretandola con las dos manos sobre un plato de patatas fritas (frame 1).",
     "tres_fotogramas": [
-      "1: hombre venda y palo ante pinata.",
-      "2: pinata pendulo golpeando al hombre.",
-      "3: pinata cayendo y golpes de dulces."
+      "1: hombre con la cara cubierta de kétchup.",
+      "2: hombre con un cuchillo en la botella y patatas mal cubiertas.",
+      "3: patatas sacadas rojas de la botella."
     ],
-    "needs": "Pinata = cube + cylinders con S.key de pendulo; cuerda = cylinder fino; rama = cylinder; palo = cylinder; golosinas = uv_spheres pequenas con salpicado. Sonidos: hit, boing, pop, tada. Clips existentes.",
+    "needs": "Botella = cylinder rojo + cone; kétchup = uv_spheres/cylinders rojos con S.splash y S.key; patatas = cubes amarillos; mesa = cube. Sonidos: pop, hit, splash. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Pinata de cumpleanos, nada de campana ni tiovivo; el remate ataca la cuerda.",
+    "diferencia": "Terraza y botella de salsa; sin maquina ni sandwich; remate de mojar dentro de la botella.",
     "batch": "20261124-2"
   },
   {
     "id": "b20261124-2-i06",
     "format": "short",
     "kind": "anim",
-    "env": "estacion de metro con azulejos de colores: torniquetes de acero, cartel de mapa, banco naranja, maquina de billetes, suelo de baldosas, paneles de publicidad, cartel luminoso verde",
-    "title_en": "Every IQ Level Passes the Subway Turnstile",
+    "env": "patio trasero de una casa de barrio: casita de jardin con tejado inclinado y canalon, barbacoa, columpio, juguetes, valla de colores, macetas, manguera enrollada oculta tras la casita",
+    "title_en": "Every IQ Level Gets the Ball Off the Roof",
     "caption_en": null,
-    "logline_es": "Un torniquete que no le deja pasar con el billete; el hombre lo fuerza y salta; el mas listo gira el billete y pasa con un ding.",
+    "logline_es": "Una pelota roja atascada en el canalon del tejado de una casita; el hombre lanza un zapato, apila cajas y sube una escalera; el mas listo inunda el canalon con la manguera y la pelota flota hasta sus manos.",
     "beats": [
       {
         "t": "0-3.5",
-        "beat": "IQ -460: Ya pasando el billete por la ranura (frame 1) y empujando; las barras no giran y le dan en la barriga: se dobla sobre ellas con un oof y rebota hacia atras."
+        "beat": "IQ -460: Lanza un zapato hacia la pelota (frame 1); rebota en el tejado y vuelve a caer en su cabeza con un bonk; la pelota ni se mueve."
       },
       {
         "t": "3.5-7",
-        "beat": "IQ -75: Agacha la cabeza e intenta colarse por debajo; las barras bajan de golpe y lo atrapan por el cuello de la camiseta; se queda colgando."
+        "beat": "IQ -75: Apila cajas, se sube y las cajas se caen en cascada con un pum; el se queda sentado en el suelo con una caja en la cabeza."
       },
       {
         "t": "7-10.5",
-        "beat": "IQ 125: Se pega al de delante y entra tras el; funciona justo cuando las barras se cierran: pasa con una pierna pellizcada y un grito."
+        "beat": "IQ 125: Con una escoba empuja la pelota, que rueda hasta el borde y se queda pegada en un hueco; casi."
       },
       {
         "t": "10.5-14",
-        "beat": "IQ 1100: Salta el torniquete de un salto de valla con las manos; aterriza perfecto, pero suena una alarma y el hombre se queda en medio."
+        "beat": "IQ 1100: Sube con una escalera, coge la pelota y la escalera se cae: se queda en el tejado abrazando la pelota."
       },
       {
         "t": "14-18",
-        "beat": "IQ 5150: Se queda mirando el billete (la banda negra del lado equivocado); le da la vuelta, lo pasa y el torniquete gira suave con un ding; pasa sin tocar nada."
+        "beat": "IQ 5150: Mira el canalon, coge la manguera, abre el grifo y llena el canalon: la pelota flota por el canalon y cae sola en sus manos."
       }
     ],
     "levels": [
       {
         "iq": -460,
-        "gag": "Ya pasando el billete por la ranura (frame 1) y empujando; las barras no giran y le dan en la barriga: se dobla sobre ellas con un oof y rebota hacia atras.",
-        "por_que_es_gracioso": "El torniquete es un guardian cabezon."
+        "gag": "Lanza un zapato hacia la pelota (frame 1); rebota en el tejado y vuelve a caer en su cabeza con un bonk; la pelota ni se mueve.",
+        "por_que_es_gracioso": "Su proyectil vuelve a por el."
       },
       {
         "iq": -75,
-        "gag": "Agacha la cabeza e intenta colarse por debajo; las barras bajan de golpe y lo atrapan por el cuello de la camiseta; se queda colgando.",
-        "por_que_es_gracioso": "Cree que gateando se ahorra el billete."
+        "gag": "Apila cajas, se sube y las cajas se caen en cascada con un pum; el se queda sentado en el suelo con una caja en la cabeza.",
+        "por_que_es_gracioso": "Cree que mas cajas llegan mas arriba."
       },
       {
         "iq": 125,
-        "gag": "Se pega al de delante y entra tras el; funciona justo cuando las barras se cierran: pasa con una pierna pellizcada y un grito.",
+        "gag": "Con una escoba empuja la pelota, que rueda hasta el borde y se queda pegada en un hueco; casi.",
         "por_que_es_gracioso": "Funciona a duras penas."
       },
       {
         "iq": 1100,
-        "gag": "Salta el torniquete de un salto de valla con las manos; aterriza perfecto, pero suena una alarma y el hombre se queda en medio.",
-        "por_que_es_gracioso": "Funciona, pero con efectos secundarios."
+        "gag": "Sube con una escalera, coge la pelota y la escalera se cae: se queda en el tejado abrazando la pelota.",
+        "por_que_es_gracioso": "Funciona pero queda atrapado."
       },
       {
         "iq": 5150,
-        "gag": "Se queda mirando el billete (la banda negra del lado equivocado); le da la vuelta, lo pasa y el torniquete gira suave con un ding; pasa sin tocar nada.",
-        "por_que_es_gracioso": "Estaba al reves: la banda magnetica mira hacia el otro lado."
+        "gag": "Mira el canalon, coge la manguera, abre el grifo y llena el canalon: la pelota flota por el canalon y cae sola en sus manos.",
+        "por_que_es_gracioso": "El agua hace flotar la pelota: la canal es un tobogan."
       }
     ],
     "clips": [
       [
         -460,
         [
-          "Falling Back Death"
+          "Throw",
+          "Surprised"
         ]
       ],
       [
         -75,
         [
-          "Sneaking Forward",
+          "Picking Up",
           "Angry"
         ]
       ],
       [
         125,
         [
-          "Running"
+          "Pushing"
         ]
       ],
       [
         1100,
         [
-          "Jumping",
-          "Surprised"
+          "Climbing Up Wall"
         ]
       ],
       [
         5150,
         [
           "Thinking",
-          "Walking Left Turn",
+          "Picking Up",
           "Victory"
         ]
       ]
     ],
-    "payoff": "El billete estaba al reves; se le daba la vuelta y listo.",
-    "sin_palabras": "1: hombre doblado sobre las barras.",
-    "frame1": "Hombre con billete naranja en la mano delante del torniquete de acero gigante, empujando (frame 1).",
+    "payoff": "El canalon lleno de agua lleva la pelota hasta el.",
+    "sin_palabras": "1: hombre bajo la pelota con un zapato en la cabeza.",
+    "frame1": "Pelota roja gigante atascada en el canalon a 2 m de altura sobre el hombre, que lanza un zapato (frame 1).",
     "tres_fotogramas": [
-      "1: hombre doblado sobre las barras.",
-      "2: hombre colgando de las barras bajadas.",
-      "3: billete girado y torniquete girando con ding."
+      "1: hombre bajo la pelota con un zapato en la cabeza.",
+      "2: hombre sobre el tejado con la escalera caida.",
+      "3: canalon lleno de agua y pelota flotando hacia sus manos."
     ],
-    "needs": "Torniquete = cylinder + 3 cubes que giran con S.key; billete = cube fino con franja negra visible en un lado; cartel luminoso = cube verde/rojo; alarma = cue 'hit'. Clips existentes.",
+    "needs": "Casita = cubes; canalon = cube hueco; pelota = uv_sphere roja con S.key por el canalon; manguera = cylinder + chorro de cylinders azules. Sonidos: hit, clunk, splash, tada. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Estacion y torniquete; ningun gag de maquina expendedora; remate del billete al reves.",
+    "diferencia": "Pelota en el tejado con un remate de agua; sin globo ni dron.",
     "batch": "20261124-2"
   },
   {
     "id": "b20261124-2-i07",
     "format": "short",
     "kind": "anim",
-    "env": "escalinata de entrada de un hotel con alfombra roja, macetas de palmera, barandilla dorada, puerta giratoria, botones con gorra al fondo, coches aparcados, jardineras",
+    "env": "escalinata de entrada de un hotel con alfombra roja, macetas de palmera, barandilla dorada, puerta giratoria, botones con gorra al fondo, coches aparcados, jardineras con arbustos",
     "title_en": "Every IQ Level Carries the Giant Suitcase",
     "caption_en": null,
     "logline_es": "Una maleta enorme al pie de una escalera; el hombre tira de ella, la sube a hombros y la arrastra; el mas listo rodea la jardinera y sube sin esfuerzo por una rampa.",
     "beats": [
       {
         "t": "0-3.5",
-        "beat": "IQ -350: Ya tirando de la maleta con las dos manos por el primer escalon (frame 1); el peso lo arrastra para atras, la maleta cae encima suyo y los dos bajan rodando escalon a escalon con un pum cada uno."
+        "beat": "IQ -350: Ya tirando de la maleta por el primer escalon (frame 1); el peso lo arrastra y lo pone de rodillas contra el escalon; la maleta cae y lo atropella escalon a escalon con un pum."
       },
       {
         "t": "3.5-7",
-        "beat": "IQ -85: La carga a la espalda como una mochila y se encorva; sube dos escalones y las piernas se doblan; se queda de rodillas."
+        "beat": "IQ -85: La carga a la espalda como una mochila y se encorva; sube dos escalones y las piernas se doblan."
       },
       {
         "t": "7-10.5",
-        "beat": "IQ 115: Sube la maleta escalon a escalon, golpeando cada uno con un bump; llega arriba sudando y tirado en la alfombra."
+        "beat": "IQ 115: Sube la maleta escalon a escalon con un bump; llega arriba sudando y tirado en la alfombra."
       },
       {
         "t": "10.5-14",
-        "beat": "IQ 850: Ata una cuerda a la barandilla, tira de ella como un polea y la maleta sube botando; llega arriba, el hombre se queda colgado."
+        "beat": "IQ 850: Ata una cuerda a la barandilla, tira como una polea y la maleta sube botando; llega arriba y se queda colgado."
       },
       {
         "t": "14-18",
-        "beat": "IQ 6420: Mira a su derecha, se asoma por detras de la jardinera y encuentra una rampa suave: la maleta rueda sola y sube con una sonrisa; se sienta encima."
+        "beat": "IQ 6420: Mira a su derecha, se asoma tras la jardinera y encuentra una rampa suave: la maleta rueda sola y sube; se sienta encima."
       }
     ],
     "levels": [
       {
         "iq": -350,
-        "gag": "Ya tirando de la maleta con las dos manos por el primer escalon (frame 1); el peso lo arrastra para atras, la maleta cae encima suyo y los dos bajan rodando escalon a escalon con un pum cada uno.",
+        "gag": "Ya tirando de la maleta por el primer escalon (frame 1); el peso lo arrastra y lo pone de rodillas contra el escalon; la maleta cae y lo atropella escalon a escalon con un pum.",
         "por_que_es_gracioso": "La maleta pesa mas que el."
       },
       {
         "iq": -85,
-        "gag": "La carga a la espalda como una mochila y se encorva; sube dos escalones y las piernas se doblan; se queda de rodillas.",
+        "gag": "La carga a la espalda como una mochila y se encorva; sube dos escalones y las piernas se doblan.",
         "por_que_es_gracioso": "Cree que sujetarla de cerca la aligera."
       },
       {
         "iq": 115,
-        "gag": "Sube la maleta escalon a escalon, golpeando cada uno con un bump; llega arriba sudando y tirado en la alfombra.",
+        "gag": "Sube la maleta escalon a escalon con un bump; llega arriba sudando y tirado en la alfombra.",
         "por_que_es_gracioso": "Funciona a duras penas."
       },
       {
         "iq": 850,
-        "gag": "Ata una cuerda a la barandilla, tira de ella como un polea y la maleta sube botando; llega arriba, el hombre se queda colgado.",
+        "gag": "Ata una cuerda a la barandilla, tira como una polea y la maleta sube botando; llega arriba y se queda colgado.",
         "por_que_es_gracioso": "Funciona de verdad, pero lento."
       },
       {
         "iq": 6420,
-        "gag": "Mira a su derecha, se asoma por detras de la jardinera y encuentra una rampa suave: la maleta rueda sola y sube con una sonrisa; se sienta encima.",
+        "gag": "Mira a su derecha, se asoma tras la jardinera y encuentra una rampa suave: la maleta rueda sola y sube; se sienta encima.",
         "por_que_es_gracioso": "Bastaba con rodear la jardinera: la rampa estaba ahi."
       }
     ],
@@ -697,7 +696,8 @@
       [
         -350,
         [
-          "Falling Back Death"
+          "Pushing",
+          "Surprised"
         ]
       ],
       [
@@ -731,13 +731,13 @@
     ],
     "payoff": "Habia una rampa tras la jardinera todo el rato.",
     "sin_palabras": "1: hombre y maleta rodando escaleras.",
-    "frame1": "Maleta enorme a cuadros, hombre tirando con las dos manos en la escalera roja (frame 1).",
+    "frame1": "Maleta enorme a cuadros, hombre tirando con las dos manos en la escalera roja; el peso lo arrastra hacia atras (frame 1).",
     "tres_fotogramas": [
       "1: hombre y maleta rodando escaleras.",
       "2: hombre arrastrando maleta con cuerda.",
       "3: rampa y maleta rodando."
     ],
-    "needs": "Maleta = cube con ruedas; escalera = cubes; rampa = cube inclinado; cuerda = cylinder. Sonidos: hit, clunk, whoosh. Clips existentes.",
+    "needs": "Maleta = cube con ruedas; escalera = cubes; rampa = cube inclinado oculto tras una jardinera; cuerda = cylinder. Sonidos: hit, clunk, whoosh. Clips existentes.",
     "riesgo_copia": "bajo",
     "diferencia": "Escalera de hotel con maleta; sin bus ni parada; remate de rampa lateral.",
     "batch": "20261124-2"
@@ -746,64 +746,65 @@
     "id": "b20261124-2-i08",
     "format": "short",
     "kind": "anim",
-    "env": "pasillo de un piso con papel pintado de rayas: dos puertas de armario blancas, zapatero, alfombra, abrigos, cajas de mudanza, lampara de techo, fotos enmarcadas",
-    "title_en": "Every IQ Level Closes the Overstuffed Closet",
+    "env": "terraza de una casa con fiesta: barandilla de madera, puerta de cristal corredera hacia el salon, farolillos, mesa con vasos de colores, cortinas ondeando, ventana abierta al fondo, bandeja con tarta gigante",
+    "title_en": "Every IQ Level Carries the Cake Through the Door",
     "caption_en": null,
-    "logline_es": "Un armario abarrotado cuya puerta no cierra; el hombre empuja y se sienta encima; el mas listo abre el armario de al lado, que estaba vacio.",
+    "logline_es": "Una puerta que se cierra de golpe cada vez que el hombre pasa con la tarta; el hombre la empuja con la cadera, la sujeta con el pie y la calza; el mas listo cierra la ventana del fondo y la corriente deja de dar portazos.",
     "beats": [
       {
         "t": "0-3.5",
-        "beat": "IQ -400: Ya empujando la puerta entreabierta (frame 1) con el hombro; se cierra con un clack y la puerta rebota: una avalancha de ropa, pelota y cajas lo entierra con un fump."
+        "beat": "IQ -400: Sale con la tarta gigante en una bandeja (frame 1); el viento da un portazo en su cara con un bang y la tarta se aplasta contra la hoja y le cae encima con un splat."
       },
       {
         "t": "3.5-7",
-        "beat": "IQ -65: Se apoya con todo el cuerpo y la puerta se cierra; pero por el otro lado asoma una manga; empuja y se le cae una bota."
+        "beat": "IQ -65: Aguanta la puerta con la cadera y la bandeja en alto; el viento la empuja y la cadera se hace un moretón de nata; la tarta se inclina."
       },
       {
         "t": "7-10.5",
-        "beat": "IQ 135: Se sienta encima de las cajas y cierra de golpe; por la rendija sale un calcetin; funciona a duras penas."
+        "beat": "IQ 135: Sujeta la puerta con el pie; pasa, pero la puerta se cierra en el talon y suelta un ay."
       },
       {
         "t": "10.5-14",
-        "beat": "IQ 1300: Cierra la puerta de un portazo y la ata con dos cinturones a la manilla: aguanta y se aleja silbando, mientras las bisagras crujen detras."
+        "beat": "IQ 1300: Calza la puerta con una silla pesada; pasa sin problemas y la silla se queda atascada."
       },
       {
         "t": "14-18",
-        "beat": "IQ 9001: Se queda pensando, mira la puerta de al lado, la abre y esta vacia: metio todo alli; las dos puertas se cierran con un clack limpio y el se apoya con aire de sabio."
+        "beat": "IQ 9001: Se queda pensando, nota las cortinas del fondo ondear, cruza el salon y cierra la ventana: la puerta deja de moverse y pasa tranquilo con la tarta intacta."
       }
     ],
     "levels": [
       {
         "iq": -400,
-        "gag": "Ya empujando la puerta entreabierta (frame 1) con el hombro; se cierra con un clack y la puerta rebota: una avalancha de ropa, pelota y cajas lo entierra con un fump.",
-        "por_que_es_gracioso": "El armario vomita todo lo guardado."
+        "gag": "Sale con la tarta gigante en una bandeja (frame 1); el viento da un portazo en su cara con un bang y la tarta se aplasta contra la hoja y le cae encima con un splat.",
+        "por_que_es_gracioso": "Un portazo con tarta es un portazo doble."
       },
       {
         "iq": -65,
-        "gag": "Se apoya con todo el cuerpo y la puerta se cierra; pero por el otro lado asoma una manga; empuja y se le cae una bota.",
-        "por_que_es_gracioso": "Cree que mas presion arregla un armario lleno."
+        "gag": "Aguanta la puerta con la cadera y la bandeja en alto; el viento la empuja y la cadera se hace un moretón de nata; la tarta se inclina.",
+        "por_que_es_gracioso": "Cree que sujetarla con el cuerpo basta."
       },
       {
         "iq": 135,
-        "gag": "Se sienta encima de las cajas y cierra de golpe; por la rendija sale un calcetin; funciona a duras penas.",
+        "gag": "Sujeta la puerta con el pie; pasa, pero la puerta se cierra en el talon y suelta un ay.",
         "por_que_es_gracioso": "Funciona a duras penas."
       },
       {
         "iq": 1300,
-        "gag": "Cierra la puerta de un portazo y la ata con dos cinturones a la manilla: aguanta y se aleja silbando, mientras las bisagras crujen detras.",
-        "por_que_es_gracioso": "Funciona bien pero esta a punto de reventar."
+        "gag": "Calza la puerta con una silla pesada; pasa sin problemas y la silla se queda atascada.",
+        "por_que_es_gracioso": "Funciona bien pero deja la silla."
       },
       {
         "iq": 9001,
-        "gag": "Se queda pensando, mira la puerta de al lado, la abre y esta vacia: metio todo alli; las dos puertas se cierran con un clack limpio y el se apoya con aire de sabio.",
-        "por_que_es_gracioso": "Habia otro armario vacio al lado todo el rato."
+        "gag": "Se queda pensando, nota las cortinas del fondo ondear, cruza el salon y cierra la ventana: la puerta deja de moverse y pasa tranquilo con la tarta intacta.",
+        "por_que_es_gracioso": "La corriente de la ventana abierta daba los portazos."
       }
     ],
     "clips": [
       [
         -400,
         [
-          "Falling Back Death"
+          "Surprised",
+          "Pushing"
         ]
       ],
       [
@@ -816,35 +817,35 @@
       [
         135,
         [
-          "Sitting Idle"
+          "Kicking"
         ]
       ],
       [
         1300,
         [
-          "Charge"
+          "Pushing"
         ]
       ],
       [
         9001,
         [
-          "Thinking",
+          "Looking Around",
           "Walking Left Turn",
           "Victory"
         ]
       ]
     ],
-    "payoff": "El segundo armario estaba vacio: no habia problema de espacio.",
-    "sin_palabras": "1: hombre enterrado en ropa.",
-    "frame1": "Dos puertas blancas, una entreabierta rebosando ropa; el hombre empujando con el hombro (frame 1).",
+    "payoff": "La corriente de una ventana abierta cerraba la puerta.",
+    "sin_palabras": "1: tarta aplastada contra la puerta.",
+    "frame1": "Hombre llevando una tarta de nata enorme hacia una puerta abierta; en el segundo 1 el viento la cierra de un portazo en su cara.",
     "tres_fotogramas": [
-      "1: hombre enterrado en ropa.",
-      "2: hombre sentado sobre cajas aplastando la puerta.",
-      "3: puerta de al lado vacia y ropa trasladada."
+      "1: tarta aplastada contra la puerta.",
+      "2: hombre calzando la puerta con una silla.",
+      "3: ventana cerrada y hombre pasando con la tarta."
     ],
-    "needs": "Puertas = cubes con S.key de giro; ropa y cajas = cubes de colores y uv_spheres; cinturon = cylinder fino. Sonidos: hit, clunk, creak, tada. Clips existentes.",
+    "needs": "Puerta = cube con S.key de giro rapido; tarta = cylinders con nata (uv_sphere); ventana = cube + cortinas = cubes finos que ondean con S.key. Sonidos: hit, creak, splash, tada. Clips existentes.",
     "riesgo_copia": "bajo",
-    "diferencia": "Armario de piso, sin problemas de maquinas ni bolardos; el remate usa un espacio libre al lado.",
+    "diferencia": "Puerta que da portazos con una tarta; sin puerta automatica ni armario; remate de cerrar la ventana.",
     "batch": "20261124-2"
   }
 ]
