@@ -2,13 +2,13 @@
   "id": "story-024",
   "format": "short",
   "title": "Every IQ Level Carries the Cake Through the Door",
-  "stage": "ready",
+  "stage": "selected",
   "gates": {
     "critic": "PASS",
     "market": "PASS",
     "continuity": "PASS",
     "policy": "PASS",
-    "qc": "PASS"
+    "qc": "FAIL"
   },
   "vps": 65.1,
   "quality_score": null,
