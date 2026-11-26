@@ -22,7 +22,7 @@ R, sstep, lerp, seg01, key_path = E0.R, E0.sstep, E0.lerp, E0.seg01, E0.key_path
 WY, LW = E0.WY, E0.LW
 
 TITLE = "Every IQ Level Carries the Cake Through the Door"
-ONSCREEN = "Every IQ level carries the cake through the door"
+ONSCREEN = "Every IQ level carries the cake"
 SPEED = 1.0
 ENV = "mesa"
 CUSTOM_CAMERA = True

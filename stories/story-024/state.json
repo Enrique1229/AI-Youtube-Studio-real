@@ -2,19 +2,19 @@
   "id": "story-024",
   "format": "short",
   "title": "Every IQ Level Carries the Cake Through the Door",
-  "stage": "selected",
+  "stage": "ready",
   "gates": {
     "critic": "PASS",
     "market": "PASS",
     "continuity": "PASS",
     "policy": "PASS",
-    "qc": "PENDING"
+    "qc": "PASS"
   },
   "vps": 65.1,
   "quality_score": null,
   "fix_rounds": 0,
   "final_file": null,
-  "updated": "2026-11-24",
+  "updated": "2026-11-26",
   "idea_id": "b20261124-2-i08",
   "market_verdict": "VALIDATED"
 }
