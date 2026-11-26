@@ -1,4 +1,4 @@
-# anim-check — story-024 (ep021) "Every IQ Level Carries the Cake Through the Door"
+# anim-check — story-024 (ep022) "Every IQ Level Carries the Cake Through the Door"
 
 Render de comprobación: 270x480, 6-8 muestras, CPU, envoltorio fakeblender (bpy del venv). Fotogramas en `stories/story-024/reviews/frames/` (a = f1, b = f41, c = f82 = último). Además se miraron hojas de 8-18 fotogramas por nivel (no solo 3), con atención a duplicados de personaje, cámara y transiciones. ep020.py no se ha tocado (se importa como módulo para reutilizar fachada, portal, hall, suelo, hombre fijo y utilidades).
 

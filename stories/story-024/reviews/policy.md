@@ -1,4 +1,4 @@
-# Policy — story-024 "Every IQ Level Carries the Cake Through the Door" (ep021)
+# Policy — story-024 "Every IQ Level Carries the Cake Through the Door" (ep022)
 VEREDICTO: PASS (con avisos fuertes de variedad para el Director y avisos para metadata; ninguno bloquea)
 
 ## Checklist
