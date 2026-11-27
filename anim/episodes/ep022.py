@@ -31,10 +31,10 @@ LABEL_STYLE = "big"
 N = 72
 PSI = 186.0                                   # mira a la puerta (+y), un pelo a la izquierda
 CAM = (0.30, -2.6, 3.3); TGT = (0.30, 1.2, 0.8); LENS = 38.0
-CK = 0.78                                     # escala base de la tarta (bandeja radio 0,575)
+CK = 0.68                                     # escala base de la tarta (bandeja radio 0,575)
 RF = 0.5 * CK
 FWD = RF + 0.03                               # centro de la tarta delante del punto medio de las manos (la bandeja queda delante del cuerpo, sin atravesarlo)
-TAB = Vector((0.98, 1.12)); CHAIR0 = Vector((0.58, 0.80))
+TAB = Vector((1.65, 1.05)); CHAIR0 = Vector((0.95, 1.00))
 WX0, WX1, WZ0, WZ1 = 2.65, 3.95, 0.85, 2.15   # ventana grande
 A_OPEN = 84.0
 
@@ -138,12 +138,16 @@ def build_party(S):
     O(S, "cylinder", "mesa_base", iron, (0, 0, 0.02), (0.20, 0.20, 0.02), parent=tb); O(S, "cylinder", "mesa_tablero", wood, (0, 0, 0.73), (0.31, 0.31, 0.02), parent=tb, vertices=32)
     cl = S.empty("mantel", (TAB.x, TAB.y, 0))
     O(S, "cylinder", "mantel_top", cloth_m, (0, 0, 0.765), (0.335, 0.335, 0.012), parent=cl, vertices=32)
-    O(S, "cone", "mantel_falda", cloth_m, (0, 0, 0.63), (0.40, 0.40, 0.135), parent=cl, vertices=32, radius1=1.0, radius2=0.84, depth=2.0)
+    fa = O(S, "cone", "mantel_falda", cloth_m, (0, 0, 0.63), (0.40, 0.40, 0.135), parent=cl, vertices=32, radius1=1.0, radius2=0.84, depth=2.0)
+    import bmesh
+    bm = bmesh.new(); bm.from_mesh(fa.data)
+    bmesh.ops.delete(bm, geom=[fc for fc in bm.faces if fc.normal.z < -0.9], context="FACES"); bm.to_mesh(fa.data); bm.free()     # el mantel cuelga abierto por abajo (la pata de la mesa no lo atraviesa)
+    out["falda"] = fa
     cols = [(0.95, 0.80, 0.10), (0.15, 0.40, 0.90), (0.15, 0.70, 0.25), (0.95, 0.35, 0.65), (0.98, 0.50, 0.10), (0.55, 0.25, 0.85)]
     cups = []
     for i, c in enumerate(cols):
         a = i * 2 * math.pi / 6 + 0.3; r = 0.17 if i < 5 else 0.0
-        o = O(S, "cylinder", "vaso", mmat(S, "vaso%d" % i, c, 0.3), (TAB.x + r * math.cos(a), TAB.y + r * math.sin(a), 0.82), (0.038, 0.038, 0.05), vertices=14)
+        o = O(S, "cylinder", "vaso", mmat(S, "vaso%d" % i, c, 0.3), (TAB.x + r * math.cos(a), TAB.y + r * math.sin(a), 0.83), (0.038, 0.038, 0.05), vertices=14)
         cups.append((o, (r * math.cos(a), r * math.sin(a))))
     out.update(table=tb, cloth=cl, cups=cups)
     # silla
@@ -250,13 +254,13 @@ def setup(S):
     return P
 
 
-def cam_keys(S, shake=None, focus=None, n=N + 10, tx=None, cam=CAM, tgt=TGT, ty=None):
+def cam_keys(S, shake=None, focus=None, n=N + 10, tx=None, cam=CAM, tgt=TGT, ty=None, lens=LENS):
     bpy.context.preferences.edit.keyframe_new_interpolation_type = "LINEAR"
     for f in range(1, n + 1):
         sh = shake(f) if shake else (0.0, 0.0)
         S.cam.location = (cam[0] + sh[0], cam[1], cam[2] + sh[1]); S.cam.keyframe_insert("location", frame=f)
         S.tgt.location = (tx(f) if tx else tgt[0], ty(f) if ty else tgt[1], tgt[2]); S.tgt.keyframe_insert("location", frame=f)
-        S.cam.data.lens = LENS; S.cam.data.keyframe_insert("lens", frame=f)
+        S.cam.data.lens = lens; S.cam.data.keyframe_insert("lens", frame=f)
         S.cam.data.dof.focus_distance = focus(f) if focus else 3.0; S.cam.data.dof.keyframe_insert("focus_distance", frame=f)
 
 
@@ -309,8 +313,8 @@ def berry_drop(S, a, f_on, f0, f1):
     S.sc.frame_set(1)
 
 
-def finish(S, a, faces_ev, first_blink=12, every=38):
-    S.f = N; a.verify(S.f); faces(a, faces_ev, N, first_blink=first_blink, every=every)
+def finish(S, a, faces_ev, first_blink=12, every=38, n=N):
+    S.f = n; a.verify(S.f); faces(a, faces_ev, n, first_blink=first_blink, every=every)
 
 
 # ================================================================== NIVEL -400
@@ -473,97 +477,123 @@ def l3(S):
 
 
 # ================================================================== NIVEL 1300
+def route(wps, f0, f1):
+    """Trayecto por puntos (x, y, yaw) entre los fotogramas f0..f1: reparto por distancia con arranque y parada suaves. Devuelve [(f, x, y, yaw)]."""
+    d = [0.0]
+    for (x0, y0, _), (x1, y1, _) in zip(wps, wps[1:]): d.append(d[-1] + max(1e-6, math.hypot(x1 - x0, y1 - y0)))
+    out = []
+    for f in range(f0, f1 + 1):
+        t = sstep((f - f0) / float(max(1, f1 - f0))) * d[-1]
+        for i in range(len(wps) - 1):
+            if t <= d[i + 1] or i == len(wps) - 2:
+                u = min(1.0, max(0.0, (t - d[i]) / (d[i + 1] - d[i]))); A, B = wps[i], wps[i + 1]
+                out.append((f, lerp(A[0], B[0], u), lerp(A[1], B[1], u), lerp(A[2], B[2], u))); break
+    return out
+
+
 def l4(S):
-    """1300: portazo; deja la tarta en el suelo; corre a la silla y tira del mantel con ella (vasos por el suelo); la calza en la puerta; recoge la tarta, pasa."""
-    P = setup(S); door, cake, chair, cloth = P["door"], P["cake"], P["chair"], P["cloth"]
-    f_sl, f_dn, f_g, f_y0, f_d0, f_wd, f_up, f_in = 4, 8, 15, 16, 20, 28, 35, 42
-    X0 = -0.05
+    """1300: portazo; deja la tarta en el suelo; corre a la silla (el mantel se engancha y sale volando con los vasos); la lleva a la puerta, la usa de tope
+    (la hoja se abre empujada por la silla); vuelve, recoge la tarta y entra con ella (ding). Nivel largo (NN fotogramas)."""
+    NN = 108
+    P = setup(S); door, cake, chair, cloth, falda = P["door"], P["cake"], P["chair"], P["cloth"], P["falda"]
+    f_sl, f_dn, f_run0, f_g, f_y0, f_wd, f_ret, f_arr, f_in, f_ding = 4, 8, 13, 21, 23, 34, 42, 56, 62, 90
+    X0 = -0.65; A_WED = 88.0
+    CHF, CHZ = 0.55, -0.85                                            # silla: distancia al punto medio de las manos y bajada (el respaldo no roza el torso)
     a = new_man(S, ["Pushing", "Surprised", "Picking Up", "Running"], X0, 0, PSI)
     seg(S, a, "Pushing", 1, f_dn + 1, start=18, speed=1.3, blend=0)
-    seg(S, a, "Picking Up", f_dn - 1, f_g - 2, start=30, speed=1.7, blend=3)
-    seg(S, a, "Running", f_g - 3, f_wd, start=0, speed=1.15, blend=3, repeat=3)
-    seg(S, a, "Pushing", f_wd, f_wd + 6, start=18, speed=1.3, blend=3)
-    seg(S, a, "Picking Up", f_wd + 6, f_in - 1, start=30, speed=1.9, blend=3)
+    seg(S, a, "Picking Up", f_dn - 1, f_run0, start=30, speed=1.7, blend=3)
+    seg(S, a, "Running", f_run0 - 1, f_g, start=0, speed=1.15, blend=3, repeat=3)
+    seg(S, a, "Pushing", f_g, f_ret, start=18, speed=1.1, blend=3)
+    seg(S, a, "Running", f_ret - 1, f_arr, start=0, speed=1.15, blend=3, repeat=4)
+    seg(S, a, "Picking Up", f_arr - 1, f_in, start=30, speed=1.5, blend=3)
     seg(S, a, "Pushing", f_in - 2, None, start=18, speed=1.0, blend=4)
-    key_path(S, a, [(1, X0, 0, PSI)], 1, N + 11)
-    hl = hand_offset(S, a, (4, 8)); YC = WY - 0.06 - front_dist(hl)
-    CF = Vector((X0, YC + 0.62))                                      # donde queda la tarta en el suelo
-    GRAB = Vector((CHAIR0.x - hl.x, CHAIR0.y - 0.22 + hl.y))          # raiz al agarrar la silla
-    WEDGE = Vector((0.50, WY + 0.55)); YDOOR = WY - 0.10
-    pts = [(1, X0, YC - 0.15, PSI), (f_sl, X0, YC, PSI), (f_dn + 5, X0, YC, PSI), (f_g - 3, X0 + 0.05, YC, 120.0), (f_g + 1, GRAB.x, GRAB.y, 180.0), (f_d0 - 1, GRAB.x, GRAB.y, 180.0),
-           (f_wd - 2, X0 + 0.55, YDOOR - 0.20, PSI), (f_wd + 4, X0 + 0.55, YDOOR, PSI), (f_wd + 6, X0 + 0.55, YDOOR, PSI), (f_up - 2, X0 + 0.15, YC + 0.30, PSI), (f_up + 1, CF.x - hl.x, CF.y + hl.y, PSI),
-           (f_in, X0, CF.y - 0.1, PSI), (N + 11, X0, WY + 0.95, PSI)]
-    # tramo final: camina hacia dentro (de f_in en adelante)
-    pts = pts[:-2] + [(f_in - 1, X0, CF.y - 0.12 + 0.0, PSI), (f_in + 15, X0 - 0.30, WY + 1.0, PSI), (f_in + 18, X0 - 0.30, WY + 1.05, PSI), (f_in + 30, X0 - 0.30, WY + 1.05, PSI), (N + 11, X0 - 0.30, WY + 1.05, PSI)]
-    key_path(S, a, pts, 1, N + 11); pin_feet(S, a, 1, N + 11, lambda f: floor_z(path(pts, f)[1]))
+    key_path(S, a, [(1, X0, 0, PSI)], 1, NN + 11)
+    hl = hand_offset(S, a, (4, 8)); hlc = hand_offset(S, a, (f_g + 3, f_g + 7, f_wd - 3)); DIST = -hl.y + FWD; CD = -hlc.y + CHF          # raiz -> centro de la tarta / de la silla
+    CY = 0.95; Y0 = CY - DIST                                         # la tarta se queda en el adoquin llano (antes del escalon), delante de el
+    CF = Vector((X0, CY))
+    def fwv(yaw): return Vector((math.sin(math.radians(yaw)), -math.cos(math.radians(yaw))))
+    def root_for(c, d, yaw): return Vector((c[0], c[1])) - fwv(yaw) * d
+    GRAB = Vector((CHAIR0.x - hlc.x, CHAIR0.y - CHF + hlc.y))
+    def chair_c(th):                                                  # centro de la silla pegada a la cara exterior de la hoja abierta th grados (a 0,6 m de la bisagra)
+        t = math.radians(th); return Vector((LW - 0.6 * math.cos(t) + (-math.sin(t)) * 0.31, WY + 0.6 * math.sin(t) + (-math.cos(t)) * 0.31))
+    YAW_C = 174.0
+    c0 = chair_c(0.0); Rpw = root_for(c0, CD, YAW_C) - Vector((0.0, 0.08))
+    def theta(f): return A_WED * sstep((f - f_wd) / 7.0)
+    pts = [(1, X0, Y0 - 0.55, PSI), (f_sl + 3, X0, Y0, PSI), (f_dn + 5, X0, Y0, PSI), (f_run0, X0, Y0, PSI)]
+    pts += route([(X0, Y0, PSI), (X0 + 0.5, Y0 - 0.05, 120.0), (GRAB.x - 0.2, GRAB.y - 0.05, 100.0), (GRAB.x, GRAB.y, YAW_C)], f_run0 + 1, f_g)[:]
+    pts += route([(GRAB.x, GRAB.y, YAW_C), (Rpw.x, Rpw.y, YAW_C)], f_g + 1, f_wd - 1)
+    for f in range(f_wd, f_wd + 8):
+        r = root_for(chair_c(theta(f)), CD, YAW_C) + Vector((-0.22, 0.0)); pts.append((f, r.x, r.y, YAW_C))
+    rend = root_for(chair_c(A_WED), CD, YAW_C) + Vector((-0.22, 0.0))
+    RP = (X0, Y0 - 0.20, -180.0)
+    pts += route([(rend.x, rend.y, YAW_C), (0.80, 0.95, 28.0), (0.45, 0.10, -22.0), (RP[0] + 0.6, RP[1], -76.0), RP], f_ret, f_arr)
+    pts += [(f_arr + 1, *RP), (f_in, *RP)]
+    pts += route([RP, (-0.28, 1.20, -180.0), (-0.17, 2.0, -180.0), (-0.17, 3.3, -180.0)], f_in + 1, f_ding - 2)
+    pts += [(f_ding - 1, -0.17, 3.3, -180.0), (NN + 11, -0.17, 3.3, -180.0)]
+    pts.sort(key=lambda p: p[0])
+    dd = []; 
+    for p_ in pts:
+        if not dd or p_[0] > dd[-1][0]: dd.append(p_)
+    pts = dd
+    key_path(S, a, pts, 1, NN + 11); pin_feet(S, a, 1, NN + 11, lambda f: floor_z(path(pts, f)[1]))
     def ang(f):
         if f < f_sl - 3: return A_OPEN + 1.2 * math.sin(f * 2.3)
-        if f <= f_sl: return lerp(A_OPEN, 0.0, ((f - (f_sl - 3)) / 3.0) ** 2)
-        if f < f_wd + 1: return 7.0 * math.exp(-0.33 * (f - f_sl)) * abs(math.cos(0.85 * (f - f_sl)))
-        return lerp(0.0, 70.0, seg01(f, f_wd + 1, f_wd + 6)) if f < f_wd + 8 else 70.0 + 0.8 * math.sin(f * 1.7) * math.exp(-0.2 * (f - f_wd - 8))
-    for f in range(1, N + 12): leaf_key(S, door, f, ang(f))
-    # tarta: manos -> suelo (f_dn..f_dn+5) ; suelo ; manos (f_up..)
+        if f < f_wd: return slam(f, f_sl - 3, f_sl, A_OPEN, 0.0) if f <= f_sl + 12 else 0.0
+        return theta(f)
+    for f in range(1, NN + 12): leaf_key(S, door, f, ang(f))
+    # tarta: manos -> suelo delante del hombre (f_dn..f_dn+5); suelo; manos (recoge en f_arr..f_arr+5)
+    f_up = f_arr + 3
+    zh = {}
     def spec(f):
-        if f < f_dn: return dict(mode="hand")
+        if f < f_dn: return dict(mode="hand", minf=DIST)
         if f < f_dn + 5:
-            u = seg01(f, f_dn, f_dn + 5); mid, yaw = hands_mid(S, a, f)
-            return dict(mode="hand", from_=None) if False else dict(mode="hand", ay=lerp(0, 0, 0) or None) if False else dict(mode="hand", dz=lerp(-0.08, -0.62, u))
-        if f < f_up: return dict(mode="pos", loc=(CF.x, CF.y, 0.05), yaw=math.radians(PSI))
-        u = seg01(f, f_up, f_up + 4)
-        return dict(mode="hand", **{"from": (CF.x, CF.y, 0.05), "u": u})
-    track(S, a, cake, spec, 1, N + 11)
-    # silla: en su sitio -> manos (f_g..) -> tope en la puerta
-    def cset(S_, o, f, loc, yaw, sc=(1, 1, 1), tilt=(0, 0)):
-        S_.key(o, f, loc=tuple(loc), rot=(0, 0, yaw), interp="LINEAR")
+            u = seg01(f, f_dn, f_dn + 5); mid, yaw = hands_mid(S, a, f_dn); z0 = mid.z - 0.08
+            return dict(mode="pos", loc=(CF.x, CF.y, lerp(z0, floor_z(CY) + 0.01, u)), yaw=math.radians(PSI))
+        if f < f_up: return dict(mode="pos", loc=(CF.x, CF.y, floor_z(CY) + 0.01), yaw=math.radians(PSI))
+        return dict(mode="hand", minf=DIST, **{"from": (CF.x, CF.y, floor_z(CY) + 0.01), "u": seg01(f, f_up, f_up + 6)})
+    track(S, a, cake, spec, 1, NN + 11)
+    # silla: en su sitio -> manos -> cara exterior de la hoja (la hoja se abre empujada por ella)
+    def cset(S_, o, f, loc, yaw, sc=(1, 1, 1), tilt=(0, 0)): S_.key(o, f, loc=tuple(loc), rot=(0, 0, yaw), interp="LINEAR")
+    carry_z = {}
     def cspec(f):
-        if f < f_g + 1: return dict(mode="pos", loc=(CHAIR0.x, CHAIR0.y, 0.0), yaw=R(180))
-        if f < f_wd + 2: return dict(mode="hand", dz=-0.62, fwd=0.22, **{"from": (CHAIR0.x, CHAIR0.y, 0.0), "u": seg01(f, f_g + 1, f_g + 3)})
-        if f < f_wd + 7:
-            mid, yaw = hands_mid(S, a, f); fw = Vector((math.sin(yaw), -math.cos(yaw), 0))
-            return dict(mode="hand", dz=-0.62, fwd=0.22, **{"from": (WEDGE.x, WEDGE.y, floor_z(WEDGE.y)), "u": seg01(f, f_wd + 2, f_wd + 6) * 0.0}) if False else dict(mode="pos", loc=(lerp(mid.x + fw.x * 0.22, WEDGE.x, seg01(f, f_wd + 2, f_wd + 7)), lerp(mid.y + fw.y * 0.22, WEDGE.y, seg01(f, f_wd + 2, f_wd + 7)), floor_z(WEDGE.y) + 0.0), yaw=R(90))
-        return dict(mode="pos", loc=(WEDGE.x, WEDGE.y, floor_z(WEDGE.y)), yaw=R(90))
-    track(S, a, chair, cspec, 1, N + 11, setter=cset)
-    # mantel + vasos: el pie de la silla engancha el mantel y lo arrastra; los vasos salen volando
-    base_cl = Vector((TAB.x, TAB.y, 0.0))
-    for f in range(1, N + 12):
-        u = seg01(f, f_y0 + 1, f_y0 + 9)
-        cp = Vector((chair.matrix_world.translation.x if False else 0, 0, 0))
-        chp = path_chair(S, a, f, f_g, f_wd, hl, WEDGE)
-        tgt = Vector((chp.x + 0.12, chp.y + 0.10, 0.03))
-        pos = base_cl.lerp(tgt, u * 0.92 if f < f_wd + 3 else 0.92)
-        k = seg01(f, f_y0 + 3, f_y0 + 9)
-        S.key(cloth, f, loc=tuple(pos), rot=(0, 0, R(40) * k), scale=(1 + 0.2 * k, 1 + 0.2 * k, 1 - 0.78 * k), interp="LINEAR")
+        if f < f_g + 1: return dict(mode="pos", loc=(CHAIR0.x, CHAIR0.y, floor_z(CHAIR0.y)), yaw=R(180))
+        if f < f_wd: return dict(mode="hand", dz=CHZ, fwd=CHF, **{"from": (CHAIR0.x, CHAIR0.y, 0.0), "u": seg01(f, f_g + 1, f_g + 4)})
+        th = theta(f); c = chair_c(th); mid, yaw = hands_mid(S, a, f_wd - 1)
+        z = lerp(mid.z + CHZ, floor_z(c.y), seg01(f, f_wd, f_wd + 3))
+        return dict(mode="pos", loc=(c.x, c.y, z), yaw=R(180 - th))
+    track(S, a, chair, cspec, 1, NN + 11, setter=cset)
+    # mantel: se engancha en la silla al alzarla: el vuelo es hacia el sur y cae plano al suelo; los vasos van encima un momento y salen volando al este
+    D = Vector((-0.10, -0.95))
+    for f in range(1, NN + 12):
+        u = seg01(f, f_y0 + 3, f_y0 + 9); k = seg01(f, f_y0, f_y0 + 3); g = seg01(f, f_y0 + 9, f_y0 + 12)
+        S.key(cloth, f, loc=(TAB.x + D.x * u, TAB.y + D.y * u, -0.745 * g), rot=(0, 0, R(50) * u), scale=(1, 1, 1), interp="LINEAR")
+        S.key(falda, f, loc=(0, 0, 0.63 + 0.145 * k), scale=(0.40, 0.40, 0.135 * (1 - 0.93 * k)), interp="LINEAR")
     for i, (o, (ox, oy)) in enumerate(P["cups"]):
-        fs = f_y0 + 3 + i; rnd = random.Random(40 + i); v = Vector((-0.8 + rnd.uniform(-0.5, 0.4), -0.4 + rnd.uniform(-0.5, 0.5), 0.0))
-        for f in range(1, N + 12):
-            if f < f_y0 + 1: p = Vector((TAB.x + ox, TAB.y + oy, 0.80)); rot = (0, 0, 0)
+        fs = f_y0 + 5 + i // 2; rnd = random.Random(40 + i)
+        v = Vector((2.0 + rnd.uniform(0, 0.8), rnd.uniform(-0.4, 0.5), 1.1 + rnd.uniform(0, 0.5)))
+        b0 = Vector((TAB.x + ox, TAB.y + oy, 0.83))
+        for f in range(1, NN + 12):
+            if f < f_y0: p = b0; rot = (0, 0, 0)
             elif f < fs:
-                u = seg01(f, f_y0 + 1, f_y0 + 9); tgt = path_chair(S, a, f, f_g, f_wd, hl, WEDGE); b = Vector((TAB.x + ox, TAB.y + oy, 0.80))
-                p = b + (Vector((tgt.x + 0.12, tgt.y + 0.10, 0.80)) - Vector((TAB.x, TAB.y, 0.80))) * (u * 0.92); rot = (0, 0, 0)
+                u = seg01(f, f_y0, f_y0 + 6); p = b0 + Vector((D.x * u, D.y * u, 0.0)) * (1.0 if f_y0 <= f else 0.0); rot = (0, 0, 0)
             else:
-                t = (f - fs) / 24.0; p0 = Vector((TAB.x + ox, TAB.y + oy, 0.80)) + (Vector((-0.2, 0.0, 0.0)) * 0.0)
-                p = p0 + v * t * 1.2 + Vector((-0.05 * (i % 3), 0.0, 0.0)); p.z = max(0.045, 0.80 - 4.9 * t * t)
-                if p.z <= 0.045: rot = (R(90), 0, R(30 * i)); p.z = 0.045 + 0.02
-                else: rot = (R(400 * t), R(250 * t), 0)
+                pr = b0 + Vector((D.x, D.y, 0.0)) * seg01(fs, f_y0 + 3, f_y0 + 9); t = (f - fs) / 24.0
+                tl = (v.z + math.sqrt(v.z ** 2 + 19.6 * (0.83 - 0.07))) / 9.8; tt = min(t, tl)        # aterriza y se queda quieto
+                p = pr + Vector((v.x * tt, v.y * tt, v.z * tt - 4.9 * tt * tt)); rot = (R(400 * tt), R(250 * tt), 0)
+                if t >= tl: p.z = 0.07; rot = (R(90), 0, R(30 * i))
             S.key(o, f, loc=tuple(p), rot=rot, scale=(0.038, 0.038, 0.05), interp="LINEAR")
-    wind_fx(S, P, lambda f: 1.0, N + 11)
+    wind_fx(S, P, lambda f: 1.0, NN + 11)
     S.cue("creak", 2, vol=-6); S.cue("hit", f_sl, vol=-1); S.cue("clunk", f_sl, vol=-3); S.cue("hmm", f_dn + 2, vol=-7); S.cue("clunk", f_dn + 5, vol=-4)
-    S.cue("whoosh", f_g - 2, vol=-6); S.cue("slide_down", f_y0 + 2, vol=-3)
-    for i in range(5): S.cue("clunk", f_y0 + 7 + 2 * i, vol=-5 - i)
-    S.cue("clunk", f_wd + 6, vol=-2); S.cue("pop", f_up + 1, vol=-6); S.cue("whoosh", f_in, vol=-7); S.cue("bell", f_in + 20, vol=-4)
-    finish(S, a, [(1, "neutra", 1.0), (f_sl, "sorpresa", 0.9), (f_g, "enfado", 0.8), (f_y0 + 4, "sorpresa", 0.9), (f_wd + 4, "enfado", 0.7), (f_in + 18, "feliz", 0.6)], first_blink=13)
+    S.cue("whoosh", f_run0 + 1, vol=-6); S.cue("slide_down", f_y0, vol=-3)
+    for i in range(5): S.cue("clunk", f_y0 + 8 + 2 * i, vol=-5 - i)
+    S.cue("creak", f_wd + 2, vol=-5); S.cue("clunk", f_wd + 7, vol=-2); S.cue("whoosh", f_ret + 2, vol=-7); S.cue("pop", f_up + 2, vol=-6)
+    S.cue("whoosh", f_in + 2, vol=-7); S.cue("bell", f_ding, vol=-4)
+    finish(S, a, [(1, "neutra", 1.0), (f_sl, "sorpresa", 0.9), (f_g, "enfado", 0.8), (f_y0 + 4, "sorpresa", 0.9), (f_wd + 4, "enfado", 0.7), (f_ding, "feliz", 0.8)], first_blink=13, n=NN)
     def shake(f):
         t = f - f_sl; k = max(0.0, 1 - t / 6.0) if t >= 0 else 0.0
         return (0.03 * math.sin(f * 2.3) * k, 0.03 * math.cos(f * 1.9) * k)
-    cam_keys(S, shake, focus=lambda f: 4.4, cam=(0.30, -2.2, 3.2), tgt=(0.30, 1.6, 0.9), ty=lambda f: lerp(1.6, 2.4, seg01(f, 40, 62)))
+    cam_keys(S, shake, focus=lambda f: 4.6, cam=(0.30, -2.8, 3.4), tgt=(0.30, 1.4, 0.9), n=NN + 10, lens=31.0, ty=lambda f: lerp(1.4, 2.4, seg01(f, f_in + 4, f_ding)))
     return a
-
-
-def path_chair(S, a, f, f_g, f_wd, hl, WEDGE):
-    """Posicion aproximada de la silla en el fotograma f (solo para el mantel)."""
-    if f <= f_g: return Vector((CHAIR0.x, CHAIR0.y, 0.0))
-    t = seg01(f, f_g + 1, f_wd)
-    return Vector((lerp(CHAIR0.x, WEDGE.x - 0.1, t), lerp(CHAIR0.y, WY - 0.45, t), 0.0))
 
 
 # ================================================================== NIVEL 9001
