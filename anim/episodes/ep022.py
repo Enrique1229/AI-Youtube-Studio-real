@@ -118,6 +118,7 @@ def track(S, a, obj, spec, f0, f1, fwd=FWD, dz=-0.08, setter=None):
             if "ay" in d: loc.y = d["ay"]
             if "az" in d: loc.z = d["az"]
             if "dx" in d: loc.x += d["dx"]
+            if "to" in d: loc = loc.lerp(Vector(d["to"]), d["ut"]); loc.z += d.get("hump", 0.0) * math.sin(math.pi * d["ut"])      # de las manos a un punto fijo (la mesa)
             if "minf" in d:                                   # la tarta nunca queda a menos de `minf` m de la raiz (las manos suben/bajan y el cuerpo se inclina)
                 rp = a.root.matrix_world.translation; gap = d["minf"] - (loc - rp).dot(fw)
                 if gap > 0: loc = loc + fw * gap
@@ -602,17 +603,17 @@ def l5(S):
     de un golpe; CORTE a la puerta: sin viento, entra con la tarta intacta (ding)."""
     P = setup(S); door, cake, sash = P["door"], P["cake"], P["sash"]
     f_sl, f_look, f_run0, f_put, f_run1, f_push, f_close, f_cut, f_ding, f_vic = 3, 5, 15, 24, 28, 40, 43, 50, 59, 64
-    X0 = 0.02
+    X0 = -0.15
     a = new_man(S, ["Pushing", "Looking Around", "Running"], X0, 0, PSI)
     seg(S, a, "Pushing", 1, f_look + 1, start=18, speed=1.3, blend=0)
     seg(S, a, "Looking Around", f_look, f_run0 + 1, start=0, speed=1.15, blend=4)
     seg(S, a, "Running", f_run0, f_push, start=0, speed=1.1, blend=3, repeat=3)
     seg(S, a, "Pushing", f_push - 1, None, start=18, speed=1.1, blend=3)
     key_path(S, a, [(1, X0, 0, PSI)], 1, N + 11)
-    hl = hand_offset(S, a, (4, 8)); YC = WY - 0.06 - front_dist(hl)
-    TBL = Vector((0.95, 0.50)); WS = Vector((2.72, 0.66)); YIN = WY + 1.0
-    pts = [(1, X0, YC - 0.05, PSI), (f_sl + 2, X0, YC, PSI), (f_run0 - 1, X0, YC, PSI), (f_run0 + 2, X0 + 0.05, YC - 0.05, 120.0), (f_put + 3, TBL.x, TBL.y, 110.0),
-           (f_run1 + 11, WS.x, WS.y, 92.0), (f_push + 4, WS.x + 0.05, WS.y, 92.0), (f_cut - 1, WS.x + 0.05, WS.y, 92.0),
+    hl = hand_offset(S, a, (4, 8)); DIST = -hl.y + FWD; YC = WY - 0.16 - front_dist(hl)
+    TBL = Vector((TAB.x - 0.02, TAB.y - DIST + 0.02)); WS = Vector((2.42, 0.70)); YIN = WY + 1.0
+    pts = [(1, X0, YC - 0.05, PSI), (f_sl + 2, X0, YC, PSI), (f_run0 - 1, X0, YC, PSI), (f_run0 + 3, X0 + 0.05, YC - 0.75, 135.0), (f_run0 + 8, 0.55, -0.55, 110.0), (f_put + 3, TBL.x, TBL.y, 180.0),
+           (f_put + 8, 2.00, -0.10, 100.0), (f_run1 + 11, WS.x, WS.y, 92.0), (f_push + 4, WS.x + 0.05, WS.y, 92.0), (f_cut - 1, WS.x + 0.05, WS.y, 92.0),
            (f_cut, X0, WY - 0.55, PSI), (f_ding + 4, X0, YIN, PSI), (f_vic + 2, X0, YIN + 0.05, PSI), (f_vic + 10, X0, YIN + 0.05, PSI), (N + 11, X0, YIN + 0.05, PSI)]
     key_path(S, a, pts, 1, N + 11); pin_feet(S, a, 1, N + 11, lambda f: floor_z(path(pts, f)[1]))
     for f in range(1, N + 12):
@@ -627,14 +628,11 @@ def l5(S):
         if f < f_put + 4: return dict(mode="hand", **{"from": None}) if False else dict(mode="hand", dz=-0.08 - 0.05 * seg01(f, f_put, f_put + 3), ay=None) if False else dict(mode="hand")
         return dict(mode="pos", loc=(TAB.x, TAB.y, 0.77), yaw=R(0))
     def spec2(f):
-        if f < f_put + 1: return dict(mode="hand")
-        u = seg01(f, f_put + 1, f_put + 5)
-        if f < f_cut:
-            mid, yaw = hands_mid(S, a, min(f, f_put + 1)); fw = Vector((math.sin(yaw), -math.cos(yaw), 0)); h0 = mid + fw * FWD + Vector((0, 0, -0.08))
-            p = h0.lerp(Vector((TAB.x, TAB.y, 0.77)), u); p.z += 0.18 * math.sin(math.pi * u)
-            return dict(mode="pos", loc=p, yaw=yaw)
-        return dict(mode="hand")
+        if f < f_put + 1 or f >= f_cut: return dict(mode="hand", minf=DIST)
+        ut = seg01(f, f_put + 1, f_put + 5)
+        return dict(mode="hand", minf=DIST * (1 - ut), to=(TAB.x, TAB.y, 0.785), ut=ut, hump=0.12)
     track(S, a, cake, spec2, 1, N + 11)
+    for o, _ in P["cups"]: S.key(o, 1, scale=(0, 0, 0), interp="LINEAR")                 # la mesa se despeja: la tarta ocupa todo el tablero
     def wind(f): return 1.0 if f <= f_close else max(0.0, 1.0 - (f - f_close) / 8.0)
     wind_fx(S, P, wind, N + 11)
     S.cue("huh", 2, vol=-8); S.cue("hit", f_sl + 1, vol=-1); S.cue("clunk", f_sl + 1, vol=-3); S.cue("hmm", f_look + 4, vol=-7); S.cue("whoosh", f_run0 + 2, vol=-6)
