@@ -34,7 +34,7 @@ CAM = (0.30, -2.6, 3.3); TGT = (0.30, 1.2, 0.8); LENS = 38.0
 CK = 0.68                                     # escala base de la tarta (bandeja radio 0,575)
 RF = 0.5 * CK
 FWD = RF + 0.03                               # centro de la tarta delante del punto medio de las manos (la bandeja queda delante del cuerpo, sin atravesarlo)
-TAB = Vector((1.65, 1.05)); CHAIR0 = Vector((0.95, 1.00))
+TAB = Vector((1.45, 1.05)); CHAIR0 = Vector((0.78, 1.00))
 WX0, WX1, WZ0, WZ1 = 2.65, 3.95, 0.85, 2.15   # ventana grande
 A_OPEN = 84.0
 
@@ -119,7 +119,7 @@ def track(S, a, obj, spec, f0, f1, fwd=FWD, dz=-0.08, setter=None):
             if "az" in d: loc.z = d["az"]
             if "dx" in d: loc.x += d["dx"]
             if "to" in d: loc = loc.lerp(Vector(d["to"]), d["ut"]); loc.z += d.get("hump", 0.0) * math.sin(math.pi * d["ut"])      # de las manos a un punto fijo (la mesa)
-            if "minf" in d:                                   # la tarta nunca queda a menos de `minf` m de la raiz (las manos suben/bajan y el cuerpo se inclina)
+            if d.get("minf", 0.0) > 1e-3:                                   # la tarta nunca queda a menos de `minf` m de la raiz (las manos suben/bajan y el cuerpo se inclina)
                 rp = a.root.matrix_world.translation; gap = d["minf"] - (loc - rp).dot(fw)
                 if gap > 0: loc = loc + fw * gap
             setter(S, obj, f, loc, yaw, d.get("sc", (1, 1, 1)), d.get("tilt", (0, 0)))
@@ -209,20 +209,20 @@ def build_props(S):
         bpy.context.view_layer.update(); return env_real._place_fit(S, cache[name], (x, y, z), h, R(rot))[0]
     put("potted_plant_02", "1k", -1.12, WY - 0.50, 0.85, 20); put("potted_plant_02", "1k", 1.52, WY - 0.50, 0.85, 200)
     put("power_box_01", "1k", -1.05, WY - 0.05, 0.5, 0, z=1.95); put("potted_plant_04", "1k", 0.52, WY - 0.20, 0.20, 0, z=0.10)
-    put("street_lamp_01", "2k", -2.4, WY - 0.6, 4.6, 0); put("fire_hydrant", "1k", 3.75, 0.45, 0.8, 25)
+    put("street_lamp_01", "2k", -2.4, WY - 0.6, 4.6, 0); put("fire_hydrant", "1k", 4.30, -0.05, 0.8, 25)
     put("metal_trash_can", "2k", -2.1, 1.0, 1.0, 20); put("trashbag", "1k", -1.75, 0.75, 0.5, 60)
     put("painted_wooden_bench", "1k", -3.6, 1.2, 0.9, 0); put("wooden_crate_01", "1k", 4.5, 0.95, 0.5, -15)
     put("plastic_crate_01", "1k", -1.6, 0.35, 0.34, 20); put("planter_box_01", "2k", 5.1, 1.5, 0.75, 0)
 
 
-def wind_fx(S, P, wind, n):
+def wind_fx(S, P, wind, n, camp=1.0):
     """Farolillos inclinados hacia la puerta (+y) y cortinas hinchadas hacia fuera; wind(f) 0..1."""
     for f in range(1, n + 1):
         w = wind(f)
         for i, g in enumerate(P["lanterns"]):
             S.key(g, f, rot=(R(w * 6 * math.sin(f * 0.7 + i)), R(w * (36 + 10 * math.sin(f * 0.9 + i * 1.3))), 0), interp="LINEAR")
         for i, g in enumerate(P["curtains"]):
-            S.key(g, f, rot=(R(-w * (38 + 14 * math.sin(f * 0.8 + i * 2.0))), 0, R(w * 6 * math.sin(f * 0.6 + i))), interp="LINEAR")
+            S.key(g, f, rot=(R(-w * camp * (38 + 14 * math.sin(f * 0.8 + i * 2.0))), 0, R(w * 6 * math.sin(f * 0.6 + i))), interp="LINEAR")
 
 
 HD = 4.8                                       # profundidad del hall (en ep020 eran 3,0: la tarta grande chocaba con el fondo)
@@ -334,7 +334,7 @@ def l1(S):
            (f_turn + 11, X0 + 0.15, YC - 0.20, 342.0), (N + 11, X0 + 0.15, YC - 0.20, 342.0)]
     key_path(S, a, pts, 1, N + 11); pin_feet(S, a, 1, N + 11, lambda f: floor_z(path(pts, f)[1]))
     for f in range(1, N + 12): leaf_key(S, door, f, slam(f, f_sl - 3, f_sl + 1, A_OPEN, 0.0) if f < f_hit + 14 else 0.0)
-    CX, CY = X0 - 1.12, 0.62                                 # la tarta cae a un lado (izquierda), lejos del hombre, sobre el adoquin llano
+    CX, CY = X0 - 0.97, 0.62                                 # la tarta cae a un lado (izquierda), lejos del hombre, sobre el adoquin llano
     XS = 1.35                                                 # ancho de la tarta aplastada contra la hoja (cabe en el hueco: 0,64 < 0,78)
     def spec(f):
         if f < f_hit: return dict(mode="hand")
@@ -370,7 +370,7 @@ def l1(S):
     def shake(f):
         t = f - f_hit; k = max(0.0, 1 - t / 8.0) if t >= 0 else 0.0
         return (0.05 * math.sin(f * 2.3) * k, 0.05 * math.cos(f * 1.9) * k)
-    cam_keys(S, shake)
+    cam_keys(S, shake, cam=(0.10, -2.6, 3.3), tgt=(0.10, 1.2, 0.8))
     return a
 
 
@@ -593,7 +593,7 @@ def l4(S):
     def shake(f):
         t = f - f_sl; k = max(0.0, 1 - t / 6.0) if t >= 0 else 0.0
         return (0.03 * math.sin(f * 2.3) * k, 0.03 * math.cos(f * 1.9) * k)
-    cam_keys(S, shake, focus=lambda f: 4.6, cam=(0.30, -2.8, 3.4), tgt=(0.30, 1.4, 0.9), n=NN + 10, lens=31.0, ty=lambda f: lerp(1.4, 2.4, seg01(f, f_in + 4, f_ding)))
+    cam_keys(S, shake, focus=lambda f: 4.6, cam=(0.40, -3.0, 3.5), tgt=(0.40, 1.4, 0.9), n=NN + 10, lens=22.0, ty=lambda f: lerp(1.4, 2.4, seg01(f, f_in + 4, f_ding)))
     return a
 
 
@@ -610,17 +610,19 @@ def l5(S):
     seg(S, a, "Running", f_run0, f_push, start=0, speed=1.1, blend=3, repeat=3)
     seg(S, a, "Pushing", f_push - 1, None, start=18, speed=1.1, blend=3)
     key_path(S, a, [(1, X0, 0, PSI)], 1, N + 11)
-    hl = hand_offset(S, a, (4, 8)); DIST = -hl.y + FWD; YC = WY - 0.16 - front_dist(hl)
-    TBL = Vector((TAB.x - 0.02, TAB.y - DIST + 0.02)); WS = Vector((2.42, 0.70)); YIN = WY + 1.0
+    hl = hand_offset(S, a, (4, 8)); DIST = -hl.y + FWD; YC = WY - 0.22 - front_dist(hl)
+    TBL = Vector((TAB.x - 0.02, TAB.y - DIST + 0.02)); YAW_P = 214.0; A0 = 56.0                                          # el hombre empuja la hoja de la ventana desde su cara exterior (lado de apertura): al cerrarse se aleja de sus manos
+    hs = Vector((WX1, WY - 0.06)); T = hs + Vector((-math.cos(math.radians(A0)), -math.sin(math.radians(A0)))) * 0.80 + Vector((0.83, -0.56)) * 0.26
+    hlw = hand_offset(S, a, (f_push + 1, f_push + 2, f_push + 3)); _o = Matrix.Rotation(R(YAW_P), 3, "Z") @ Vector((hlw.x, hlw.y, 0)); WS = Vector((T.x - _o.x, T.y - _o.y)); YIN = WY + 1.0
     pts = [(1, X0, YC - 0.05, PSI), (f_sl + 2, X0, YC, PSI), (f_run0 - 1, X0, YC, PSI), (f_run0 + 3, X0 + 0.05, YC - 0.75, 135.0), (f_run0 + 8, 0.55, -0.55, 110.0), (f_put + 3, TBL.x, TBL.y, 180.0),
-           (f_put + 8, 2.00, -0.10, 100.0), (f_run1 + 11, WS.x, WS.y, 92.0), (f_push + 4, WS.x + 0.05, WS.y, 92.0), (f_cut - 1, WS.x + 0.05, WS.y, 92.0),
+           (f_put + 8, 2.55, -0.10, 100.0), (f_run1 + 6, WS.x - 0.4, WS.y - 0.7, 160.0), (f_run1 + 11, WS.x, WS.y, YAW_P), (f_push + 4, WS.x, WS.y, YAW_P), (f_cut - 1, WS.x, WS.y, YAW_P),
            (f_cut, X0, WY - 0.55, PSI), (f_ding + 4, X0, YIN, PSI), (f_vic + 2, X0, YIN + 0.05, PSI), (f_vic + 10, X0, YIN + 0.05, PSI), (N + 11, X0, YIN + 0.05, PSI)]
     key_path(S, a, pts, 1, N + 11); pin_feet(S, a, 1, N + 11, lambda f: floor_z(path(pts, f)[1]))
     for f in range(1, N + 12):
         ang = slam(f, f_sl - 3, f_sl + 1, A_OPEN, 0.0) if f < f_close + 4 else lerp(0.0, A_OPEN - 4, seg01(f, f_close + 4, f_cut - 1))
         leaf_key(S, door, f, ang if f < f_cut else A_OPEN - 4 + 0.3 * math.sin(f * 0.5) * math.exp(-0.1 * (f - f_cut)))
     for f in range(1, N + 12):                                         # hoja de la ventana: abierta 62 grados hasta que el hombre la golpea
-        u = seg01(f, f_push + 1, f_close); a_w = 62.0 * (1 - u * u) if f < f_close else 5.0 * math.exp(-0.4 * (f - f_close)) * abs(math.cos(1.0 * (f - f_close)))
+        u = seg01(f, f_push + 1, f_close); a_w = A0 * (1 - u * u) if f < f_close else 5.0 * math.exp(-0.4 * (f - f_close)) * abs(math.cos(1.0 * (f - f_close)))
         a_w += 2.0 * math.sin(f * 1.6) * (1 if f < f_push else 0)
         S.key(sash, f, rot=(0, 0, R(a_w)), interp="LINEAR")
     def spec(f):
@@ -634,7 +636,7 @@ def l5(S):
     track(S, a, cake, spec2, 1, N + 11)
     for o, _ in P["cups"]: S.key(o, 1, scale=(0, 0, 0), interp="LINEAR")                 # la mesa se despeja: la tarta ocupa todo el tablero
     def wind(f): return 1.0 if f <= f_close else max(0.0, 1.0 - (f - f_close) / 8.0)
-    wind_fx(S, P, wind, N + 11)
+    wind_fx(S, P, wind, N + 11, camp=0.4)
     S.cue("huh", 2, vol=-8); S.cue("hit", f_sl + 1, vol=-1); S.cue("clunk", f_sl + 1, vol=-3); S.cue("hmm", f_look + 4, vol=-7); S.cue("whoosh", f_run0 + 2, vol=-6)
     S.cue("clunk", f_put + 4, vol=-6); S.cue("whoosh", f_run1, vol=-6); S.cue("hit", f_close, vol=-1); S.cue("clunk", f_close, vol=-2); S.cue("pop", f_close + 1, vol=-5)
     S.cue("wahwah", f_close - 40, vol=-30) if False else None
@@ -643,7 +645,7 @@ def l5(S):
     def tx(f):
         if f >= f_cut: return TGT[0]
         a1 = seg01(f, f_run0, f_run0 + 8); a2 = seg01(f, f_run1 - 2, f_run1 + 9)
-        return TGT[0] + 0.55 * a1 + 1.75 * a2
+        return TGT[0] + 0.55 * a1 + 2.2 * a2
     def focus(f): return lerp(3.2, 4.2, seg01(f, f_run1, f_run1 + 10)) if f < f_cut else 3.4
     def shake(f):
         t = f - f_close; k = max(0.0, 1 - t / 6.0) if t >= 0 and f < f_cut else 0.0
