@@ -17,7 +17,7 @@ from kit import Stage, look_for
 
 DECALS = ("nata_cara", "fresa_pelo", "moreton", "dollop", "mancha", "gota", "fresa_puerta", "salpica", "fresa_cae", "confeti", "dedo")
 FOCUS = ("mixamo", "tarta", "silla", "mantel", "vaso")        # solo se reportan parejas donde interviene uno de estos grupos (persona, tarta, silla, mantel, vasos)
-FLOOR = ("suelo", "floor", "ground", "agua")
+FLOOR = ("suelo", "floor", "ground", "agua", "alfombra")
 
 
 def parse():
@@ -97,6 +97,7 @@ def run_level(ep_path, level, tol=0.01, step=1, ignore=()):
             go = root_of(o)
             for s in static:
                 if root_of(s) is go: continue
+                if "sneakers" in o.name.lower() and s.name.startswith(("escalon", "alfombra")): continue      # los pies se apoyan en los escalones
                 key = s.name
                 if key not in cache:
                     vs, tr = world_mesh(s, dg, 0.0)

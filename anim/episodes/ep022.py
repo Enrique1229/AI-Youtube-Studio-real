@@ -31,8 +31,9 @@ LABEL_STYLE = "big"
 N = 72
 PSI = 186.0                                   # mira a la puerta (+y), un pelo a la izquierda
 CAM = (0.30, -2.6, 3.3); TGT = (0.30, 1.2, 0.8); LENS = 38.0
-CK = 1.15                                     # escala base de la tarta (bandeja radio 0,575)
+CK = 0.78                                     # escala base de la tarta (bandeja radio 0,575)
 RF = 0.5 * CK
+FWD = RF + 0.03                               # centro de la tarta delante del punto medio de las manos (la bandeja queda delante del cuerpo, sin atravesarlo)
 TAB = Vector((0.98, 1.12)); CHAIR0 = Vector((0.58, 0.80))
 WX0, WX1, WZ0, WZ1 = 2.65, 3.95, 0.85, 2.15   # ventana grande
 A_OPEN = 84.0
@@ -105,7 +106,7 @@ def hands_mid(S, a, f):
     return mid, a.root.matrix_world.to_euler().z
 
 
-def track(S, a, obj, spec, f0, f1, fwd=0.26, dz=-0.08, setter=None):
+def track(S, a, obj, spec, f0, f1, fwd=FWD, dz=-0.08, setter=None):
     """spec(f) -> dict. modo 'hand' (sigue las manos; 'from'/'u' funden desde una posicion; 'ay','az' fijan y/z del centro) o 'pos'."""
     setter = setter or cake_key
     for f in range(f0, f1 + 1):
@@ -216,8 +217,30 @@ def wind_fx(S, P, wind, n):
             S.key(g, f, rot=(R(-w * (38 + 14 * math.sin(f * 0.8 + i * 2.0))), 0, R(w * 6 * math.sin(f * 0.6 + i))), interp="LINEAR")
 
 
+HD = 4.8                                       # profundidad del hall (en ep020 eran 3,0: la tarta grande chocaba con el fondo)
+
+
+def deepen_hall(S):
+    """El hall de ep020 mide 3 m; con la tarta y el hombre la tarta atravesaba el fondo y el cuadro. Se reconstruye mas profundo (misma estetica)."""
+    for nm in ("hall_suelo", "hall_pared_i", "hall_pared_d", "hall_techo", "hall_fondo", "hall_luz", "cuadro_marco", "cuadro", "cuadro_sol", "alfombra"):
+        bpy.data.objects.remove(bpy.data.objects[nm], do_unlink=True)
+    M = lambda n: S.mats["m_" + n]
+    dark = M("interior"); HX = LW
+    box(S, "hall_suelo", dark, -HX, HX, WY, WY + HD, 0.0, 0.10); box(S, "hall_pared_i", dark, -HX - 0.05, -HX, WY, WY + HD, 0.0, 2.35)
+    box(S, "hall_pared_d", dark, HX, HX + 0.05, WY, WY + HD, 0.0, 2.35); box(S, "hall_techo", dark, -HX, HX, WY, WY + HD, 2.35, 2.40)
+    box(S, "hall_fondo", dark, -HX, HX, WY + HD, WY + HD + 0.05, 0.0, 2.35); box(S, "hall_luz", M("interior_luz"), -HX + 0.25, HX - 0.25, WY + HD - 0.02, WY + HD, 0.5, 2.0)
+    box(S, "alfombra", M("alfombra"), -0.55, 0.55, WY + 0.4, WY + HD - 0.2, 0.10, 0.115)
+    box(S, "cuadro_marco", M("marco_blanco"), -0.30, 0.30, WY + HD - 0.06, WY + HD - 0.02, 1.05, 1.75)
+    box(S, "cuadro", M("cuadro_lienzo"), -0.25, 0.25, WY + HD - 0.07, WY + HD - 0.06, 1.10, 1.70)
+    box(S, "cuadro_sol", M("cuadro_sol"), -0.10, 0.10, WY + HD - 0.075, WY + HD - 0.07, 1.35, 1.55)
+
+
 def setup(S):
     E0.stage(S)
+    for nm, mt, z0, z1, y0, y1 in (("zocalo", "piedra_osc", 0, 0.55, WY - 0.07, WY + 0.02), ("zocalo_borde", "piedra", 0.50, 0.58, WY - 0.09, WY - 0.02)):
+        bpy.data.objects.remove(bpy.data.objects[nm], do_unlink=True)          # el zocalo de ep020 cruzaba el hueco de la puerta: se parte en dos
+        box(S, nm, S.mats["m_" + mt], -9, -LW, y0, y1, z0, z1); box(S, nm, S.mats["m_" + mt], LW, 9, y0, y1, z0, z1)
+    deepen_hall(S)
     S.cam.location = CAM; S.cam.data.lens = LENS; S.tgt.location = TGT
     bpy.ops.object.light_add(type="POINT", location=(0.0, WY + 1.7, 2.1)); Lg = bpy.context.object; Lg.data.energy = 520; Lg.data.color = (1.0, 0.82, 0.62); Lg.data.shadow_soft_size = 0.7
     build_props(S); P = build_party(S); P["door"] = build_door(S); P["cake"] = build_cake(S)
@@ -237,7 +260,7 @@ def cam_keys(S, shake=None, focus=None, n=N + 10, tx=None, cam=CAM, tgt=TGT, ty=
 def new_man(S, uses, x, y, yaw): return E0.new_man(S, uses, x, y, yaw)
 
 
-def front_dist(hl): return -hl.y + 0.26 + RF          # distancia de la raiz al frente de la bandeja
+def front_dist(hl): return -hl.y + FWD + RF          # distancia de la raiz al frente de la bandeja
 
 
 def cream_blob(S, name, col=(0.97, 0.96, 0.92), rgb_name="nata"):
@@ -278,7 +301,7 @@ def berry_drop(S, a, f_on, f0, f1):
     red = mmat(S, "fresa", (0.85, 0.03, 0.06), 0.25); bs = O(S, "uv_sphere", "fresa_cae", red, (0, 0, -5), (0, 0, 0), segments=10, ring_count=6)
     for f in range(1, N + 12):
         mid, yaw = hands_mid(S, a, f); fw = Vector((math.sin(yaw), -math.cos(yaw), 0)); u = seg01(f, f0, f1)
-        pos = mid + fw * 0.26 + Vector((0.15, 0, 0.55)); drop = pos + Vector((0.25 * u, -0.30 * u, -0.9 * u * u)); drop.z = max(drop.z, 0.16)
+        pos = mid + fw * FWD + Vector((0.15, 0, 0.55)); drop = pos + Vector((0.25 * u, -0.30 * u, -0.9 * u * u)); drop.z = max(drop.z, 0.16)
         S.key(bs, f, loc=tuple(drop), scale=(0.075, 0.075, 0.085) if f >= f_on else (0, 0, 0), interp="LINEAR")
     S.sc.frame_set(1)
 
@@ -300,18 +323,22 @@ def l1(S):
     key_path(S, a, [(1, X0, 0, PSI)], 1, N + 11)
     hl = hand_offset(S, a, (4, 8)); YC = WY - 0.06 - front_dist(hl)
     pts = [(1, X0, YC - 0.62, PSI), (f_hit, X0, YC, PSI), (f_hit + 3, X0, YC + 0.14, PSI), (f_hit + 9, X0, YC - 0.12, PSI), (f_turn, X0, YC - 0.12, PSI),
-           (f_turn + 11, X0 - 0.05, YC - 0.20, 342.0), (N + 11, X0 - 0.05, YC - 0.20, 342.0)]
+           (f_turn + 11, X0 + 0.15, YC - 0.20, 342.0), (N + 11, X0 + 0.15, YC - 0.20, 342.0)]
     key_path(S, a, pts, 1, N + 11); pin_feet(S, a, 1, N + 11, lambda f: floor_z(path(pts, f)[1]))
     for f in range(1, N + 12): leaf_key(S, door, f, slam(f, f_sl - 3, f_sl + 1, A_OPEN, 0.0) if f < f_hit + 14 else 0.0)
+    CX, CY = X0 - 1.12, 0.62                                 # la tarta cae a un lado (izquierda), lejos del hombre, sobre el adoquin llano
+    XS = 1.35                                                 # ancho de la tarta aplastada contra la hoja (cabe en el hueco: 0,64 < 0,78)
     def spec(f):
         if f < f_hit: return dict(mode="hand")
         u = seg01(f, f_hit, f_hit + 3)
-        sy = lerp(1.0, 0.32, u); sc = (lerp(1.0, 1.55, u), sy, lerp(1.0, 1.15, u))
+        sy = lerp(1.0, 0.32, u); sc = (lerp(1.0, XS, u), sy, lerp(1.0, 1.1, u))
+        ay = WY - 0.13 - RF * sy                              # por delante de la manilla (sobresale hasta WY-0,125)
         if f < f_rel:
-            return dict(mode="hand", sc=sc, ay=WY - 0.07 - RF * sy, az=None) if False else dict(mode="hand", sc=sc, ay=WY - 0.07 - RF * sy, dz=-0.08 - 0.30 * seg01(f, f_hit + 6, f_rel))
-        t = seg01(f, f_rel, f_rel + 6)
-        return dict(mode="pos", loc=(X0, WY - 0.07 - RF * 0.32 * (1 - t) - 0.40 * t, lerp(0.95 - 0.30, 0.0, t * t) + 0.05 * t), yaw=math.radians(PSI),
-                    sc=(lerp(1.55, 1.5, t), lerp(0.32, 1.5, t), lerp(1.15, 0.30, t)))
+            return dict(mode="hand", sc=sc, ay=ay, dz=-0.08 - 0.30 * seg01(f, f_hit + 6, f_rel))
+        t = seg01(f, f_rel, f_rel + 8)
+        z0 = 0.95 - 0.30 - 0.08 + 0.05
+        return dict(mode="pos", loc=(lerp(X0, CX, t), lerp(ay, CY, sstep(t * 1.6)), lerp(z0, 0.01, t * t)), yaw=math.radians(PSI) + R(35) * t,
+                    sc=(lerp(XS, 1.25, t), lerp(0.32, 1.25, t), lerp(1.1, 0.30, t * t)))
     track(S, a, cake, spec, 1, N + 11)
     # mancha en la puerta + gotas + fresas pegadas
     white = mmat(S, "nata", (0.97, 0.96, 0.92), 0.35); red = mmat(S, "fresa", (0.85, 0.03, 0.06), 0.25)
@@ -345,28 +372,28 @@ def l2(S):
     P = setup(S); door, cake = P["door"], P["cake"]
     f_c, f_cr, f_t, f_ang = 5, 30, 40, 52
     gusts = (13, 24, 36)
-    X0, YM = 0.0, WY + 0.95
+    X0 = 0.05; LEAF = 1.57                       # la punta de la hoja (1,56 m) toca la cadera derecha: el hombre esta a esa distancia de la bisagra
     a = new_man(S, ["Pushing", "Angry"], X0, 0, PSI)
-    seg(S, a, "Pushing", 1, f_t + 2, start=10, speed=1.2, blend=0)
-    seg(S, a, "Angry", f_t, None, start=0, speed=1.0, blend=5)
+    seg(S, a, "Pushing", 1, None, start=10, speed=1.0, blend=0)            # sigue sujetando la tarta con las manos todo el nivel (el enfado va en la cara)
     key_path(S, a, [(1, X0, 0, PSI)], 1, N + 11)
     def xman(f):
         x = X0
-        for g in gusts: x -= 0.075 * sstep((f - g) / 3.0)
+        for g in gusts: x -= 0.05 * sstep((f - g) / 3.0)
         return x
-    def ym(f): return lerp(WY - 0.35, YM, seg01(f, 1, f_c - 1))
+    HIPD = 0.30                                    # la cadera derecha sobresale del eje del hombre
+    def ym(f):
+        dx = LW - (xman(f) + HIPD); yh = WY + math.sqrt(LEAF ** 2 - dx ** 2)
+        return yh - 0.04 - 0.55 * (1 - seg01(f, 1, f_c - 1))
     pts = []
     for f in range(1, N + 12):
-        yw = PSI + 6.0 * sum(math.exp(-((f - g) / 3.0) ** 2) for g in gusts)
+        yw = PSI + 4.0 * sum(math.exp(-((f - g) / 3.0) ** 2) for g in gusts)
         pts.append((f, xman(f), ym(f), yw))
     key_path(S, a, pts, 1, N + 11); pin_feet(S, a, 1, N + 11, lambda f: 0.10)
     def ang(f):
         if f < f_c - 3: return A_OPEN
-        hipx = xman(f) + 0.20
-        rest = math.degrees(math.atan2(YM - WY, LW - hipx)) if f >= f_c else A_OPEN
+        dx = LW - (xman(f) + HIPD); rest = math.degrees(math.atan2(math.sqrt(LEAF ** 2 - dx ** 2), dx)) + 0.5
         if f < f_c: return lerp(A_OPEN, rest, ((f - (f_c - 3)) / 3.0) ** 2)
-        k = sum(4.0 * math.exp(-((f - g) / 2.0) ** 2) for g in gusts)          # la racha comprime un instante
-        return rest - k
+        return rest
     for f in range(1, N + 12): leaf_key(S, door, f, ang(f))
     def spec(f):
         tilt = (0.0, 0.0)
@@ -396,7 +423,7 @@ def l2(S):
     S.cue("splash", gusts[0] + 12, vol=-4); S.cue("splash", gusts[2] + 3, vol=-6); S.cue("oof", gusts[1] + 1, vol=-5); S.cue("hmm", f_t + 4, vol=-6); S.cue("wahwah", f_ang + 8, vol=-8)
     finish(S, a, [(1, "neutra", 1.0), (f_c, "enfado", 0.6), (gusts[1], "enfado", 1.0), (f_t, "enfado", 1.0), (f_ang + 6, "sorpresa", 0.6)], first_blink=16)
     def shake(f): return tuple(0.02 * sum(math.exp(-((f - g) / 2.0) ** 2) for g in gusts) * v for v in (math.sin(f * 2.2), math.cos(f * 1.8)))
-    cam_keys(S, shake, focus=lambda f: 4.4, cam=(0.0, -1.4, 3.0), tgt=(0.0, 2.9, 0.9))
+    cam_keys(S, shake, focus=lambda f: 4.6, cam=(0.0, -0.9, 3.0), tgt=(0.0, 3.6, 0.9))
     return a
 
 
@@ -405,22 +432,25 @@ def l3(S):
     """135: dentro del hall sujeta la hoja con el pie (Kicking) y pasa; la hoja le pilla el talon: ay; la tarta se tambalea; mira a camara."""
     P = setup(S); door, cake = P["door"], P["cake"]
     f_in, f_k, f_pin, f_ay, f_turn = 12, 14, 20, 23, 52
-    X0, Y1, Y2 = -0.30, WY + 0.70, WY + 1.25
+    X0 = -0.05; LEAF = 1.57
+    def yh(cx): return WY + math.sqrt(LEAF ** 2 - (LW - cx) ** 2)          # y a la que la PUNTA de la hoja (1,57 m) toca un punto de x=cx
+    CXF, CXH = X0 + 0.28, X0 + 0.14                                         # pie derecho que sujeta la hoja / talon que pilla
+    Y1, Y2 = yh(CXF), yh(CXH) + 0.12
     a = new_man(S, ["Pushing", "Kicking", "Surprised"], X0, 0, PSI)
     seg(S, a, "Pushing", 1, f_k + 1, start=14, speed=1.3, blend=0)
     seg(S, a, "Kicking", f_k, f_ay + 3, start=8, speed=1.3, blend=3)
     seg(S, a, "Surprised", f_ay + 1, None, start=0, speed=1.0, blend=3)
     key_path(S, a, [(1, X0, 0, PSI)], 1, N + 11)
-    pts = [(1, X0, WY - 0.30, PSI), (f_in, X0, Y1, PSI), (f_pin, X0, Y1 + 0.02, PSI), (f_pin + 6, X0, Y2, PSI), (f_ay + 8, X0 - 0.03, Y2 + 0.02, PSI + 8),
-           (f_turn, X0 - 0.03, Y2 + 0.02, PSI + 8), (f_turn + 12, X0 - 0.03, Y2 + 0.02, PSI + 8), (N + 11, X0 - 0.03, Y2 + 0.02, PSI + 8)]
+    pts = [(1, X0, Y1 - 1.0, PSI), (f_in, X0, Y1, PSI), (f_pin, X0, Y1 + 0.01, PSI), (f_pin + 6, X0, Y2, PSI), (f_ay + 8, X0, Y2 + 0.01, PSI + 6),
+           (f_turn, X0, Y2 + 0.01, PSI + 6), (N + 11, X0, Y2 + 0.01, PSI + 6)]
     key_path(S, a, pts, 1, N + 11); pin_feet(S, a, 1, N + 11, lambda f: floor_z(path(pts, f)[1]))
     def ang(f):
-        a_hold = math.degrees(math.atan2(Y1 - WY, LW - (X0 + 0.25))); a_pin = math.degrees(math.atan2(Y2 - WY - 0.1, LW - (X0 + 0.12)))
+        a_hold = math.degrees(math.atan2(yh(CXF) - WY, LW - CXF)); a_pin = math.degrees(math.atan2(yh(CXH) - WY, LW - CXH))
         if f < f_k - 5: return A_OPEN + 1.5 * math.sin(f * 2.1)
         if f < f_k: return lerp(A_OPEN, a_hold, ((f - (f_k - 5)) / 5.0) ** 2)                 # la racha la cierra hasta el pie
-        if f < f_pin: return a_hold - 1.5 * math.sin((f - f_k) * 1.3)
-        if f < f_ay: return lerp(a_hold, a_pin, seg01(f, f_pin, f_ay))                       # pasa: el talon queda atras y la hoja avanza
-        t = f - f_ay; return a_pin - 4.0 * math.exp(-0.25 * t) * abs(math.cos(1.0 * t))
+        if f < f_pin: return a_hold
+        if f < f_ay: return lerp(a_hold, a_pin, seg01(f, f_pin, f_ay))                       # el talon queda atras y la hoja avanza
+        return a_pin
     for f in range(1, N + 12): leaf_key(S, door, f, ang(f))
     def spec(f):
         wob = 11.0 * math.exp(-0.14 * (f - f_ay)) * math.sin(0.9 * (f - f_ay)) if f >= f_ay else 0.0
@@ -435,7 +465,7 @@ def l3(S):
     def shake(f):
         t = f - f_ay; k = max(0.0, 1 - t / 8.0) if t >= 0 else 0.0
         return (0.03 * math.sin(f * 2.2) * k, 0.03 * math.cos(f * 1.7) * k)
-    cam_keys(S, shake, focus=lambda f: 4.6, cam=(-0.1, -1.4, 3.0), tgt=(-0.1, 2.8, 0.9))
+    cam_keys(S, shake, focus=lambda f: 4.6, cam=(-0.1, -0.9, 3.0), tgt=(-0.1, 3.5, 0.9))
     return a
 
 
@@ -567,7 +597,7 @@ def l5(S):
         if f < f_put + 1: return dict(mode="hand")
         u = seg01(f, f_put + 1, f_put + 5)
         if f < f_cut:
-            mid, yaw = hands_mid(S, a, min(f, f_put + 1)); fw = Vector((math.sin(yaw), -math.cos(yaw), 0)); h0 = mid + fw * 0.26 + Vector((0, 0, -0.08))
+            mid, yaw = hands_mid(S, a, min(f, f_put + 1)); fw = Vector((math.sin(yaw), -math.cos(yaw), 0)); h0 = mid + fw * FWD + Vector((0, 0, -0.08))
             p = h0.lerp(Vector((TAB.x, TAB.y, 0.77)), u); p.z += 0.18 * math.sin(math.pi * u)
             return dict(mode="pos", loc=p, yaw=yaw)
         return dict(mode="hand")
