@@ -118,6 +118,9 @@ def track(S, a, obj, spec, f0, f1, fwd=FWD, dz=-0.08, setter=None):
             if "ay" in d: loc.y = d["ay"]
             if "az" in d: loc.z = d["az"]
             if "dx" in d: loc.x += d["dx"]
+            if "minf" in d:                                   # la tarta nunca queda a menos de `minf` m de la raiz (las manos suben/bajan y el cuerpo se inclina)
+                rp = a.root.matrix_world.translation; gap = d["minf"] - (loc - rp).dot(fw)
+                if gap > 0: loc = loc + fw * gap
             setter(S, obj, f, loc, yaw, d.get("sc", (1, 1, 1)), d.get("tilt", (0, 0)))
         else:
             setter(S, obj, f, d["loc"], d.get("yaw", 0.0), d.get("sc", (1, 1, 1)), d.get("tilt", (0, 0)))
@@ -423,7 +426,7 @@ def l2(S):
     S.cue("splash", gusts[0] + 12, vol=-4); S.cue("splash", gusts[2] + 3, vol=-6); S.cue("oof", gusts[1] + 1, vol=-5); S.cue("hmm", f_t + 4, vol=-6); S.cue("wahwah", f_ang + 8, vol=-8)
     finish(S, a, [(1, "neutra", 1.0), (f_c, "enfado", 0.6), (gusts[1], "enfado", 1.0), (f_t, "enfado", 1.0), (f_ang + 6, "sorpresa", 0.6)], first_blink=16)
     def shake(f): return tuple(0.02 * sum(math.exp(-((f - g) / 2.0) ** 2) for g in gusts) * v for v in (math.sin(f * 2.2), math.cos(f * 1.8)))
-    cam_keys(S, shake, focus=lambda f: 4.6, cam=(0.0, -0.9, 3.0), tgt=(0.0, 3.6, 0.9))
+    cam_keys(S, shake, focus=lambda f: 4.6, cam=(0.0, -0.4, 2.0), tgt=(0.0, 3.7, 1.0))
     return a
 
 
@@ -434,7 +437,7 @@ def l3(S):
     f_in, f_k, f_pin, f_ay, f_turn = 12, 14, 20, 23, 52
     X0 = -0.05; LEAF = 1.57
     def yh(cx): return WY + math.sqrt(LEAF ** 2 - (LW - cx) ** 2)          # y a la que la PUNTA de la hoja (1,57 m) toca un punto de x=cx
-    CXF, CXH = X0 + 0.28, X0 + 0.14                                         # pie derecho que sujeta la hoja / talon que pilla
+    CXF, CXH = X0 + 0.44, X0 + 0.46                                         # pie derecho que sujeta la hoja / talon que pilla
     Y1, Y2 = yh(CXF), yh(CXH) + 0.12
     a = new_man(S, ["Pushing", "Kicking", "Surprised"], X0, 0, PSI)
     seg(S, a, "Pushing", 1, f_k + 1, start=14, speed=1.3, blend=0)
@@ -455,7 +458,7 @@ def l3(S):
     def spec(f):
         wob = 11.0 * math.exp(-0.14 * (f - f_ay)) * math.sin(0.9 * (f - f_ay)) if f >= f_ay else 0.0
         fw = 4.0 * math.exp(-0.12 * (f - f_ay)) * math.cos(0.8 * (f - f_ay)) if f >= f_ay else 0.0
-        return dict(mode="hand", tilt=(fw, wob), dz=-0.08)
+        return dict(mode="hand", tilt=(fw, wob), dz=-0.08, minf=1.12)
     track(S, a, cake, spec, 1, N + 11)
     berry_drop(S, a, f_turn - 2, f_turn, f_turn + 12)
     wind_fx(S, P, lambda f: 1.0, N + 11)
@@ -465,7 +468,7 @@ def l3(S):
     def shake(f):
         t = f - f_ay; k = max(0.0, 1 - t / 8.0) if t >= 0 else 0.0
         return (0.03 * math.sin(f * 2.2) * k, 0.03 * math.cos(f * 1.7) * k)
-    cam_keys(S, shake, focus=lambda f: 4.6, cam=(-0.1, -0.9, 3.0), tgt=(-0.1, 3.5, 0.9))
+    cam_keys(S, shake, focus=lambda f: 4.6, cam=(-0.1, -0.4, 2.0), tgt=(-0.1, 3.7, 1.0))
     return a
 
 
